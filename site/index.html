@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>Home - NetDEM documentation</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<meta name="generator" content="mkdocs-1.1.2, mkdocs-gitbook-1.0.7">
+
+<link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon">
+<meta name="HandheldFriendly" content="true"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta rel="next" href="" />
+<link href="./css/style.min.css" rel="stylesheet"> 
+</head>
+
+<body>
+<div class="book">
+<div class="book-summary">
+
+<nav role="navigation">
+<ul class="summary">
+<li>
+<a href="." target="_blank" class="custom-link">NetDEM documentation</a>
+</li>
+<li class="divider"></li>
+<li class="chapter active" data-path="">
+<a href=".">Home</a>
+<li class="header">1 user manual</li>
+
+<li>
+<a href="1_user_manual/1.1_Introduction/" class="">1.1 Introduction</a>
+</li>
+
+<li class="header">2 technical manual</li>
+
+<li>
+<a href="2_technical_manual/dem_basics/" class="">Dem basics</a>
+</li>
+
+<li class="header">3 developer manual</li>
+
+<li>
+<a href="3_developer_manual/code_framework_cn/" class="">Code framework cn</a>
+</li>
+
+<li>
+<a href="3_developer_manual/perf/" class="">Perf</a>
+</li>
+
+<li>
+<a href="3_developer_manual/styles/" class="">Styles</a>
+</li>
+
+<li class="divider"></li>
+
+
+
+<li><a href="http://www.mkdocs.org">
+Published with MkDocs
+</a></li>
+
+<li><a href="https://github.com/GitbookIO/theme-default">
+Theme by GitBook
+</a></li>
+</ul>
+
+</nav>
+
+</div> <!-- end of book-summary -->
+
+<div class="book-body">
+<div class="body-inner">
+<div class="book-header" role="navigation">
+
+<!-- Title -->
+<h1>
+<i class="fa fa-circle-o-notch fa-spin"></i>
+<a href="." ></a>
+</h1>
+
+</div> <!-- end of book-header -->
+
+<div class="page-wrapper" tabindex="-1" role="main">
+<div class="page-inner">
+
+<section class="normal markdown-section">
+
+
+
+<p><strong>NetDEM</strong> is a C++ program library targeted at the computational mechanics of irregular granular materials and utilizing machine learning tools to boost the computational effciency.</p>
+<h3 id="0-contents">0. Contents</h3>
+<ol>
+<li><a href="#1-introduction">Introduction</a></li>
+<li><a href="#2-dependencies">Dependencies</a></li>
+<li><a href="#3-installation">Installation</a></li>
+<li><a href="#4-tutorials">Tutorials</a></li>
+<li><a href="#5-known-issues">Known issues</a></li>
+<li><a href="#5-support">Support</a></li>
+</ol>
+<h3 id="1-introduction">1. Introduction</h3>
+<p>This project explores and developes the machine learning (neural networks typically) enabled discrete element method (NetDEM) for the computational mechanics of irregular-shaped particles. The conventional DEM encompasses four main steps in one typical calculation cycle, namely, (1) the detection and resolution of contacts, (2) the evaluation of contact behavior, (3) the calculation of particle motion, and (4) the updating of particle geometric descriptions. NetDEM exploits the inference ability of neural networks at two levels: level 1, which is to take particle geometric descriptors as inputs and output the contact status and contact geometric features; level 2, which is to take particle geometric descriptors as inputs and directly output the particle accelerations. </p>
+<h3 id="2-dependencies">2. Dependencies</h3>
+<ul>
+<li><a href="https://git-scm.com">git</a>, <a href="https://gcc.gnu.org">gcc</a>, <a href="https://cmake.org">cmake</a>: for code developing, configuring and compiling</li>
+<li><a href="www.mpich.org">mpich</a> or <a href="www.open-mpi.org">open mpi</a>: for parallel computing</li>
+<li><a href="https://github.com/ArthurSonzogni/nlohmann_json_cmake_fetchcontent.git">json</a>: for input data interchange</li>
+<li><a href="https://github.com/libigl/cork.git">cork</a>: for mesh boolean operation</li>
+<li><a href="https://gmplib.org">gmp</a></li>
+<li><a href="https://github.com/libigl/libigl.git">igl</a>: another option of mesh boolean operation (robust but much slower than cork)</li>
+<li><a href="https://github.com/CGAL/cgal.git">cgal</a> (requires <a href="https://github.com/boostorg/boost.git">boost</a>, <a href="https://gmplib.org">gmp</a>, <a href="https://www.mpfr.org">mpfr</a>), <a href="https://openmp.llvm.org/">openmp</a>, <a href="https://gitlab.com/libeigen/eigen.git">eigen</a></li>
+<li><a href="https://github.com/google/googletest.git">googletest</a>: for tests</li>
+<li><a href="https://github.com/mlpack/mlpack.git">mlpack</a>: for machine learning libraries</li>
+<li><a href="http://arma.sourceforge.net/download.html">armadillo</a> (requires <a href="https://github.com/Reference-LAPACK/lapack.git">lapack</a>, <a href="https://github.com/opencollab/arpack-ng.git">arpack</a>, <a href="https://github.com/xianyi/OpenBLAS.git">openblas</a>), <a href="https://github.com/mlpack/ensmallen">ensmallen</a>, <a href="https://github.com/USCiLab/cereal">cereal</a>, <a href="https://github.com/boostorg/boost.git">boost</a>, <a href="https://github.com/nothings/stb.git">stb</a></li>
+</ul>
+<h3 id="3-installation">3. Installation</h3>
+<ol>
+<li>
+<p>Preparation: install gcc, autoconf, automake, cmake, mpi, boost.</p>
+</li>
+<li>
+<p>For <strong>MacOS</strong>: </p>
+<ul>
+<li>Use <code>brew install</code> to install the dependencies: gcc, autoconf, automake, cmake, mpi, boost</li>
+</ul>
+<p><code>brew install gcc autoconf automake cmake mpi boost</code></p>
+</li>
+<li>
+<p>For <strong>Ubuntu</strong>: </p>
+<ul>
+<li>Use <code>apt-get install</code> to install the dependencies: gcc, cmake, mpi, boost</li>
+</ul>
+<p><code>sudo apt install build-essential
+   sudo apt-get install -y autoconf-archive automake cmake texinfo
+   sudo apt-get install openmpi-bin libopenmpi-dev libboost-all-dev</code></p>
+</li>
+<li>
+<p>For <strong>Windows</strong> (vscode + cmake + mingw64): </p>
+<ul>
+<li>Install vscode, cmake, <a href="http://www.mingw-w64.org/doku.php/download">mingw64</a>. Note that you might need to add the path of cmake and mingw64 to the PATH in Windows environment.</li>
+<li>Go to mingw64 installation directory, make a copy of <code>gcc</code> and <code>mingw32-make</code> in bin, and respectively rename them as <code>cc</code> and <code>make</code>.</li>
+<li>Install <code>c/c++</code>, <code>cmake</code>, and <code>cmake tools</code> extensions in vscode.</li>
+<li>[to do: install mpi, boost dependencies]</li>
+</ul>
+</li>
+<li>
+<p>Download the source codes of the dependent packages:</p>
+<p><code>make prepare</code></p>
+<p>NetDEM maintains a local copy of all the dependencies using git submodules (in directory contrib/). These sources could be used to compile the required packages if they are not already installed in the system.</p>
+</li>
+<li>
+<p>Modify the options in the CMakeLists.txt in the root directory. For example:</p>
+<p><code>option(USE_INTERNAL_ARMADILLO "use internal armadillo" ON)</code></p>
+<p>Using dependencies already in the system would save the time required by the compilation of the whole project. Some dependencies (e.g., mlpack) would take fairly long time to compile. One can check out the log files in contrib/[package]/ep/src/[package]-stamp/ for the compiling, building and installing progresses of the dependencies. Some packages (e.g., <code>boost</code> and <code>mpi</code>) could take forever to compile. It is recommended that you install pre-build <code>boost</code> and <code>mpi</code> using tools such as <code>brew install</code> in mac os, or <code>apt-get install</code> in ubantu.</p>
+</li>
+<li>
+<p>Configure, compile and install NetDEM:</p>
+<p><code>make debug</code></p>
+</li>
+<li>
+<p>To test the installation:</p>
+<p><code>./run_test.sh</code></p>
+</li>
+</ol>
+<h3 id="4-tutorials">4. Tutorials</h3>
+<p>Some preliminary examples are located under directory examples/.</p>
+<p>[TODO: documentation and manual.]</p>
+<h3 id="5-known-issues">5. Known issues</h3>
+<ol>
+<li>The compilation of mlpack and its relevant sources in netdem would consume a lot of memory (~10 G). It would also cause computers breakdown if compiling with multiple thread.</li>
+</ol>
+<h3 id="6-support">6. Support</h3>
+<p>There are varieties of features or functionalities can be implemented into the NetDEM to facilitate its application on scientific research or engineering production. If you have an interest to contribute to any part of this project, please let us know.</p>
+<p>The users are also cautioned that this code is under active development. If you need help using NetDEM, or have found a bug, please <a href="https://github.com/net-dem/netdem/issues">open an issue</a> or <a href="https://github.com/net-dem/netdem/pulls">submit a pull request</a>.</p>
+<p><code>TODOs</code>:</p>
+<ul>
+<li>Remove dependency on Eigen3, implement a vec class to replace and unify the usage of vector, T[], etc.</li>
+<li>The shapes and walls are assumed to exist in all MPI domains. Will need to change them to domain specific, as the case of particles.</li>
+<li>Servo control of wall does not work properly in MPI. In MPI, it will need the contact information from all domains. Will need to implement that.</li>
+<li>Implement rigid and soft bonds (i.e., clump vs. cluster) using evaluators.</li>
+</ul>
+
+
+</section>
+
+</div> <!-- end of page-inner -->
+</div> <!-- end of page-wrapper -->
+
+</div> <!-- end of body-inner -->
+
+</div> <!-- end of book-body -->
+<script src="./js/main.js"></script>
+<script src="./js/gitbook.min.js"></script>
+<script src="./js/theme.min.js"></script>
+</body>
+</html>

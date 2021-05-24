@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>Perf - NetDEM documentation</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<meta name="generator" content="mkdocs-1.1.2, mkdocs-gitbook-1.0.7">
+
+<link rel="shortcut icon" href="../../images/favicon.ico" type="image/x-icon">
+<meta name="HandheldFriendly" content="true"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta rel="next" href="" />
+<link href="../../css/style.min.css" rel="stylesheet"> 
+</head>
+
+<body>
+<div class="book">
+<div class="book-summary">
+
+<nav role="navigation">
+<ul class="summary">
+<li>
+<a href="../.." target="_blank" class="custom-link">NetDEM documentation</a>
+</li>
+<li class="divider"></li>
+<li class="chapter" data-path="">
+<a href="../..">Home</a>
+<li class="header">1 user manual</li>
+
+<li>
+<a href="../../1_user_manual/1.1_Introduction/" class="">1.1 Introduction</a>
+</li>
+
+<li class="header">2 technical manual</li>
+
+<li>
+<a href="../../2_technical_manual/dem_basics/" class="">Dem basics</a>
+</li>
+
+<li class="header">3 developer manual</li>
+
+<li>
+<a href="../code_framework_cn/" class="">Code framework cn</a>
+</li>
+
+<li>
+<a href="./" class="active">Perf</a>
+</li>
+
+<li>
+<a href="../styles/" class="">Styles</a>
+</li>
+
+<li class="divider"></li>
+
+
+
+<li><a href="http://www.mkdocs.org">
+Published with MkDocs
+</a></li>
+
+<li><a href="https://github.com/GitbookIO/theme-default">
+Theme by GitBook
+</a></li>
+</ul>
+
+</nav>
+
+</div> <!-- end of book-summary -->
+
+<div class="book-body">
+<div class="body-inner">
+<div class="book-header" role="navigation">
+
+<!-- Title -->
+<h1>
+<i class="fa fa-circle-o-notch fa-spin"></i>
+<a href="." ></a>
+</h1>
+
+</div> <!-- end of book-header -->
+
+<div class="page-wrapper" tabindex="-1" role="main">
+<div class="page-inner">
+
+<section class="normal markdown-section">
+
+
+
+<h2 id="_1">性能调优</h2>
+<ul>
+<li>
+<p>linux perf 工具</p>
+</li>
+<li>
+<p>分析性能卡在哪：</p>
+</li>
+</ul>
+<pre><code>sudo perf stat build/bin/tmp_debug
+
+ Performance counter stats for 'build/bin/tmp_debug':
+
+         12,639.97 msec task-clock                #    0.983 CPUs utilized
+             1,284      context-switches          #    0.102 K/sec
+                42      cpu-migrations            #    0.003 K/sec
+            13,356      page-faults               #    0.001 M/sec
+    26,566,855,696      cycles                    #    2.102 GHz
+    56,713,820,846      instructions              #    2.13  insn per cycle
+    10,275,875,523      branches                  #  812.967 M/sec
+        31,362,265      branch-misses             #    0.31% of all branches
+
+      12.857522834 seconds time elapsed
+
+      11.472000000 seconds user
+       1.120000000 seconds sys
+</code></pre>
+<p>可以看出 <code>task-clock</code> 偏高， 说明CPU任务占用多。</p>
+<ul>
+<li>采样cpu 指标</li>
+</ul>
+<pre><code>sudo perf record -e task-clock -g build/bin/tmp_debug
+sudo perf report -i perf.data
+
+可以看到具体的调用链
+</code></pre>
+<ul>
+<li>火焰图</li>
+</ul>
+<p>本地火焰图：</p>
+<pre><code># 下载火焰图生成工程
+git clone --depth 1 https://github.com/brendangregg/FlameGraph.git
+
+# 折叠调用栈
+FlameGraph/stackcollapse-perf.pl out.perf &gt; out.folded
+
+# 生成火焰图
+FlameGraph/flamegraph.pl out.folded &gt; out.svg
+</code></pre>
+<p>在线火焰图：</p>
+<pre><code>sudo perf script &gt; out.perf   # 将 perf.data 的内容 dump 到 out.perf
+将内容拖入到： https://www.speedscope.app/ 中
+</code></pre>
+
+
+</section>
+
+</div> <!-- end of page-inner -->
+</div> <!-- end of page-wrapper -->
+
+</div> <!-- end of body-inner -->
+
+</div> <!-- end of book-body -->
+<script src="../../js/main.js"></script>
+<script src="../../js/gitbook.min.js"></script>
+<script src="../../js/theme.min.js"></script>
+</body>
+</html>
