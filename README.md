@@ -1,4 +1,4 @@
-This repository maintains the [documention](https://net-dem.github.io/netdem_docs/) of the [NetDEM](https://github.com/net-dem/netdem) project.
+This repository maintains the [documentation](https://net-dem.github.io/netdem_docs/) of the [NetDEM](https://github.com/net-dem/netdem) project.
 
 ### To update the site:
 
