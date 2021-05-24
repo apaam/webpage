@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>Code framework cn - NetDEM documentation</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<meta name="generator" content="mkdocs-1.1.2, mkdocs-gitbook-1.0.7">
+
+<link rel="shortcut icon" href="../../images/favicon.ico" type="image/x-icon">
+<meta name="HandheldFriendly" content="true"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta rel="next" href="" />
+<link href="../../css/style.min.css" rel="stylesheet"> 
+</head>
+
+<body>
+<div class="book">
+<div class="book-summary">
+
+<nav role="navigation">
+<ul class="summary">
+<li>
+<a href="../.." target="_blank" class="custom-link">NetDEM documentation</a>
+</li>
+<li class="divider"></li>
+<li class="chapter" data-path="">
+<a href="../..">Home</a>
+<li class="header">1 user manual</li>
+
+<li>
+<a href="../../1_user_manual/1.1_Introduction/" class="">1.1 Introduction</a>
+</li>
+
+<li class="header">2 technical manual</li>
+
+<li>
+<a href="../../2_technical_manual/dem_basics/" class="">Dem basics</a>
+</li>
+
+<li class="header">3 developer manual</li>
+
+<li>
+<a href="./" class="active">Code framework cn</a>
+</li>
+
+<li>
+<a href="../perf/" class="">Perf</a>
+</li>
+
+<li>
+<a href="../styles/" class="">Styles</a>
+</li>
+
+<li class="divider"></li>
+
+
+
+<li><a href="http://www.mkdocs.org">
+Published with MkDocs
+</a></li>
+
+<li><a href="https://github.com/GitbookIO/theme-default">
+Theme by GitBook
+</a></li>
+</ul>
+
+</nav>
+
+</div> <!-- end of book-summary -->
+
+<div class="book-body">
+<div class="body-inner">
+<div class="book-header" role="navigation">
+
+<!-- Title -->
+<h1>
+<i class="fa fa-circle-o-notch fa-spin"></i>
+<a href="." ></a>
+</h1>
+
+</div> <!-- end of book-header -->
+
+<div class="page-wrapper" tabindex="-1" role="main">
+<div class="page-inner">
+
+<section class="normal markdown-section">
+
+
+
+<h2 id="_1">离散元简介</h2>
+<p>离散元模型包含以下几个基本元素：</p>
+<ul>
+<li>
+<p>颗粒：</p>
+<ul>
+<li>颗粒具有形状、位置、速度、所受到的力等变量或属性</li>
+<li>颗粒的运动服从牛顿运动定律</li>
+<li>颗粒间相互接触，产生接触力，接触力根据相应的接触模型求得 </li>
+</ul>
+</li>
+<li>
+<p>墙或边界：</p>
+<ul>
+<li>边界具有形状、位置、所受到的力等变量或属性</li>
+<li>边界一般假设为无质量，所以无需计算牛顿运动，只需根据预设的运动规律更新其位置</li>
+</ul>
+</li>
+<li>
+<p>接触：</p>
+<ul>
+<li>颗粒与颗粒、或颗粒与边界之间的接触</li>
+<li>具有接触几何特征、接触力等属性</li>
+<li>接触模型描述接触力与接触几何特征之间的关系</li>
+</ul>
+</li>
+</ul>
+<h2 id="_2">程序的基本计算流程与框架</h2>
+<p>程序目前包含7个模块：</p>
+<ul>
+<li>domain：定义计算域</li>
+<li>evaluator: 定义离散元模型的一些个性化计算，比如添加外力、导出数据等。因为这些个性化计算
+    并不是每个计算模型都需要，所以通过这种订阅的方式来自由添加到模型。一般是先定义evaluator，然后
+    attach到一个simulation并激活，当离散元计算到某个节点时，就会统一调用已订阅的evaluator。
+    目前定义了两种evaluator：pre_evaluator, post_evaluator。pre_evaluator在每个计算周期
+    开始时被调用，post_evaluator在每个计算周期结束时被调用。</li>
+<li>input：用来解读输入文件。计划采用json格式作为数据交互格式。每一个json对象都对应一个命令，
+    通过命令的执行来构建或修改simulation。计划定义6中命令：create、get、set、fix、unfix、run。<ul>
+<li>create：创建shape, particle, wall, contact model, evaluator等对象</li>
+<li>get: 获得对象属性</li>
+<li>set：设置对象属性</li>
+<li>fix：将定义的evaluator绑定到simulation以激活。</li>
+<li>unfix：将定义的evalua解绑以使其失效。</li>
+<li>run：开始离散元计算</li>
+</ul>
+</li>
+<li>mpi：不同并行计算核之间的数据交互</li>
+<li>scene：场景<ul>
+<li>包含shape, particle, wall, contact model, evaluator等实例</li>
+</ul>
+</li>
+<li>solver：离散元求解器</li>
+<li>utils：其他工具函数</li>
+</ul>
+<p>离散元基本计算流程（DEMSolver计算过程）：
+- 遍历本计算域内的所有“颗粒”，将其所受力和转矩清零。
+- 执行pre_evaluator，比如重力等作用。
+- 遍历本计算域内的所有“颗粒”，判断其轮廓是否接触到其他计算域：如果是，则利用MPI将其数据传递给该计算域，
+    并根据该颗粒数据在目标计算域创建一新颗粒，作为该颗粒在目标计算域的一代理，代理颗粒可与其他颗粒发生接触。
+    本计算域内的颗粒称其为“待发送的颗粒代理”，目标计算域内的颗粒称为“接收到的颗粒代理”。
+- 接收“颗粒代理”数据，并创建颗粒代理实例：
+    - 若本计算域已包含该颗粒代理的id，则通过particlem_map找到该颗粒指针，用接收到的
+        颗粒代理数据更新该颗粒实例；
+    - 若不存在该颗粒代理的id，则新建一“颗粒幻象”（particle_ghost）实例，用接收到的
+        颗粒代理数据更新该颗粒实例；
+- 遍历“待发送的颗粒代理”，将其对应的“接触数据”也一并发送到目标计算域。
+- 接收接触数据，并创建接触实例：
+    - 根据颗粒id确定颗粒的指针，根据接触模型id确定接触模型指针
+    - 通过颗粒的contact_pp_list判断该接触是否以存在
+        - 若存在，则从接收到的接触数据更新该接触实例。
+        - 若不存在，则先建接触，并用接收到的颗粒代理数据更新该颗粒实例、
+- 遍历所有接触，将其updated设置为false。
+- 将计算域划分成网格，遍历本计算域内的所有“颗粒”以及“接收到的颗粒代理”，将其归类到各网格中。归类的准则为：
+    若该颗粒或颗粒代理的外接立方体与某网格接触，则将该颗粒或颗粒代理添加到该网格。
+- 遍历所有网格：
+    - 遍历本网格内的颗粒及颗粒代理，判断其是否接触。若接触：
+        - 判断其在上一时间步是否接触
+            - 是，则找到该接触实例，更新其接触几何特征与接触力，将接触的updated设置为true
+            - 否，则新创建一接触实例，初始化接触几何特征并计算接触力，将接触的updated设置为true
+        - 将接触力施加到颗粒及边界
+- 遍历“接收到的颗粒代理”：
+    - 遍历该颗粒代理的接触，若接触updated状态为true，利用MPI将该接触数据发送回原计算域
+    - 接收由其他计算域传回的接触，重建接触实例
+        - 若接触已存在，则利用传回数据更新原接触
+        - 若接触不存在，则新建接触，重建接触内的颗粒指针
+            - 若计算域存在该颗粒，则通过particle_map和颗粒id找到颗粒指针。
+            - 若计算域不存在该颗粒，则新建一“颗粒幻象”，将该“颗粒幻象”指针设置给该接触。
+    - 将接触力施加到颗粒
+- 遍历所有接触
+    - 若其updated状态为false，则删除该接触；
+- 遍历所有颗粒
+    - 根据牛顿运动定律更新其速度、位置等属性
+- 将partical_proxy_list添加到particle_ghost_list，并将partical_proxy_list清空
+- 根据更新后的颗粒位置，遍历每个颗粒，判断其是否超出本计算域：
+    - 若是，则将其数据发送到该颗粒新在的计算域，并将该颗粒移动到particle_ghost_list。
+- 接收“颗粒”数据，并创建颗粒实例：
+    - 若本计算域已包含该颗粒的id，则通过particlem_map找到该颗粒指针，用接收到的
+        颗粒数据更新该颗粒实例；
+    - 若不存在该颗粒的id，则新建一颗粒实例，用接收到的颗粒数据更新该颗粒实例；
+- 遍历particle_ghost_list
+    - 若其不与任何颗粒或边界接触，则删除该"颗粒幻象"
+- 执行post_evaluator，比如数据输出等功能。</p>
+
+
+</section>
+
+</div> <!-- end of page-inner -->
+</div> <!-- end of page-wrapper -->
+
+</div> <!-- end of body-inner -->
+
+</div> <!-- end of book-body -->
+<script src="../../js/main.js"></script>
+<script src="../../js/gitbook.min.js"></script>
+<script src="../../js/theme.min.js"></script>
+</body>
+</html>
