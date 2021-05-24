@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>1. Code framework - NetDEM documentation</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../../css/theme.css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "1. Code framework";
+    var mkdocs_page_input_path = "developer_manual/code_framework_cn.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> NetDEM documentation</a>
+        
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">User manual</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../user_manual/installation/">1. Installation</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../user_manual/usage/">2. Usage</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../user_manual/bugs_feature_requests/">3. Bugs & feature requests</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../user_manual/copyright_and_license/">4. Copyright and license</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Validation & examples</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../validation_examples/random_packing/">1. Random packing</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Technical manual</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../technical_manual/dem_basics/">1. DEM basics</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Developer manual</span></p>
+                <ul class="current">
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">1. Code framework</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#_1">离散元方法基本元素：</a>
+    </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../coding_styles/">2. Coding styles</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">NetDEM documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Developer manual &raquo;</li>
+        
+      
+    
+    <li>1. Code framework</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h2 id="to-be-updated-with-an-english-version">离散元简介 [to be updated with an English version]</h2>
+<h3 id="_1">离散元方法基本元素：</h3>
+<ul>
+<li>
+<p>颗粒：</p>
+<ul>
+<li>颗粒具有形状、位置、速度、所受到的力等变量或属性</li>
+<li>颗粒的运动服从牛顿运动定律</li>
+<li>颗粒间相互接触，产生接触力，接触力根据相应的接触模型求得 </li>
+</ul>
+</li>
+<li>
+<p>墙或边界：</p>
+<ul>
+<li>边界具有形状、位置、所受到的力等变量或属性</li>
+<li>边界一般假设为无质量，所以无需计算牛顿运动，只需根据预设的运动规律更新其位置</li>
+</ul>
+</li>
+<li>
+<p>接触：</p>
+<ul>
+<li>颗粒与颗粒、或颗粒与边界之间的接触</li>
+<li>具有接触几何特征、接触力等属性</li>
+<li>接触模型描述接触力与接触几何特征之间的关系</li>
+</ul>
+</li>
+</ul>
+<h2 id="_2">程序的基本计算流程与框架</h2>
+<h3 id="7">程序目前包含7个模块：</h3>
+<ul>
+<li>domain：定义计算域</li>
+<li>evaluator: 定义离散元模型的一些个性化计算，比如添加外力、导出数据等。因为这些个性化计算
+    并不是每个计算模型都需要，所以通过这种订阅的方式来自由添加到模型。一般是先定义evaluator，然后
+    attach到一个simulation并激活，当离散元计算到某个节点时，就会统一调用已订阅的evaluator。
+    目前定义了两种evaluator：pre_evaluator, post_evaluator。pre_evaluator在每个计算周期
+    开始时被调用，post_evaluator在每个计算周期结束时被调用。</li>
+<li>input：用来解读输入文件。计划采用json格式作为数据交互格式。每一个json对象都对应一个命令，
+    通过命令的执行来构建或修改simulation。计划定义6中命令：create、get、set、fix、unfix、run。<ul>
+<li>create：创建shape, particle, wall, contact model, evaluator等对象</li>
+<li>get: 获得对象属性</li>
+<li>set：设置对象属性</li>
+<li>fix：将定义的evaluator绑定到simulation以激活。</li>
+<li>unfix：将定义的evalua解绑以使其失效。</li>
+<li>run：开始离散元计算</li>
+</ul>
+</li>
+<li>mpi：不同并行计算核之间的数据交互</li>
+<li>scene：场景<ul>
+<li>包含shape, particle, wall, contact model, evaluator等实例</li>
+</ul>
+</li>
+<li>solver：离散元求解器</li>
+<li>utils：其他工具函数</li>
+</ul>
+<h3 id="demsolver">离散元基本计算流程（DEMSolver计算过程）：</h3>
+<ul>
+<li>遍历本计算域内的所有“颗粒”，将其所受力和转矩清零。</li>
+<li>执行pre_evaluator，比如重力等作用。</li>
+<li>遍历本计算域内的所有“颗粒”，判断其轮廓是否接触到其他计算域：如果是，则利用MPI将其数据传递给该计算域，
+    并根据该颗粒数据在目标计算域创建一新颗粒，作为该颗粒在目标计算域的一代理，代理颗粒可与其他颗粒发生接触。
+    本计算域内的颗粒称其为“待发送的颗粒代理”，目标计算域内的颗粒称为“接收到的颗粒代理”。</li>
+<li>接收“颗粒代理”数据，并创建颗粒代理实例：<ul>
+<li>若本计算域已包含该颗粒代理的id，则通过particlem_map找到该颗粒指针，用接收到的
+    颗粒代理数据更新该颗粒实例；</li>
+<li>若不存在该颗粒代理的id，则新建一“颗粒幻象”（particle_ghost）实例，用接收到的
+    颗粒代理数据更新该颗粒实例；</li>
+</ul>
+</li>
+<li>遍历“待发送的颗粒代理”，将其对应的“接触数据”也一并发送到目标计算域。</li>
+<li>接收接触数据，并创建接触实例：<ul>
+<li>根据颗粒id确定颗粒的指针，根据接触模型id确定接触模型指针</li>
+<li>通过颗粒的contact_pp_list判断该接触是否以存在<ul>
+<li>若存在，则从接收到的接触数据更新该接触实例。</li>
+<li>若不存在，则先建接触，并用接收到的颗粒代理数据更新该颗粒实例、</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>遍历所有接触，将其updated设置为false。</li>
+<li>将计算域划分成网格，遍历本计算域内的所有“颗粒”以及“接收到的颗粒代理”，将其归类到各网格中。归类的准则为：
+    若该颗粒或颗粒代理的外接立方体与某网格接触，则将该颗粒或颗粒代理添加到该网格。</li>
+<li>遍历所有网格：<ul>
+<li>遍历本网格内的颗粒及颗粒代理，判断其是否接触。若接触：<ul>
+<li>判断其在上一时间步是否接触<ul>
+<li>是，则找到该接触实例，更新其接触几何特征与接触力，将接触的updated设置为true</li>
+<li>否，则新创建一接触实例，初始化接触几何特征并计算接触力，将接触的updated设置为true</li>
+</ul>
+</li>
+<li>将接触力施加到颗粒及边界</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>遍历“接收到的颗粒代理”：<ul>
+<li>遍历该颗粒代理的接触，若接触updated状态为true，利用MPI将该接触数据发送回原计算域</li>
+<li>接收由其他计算域传回的接触，重建接触实例<ul>
+<li>若接触已存在，则利用传回数据更新原接触</li>
+<li>若接触不存在，则新建接触，重建接触内的颗粒指针<ul>
+<li>若计算域存在该颗粒，则通过particle_map和颗粒id找到颗粒指针。</li>
+<li>若计算域不存在该颗粒，则新建一“颗粒幻象”，将该“颗粒幻象”指针设置给该接触。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>将接触力施加到颗粒</li>
+</ul>
+</li>
+<li>遍历所有接触<ul>
+<li>若其updated状态为false，则删除该接触；</li>
+</ul>
+</li>
+<li>遍历所有颗粒<ul>
+<li>根据牛顿运动定律更新其速度、位置等属性</li>
+</ul>
+</li>
+<li>将partical_proxy_list添加到particle_ghost_list，并将partical_proxy_list清空</li>
+<li>根据更新后的颗粒位置，遍历每个颗粒，判断其是否超出本计算域：<ul>
+<li>若是，则将其数据发送到该颗粒新在的计算域，并将该颗粒移动到particle_ghost_list。</li>
+</ul>
+</li>
+<li>接收“颗粒”数据，并创建颗粒实例：<ul>
+<li>若本计算域已包含该颗粒的id，则通过particlem_map找到该颗粒指针，用接收到的
+    颗粒数据更新该颗粒实例；</li>
+<li>若不存在该颗粒的id，则新建一颗粒实例，用接收到的颗粒数据更新该颗粒实例；</li>
+</ul>
+</li>
+<li>遍历particle_ghost_list<ul>
+<li>若其不与任何颗粒或边界接触，则删除该"颗粒幻象"</li>
+</ul>
+</li>
+<li>执行post_evaluator，比如数据输出等功能。</li>
+</ul>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../coding_styles/" class="btn btn-neutral float-right" title="2. Coding styles">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../../technical_manual/dem_basics/" class="btn btn-neutral" title="1. DEM basics"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../../technical_manual/dem_basics/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../coding_styles/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
