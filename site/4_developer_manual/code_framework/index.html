@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Code framework - NetDEM documentation</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../../css/theme.css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Code framework";
+    var mkdocs_page_input_path = "4_developer_manual/code_framework.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> NetDEM documentation</a>
+        
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">0 user manual</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../0_user_manual/acknowledgement/">Acknowledgement</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../0_user_manual/bugs_feature_requests/">Bugs feature requests</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../0_user_manual/copyright_and_license/">Copyright and license</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../0_user_manual/how_to_cite/">How to cite</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../0_user_manual/installation/">Installation</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../0_user_manual/usage/">Usage</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">1 validation examples</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../1_validation_examples/random_packing/">Random packing</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">2 technical manual</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../2_technical_manual/dem_basics/">Dem basics</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">4 developer manual</span></p>
+                <ul class="current">
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Code framework</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#basic-elements-of-the-discrete-element-method">Basic elements of the discrete element method</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#basic-calculation-procedures-and-framework">Basic calculation procedures and framework</a>
+    </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../coding_styles/">Coding styles</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../perf/">Perf</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">NetDEM documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>4 developer manual &raquo;</li>
+        
+      
+    
+    <li>Code framework</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h2 id="_1"></h2>
+<h3 id="basic-elements-of-the-discrete-element-method">Basic elements of the discrete element method</h3>
+<ul>
+<li>
+<p>Particles:</p>
+<ul>
+<li>Particles have variables or attributes such as shape, position, speed, and force</li>
+<li>The movement of particles obeys Newton's law of motion</li>
+<li>The particles are in contact with each other to generate contact force, which is calculated according to the corresponding contact model</li>
+</ul>
+</li>
+<li>
+<p>Wall or boundary:</p>
+<ul>
+<li>The boundary has variables or attributes such as shape, position, and force</li>
+<li>The boundary is generally assumed to be massless, so there is no need to calculate - Newtonian motion, just update its position according to the preset motion law</li>
+</ul>
+</li>
+<li>
+<p>contact:</p>
+<ul>
+<li>particle-to-particle, or particle-to-boundary contact</li>
+<li>with contact geometric characteristics, contact force and other attributes</li>
+<li>The contact model describes the relationship between contact force and contact geometric characteristics</li>
+</ul>
+</li>
+</ul>
+<h3 id="basic-calculation-procedures-and-framework">Basic calculation procedures and framework</h3>
+<p>The program currently contains 7 modules:</p>
+<ul>
+<li>domain: Define the computational domain</li>
+<li>evaluator: Define some personalized calculations of the discrete element model, such as adding external forces, exporting data, etc. Because these personalized calculations are not required for every calculation model, they can be added to the model freely through this subscription method. Generally, the evaluator is defined first, and then attached to a simulation and activated. When the discrete element is calculated to a certain node, the subscribed evaluator will be called uniformly. Currently, two evaluators are defined: pre_evaluator and post_evaluator. pre_evaluator is called at the beginning of each calculation cycle, and post_evaluator is called at the end of each calculation cycle.</li>
+<li>input: Used to interpret the input file. It is planned to adopt the json format as the data exchange format. Each json object corresponds to a command, and the simulation is constructed or modified through the execution of the command. The commands in plan definition 6: create, get, set, fix, unfix, run.<ul>
+<li>create: create objects such as shape, particle, wall, contact model, evaluator, etc.</li>
+<li>get: get object properties</li>
+<li>set: set object properties</li>
+<li>fix: Bind the defined evaluator to simulation to activate.</li>
+<li>unfix: Unbind the defined evalua to make it invalid.</li>
+<li>run: start discrete element calculation</li>
+</ul>
+</li>
+<li>mpi: data interaction between different parallel computing cores</li>
+<li>scene: contains shape tmplates, particle, wall, contact model, evaluator, etc.</li>
+<li>solver: Discrete element solver</li>
+<li>utils: other tool functions</li>
+</ul>
+<p>The basic calculation process of discrete element (DEMSolver calculation process):</p>
+<ul>
+<li>Traverse all the "particles" in this calculation domain, and clear the force and torque to zero.</li>
+<li>Perform pre_evaluator, such as gravity.</li>
+<li>Traverse all the "particles" in this computational domain to determine whether its contours touch other computational domains: if so, use MPI to transfer its data to the computational domain, and create a new particle in the target computational domain based on the particle data, as The particle is a proxy in the target computing domain, and the proxy particle can come into contact with other particles. The particles in this computing domain are called "particle agents to be sent", and the particles in the target computing domain are called "received particle agents".</li>
+<li>Receive the "particle agent" data and create an instance of the particle agent:<ul>
+<li>If this calculation domain already contains the id of the particle agent, find the particle pointer through particlem_map, and update the particle instance with the received particle agent data;</li>
+<li>If the id of the particle agent does not exist, create a new "particle_ghost" instance, and update the particle instance with the received particle agent data;</li>
+</ul>
+</li>
+<li>Traverse the "granular agent to be sent" and send its corresponding "contact data" to the target computing domain.</li>
+<li>Receive contact data and create contact instances:<ul>
+<li>Determine the pointer of the particle according to the particle id, and determine the pointer of the contact model according to the contact model id</li>
+<li>Determine whether the contact exists through the contact_pp_list of the particle<ul>
+<li>If it exists, update the contact instance from the received contact data.</li>
+<li>If it does not exist, establish a contact first, and use the received particle agent data to update the particle instance,</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Traverse all contacts and set their updated to false.</li>
+<li>Divide the computational domain into grids, traverse all the "particles" and "received particle agents" in the computational domain, and classify them into each grid. The classification criteria are: If the circumscribed cube of the particle or particle agent contacts a certain grid, then the particle or particle agent is added to the grid.</li>
+<li>Traverse all grids:<ul>
+<li>Traverse the particles and particle agents in this grid to determine whether they are in contact. If touched:<ul>
+<li>Determine whether it was in contact at the previous time step<ul>
+<li>If yes, find the contact instance, update its contact geometric features and contact force, and set the updated of the contact to true</li>
+<li>If not, create a new contact instance, initialize the contact geometric features and calculate the contact force, and set the updated of the contact to true</li>
+</ul>
+</li>
+<li>Apply contact force to particles and boundaries</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Traverse the "received particle agent":<ul>
+<li>Traverse the contact of the particle agent, if the updated state of the contact is true, use MPI to send the contact data back to the original computing domain</li>
+<li>Receive contacts returned from other computing domains and reconstruct contact instances<ul>
+<li>If the contact already exists, use the returned data to update the original contact</li>
+<li>If the contact does not exist, create a new contact and rebuild the particle pointer in the contact<ul>
+<li>If the particle exists in the computational domain, the particle pointer is found through particle_map and particle id.</li>
+<li>If the particle does not exist in the computational domain, create a new "particle illusion" and set the "particle illusion" pointer to the contact.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Apply contact force to particles</li>
+</ul>
+</li>
+<li>Traverse all contacts<ul>
+<li>If its updated status is false, delete the contact;</li>
+</ul>
+</li>
+<li>Traverse all particles
+        - Update its speed, position and other attributes according to Newton's law of motion</li>
+<li>Add the partial_proxy_list to the particle_ghost_list and clear the partial_proxy_list</li>
+<li>According to the updated particle position, traverse each particle to determine whether it exceeds the calculation domain:<ul>
+<li>If so, send its data to the new computational domain of the particle, and move the particle to particle_ghost_list.</li>
+</ul>
+</li>
+<li>Receive the "particle" data and create an instance of the particle:<ul>
+<li>If this calculation domain already contains the id of the particle, find the particle pointer through particlem_map, and update the particle instance with the received particle data;</li>
+<li>If the id of the particle does not exist, create a new particle instance and update the particle instance with the received particle data;</li>
+</ul>
+</li>
+<li>Traverse particle_ghost_list <ul>
+<li>If it is not in contact with any particles or boundaries, delete the "particle phantom"</li>
+</ul>
+</li>
+<li>Perform post_evaluator, such as data output and other functions.</li>
+</ul>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../coding_styles/" class="btn btn-neutral float-right" title="Coding styles">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../../2_technical_manual/dem_basics/" class="btn btn-neutral" title="Dem basics"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../../2_technical_manual/dem_basics/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../coding_styles/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
