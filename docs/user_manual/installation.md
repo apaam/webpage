@@ -1,3 +1,5 @@
+##
+
 ### Quick installation
 
 1. Prerequisites: gcc, autoconf, automake, cmake, mpi, boost.  
