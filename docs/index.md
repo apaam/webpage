@@ -1,4 +1,4 @@
-NetDEM
+![logo](img/logo.png "NetDEM"){:style="width:80%"}
 ------------
 A neural network machine learning enabled DEM framework for computational particle mechanics.
 
