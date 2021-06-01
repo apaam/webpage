@@ -203,7 +203,7 @@ DEM-based numerical simulations require cyclic calculations. shows the
 workflow and calculations that are involved in one typical cycle of a
 DEM simulation.
 
-![dem_workflow](/img/dem_workflow.png "The workflow and calculations that are involved in one typical cycle of a DEM simulation."){:style="width:80%"}
+![dem_workflow](../img/dem_workflow.png "The workflow and calculations that are involved in one typical cycle of a DEM simulation."){:style="width:80%"}
 
 The workflow and calculations for one DEM cycle can be summarized as
 follows:
@@ -293,9 +293,9 @@ or distortion) or breakage. The boundary filling method, depending on
 the size of filling elements, could provide a better representation of
 surface roughness.
 
-![overlapping_filling](/img/overlapping_filling.png "Domain overlapping filling"){:style="width:32%"}
-![boundary_fiiling](/img/boundary_fiiling.png "Boundary filling"){:style="width:32%"}
-![non_overlapping_filling](/img/non_overlapping_filling.png "Domain non-overlapping filling"){:style="width:32%"}
+![overlapping_filling](../img/overlapping_filling.png "Domain overlapping filling"){:style="width:32%"}
+![boundary_fiiling](../img/boundary_fiiling.png "Boundary filling"){:style="width:32%"}
+![non_overlapping_filling](../img/non_overlapping_filling.png "Domain non-overlapping filling"){:style="width:32%"}
 
 A schematic illustration of the three options to represent a composite particle with discs (modified after [@Shi.etal:2015])
 
@@ -313,7 +313,7 @@ dissertation is presented in this section.
 A linear elastic model generally consists of two elastic springs, two
 dash-pots, and a slider, as shown schematically in the following.
 
-![rheological_contact_model](/img/rheological_contact_model.png "Schematic diagram of linear elastic model (adopted from [@Chung:2006])."){:style="width:60%"}
+![rheological_contact_model](../img/rheological_contact_model.png "Schematic diagram of linear elastic model (adopted from [@Chung:2006])."){:style="width:60%"}
 
 The contact forces $\boldsymbol{F}$ are calculated from two parts: the normal
 force $\boldsymbol{F}_n$ and the shear (or tangential) force $\boldsymbol{F}_s$
@@ -418,7 +418,7 @@ and $\nu_i$ is the Poisson's ratio of the $i$th particle.
 The linear parallel bond model describes the contact behavior of two
 bonded particles, as shown schematically in the following.
 
-![bpm_reological_model](/img/bpm_rheological_model.png "Sketch of bonded particles and rheological components of the bond behavior."){:style="width:60%"}
+![bpm_reological_model](../img/bpm_rheological_model.png "Sketch of bonded particles and rheological components of the bond behavior."){:style="width:60%"}
 
 In the linear parallel bond model, the bond between two spheres is
 assumed to be a cylinder of finite radius and thickness. Each point in
