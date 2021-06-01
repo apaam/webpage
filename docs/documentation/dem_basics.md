@@ -1,11 +1,9 @@
-## 3.1 Discrete element method basics and review 
-
-This chapter presents a brief introduction and review of the discrete
+This section presents a brief introduction and review of the discrete
 element method (DEM). The intention is to introduce the main components
 and basic computational workflow of a DEM model, providing necessary
 background information to the research presented in this dissertation.
 
-### Overview
+## Overview
 
 DEM is a particle-based numerical model that is particularly suitable
 for describing the mechanical behavior of bulk granular materials. It
@@ -39,9 +37,9 @@ microscopic behavior of granular materials, which is often difficult or
 impossible to obtain from classical continuum-based numerical models or
 from physical experiments.
 
-### Key components of DEM
+## Key components of DEM
 
-#### Basic elements
+### Basic elements
 
 In general, there are two types of basic elements in a DEM model:
 particles and boundaries. The basic elements are assumed to be rigid but
@@ -58,7 +56,7 @@ not necessarily have closed surfaces. Boundaries do not have mass and
 their position and velocity are usually prescribed to provide the
 desired constraints to the particles in the model.
 
-#### Contacts and contact models
+### Contacts and contact models
 
 Contacts describe the interactions between basic elements. Contact
 occurs when the surfaces of two basic elements overlap with each other
@@ -80,27 +78,27 @@ resistance model [@Jiang.etal:2005], the Hertz-Mindlin model
 bond model [@Potyondy.Cundall:2004]. The formulation of these contact
 models will be presented in .
 
-#### Newton-Euler equations of motion
+### Newton-Euler equations of motion
 
 In DEM, the motion of a particle can be described by the Newton-Euler
 equations of motion. For any arbitrarily-shaped particle, the
 Newton-Euler equations of motion are written as
 
 $$\begin{aligned}
-m\vec{a} &= \vec{F} \\
-\vec{I}\vec{\alpha}+\vec{\omega}\times L &= \vec{M}\end{aligned}$$
+m\boldsymbol{a} &= \boldsymbol{F} \\
+\boldsymbol{I}\boldsymbol{\alpha}+\boldsymbol{\omega}\times L &= \boldsymbol{M}\end{aligned}$$
 
-where $m$ is the mass of the particle; $\vec{I}$ is the inertia tensor
-of the particle; $\vec{a}$ and $\vec{\alpha}$ are the translational and
-rotational acceleration; $\vec{F}$ and $\vec{M}$ are the overall
-external forces and moments acting on the particle; $\vec{\omega}$ is
+where $m$ is the mass of the particle; $\boldsymbol{I}$ is the inertia tensor
+of the particle; $\boldsymbol{a}$ and $\boldsymbol{\alpha}$ are the translational and
+rotational acceleration; $\boldsymbol{F}$ and $\boldsymbol{M}$ are the overall
+external forces and moments acting on the particle; $\boldsymbol{\omega}$ is
 the vector of the angular velocities about the principal axes. Herein,
 the variable in bold-symbol indicates a vector or a tensor. For
 spherical particles, the Newton-Euler equations of motion reduce to
 
 $$\begin{aligned}
-  m\vec{a} &= \vec{F} \\
-  \vec{I}\vec{\alpha} &= \vec{M}\end{aligned}$$
+  m\boldsymbol{a} &= \boldsymbol{F} \\
+  \boldsymbol{I}\boldsymbol{\alpha} &= \boldsymbol{M}\end{aligned}$$
 
 In order to resolve the motion of each particle, all the forces and
 moments acting on the particle need to be evaluated and summed, which
@@ -113,7 +111,7 @@ damping, which is usually incorporated into a contact model as dash-pot
 forces to account for the realistic energy dissipation due to particle
 interactions.
 
-#### Time integration
+### Time integration
 
 To fully resolve the particle motion (e.g., the position and velocity)
 governed by and involves the time integration scheme, where the
@@ -124,31 +122,31 @@ $\Delta t$, Velocity Verlet algorithm first calculates the particle
 velocities at time $t$+$\Delta t/2$ by
 
 $$\begin{aligned}
-  \vec{v}^{t+\Delta t/2} &= \vec{v}^t 
-    + \vec{a}^t\Delta t/2 \\
-  \vec{\omega}^{t+\Delta t/2} &= \vec{\omega}^t 
-    + \vec{\alpha}^t\Delta t/2\end{aligned}$$
+  \boldsymbol{v}^{t+\Delta t/2} &= \boldsymbol{v}^t 
+    + \boldsymbol{a}^t\Delta t/2 \\
+  \boldsymbol{\omega}^{t+\Delta t/2} &= \boldsymbol{\omega}^t 
+    + \boldsymbol{\alpha}^t\Delta t/2\end{aligned}$$
 
-where $\vec{v}$ and $\vec{\omega}$ are translational and angular
+where $\boldsymbol{v}$ and $\boldsymbol{\omega}$ are translational and angular
 velocities, respectively. The superscripts (e.g., $t$ and $\Delta t/2$)
 indicate the time indexes. Then, the position and orientation of the
 particle at time $t$+$\Delta t$ are calculated as
 
 $$\begin{aligned}
-  \vec{x}^{t+\Delta t} &= \vec{x}^t 
-    + \vec{v}^{t+\Delta t/2}\Delta t \\
-  \vec{\theta}^{t+\Delta t} &= \vec{\theta}^t 
-    + \vec{\omega}^{t+\Delta t/2}\Delta t \end{aligned}$$
+  \boldsymbol{x}^{t+\Delta t} &= \boldsymbol{x}^t 
+    + \boldsymbol{v}^{t+\Delta t/2}\Delta t \\
+  \boldsymbol{\theta}^{t+\Delta t} &= \boldsymbol{\theta}^t 
+    + \boldsymbol{\omega}^{t+\Delta t/2}\Delta t \end{aligned}$$
 
-where $\vec{x}$ is the vector of position and $\vec{\theta}$ is the
+where $\boldsymbol{x}$ is the vector of position and $\boldsymbol{\theta}$ is the
 vector of orientation. Correspondingly, the translational velocity and
 angular velocity at time $t+\Delta t$ are updated by
 
 $$\begin{aligned}
-  \vec{v}^{t+\Delta t} &= \vec{v}^{t+\Delta t/2} 
-    + \vec{a}^{t+\Delta t/2}\Delta t/2 \\
-  \vec{\omega}^{t+\Delta t} &= \vec{\omega}^{t+\Delta t/2} 
-    + \vec{\alpha}^{t+\Delta t/2}\Delta t/2  \end{aligned}$$
+  \boldsymbol{v}^{t+\Delta t} &= \boldsymbol{v}^{t+\Delta t/2} 
+    + \boldsymbol{a}^{t+\Delta t/2}\Delta t/2 \\
+  \boldsymbol{\omega}^{t+\Delta t} &= \boldsymbol{\omega}^{t+\Delta t/2} 
+    + \boldsymbol{\alpha}^{t+\Delta t/2}\Delta t/2  \end{aligned}$$
 
 For non-spherical particles, the original Newton-Euler equations of
 motion cannot be simplified, and the calculation of the orientations and
@@ -157,7 +155,7 @@ discussion on the time integration for non-spherical particles will not
 be included here but can be found in the work of @Chung:2006 and the PFC
 user manual [@PFC:2014].
 
-#### Critical timestep
+### Critical timestep
 
 The time integration based on the second-order Velocity Verlet algorithm
 is numerically stable only when the time increment being used is less
@@ -199,7 +197,7 @@ where $R$ is the average particle radius; $\rho$ is the particle
 density; $G$ the particle shear modulus; and $\nu$ the Poisson's ratio
 of the particle.
 
-#### Computational workflow
+### Computational workflow
 
 DEM-based numerical simulations require cyclic calculations. shows the
 workflow and calculations that are involved in one typical cycle of a
@@ -223,13 +221,13 @@ follows:
 4.  Update the positions and velocities of all particles following the
     selected time integration scheme.
 
-### Particle representation 
+## Particle representation 
 
 There are basically two groups of methods to represent an irregular
 particle in DEM [@Zhong.etal:2016]: single-particle method and
 composite-particle method.
 
-#### Single-particle method
+### Single-particle method
 
 The single-particle method utilizes closed geometries to represent
 particle shapes. Many single-particle-based DEM models have been
@@ -267,7 +265,7 @@ tomography and is computationally efficient. One issue with the LS-DEM
 is high memory consumption, which somewhat limits its application on
 large particulate systems.
 
-#### Composite-particle method
+### Composite-particle method
 
 In a composite-particle method, a particle is represented by
 compositions of simple geometries (usually spheres in 3D or circles in
@@ -301,7 +299,7 @@ surface roughness.
 
 A schematic illustration of the three options to represent a composite particle with discs (modified after [@Shi.etal:2015])
 
-### Contact models 
+## Contact models 
 
 A DEM contact model is normally comprised of springs, dash-pots, and
 sliders to describe the force-displacement behavior at the contact,
@@ -310,20 +308,20 @@ dash-pots account for local damping, and the sliders account for shear
 failure. The formulation of contact models that will be used in this
 dissertation is presented in this section.
 
-#### Linear elastic model
+### Linear elastic model
 
 A linear elastic model generally consists of two elastic springs, two
 dash-pots, and a slider, as shown schematically in the following.
 
 ![rheological_contact_model](../img/rheological_contact_model.png "Schematic diagram of linear elastic model (adopted from [@Chung:2006])."){:style="width:60%"}
 
-The contact forces $\vec{F}$ are calculated from two parts: the normal
-force $\vec{F}_n$ and the shear (or tangential) force $\vec{F}_s$
+The contact forces $\boldsymbol{F}$ are calculated from two parts: the normal
+force $\boldsymbol{F}_n$ and the shear (or tangential) force $\boldsymbol{F}_s$
 
-$$\vec{F} = \vec{F}_n + \vec{F}_s
-    = F_n\vec{n}_n + F_s\vec{n}_s$$
+$$\boldsymbol{F} = \boldsymbol{F}_n + \boldsymbol{F}_s
+    = F_n\boldsymbol{n}_n + F_s\boldsymbol{n}_s$$
 
-where $\vec{n}_n$ and $\vec{n}_s$ are the unit vectors denoting the
+where $\boldsymbol{n}_n$ and $\boldsymbol{n}_s$ are the unit vectors denoting the
 direction of the normal and the shear force, respectively; $F_n$ and
 $F_s$ are the magnitudes of corresponding contact forces. Assuming the
 relative displacement increment at the contact during a timestep
@@ -346,7 +344,7 @@ coefficient; and $\bar{m} = m_im_j/(m_i+m_j)$ is the effective mass of
 particles $i$ and $j$ associated with the contact, while $\bar{m} = m_i$
 for the case of particle-boundary contact.
 
-#### Rolling resistance model
+### Rolling resistance model
 
 The rolling resistance model is built upon the linear elastic model by
 adding a term of rolling resistance moment to the contact moment. The
@@ -373,7 +371,7 @@ incorporated in the rolling stiffness term. The interested reader is
 referred to [@Luding:2008; @Wang.etal:2015] for examples of improved and
 more advanced rolling resistance models.
 
-#### Hertz-Mindlin model
+### Hertz-Mindlin model
 
 The Hertz-Mindlin model is a complete frictional contact model based
 upon the Hertz theory [@Hertz:1882] for contact normal forces and the
@@ -415,7 +413,7 @@ where $\bar{E}$ and $\bar{G}$ are the effective Young's modulus and
 shear modulus of the particles in contact; $E_i$ is the Young's modulus
 and $\nu_i$ is the Poisson's ratio of the $i$th particle.
 
-#### Linear parallel bond model
+### Linear parallel bond model
 
 The linear parallel bond model describes the contact behavior of two
 bonded particles, as shown schematically in the following.
@@ -465,7 +463,7 @@ $$\begin{aligned}
 where $\sigma_{Y,n}^b$ and $\sigma_{Y,s}^b$ are the normal and shear
 strength, respectively.
 
-### Model calibration
+## Model calibration
 
 As most of the contact parameters in a DEM model are difficult if not
 impossible to be measured directly from physical tests, a calibration
