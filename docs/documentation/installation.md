@@ -1,6 +1,4 @@
-##
-
-### Quick installation
+## Quick installation
 
 1. Prerequisites: gcc, autoconf, automake, cmake, mpi, boost.  
 
@@ -24,7 +22,7 @@
         ./scripts/run_tests.sh  
     
 
-### Dependencies
+## Dependencies
 
  - [git](https://git-scm.com), [gcc](https://gcc.gnu.org), [cmake](https://cmake.org): for code developing, configuring and compiling
  - [mpich](https://www.mpich.org) or [open mpi](https://www.open-mpi.org): for parallel computing
