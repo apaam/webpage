@@ -5,6 +5,7 @@ This repository maintains the [documentation](https://net-dem.github.io/netdem_d
   0. Install prerequisite: *mkdocs*. (If *pip* or *pip3* is not already installed in your computer, follow the instruciton in https://pip.pypa.io/en/stable/installing/ to install it.)
       ```
       pip3 install mkdocs
+      pip3 install mkdocs-bootswatch
       pip3 install pymdown-extensions
       pip3 install attr
       pip3 install mkdocs-bibtex
