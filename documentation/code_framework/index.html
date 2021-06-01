@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>Code framework - NetDEM</title>
+        <link href="../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/docco.min.css">
+
+        <script src="../../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../../js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../..">NetDEM</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href="../.." class="nav-link">Home</a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Examples <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../examples/random_packing/" class="dropdown-item">Random packing</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown active">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Documentation <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../installation/" class="dropdown-item">Installation</a>
+</li>
+                                    
+<li>
+    <a href="../usage/" class="dropdown-item">Usage</a>
+</li>
+                                    
+<li>
+    <a href="../dem_basics/" class="dropdown-item">DEM basics</a>
+</li>
+                                    
+<li>
+    <a href="../mpi_algorithm/" class="dropdown-item">MPI algorithm</a>
+</li>
+                                    
+<li>
+    <a href="./" class="dropdown-item active">Code framework</a>
+</li>
+                                    
+<li>
+    <a href="../coding_styles/" class="dropdown-item">Coding styles</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">About <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../about/bugs_%26_feature_requests/" class="dropdown-item">Bugs & feature request</a>
+</li>
+                                    
+<li>
+    <a href="../../about/copyright_and_license/" class="dropdown-item">Copyright</a>
+</li>
+                                    
+<li>
+    <a href="../../about/how_to_cite/" class="dropdown-item">How to cite</a>
+</li>
+                                    
+<li>
+    <a href="../../about/acknowledgement/" class="dropdown-item">Acknowledgement</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../mpi_algorithm/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../coding_styles/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="2"><a href="#general-framework" class="nav-link">General framework</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="2"><a href="#basic-elements" class="nav-link">Basic elements</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="2"><a href="#calculation-procedures" class="nav-link">Calculation procedures</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h2 id="general-framework">General framework</h2>
+<p>The program currently contains 7 modules:</p>
+<ul>
+<li>domain: Define the computational domain</li>
+<li>evaluator: Define some personalized calculations of the discrete element model, such as adding external forces, exporting data, etc. Because these personalized calculations are not required for every calculation model, they can be added to the model freely through this subscription method. Generally, the evaluator is defined first, and then attached to a simulation and activated. When the discrete element is calculated to a certain node, the subscribed evaluator will be called uniformly. Currently, two evaluators are defined: pre_evaluator and post_evaluator. pre_evaluator is called at the beginning of each calculation cycle, and post_evaluator is called at the end of each calculation cycle.</li>
+<li>input: Used to interpret the input file. It is planned to adopt the json format as the data exchange format. Each json object corresponds to a command, and the simulation is constructed or modified through the execution of the command. The commands in plan definition 6: create, get, set, fix, unfix, run.<ul>
+<li>create: create objects such as shape, particle, wall, contact model, evaluator, etc.</li>
+<li>get: get object properties</li>
+<li>set: set object properties</li>
+<li>fix: Bind the defined evaluator to simulation to activate.</li>
+<li>unfix: Unbind the defined evalua to make it invalid.</li>
+<li>run: start discrete element calculation</li>
+</ul>
+</li>
+<li>mpi: data interaction between different parallel computing cores</li>
+<li>scene: contains shape tmplates, particle, wall, contact model, evaluator, etc.</li>
+<li>solver: Discrete element solver</li>
+<li>utils: other tool functions</li>
+</ul>
+<h2 id="basic-elements">Basic elements</h2>
+<ul>
+<li>
+<p>Particles:</p>
+<ul>
+<li>Particles have variables or attributes such as shape, position, speed, and force</li>
+<li>The movement of particles obeys Newton's law of motion</li>
+<li>The particles are in contact with each other to generate contact force, which is calculated according to the corresponding contact model</li>
+</ul>
+</li>
+<li>
+<p>Wall or boundary:</p>
+<ul>
+<li>The boundary has variables or attributes such as shape, position, and force</li>
+<li>The boundary is generally assumed to be massless, so there is no need to calculate - Newtonian motion, just update its position according to the preset motion law</li>
+</ul>
+</li>
+<li>
+<p>Contact:</p>
+<ul>
+<li>particle-to-particle, or particle-to-boundary contact</li>
+<li>with contact geometric characteristics, contact force and other attributes</li>
+<li>The contact model describes the relationship between contact force and contact geometric characteristics</li>
+</ul>
+</li>
+</ul>
+<h2 id="calculation-procedures">Calculation procedures</h2>
+<p>The basic calculation process of discrete element (DEMSolver calculation process):</p>
+<ul>
+<li>Traverse all the "particles" in this calculation domain, and clear the force and torque to zero.</li>
+<li>Perform pre_evaluator, such as gravity.</li>
+<li>Traverse all the "particles" in this computational domain to determine whether its contours touch other computational domains: if so, use MPI to transfer its data to the computational domain, and create a new particle in the target computational domain based on the particle data, as The particle is a proxy in the target computing domain, and the proxy particle can come into contact with other particles. The particles in this computing domain are called "particle agents to be sent", and the particles in the target computing domain are called "received particle agents".</li>
+<li>Receive the "particle agent" data and create an instance of the particle agent:<ul>
+<li>If this calculation domain already contains the id of the particle agent, find the particle pointer through particlem_map, and update the particle instance with the received particle agent data;</li>
+<li>If the id of the particle agent does not exist, create a new "particle_ghost" instance, and update the particle instance with the received particle agent data;</li>
+</ul>
+</li>
+<li>Traverse the "granular agent to be sent" and send its corresponding "contact data" to the target computing domain.</li>
+<li>Receive contact data and create contact instances:<ul>
+<li>Determine the pointer of the particle according to the particle id, and determine the pointer of the contact model according to the contact model id</li>
+<li>Determine whether the contact exists through the contact_pp_list of the particle<ul>
+<li>If it exists, update the contact instance from the received contact data.</li>
+<li>If it does not exist, establish a contact first, and use the received particle agent data to update the particle instance,</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Traverse all contacts and set their updated to false.</li>
+<li>Divide the computational domain into grids, traverse all the "particles" and "received particle agents" in the computational domain, and classify them into each grid. The classification criteria are: If the circumscribed cube of the particle or particle agent contacts a certain grid, then the particle or particle agent is added to the grid.</li>
+<li>Traverse all grids:<ul>
+<li>Traverse the particles and particle agents in this grid to determine whether they are in contact. If touched:<ul>
+<li>Determine whether it was in contact at the previous time step<ul>
+<li>If yes, find the contact instance, update its contact geometric features and contact force, and set the updated of the contact to true</li>
+<li>If not, create a new contact instance, initialize the contact geometric features and calculate the contact force, and set the updated of the contact to true</li>
+</ul>
+</li>
+<li>Apply contact force to particles and boundaries</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Traverse the "received particle agent":<ul>
+<li>Traverse the contact of the particle agent, if the updated state of the contact is true, use MPI to send the contact data back to the original computing domain</li>
+<li>Receive contacts returned from other computing domains and reconstruct contact instances<ul>
+<li>If the contact already exists, use the returned data to update the original contact</li>
+<li>If the contact does not exist, create a new contact and rebuild the particle pointer in the contact<ul>
+<li>If the particle exists in the computational domain, the particle pointer is found through particle_map and particle id.</li>
+<li>If the particle does not exist in the computational domain, create a new "particle illusion" and set the "particle illusion" pointer to the contact.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Apply contact force to particles</li>
+</ul>
+</li>
+<li>Traverse all contacts<ul>
+<li>If its updated status is false, delete the contact;</li>
+</ul>
+</li>
+<li>Traverse all particles
+        - Update its speed, position and other attributes according to Newton's law of motion</li>
+<li>Add the partial_proxy_list to the particle_ghost_list and clear the partial_proxy_list</li>
+<li>According to the updated particle position, traverse each particle to determine whether it exceeds the calculation domain:<ul>
+<li>If so, send its data to the new computational domain of the particle, and move the particle to particle_ghost_list.</li>
+</ul>
+</li>
+<li>Receive the "particle" data and create an instance of the particle:<ul>
+<li>If this calculation domain already contains the id of the particle, find the particle pointer through particlem_map, and update the particle instance with the received particle data;</li>
+<li>If the id of the particle does not exist, create a new particle instance and update the particle instance with the received particle data;</li>
+</ul>
+</li>
+<li>Traverse particle_ghost_list <ul>
+<li>If it is not in contact with any particles or boundaries, delete the "particle phantom"</li>
+</ul>
+</li>
+<li>Perform post_evaluator, such as data output and other functions.</li>
+</ul></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../js/base.js" defer></script>
+        <script src="../../mathjax-config.js" defer></script>
+        <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" defer></script>
+        <script src="../../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
