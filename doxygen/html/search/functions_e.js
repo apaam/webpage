@@ -1,0 +1,27 @@
+var searchData=
+[
+  ['readascii_1283',['ReadASCII',['../class_s_t_l_reader.html#a07c39cdc8ef32ccef6ffdb55ca65f657',1,'STLReader']]],
+  ['readbinary_1284',['ReadBinary',['../class_s_t_l_reader.html#a289fd12bc737562ffaca71d868149681',1,'STLReader']]],
+  ['readfile_1285',['ReadFile',['../class_s_t_l_reader.html#a492744ca0cee16474854e5a5d6e09a3a',1,'STLReader']]],
+  ['recvdataback_1286',['RecvDataBack',['../class_m_p_i_data_manager.html#a934413c56575bb04bf84219871806a2e',1,'MPIDataManager']]],
+  ['recvdataproxy_1287',['RecvDataProxy',['../class_m_p_i_data_manager.html#a534cae5bc5c3d84dc898ff2eb442e7d2',1,'MPIDataManager']]],
+  ['recvdatatransfer_1288',['RecvDataTransfer',['../class_m_p_i_data_manager.html#ac19372a7e97751f48bc2b7af9c322685',1,'MPIDataManager']]],
+  ['recyclecontactpp_1289',['RecycleContactPP',['../class_d_e_m_object_pool.html#ae40461e9c54c282d1c3d1ab4d1d2054e',1,'DEMObjectPool::RecycleContactPP(ContactPP *cnt)'],['../class_d_e_m_object_pool.html#a39098d8f597aa10192a768f8f7fa299a',1,'DEMObjectPool::RecycleContactPP(vector&lt; ContactPP * &gt; *cnt_list)']]],
+  ['recyclecontactpw_1290',['RecycleContactPW',['../class_d_e_m_object_pool.html#aa190b6769b99da9e9636f745e8d9d4c5',1,'DEMObjectPool::RecycleContactPW(ContactPW *cnt)'],['../class_d_e_m_object_pool.html#a1dadcf0d3d188e8e66cc61fa6fe210b6',1,'DEMObjectPool::RecycleContactPW(vector&lt; ContactPW * &gt; *cnt_list)']]],
+  ['recycleparticle_1291',['RecycleParticle',['../class_d_e_m_object_pool.html#a7182e61b215906dc37cea06834ef5a1e',1,'DEMObjectPool::RecycleParticle(Particle *p)'],['../class_d_e_m_object_pool.html#a889b088b2dd2594d5faf302248c38655',1,'DEMObjectPool::RecycleParticle(vector&lt; Particle * &gt; *p_list)'],['../class_d_e_m_object_pool.html#ada9ab23225fff7935c531b7530cd9698',1,'DEMObjectPool::RecycleParticle(vector&lt; vector&lt; Particle * &gt;&gt; *p_list)']]],
+  ['region_1292',['Region',['../class_region.html#a2a0aa9bc22295ed487c6b8a6333832bc',1,'Region']]],
+  ['regress_1293',['Regress',['../classnetdem_1_1mlpack_1_1_general_net.html#a233a2a1961549a014bbe11c3306c0faf',1,'netdem::mlpack::GeneralNet']]],
+  ['removecontactpp_1294',['RemoveContactPP',['../class_d_e_m_solver.html#a77f7b6b1b4c8c3494e3b2a660b6f06dd',1,'DEMSolver']]],
+  ['removecontactpw_1295',['RemoveContactPW',['../class_d_e_m_solver.html#aadad065642bfb711a8cb0a6ac863c8bb',1,'DEMSolver']]],
+  ['removeduplicatevertices_1296',['RemoveDuplicateVertices',['../class_s_t_l_model.html#a6b6c0b524cdc310b9eedd9e3d93489f9',1,'STLModel']]],
+  ['removeevaluator_1297',['RemoveEvaluator',['../class_evaluator_manager.html#a9a51033f0cd65d128c7fb2231188100e',1,'EvaluatorManager']]],
+  ['removeparticle_1298',['RemoveParticle',['../class_m_p_i_data_manager.html#a533939a5c3eea4df39cc2fa2cd2566f6',1,'MPIDataManager::RemoveParticle()'],['../class_scene.html#ad84f92c441e049e7b4ee65338e2bcf14',1,'Scene::RemoveParticle()']]],
+  ['reorientfacets_1299',['ReorientFacets',['../class_s_t_l_model.html#ad4651252c9a1731c54b1e3852bfb9910',1,'STLModel']]],
+  ['resetmodel_1300',['ResetModel',['../classnetdem_1_1mlpack_1_1_general_net.html#a2c5fa32e944a147418d272e0183fa14d',1,'netdem::mlpack::GeneralNet::ResetModel()'],['../classnetdem_1_1mlpack_1_1_regression_net.html#a57fde6390e27dbb457bbdfe365c3e55b',1,'netdem::mlpack::RegressionNet::ResetModel()']]],
+  ['resolvecontactpoint_1301',['ResolveContactPoint',['../class_g_j_k_solver_p_p.html#a2c33dc7113444a689406a7c298b87998',1,'GJKSolverPP::ResolveContactPoint()'],['../class_g_j_k_solver_p_w.html#a36d96214c684dffd6299475eb095ac25',1,'GJKSolverPW::ResolveContactPoint()']]],
+  ['resolvecontactpoint_5fplanecase_1302',['ResolveContactPoint_PlaneCase',['../class_g_j_k_solver_p_p.html#ae49090923ab129e2a712a4b81df32df0',1,'GJKSolverPP::ResolveContactPoint_PlaneCase()'],['../class_g_j_k_solver_p_w.html#a60f8e71df1b49c8ac0caf0af70053f85',1,'GJKSolverPW::ResolveContactPoint_PlaneCase()']]],
+  ['rodriguestoquaternion_1303',['RodriguesToQuaternion',['../math__utils_8hpp.html#a856a07e670d59fa7ac2eaa8aead06004',1,'math_utils.hpp']]],
+  ['rotatebyquaternion_1304',['RotateByQuaternion',['../math__utils_8hpp.html#a8a029358a72c34e00dd21ce299061f4c',1,'math_utils.hpp']]],
+  ['rotatebyrodrigues_1305',['RotateByRodrigues',['../math__utils_8hpp.html#a1ad0fd6a4a9088c625cf86a4bd385a7d',1,'RotateByRodrigues(double val_new[3], double val_old[3], double rot_angle_cos, double rot_angle_sin, double rot_axis[3]):&#160;math_utils.hpp'],['../math__utils_8hpp.html#a12335aa7ea9ecdfa8d406ced3145e71e',1,'RotateByRodrigues(double val_new[3], double val_old[3], double rot_angle, double rot_axis[3]):&#160;math_utils.hpp']]],
+  ['run_1306',['Run',['../class_simulation.html#a358efcc8d6d906b11ef8fce7a2624943',1,'Simulation']]]
+];
