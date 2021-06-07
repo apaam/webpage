@@ -1,9 +1,11 @@
+##
+
 This section presents a brief introduction and review of the discrete
 element method (DEM). The intention is to introduce the main components
 and basic computational workflow of a DEM model, providing necessary
 background information to the research presented in this dissertation.
 
-## Overview
+### Overview
 
 DEM is a particle-based numerical model that is particularly suitable
 for describing the mechanical behavior of bulk granular materials. It
@@ -37,9 +39,9 @@ microscopic behavior of granular materials, which is often difficult or
 impossible to obtain from classical continuum-based numerical models or
 from physical experiments.
 
-## Key components of DEM
+### Key components of DEM
 
-### Basic elements
+#### Basic elements
 
 In general, there are two types of basic elements in a DEM model:
 particles and boundaries. The basic elements are assumed to be rigid but
@@ -56,7 +58,7 @@ not necessarily have closed surfaces. Boundaries do not have mass and
 their position and velocity are usually prescribed to provide the
 desired constraints to the particles in the model.
 
-### Contacts and contact models
+#### Contacts and contact models
 
 Contacts describe the interactions between basic elements. Contact
 occurs when the surfaces of two basic elements overlap with each other
@@ -78,7 +80,7 @@ resistance model [@Jiang.etal:2005], the Hertz-Mindlin model
 bond model [@Potyondy.Cundall:2004]. The formulation of these contact
 models will be presented in .
 
-### Newton-Euler equations of motion
+#### Newton-Euler equations of motion
 
 In DEM, the motion of a particle can be described by the Newton-Euler
 equations of motion. For any arbitrarily-shaped particle, the
@@ -111,7 +113,7 @@ damping, which is usually incorporated into a contact model as dash-pot
 forces to account for the realistic energy dissipation due to particle
 interactions.
 
-### Time integration
+#### Time integration
 
 To fully resolve the particle motion (e.g., the position and velocity)
 governed by and involves the time integration scheme, where the
@@ -155,7 +157,7 @@ discussion on the time integration for non-spherical particles will not
 be included here but can be found in the work of @Chung:2006 and the PFC
 user manual [@PFC:2014].
 
-### Critical timestep
+#### Critical timestep
 
 The time integration based on the second-order Velocity Verlet algorithm
 is numerically stable only when the time increment being used is less
@@ -197,7 +199,7 @@ where $R$ is the average particle radius; $\rho$ is the particle
 density; $G$ the particle shear modulus; and $\nu$ the Poisson's ratio
 of the particle.
 
-### Computational workflow
+#### Computational workflow
 
 DEM-based numerical simulations require cyclic calculations. shows the
 workflow and calculations that are involved in one typical cycle of a
@@ -221,13 +223,13 @@ follows:
 4.  Update the positions and velocities of all particles following the
     selected time integration scheme.
 
-## Particle representation 
+### Particle representation 
 
 There are basically two groups of methods to represent an irregular
 particle in DEM [@Zhong.etal:2016]: single-particle method and
 composite-particle method.
 
-### Single-particle method
+#### Single-particle method
 
 The single-particle method utilizes closed geometries to represent
 particle shapes. Many single-particle-based DEM models have been
@@ -265,7 +267,7 @@ tomography and is computationally efficient. One issue with the LS-DEM
 is high memory consumption, which somewhat limits its application on
 large particulate systems.
 
-### Composite-particle method
+#### Composite-particle method
 
 In a composite-particle method, a particle is represented by
 compositions of simple geometries (usually spheres in 3D or circles in
@@ -299,7 +301,7 @@ surface roughness.
 
 A schematic illustration of the three options to represent a composite particle with discs (modified after [@Shi.etal:2015])
 
-## Contact models 
+### Contact models 
 
 A DEM contact model is normally comprised of springs, dash-pots, and
 sliders to describe the force-displacement behavior at the contact,
@@ -308,7 +310,7 @@ dash-pots account for local damping, and the sliders account for shear
 failure. The formulation of contact models that will be used in this
 dissertation is presented in this section.
 
-### Linear elastic model
+#### Linear elastic model
 
 A linear elastic model generally consists of two elastic springs, two
 dash-pots, and a slider, as shown schematically in the following.
@@ -344,7 +346,7 @@ coefficient; and $\bar{m} = m_im_j/(m_i+m_j)$ is the effective mass of
 particles $i$ and $j$ associated with the contact, while $\bar{m} = m_i$
 for the case of particle-boundary contact.
 
-### Rolling resistance model
+#### Rolling resistance model
 
 The rolling resistance model is built upon the linear elastic model by
 adding a term of rolling resistance moment to the contact moment. The
@@ -371,7 +373,7 @@ incorporated in the rolling stiffness term. The interested reader is
 referred to [@Luding:2008; @Wang.etal:2015] for examples of improved and
 more advanced rolling resistance models.
 
-### Hertz-Mindlin model
+#### Hertz-Mindlin model
 
 The Hertz-Mindlin model is a complete frictional contact model based
 upon the Hertz theory [@Hertz:1882] for contact normal forces and the
@@ -413,7 +415,7 @@ where $\bar{E}$ and $\bar{G}$ are the effective Young's modulus and
 shear modulus of the particles in contact; $E_i$ is the Young's modulus
 and $\nu_i$ is the Poisson's ratio of the $i$th particle.
 
-### Linear parallel bond model
+#### Linear parallel bond model
 
 The linear parallel bond model describes the contact behavior of two
 bonded particles, as shown schematically in the following.
@@ -463,7 +465,7 @@ $$\begin{aligned}
 where $\sigma_{Y,n}^b$ and $\sigma_{Y,s}^b$ are the normal and shear
 strength, respectively.
 
-## Model calibration
+### Model calibration
 
 As most of the contact parameters in a DEM model are difficult if not
 impossible to be measured directly from physical tests, a calibration

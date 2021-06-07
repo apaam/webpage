@@ -1,4 +1,6 @@
-## General framework
+### Code design
+
+#### General framework
 
 The program currently contains 7 modules:
 
@@ -16,7 +18,7 @@ The program currently contains 7 modules:
 - solver: Discrete element solver
 - utils: other tool functions
 
-## Basic elements
+#### Basic elements
 
 - Particles:
     - Particles have variables or attributes such as shape, position, speed, and force
@@ -33,7 +35,7 @@ The program currently contains 7 modules:
     - with contact geometric characteristics, contact force and other attributes
     - The contact model describes the relationship between contact force and contact geometric characteristics
 
-## Calculation procedures
+#### Calculation procedures
 
 The basic calculation process of discrete element (DEMSolver calculation process):
 

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['layername_1736',['LayerName',['../namespacenetdem_1_1mlpack.html#a38adcd485085d3a2b3da9c66aa82d3c8',1,'netdem::mlpack']]]
+  ['modeltype_1728',['ModelType',['../class_contact_model_factory.html#ac636dd6e540914576a5f5f4b95293ed3',1,'ContactModelFactory']]]
 ];

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>NetDEM: src/solver/cell_manager.hpp Source File</title>
+<title>NetDEM: src/domain/cell_manager.hpp Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -61,7 +61,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_041db6ad6a3d44280e40e5af409429cb.html">solver</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_59e154daa71ab644ff60a4d6c4d01bbf.html">domain</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -71,43 +71,40 @@ $(function() {
 <div class="contents">
 <a href="cell__manager_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160; </div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="domain_8hpp.html">domain/domain.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="particle_8hpp.html">scene/particle.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="wall_8hpp.html">scene/wall.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="cell_8hpp.html">solver/cell.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">using namespace </span>std;</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
-<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="class_cell_manager.html">   10</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_cell_manager.html">CellManager</a> {</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="class_cell_manager.html#abf41ffed96b65c805ad83261f8cc7be3">   12</a></span>&#160;  <a class="code" href="class_domain.html">Domain</a> *domain{<span class="keyword">nullptr</span>};</div>
-<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="class_cell_manager.html#a22f88da4c58ba810dd1792cfb0adc667">   13</a></span>&#160;  <span class="keywordtype">double</span> spacing[3]{1.0, 1.0, 1.0};</div>
-<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="class_cell_manager.html#a8bcdbf6974c9f5b34cff4aa9ca6cef01">   14</a></span>&#160;  <span class="keywordtype">int</span> cell_size[3];</div>
-<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="class_cell_manager.html#aef3da89e5c68d89c5f738e5bfdd70ffa">   15</a></span>&#160;  vector&lt;vector&lt;vector&lt;Cell&gt;&gt;&gt; <a class="code" href="class_cell_manager.html#aef3da89e5c68d89c5f738e5bfdd70ffa">cell_list</a>;</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;  <a class="code" href="class_cell_manager.html">CellManager</a>();</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;  <a class="code" href="class_cell_manager.html">CellManager</a>(<a class="code" href="class_domain.html">Domain</a> *d);</div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="cell_8hpp.html">domain/cell.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
+<div class="line"><a name="l00006"></a><span class="lineno"><a class="line" href="class_cell_manager.html">    6</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_cell_manager.html">CellManager</a> {</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00008"></a><span class="lineno"><a class="line" href="class_cell_manager.html#a1cdbd6ad2a54656ad489007527c2227d">    8</a></span>&#160;  <span class="keywordtype">double</span> <a class="code" href="class_cell_manager.html#a1cdbd6ad2a54656ad489007527c2227d">bound_min</a>[3]{-0.5, -0.5, -0.5};</div>
+<div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="class_cell_manager.html#a9bb8aad748d7e6d6e09375ebe491fac8">    9</a></span>&#160;  <span class="keywordtype">double</span> <a class="code" href="class_cell_manager.html#a9bb8aad748d7e6d6e09375ebe491fac8">bound_max</a>[3]{0.5, 0.5, 0.5};</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
+<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="class_cell_manager.html#a22f88da4c58ba810dd1792cfb0adc667">   11</a></span>&#160;  <span class="keywordtype">double</span> <a class="code" href="class_cell_manager.html#a22f88da4c58ba810dd1792cfb0adc667">spacing</a>[3]{1.0, 1.0, 1.0};</div>
+<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="class_cell_manager.html#a8bcdbf6974c9f5b34cff4aa9ca6cef01">   12</a></span>&#160;  <span class="keywordtype">int</span> <a class="code" href="class_cell_manager.html#a8bcdbf6974c9f5b34cff4aa9ca6cef01">cell_size</a>[3];</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
+<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="class_cell_manager.html#afa6afca087df0b5a41393c8ed1c1b0cc">   14</a></span>&#160;  std::vector&lt;std::vector&lt;std::vector&lt;Cell&gt;&gt;&gt; <a class="code" href="class_cell_manager.html#afa6afca087df0b5a41393c8ed1c1b0cc">cell_list</a>;</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;  <a class="code" href="class_cell_manager.html#a31c805f31cd40d475b00edbf16edaec7">CellManager</a>();</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="class_cell_manager.html#a322029ae251495c11776b5c7555b45f7">SetBound</a>(<span class="keyword">const</span> <span class="keywordtype">double</span> <a class="code" href="class_cell_manager.html#a1cdbd6ad2a54656ad489007527c2227d">bound_min</a>[3], <span class="keyword">const</span> <span class="keywordtype">double</span> <a class="code" href="class_cell_manager.html#a9bb8aad748d7e6d6e09375ebe491fac8">bound_max</a>[3]);</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;  <span class="keywordtype">void</span> SetDomain(<a class="code" href="class_domain.html">Domain</a> *d);</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;  <span class="keywordtype">void</span> SetSpacing(<span class="keywordtype">double</span> s[3]);</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;  <span class="keywordtype">void</span> SetSpacing(<span class="keywordtype">double</span> s_x, <span class="keywordtype">double</span> s_y, <span class="keywordtype">double</span> s_z);</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;  <span class="keywordtype">void</span> Clear();</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;  <span class="keywordtype">void</span> ClearCell();</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="class_cell_manager.html#a1cdbd6ad2a54656ad489007527c2227d">   28</a></span>&#160;  <span class="keywordtype">double</span> bound_min[3]{-0.5, -0.5, -0.5};</div>
-<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="class_cell_manager.html#a9bb8aad748d7e6d6e09375ebe491fac8">   29</a></span>&#160;  <span class="keywordtype">double</span> bound_max[3]{0.5, 0.5, 0.5};</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;  <span class="keywordtype">void</span> Init();</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;};</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="class_cell_manager.html#a0d10b1e104eef184ca02796d46bfcfb1">SetSpacing</a>(<span class="keyword">const</span> <span class="keywordtype">double</span> s[3]);</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="class_cell_manager.html#a0d10b1e104eef184ca02796d46bfcfb1">SetSpacing</a>(<span class="keywordtype">double</span> s_x, <span class="keywordtype">double</span> s_y, <span class="keywordtype">double</span> s_z);</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="class_cell_manager.html#a6a3812db962d019d0cdc7194061a1363">Init</a>();</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;};</div>
 <div class="ttc" id="acell_8hpp_html"><div class="ttname"><a href="cell_8hpp.html">cell.hpp</a></div></div>
-<div class="ttc" id="aclass_cell_manager_html"><div class="ttname"><a href="class_cell_manager.html">CellManager</a></div><div class="ttdef"><b>Definition:</b> cell_manager.hpp:10</div></div>
-<div class="ttc" id="aclass_cell_manager_html_aef3da89e5c68d89c5f738e5bfdd70ffa"><div class="ttname"><a href="class_cell_manager.html#aef3da89e5c68d89c5f738e5bfdd70ffa">CellManager::cell_list</a></div><div class="ttdeci">vector&lt; vector&lt; vector&lt; Cell &gt; &gt; &gt; cell_list</div><div class="ttdef"><b>Definition:</b> cell_manager.hpp:15</div></div>
-<div class="ttc" id="aclass_domain_html"><div class="ttname"><a href="class_domain.html">Domain</a></div><div class="ttdef"><b>Definition:</b> domain.hpp:26</div></div>
-<div class="ttc" id="adomain_8hpp_html"><div class="ttname"><a href="domain_8hpp.html">domain.hpp</a></div></div>
-<div class="ttc" id="aparticle_8hpp_html"><div class="ttname"><a href="particle_8hpp.html">particle.hpp</a></div></div>
-<div class="ttc" id="awall_8hpp_html"><div class="ttname"><a href="wall_8hpp.html">wall.hpp</a></div></div>
+<div class="ttc" id="aclass_cell_manager_html"><div class="ttname"><a href="class_cell_manager.html">CellManager</a></div><div class="ttdef"><b>Definition:</b> cell_manager.hpp:6</div></div>
+<div class="ttc" id="aclass_cell_manager_html_a0d10b1e104eef184ca02796d46bfcfb1"><div class="ttname"><a href="class_cell_manager.html#a0d10b1e104eef184ca02796d46bfcfb1">CellManager::SetSpacing</a></div><div class="ttdeci">void SetSpacing(const double s[3])</div><div class="ttdef"><b>Definition:</b> cell_manager.cpp:23</div></div>
+<div class="ttc" id="aclass_cell_manager_html_a1cdbd6ad2a54656ad489007527c2227d"><div class="ttname"><a href="class_cell_manager.html#a1cdbd6ad2a54656ad489007527c2227d">CellManager::bound_min</a></div><div class="ttdeci">double bound_min[3]</div><div class="ttdef"><b>Definition:</b> cell_manager.hpp:8</div></div>
+<div class="ttc" id="aclass_cell_manager_html_a22f88da4c58ba810dd1792cfb0adc667"><div class="ttname"><a href="class_cell_manager.html#a22f88da4c58ba810dd1792cfb0adc667">CellManager::spacing</a></div><div class="ttdeci">double spacing[3]</div><div class="ttdef"><b>Definition:</b> cell_manager.hpp:11</div></div>
+<div class="ttc" id="aclass_cell_manager_html_a31c805f31cd40d475b00edbf16edaec7"><div class="ttname"><a href="class_cell_manager.html#a31c805f31cd40d475b00edbf16edaec7">CellManager::CellManager</a></div><div class="ttdeci">CellManager()</div><div class="ttdef"><b>Definition:</b> cell_manager.cpp:8</div></div>
+<div class="ttc" id="aclass_cell_manager_html_a322029ae251495c11776b5c7555b45f7"><div class="ttname"><a href="class_cell_manager.html#a322029ae251495c11776b5c7555b45f7">CellManager::SetBound</a></div><div class="ttdeci">void SetBound(const double bound_min[3], const double bound_max[3])</div><div class="ttdef"><b>Definition:</b> cell_manager.cpp:10</div></div>
+<div class="ttc" id="aclass_cell_manager_html_a6a3812db962d019d0cdc7194061a1363"><div class="ttname"><a href="class_cell_manager.html#a6a3812db962d019d0cdc7194061a1363">CellManager::Init</a></div><div class="ttdeci">void Init()</div><div class="ttdef"><b>Definition:</b> cell_manager.cpp:39</div></div>
+<div class="ttc" id="aclass_cell_manager_html_a8bcdbf6974c9f5b34cff4aa9ca6cef01"><div class="ttname"><a href="class_cell_manager.html#a8bcdbf6974c9f5b34cff4aa9ca6cef01">CellManager::cell_size</a></div><div class="ttdeci">int cell_size[3]</div><div class="ttdef"><b>Definition:</b> cell_manager.hpp:12</div></div>
+<div class="ttc" id="aclass_cell_manager_html_a9bb8aad748d7e6d6e09375ebe491fac8"><div class="ttname"><a href="class_cell_manager.html#a9bb8aad748d7e6d6e09375ebe491fac8">CellManager::bound_max</a></div><div class="ttdeci">double bound_max[3]</div><div class="ttdef"><b>Definition:</b> cell_manager.hpp:9</div></div>
+<div class="ttc" id="aclass_cell_manager_html_afa6afca087df0b5a41393c8ed1c1b0cc"><div class="ttname"><a href="class_cell_manager.html#afa6afca087df0b5a41393c8ed1c1b0cc">CellManager::cell_list</a></div><div class="ttdeci">std::vector&lt; std::vector&lt; std::vector&lt; Cell &gt; &gt; &gt; cell_list</div><div class="ttdef"><b>Definition:</b> cell_manager.hpp:14</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
