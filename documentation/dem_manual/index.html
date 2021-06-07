@@ -8,7 +8,7 @@
         
         
         <link rel="shortcut icon" href="../../img/favicon.ico">
-        <title>DEM basics - NetDEM</title>
+        <title>DEM manual - NetDEM</title>
         <link href="../../css/bootstrap.min.css" rel="stylesheet">
         <link href="../../css/font-awesome.min.css" rel="stylesheet">
         <link href="../../css/base.css" rel="stylesheet">
@@ -21,7 +21,7 @@
     </head>
 
     <body>
-        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+        <div class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
             <div class="container">
                 <a class="navbar-brand" href="../..">NetDEM</a>
                 <!-- Expander button -->
@@ -43,6 +43,26 @@
 <li>
     <a href="../../examples/random_packing/" class="dropdown-item">Random packing</a>
 </li>
+                                    
+<li>
+    <a href="../../examples/triaxial_compression/" class="dropdown-item">Triaxial compression</a>
+</li>
+                                    
+<li>
+    <a href="../../examples/direct_shear/" class="dropdown-item">Direct shear</a>
+</li>
+                                    
+<li>
+    <a href="../../examples/angle_of_repose/" class="dropdown-item">Angle of repose</a>
+</li>
+                                    
+<li>
+    <a href="../../examples/works_based_on_netdem/" class="dropdown-item">Works based on NetDEM</a>
+</li>
+                                    
+<li>
+    <a href="../../examples/gallery/" class="dropdown-item">Gallery</a>
+</li>
                                 </ul>
                             </li>
                             <li class="dropdown active">
@@ -58,25 +78,20 @@
 </li>
                                     
 <li>
-    <a href="./" class="dropdown-item active">DEM basics</a>
+    <a href="../developer_manual/" class="dropdown-item">Developer manual</a>
 </li>
                                     
 <li>
-    <a href="../mpi_algorithm/" class="dropdown-item">MPI algorithm</a>
+    <a href="../code_manual/" class="dropdown-item">Code manual</a>
 </li>
                                     
 <li>
-    <a href="../code_framework/" class="dropdown-item">Code framework</a>
-</li>
-                                    
-<li>
-    <a href="../coding_styles/" class="dropdown-item">Coding styles</a>
-</li>
-                                    
-<li>
-    <a href="../../doxygen/html/" class="dropdown-item">Code doxygen</a>
+    <a href="./" class="dropdown-item active">DEM manual</a>
 </li>
                                 </ul>
+                            </li>
+                            <li class="navitem">
+                                <a href="../../doxygen/html/" class="nav-link">Code Doxygen</a>
                             </li>
                             <li class="dropdown">
                                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">About <b class="caret"></b></a>
@@ -91,11 +106,11 @@
 </li>
                                     
 <li>
-    <a href="../../about/how_to_cite/" class="dropdown-item">How to cite</a>
+    <a href="../../about/acknowledgement/" class="dropdown-item">Acknowledgement</a>
 </li>
                                     
 <li>
-    <a href="../../about/acknowledgement/" class="dropdown-item">Acknowledgement</a>
+    <a href="../../about/developer_team/" class="dropdown-item">Developer team</a>
 </li>
                                 </ul>
                             </li>
@@ -108,12 +123,12 @@
                             </a>
                         </li>
                             <li class="nav-item">
-                                <a rel="prev" href="../usage/" class="nav-link">
+                                <a rel="prev" href="../code_manual/" class="nav-link">
                                     <i class="fa fa-arrow-left"></i> Previous
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a rel="next" href="../mpi_algorithm/" class="nav-link">
+                                <a rel="next" href="../../doxygen/html/" class="nav-link">
                                     Next <i class="fa fa-arrow-right"></i>
                                 </a>
                             </li>
@@ -135,28 +150,76 @@
     <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
         <ul class="nav flex-column">
             
-            <li class="nav-item" data-level="2"><a href="#overview" class="nav-link">Overview</a>
+            <li class="nav-item" data-level="2"><a href="#_1" class="nav-link"></a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="3"><a href="#overview" class="nav-link">Overview</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            
-            <li class="nav-item" data-level="2"><a href="#key-components-of-dem" class="nav-link">Key components of DEM</a>
+            <li class="nav-item" data-level="3"><a href="#key-components-of-dem" class="nav-link">Key components of DEM</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="4"><a href="#basic-elements" class="nav-link">Basic elements</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            
-            <li class="nav-item" data-level="2"><a href="#particle-representation" class="nav-link">Particle representation</a>
+            <li class="nav-item" data-level="4"><a href="#contacts-and-contact-models" class="nav-link">Contacts and contact models</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            
-            <li class="nav-item" data-level="2"><a href="#contact-models" class="nav-link">Contact models</a>
+            <li class="nav-item" data-level="4"><a href="#newton-euler-equations-of-motion" class="nav-link">Newton-Euler equations of motion</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            
-            <li class="nav-item" data-level="2"><a href="#model-calibration" class="nav-link">Model calibration</a>
+            <li class="nav-item" data-level="4"><a href="#time-integration" class="nav-link">Time integration</a>
               <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="4"><a href="#critical-timestep" class="nav-link">Critical timestep</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="4"><a href="#computational-workflow" class="nav-link">Computational workflow</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+            <li class="nav-item" data-level="3"><a href="#particle-representation" class="nav-link">Particle representation</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="4"><a href="#single-particle-method" class="nav-link">Single-particle method</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="4"><a href="#composite-particle-method" class="nav-link">Composite-particle method</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+            <li class="nav-item" data-level="3"><a href="#contact-models" class="nav-link">Contact models</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="4"><a href="#linear-elastic-model" class="nav-link">Linear elastic model</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="4"><a href="#rolling-resistance-model" class="nav-link">Rolling resistance model</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="4"><a href="#hertz-mindlin-model" class="nav-link">Hertz-Mindlin model</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="4"><a href="#linear-parallel-bond-model" class="nav-link">Linear parallel bond model</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+            <li class="nav-item" data-level="3"><a href="#model-calibration" class="nav-link">Model calibration</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
               </ul>
             </li>
         </ul>
@@ -164,11 +227,12 @@
 </div></div>
                     <div class="col-md-9" role="main">
 
+<h2 id="_1"></h2>
 <p>This section presents a brief introduction and review of the discrete
 element method (DEM). The intention is to introduce the main components
 and basic computational workflow of a DEM model, providing necessary
 background information to the research presented in this dissertation.</p>
-<h2 id="overview">Overview</h2>
+<h3 id="overview">Overview</h3>
 <p>DEM is a particle-based numerical model that is particularly suitable
 for describing the mechanical behavior of bulk granular materials. It
 was first proposed by @Cundall.Strack:1979 for the analysis of
@@ -199,8 +263,8 @@ that can provide valuable information of and shed lights upon the
 microscopic behavior of granular materials, which is often difficult or
 impossible to obtain from classical continuum-based numerical models or
 from physical experiments.</p>
-<h2 id="key-components-of-dem">Key components of DEM</h2>
-<h3 id="basic-elements">Basic elements</h3>
+<h3 id="key-components-of-dem">Key components of DEM</h3>
+<h4 id="basic-elements">Basic elements</h4>
 <p>In general, there are two types of basic elements in a DEM model:
 particles and boundaries. The basic elements are assumed to be rigid but
 can have overlaps with each other. A particle is a body that has a
@@ -215,7 +279,7 @@ simple geometries (e.g., triangles) or their combinations, but they do
 not necessarily have closed surfaces. Boundaries do not have mass and
 their position and velocity are usually prescribed to provide the
 desired constraints to the particles in the model.</p>
-<h3 id="contacts-and-contact-models">Contacts and contact models</h3>
+<h4 id="contacts-and-contact-models">Contacts and contact models</h4>
 <p>Contacts describe the interactions between basic elements. Contact
 occurs when the surfaces of two basic elements overlap with each other
 (to model collisions), or when the surfaces are within a specified
@@ -234,7 +298,7 @@ resistance model [@Jiang.etal:2005], the Hertz-Mindlin model
 [@Hertz:1882; @Mindlin:1953; @Renzo.Maio:2005], and the linear parallel
 bond model [@Potyondy.Cundall:2004]. The formulation of these contact
 models will be presented in .</p>
-<h3 id="newton-euler-equations-of-motion">Newton-Euler equations of motion</h3>
+<h4 id="newton-euler-equations-of-motion">Newton-Euler equations of motion</h4>
 <p>In DEM, the motion of a particle can be described by the Newton-Euler
 equations of motion. For any arbitrarily-shaped particle, the
 Newton-Euler equations of motion are written as</p>
@@ -271,7 +335,7 @@ facilitate energy dissipation and enhance a quasi-static simulation
 damping, which is usually incorporated into a contact model as dash-pot
 forces to account for the realistic energy dissipation due to particle
 interactions.</p>
-<h3 id="time-integration">Time integration</h3>
+<h4 id="time-integration">Time integration</h4>
 <p>To fully resolve the particle motion (e.g., the position and velocity)
 governed by and involves the time integration scheme, where the
 second-order Velocity Verlet algorithm [@Verlet:1967] is commonly
@@ -328,7 +392,7 @@ angular velocity will be much more complicated. A more detailed
 discussion on the time integration for non-spherical particles will not
 be included here but can be found in the work of @Chung:2006 and the PFC
 user manual [@PFC:2014].</p>
-<h3 id="critical-timestep">Critical timestep</h3>
+<h4 id="critical-timestep">Critical timestep</h4>
 <p>The time integration based on the second-order Velocity Verlet algorithm
 is numerically stable only when the time increment being used is less
 than a threshold value, i.e. the critical timestep [@Otsubo.etal:2017].
@@ -369,7 +433,7 @@ the index of principal components.</p>
 <p>where <span><span class="MathJax_Preview">R</span><script type="math/tex">R</script></span> is the average particle radius; <span><span class="MathJax_Preview">\rho</span><script type="math/tex">\rho</script></span> is the particle
 density; <span><span class="MathJax_Preview">G</span><script type="math/tex">G</script></span> the particle shear modulus; and <span><span class="MathJax_Preview">\nu</span><script type="math/tex">\nu</script></span> the Poisson's ratio
 of the particle.</p>
-<h3 id="computational-workflow">Computational workflow</h3>
+<h4 id="computational-workflow">Computational workflow</h4>
 <p>DEM-based numerical simulations require cyclic calculations. shows the
 workflow and calculations that are involved in one typical cycle of a
 DEM simulation.</p>
@@ -395,11 +459,11 @@ follows:</p>
     selected time integration scheme.</p>
 </li>
 </ol>
-<h2 id="particle-representation">Particle representation</h2>
+<h3 id="particle-representation">Particle representation</h3>
 <p>There are basically two groups of methods to represent an irregular
 particle in DEM [@Zhong.etal:2016]: single-particle method and
 composite-particle method.</p>
-<h3 id="single-particle-method">Single-particle method</h3>
+<h4 id="single-particle-method">Single-particle method</h4>
 <p>The single-particle method utilizes closed geometries to represent
 particle shapes. Many single-particle-based DEM models have been
 proposed and developed with the adoption of some specific closed
@@ -433,7 +497,7 @@ of realistic particle shapes characterized from X-ray computational
 tomography and is computationally efficient. One issue with the LS-DEM
 is high memory consumption, which somewhat limits its application on
 large particulate systems.</p>
-<h3 id="composite-particle-method">Composite-particle method</h3>
+<h4 id="composite-particle-method">Composite-particle method</h4>
 <p>In a composite-particle method, a particle is represented by
 compositions of simple geometries (usually spheres in 3D or circles in
 2D [@Das:2007; @Shi.etal:2015]). This group of methods is advantageous
@@ -462,14 +526,14 @@ surface roughness.</p>
 <img alt="boundary_fiiling" src="../../img/boundary_fiiling.png" style="width:32%" title="Boundary filling" />
 <img alt="non_overlapping_filling" src="../../img/non_overlapping_filling.png" style="width:32%" title="Domain non-overlapping filling" /></p>
 <p>A schematic illustration of the three options to represent a composite particle with discs (modified after [@Shi.etal:2015])</p>
-<h2 id="contact-models">Contact models</h2>
+<h3 id="contact-models">Contact models</h3>
 <p>A DEM contact model is normally comprised of springs, dash-pots, and
 sliders to describe the force-displacement behavior at the contact,
 where the springs account for normal and tangential forces, the
 dash-pots account for local damping, and the sliders account for shear
 failure. The formulation of contact models that will be used in this
 dissertation is presented in this section.</p>
-<h3 id="linear-elastic-model">Linear elastic model</h3>
+<h4 id="linear-elastic-model">Linear elastic model</h4>
 <p>A linear elastic model generally consists of two elastic springs, two
 dash-pots, and a slider, as shown schematically in the following.</p>
 <p><img alt="rheological_contact_model" src="../../img/rheological_contact_model.png" style="width:60%" title="Schematic diagram of linear elastic model (adopted from [@Chung:2006])." /></p>
@@ -507,7 +571,7 @@ relative normal and shear velocity; <span><span class="MathJax_Preview">\mu_c</s
 coefficient; and <span><span class="MathJax_Preview">\bar{m} = m_im_j/(m_i+m_j)</span><script type="math/tex">\bar{m} = m_im_j/(m_i+m_j)</script></span> is the effective mass of
 particles <span><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span> and <span><span class="MathJax_Preview">j</span><script type="math/tex">j</script></span> associated with the contact, while <span><span class="MathJax_Preview">\bar{m} = m_i</span><script type="math/tex">\bar{m} = m_i</script></span>
 for the case of particle-boundary contact.</p>
-<h3 id="rolling-resistance-model">Rolling resistance model</h3>
+<h4 id="rolling-resistance-model">Rolling resistance model</h4>
 <p>The rolling resistance model is built upon the linear elastic model by
 adding a term of rolling resistance moment to the contact moment. The
 formulation to calculate the additional rolling resistance moment can be
@@ -533,7 +597,7 @@ the particle size effects on the rolling resistance are implicitly
 incorporated in the rolling stiffness term. The interested reader is
 referred to [@Luding:2008; @Wang.etal:2015] for examples of improved and
 more advanced rolling resistance models.</p>
-<h3 id="hertz-mindlin-model">Hertz-Mindlin model</h3>
+<h4 id="hertz-mindlin-model">Hertz-Mindlin model</h4>
 <p>The Hertz-Mindlin model is a complete frictional contact model based
 upon the Hertz theory [@Hertz:1882] for contact normal forces and the
 Mindlin theory [@Mindlin:1953] for contact tangential forces. It takes
@@ -585,7 +649,7 @@ distance. To update the contact forces, the Hertz-Mindlin model follows</p>
 <p>where <span><span class="MathJax_Preview">\bar{E}</span><script type="math/tex">\bar{E}</script></span> and <span><span class="MathJax_Preview">\bar{G}</span><script type="math/tex">\bar{G}</script></span> are the effective Young's modulus and
 shear modulus of the particles in contact; <span><span class="MathJax_Preview">E_i</span><script type="math/tex">E_i</script></span> is the Young's modulus
 and <span><span class="MathJax_Preview">\nu_i</span><script type="math/tex">\nu_i</script></span> is the Poisson's ratio of the <span><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span>th particle.</p>
-<h3 id="linear-parallel-bond-model">Linear parallel bond model</h3>
+<h4 id="linear-parallel-bond-model">Linear parallel bond model</h4>
 <p>The linear parallel bond model describes the contact behavior of two
 bonded particles, as shown schematically in the following.</p>
 <p><img alt="bpm_reological_model" src="../../img/bpm_rheological_model.png" style="width:60%" title="Sketch of bonded particles and rheological components of the bond behavior." /></p>
@@ -640,7 +704,7 @@ breakage criterion can be written as</p>
 </div>
 <p>where <span><span class="MathJax_Preview">\sigma_{Y,n}^b</span><script type="math/tex">\sigma_{Y,n}^b</script></span> and <span><span class="MathJax_Preview">\sigma_{Y,s}^b</span><script type="math/tex">\sigma_{Y,s}^b</script></span> are the normal and shear
 strength, respectively.</p>
-<h2 id="model-calibration">Model calibration</h2>
+<h3 id="model-calibration">Model calibration</h3>
 <p>As most of the contact parameters in a DEM model are difficult if not
 impossible to be measured directly from physical tests, a calibration
 process is often needed to obtain the contact parameters for a specific

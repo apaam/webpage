@@ -72,34 +72,41 @@ $(function() {
 <a href="shape__sphere_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160; </div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="shape_8hpp.html">scene/shape.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="math__utils_8hpp.html">utils/math_utils.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="keyword">using namespace </span>std;</div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
-<div class="line"><a name="l00008"></a><span class="lineno"><a class="line" href="class_sphere.html">    8</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_sphere.html">Sphere</a> : <span class="keyword">public</span> <a class="code" href="class_shape.html">Shape</a> {</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;  <a class="code" href="class_sphere.html">Sphere</a>();</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;  <a class="code" href="class_sphere.html">Sphere</a>(<span class="keywordtype">double</span> d);</div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
+<div class="line"><a name="l00006"></a><span class="lineno"><a class="line" href="class_sphere.html">    6</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_sphere.html">Sphere</a> : <span class="keyword">public</span> <a class="code" href="class_shape.html">Shape</a> {</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;  <a class="code" href="class_sphere.html#a890a63ff583cb88e7ec4e840b4ef5eb9">Sphere</a>();</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;  <a class="code" href="class_sphere.html#a890a63ff583cb88e7ec4e840b4ef5eb9">Sphere</a>(<span class="keywordtype">double</span> d);</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;  <a class="code" href="class_sphere.html">Sphere</a> *<a class="code" href="class_sphere.html#a26aae18fe197abd7faa1ecec5541facd">Clone</a>();</div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;  vector&lt;double&gt; PackParams();</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;  <span class="keywordtype">void</span> UnPackParams(vector&lt;double&gt; params);</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;  <a class="code" href="data__dumper_8cpp.html#ab701e3ac61a85b337ec5c1abaad6742d">nlohmann::json</a> <a class="code" href="class_sphere.html#a5ffaf668080fc25bd10ae74fed779d40">PackJson</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="class_sphere.html#a2437a729411b7e34564595b3a0e5494e">InitFromJson</a>(<span class="keyword">const</span> <a class="code" href="data__dumper_8cpp.html#ab701e3ac61a85b337ec5c1abaad6742d">nlohmann::json</a> &amp;js) <span class="keyword">override</span>;</div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;  <a class="code" href="class_sphere.html">Sphere</a> *Clone();</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="class_sphere.html#a116ffc75fe9bed14457bae5bef3f8b5a">SetSize</a>(<span class="keywordtype">double</span> d);</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;  <span class="keywordtype">void</span> SetSize(<span class="keywordtype">double</span> d);</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;  <a class="code" href="class_s_t_l_model.html">STLModel</a> <a class="code" href="class_sphere.html#a72a0025961d8b3e4df20e4efac50341c">GetSTLModel</a>(<span class="keywordtype">int</span> res = 10) <span class="keyword">override</span>;</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;  <a class="code" href="class_s_t_l_model.html">STLModel</a> GetSTLModel(<span class="keywordtype">int</span> res = 10) <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;  <span class="keywordtype">void</span> Support(<span class="keywordtype">double</span> pos[3], <span class="keywordtype">double</span> dir[3]) <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;  <span class="keywordtype">void</span> Support(vector&lt;<a class="code" href="cork__wrapper_8hpp.html#acb3e8a3146c29d5500df3f5ebd6e1795">vec3&lt;double&gt;</a>&gt; &amp;pos_list, <span class="keywordtype">double</span> dir[3]) <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;  <span class="keywordtype">void</span> Print() <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;};</div>
-<div class="ttc" id="aclass_s_t_l_model_html"><div class="ttname"><a href="class_s_t_l_model.html">STLModel</a></div><div class="ttdef"><b>Definition:</b> stl_model.hpp:15</div></div>
-<div class="ttc" id="aclass_shape_html"><div class="ttname"><a href="class_shape.html">Shape</a></div><div class="ttdef"><b>Definition:</b> shape.hpp:24</div></div>
-<div class="ttc" id="aclass_sphere_html"><div class="ttname"><a href="class_sphere.html">Sphere</a></div><div class="ttdef"><b>Definition:</b> shape_sphere.hpp:8</div></div>
-<div class="ttc" id="acork__wrapper_8hpp_html_acb3e8a3146c29d5500df3f5ebd6e1795"><div class="ttname"><a href="cork__wrapper_8hpp.html#acb3e8a3146c29d5500df3f5ebd6e1795">vec3</a></div><div class="ttdeci">std::array&lt; T, 3 &gt; vec3</div><div class="ttdef"><b>Definition:</b> cork_wrapper.hpp:6</div></div>
-<div class="ttc" id="amath__utils_8hpp_html"><div class="ttname"><a href="math__utils_8hpp.html">math_utils.hpp</a></div></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="class_sphere.html#af40a47622160e532843162263cb7b54c">Support</a>(<span class="keywordtype">double</span> pos[3], <span class="keyword">const</span> <span class="keywordtype">double</span> dir[3]) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="class_sphere.html#a46b0abf386dce46c3b52d3b436d13a59">   21</a></span>&#160;  <span class="keywordtype">void</span> <a class="code" href="class_sphere.html#a46b0abf386dce46c3b52d3b436d13a59">Support</a>(std::vector&lt;std::array&lt;double, 3&gt;&gt; *<span class="keyword">const</span> pos_list,</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;               <span class="keyword">const</span> <span class="keywordtype">double</span> dir[3]) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="class_sphere.html#aed495d66be0eaa292026589a1f7ae664">Print</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;};</div>
+<div class="ttc" id="aclass_s_t_l_model_html"><div class="ttname"><a href="class_s_t_l_model.html">STLModel</a></div><div class="ttdef"><b>Definition:</b> stl_model.hpp:7</div></div>
+<div class="ttc" id="aclass_shape_html"><div class="ttname"><a href="class_shape.html">Shape</a></div><div class="ttdef"><b>Definition:</b> shape.hpp:22</div></div>
+<div class="ttc" id="aclass_sphere_html"><div class="ttname"><a href="class_sphere.html">Sphere</a></div><div class="ttdef"><b>Definition:</b> shape_sphere.hpp:6</div></div>
+<div class="ttc" id="aclass_sphere_html_a116ffc75fe9bed14457bae5bef3f8b5a"><div class="ttname"><a href="class_sphere.html#a116ffc75fe9bed14457bae5bef3f8b5a">Sphere::SetSize</a></div><div class="ttdeci">void SetSize(double d)</div><div class="ttdef"><b>Definition:</b> shape_sphere.cpp:42</div></div>
+<div class="ttc" id="aclass_sphere_html_a2437a729411b7e34564595b3a0e5494e"><div class="ttname"><a href="class_sphere.html#a2437a729411b7e34564595b3a0e5494e">Sphere::InitFromJson</a></div><div class="ttdeci">void InitFromJson(const nlohmann::json &amp;js) override</div><div class="ttdef"><b>Definition:</b> shape_sphere.cpp:32</div></div>
+<div class="ttc" id="aclass_sphere_html_a26aae18fe197abd7faa1ecec5541facd"><div class="ttname"><a href="class_sphere.html#a26aae18fe197abd7faa1ecec5541facd">Sphere::Clone</a></div><div class="ttdeci">Sphere * Clone()</div><div class="ttdef"><b>Definition:</b> shape_sphere.cpp:22</div></div>
+<div class="ttc" id="aclass_sphere_html_a46b0abf386dce46c3b52d3b436d13a59"><div class="ttname"><a href="class_sphere.html#a46b0abf386dce46c3b52d3b436d13a59">Sphere::Support</a></div><div class="ttdeci">void Support(std::vector&lt; std::array&lt; double, 3 &gt;&gt; *const pos_list, const double dir[3]) override</div></div>
+<div class="ttc" id="aclass_sphere_html_a5ffaf668080fc25bd10ae74fed779d40"><div class="ttname"><a href="class_sphere.html#a5ffaf668080fc25bd10ae74fed779d40">Sphere::PackJson</a></div><div class="ttdeci">nlohmann::json PackJson() override</div><div class="ttdef"><b>Definition:</b> shape_sphere.cpp:24</div></div>
+<div class="ttc" id="aclass_sphere_html_a72a0025961d8b3e4df20e4efac50341c"><div class="ttname"><a href="class_sphere.html#a72a0025961d8b3e4df20e4efac50341c">Sphere::GetSTLModel</a></div><div class="ttdeci">STLModel GetSTLModel(int res=10) override</div><div class="ttdef"><b>Definition:</b> shape_sphere.cpp:54</div></div>
+<div class="ttc" id="aclass_sphere_html_a890a63ff583cb88e7ec4e840b4ef5eb9"><div class="ttname"><a href="class_sphere.html#a890a63ff583cb88e7ec4e840b4ef5eb9">Sphere::Sphere</a></div><div class="ttdeci">Sphere()</div><div class="ttdef"><b>Definition:</b> shape_sphere.cpp:8</div></div>
+<div class="ttc" id="aclass_sphere_html_aed495d66be0eaa292026589a1f7ae664"><div class="ttname"><a href="class_sphere.html#aed495d66be0eaa292026589a1f7ae664">Sphere::Print</a></div><div class="ttdeci">void Print() override</div><div class="ttdef"><b>Definition:</b> shape_sphere.cpp:108</div></div>
+<div class="ttc" id="aclass_sphere_html_af40a47622160e532843162263cb7b54c"><div class="ttname"><a href="class_sphere.html#af40a47622160e532843162263cb7b54c">Sphere::Support</a></div><div class="ttdeci">void Support(double pos[3], const double dir[3]) override</div><div class="ttdef"><b>Definition:</b> shape_sphere.cpp:93</div></div>
+<div class="ttc" id="adata__dumper_8cpp_html_ab701e3ac61a85b337ec5c1abaad6742d"><div class="ttname"><a href="data__dumper_8cpp.html#ab701e3ac61a85b337ec5c1abaad6742d">json</a></div><div class="ttdeci">nlohmann::json json</div><div class="ttdef"><b>Definition:</b> data_dumper.cpp:10</div></div>
 <div class="ttc" id="ashape_8hpp_html"><div class="ttname"><a href="shape_8hpp.html">shape.hpp</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
