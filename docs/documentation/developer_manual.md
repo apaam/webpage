@@ -4,10 +4,10 @@ We generally follow [Google C++ Style Guide](https://google.github.io/styleguide
 
 #### Naming
 
-  - Filenames: lowercase words connected by underscores, e.g. *particle.hpp*, *contact_pp.cpp*.
-  - Variable names: lowercase words connected by underscores, e.g. *dir_n*.
-  - Class and struct names: words with first letters capitalized, e.g. *DataDumper*.
-  - Macros: should be capital, such as *PI*.
+  - Filenames: lowercase words connected by underscores, e.g. ``particle.hpp``, ``contact_pp.cpp``.
+  - Variable names: lowercase words connected by underscores, e.g. ``dir_n``.
+  - Class and struct names: words with first letters capitalized, e.g. ``DataDumper``.
+  - Macros: should be capital, such as ``PI``.
 
 #### Comment
 
@@ -32,14 +32,14 @@ We generally follow [Google C++ Style Guide](https://google.github.io/styleguide
 
 #### Programing rules
 
-  - Use *auto* for local variables when appropriate.
-  - Mark *const* when appropriate.
+  - Use ``auto`` for local variables when appropriate.
+  - Mark ``const`` when appropriate.
   - Reference vs. pointer:
-    - If a variable will not be altered after calling the function, use reference with *const* mark.
-    - If a variable will be altered, use pointer. For int or double, as well as lists of int or double, mark with *const* (e.g., *double *const [variable]*) to aboid mistakenly modifying the pointer.
+    - If a variable will not be altered after calling the function, use reference with ``const`` mark, e.g., ``const double &[variable]``.
+    - If a variable will be altered, use pointer. For int or double, as well as lists of int or double, mark with ``const`` (e.g., ``double *const [variable]``) to aboid mistakenly modifying the pointer.
     - If a variable will not be altered but its value will be passed and stored the calling instance, use pointer.
-  - Avoid using smart pointers, such as *std::unique_ptr*, *std::shared_ptr*.
-  - Never ever use "using" (e.g., *using namespace std*) in headers.
+  - **Avoid** using smart pointers, such as ``std::unique_ptr``, ``std::shared_ptr``.
+  - **Never** ever use "using" (e.g., ``using namespace std``) in **headers**.
 
 
 ### Performance evaluation
