@@ -188,10 +188,10 @@
 <p>We generally follow <a href="https://google.github.io/styleguide/cppguide.html">Google C++ Style Guide</a>.</p>
 <h4 id="naming">Naming</h4>
 <ul>
-<li>Filenames: lowercase words connected by underscores, e.g. <em>particle.hpp</em>, <em>contact_pp.cpp</em>.</li>
-<li>Variable names: lowercase words connected by underscores, e.g. <em>dir_n</em>.</li>
-<li>Class and struct names: words with first letters capitalized, e.g. <em>DataDumper</em>.</li>
-<li>Macros: should be capital, such as <em>PI</em>.</li>
+<li>Filenames: lowercase words connected by underscores, e.g. <code>particle.hpp</code>, <code>contact_pp.cpp</code>.</li>
+<li>Variable names: lowercase words connected by underscores, e.g. <code>dir_n</code>.</li>
+<li>Class and struct names: words with first letters capitalized, e.g. <code>DataDumper</code>.</li>
+<li>Macros: should be capital, such as <code>PI</code>.</li>
 </ul>
 <h4 id="comment">Comment</h4>
 <ul>
@@ -219,16 +219,16 @@
 </ul>
 <h4 id="programing-rules">Programing rules</h4>
 <ul>
-<li>Use <em>auto</em> for local variables when appropriate.</li>
-<li>Mark <em>const</em> when appropriate.</li>
+<li>Use <code>auto</code> for local variables when appropriate.</li>
+<li>Mark <code>const</code> when appropriate.</li>
 <li>Reference vs. pointer:<ul>
-<li>If a variable will not be altered after calling the function, use reference with <em>const</em> mark.</li>
-<li>If a variable will be altered, use pointer. For int or double, as well as lists of int or double, mark with <em>const</em> (e.g., <em>double </em>const [variable]*) to aboid mistakenly modifying the pointer.</li>
+<li>If a variable will not be altered after calling the function, use reference with <code>const</code> mark, e.g., <code>const double &amp;[variable]</code>.</li>
+<li>If a variable will be altered, use pointer. For int or double, as well as lists of int or double, mark with <code>const</code> (e.g., <code>double *const [variable]</code>) to aboid mistakenly modifying the pointer.</li>
 <li>If a variable will not be altered but its value will be passed and stored the calling instance, use pointer.</li>
 </ul>
 </li>
-<li>Avoid using smart pointers, such as <em>std::unique_ptr</em>, <em>std::shared_ptr</em>.</li>
-<li>Never ever use "using" (e.g., <em>using namespace std</em>) in headers.</li>
+<li><strong>Avoid</strong> using smart pointers, such as <code>std::unique_ptr</code>, <code>std::shared_ptr</code>.</li>
+<li><strong>Never</strong> ever use "using" (e.g., <code>using namespace std</code>) in <strong>headers</strong>.</li>
 </ul>
 <h3 id="performance-evaluation">Performance evaluation</h3>
 <h4 id="procedures">Procedures</h4>
