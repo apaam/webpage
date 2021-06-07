@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['contactalgorithmtype_1733',['ContactAlgorithmType',['../contact__solver__factory_8hpp.html#aeea1f70f1e39eadb4934578ffa3253ff',1,'contact_solver_factory.hpp']]],
-  ['contactmodeltype_1734',['ContactModelType',['../contact__model__factory_8hpp.html#a7838fc758763fdd48861f822559bcdf2',1,'contact_model_factory.hpp']]]
+  ['contactalgorithmtype_1725',['ContactAlgorithmType',['../contact__solver__factory_8hpp.html#aeea1f70f1e39eadb4934578ffa3253ff',1,'contact_solver_factory.hpp']]],
+  ['cyclepoint_1726',['CyclePoint',['../class_d_e_m_solver.html#aafedda380c9d609858b1242c3ab4d7c7',1,'DEMSolver']]]
 ];

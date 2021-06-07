@@ -1,4 +1,6 @@
-## Run built-in examples
+### 
+
+#### Run built-in examples
 
 There are some built-in examples defined in the *examples/* directory. Once the software is installed, it will create an excutable file in the *build/bin* directory. 
 
@@ -15,3 +17,9 @@ There are some built-in examples defined in the *examples/* directory. Once the 
     Note that *shape_dir* should contains a slash at the end, such as *tmp/out/shape/*. In case one need to do the generation in batch, the following command can be used
 
         ./scripts/batch_data_point2mesh.sh [in_dir] [out_dir] [shape_dir]
+
+    or more easier
+        
+        ./scripts/auto_data_point2mesh.sh [out_dir]
+
+#### How to cite

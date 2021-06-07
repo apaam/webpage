@@ -1,6 +1,0 @@
-##
-
-### Basic citation
-
-
-### Specific citation
