@@ -108,7 +108,6 @@ var menudata={children:[
 {text:"File Members",url:"globals.html",children:[
 {text:"All",url:"globals.html",children:[
 {text:"c",url:"globals.html#index_c"},
-{text:"d",url:"globals.html#index_d"},
 {text:"e",url:"globals.html#index_e"},
 {text:"g",url:"globals.html#index_g"},
 {text:"i",url:"globals.html#index_i"},
