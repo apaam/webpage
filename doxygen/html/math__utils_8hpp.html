@@ -73,9 +73,9 @@ $(function() {
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="macro__definitions_8hpp_source.html">utils/macro_definitions.hpp</a>&quot;</code><br />
 <code>#include &lt;array&gt;</code><br />
+<code>#include &lt;cmath&gt;</code><br />
+<code>#include &lt;ctime&gt;</code><br />
 <code>#include &lt;iostream&gt;</code><br />
-<code>#include &lt;math.h&gt;</code><br />
-<code>#include &lt;time.h&gt;</code><br />
 <code>#include &lt;vector&gt;</code><br />
 </div>
 <p><a href="math__utils_8hpp_source.html">Go to the source code of this file.</a></p>
@@ -107,8 +107,8 @@ Functions</h2></td></tr>
 <tr class="separator:a97611ae825a542e23d64e69e8c25c5c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a764d7760c5c32144e21a4e83550ad27c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="math__utils_8hpp.html#a764d7760c5c32144e21a4e83550ad27c">RodriguesToQuaternion</a> (double quaternion[4], double rot_angle, const double rot_axis[3])</td></tr>
 <tr class="separator:a764d7760c5c32144e21a4e83550ad27c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a12aadabaaced21e3a8dd3e504327655b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="math__utils_8hpp.html#a12aadabaaced21e3a8dd3e504327655b">QuaternionToRodrigues</a> (const double quaternion[4], double &amp;rot_angle, double rot_axis[3])</td></tr>
-<tr class="separator:a12aadabaaced21e3a8dd3e504327655b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a02371d3d6c9c97285fa186d2656b20ae"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="math__utils_8hpp.html#a02371d3d6c9c97285fa186d2656b20ae">QuaternionToRodrigues</a> (const double quaternion[4], double *const rot_angle, double rot_axis[3])</td></tr>
+<tr class="separator:a02371d3d6c9c97285fa186d2656b20ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a792d47dd0dc01460d6c194e0486259d8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="math__utils_8hpp.html#a792d47dd0dc01460d6c194e0486259d8">QuaternionMultiply</a> (double res[4], const double p[4], const double q[4])</td></tr>
 <tr class="separator:a792d47dd0dc01460d6c194e0486259d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae6a284bca869a607d85f18435b44d117"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="math__utils_8hpp.html#ae6a284bca869a607d85f18435b44d117">QuaternionAdd</a> (double res[4], const double p[4], const double q[4])</td></tr>
@@ -643,8 +643,8 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
-<a id="a12aadabaaced21e3a8dd3e504327655b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a12aadabaaced21e3a8dd3e504327655b">&#9670;&nbsp;</a></span>QuaternionToRodrigues()</h2>
+<a id="a02371d3d6c9c97285fa186d2656b20ae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a02371d3d6c9c97285fa186d2656b20ae">&#9670;&nbsp;</a></span>QuaternionToRodrigues()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -661,7 +661,7 @@ template&lt;typename T &gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">double &amp;&#160;</td>
+          <td class="paramtype">double *const&#160;</td>
           <td class="paramname"><em>rot_angle</em>, </td>
         </tr>
         <tr>

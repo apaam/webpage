@@ -4,7 +4,7 @@ var searchData=
   ['achieved_1',['achieved',['../class_wall_servo_control.html#a458553ef6feb8bec83d1012eaf3a7d05',1,'WallServoControl']]],
   ['adaptboundtoscene_2',['AdaptBoundToScene',['../class_domain_manager.html#a71c94c280a625931813b92e7473ece39',1,'DomainManager']]],
   ['addforce_3',['AddForce',['../class_particle.html#aec6b67a9ee3d86783c4142e0002d6b32',1,'Particle::AddForce(const double force[3])'],['../class_particle.html#abfe70fac1669c59c2828cb8a5dc76a9e',1,'Particle::AddForce(double force_x, double force_y, double force_z)'],['../class_wall.html#ab27a0b4b7bb9a0dc67e5b24c2f2ea106',1,'Wall::AddForce()']]],
-  ['addlayer_4',['AddLayer',['../classnetdem_1_1mlpack_1_1_general_net.html#abde6bc47bafbfb88333ef116b7d50dba',1,'netdem::mlpack::GeneralNet::AddLayer()'],['../classnetdem_1_1mlpack_1_1_regression_net.html#a381ea67832e1aaf322427be2e25b15fb',1,'netdem::mlpack::RegressionNet::AddLayer()']]],
+  ['addlayer_4',['AddLayer',['../classnetdem_1_1_general_net.html#abde6bc47bafbfb88333ef116b7d50dba',1,'netdem::GeneralNet::AddLayer()'],['../classnetdem_1_1_regression_net.html#a381ea67832e1aaf322427be2e25b15fb',1,'netdem::RegressionNet::AddLayer()']]],
   ['addmoment_5',['AddMoment',['../class_particle.html#a2cd8018d16da505e2ed0f8c9b7dd4bb4',1,'Particle::AddMoment()'],['../class_wall.html#a39d720f548e093d352412ff061f6d760',1,'Wall::AddMoment()']]],
   ['addwall_6',['AddWall',['../class_wall_servo_control.html#a1d707daf37a1d72e3f127b86e191d0c6',1,'WallServoControl']]],
   ['algorithm_5ftype_7',['algorithm_type',['../class_d_e_m_solver.html#a2c419744b2ed62c52d4912e9d18ff52a',1,'DEMSolver']]],
