@@ -74,14 +74,6 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &lt;mlpack/core.hpp&gt;</code><br />
-<code>#include &lt;mlpack/core/data/scaler_methods/min_max_scaler.hpp&gt;</code><br />
-<code>#include &lt;mlpack/core/data/split_data.hpp&gt;</code><br />
-<code>#include &lt;mlpack/methods/ann/ffn.hpp&gt;</code><br />
-<code>#include &lt;mlpack/methods/ann/init_rules/he_init.hpp&gt;</code><br />
-<code>#include &lt;mlpack/methods/ann/layer/layer.hpp&gt;</code><br />
-<code>#include &lt;mlpack/methods/ann/loss_functions/mean_squared_error.hpp&gt;</code><br />
-<code>#include &lt;mlpack/prereqs.hpp&gt;</code><br />
-<code>#include &lt;ensmallen.hpp&gt;</code><br />
 </div>
 <p><a href="mlpack__utils_8hpp_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -89,35 +81,33 @@ $(function() {
 Namespaces</h2></td></tr>
 <tr class="memitem:namespacenetdem"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacenetdem.html">netdem</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:namespacenetdem_1_1mlpack"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacenetdem_1_1mlpack.html">netdem::mlpack</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
 Enumerations</h2></td></tr>
-<tr class="memitem:a38adcd485085d3a2b3da9c66aa82d3c8"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacenetdem_1_1mlpack.html#a38adcd485085d3a2b3da9c66aa82d3c8">netdem::mlpack::LayerName</a> { <br />
-&#160;&#160;<a class="el" href="namespacenetdem_1_1mlpack.html#a38adcd485085d3a2b3da9c66aa82d3c8ac815127d07d6aad214117b99c01c01c4">netdem::mlpack::IdentityLayer</a>
-, <a class="el" href="namespacenetdem_1_1mlpack.html#a38adcd485085d3a2b3da9c66aa82d3c8a32a843da6ea40ab3b17a3421ccdf671b">netdem::mlpack::Linear</a>
-, <a class="el" href="namespacenetdem_1_1mlpack.html#a38adcd485085d3a2b3da9c66aa82d3c8abb7ba525e0c40179fab22b4f7021e1f8">netdem::mlpack::LeakyReLU</a>
-, <a class="el" href="namespacenetdem_1_1mlpack.html#a38adcd485085d3a2b3da9c66aa82d3c8a31d953b9d49a6b4378f45097047976d0">netdem::mlpack::Softmax</a>
+<tr class="memitem:a2cdad8d3b028818b2034bb9f5e4a6583"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacenetdem.html#a2cdad8d3b028818b2034bb9f5e4a6583">netdem::LayerName</a> { <br />
+&#160;&#160;<a class="el" href="namespacenetdem.html#a2cdad8d3b028818b2034bb9f5e4a6583ac815127d07d6aad214117b99c01c01c4">netdem::IdentityLayer</a>
+, <a class="el" href="namespacenetdem.html#a2cdad8d3b028818b2034bb9f5e4a6583a32a843da6ea40ab3b17a3421ccdf671b">netdem::Linear</a>
+, <a class="el" href="namespacenetdem.html#a2cdad8d3b028818b2034bb9f5e4a6583abb7ba525e0c40179fab22b4f7021e1f8">netdem::LeakyReLU</a>
+, <a class="el" href="namespacenetdem.html#a2cdad8d3b028818b2034bb9f5e4a6583a31d953b9d49a6b4378f45097047976d0">netdem::Softmax</a>
 , <br />
-&#160;&#160;<a class="el" href="namespacenetdem_1_1mlpack.html#a38adcd485085d3a2b3da9c66aa82d3c8a4acdcc5d78331eed943edb19fd0824c6">netdem::mlpack::LogSoftMax</a>
-, <a class="el" href="namespacenetdem_1_1mlpack.html#a38adcd485085d3a2b3da9c66aa82d3c8aeca9158c08600cd86442dfd1c18a3c86">netdem::mlpack::LSTM</a>
+&#160;&#160;<a class="el" href="namespacenetdem.html#a2cdad8d3b028818b2034bb9f5e4a6583a4acdcc5d78331eed943edb19fd0824c6">netdem::LogSoftMax</a>
+, <a class="el" href="namespacenetdem.html#a2cdad8d3b028818b2034bb9f5e4a6583aeca9158c08600cd86442dfd1c18a3c86">netdem::LSTM</a>
 <br />
  }</td></tr>
-<tr class="separator:a38adcd485085d3a2b3da9c66aa82d3c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae6e480ae54a2ed56dc87abbabaa744d3"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacenetdem_1_1mlpack.html#ae6e480ae54a2ed56dc87abbabaa744d3">netdem::mlpack::ParamName</a> { <a class="el" href="namespacenetdem_1_1mlpack.html#ae6e480ae54a2ed56dc87abbabaa744d3a36485149435d99ad961d2158345b7674">netdem::mlpack::epochs</a>
-, <a class="el" href="namespacenetdem_1_1mlpack.html#ae6e480ae54a2ed56dc87abbabaa744d3a7f1240271971f91897351f3c7ca1fd18">netdem::mlpack::step_size</a>
-, <a class="el" href="namespacenetdem_1_1mlpack.html#ae6e480ae54a2ed56dc87abbabaa744d3ae11ccd438c91df17552ef45e7d6c1119">netdem::mlpack::batch_size</a>
-, <a class="el" href="namespacenetdem_1_1mlpack.html#ae6e480ae54a2ed56dc87abbabaa744d3a6bb4377222e288cb6bc075abe1c84635">netdem::mlpack::stop_tol</a>
+<tr class="separator:a2cdad8d3b028818b2034bb9f5e4a6583"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4459bf759a50867e69599af5e85efd1f"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacenetdem.html#a4459bf759a50867e69599af5e85efd1f">netdem::ParamName</a> { <a class="el" href="namespacenetdem.html#a4459bf759a50867e69599af5e85efd1fa36485149435d99ad961d2158345b7674">netdem::epochs</a>
+, <a class="el" href="namespacenetdem.html#a4459bf759a50867e69599af5e85efd1fa7f1240271971f91897351f3c7ca1fd18">netdem::step_size</a>
+, <a class="el" href="namespacenetdem.html#a4459bf759a50867e69599af5e85efd1fae11ccd438c91df17552ef45e7d6c1119">netdem::batch_size</a>
+, <a class="el" href="namespacenetdem.html#a4459bf759a50867e69599af5e85efd1fa6bb4377222e288cb6bc075abe1c84635">netdem::stop_tol</a>
  }</td></tr>
-<tr class="separator:ae6e480ae54a2ed56dc87abbabaa744d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="separator:a4459bf759a50867e69599af5e85efd1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:aa10fde3ea817f0d43a59712ed2b1a37b"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacenetdem_1_1mlpack.html#aa10fde3ea817f0d43a59712ed2b1a37b">netdem::mlpack::MSE</a> (arma::mat &amp;pred, arma::mat &amp;Y)</td></tr>
-<tr class="separator:aa10fde3ea817f0d43a59712ed2b1a37b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6efddcb9c21650a0164efcc6f1a932bc"><td class="memItemLeft" align="right" valign="top">arma::Row&lt; size_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacenetdem_1_1mlpack.html#a6efddcb9c21650a0164efcc6f1a932bc">netdem::mlpack::GetLabels</a> (arma::mat ann_outputs)</td></tr>
-<tr class="separator:a6efddcb9c21650a0164efcc6f1a932bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a37c0eeef9dec99483df08b041b080a39"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacenetdem.html#a37c0eeef9dec99483df08b041b080a39">netdem::GetMSE</a> (const arma::mat &amp;pred, const arma::mat &amp;Y)</td></tr>
+<tr class="separator:a37c0eeef9dec99483df08b041b080a39"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0118f8bd3b519a770e5bb3ad8010e453"><td class="memItemLeft" align="right" valign="top">arma::Row&lt; size_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacenetdem.html#a0118f8bd3b519a770e5bb3ad8010e453">netdem::GetLabels</a> (const arma::mat &amp;ann_outputs)</td></tr>
+<tr class="separator:a0118f8bd3b519a770e5bb3ad8010e453"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
 <!-- start footer part -->

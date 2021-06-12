@@ -7,7 +7,7 @@ var searchData=
   ['cellmanager_1073',['CellManager',['../class_cell_manager.html#a31c805f31cd40d475b00edbf16edaec7',1,'CellManager']]],
   ['checkiftorender_1074',['CheckIfToRender',['../class_scene_render.html#a878976e62e5270a1050e5ad7b90d1fe8',1,'SceneRender']]],
   ['checkiftosave_1075',['CheckIfToSave',['../class_data_dumper.html#afbabf2fbb1b1bdb03338833511d3ab6b',1,'DataDumper']]],
-  ['classify_1076',['Classify',['../classnetdem_1_1mlpack_1_1_general_net.html#a623903c8e4b1b037cb96a8f5767f7f7e',1,'netdem::mlpack::GeneralNet']]],
+  ['classify_1076',['Classify',['../classnetdem_1_1_general_net.html#a7cfae6a45d6048bdde721bec4d8dad7d',1,'netdem::GeneralNet']]],
   ['cleanupparticleghost_1077',['CleanUpParticleGhost',['../class_m_p_i_manager.html#a5528c18482291ef61eeb91eb54d1a8b4',1,'MPIManager']]],
   ['cleanupparticleproxy_1078',['CleanUpParticleProxy',['../class_m_p_i_manager.html#a412aaa12e7f1597e327b9fd6ae00488c',1,'MPIManager']]],
   ['clear_1079',['Clear',['../class_contact_forces.html#a23efc283818a655c8907383557c477e5',1,'ContactForces::Clear()'],['../class_contact_p_p.html#ae03bff5f4a7781a5201c597f7655a8b8',1,'ContactPP::Clear()'],['../class_contact_p_w.html#a29504aa1b1590c148b95746cc6f633cb',1,'ContactPW::Clear()'],['../class_d_e_m_profiler.html#a78b51bc67b8a79503f870ee34ac89e76',1,'DEMProfiler::Clear()']]],

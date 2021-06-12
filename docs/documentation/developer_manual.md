@@ -38,6 +38,8 @@ We generally follow [Google C++ Style Guide](https://google.github.io/styleguide
     - If a variable will not be altered after calling the function, use reference with ``const`` mark, e.g., ``const double &[variable]``.
     - If a variable will be altered, use pointer. For int or double, as well as lists of int or double, mark with ``const`` (e.g., ``double *const [variable]``) to aboid mistakenly modifying the pointer.
     - If a variable will not be altered but its value will be passed and stored the calling instance, use pointer.
+  - Following the previous item, if you are going to modify a variable, please declare it or passing it as an argument with with ``&``.
+  - Prefer use c++ std library rather than c library, e.g., use ``<cmath>`` rather than ``<math.h>``.
   - **Avoid** using smart pointers, such as ``std::unique_ptr``, ``std::shared_ptr``.
   - **Never** ever use "using" (e.g., ``using namespace std``) in **headers**.
 
