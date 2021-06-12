@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['batch_5fsize_14',['batch_size',['../namespacenetdem_1_1mlpack.html#ae6e480ae54a2ed56dc87abbabaa744d3ae11ccd438c91df17552ef45e7d6c1119',1,'netdem::mlpack::batch_size()'],['../classnetdem_1_1mlpack_1_1_general_net.html#ac1af777c1cfbf0ff9775729a1a2ec66f',1,'netdem::mlpack::GeneralNet::batch_size()'],['../classnetdem_1_1mlpack_1_1_regression_net.html#ae1933cdfd21691c206cba983caac8c00',1,'netdem::mlpack::RegressionNet::batch_size()']]],
+  ['batch_5fsize_14',['batch_size',['../namespacenetdem.html#a4459bf759a50867e69599af5e85efd1fae11ccd438c91df17552ef45e7d6c1119',1,'netdem::batch_size()'],['../classnetdem_1_1_general_net.html#a574f0358138db10dbaa6f5bfe12872af',1,'netdem::GeneralNet::batch_size()'],['../classnetdem_1_1_regression_net.html#a3ca962e545ed2af4603983956de02d26',1,'netdem::RegressionNet::batch_size()']]],
   ['begin_15',['begin',['../classmini__map.html#a24dd0286741ba8b72c059d4c5d241f31',1,'mini_map']]],
   ['body_5fforce_2ecpp_16',['body_force.cpp',['../body__force_8cpp.html',1,'']]],
   ['body_5fforce_2ehpp_17',['body_force.hpp',['../body__force_8hpp.html',1,'']]],

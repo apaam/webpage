@@ -16,7 +16,7 @@ var searchData=
   ['center_40',['center',['../class_plane.html#a7f85c91d7e92c9719c4392d193170048',1,'Plane::center()'],['../class_s_h_plane_solver.html#a6ee1bd81e9a1297d59d6eff97b4f6415',1,'SHPlaneSolver::center()'],['../class_sphere_plane_solver.html#ad7742a212258d57e59c07cf5cd3e53eb',1,'SpherePlaneSolver::center()'],['../class_tri_mesh_plane_solver.html#a2c17999eff5f03e5efb07d0293a30fe6',1,'TriMeshPlaneSolver::center()']]],
   ['checkiftorender_41',['CheckIfToRender',['../class_scene_render.html#a878976e62e5270a1050e5ad7b90d1fe8',1,'SceneRender']]],
   ['checkiftosave_42',['CheckIfToSave',['../class_data_dumper.html#afbabf2fbb1b1bdb03338833511d3ab6b',1,'DataDumper']]],
-  ['classify_43',['Classify',['../classnetdem_1_1mlpack_1_1_general_net.html#a623903c8e4b1b037cb96a8f5767f7f7e',1,'netdem::mlpack::GeneralNet']]],
+  ['classify_43',['Classify',['../classnetdem_1_1_general_net.html#a7cfae6a45d6048bdde721bec4d8dad7d',1,'netdem::GeneralNet']]],
   ['cleanupparticleghost_44',['CleanUpParticleGhost',['../class_m_p_i_manager.html#a5528c18482291ef61eeb91eb54d1a8b4',1,'MPIManager']]],
   ['cleanupparticleproxy_45',['CleanUpParticleProxy',['../class_m_p_i_manager.html#a412aaa12e7f1597e327b9fd6ae00488c',1,'MPIManager']]],
   ['clear_46',['Clear',['../class_contact_p_w.html#a29504aa1b1590c148b95746cc6f633cb',1,'ContactPW::Clear()'],['../class_contact_forces.html#a23efc283818a655c8907383557c477e5',1,'ContactForces::Clear()'],['../class_contact_p_p.html#ae03bff5f4a7781a5201c597f7655a8b8',1,'ContactPP::Clear()'],['../class_d_e_m_profiler.html#a78b51bc67b8a79503f870ee34ac89e76',1,'DEMProfiler::Clear()']]],
