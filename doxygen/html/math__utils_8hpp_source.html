@@ -131,215 +131,224 @@ $(function() {
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;  <span class="keywordflow">return</span> val_1[0] * val_2[0] + val_1[1] * val_2[1] + val_1[2] * val_2[2];</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;}</div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
-<div class="line"><a name="l00063"></a><span class="lineno"><a class="line" href="math__utils_8hpp.html#a97611ae825a542e23d64e69e8c25c5c3">   63</a></span>&#160;<span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="math__utils_8hpp.html#a97611ae825a542e23d64e69e8c25c5c3">VectorNormalize</a>(<span class="keywordtype">double</span> val[3]) {</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;  <span class="keywordtype">double</span> tmp_norm = <a class="code" href="math__utils_8hpp.html#ad5a93c51459dd41c604d16df4a4e7016">norm</a>(val);</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;  <span class="keywordflow">if</span> (tmp_norm &gt; 1e-15) {</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keywordtype">double</span> by_val_norm = 1.0 / tmp_norm;</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    val[0] *= by_val_norm;</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    val[1] *= by_val_norm;</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    val[2] *= by_val_norm;</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;  }</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;}</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; </div>
-<div class="line"><a name="l00073"></a><span class="lineno"><a class="line" href="math__utils_8hpp.html#a764d7760c5c32144e21a4e83550ad27c">   73</a></span>&#160;<span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="math__utils_8hpp.html#a764d7760c5c32144e21a4e83550ad27c">RodriguesToQuaternion</a>(<span class="keywordtype">double</span> quaternion[4], <span class="keywordtype">double</span> rot_angle,</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;                                  <span class="keyword">const</span> <span class="keywordtype">double</span> rot_axis[3]) {</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;  quaternion[0] = std::cos(0.5 * rot_angle);</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;  <span class="keywordtype">double</span> sin_half_angle_by_axis_norm =</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;      std::sin(0.5 * rot_angle) / <a class="code" href="math__utils_8hpp.html#ad5a93c51459dd41c604d16df4a4e7016">norm</a>(rot_axis);</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160; </div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;  quaternion[1] = rot_axis[0] * sin_half_angle_by_axis_norm;</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;  quaternion[2] = rot_axis[1] * sin_half_angle_by_axis_norm;</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;  quaternion[3] = rot_axis[2] * sin_half_angle_by_axis_norm;</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;}</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160; </div>
-<div class="line"><a name="l00084"></a><span class="lineno"><a class="line" href="math__utils_8hpp.html#a02371d3d6c9c97285fa186d2656b20ae">   84</a></span>&#160;<span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="math__utils_8hpp.html#a02371d3d6c9c97285fa186d2656b20ae">QuaternionToRodrigues</a>(<span class="keyword">const</span> <span class="keywordtype">double</span> quaternion[4],</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;                                  <span class="keywordtype">double</span> *<span class="keyword">const</span> rot_angle, <span class="keywordtype">double</span> rot_axis[3]) {</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;  *rot_angle =</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;      2.0 * std::atan2(<a class="code" href="math__utils_8hpp.html#ad5a93c51459dd41c604d16df4a4e7016">norm</a>(quaternion[1], quaternion[2], quaternion[3]),</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;                       quaternion[0]);</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;  <span class="keywordtype">double</span> sin_half_angle = std::sin(0.5 * (*rot_angle));</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;  <span class="keywordflow">if</span> (std::abs(sin_half_angle) &gt; 1.0e-15) {</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    <span class="keywordtype">double</span> term_norm =</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        1.0 / sin_half_angle /</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        <a class="code" href="math__utils_8hpp.html#ad5a93c51459dd41c604d16df4a4e7016">norm</a>(quaternion[0], quaternion[1], quaternion[2], quaternion[3]);</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    rot_axis[0] = quaternion[1] * term_norm;</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    rot_axis[1] = quaternion[2] * term_norm;</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    rot_axis[2] = quaternion[3] * term_norm;</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;  } <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    rot_axis[0] = 1.0;</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    rot_axis[1] = 0.0;</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    rot_axis[2] = 0.0;</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;  }</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;}</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160; </div>
-<div class="line"><a name="l00104"></a><span class="lineno"><a class="line" href="math__utils_8hpp.html#a792d47dd0dc01460d6c194e0486259d8">  104</a></span>&#160;<span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="math__utils_8hpp.html#a792d47dd0dc01460d6c194e0486259d8">QuaternionMultiply</a>(<span class="keywordtype">double</span> res[4], <span class="keyword">const</span> <span class="keywordtype">double</span> p[4],</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;                               <span class="keyword">const</span> <span class="keywordtype">double</span> q[4]) {</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;  <span class="keywordtype">double</span> p_vec[3]{p[1], p[2], p[3]};</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;  <span class="keywordtype">double</span> q_vec[3]{q[1], q[2], q[3]};</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;  <span class="keywordtype">double</span> p_cross_q[3];</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;  <a class="code" href="math__utils_8hpp.html#a817e3def296caeb569d8e83b79b25215">VectorCross</a>(p_cross_q, p_vec, q_vec);</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;  res[0] = p[0] * q[0] - <a class="code" href="math__utils_8hpp.html#aa2898d24b63919c6863faecc8f6ddff1">VectorDot</a>(p_vec, q_vec);</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;  res[1] = p[0] * q_vec[0] + q[0] * p_vec[0] + p_cross_q[0];</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;  res[2] = p[0] * q_vec[1] + q[0] * p_vec[1] + p_cross_q[1];</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;  res[3] = p[0] * q_vec[2] + q[0] * p_vec[2] + p_cross_q[2];</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;}</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160; </div>
-<div class="line"><a name="l00116"></a><span class="lineno"><a class="line" href="math__utils_8hpp.html#ae6a284bca869a607d85f18435b44d117">  116</a></span>&#160;<span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="math__utils_8hpp.html#ae6a284bca869a607d85f18435b44d117">QuaternionAdd</a>(<span class="keywordtype">double</span> res[4], <span class="keyword">const</span> <span class="keywordtype">double</span> p[4], <span class="keyword">const</span> <span class="keywordtype">double</span> q[4]) {</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;  res[0] = p[0] + q[0];</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;  res[1] = p[1] + q[1];</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;  res[2] = p[2] + q[2];</div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;  res[3] = p[3] + q[3];</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;}</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160; </div>
-<div class="line"><a name="l00123"></a><span class="lineno"><a class="line" href="math__utils_8hpp.html#a8d2f54c473ea3b672e6c343f5d10d5ff">  123</a></span>&#160;<span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="math__utils_8hpp.html#a8d2f54c473ea3b672e6c343f5d10d5ff">QuaternionConjugate</a>(<span class="keywordtype">double</span> res[4], <span class="keyword">const</span> <span class="keywordtype">double</span> p[4]) {</div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;  res[0] = p[0];</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;  res[1] = -p[1];</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;  res[2] = -p[2];</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;  res[3] = -p[3];</div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;}</div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160; </div>
-<div class="line"><a name="l00130"></a><span class="lineno"><a class="line" href="math__utils_8hpp.html#ad8dbee235e4fd33d60dbc860cd34bbfd">  130</a></span>&#160;<span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="math__utils_8hpp.html#ad8dbee235e4fd33d60dbc860cd34bbfd">QuaternionNormalize</a>(<span class="keywordtype">double</span> q[4]) {</div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;  <span class="keywordtype">double</span> by_q_norm = 1.0 / <a class="code" href="math__utils_8hpp.html#ad5a93c51459dd41c604d16df4a4e7016">norm</a>(q[0], q[1], q[2], q[3]);</div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;  q[0] *= by_q_norm;</div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;  q[1] *= by_q_norm;</div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;  q[2] *= by_q_norm;</div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;  q[3] *= by_q_norm;</div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;}</div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160; </div>
-<div class="line"><a name="l00138"></a><span class="lineno"><a class="line" href="math__utils_8hpp.html#a26349adb1f64f140b1644a0170e8d677">  138</a></span>&#160;<span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="math__utils_8hpp.html#a26349adb1f64f140b1644a0170e8d677">RotateByRodrigues</a>(<span class="keywordtype">double</span> val_new[3], <span class="keyword">const</span> <span class="keywordtype">double</span> val_old[3],</div>
-<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;                              <span class="keywordtype">double</span> rot_angle_cos, <span class="keywordtype">double</span> rot_angle_sin,</div>
-<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;                              <span class="keyword">const</span> <span class="keywordtype">double</span> rot_axis[3]) {</div>
-<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;  <span class="keywordtype">double</span> by_axis_norm = 1.0 / <a class="code" href="math__utils_8hpp.html#ad5a93c51459dd41c604d16df4a4e7016">norm</a>(rot_axis);</div>
-<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;  <span class="keywordtype">double</span> rot_axis_unit[3]{rot_axis[0] * by_axis_norm,</div>
-<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;                          rot_axis[1] * by_axis_norm,</div>
-<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;                          rot_axis[2] * by_axis_norm};</div>
-<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160; </div>
-<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;  <span class="keywordtype">double</span> axis_cross_val[3];</div>
-<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;  <a class="code" href="math__utils_8hpp.html#a817e3def296caeb569d8e83b79b25215">VectorCross</a>(axis_cross_val, rot_axis_unit, val_old);</div>
-<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;  <span class="keywordtype">double</span> axis_dot_val = <a class="code" href="math__utils_8hpp.html#aa2898d24b63919c6863faecc8f6ddff1">VectorDot</a>(rot_axis_unit, val_old);</div>
-<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160; </div>
-<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;  val_new[0] = val_old[0] * rot_angle_cos + axis_cross_val[0] * rot_angle_sin +</div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;               rot_axis_unit[0] * axis_dot_val * (1.0 - rot_angle_cos);</div>
-<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;  val_new[1] = val_old[1] * rot_angle_cos + axis_cross_val[1] * rot_angle_sin +</div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;               rot_axis_unit[1] * axis_dot_val * (1.0 - rot_angle_cos);</div>
-<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;  val_new[2] = val_old[2] * rot_angle_cos + axis_cross_val[2] * rot_angle_sin +</div>
-<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;               rot_axis_unit[2] * axis_dot_val * (1.0 - rot_angle_cos);</div>
-<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;}</div>
-<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160; </div>
-<div class="line"><a name="l00158"></a><span class="lineno"><a class="line" href="math__utils_8hpp.html#aea4835c5a923f932dbac2429be257896">  158</a></span>&#160;<span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="math__utils_8hpp.html#a26349adb1f64f140b1644a0170e8d677">RotateByRodrigues</a>(<span class="keywordtype">double</span> val_new[3], <span class="keyword">const</span> <span class="keywordtype">double</span> val_old[3],</div>
-<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;                              <span class="keywordtype">double</span> rot_angle, <span class="keyword">const</span> <span class="keywordtype">double</span> rot_axis[3]) {</div>
-<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;  <a class="code" href="math__utils_8hpp.html#a26349adb1f64f140b1644a0170e8d677">RotateByRodrigues</a>(val_new, val_old, std::cos(rot_angle), std::sin(rot_angle),</div>
-<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;                    rot_axis);</div>
-<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;}</div>
-<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160; </div>
-<div class="line"><a name="l00164"></a><span class="lineno"><a class="line" href="math__utils_8hpp.html#a9a692f865d3787f35866d1c36ff6da1f">  164</a></span>&#160;<span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="math__utils_8hpp.html#a9a692f865d3787f35866d1c36ff6da1f">RotateByQuaternion</a>(<span class="keywordtype">double</span> val_new[3], <span class="keyword">const</span> <span class="keywordtype">double</span> val_old[3],</div>
-<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;                               <span class="keyword">const</span> <span class="keywordtype">double</span> quaternion[4]) {</div>
-<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;  <span class="keywordtype">double</span> val_norm = <a class="code" href="math__utils_8hpp.html#ad5a93c51459dd41c604d16df4a4e7016">norm</a>(val_old);</div>
-<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;  <span class="keywordflow">if</span> (val_norm &gt; 1.0e-15) {</div>
-<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;    <span class="keywordtype">double</span> quaternion_conj[4]{quaternion[0], -quaternion[1], -quaternion[2],</div>
-<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;                              -quaternion[3]};</div>
-<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;    <span class="keywordtype">double</span> quaternion_val_old[4]{0, val_old[0], val_old[1], val_old[2]};</div>
-<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;    <span class="keywordtype">double</span> quaternion_val_tmp[4], quaternion_val_new[4];</div>
+<div class="line"><a name="l00063"></a><span class="lineno"><a class="line" href="math__utils_8hpp.html#a8d6ee87442845840ba579de6d1a41512">   63</a></span>&#160;<span class="keyword">inline</span> <span class="keywordtype">double</span> <a class="code" href="math__utils_8hpp.html#aa2898d24b63919c6863faecc8f6ddff1">VectorDot</a>(<span class="keyword">const</span> std::vector&lt;double&gt; &amp;val_1,</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;                        <span class="keyword">const</span> std::vector&lt;double&gt; &amp;val_2) {</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;  <span class="keywordtype">double</span> res{0};</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;  <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; val_1.size(); i++) {</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    res += val_1[i] * val_2[i];</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;  }</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;  <span class="keywordflow">return</span> res;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;}</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
+<div class="line"><a name="l00072"></a><span class="lineno"><a class="line" href="math__utils_8hpp.html#a97611ae825a542e23d64e69e8c25c5c3">   72</a></span>&#160;<span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="math__utils_8hpp.html#a97611ae825a542e23d64e69e8c25c5c3">VectorNormalize</a>(<span class="keywordtype">double</span> val[3]) {</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;  <span class="keywordtype">double</span> tmp_norm = <a class="code" href="math__utils_8hpp.html#ad5a93c51459dd41c604d16df4a4e7016">norm</a>(val);</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;  <span class="keywordflow">if</span> (tmp_norm &gt; 1e-15) {</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="keywordtype">double</span> by_val_norm = 1.0 / tmp_norm;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    val[0] *= by_val_norm;</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    val[1] *= by_val_norm;</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    val[2] *= by_val_norm;</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;  }</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;}</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160; </div>
+<div class="line"><a name="l00082"></a><span class="lineno"><a class="line" href="math__utils_8hpp.html#a764d7760c5c32144e21a4e83550ad27c">   82</a></span>&#160;<span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="math__utils_8hpp.html#a764d7760c5c32144e21a4e83550ad27c">RodriguesToQuaternion</a>(<span class="keywordtype">double</span> quaternion[4], <span class="keywordtype">double</span> rot_angle,</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;                                  <span class="keyword">const</span> <span class="keywordtype">double</span> rot_axis[3]) {</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;  quaternion[0] = std::cos(0.5 * rot_angle);</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;  <span class="keywordtype">double</span> sin_half_angle_by_axis_norm =</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;      std::sin(0.5 * rot_angle) / <a class="code" href="math__utils_8hpp.html#ad5a93c51459dd41c604d16df4a4e7016">norm</a>(rot_axis);</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160; </div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;  quaternion[1] = rot_axis[0] * sin_half_angle_by_axis_norm;</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;  quaternion[2] = rot_axis[1] * sin_half_angle_by_axis_norm;</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;  quaternion[3] = rot_axis[2] * sin_half_angle_by_axis_norm;</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;}</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160; </div>
+<div class="line"><a name="l00093"></a><span class="lineno"><a class="line" href="math__utils_8hpp.html#a02371d3d6c9c97285fa186d2656b20ae">   93</a></span>&#160;<span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="math__utils_8hpp.html#a02371d3d6c9c97285fa186d2656b20ae">QuaternionToRodrigues</a>(<span class="keyword">const</span> <span class="keywordtype">double</span> quaternion[4],</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;                                  <span class="keywordtype">double</span> *<span class="keyword">const</span> rot_angle, <span class="keywordtype">double</span> rot_axis[3]) {</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;  *rot_angle =</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;      2.0 * std::atan2(<a class="code" href="math__utils_8hpp.html#ad5a93c51459dd41c604d16df4a4e7016">norm</a>(quaternion[1], quaternion[2], quaternion[3]),</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;                       quaternion[0]);</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;  <span class="keywordtype">double</span> sin_half_angle = std::sin(0.5 * (*rot_angle));</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;  <span class="keywordflow">if</span> (std::abs(sin_half_angle) &gt; 1.0e-15) {</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <span class="keywordtype">double</span> term_norm =</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;        1.0 / sin_half_angle /</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;        <a class="code" href="math__utils_8hpp.html#ad5a93c51459dd41c604d16df4a4e7016">norm</a>(quaternion[0], quaternion[1], quaternion[2], quaternion[3]);</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    rot_axis[0] = quaternion[1] * term_norm;</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    rot_axis[1] = quaternion[2] * term_norm;</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    rot_axis[2] = quaternion[3] * term_norm;</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;  } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    rot_axis[0] = 1.0;</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    rot_axis[1] = 0.0;</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    rot_axis[2] = 0.0;</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;  }</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;}</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160; </div>
+<div class="line"><a name="l00113"></a><span class="lineno"><a class="line" href="math__utils_8hpp.html#a792d47dd0dc01460d6c194e0486259d8">  113</a></span>&#160;<span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="math__utils_8hpp.html#a792d47dd0dc01460d6c194e0486259d8">QuaternionMultiply</a>(<span class="keywordtype">double</span> res[4], <span class="keyword">const</span> <span class="keywordtype">double</span> p[4],</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;                               <span class="keyword">const</span> <span class="keywordtype">double</span> q[4]) {</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;  <span class="keywordtype">double</span> p_vec[3]{p[1], p[2], p[3]};</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;  <span class="keywordtype">double</span> q_vec[3]{q[1], q[2], q[3]};</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;  <span class="keywordtype">double</span> p_cross_q[3];</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;  <a class="code" href="math__utils_8hpp.html#a817e3def296caeb569d8e83b79b25215">VectorCross</a>(p_cross_q, p_vec, q_vec);</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;  res[0] = p[0] * q[0] - <a class="code" href="math__utils_8hpp.html#aa2898d24b63919c6863faecc8f6ddff1">VectorDot</a>(p_vec, q_vec);</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;  res[1] = p[0] * q_vec[0] + q[0] * p_vec[0] + p_cross_q[0];</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;  res[2] = p[0] * q_vec[1] + q[0] * p_vec[1] + p_cross_q[1];</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;  res[3] = p[0] * q_vec[2] + q[0] * p_vec[2] + p_cross_q[2];</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;}</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160; </div>
+<div class="line"><a name="l00125"></a><span class="lineno"><a class="line" href="math__utils_8hpp.html#ae6a284bca869a607d85f18435b44d117">  125</a></span>&#160;<span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="math__utils_8hpp.html#ae6a284bca869a607d85f18435b44d117">QuaternionAdd</a>(<span class="keywordtype">double</span> res[4], <span class="keyword">const</span> <span class="keywordtype">double</span> p[4], <span class="keyword">const</span> <span class="keywordtype">double</span> q[4]) {</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;  res[0] = p[0] + q[0];</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;  res[1] = p[1] + q[1];</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;  res[2] = p[2] + q[2];</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;  res[3] = p[3] + q[3];</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;}</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160; </div>
+<div class="line"><a name="l00132"></a><span class="lineno"><a class="line" href="math__utils_8hpp.html#a8d2f54c473ea3b672e6c343f5d10d5ff">  132</a></span>&#160;<span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="math__utils_8hpp.html#a8d2f54c473ea3b672e6c343f5d10d5ff">QuaternionConjugate</a>(<span class="keywordtype">double</span> res[4], <span class="keyword">const</span> <span class="keywordtype">double</span> p[4]) {</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;  res[0] = p[0];</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;  res[1] = -p[1];</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;  res[2] = -p[2];</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;  res[3] = -p[3];</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;}</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160; </div>
+<div class="line"><a name="l00139"></a><span class="lineno"><a class="line" href="math__utils_8hpp.html#ad8dbee235e4fd33d60dbc860cd34bbfd">  139</a></span>&#160;<span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="math__utils_8hpp.html#ad8dbee235e4fd33d60dbc860cd34bbfd">QuaternionNormalize</a>(<span class="keywordtype">double</span> q[4]) {</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;  <span class="keywordtype">double</span> by_q_norm = 1.0 / <a class="code" href="math__utils_8hpp.html#ad5a93c51459dd41c604d16df4a4e7016">norm</a>(q[0], q[1], q[2], q[3]);</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;  q[0] *= by_q_norm;</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;  q[1] *= by_q_norm;</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;  q[2] *= by_q_norm;</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;  q[3] *= by_q_norm;</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;}</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160; </div>
+<div class="line"><a name="l00147"></a><span class="lineno"><a class="line" href="math__utils_8hpp.html#a26349adb1f64f140b1644a0170e8d677">  147</a></span>&#160;<span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="math__utils_8hpp.html#a26349adb1f64f140b1644a0170e8d677">RotateByRodrigues</a>(<span class="keywordtype">double</span> val_new[3], <span class="keyword">const</span> <span class="keywordtype">double</span> val_old[3],</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;                              <span class="keywordtype">double</span> rot_angle_cos, <span class="keywordtype">double</span> rot_angle_sin,</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;                              <span class="keyword">const</span> <span class="keywordtype">double</span> rot_axis[3]) {</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;  <span class="keywordtype">double</span> by_axis_norm = 1.0 / <a class="code" href="math__utils_8hpp.html#ad5a93c51459dd41c604d16df4a4e7016">norm</a>(rot_axis);</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;  <span class="keywordtype">double</span> rot_axis_unit[3]{rot_axis[0] * by_axis_norm,</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;                          rot_axis[1] * by_axis_norm,</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;                          rot_axis[2] * by_axis_norm};</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160; </div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;  <span class="keywordtype">double</span> axis_cross_val[3];</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;  <a class="code" href="math__utils_8hpp.html#a817e3def296caeb569d8e83b79b25215">VectorCross</a>(axis_cross_val, rot_axis_unit, val_old);</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;  <span class="keywordtype">double</span> axis_dot_val = <a class="code" href="math__utils_8hpp.html#aa2898d24b63919c6863faecc8f6ddff1">VectorDot</a>(rot_axis_unit, val_old);</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160; </div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;  val_new[0] = val_old[0] * rot_angle_cos + axis_cross_val[0] * rot_angle_sin +</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;               rot_axis_unit[0] * axis_dot_val * (1.0 - rot_angle_cos);</div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;  val_new[1] = val_old[1] * rot_angle_cos + axis_cross_val[1] * rot_angle_sin +</div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;               rot_axis_unit[1] * axis_dot_val * (1.0 - rot_angle_cos);</div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;  val_new[2] = val_old[2] * rot_angle_cos + axis_cross_val[2] * rot_angle_sin +</div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;               rot_axis_unit[2] * axis_dot_val * (1.0 - rot_angle_cos);</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;}</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160; </div>
+<div class="line"><a name="l00167"></a><span class="lineno"><a class="line" href="math__utils_8hpp.html#aea4835c5a923f932dbac2429be257896">  167</a></span>&#160;<span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="math__utils_8hpp.html#a26349adb1f64f140b1644a0170e8d677">RotateByRodrigues</a>(<span class="keywordtype">double</span> val_new[3], <span class="keyword">const</span> <span class="keywordtype">double</span> val_old[3],</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;                              <span class="keywordtype">double</span> rot_angle, <span class="keyword">const</span> <span class="keywordtype">double</span> rot_axis[3]) {</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;  <a class="code" href="math__utils_8hpp.html#a26349adb1f64f140b1644a0170e8d677">RotateByRodrigues</a>(val_new, val_old, std::cos(rot_angle), std::sin(rot_angle),</div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;                    rot_axis);</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;}</div>
 <div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160; </div>
-<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;    <a class="code" href="math__utils_8hpp.html#a792d47dd0dc01460d6c194e0486259d8">QuaternionMultiply</a>(quaternion_val_tmp, quaternion_val_old, quaternion_conj);</div>
-<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;    <a class="code" href="math__utils_8hpp.html#a792d47dd0dc01460d6c194e0486259d8">QuaternionMultiply</a>(quaternion_val_new, quaternion, quaternion_val_tmp);</div>
-<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160; </div>
-<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;    <span class="keywordtype">double</span> renorm_factor =</div>
-<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;        val_norm / <a class="code" href="math__utils_8hpp.html#ad5a93c51459dd41c604d16df4a4e7016">norm</a>(quaternion_val_new[1], quaternion_val_new[2],</div>
-<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;                        quaternion_val_new[3]);</div>
-<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;    val_new[0] = quaternion_val_new[1] * renorm_factor;</div>
-<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;    val_new[1] = quaternion_val_new[2] * renorm_factor;</div>
-<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;    val_new[2] = quaternion_val_new[3] * renorm_factor;</div>
-<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;  } <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;    val_new[0] = 0;</div>
-<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;    val_new[1] = 0;</div>
-<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;    val_new[2] = 0;</div>
-<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;  }</div>
-<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;}</div>
-<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160; </div>
-<div class="line"><a name="l00189"></a><span class="lineno"><a class="line" href="math__utils_8hpp.html#afdd93a6b9dea12f8297a3a4a86c5b8a9">  189</a></span>&#160;<span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="math__utils_8hpp.html#afdd93a6b9dea12f8297a3a4a86c5b8a9">cart2sph</a>(<span class="keyword">const</span> <span class="keywordtype">double</span> vert_cart[3], <span class="keywordtype">double</span> vert_sph[3]) {</div>
-<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;  vert_sph[0] = <a class="code" href="math__utils_8hpp.html#ad5a93c51459dd41c604d16df4a4e7016">norm</a>(vert_cart);</div>
-<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;  vert_sph[1] = std::acos(vert_cart[2] / vert_sph[0]);</div>
-<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;  vert_sph[2] = std::atan2(vert_cart[1], vert_cart[0]);</div>
-<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;}</div>
-<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160; </div>
-<div class="line"><a name="l00195"></a><span class="lineno"><a class="line" href="math__utils_8hpp.html#afb8d2170b517d487426a510104ef2a13">  195</a></span>&#160;<span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="math__utils_8hpp.html#afb8d2170b517d487426a510104ef2a13">sph2cart</a>(<span class="keywordtype">double</span> vert_cart[3], <span class="keyword">const</span> <span class="keywordtype">double</span> vert_sph[3]) {</div>
-<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;  vert_cart[0] = vert_sph[0] * std::sin(vert_sph[1]) * std::cos(vert_sph[2]);</div>
-<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;  vert_cart[1] = vert_sph[0] * std::sin(vert_sph[1]) * std::sin(vert_sph[2]);</div>
-<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;  vert_cart[2] = vert_sph[0] * std::cos(vert_sph[1]);</div>
-<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;}</div>
-<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160; </div>
-<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;<span class="comment">// a, b, c: are three points defining a plane</span></div>
-<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;<span class="comment">// pos, foot: a point and its perpendicular foot on the plane</span></div>
-<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;<span class="comment">// t_abc: foot = t_abc[0]*a+t_abc[1]*b+t_abc[2]*c;</span></div>
-<div class="line"><a name="l00204"></a><span class="lineno"><a class="line" href="math__utils_8hpp.html#abf878beeb8533a489a8d3e9cd160438f">  204</a></span>&#160;<span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="math__utils_8hpp.html#abf878beeb8533a489a8d3e9cd160438f">GetPlaneFoot</a>(<span class="keywordtype">double</span> foot[3], <span class="keywordtype">double</span> t_abc[3], <span class="keyword">const</span> <span class="keywordtype">double</span> pos[3],</div>
-<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;                         <span class="keyword">const</span> <span class="keywordtype">double</span> a[3], <span class="keyword">const</span> <span class="keywordtype">double</span> b[3],</div>
-<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;                         <span class="keyword">const</span> <span class="keywordtype">double</span> c[3]) {</div>
-<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;  <span class="keywordtype">double</span> ao[3]{-a[0], -a[1], -a[2]},</div>
-<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;      ab[3]{b[0] - a[0], b[1] - a[1], b[2] - a[2]},</div>
-<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;      ac[3]{c[0] - a[0], c[1] - a[1], c[2] - a[2]};</div>
-<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160; </div>
-<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;  <span class="keywordtype">double</span> coff_b[3], coff_c[3], coff_res[3];</div>
-<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;  coff_b[0] = <a class="code" href="math__utils_8hpp.html#aa2898d24b63919c6863faecc8f6ddff1">VectorDot</a>(ab, ab);</div>
-<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;  coff_b[1] = <a class="code" href="math__utils_8hpp.html#aa2898d24b63919c6863faecc8f6ddff1">VectorDot</a>(ac, ab);</div>
-<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;  coff_b[2] = <a class="code" href="math__utils_8hpp.html#aa2898d24b63919c6863faecc8f6ddff1">VectorDot</a>(ao, ab);</div>
-<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;  coff_c[0] = <a class="code" href="math__utils_8hpp.html#aa2898d24b63919c6863faecc8f6ddff1">VectorDot</a>(ab, ac);</div>
-<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;  coff_c[1] = <a class="code" href="math__utils_8hpp.html#aa2898d24b63919c6863faecc8f6ddff1">VectorDot</a>(ac, ac);</div>
-<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;  coff_c[2] = <a class="code" href="math__utils_8hpp.html#aa2898d24b63919c6863faecc8f6ddff1">VectorDot</a>(ao, ac);</div>
-<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;  <a class="code" href="math__utils_8hpp.html#a817e3def296caeb569d8e83b79b25215">VectorCross</a>(coff_res, coff_b, coff_c);</div>
+<div class="line"><a name="l00173"></a><span class="lineno"><a class="line" href="math__utils_8hpp.html#a9a692f865d3787f35866d1c36ff6da1f">  173</a></span>&#160;<span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="math__utils_8hpp.html#a9a692f865d3787f35866d1c36ff6da1f">RotateByQuaternion</a>(<span class="keywordtype">double</span> val_new[3], <span class="keyword">const</span> <span class="keywordtype">double</span> val_old[3],</div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;                               <span class="keyword">const</span> <span class="keywordtype">double</span> quaternion[4]) {</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;  <span class="keywordtype">double</span> val_norm = <a class="code" href="math__utils_8hpp.html#ad5a93c51459dd41c604d16df4a4e7016">norm</a>(val_old);</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;  <span class="keywordflow">if</span> (val_norm &gt; 1.0e-15) {</div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;    <span class="keywordtype">double</span> quaternion_conj[4]{quaternion[0], -quaternion[1], -quaternion[2],</div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;                              -quaternion[3]};</div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;    <span class="keywordtype">double</span> quaternion_val_old[4]{0, val_old[0], val_old[1], val_old[2]};</div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;    <span class="keywordtype">double</span> quaternion_val_tmp[4], quaternion_val_new[4];</div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160; </div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;    <a class="code" href="math__utils_8hpp.html#a792d47dd0dc01460d6c194e0486259d8">QuaternionMultiply</a>(quaternion_val_tmp, quaternion_val_old, quaternion_conj);</div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;    <a class="code" href="math__utils_8hpp.html#a792d47dd0dc01460d6c194e0486259d8">QuaternionMultiply</a>(quaternion_val_new, quaternion, quaternion_val_tmp);</div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160; </div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;    <span class="keywordtype">double</span> renorm_factor =</div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;        val_norm / <a class="code" href="math__utils_8hpp.html#ad5a93c51459dd41c604d16df4a4e7016">norm</a>(quaternion_val_new[1], quaternion_val_new[2],</div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;                        quaternion_val_new[3]);</div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;    val_new[0] = quaternion_val_new[1] * renorm_factor;</div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;    val_new[1] = quaternion_val_new[2] * renorm_factor;</div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;    val_new[2] = quaternion_val_new[3] * renorm_factor;</div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;  } <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;    val_new[0] = 0;</div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;    val_new[1] = 0;</div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;    val_new[2] = 0;</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;  }</div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;}</div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160; </div>
+<div class="line"><a name="l00198"></a><span class="lineno"><a class="line" href="math__utils_8hpp.html#afdd93a6b9dea12f8297a3a4a86c5b8a9">  198</a></span>&#160;<span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="math__utils_8hpp.html#afdd93a6b9dea12f8297a3a4a86c5b8a9">cart2sph</a>(<span class="keyword">const</span> <span class="keywordtype">double</span> vert_cart[3], <span class="keywordtype">double</span> vert_sph[3]) {</div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;  vert_sph[0] = <a class="code" href="math__utils_8hpp.html#ad5a93c51459dd41c604d16df4a4e7016">norm</a>(vert_cart);</div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;  vert_sph[1] = std::acos(vert_cart[2] / vert_sph[0]);</div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;  vert_sph[2] = std::atan2(vert_cart[1], vert_cart[0]);</div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;}</div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160; </div>
+<div class="line"><a name="l00204"></a><span class="lineno"><a class="line" href="math__utils_8hpp.html#afb8d2170b517d487426a510104ef2a13">  204</a></span>&#160;<span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="math__utils_8hpp.html#afb8d2170b517d487426a510104ef2a13">sph2cart</a>(<span class="keywordtype">double</span> vert_cart[3], <span class="keyword">const</span> <span class="keywordtype">double</span> vert_sph[3]) {</div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;  vert_cart[0] = vert_sph[0] * std::sin(vert_sph[1]) * std::cos(vert_sph[2]);</div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;  vert_cart[1] = vert_sph[0] * std::sin(vert_sph[1]) * std::sin(vert_sph[2]);</div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;  vert_cart[2] = vert_sph[0] * std::cos(vert_sph[1]);</div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;}</div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160; </div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;<span class="comment">// a, b, c: are three points defining a plane</span></div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;<span class="comment">// pos, foot: a point and its perpendicular foot on the plane</span></div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;<span class="comment">// t_abc: foot = t_abc[0]*a+t_abc[1]*b+t_abc[2]*c;</span></div>
+<div class="line"><a name="l00213"></a><span class="lineno"><a class="line" href="math__utils_8hpp.html#abf878beeb8533a489a8d3e9cd160438f">  213</a></span>&#160;<span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="math__utils_8hpp.html#abf878beeb8533a489a8d3e9cd160438f">GetPlaneFoot</a>(<span class="keywordtype">double</span> foot[3], <span class="keywordtype">double</span> t_abc[3], <span class="keyword">const</span> <span class="keywordtype">double</span> pos[3],</div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;                         <span class="keyword">const</span> <span class="keywordtype">double</span> a[3], <span class="keyword">const</span> <span class="keywordtype">double</span> b[3],</div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;                         <span class="keyword">const</span> <span class="keywordtype">double</span> c[3]) {</div>
+<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;  <span class="keywordtype">double</span> ao[3]{-a[0], -a[1], -a[2]},</div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;      ab[3]{b[0] - a[0], b[1] - a[1], b[2] - a[2]},</div>
+<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;      ac[3]{c[0] - a[0], c[1] - a[1], c[2] - a[2]};</div>
 <div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160; </div>
-<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;  t_abc[1] = -coff_res[0] / coff_res[2];</div>
-<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;  t_abc[2] = -coff_res[1] / coff_res[2];</div>
-<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;  t_abc[0] = 1 - t_abc[1] - t_abc[2];</div>
-<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160; </div>
-<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;  foot[0] = t_abc[0] * a[0] + t_abc[1] * b[0] + t_abc[2] * c[0];</div>
-<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;  foot[1] = t_abc[0] * a[1] + t_abc[1] * b[1] + t_abc[2] * c[1];</div>
-<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;  foot[2] = t_abc[0] * a[2] + t_abc[1] * b[2] + t_abc[2] * c[2];</div>
-<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;}</div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;  <span class="keywordtype">double</span> coff_b[3], coff_c[3], coff_res[3];</div>
+<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;  coff_b[0] = <a class="code" href="math__utils_8hpp.html#aa2898d24b63919c6863faecc8f6ddff1">VectorDot</a>(ab, ab);</div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;  coff_b[1] = <a class="code" href="math__utils_8hpp.html#aa2898d24b63919c6863faecc8f6ddff1">VectorDot</a>(ac, ab);</div>
+<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;  coff_b[2] = <a class="code" href="math__utils_8hpp.html#aa2898d24b63919c6863faecc8f6ddff1">VectorDot</a>(ao, ab);</div>
+<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;  coff_c[0] = <a class="code" href="math__utils_8hpp.html#aa2898d24b63919c6863faecc8f6ddff1">VectorDot</a>(ab, ac);</div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;  coff_c[1] = <a class="code" href="math__utils_8hpp.html#aa2898d24b63919c6863faecc8f6ddff1">VectorDot</a>(ac, ac);</div>
+<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;  coff_c[2] = <a class="code" href="math__utils_8hpp.html#aa2898d24b63919c6863faecc8f6ddff1">VectorDot</a>(ao, ac);</div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;  <a class="code" href="math__utils_8hpp.html#a817e3def296caeb569d8e83b79b25215">VectorCross</a>(coff_res, coff_b, coff_c);</div>
 <div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160; </div>
-<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;<span class="keyword">inline</span> <span class="keywordtype">void</span></div>
-<div class="line"><a name="l00230"></a><span class="lineno"><a class="line" href="math__utils_8hpp.html#a21c1268d1f56ff38d6864060c3f7fec4">  230</a></span>&#160;<a class="code" href="math__utils_8hpp.html#abf878beeb8533a489a8d3e9cd160438f">GetPlaneFoot</a>(std::vector&lt;double&gt; *<span class="keyword">const</span> foot, std::vector&lt;double&gt; *<span class="keyword">const</span> t_abc,</div>
-<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;             <span class="keyword">const</span> std::vector&lt;double&gt; &amp;pos, <span class="keyword">const</span> std::vector&lt;double&gt; &amp;a,</div>
-<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;             <span class="keyword">const</span> std::vector&lt;double&gt; &amp;b, <span class="keyword">const</span> std::vector&lt;double&gt; &amp;c) {</div>
-<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;  <span class="keywordtype">double</span> ao[3]{-a[0], -a[1], -a[2]},</div>
-<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;      ab[3]{b[0] - a[0], b[1] - a[1], b[2] - a[2]},</div>
-<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;      ac[3]{c[0] - a[0], c[1] - a[1], c[2] - a[2]};</div>
-<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160; </div>
-<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;  <span class="keywordtype">double</span> coff_b[3], coff_c[3], coff_res[3];</div>
-<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;  coff_b[0] = <a class="code" href="math__utils_8hpp.html#aa2898d24b63919c6863faecc8f6ddff1">VectorDot</a>(ab, ab);</div>
-<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;  coff_b[1] = <a class="code" href="math__utils_8hpp.html#aa2898d24b63919c6863faecc8f6ddff1">VectorDot</a>(ac, ab);</div>
-<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;  coff_b[2] = <a class="code" href="math__utils_8hpp.html#aa2898d24b63919c6863faecc8f6ddff1">VectorDot</a>(ao, ab);</div>
-<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;  coff_c[0] = <a class="code" href="math__utils_8hpp.html#aa2898d24b63919c6863faecc8f6ddff1">VectorDot</a>(ab, ac);</div>
-<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;  coff_c[1] = <a class="code" href="math__utils_8hpp.html#aa2898d24b63919c6863faecc8f6ddff1">VectorDot</a>(ac, ac);</div>
-<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;  coff_c[2] = <a class="code" href="math__utils_8hpp.html#aa2898d24b63919c6863faecc8f6ddff1">VectorDot</a>(ao, ac);</div>
-<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;  <a class="code" href="math__utils_8hpp.html#a817e3def296caeb569d8e83b79b25215">VectorCross</a>(coff_res, coff_b, coff_c);</div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;  t_abc[1] = -coff_res[0] / coff_res[2];</div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;  t_abc[2] = -coff_res[1] / coff_res[2];</div>
+<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;  t_abc[0] = 1 - t_abc[1] - t_abc[2];</div>
+<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160; </div>
+<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;  foot[0] = t_abc[0] * a[0] + t_abc[1] * b[0] + t_abc[2] * c[0];</div>
+<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;  foot[1] = t_abc[0] * a[1] + t_abc[1] * b[1] + t_abc[2] * c[1];</div>
+<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;  foot[2] = t_abc[0] * a[2] + t_abc[1] * b[2] + t_abc[2] * c[2];</div>
+<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;}</div>
+<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160; </div>
+<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;<span class="keyword">inline</span> <span class="keywordtype">void</span></div>
+<div class="line"><a name="l00239"></a><span class="lineno"><a class="line" href="math__utils_8hpp.html#a21c1268d1f56ff38d6864060c3f7fec4">  239</a></span>&#160;<a class="code" href="math__utils_8hpp.html#abf878beeb8533a489a8d3e9cd160438f">GetPlaneFoot</a>(std::vector&lt;double&gt; *<span class="keyword">const</span> foot, std::vector&lt;double&gt; *<span class="keyword">const</span> t_abc,</div>
+<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;             <span class="keyword">const</span> std::vector&lt;double&gt; &amp;pos, <span class="keyword">const</span> std::vector&lt;double&gt; &amp;a,</div>
+<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;             <span class="keyword">const</span> std::vector&lt;double&gt; &amp;b, <span class="keyword">const</span> std::vector&lt;double&gt; &amp;c) {</div>
+<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;  <span class="keywordtype">double</span> ao[3]{-a[0], -a[1], -a[2]},</div>
+<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;      ab[3]{b[0] - a[0], b[1] - a[1], b[2] - a[2]},</div>
+<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;      ac[3]{c[0] - a[0], c[1] - a[1], c[2] - a[2]};</div>
 <div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160; </div>
-<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;  (*t_abc)[1] = -coff_res[0] / coff_res[2];</div>
-<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;  (*t_abc)[2] = -coff_res[1] / coff_res[2];</div>
-<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;  (*t_abc)[0] = 1 - (*t_abc)[1] - (*t_abc)[2];</div>
-<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160; </div>
-<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;  (*foot)[0] = (*t_abc)[0] * a[0] + (*t_abc)[1] * b[0] + (*t_abc)[2] * c[0];</div>
-<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;  (*foot)[1] = (*t_abc)[0] * a[1] + (*t_abc)[1] * b[1] + (*t_abc)[2] * c[1];</div>
-<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;  (*foot)[2] = (*t_abc)[0] * a[2] + (*t_abc)[1] * b[2] + (*t_abc)[2] * c[2];</div>
-<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;}</div>
+<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;  <span class="keywordtype">double</span> coff_b[3], coff_c[3], coff_res[3];</div>
+<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;  coff_b[0] = <a class="code" href="math__utils_8hpp.html#aa2898d24b63919c6863faecc8f6ddff1">VectorDot</a>(ab, ab);</div>
+<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;  coff_b[1] = <a class="code" href="math__utils_8hpp.html#aa2898d24b63919c6863faecc8f6ddff1">VectorDot</a>(ac, ab);</div>
+<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;  coff_b[2] = <a class="code" href="math__utils_8hpp.html#aa2898d24b63919c6863faecc8f6ddff1">VectorDot</a>(ao, ab);</div>
+<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;  coff_c[0] = <a class="code" href="math__utils_8hpp.html#aa2898d24b63919c6863faecc8f6ddff1">VectorDot</a>(ab, ac);</div>
+<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;  coff_c[1] = <a class="code" href="math__utils_8hpp.html#aa2898d24b63919c6863faecc8f6ddff1">VectorDot</a>(ac, ac);</div>
+<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;  coff_c[2] = <a class="code" href="math__utils_8hpp.html#aa2898d24b63919c6863faecc8f6ddff1">VectorDot</a>(ao, ac);</div>
+<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;  <a class="code" href="math__utils_8hpp.html#a817e3def296caeb569d8e83b79b25215">VectorCross</a>(coff_res, coff_b, coff_c);</div>
+<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160; </div>
+<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;  (*t_abc)[1] = -coff_res[0] / coff_res[2];</div>
+<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;  (*t_abc)[2] = -coff_res[1] / coff_res[2];</div>
+<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;  (*t_abc)[0] = 1 - (*t_abc)[1] - (*t_abc)[2];</div>
+<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160; </div>
+<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;  (*foot)[0] = (*t_abc)[0] * a[0] + (*t_abc)[1] * b[0] + (*t_abc)[2] * c[0];</div>
+<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;  (*foot)[1] = (*t_abc)[0] * a[1] + (*t_abc)[1] * b[1] + (*t_abc)[2] * c[1];</div>
+<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;  (*foot)[2] = (*t_abc)[0] * a[2] + (*t_abc)[1] * b[2] + (*t_abc)[2] * c[2];</div>
+<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;}</div>
 <div class="ttc" id="amacro__definitions_8hpp_html"><div class="ttname"><a href="macro__definitions_8hpp.html">macro_definitions.hpp</a></div></div>
 <div class="ttc" id="amacro__definitions_8hpp_html_acb3e8a3146c29d5500df3f5ebd6e1795"><div class="ttname"><a href="macro__definitions_8hpp.html#acb3e8a3146c29d5500df3f5ebd6e1795">vec3</a></div><div class="ttdeci">std::array&lt; T, 3 &gt; vec3</div><div class="ttdef"><b>Definition:</b> macro_definitions.hpp:8</div></div>
-<div class="ttc" id="amath__utils_8hpp_html_a02371d3d6c9c97285fa186d2656b20ae"><div class="ttname"><a href="math__utils_8hpp.html#a02371d3d6c9c97285fa186d2656b20ae">QuaternionToRodrigues</a></div><div class="ttdeci">void QuaternionToRodrigues(const double quaternion[4], double *const rot_angle, double rot_axis[3])</div><div class="ttdef"><b>Definition:</b> math_utils.hpp:84</div></div>
+<div class="ttc" id="amath__utils_8hpp_html_a02371d3d6c9c97285fa186d2656b20ae"><div class="ttname"><a href="math__utils_8hpp.html#a02371d3d6c9c97285fa186d2656b20ae">QuaternionToRodrigues</a></div><div class="ttdeci">void QuaternionToRodrigues(const double quaternion[4], double *const rot_angle, double rot_axis[3])</div><div class="ttdef"><b>Definition:</b> math_utils.hpp:93</div></div>
 <div class="ttc" id="amath__utils_8hpp_html_a1ab31b90bc584c635ec159468ceed9b2"><div class="ttname"><a href="math__utils_8hpp.html#a1ab31b90bc584c635ec159468ceed9b2">sgn</a></div><div class="ttdeci">int sgn(T val)</div><div class="ttdef"><b>Definition:</b> math_utils.hpp:10</div></div>
-<div class="ttc" id="amath__utils_8hpp_html_a26349adb1f64f140b1644a0170e8d677"><div class="ttname"><a href="math__utils_8hpp.html#a26349adb1f64f140b1644a0170e8d677">RotateByRodrigues</a></div><div class="ttdeci">void RotateByRodrigues(double val_new[3], const double val_old[3], double rot_angle_cos, double rot_angle_sin, const double rot_axis[3])</div><div class="ttdef"><b>Definition:</b> math_utils.hpp:138</div></div>
-<div class="ttc" id="amath__utils_8hpp_html_a764d7760c5c32144e21a4e83550ad27c"><div class="ttname"><a href="math__utils_8hpp.html#a764d7760c5c32144e21a4e83550ad27c">RodriguesToQuaternion</a></div><div class="ttdeci">void RodriguesToQuaternion(double quaternion[4], double rot_angle, const double rot_axis[3])</div><div class="ttdef"><b>Definition:</b> math_utils.hpp:73</div></div>
-<div class="ttc" id="amath__utils_8hpp_html_a792d47dd0dc01460d6c194e0486259d8"><div class="ttname"><a href="math__utils_8hpp.html#a792d47dd0dc01460d6c194e0486259d8">QuaternionMultiply</a></div><div class="ttdeci">void QuaternionMultiply(double res[4], const double p[4], const double q[4])</div><div class="ttdef"><b>Definition:</b> math_utils.hpp:104</div></div>
+<div class="ttc" id="amath__utils_8hpp_html_a26349adb1f64f140b1644a0170e8d677"><div class="ttname"><a href="math__utils_8hpp.html#a26349adb1f64f140b1644a0170e8d677">RotateByRodrigues</a></div><div class="ttdeci">void RotateByRodrigues(double val_new[3], const double val_old[3], double rot_angle_cos, double rot_angle_sin, const double rot_axis[3])</div><div class="ttdef"><b>Definition:</b> math_utils.hpp:147</div></div>
+<div class="ttc" id="amath__utils_8hpp_html_a764d7760c5c32144e21a4e83550ad27c"><div class="ttname"><a href="math__utils_8hpp.html#a764d7760c5c32144e21a4e83550ad27c">RodriguesToQuaternion</a></div><div class="ttdeci">void RodriguesToQuaternion(double quaternion[4], double rot_angle, const double rot_axis[3])</div><div class="ttdef"><b>Definition:</b> math_utils.hpp:82</div></div>
+<div class="ttc" id="amath__utils_8hpp_html_a792d47dd0dc01460d6c194e0486259d8"><div class="ttname"><a href="math__utils_8hpp.html#a792d47dd0dc01460d6c194e0486259d8">QuaternionMultiply</a></div><div class="ttdeci">void QuaternionMultiply(double res[4], const double p[4], const double q[4])</div><div class="ttdef"><b>Definition:</b> math_utils.hpp:113</div></div>
 <div class="ttc" id="amath__utils_8hpp_html_a817e3def296caeb569d8e83b79b25215"><div class="ttname"><a href="math__utils_8hpp.html#a817e3def296caeb569d8e83b79b25215">VectorCross</a></div><div class="ttdeci">void VectorCross(double val_res[3], const double val_1[3], const double val_2[3])</div><div class="ttdef"><b>Definition:</b> math_utils.hpp:52</div></div>
-<div class="ttc" id="amath__utils_8hpp_html_a8d2f54c473ea3b672e6c343f5d10d5ff"><div class="ttname"><a href="math__utils_8hpp.html#a8d2f54c473ea3b672e6c343f5d10d5ff">QuaternionConjugate</a></div><div class="ttdeci">void QuaternionConjugate(double res[4], const double p[4])</div><div class="ttdef"><b>Definition:</b> math_utils.hpp:123</div></div>
-<div class="ttc" id="amath__utils_8hpp_html_a97611ae825a542e23d64e69e8c25c5c3"><div class="ttname"><a href="math__utils_8hpp.html#a97611ae825a542e23d64e69e8c25c5c3">VectorNormalize</a></div><div class="ttdeci">void VectorNormalize(double val[3])</div><div class="ttdef"><b>Definition:</b> math_utils.hpp:63</div></div>
-<div class="ttc" id="amath__utils_8hpp_html_a9a692f865d3787f35866d1c36ff6da1f"><div class="ttname"><a href="math__utils_8hpp.html#a9a692f865d3787f35866d1c36ff6da1f">RotateByQuaternion</a></div><div class="ttdeci">void RotateByQuaternion(double val_new[3], const double val_old[3], const double quaternion[4])</div><div class="ttdef"><b>Definition:</b> math_utils.hpp:164</div></div>
+<div class="ttc" id="amath__utils_8hpp_html_a8d2f54c473ea3b672e6c343f5d10d5ff"><div class="ttname"><a href="math__utils_8hpp.html#a8d2f54c473ea3b672e6c343f5d10d5ff">QuaternionConjugate</a></div><div class="ttdeci">void QuaternionConjugate(double res[4], const double p[4])</div><div class="ttdef"><b>Definition:</b> math_utils.hpp:132</div></div>
+<div class="ttc" id="amath__utils_8hpp_html_a97611ae825a542e23d64e69e8c25c5c3"><div class="ttname"><a href="math__utils_8hpp.html#a97611ae825a542e23d64e69e8c25c5c3">VectorNormalize</a></div><div class="ttdeci">void VectorNormalize(double val[3])</div><div class="ttdef"><b>Definition:</b> math_utils.hpp:72</div></div>
+<div class="ttc" id="amath__utils_8hpp_html_a9a692f865d3787f35866d1c36ff6da1f"><div class="ttname"><a href="math__utils_8hpp.html#a9a692f865d3787f35866d1c36ff6da1f">RotateByQuaternion</a></div><div class="ttdeci">void RotateByQuaternion(double val_new[3], const double val_old[3], const double quaternion[4])</div><div class="ttdef"><b>Definition:</b> math_utils.hpp:173</div></div>
 <div class="ttc" id="amath__utils_8hpp_html_aa2898d24b63919c6863faecc8f6ddff1"><div class="ttname"><a href="math__utils_8hpp.html#aa2898d24b63919c6863faecc8f6ddff1">VectorDot</a></div><div class="ttdeci">double VectorDot(const double val_1[3], const double val_2[3])</div><div class="ttdef"><b>Definition:</b> math_utils.hpp:59</div></div>
-<div class="ttc" id="amath__utils_8hpp_html_abf878beeb8533a489a8d3e9cd160438f"><div class="ttname"><a href="math__utils_8hpp.html#abf878beeb8533a489a8d3e9cd160438f">GetPlaneFoot</a></div><div class="ttdeci">void GetPlaneFoot(double foot[3], double t_abc[3], const double pos[3], const double a[3], const double b[3], const double c[3])</div><div class="ttdef"><b>Definition:</b> math_utils.hpp:204</div></div>
+<div class="ttc" id="amath__utils_8hpp_html_abf878beeb8533a489a8d3e9cd160438f"><div class="ttname"><a href="math__utils_8hpp.html#abf878beeb8533a489a8d3e9cd160438f">GetPlaneFoot</a></div><div class="ttdeci">void GetPlaneFoot(double foot[3], double t_abc[3], const double pos[3], const double a[3], const double b[3], const double c[3])</div><div class="ttdef"><b>Definition:</b> math_utils.hpp:213</div></div>
 <div class="ttc" id="amath__utils_8hpp_html_ad5a93c51459dd41c604d16df4a4e7016"><div class="ttname"><a href="math__utils_8hpp.html#ad5a93c51459dd41c604d16df4a4e7016">norm</a></div><div class="ttdeci">double norm(const vec3&lt; T &gt; &amp;val)</div><div class="ttdef"><b>Definition:</b> math_utils.hpp:14</div></div>
-<div class="ttc" id="amath__utils_8hpp_html_ad8dbee235e4fd33d60dbc860cd34bbfd"><div class="ttname"><a href="math__utils_8hpp.html#ad8dbee235e4fd33d60dbc860cd34bbfd">QuaternionNormalize</a></div><div class="ttdeci">void QuaternionNormalize(double q[4])</div><div class="ttdef"><b>Definition:</b> math_utils.hpp:130</div></div>
-<div class="ttc" id="amath__utils_8hpp_html_ae6a284bca869a607d85f18435b44d117"><div class="ttname"><a href="math__utils_8hpp.html#ae6a284bca869a607d85f18435b44d117">QuaternionAdd</a></div><div class="ttdeci">void QuaternionAdd(double res[4], const double p[4], const double q[4])</div><div class="ttdef"><b>Definition:</b> math_utils.hpp:116</div></div>
-<div class="ttc" id="amath__utils_8hpp_html_afb8d2170b517d487426a510104ef2a13"><div class="ttname"><a href="math__utils_8hpp.html#afb8d2170b517d487426a510104ef2a13">sph2cart</a></div><div class="ttdeci">void sph2cart(double vert_cart[3], const double vert_sph[3])</div><div class="ttdef"><b>Definition:</b> math_utils.hpp:195</div></div>
-<div class="ttc" id="amath__utils_8hpp_html_afdd93a6b9dea12f8297a3a4a86c5b8a9"><div class="ttname"><a href="math__utils_8hpp.html#afdd93a6b9dea12f8297a3a4a86c5b8a9">cart2sph</a></div><div class="ttdeci">void cart2sph(const double vert_cart[3], double vert_sph[3])</div><div class="ttdef"><b>Definition:</b> math_utils.hpp:189</div></div>
+<div class="ttc" id="amath__utils_8hpp_html_ad8dbee235e4fd33d60dbc860cd34bbfd"><div class="ttname"><a href="math__utils_8hpp.html#ad8dbee235e4fd33d60dbc860cd34bbfd">QuaternionNormalize</a></div><div class="ttdeci">void QuaternionNormalize(double q[4])</div><div class="ttdef"><b>Definition:</b> math_utils.hpp:139</div></div>
+<div class="ttc" id="amath__utils_8hpp_html_ae6a284bca869a607d85f18435b44d117"><div class="ttname"><a href="math__utils_8hpp.html#ae6a284bca869a607d85f18435b44d117">QuaternionAdd</a></div><div class="ttdeci">void QuaternionAdd(double res[4], const double p[4], const double q[4])</div><div class="ttdef"><b>Definition:</b> math_utils.hpp:125</div></div>
+<div class="ttc" id="amath__utils_8hpp_html_afb8d2170b517d487426a510104ef2a13"><div class="ttname"><a href="math__utils_8hpp.html#afb8d2170b517d487426a510104ef2a13">sph2cart</a></div><div class="ttdeci">void sph2cart(double vert_cart[3], const double vert_sph[3])</div><div class="ttdef"><b>Definition:</b> math_utils.hpp:204</div></div>
+<div class="ttc" id="amath__utils_8hpp_html_afdd93a6b9dea12f8297a3a4a86c5b8a9"><div class="ttname"><a href="math__utils_8hpp.html#afdd93a6b9dea12f8297a3a4a86c5b8a9">cart2sph</a></div><div class="ttdeci">void cart2sph(const double vert_cart[3], double vert_sph[3])</div><div class="ttdef"><b>Definition:</b> math_utils.hpp:198</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
