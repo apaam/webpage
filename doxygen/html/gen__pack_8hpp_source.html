@@ -74,7 +74,7 @@ $(function() {
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="particle_8hpp.html">scene/particle.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="shape_8hpp.html">scene/shape.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="shape__sphere_8hpp.html">scene/shape_sphere.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="distribution_8hpp.html">utils/distribution.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="distribution__uniform_8hpp.html">utils/distribution_uniform.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="math__utils_8hpp.html">utils/math_utils.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
@@ -86,72 +86,84 @@ $(function() {
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;              <span class="keyword">const</span> std::vector&lt;Shape *&gt; &amp;shape_list) {</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    std::vector&lt;Particle&gt; particle_list;</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    particle_list.resize(num_x * num_y * num_z);</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keywordtype">double</span> spacing_x = len_x / num_x;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keywordtype">double</span> spacing_y = len_y / num_y;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordtype">double</span> spacing_z = len_z / num_z;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; num_x; i++) {</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;      <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j = 0; j &lt; num_y; j++) {</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> k = 0; k &lt; num_z; k++) {</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;          <span class="keywordtype">int</span> shape_id = rand() % shape_list.size();</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;          <span class="keywordtype">double</span> pos_rand = (rand() % 100) / 10000.0 *</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;                            shape_list[shape_id]-&gt;bound_sphere_radius;</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;          <a class="code" href="class_particle.html">Particle</a> p = <a class="code" href="class_particle.html">Particle</a>(shape_list[shape_id]);</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;          p.<a class="code" href="class_particle.html#af7e3518b2bdebb1e41d8cd9c2e0a1349">SetPosition</a>(</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;              spacing_x * (i + 0.5) + center_x - 0.5 * len_x + pos_rand,</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;              spacing_y * (j + 0.5) + center_y - 0.5 * len_y + pos_rand,</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;              spacing_z * (k + 0.5) + center_z - 0.5 * len_z);</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;          <span class="keywordtype">double</span> rot_axis[3]{1.0 * rand(), 1.0 * rand(), 1.0 * rand()};</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;          <a class="code" href="math__utils_8hpp.html#a97611ae825a542e23d64e69e8c25c5c3">VectorNormalize</a>(rot_axis);</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;          p.<a class="code" href="class_particle.html#a3823c8a63d8997a3f17773edd5b9967a">SetRotation</a>(rand() * <a class="code" href="macro__definitions_8hpp.html#a299aabc5fc8285cbf99025330a3d0d0d">PI</a>, rot_axis);</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;          particle_list[i * num_y * num_z + j * num_z + k] = p;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        }</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;      }</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    }</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keywordflow">return</span> particle_list;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;  }</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
-<div class="line"><a name="l00057"></a><span class="lineno"><a class="line" href="class_pack_generator.html#adf1c6ff9a266efb699f3f1e95aff8b73">   57</a></span>&#160;  <span class="keyword">static</span> std::vector&lt;Particle&gt; <a class="code" href="class_pack_generator.html#adf1c6ff9a266efb699f3f1e95aff8b73">GetGridPack</a>(<span class="keywordtype">double</span> len_x, <span class="keywordtype">double</span> len_y,</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;                                           <span class="keywordtype">double</span> len_z, <span class="keywordtype">double</span> center_x,</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;                                           <span class="keywordtype">double</span> center_y, <span class="keywordtype">double</span> center_z,</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;                                           <span class="keywordtype">int</span> num_x, <span class="keywordtype">int</span> num_y, <span class="keywordtype">int</span> num_z,</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;                                           <a class="code" href="class_shape.html">Shape</a> *shape) {</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    std::vector&lt;Particle&gt; particle_list;</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    particle_list.resize(num_x * num_y * num_z);</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keywordtype">double</span> spacing_x = len_x / num_x;</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keywordtype">double</span> spacing_y = len_y / num_y;</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keywordtype">double</span> spacing_z = len_z / num_z;</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; num_x; i++) {</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;      <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j = 0; j &lt; num_y; j++) {</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> k = 0; k &lt; num_z; k++) {</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;          <a class="code" href="class_particle.html">Particle</a> p = <a class="code" href="class_particle.html">Particle</a>(shape);</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;          <span class="keywordtype">double</span> pos_rand =</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;              (rand() % 100) / 10000.0 * shape-&gt;<a class="code" href="class_shape.html#acc9452d32cb0cf27896106f04ab51294">bound_sphere_radius</a>;</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;          p.<a class="code" href="class_particle.html#af7e3518b2bdebb1e41d8cd9c2e0a1349">SetPosition</a>(</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;              spacing_x * (i + 0.5) + center_x - 0.5 * len_x + pos_rand,</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;              spacing_y * (j + 0.5) + center_y - 0.5 * len_y + pos_rand,</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;              spacing_z * (k + 0.5) + center_z - 0.5 * len_z);</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;          <span class="keywordtype">double</span> rot_axis[3]{1.0 * rand(), 1.0 * rand(), 1.0 * rand()};</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;          <a class="code" href="math__utils_8hpp.html#a97611ae825a542e23d64e69e8c25c5c3">VectorNormalize</a>(rot_axis);</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;          p.<a class="code" href="class_particle.html#a3823c8a63d8997a3f17773edd5b9967a">SetRotation</a>(rand() * <a class="code" href="macro__definitions_8hpp.html#a299aabc5fc8285cbf99025330a3d0d0d">PI</a>, rot_axis);</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;          particle_list[i * num_y * num_z + j * num_z + k] = p;</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        }</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;      }</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    }</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <span class="keywordflow">return</span> particle_list;</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;  }</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;};</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keywordtype">double</span> spacing_x = len_x / num_x;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordtype">double</span> spacing_y = len_y / num_y;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keywordtype">double</span> spacing_z = len_z / num_z;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <a class="code" href="class_uniform_distribution.html">UniformDistribution</a> unifrom_dist(0, 1);</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; num_x; i++) {</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;      <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j = 0; j &lt; num_y; j++) {</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> k = 0; k &lt; num_z; k++) {</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;          <span class="keywordtype">int</span> shape_id = unifrom_dist.<a class="code" href="class_uniform_distribution.html#abe812f716d532db15e01a356d2c6140a">Random</a>() * shape_list.size();</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;          <span class="keywordtype">double</span> pos_rand = 0.01 * unifrom_dist.<a class="code" href="class_uniform_distribution.html#abe812f716d532db15e01a356d2c6140a">Random</a>() *</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;                            shape_list[shape_id]-&gt;bound_sphere_radius;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;          <a class="code" href="class_particle.html">Particle</a> p = <a class="code" href="class_particle.html">Particle</a>(shape_list[shape_id]);</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;          p.<a class="code" href="class_particle.html#af7e3518b2bdebb1e41d8cd9c2e0a1349">SetPosition</a>(</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;              spacing_x * (i + 0.5) + center_x - 0.5 * len_x + pos_rand,</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;              spacing_y * (j + 0.5) + center_y - 0.5 * len_y + pos_rand,</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;              spacing_z * (k + 0.5) + center_z - 0.5 * len_z);</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;          <span class="keywordtype">double</span> rot_axis[3]{unifrom_dist.<a class="code" href="class_uniform_distribution.html#abe812f716d532db15e01a356d2c6140a">Random</a>(), unifrom_dist.<a class="code" href="class_uniform_distribution.html#abe812f716d532db15e01a356d2c6140a">Random</a>(),</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;                             unifrom_dist.<a class="code" href="class_uniform_distribution.html#abe812f716d532db15e01a356d2c6140a">Random</a>()};</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;          <a class="code" href="math__utils_8hpp.html#a97611ae825a542e23d64e69e8c25c5c3">VectorNormalize</a>(rot_axis);</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;          p.<a class="code" href="class_particle.html#a3823c8a63d8997a3f17773edd5b9967a">SetRotation</a>(unifrom_dist.<a class="code" href="class_uniform_distribution.html#abe812f716d532db15e01a356d2c6140a">Random</a>() * <a class="code" href="macro__definitions_8hpp.html#a299aabc5fc8285cbf99025330a3d0d0d">PI</a>, rot_axis);</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;          particle_list[i * num_y * num_z + j * num_z + k] = p;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        }</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;      }</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    }</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keywordflow">return</span> particle_list;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;  }</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
+<div class="line"><a name="l00062"></a><span class="lineno"><a class="line" href="class_pack_generator.html#adf1c6ff9a266efb699f3f1e95aff8b73">   62</a></span>&#160;  <span class="keyword">static</span> std::vector&lt;Particle&gt; <a class="code" href="class_pack_generator.html#adf1c6ff9a266efb699f3f1e95aff8b73">GetGridPack</a>(<span class="keywordtype">double</span> len_x, <span class="keywordtype">double</span> len_y,</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;                                           <span class="keywordtype">double</span> len_z, <span class="keywordtype">double</span> center_x,</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;                                           <span class="keywordtype">double</span> center_y, <span class="keywordtype">double</span> center_z,</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;                                           <span class="keywordtype">int</span> num_x, <span class="keywordtype">int</span> num_y, <span class="keywordtype">int</span> num_z,</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;                                           <a class="code" href="class_shape.html">Shape</a> *shape) {</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    std::vector&lt;Particle&gt; particle_list;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    particle_list.resize(num_x * num_y * num_z);</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keywordtype">double</span> spacing_x = len_x / num_x;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="keywordtype">double</span> spacing_y = len_y / num_y;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="keywordtype">double</span> spacing_z = len_z / num_z;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; </div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <a class="code" href="class_uniform_distribution.html">UniformDistribution</a> unifrom_dist(0, 1);</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; num_x; i++) {</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;      <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j = 0; j &lt; num_y; j++) {</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> k = 0; k &lt; num_z; k++) {</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;          <a class="code" href="class_particle.html">Particle</a> p = <a class="code" href="class_particle.html">Particle</a>(shape);</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;          <span class="keywordtype">double</span> pos_rand =</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;              0.01 * unifrom_dist.<a class="code" href="class_uniform_distribution.html#abe812f716d532db15e01a356d2c6140a">Random</a>() * shape-&gt;<a class="code" href="class_shape.html#acc9452d32cb0cf27896106f04ab51294">bound_sphere_radius</a>;</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;          p.<a class="code" href="class_particle.html#af7e3518b2bdebb1e41d8cd9c2e0a1349">SetPosition</a>(</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;              spacing_x * (i + 0.5) + center_x - 0.5 * len_x + pos_rand,</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;              spacing_y * (j + 0.5) + center_y - 0.5 * len_y + pos_rand,</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;              spacing_z * (k + 0.5) + center_z - 0.5 * len_z);</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;          <span class="keywordtype">double</span> rot_axis[3]{unifrom_dist.<a class="code" href="class_uniform_distribution.html#abe812f716d532db15e01a356d2c6140a">Random</a>(), unifrom_dist.<a class="code" href="class_uniform_distribution.html#abe812f716d532db15e01a356d2c6140a">Random</a>(),</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;                             unifrom_dist.<a class="code" href="class_uniform_distribution.html#abe812f716d532db15e01a356d2c6140a">Random</a>()};</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;          <a class="code" href="math__utils_8hpp.html#a97611ae825a542e23d64e69e8c25c5c3">VectorNormalize</a>(rot_axis);</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;          p.<a class="code" href="class_particle.html#a3823c8a63d8997a3f17773edd5b9967a">SetRotation</a>(unifrom_dist.<a class="code" href="class_uniform_distribution.html#abe812f716d532db15e01a356d2c6140a">Random</a>() * <a class="code" href="macro__definitions_8hpp.html#a299aabc5fc8285cbf99025330a3d0d0d">PI</a>, rot_axis);</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;          particle_list[i * num_y * num_z + j * num_z + k] = p;</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        }</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;      }</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    }</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    <span class="keywordflow">return</span> particle_list;</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;  }</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;};</div>
 <div class="ttc" id="aclass_pack_generator_html"><div class="ttname"><a href="class_pack_generator.html">PackGenerator</a></div><div class="ttdef"><b>Definition:</b> gen_pack.hpp:25</div></div>
 <div class="ttc" id="aclass_pack_generator_html_a3a0c9b1d478eafa7cc358776487844ca"><div class="ttname"><a href="class_pack_generator.html#a3a0c9b1d478eafa7cc358776487844ca">PackGenerator::GetGridPack</a></div><div class="ttdeci">static std::vector&lt; Particle &gt; GetGridPack(double len_x, double len_y, double len_z, double center_x, double center_y, double center_z, int num_x, int num_y, int num_z, const std::vector&lt; Shape * &gt; &amp;shape_list)</div><div class="ttdef"><b>Definition:</b> gen_pack.hpp:28</div></div>
-<div class="ttc" id="aclass_pack_generator_html_adf1c6ff9a266efb699f3f1e95aff8b73"><div class="ttname"><a href="class_pack_generator.html#adf1c6ff9a266efb699f3f1e95aff8b73">PackGenerator::GetGridPack</a></div><div class="ttdeci">static std::vector&lt; Particle &gt; GetGridPack(double len_x, double len_y, double len_z, double center_x, double center_y, double center_z, int num_x, int num_y, int num_z, Shape *shape)</div><div class="ttdef"><b>Definition:</b> gen_pack.hpp:57</div></div>
+<div class="ttc" id="aclass_pack_generator_html_adf1c6ff9a266efb699f3f1e95aff8b73"><div class="ttname"><a href="class_pack_generator.html#adf1c6ff9a266efb699f3f1e95aff8b73">PackGenerator::GetGridPack</a></div><div class="ttdeci">static std::vector&lt; Particle &gt; GetGridPack(double len_x, double len_y, double len_z, double center_x, double center_y, double center_z, int num_x, int num_y, int num_z, Shape *shape)</div><div class="ttdef"><b>Definition:</b> gen_pack.hpp:62</div></div>
 <div class="ttc" id="aclass_particle_html"><div class="ttname"><a href="class_particle.html">Particle</a></div><div class="ttdef"><b>Definition:</b> particle.hpp:16</div></div>
 <div class="ttc" id="aclass_particle_html_a3823c8a63d8997a3f17773edd5b9967a"><div class="ttname"><a href="class_particle.html#a3823c8a63d8997a3f17773edd5b9967a">Particle::SetRotation</a></div><div class="ttdeci">void SetRotation(double rot_angle, const double rot_axis[3])</div><div class="ttdef"><b>Definition:</b> particle.cpp:83</div></div>
 <div class="ttc" id="aclass_particle_html_af7e3518b2bdebb1e41d8cd9c2e0a1349"><div class="ttname"><a href="class_particle.html#af7e3518b2bdebb1e41d8cd9c2e0a1349">Particle::SetPosition</a></div><div class="ttdeci">void SetPosition(const double pos[3])</div><div class="ttdef"><b>Definition:</b> particle.cpp:59</div></div>
 <div class="ttc" id="aclass_shape_html"><div class="ttname"><a href="class_shape.html">Shape</a></div><div class="ttdef"><b>Definition:</b> shape.hpp:22</div></div>
 <div class="ttc" id="aclass_shape_html_acc9452d32cb0cf27896106f04ab51294"><div class="ttname"><a href="class_shape.html#acc9452d32cb0cf27896106f04ab51294">Shape::bound_sphere_radius</a></div><div class="ttdeci">double bound_sphere_radius</div><div class="ttdef"><b>Definition:</b> shape.hpp:31</div></div>
-<div class="ttc" id="adistribution_8hpp_html"><div class="ttname"><a href="distribution_8hpp.html">distribution.hpp</a></div></div>
+<div class="ttc" id="aclass_uniform_distribution_html"><div class="ttname"><a href="class_uniform_distribution.html">UniformDistribution</a></div><div class="ttdef"><b>Definition:</b> distribution_uniform.hpp:6</div></div>
+<div class="ttc" id="aclass_uniform_distribution_html_abe812f716d532db15e01a356d2c6140a"><div class="ttname"><a href="class_uniform_distribution.html#abe812f716d532db15e01a356d2c6140a">UniformDistribution::Random</a></div><div class="ttdeci">double Random() override</div><div class="ttdef"><b>Definition:</b> distribution_uniform.hpp:24</div></div>
+<div class="ttc" id="adistribution__uniform_8hpp_html"><div class="ttname"><a href="distribution__uniform_8hpp.html">distribution_uniform.hpp</a></div></div>
 <div class="ttc" id="amacro__definitions_8hpp_html_a299aabc5fc8285cbf99025330a3d0d0d"><div class="ttname"><a href="macro__definitions_8hpp.html#a299aabc5fc8285cbf99025330a3d0d0d">PI</a></div><div class="ttdeci">constexpr double PI</div><div class="ttdef"><b>Definition:</b> macro_definitions.hpp:11</div></div>
 <div class="ttc" id="amath__utils_8hpp_html"><div class="ttname"><a href="math__utils_8hpp.html">math_utils.hpp</a></div></div>
-<div class="ttc" id="amath__utils_8hpp_html_a97611ae825a542e23d64e69e8c25c5c3"><div class="ttname"><a href="math__utils_8hpp.html#a97611ae825a542e23d64e69e8c25c5c3">VectorNormalize</a></div><div class="ttdeci">void VectorNormalize(double val[3])</div><div class="ttdef"><b>Definition:</b> math_utils.hpp:63</div></div>
+<div class="ttc" id="amath__utils_8hpp_html_a97611ae825a542e23d64e69e8c25c5c3"><div class="ttname"><a href="math__utils_8hpp.html#a97611ae825a542e23d64e69e8c25c5c3">VectorNormalize</a></div><div class="ttdeci">void VectorNormalize(double val[3])</div><div class="ttdef"><b>Definition:</b> math_utils.hpp:72</div></div>
 <div class="ttc" id="aparticle_8hpp_html"><div class="ttname"><a href="particle_8hpp.html">particle.hpp</a></div></div>
 <div class="ttc" id="ashape_8hpp_html"><div class="ttname"><a href="shape_8hpp.html">shape.hpp</a></div></div>
 <div class="ttc" id="ashape__sphere_8hpp_html"><div class="ttname"><a href="shape__sphere_8hpp.html">shape_sphere.hpp</a></div></div>
