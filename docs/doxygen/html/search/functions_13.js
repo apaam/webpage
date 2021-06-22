@@ -1,8 +1,11 @@
 var searchData=
 [
-  ['wall_1416',['Wall',['../class_wall.html#a12dc41bc7bc045c55ec1034a43e52043',1,'Wall::Wall()'],['../class_wall.html#af497ccba2912697422615a213cf6d77d',1,'Wall::Wall(Shape *shape)']]],
-  ['wallboxplane_1417',['WallBoxPlane',['../class_wall_box_plane.html#aa1fc9ac02d874ba9649fcceba19ee52e',1,'WallBoxPlane']]],
-  ['wallboxplate_1418',['WallBoxPlate',['../class_wall_box_plate.html#af42abfa5c8506b7a7523262999e3ab4d',1,'WallBoxPlate']]],
-  ['walldispcontrol_1419',['WallDispControl',['../class_wall_disp_control.html#ac8538b9b304a0c83a6b8e3326c2eff40',1,'WallDispControl']]],
-  ['wallservocontrol_1420',['WallServoControl',['../class_wall_servo_control.html#ad12f80eddff5d77c6c593042a7b0c089',1,'WallServoControl']]]
+  ['wall_1455',['Wall',['../class_wall.html#a12dc41bc7bc045c55ec1034a43e52043',1,'Wall::Wall()'],['../class_wall.html#af497ccba2912697422615a213cf6d77d',1,'Wall::Wall(Shape *shape)']]],
+  ['wallboxplane_1456',['WallBoxPlane',['../class_wall_box_plane.html#aa1fc9ac02d874ba9649fcceba19ee52e',1,'WallBoxPlane']]],
+  ['wallboxplate_1457',['WallBoxPlate',['../class_wall_box_plate.html#af42abfa5c8506b7a7523262999e3ab4d',1,'WallBoxPlate']]],
+  ['walldispcontrol_1458',['WallDispControl',['../class_wall_disp_control.html#ac8538b9b304a0c83a6b8e3326c2eff40',1,'WallDispControl']]],
+  ['wallservocontrol_1459',['WallServoControl',['../class_wall_servo_control.html#ad12f80eddff5d77c6c593042a7b0c089',1,'WallServoControl']]],
+  ['weightedcentroid_1460',['WeightedCentroid',['../spherical__voronoi_8cpp.html#a6a1af71f2d43425f0036dd63f87202fc',1,'WeightedCentroid(const std::vector&lt; std::array&lt; double, 3 &gt;&gt; &amp;vertices, const std::vector&lt; double &gt; &amp;weights, const std::array&lt; int, 3 &gt; &amp;facet):&#160;spherical_voronoi.cpp'],['../spherical__voronoi_8hpp.html#a6a1af71f2d43425f0036dd63f87202fc',1,'WeightedCentroid(const std::vector&lt; std::array&lt; double, 3 &gt;&gt; &amp;vertices, const std::vector&lt; double &gt; &amp;weights, const std::array&lt; int, 3 &gt; &amp;facet):&#160;spherical_voronoi.cpp']]],
+  ['weightedmiddle_1461',['WeightedMiddle',['../spherical__voronoi_8cpp.html#adc133ce4b493143fe0977263c8fa0518',1,'WeightedMiddle(const double v1[3], const double v2[3], double w1, double w2):&#160;spherical_voronoi.cpp'],['../spherical__voronoi_8hpp.html#adc133ce4b493143fe0977263c8fa0518',1,'WeightedMiddle(const double v1[3], const double v2[3], double w1, double w2):&#160;spherical_voronoi.cpp']]],
+  ['weightedsphericalcentroidalvoronoi_1462',['WeightedSphericalCentroidalVoronoi',['../spherical__voronoi_8cpp.html#acadd31dc60aae24acc170007b1a5e335',1,'WeightedSphericalCentroidalVoronoi(std::vector&lt; std::array&lt; double, 3 &gt;&gt; *const vt_seeds, int num_seeds, const std::vector&lt; double &gt; &amp;weights_sh_coff, int max_iter, double tol):&#160;spherical_voronoi.cpp'],['../spherical__voronoi_8hpp.html#acadd31dc60aae24acc170007b1a5e335',1,'WeightedSphericalCentroidalVoronoi(std::vector&lt; std::array&lt; double, 3 &gt;&gt; *const vt_seeds, int num_seeds, const std::vector&lt; double &gt; &amp;weights_sh_coff, int max_iter, double tol):&#160;spherical_voronoi.cpp']]]
 ];

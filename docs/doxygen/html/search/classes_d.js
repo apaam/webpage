@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['volumebased_930',['VolumeBased',['../class_volume_based.html',1,'']]]
+  ['uniformdistribution_953',['UniformDistribution',['../class_uniform_distribution.html',1,'']]]
 ];

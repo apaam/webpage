@@ -2,7 +2,9 @@
 
 #### Quick installation
 
-1. Prerequisites: gcc, autoconf, automake, cmake, mpi, boost.  
+1. Download the source code from github repository [https://github.com/net-dem/netdem](https://github.com/net-dem/netdem).
+   
+2. Prerequisites: gcc, autoconf, automake, cmake, mpi, boost.  
 
     - For **MacOS**: use ``brew install``, such as
 
@@ -14,12 +16,12 @@
             sudo apt-get install -y autoconf-archive automake cmake texinfo  
             sudo apt-get install openmpi-bin libopenmpi-dev libboost-all-dev  
 
-2. Compile and install:
+3. Compile and install:
 
         make prepare
         make 
  
-3. Test the installation:
+4. Test the installation:
     
         ./scripts/run_tests.sh  
     
