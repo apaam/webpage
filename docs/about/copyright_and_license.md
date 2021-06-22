@@ -2,7 +2,7 @@
 
 #### Copyright
 
-Copyright (c) 2020-now, Sun Yat-sen University and The Hong Kong University of Science and Technology.
+Copyright (c) 2020-, Sun Yat-sen University and The Hong Kong University of Science and Technology.
 
 #### BSD 3-Caluse license
 
