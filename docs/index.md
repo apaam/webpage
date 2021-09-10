@@ -65,7 +65,7 @@ Date         | Message
 Sep 10, 2021 | Now we have poly-super-ellipsoid and poly-super-quadric.
 Aug 15, 2021 | We generlized two types of contact solvers, namely GJK and signed distance field.
 Apr 16, 2021 | Launched the [website](index.md).
-Oct 07, 2020 | Launched the [project]([index.md](https://github.com/net-dem/netdem)).
+Oct 07, 2020 | Launched the [project](https://github.com/net-dem/netdem).
 
 <!-- ## Latest Release -->
 
