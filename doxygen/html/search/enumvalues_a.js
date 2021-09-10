@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['trimesh_1814',['trimesh',['../class_shape_factory.html#a24cee7f5fc9878ce90b36b6aede1f8d8adf61669ee5eae60f0b5f11ac8f49232a',1,'ShapeFactory']]]
+  ['relu_2229',['ReLU',['../namespacenetdem.html#a2cdad8d3b028818b2034bb9f5e4a6583add10d919fa85cf27fc78c0e06fe0b378',1,'netdem']]]
 ];

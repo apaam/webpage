@@ -1,6 +1,22 @@
 var searchData=
 [
-  ['newcontactmodel_1283',['NewContactModel',['../class_contact_model_factory.html#a4e7941e1b43d8244eab158e4b5f8932b',1,'ContactModelFactory']]],
-  ['newshape_1284',['NewShape',['../class_shape_factory.html#afb683556a23bc3d5e6d6be32af7bb92a',1,'ShapeFactory']]],
-  ['norm_1285',['norm',['../math__utils_8hpp.html#ad5a93c51459dd41c604d16df4a4e7016',1,'norm(const vec3&lt; T &gt; &amp;val):&#160;math_utils.hpp'],['../math__utils_8hpp.html#ab4e6cd923c396c1b93dd4f7260a64a0a',1,'norm(const std::vector&lt; T &gt; &amp;val):&#160;math_utils.hpp'],['../math__utils_8hpp.html#a9c6ddda97206462603eb27f31c8a89f5',1,'norm(const double val[3]):&#160;math_utils.hpp'],['../math__utils_8hpp.html#a8d7d45a3465d4d07ef3ff040535fac39',1,'norm(double val_1, double val_2):&#160;math_utils.hpp'],['../math__utils_8hpp.html#a8e986b34bb755598e775fc84ccbc6b0c',1,'norm(double val_1, double val_2, double val_3):&#160;math_utils.hpp'],['../math__utils_8hpp.html#aed9513d58124543902f49c26eba755e1',1,'norm(double val_1, double val_2, double val_3, double val_4):&#160;math_utils.hpp']]]
+  ['main_1533',['main',['../main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97',1,'main.cpp']]],
+  ['makeconvex_1534',['MakeConvex',['../classnetdem_1_1_tri_mesh.html#a825ce0b82974f857ec02a231a02ae6f3',1,'netdem::TriMesh::MakeConvex()'],['../classnetdem_1_1_s_t_l_model.html#af568b4030448bf5c92dc28745d2afbf5',1,'netdem::STLModel::MakeConvex()']]],
+  ['menbrane_1535',['Menbrane',['../classnetdem_1_1_menbrane.html#a9ee62711b8665b09f7bd3132e5e0f933',1,'netdem::Menbrane']]],
+  ['merge_1536',['merge',['../structnetdem_1_1_cork_vertex.html#acbfbc0a027822d817201392a9a43dc9c',1,'netdem::CorkVertex::merge()'],['../structnetdem_1_1_cork_triangle.html#aeef24b5cba2210bffca1f9a06c270626',1,'netdem::CorkTriangle::merge()']]],
+  ['mergecontactppback_1537',['MergeContactPPBack',['../classnetdem_1_1_m_p_i_manager.html#a16e4aa9b5d1c181401c4c507f7fb9f9c',1,'netdem::MPIManager']]],
+  ['mergecontactppproxy_1538',['MergeContactPPProxy',['../classnetdem_1_1_m_p_i_manager.html#a0683ca44a1ea15fe54f0d47afdc9885c',1,'netdem::MPIManager']]],
+  ['mergecontactpptransfer_1539',['MergeContactPPTransfer',['../classnetdem_1_1_m_p_i_manager.html#a9e316a5d0fed618c15637be760117f0b',1,'netdem::MPIManager']]],
+  ['mergecontactpwback_1540',['MergeContactPWBack',['../classnetdem_1_1_m_p_i_manager.html#aa3e7b0afb204cf9fba0c877d8f86b78b',1,'netdem::MPIManager']]],
+  ['mergecontactpwproxy_1541',['MergeContactPWProxy',['../classnetdem_1_1_m_p_i_manager.html#ac845dc850c11f49342e103f37bae0305',1,'netdem::MPIManager']]],
+  ['mergecontactpwtransfer_1542',['MergeContactPWTransfer',['../classnetdem_1_1_m_p_i_manager.html#a5e27ee022c0e2330c679dd2c0226a170',1,'netdem::MPIManager']]],
+  ['mergeparticleproxy_1543',['MergeParticleProxy',['../classnetdem_1_1_m_p_i_manager.html#a41b69072268c3f811e1ed4fbfc5722e9',1,'netdem::MPIManager']]],
+  ['mergeparticletransfer_1544',['MergeParticleTransfer',['../classnetdem_1_1_m_p_i_manager.html#aadc9e8a056ca8d356801fc73cdd3a812',1,'netdem::MPIManager']]],
+  ['mergeshapetransfer_1545',['MergeShapeTransfer',['../classnetdem_1_1_m_p_i_manager.html#a4a60562b47f61ef4d5f4826c2f78822d',1,'netdem::MPIManager']]],
+  ['mergestlmodel_1546',['MergeSTLModel',['../classnetdem_1_1_s_t_l_model.html#a30a5959d1b0478e9d51bbb3db70174cc',1,'netdem::STLModel']]],
+  ['mesh_1547',['Mesh',['../classnetdem_1_1_tet_mesh.html#ab2b807080dd5c45e97ce530bff2e5b46',1,'netdem::TetMesh::Mesh(const STLModel &amp;stl_model, int res=20)'],['../classnetdem_1_1_tet_mesh.html#a1b6037546900d56e4cf7077085c362b0',1,'netdem::TetMesh::Mesh(const std::vector&lt; std::array&lt; double, 3 &gt;&gt; &amp;vv, const std::vector&lt; std::array&lt; int, 3 &gt;&gt; &amp;ff, int res=20)']]],
+  ['minkowskidiff_1548',['MinkowskiDiff',['../classnetdem_1_1_solver_g_j_k_p_p.html#aa6cf528e4be6558347db10be8d7cef1c',1,'netdem::SolverGJKPP::MinkowskiDiff()'],['../classnetdem_1_1_solver_g_j_k_p_w.html#ae86dbe136f57350f0802abe2fbb14880',1,'netdem::SolverGJKPW::MinkowskiDiff()']]],
+  ['move_1549',['move',['../structnetdem_1_1_cork_triangle.html#a0fd314d4921992fd1c3440fd39c4b4be',1,'netdem::CorkTriangle']]],
+  ['mult_1550',['Mult',['../classnetdem_1_1_elasticity_dynamic_solver.html#ad360d4530541c1a2d3ea4ef4847b9bc6',1,'netdem::ElasticityDynamicSolver']]],
+  ['my_5fpair_1551',['my_pair',['../structnetdem_1_1my__pair.html#a4a6a378835e9392fb5415b07901dea5b',1,'netdem::my_pair::my_pair()'],['../structnetdem_1_1my__pair.html#ad7938373c98758eb74fa78cb68806734',1,'netdem::my_pair::my_pair(const T_key &amp;key, const T_key &amp;val)']]]
 ];
