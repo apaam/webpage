@@ -5,8 +5,10 @@ edit_uri: edit/main/docs/
 theme:
   name: sandstone
   navigation_depth: 4
-  nav_style: light
-  custom_dir: custom_theme/
+  # nav_style: light
+  custom_dir: theme_mfem/
+  features:
+    - search.suggest
 
 nav:
   - Home: index.md
@@ -21,15 +23,13 @@ nav:
     - User manual: documentation/usage.md  
     - Developer manual: documentation/developer_manual.md
     - DEM introduction: documentation/dem_manual.md
-    - Code algorithms: documentation/code_manual.md
+    - Coding framework: documentation/code_manual.md
     - Code doxygen: doxygen/html/index.html
   - Download: download/index.md
   - Gallery: examples/gallery.md
   - About:
-    - NetDEM help: about/bugs_&_feature_requests.md
-    - Copyright & license: about/copyright_and_license.md
     - Acknowledgement: about/acknowledgement.md  
-    - Developers team: about/developers_team.md
+    - Help: about/bugs_&_feature_requests.md
 
 markdown_extensions: 
   - pymdownx.arithmatex
@@ -37,6 +37,9 @@ markdown_extensions:
   - extra
   - fenced_code  
   - footnotes
+
+plugins:
+  - search
 
 extra_javascript:
   - mathjax-config.js
