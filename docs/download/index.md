@@ -9,7 +9,7 @@
 
 - Matlab: [https://github.com/net-dem/dem_postprocess_scripts](https://github.com/net-dem/dem_postprocess_scripts)
 
-### Other relevent softwares
+### Other relevant softwares
 
 - [Easybuild](https://github.com/net-dem/easy_build): a software environment for easing the configuration, building and installation computational packages. Now support:
     - peridigm
