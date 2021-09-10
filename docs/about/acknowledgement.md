@@ -2,7 +2,17 @@
 
 ### How to cite
 
+We do not have a paper for this extire library for now. Please cite one of our relevant works with
 
+```
+@article{lai2021revisiting,
+  title={Revisiting the GJK and shape erosion method for contact resolution in DEM},
+  author={Lai, Zhengshou and Zhao, Shiwei and Zhao, Jidong and Huang, Linchong},
+  journal={Powder Technology},
+  year={2021},
+  publisher={Elsevier}
+}
+```
 
 ### Contributors
 
@@ -12,18 +22,13 @@ We would like to thank all the peer researchers that have directly or indrectly 
 
 This project is under active development. The fundings that have supported the development of this project are acknowledged and will be updated accordingly. 
 
-  - During the development of the basic framework (by Zhengshou Lai)
-    - 2019-2022: National Natural Science Foundation of China (51909289)
-    - 2019-2021: China Postdoctoral Science Foundation (2019M663240)
-    - 2020-2022: Hong Kong Scholar program (2020)
+- 2019-2022: National Natural Science Foundation of China (51909289)
+- 2019-2021: China Postdoctoral Science Foundation (2019M663240)
+- 2020-2022: Hong Kong Scholar program (2020)
 
-### License
-
-#### Copyright
+### License & Copyright
 
 Copyright (c) 2020-, Sun Yat-sen University and The Hong Kong University of Science and Technology.
-
-#### BSD 3-Caluse license
 
 Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
 

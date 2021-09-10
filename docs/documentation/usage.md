@@ -20,6 +20,5 @@ There are some built-in examples defined in the ``examples/`` directory. Once th
 
     or easier
         
-        ./scripts/auto_data_point2mesh.sh [out_dir]
-
-#### How to cite
+        ./scripts/auto_mesh_particle.sh [out_dir]
+        ./scripts/auto_mesh_wall.sh [out_dir]
