@@ -1,12 +1,14 @@
 var searchData=
 [
-  ['adaptboundtoscene_1090',['AdaptBoundToScene',['../class_domain_manager.html#a71c94c280a625931813b92e7473ece39',1,'DomainManager']]],
-  ['addforce_1091',['AddForce',['../class_particle.html#aec6b67a9ee3d86783c4142e0002d6b32',1,'Particle::AddForce(const double force[3])'],['../class_particle.html#abfe70fac1669c59c2828cb8a5dc76a9e',1,'Particle::AddForce(double force_x, double force_y, double force_z)'],['../class_wall.html#ab27a0b4b7bb9a0dc67e5b24c2f2ea106',1,'Wall::AddForce()']]],
-  ['addlayer_1092',['AddLayer',['../classnetdem_1_1_general_net.html#abde6bc47bafbfb88333ef116b7d50dba',1,'netdem::GeneralNet::AddLayer()'],['../classnetdem_1_1_regression_net.html#a381ea67832e1aaf322427be2e25b15fb',1,'netdem::RegressionNet::AddLayer()']]],
-  ['addmoment_1093',['AddMoment',['../class_particle.html#a2cd8018d16da505e2ed0f8c9b7dd4bb4',1,'Particle::AddMoment()'],['../class_wall.html#a39d720f548e093d352412ff061f6d760',1,'Wall::AddMoment()']]],
-  ['addwall_1094',['AddWall',['../class_wall_servo_control.html#a1d707daf37a1d72e3f127b86e191d0c6',1,'WallServoControl']]],
-  ['annsolverpp_1095',['ANNSolverPP',['../class_a_n_n_solver_p_p.html#a18b4d8f00bf10b2af2c192a4167cd7eb',1,'ANNSolverPP::ANNSolverPP()'],['../class_a_n_n_solver_p_p.html#a2a750985e5d499187dd61894f23b453b',1,'ANNSolverPP::ANNSolverPP(Particle *p1, Particle *p2)']]],
-  ['annsolverpplane_1096',['ANNSolverPPlane',['../class_a_n_n_solver_p_plane.html#abc2f8b0890718eb5d3909ca234b10f2c',1,'ANNSolverPPlane::ANNSolverPPlane()'],['../class_a_n_n_solver_p_plane.html#ac95bfd3e74c7691a2f70da70e23572b4',1,'ANNSolverPPlane::ANNSolverPPlane(Particle *p, Wall *w)']]],
-  ['applytoparticle_1097',['ApplyToParticle',['../class_contact_p_p.html#a639a2c151ec84122932bc8674c696d94',1,'ContactPP::ApplyToParticle()'],['../class_contact_p_w.html#a5e1f899aee93834b1f215ad9f22ecc0c',1,'ContactPW::ApplyToParticle()']]],
-  ['applytowall_1098',['ApplyToWall',['../class_contact_p_w.html#ab8dadeb4ebed04b0b8881c405f959ead',1,'ContactPW']]]
+  ['addessentialboundaries_1337',['AddEssentialBoundaries',['../classnetdem_1_1_f_e_m_simulator.html#ad88c8066bc8053c79c45fed95bea9e07',1,'netdem::FEMSimulator']]],
+  ['addforce_1338',['AddForce',['../classnetdem_1_1_deformable_particle.html#a2497c29956ac024327dcdce39fc4fc95',1,'netdem::DeformableParticle::AddForce()'],['../classnetdem_1_1_particle.html#a50fe5228a4bde2953830b251b9f0f863',1,'netdem::Particle::AddForce()'],['../classnetdem_1_1_wall.html#a3f9fdbfce6c03b3953929be15ad5e52b',1,'netdem::Wall::AddForce()']]],
+  ['addforceboundaries_1339',['AddForceBoundaries',['../classnetdem_1_1_f_e_m_simulator.html#ac4d56af5538a6013d904b4f200d6d648',1,'netdem::FEMSimulator']]],
+  ['addlayer_1340',['AddLayer',['../classnetdem_1_1_general_net.html#a77bdeb732a0d32d92945fb1277ee6435',1,'netdem::GeneralNet::AddLayer()'],['../classnetdem_1_1_regression_net.html#ae72d5f342f74cfbe1752c11ab1017a35',1,'netdem::RegressionNet::AddLayer()']]],
+  ['addmoment_1341',['AddMoment',['../classnetdem_1_1_particle.html#ab4eccd931b748639f5e5f3dc601bfd75',1,'netdem::Particle::AddMoment()'],['../classnetdem_1_1_wall.html#a56e97283d324ca6449d0e5d60f12403b',1,'netdem::Wall::AddMoment()']]],
+  ['addnodalforces_1342',['AddNodalForces',['../classnetdem_1_1_f_e_m_simulator.html#ae0bc4452e95e3971eca25b6cb8896632',1,'netdem::FEMSimulator']]],
+  ['addwall_1343',['AddWall',['../classnetdem_1_1_wall_servo_control.html#adb1844402fc89ca3f97bd599906046d6',1,'netdem::WallServoControl']]],
+  ['alignaxes_1344',['AlignAxes',['../classnetdem_1_1_polybezier.html#a77e6127eca79c5c29b940e3e5245e835',1,'netdem::Polybezier::AlignAxes()'],['../classnetdem_1_1_tri_mesh.html#a20bc2801a5868d5774ebe0aa9a6286a5',1,'netdem::TriMesh::AlignAxes()']]],
+  ['applytoparticle_1345',['ApplyToParticle',['../classnetdem_1_1_contact_p_p.html#afe7fd67782faeff39911981c5399d633',1,'netdem::ContactPP::ApplyToParticle()'],['../classnetdem_1_1_contact_p_w.html#a0c347d732c531a6346a9ad072929eb5e',1,'netdem::ContactPW::ApplyToParticle()']]],
+  ['applytowall_1346',['ApplyToWall',['../classnetdem_1_1_contact_p_w.html#a20c009473f71caaf3a7eddc587a2e4b6',1,'netdem::ContactPW']]],
+  ['autoremeshing_1347',['AutoRemeshing',['../classnetdem_1_1_s_t_l_model.html#ac8ccc60c4fe7cebcd08e020cc9caf91e',1,'netdem::STLModel']]]
 ];

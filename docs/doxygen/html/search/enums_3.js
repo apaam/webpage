@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['paramname_1779',['ParamName',['../namespacenetdem.html#a4459bf759a50867e69599af5e85efd1f',1,'netdem']]]
+  ['solvertype_2193',['SolverType',['../classnetdem_1_1_contact_solver_settings.html#adff2184170befa136fdaedd56a048170',1,'netdem::ContactSolverSettings']]]
 ];
