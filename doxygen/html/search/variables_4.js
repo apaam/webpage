@@ -1,12 +1,23 @@
 var searchData=
 [
-  ['edge_5fpatch_5fknots_5flist_1570',['edge_patch_knots_list',['../class_polybezier.html#abb6d91edea2063d70e0a9d9eda69fbb0',1,'Polybezier']]],
-  ['enable_5fwarning_1571',['enable_warning',['../class_wall_servo_control.html#a535795747a5fe93a38632d8bc00b39dd',1,'WallServoControl']]],
-  ['epochs_1572',['epochs',['../classnetdem_1_1_general_net.html#a670e27ee9ec7b2cbb97da6fd6168ae80',1,'netdem::GeneralNet::epochs()'],['../classnetdem_1_1_regression_net.html#a0dc8e89c7b9472b37a30dfd37c8e0bd8',1,'netdem::RegressionNet::epochs()']]],
-  ['erosion_5frate_5fincrement_1573',['erosion_rate_increment',['../class_g_j_k_solver_p_p.html#a2a48c75ceec39dbf154e32a16abae50a',1,'GJKSolverPP::erosion_rate_increment()'],['../class_g_j_k_solver_p_w.html#afb77e8b8f269b61574ddea540df86e5c',1,'GJKSolverPW::erosion_rate_increment()']]],
-  ['erosion_5frate_5finitial_1574',['erosion_rate_initial',['../class_g_j_k_solver_p_p.html#a09544d6affef4fe092e5d3e43c7e3fb1',1,'GJKSolverPP::erosion_rate_initial()'],['../class_g_j_k_solver_p_w.html#a3da0485241f4276aa4971991b0e4c08d',1,'GJKSolverPW::erosion_rate_initial()']]],
-  ['evaluator_5flib_1575',['evaluator_lib',['../class_evaluator_manager.html#a90891ea21bf5aeb5149676ed0bc6c14c',1,'EvaluatorManager']]],
-  ['evaluator_5flist_1576',['evaluator_list',['../class_evaluator_manager.html#a235180b2e8a2451f72e728bed3b6fb5a',1,'EvaluatorManager']]],
-  ['evaluator_5fmanager_1577',['evaluator_manager',['../class_simulation.html#a92f43b113cf83729122412594e10346a',1,'Simulation']]],
-  ['extent_1578',['extent',['../class_plane.html#a1d48b9db70309b98300fe0950aee676e',1,'Plane']]]
+  ['e_1900',['E',['../classnetdem_1_1_elasticity_dynamic.html#a5a272ddb13da15717ab637a32fe33cc4',1,'netdem::ElasticityDynamic::E()'],['../classnetdem_1_1_elasticity_dynamic_solver.html#a9a4fc77856d6ef085bfc56f8ba281284',1,'netdem::ElasticityDynamicSolver::E()'],['../classnetdem_1_1_elasticity_static.html#a90ae9d7299409d44ca468123063a6f02',1,'netdem::ElasticityStatic::E()'],['../classnetdem_1_1_s_d_f_calculator.html#a994d2b2530c6a6646bec5aa55d4b32f0',1,'netdem::SDFCalculator::E()']]],
+  ['e_5fprec_1901',['E_prec',['../classnetdem_1_1_elasticity_static.html#a5d5c8281e096ff34f5f63f09424f69cc',1,'netdem::ElasticityStatic']]],
+  ['e_5fsolver_1902',['E_solver',['../classnetdem_1_1_elasticity_static.html#ad7dc0d771144fe9504738b2fda93acfe',1,'netdem::ElasticityStatic']]],
+  ['edge_5fpatch_5fknots_5flist_1903',['edge_patch_knots_list',['../classnetdem_1_1_polybezier.html#aead690f624dffb278cf72e579847c162',1,'netdem::Polybezier']]],
+  ['element_5fattributes_1904',['element_attributes',['../classnetdem_1_1_f_e_m_simulator.html#ae4460c287e8f99b7355685a74aaab234',1,'netdem::FEMSimulator']]],
+  ['elements_1905',['elements',['../classnetdem_1_1_raw_mesh.html#a9ac8350172af20e52f80cd07d0856f50',1,'netdem::RawMesh']]],
+  ['emap_1906',['EMAP',['../classnetdem_1_1_s_d_f_calculator.html#a596a4825f3c1e5e7b3cc5db963b07ed0',1,'netdem::SDFCalculator']]],
+  ['en_1907',['EN',['../classnetdem_1_1_s_d_f_calculator.html#a4eabf380059cba715ff54d531e45dd25',1,'netdem::SDFCalculator']]],
+  ['enable_5fbound_5faabb_1908',['enable_bound_aabb',['../classnetdem_1_1_particle.html#ad3fce6918b4e3e2bd6f1ee030ab972b3',1,'netdem::Particle::enable_bound_aabb()'],['../classnetdem_1_1_wall.html#ab092437bb9fc9b378e0a9e3d4cafe2b3',1,'netdem::Wall::enable_bound_aabb()']]],
+  ['enable_5flogging_1909',['enable_logging',['../classnetdem_1_1_f_e_m_simulator.html#a6a3c60d34a2ec07ca8c81c149a7046f4',1,'netdem::FEMSimulator']]],
+  ['enable_5frotation_1910',['enable_rotation',['../classnetdem_1_1_wall.html#ace2cb151795b879d82844a02c75d8267',1,'netdem::Wall']]],
+  ['enable_5fwarning_1911',['enable_warning',['../classnetdem_1_1_wall_servo_control.html#a183135d45df70fa7bf08e98d2b87bbe6',1,'netdem::WallServoControl']]],
+  ['epochs_1912',['epochs',['../classnetdem_1_1_general_net.html#a670e27ee9ec7b2cbb97da6fd6168ae80',1,'netdem::GeneralNet::epochs()'],['../classnetdem_1_1_regression_net.html#a0dc8e89c7b9472b37a30dfd37c8e0bd8',1,'netdem::RegressionNet::epochs()']]],
+  ['eps_1913',['eps',['../classnetdem_1_1_stress_coefficient.html#aafcbf8943b516c7fab7922d0ed6e4cea',1,'netdem::StressCoefficient']]],
+  ['erosion_5fratio_5fincrement_1914',['erosion_ratio_increment',['../classnetdem_1_1_solver_g_j_k_p_p.html#a536306da89a80cdce8ddf78c641657df',1,'netdem::SolverGJKPP::erosion_ratio_increment()'],['../classnetdem_1_1_solver_g_j_k_p_w.html#a47fa0d78805c1071b131b7273e3c6ac8',1,'netdem::SolverGJKPW::erosion_ratio_increment()']]],
+  ['erosion_5fratio_5finitial_1915',['erosion_ratio_initial',['../classnetdem_1_1_solver_g_j_k_p_p.html#a84426e1ca5e1158dfebb04ea69b3bf71',1,'netdem::SolverGJKPP::erosion_ratio_initial()'],['../classnetdem_1_1_solver_g_j_k_p_w.html#a6099a47da700cf0ddb1ad92bcf548bc4',1,'netdem::SolverGJKPW::erosion_ratio_initial()']]],
+  ['evaluator_5flib_1916',['evaluator_lib',['../classnetdem_1_1_evaluator_manager.html#aa2f7333ac5f15c19498bed3068502894',1,'netdem::EvaluatorManager']]],
+  ['evaluator_5flist_1917',['evaluator_list',['../classnetdem_1_1_evaluator_manager.html#a50b9350948e98a9ab1a15ba162939a76',1,'netdem::EvaluatorManager']]],
+  ['evaluator_5fmanager_1918',['evaluator_manager',['../classnetdem_1_1_simulation.html#a28972647d2e04ccb3035a396b547f595',1,'netdem::Simulation']]],
+  ['extent_1919',['extent',['../classnetdem_1_1_plane.html#ab3551d38201eb320c89701efa73f37d6',1,'netdem::Plane']]]
 ];

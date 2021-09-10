@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['geometric_1787',['geometric',['../contact__solver__factory_8hpp.html#aeea1f70f1e39eadb4934578ffa3253ffa65a383f3960a0cb2b8b0ace54817d575',1,'contact_solver_factory.hpp']]],
-  ['gjk_1788',['GJK',['../contact__solver__factory_8hpp.html#aeea1f70f1e39eadb4934578ffa3253ffa7a341c7ac07fa3a3fae25bd1fbe988ba',1,'contact_solver_factory.hpp']]]
+  ['gjk_2202',['gjk',['../classnetdem_1_1_contact_solver_settings.html#adff2184170befa136fdaedd56a048170a2f8746d2fc0843bbc69e87754c22d9d6',1,'netdem::ContactSolverSettings']]]
 ];
