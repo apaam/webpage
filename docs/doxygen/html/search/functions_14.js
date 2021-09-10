@@ -1,18 +1,10 @@
 var searchData=
 [
-  ['_7ecell_1463',['~Cell',['../class_cell.html#a9fa559f7a28e2b4336c6879ca09304d8',1,'Cell']]],
-  ['_7ecommand_1464',['~Command',['../class_command.html#a641c23ef533dd6f77d0a4ef0311598b2',1,'Command']]],
-  ['_7econtactmodel_1465',['~ContactModel',['../class_contact_model.html#a5892e79c3882cdc41a609a95e685bc24',1,'ContactModel']]],
-  ['_7econtactsolverfactory_1466',['~ContactSolverFactory',['../class_contact_solver_factory.html#a5c06bbe5a7cdff0c556a4c17be2166a6',1,'ContactSolverFactory']]],
-  ['_7econtactsolverpp_1467',['~ContactSolverPP',['../class_contact_solver_p_p.html#ab3c23ba8a44188edb53c76f07f76a709',1,'ContactSolverPP']]],
-  ['_7econtactsolverpw_1468',['~ContactSolverPW',['../class_contact_solver_p_w.html#a5564b209e2ac2a0f9b9ac98e43b1d50e',1,'ContactSolverPW']]],
-  ['_7edemobjectpool_1469',['~DEMObjectPool',['../class_d_e_m_object_pool.html#a015ec0d93e84314d80db9d28e70f8e8b',1,'DEMObjectPool']]],
-  ['_7edistribution_1470',['~Distribution',['../class_distribution.html#a0b585e4cc1a10cf3628e27e8a81c9c72',1,'Distribution']]],
-  ['_7edomain_1471',['~Domain',['../class_domain.html#a29cec9afb2e54c810ba1f3c1a49543a8',1,'Domain']]],
-  ['_7eevaluator_1472',['~Evaluator',['../class_evaluator.html#ac10971f54d227b1ef9aa5b28872b0272',1,'Evaluator']]],
-  ['_7eevaluatormanager_1473',['~EvaluatorManager',['../class_evaluator_manager.html#a2f9b3cfa25d03f89050b6f432517db0e',1,'EvaluatorManager']]],
-  ['_7eparticle_1474',['~Particle',['../class_particle.html#ad030d0fe7b88cf81744b127c99244ff4',1,'Particle']]],
-  ['_7escene_1475',['~Scene',['../class_scene.html#a3b8cec2e32546713915f8c6303c951f1',1,'Scene']]],
-  ['_7eshape_1476',['~Shape',['../class_shape.html#ac3b9fc48965274893f25b18aa14ba665',1,'Shape']]],
-  ['_7ewall_1477',['~Wall',['../class_wall.html#a9a2992f2b533e1c160513d1e719f920c',1,'Wall']]]
+  ['wall_1761',['Wall',['../classnetdem_1_1_wall.html#a319ccefa264aa142abc2ba690cf0a083',1,'netdem::Wall::Wall()'],['../classnetdem_1_1_wall.html#aa8121607e6c469d7039e211a536b3514',1,'netdem::Wall::Wall(Shape *const shape)']]],
+  ['wallboxplane_1762',['WallBoxPlane',['../classnetdem_1_1_wall_box_plane.html#a1baf1a33c42aa3f3152cf6265499080b',1,'netdem::WallBoxPlane']]],
+  ['wallboxplate_1763',['WallBoxPlate',['../classnetdem_1_1_wall_box_plate.html#ab89de4b73b30c8effd582177acb7ed60',1,'netdem::WallBoxPlate']]],
+  ['walldispcontrol_1764',['WallDispControl',['../classnetdem_1_1_wall_disp_control.html#ac33e5411c3b5826fb17d017ceda337ac',1,'netdem::WallDispControl']]],
+  ['wallservocontrol_1765',['WallServoControl',['../classnetdem_1_1_wall_servo_control.html#a6309da14d3a3beecb3d6bf6bee40acf4',1,'netdem::WallServoControl']]],
+  ['weightedcentroid_1766',['WeightedCentroid',['../namespacenetdem.html#acff3b64dc55b80eb6ca27dfe7673da30',1,'netdem::WeightedCentroid(const vector&lt; array&lt; double, 3 &gt;&gt; &amp;vertices, const vector&lt; double &gt; &amp;weights, const array&lt; int, 3 &gt; &amp;facet)'],['../namespacenetdem.html#a1af6dead6578dd69212511a3648e61dd',1,'netdem::WeightedCentroid(const std::vector&lt; std::array&lt; double, 3 &gt;&gt; &amp;vertices, const std::vector&lt; double &gt; &amp;weights, const std::array&lt; int, 3 &gt; &amp;facet)']]],
+  ['weightedmiddle_1767',['WeightedMiddle',['../namespacenetdem.html#a788039c527478dc3787112d792ce69e4',1,'netdem']]]
 ];

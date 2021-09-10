@@ -1,13 +1,12 @@
 var searchData=
 [
-  ['w_5fmx_1758',['w_mx',['../class_wall_box_plane.html#a2e357536e97a7cf85e7d12113865b428',1,'WallBoxPlane::w_mx()'],['../class_wall_box_plate.html#a45b028b52dabc7ac0d8f194e709b2b4c',1,'WallBoxPlate::w_mx()']]],
-  ['w_5fmy_1759',['w_my',['../class_wall_box_plane.html#a8894697236e7eab27e1077d47da7e05e',1,'WallBoxPlane::w_my()'],['../class_wall_box_plate.html#afa575a39f3d4a18966ce6fc3d222b020',1,'WallBoxPlate::w_my()']]],
-  ['w_5fmz_1760',['w_mz',['../class_wall_box_plane.html#a799664213aeced3031e2a35ed1ce92fd',1,'WallBoxPlane::w_mz()'],['../class_wall_box_plate.html#ada29fa433676df16f331e24e0153904e',1,'WallBoxPlate::w_mz()']]],
-  ['w_5fpx_1761',['w_px',['../class_wall_box_plane.html#ab451ff3659254e8f35c8a6bbfbd70405',1,'WallBoxPlane::w_px()'],['../class_wall_box_plate.html#a002b1894c915dae73de93af37ac0591e',1,'WallBoxPlate::w_px()']]],
-  ['w_5fpy_1762',['w_py',['../class_wall_box_plane.html#a33d8d9b4f5673f50f8a62ede27769ba7',1,'WallBoxPlane::w_py()'],['../class_wall_box_plate.html#afa5c3973398783ad3b95051c75f3ca45',1,'WallBoxPlate::w_py()']]],
-  ['w_5fpz_1763',['w_pz',['../class_wall_box_plane.html#a8f120aaf7250125e2c34b5531909a6d7',1,'WallBoxPlane::w_pz()'],['../class_wall_box_plate.html#ac2a1a9b01cc39a586b853563d01eff88',1,'WallBoxPlate::w_pz()']]],
-  ['wall_1764',['wall',['../class_contact_p_w.html#a395e0cc98c0cf488f5553c93d2b91d40',1,'ContactPW::wall()'],['../class_contact_solver_p_w.html#ad09b1dc9472c6557ba795b629b6c3a4e',1,'ContactSolverPW::wall()']]],
-  ['wall_5fghost_5flist_1765',['wall_ghost_list',['../class_scene.html#ad28b5a2b5845043579db1d7daeee4aee',1,'Scene']]],
-  ['wall_5fid_5flist_1766',['wall_id_list',['../class_wall_disp_control.html#a22e2fc642b37f5f55fcad8f284a12f36',1,'WallDispControl::wall_id_list()'],['../class_wall_servo_control.html#a01f56b7da3e221c7b55a16e1245e9ccb',1,'WallServoControl::wall_id_list()']]],
-  ['wall_5flist_1767',['wall_list',['../class_cell.html#a153bed4667d4646d881408a6e18ac718',1,'Cell::wall_list()'],['../class_wall_disp_control.html#a85466edeb1e11547e0448568ba977a41',1,'WallDispControl::wall_list()'],['../class_wall_servo_control.html#a8a279f583aa6c2a5a5dc30400f4af97e',1,'WallServoControl::wall_list()'],['../class_scene.html#aef4de66fae7d842354f815c110086dc9',1,'Scene::wall_list()']]]
+  ['u_2148',['u',['../classnetdem_1_1_stress_coefficient.html#a66b861359425718e6b0ff1f2aa745dfb',1,'netdem::StressCoefficient::u()'],['../classnetdem_1_1_elasticity_dynamic_solver.html#ac2fcd736d13666a633e47feddfe194a0',1,'netdem::ElasticityDynamicSolver::u()']]],
+  ['unit_5fforce_2149',['unit_force',['../classnetdem_1_1_body_force.html#aeb9d2ed04bb7fc904182014660d328be',1,'netdem::BodyForce::unit_force()'],['../classnetdem_1_1_gravity.html#a3cb0dd9e873b724559967439e41574ef',1,'netdem::Gravity::unit_force()']]],
+  ['update_5fwith_5fscene_2150',['update_with_scene',['../classnetdem_1_1_evaluator.html#a8c1e3c0696128d8650ff373cba1bef25',1,'netdem::Evaluator']]],
+  ['updated_2151',['updated',['../classnetdem_1_1_contact_geometries.html#aac6676331a214726be4970823b8a3166',1,'netdem::ContactGeometries::updated()'],['../classnetdem_1_1_contact_p_p.html#a33ec6e8ed44a76e0d4cd54496efc254f',1,'netdem::ContactPP::updated()'],['../classnetdem_1_1_contact_p_w.html#ae69ee5674841e41ff0d8e7b35e7ba7a6',1,'netdem::ContactPW::updated()']]],
+  ['use_5fcustomized_5fsolver_2152',['use_customized_solver',['../classnetdem_1_1_shape.html#a731518cf0917f5af9e02b12adcb3d54a',1,'netdem::Shape']]],
+  ['use_5ferosion_2153',['use_erosion',['../classnetdem_1_1_solver_g_j_k_p_p.html#ab509ae070d4f84908e4aedc85e5dc4c4',1,'netdem::SolverGJKPP::use_erosion()'],['../classnetdem_1_1_solver_g_j_k_p_w.html#a60f8fabc30915ff5b005942fc42fc9a1',1,'netdem::SolverGJKPW::use_erosion()']]],
+  ['use_5fimplicit_2154',['use_implicit',['../classnetdem_1_1_elasticity_dynamic.html#a89884c1afa1a3e61980664bba13209fd',1,'netdem::ElasticityDynamic']]],
+  ['use_5flinked_5fpatches_2155',['use_linked_patches',['../classnetdem_1_1_tri_mesh.html#a37d69b0bfd72b90fcdf639eda5281ac3',1,'netdem::TriMesh']]],
+  ['use_5fnode_2156',['use_node',['../classnetdem_1_1_shape.html#a05a8aa2b95d47cca08bb1e246ddd2d43',1,'netdem::Shape']]]
 ];
