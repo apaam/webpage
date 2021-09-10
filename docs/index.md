@@ -80,7 +80,7 @@ Oct 07, 2020 | Launched the [project]([index.md](https://github.com/net-dem/netd
 ## Documentation
 
 
-[Building MFEM](documentation/installation.md)
+[Building NetDEM](documentation/installation.md)
 ┊ [Getting Started](documentation/usage.md)
 ┊ [Examples](examples/gallery.md)
 ┊ [Code doxygen](doxygen/html/index.html)
