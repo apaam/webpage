@@ -4,13 +4,6 @@
 
 ### Granular mixing
 
-<script src='//player.polyv.net/script/player.js'></script>
-<div id='plv_3ed940a3d27269c28e16fa5a3720862f_3'></div>
-<script>
-var player = polyvPlayer({
-  'wrap':'#plv_3ed940a3d27269c28e16fa5a3720862f_3',
-  'width':'49%',
-  'vid': '3ed940a3d27269c28e16fa5a3720862f_3',
-  'playsafe': '' 
-});
-</script>
+<video controls width="49%">
+  <source src="http://1307405355.vod2.myqcloud.com/7eb7938bvodtranscq1307405355/4583ae673701925923899310911/v.f50501.mp4" type="video/mp4">
+</video>
