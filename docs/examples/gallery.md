@@ -9,8 +9,9 @@
 <script>
 var player = polyvPlayer({
   'wrap':'#plv_3ed940a3d27269c28e16fa5a3720862f_3',
-  'width':'600',
-  'height':'396',
+  'width':'49%',
+  // 'height':'396',
+  'object-fit': 'cover',
   'vid': '3ed940a3d27269c28e16fa5a3720862f_3',
   'playsafe': '' 
 });
