@@ -47,7 +47,7 @@ Random packing of nuts and bolts that are represented by surface triangle meshes
   <source src="http://1307405355.vod2.myqcloud.com/7eb7938bvodtranscq1307405355/f9b2d5bc3701925924025222097/v.f100840.mp4" type="video/mp4">
 </video>
 
-Random packing of generaly irregular-shaped particles, where the contacts are handled by Neurual networks.
+Random packing of generaly irregular-shaped particles, where the contacts are handled by neurual networks.
 
 ---
 
@@ -65,7 +65,7 @@ Column collapsing of irregular-shaped particles that are represented by spherica
   <source src="http://1307405355.vod2.myqcloud.com/7eb7938bvodtranscq1307405355/5db108d53701925924023161063/v.f100840.mp4" type="video/mp4">
 </video>
 
-Triaxiam compression of irregular-shaped particles that are represented by spherical harmonics.
+Triaxial compression of irregular-shaped particles that are represented by spherical harmonics.
 
 ---
 
