@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['height_2114',['height',['../classnetdem_1_1_cylinder.html#a285f558ffd34e2191e4e364ce3645efa',1,'netdem::Cylinder']]],
-  ['horizon_2115',['horizon',['../classnetdem_1_1_peri_digm_simulator.html#a79d7a635c77db70d51600f845fa196a3',1,'netdem::PeriDigmSimulator']]],
-  ['horizon_5ffactor_2116',['horizon_factor',['../structnetdem_1_1_peridigm_settings.html#a1c983518ef984c753c6a4eb51a04499e',1,'netdem::PeridigmSettings']]]
+  ['height_0',['height',['../classnetdem_1_1_cylinder.html#a285f558ffd34e2191e4e364ce3645efa',1,'netdem::Cylinder']]],
+  ['horizon_1',['horizon',['../classnetdem_1_1_peri_digm_block.html#ae24f06234fb9f9abd3b1f4fe8d962d36',1,'netdem::PeriDigmBlock']]],
+  ['horizon_5ffactor_2',['horizon_factor',['../classnetdem_1_1_peri_digm_settings.html#ac941012c835a24dd368bc19a730d1950',1,'netdem::PeriDigmSettings']]]
 ];

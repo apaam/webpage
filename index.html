@@ -123,7 +123,7 @@
                     
                         
                             <li >
-                                 <a href="documentation/code_manual/">Code manual</a>
+                                 <a href="documentation/code_algorithms/">Code algorithms</a>
                             </li>
                         
                     
@@ -255,13 +255,15 @@
 </div>
 <p>NetDEM is a neural network enabled C++ library for discrete element methods.</p>
 <h2 id="features">Features</h2>
-<p>We aimed at providing peer researchers a basic DEM framework and collection of APIs, which can be used to develop new contact models, irregular-shaped particle models, contact detection and resolution algorithms, and etc. We put an emphasis on but not limited to:</p>
+<p>It is currently capable of performing basic and general DEM simulations, with following features:</p>
 <ul>
-<li>Model irregular-shaped particles, such as ellipsoid, polybezier, polyhedron.</li>
-<li>Develop new contact models and particle models, as well as contact detection and resolution algorithms.</li>
-<li>Perform unit tests, including random packing, triaxial shear, direct shear, angle of repose, etc.</li>
-<li>Explore the possibilities and integration of machine learning methods in DEM.</li>
+<li>Sphere and triangle facets contact solver</li>
+<li>GJK contact solver for convex particles</li>
+<li>SDF contact solver for arbitrary (convex and concave) particles</li>
+<li>Hybrid OpenMP and MPI parallel computing</li>
+<li>Integrated <a href="https://www.mlpack.org/">mlpack</a> machine learning environment</li>
 </ul>
+<p>The supported particle shapes include sphere, cylinder, poly-super-ellipsoid, poly-super-quadrics, spherical harmonics, triangle mesh, level set, etc.</p>
 </div>
 <div class="col-md-6 news-table">
 <h2 id="news">News</h2>
@@ -274,16 +276,16 @@
 </thead>
 <tbody>
 <tr>
+<td>Dec 01, 2021</td>
+<td>Added pybind11 environment and python examples, exposed most APIs to python.</td>
+</tr>
+<tr>
 <td>Sep 10, 2021</td>
-<td>Now we have poly-super-ellipsoid and poly-super-quadric.</td>
+<td>Poly-super-ellipsoid, poly-super-quadric, spherical harmonics, level set, polyhedron and etc.</td>
 </tr>
 <tr>
 <td>Aug 15, 2021</td>
-<td>We generlized two types of contact solvers, namely GJK and signed distance field.</td>
-</tr>
-<tr>
-<td>Apr 16, 2021</td>
-<td>Launched the <a href=".">website</a>.</td>
+<td>Generlized two types of contact solvers, namely GJK and SDF.</td>
 </tr>
 <tr>
 <td>Mar 15, 2021</td>

@@ -123,7 +123,7 @@
                     
                         
                             <li >
-                                 <a href="../code_manual/">Code manual</a>
+                                 <a href="../code_algorithms/">Code algorithms</a>
                             </li>
                         
                     
@@ -218,7 +218,7 @@
     
         <li class="main active"><a href="#_1"></a></li>
         
-            <li><a href="#quick-installation">Quick installation</a></li>
+            <li><a href="#install">Install</a></li>
         
             <li><a href="#dependencies">Dependencies</a></li>
         
@@ -230,7 +230,7 @@
     
         <li class="main active"><a href="#_1"></a></li>
         
-            <li><a href="#quick-installation">Quick installation</a></li>
+            <li><a href="#install">Install</a></li>
         
             <li><a href="#dependencies">Dependencies</a></li>
         
@@ -240,41 +240,26 @@
             <div class="col-md-9" role="main">
 
 <h2 id="_1"></h2>
-<h4 id="quick-installation">Quick installation</h4>
-<ol>
-<li>
-<p>Download the source code from github repository <a href="https://github.com/net-dem/netdem">https://github.com/net-dem/netdem</a>.</p>
-</li>
-<li>
-<p>Prerequisites: gcc, autoconf, automake, cmake, mpi, boost.  </p>
-<ul>
-<li>
-<p>For <strong>MacOS</strong>: use <code>brew install</code>, such as</p>
-<pre><code>brew install gcc autoconf automake cmake mpi boost
-</code></pre>
-</li>
-<li>
-<p>For <strong>Ubuntu</strong>: use <code>apt-get install</code>, such as</p>
-<pre><code>sudo apt install build-essential     
-sudo apt-get install -y autoconf-archive automake cmake texinfo  
+<h3 id="install">Install</h3>
+<h4 id="prerequisites">Prerequisites:</h4>
+<p>The compilation requires <code>gcc</code>, <code>autoconf</code>, <code>automake</code>, <code>cmake</code>, <code>mpi</code>, <code>boost</code>, which can be obtained using</p>
+<pre><code># For MacOS: use brew install, such as
+brew install gcc autoconf automake cmake openmpi boost
+
+# For Ubuntu: use apt-get install, such as
+sudo apt install build-essential
+sudo apt-get install -y autoconf-archive automake cmake texinfo
 sudo apt-get install openmpi-bin libopenmpi-dev libboost-all-dev
 </code></pre>
-</li>
-</ul>
-</li>
-<li>
-<p>Compile and install:</p>
-<pre><code>make prepare
+<h4 id="compile-and-build">Compile and build:</h4>
+<pre><code>make sync_submodule
 make
 </code></pre>
-</li>
-<li>
-<p>Test the installation:</p>
+<p>If some third-party libraries have not been or cannot be downloaded successfully, you can delete them and do a <code>git checkout contrib</code> and <code>make sync_submodule</code> again.</p>
+<h4 id="test-the-installation">Test the installation:</h4>
 <pre><code>./scripts/run_tests.sh
 </code></pre>
-</li>
-</ol>
-<h4 id="dependencies">Dependencies</h4>
+<h3 id="dependencies">Dependencies</h3>
 <ul>
 <li><a href="https://git-scm.com">git</a>, <a href="https://gcc.gnu.org">gcc</a>, <a href="https://cmake.org">cmake</a>: for code developing, configuring and compiling</li>
 <li><a href="https://www.mpich.org">mpich</a> or <a href="https://www.open-mpi.org">open mpi</a>: for parallel computing</li>

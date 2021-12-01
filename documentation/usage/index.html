@@ -123,7 +123,7 @@
                     
                         
                             <li >
-                                 <a href="../code_manual/">Code manual</a>
+                                 <a href="../code_algorithms/">Code algorithms</a>
                             </li>
                         
                     
@@ -220,6 +220,8 @@
         
             <li><a href="#run-built-in-examples">Run built-in examples</a></li>
         
+            <li><a href="#visualize-post-process">Visualize &amp; post-process</a></li>
+        
     
     </ul>
 </div></div> <!-- toc on top on mobile -->
@@ -230,6 +232,8 @@
         
             <li><a href="#run-built-in-examples">Run built-in examples</a></li>
         
+            <li><a href="#visualize-post-process">Visualize &amp; post-process</a></li>
+        
     
     </ul>
 </div></div>
@@ -239,16 +243,18 @@
 <h4 id="run-built-in-examples">Run built-in examples</h4>
 <p>There are some built-in examples defined in the <code>examples/</code> directory. Once the software is installed, it will create an excutable file in the <code>build/bin</code> directory. </p>
 <ol>
-<li>
-<p>Run an example using the following command in the root directory. The results will be stored in <code>tmp/out/</code> directory after the running of the example.</p>
+<li>Run an example using the following command in the root directory. The results will be stored in <code>tmp/out/</code> directory after the running of the example.</li>
+</ol>
 <pre><code>./build/bin/netdem_example_random_packing
 </code></pre>
-</li>
+<ol>
 <li>
 <p>Visualize the results in <a href="https://www.paraview.org">paraview</a>.</p>
 </li>
 <li>
 <p>For irregular-shaped particles, use the following command to generate the results with particles represented by triangle meshes.</p>
+</li>
+</ol>
 <pre><code>./build/bin/netdem_tool_point2mesh [in.vtk] [out.vtk] [shape_dir]
 </code></pre>
 <p>In case one need to do the generation in batch, the following command can be used</p>
@@ -258,8 +264,9 @@
 <pre><code>./scripts/auto_mesh_particle.sh [out_dir]
 ./scripts/auto_mesh_wall.sh [out_dir]
 </code></pre>
-</li>
-</ol></div>
+<h4 id="visualize-post-process">Visualize &amp; post-process</h4>
+<p>Results can be dumped as VTK files, which can be visualized in <a href="https://www.paraview.org/">paraview</a>.</p>
+<p>We have a <a href="https://github.com/net-dem/dem_postprocess_scripts">side-repository</a> that provides some matlab or python scripts for post-process (e.g., VTK io, stress-strain, spherical histograms of contact anisotropy).</p></div>
             <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
