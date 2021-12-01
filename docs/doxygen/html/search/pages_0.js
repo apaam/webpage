@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['welcome_20to_20netdem_21_2441',['Welcome to NetDEM!',['../index.html',1,'']]]
+  ['welcome_0',['Welcome',['../index.html',1,'']]]
 ];

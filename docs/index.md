@@ -49,12 +49,15 @@ NetDEM is a neural network enabled C++ library for discrete element methods.
 
 ## Features
 
-We aimed at providing peer researchers a basic DEM framework and collection of APIs, which can be used to develop new contact models, irregular-shaped particle models, contact detection and resolution algorithms, and etc. We put an emphasis on but not limited to:
+It is currently capable of performing basic and general DEM simulations, with following features:
 
- - Model irregular-shaped particles, such as ellipsoid, polybezier, polyhedron.
- - Develop new contact models and particle models, as well as contact detection and resolution algorithms.
- - Perform unit tests, including random packing, triaxial shear, direct shear, angle of repose, etc.
- - Explore the possibilities and integration of machine learning methods in DEM.
+- Sphere and triangle facets contact solver
+- GJK contact solver for convex particles
+- SDF contact solver for arbitrary (convex and concave) particles
+- Hybrid OpenMP and MPI parallel computing
+- Integrated [mlpack](https://www.mlpack.org/) machine learning environment
+
+The supported particle shapes include sphere, cylinder, poly-super-ellipsoid, poly-super-quadrics, spherical harmonics, triangle mesh, level set, etc.
 
 </div><div class="col-md-6 news-table" markdown="1">
 
@@ -62,9 +65,9 @@ We aimed at providing peer researchers a basic DEM framework and collection of A
 
 Date         | Message
 ------------ | -----------------------------------------------------------------
-Sep 10, 2021 | Now we have poly-super-ellipsoid and poly-super-quadric.
-Aug 15, 2021 | We generlized two types of contact solvers, namely GJK and signed distance field.
-Apr 16, 2021 | Launched the [website](index.md).
+Dec 01, 2021 | Added pybind11 environment and python examples, exposed most APIs to python.
+Sep 10, 2021 | Poly-super-ellipsoid, poly-super-quadric, spherical harmonics, level set, polyhedron and etc.
+Aug 15, 2021 | Generlized two types of contact solvers, namely GJK and SDF.
 Mar 15, 2021 | Integrated the [MLPACK](https://github.com/mlpack/mlpack.git) as the machine learning environment.
 
 <!-- ## Latest Release -->
