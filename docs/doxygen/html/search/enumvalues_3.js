@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['gjk_2403',['gjk',['../classnetdem_1_1_contact_solver_settings.html#adff2184170befa136fdaedd56a048170a2f8746d2fc0843bbc69e87754c22d9d6',1,'netdem::ContactSolverSettings']]]
+  ['flexiblerelu_0',['FlexibleReLU',['../namespacenetdem.html#a2cdad8d3b028818b2034bb9f5e4a6583a4894bd8caf0d8154e8fdfd6a4c16e811',1,'netdem']]]
 ];

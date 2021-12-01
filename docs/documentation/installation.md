@@ -1,32 +1,38 @@
 ##
 
-#### Quick installation
+### Install
 
-1. Download the source code from github repository [https://github.com/net-dem/netdem](https://github.com/net-dem/netdem).
-   
-2. Prerequisites: gcc, autoconf, automake, cmake, mpi, boost.  
+#### Prerequisites: 
 
-    - For **MacOS**: use ``brew install``, such as
+The compilation requires ``gcc``, ``autoconf``, ``automake``, ``cmake``, ``mpi``, ``boost``, which can be obtained using
 
-            brew install gcc autoconf automake cmake mpi boost
+```
+# For MacOS: use brew install, such as
+brew install gcc autoconf automake cmake openmpi boost
+        
+# For Ubuntu: use apt-get install, such as
+sudo apt install build-essential
+sudo apt-get install -y autoconf-archive automake cmake texinfo
+sudo apt-get install openmpi-bin libopenmpi-dev libboost-all-dev
+```
 
-    - For **Ubuntu**: use ``apt-get install``, such as
+#### Compile and build:
 
-            sudo apt install build-essential     
-            sudo apt-get install -y autoconf-archive automake cmake texinfo  
-            sudo apt-get install openmpi-bin libopenmpi-dev libboost-all-dev  
+```
+make sync_submodule
+make
+``` 
 
-3. Compile and install:
+If some third-party libraries have not been or cannot be downloaded successfully, you can delete them and do a ``git checkout contrib`` and ``make sync_submodule`` again.
 
-        make prepare
-        make 
- 
-4. Test the installation:
-    
-        ./scripts/run_tests.sh  
-    
 
-#### Dependencies
+#### Test the installation:
+
+```
+./scripts/run_tests.sh
+```
+
+### Dependencies
 
  - [git](https://git-scm.com), [gcc](https://gcc.gnu.org), [cmake](https://cmake.org): for code developing, configuring and compiling
  - [mpich](https://www.mpich.org) or [open mpi](https://www.open-mpi.org): for parallel computing
