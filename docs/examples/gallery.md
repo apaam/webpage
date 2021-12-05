@@ -37,7 +37,7 @@ Granular mixing of spheres.
   <source src="https://1307405355.vod2.myqcloud.com/7eb7938bvodtranscq1307405355/5e9a7388387702292231970014/v.f100830.mp4" type="video/mp4">
 </video>
 
-Nut sliding on bolt without frition and damping.
+Nut sliding on bolt without frition and damping, where the nut and bolt is modeled with polyhdral particles in DEM.
 
 ---
 
@@ -98,6 +98,14 @@ Random packing of mixed types of particles.
 </video>
 
 Column collapsing of irregular-shaped particles that are represented by spherical harmonics.
+
+---
+
+<video controls width="95%" poster="https://1307405355.vod2.myqcloud.com/7eb7938bvodtranscq1307405355/b0972047387702292300211667/coverBySnapshot/coverBySnapshot_10_0.jpg">
+  <source src="https://1307405355.vod2.myqcloud.com/7eb7938bvodtranscq1307405355/b0972047387702292300211667/v.f100830.mp4" type="video/mp4">
+</video>
+
+Particle curshing simuated with coupled DEM-peridigm, where level set-based domain splitting appraoch is employed for fragments reconstruction.
 
 ---
 
