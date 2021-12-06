@@ -3,7 +3,7 @@
 ### NetDEM
 
 - Source code: [https://github.com/net-dem/netdem](https://github.com/net-dem/netdem)
-- website: [https://github.com/net-dem/netdem_docs](https://github.com/net-dem/netdem_docs)
+- Website: [https://github.com/net-dem/netdem_docs](https://github.com/net-dem/netdem_docs)
 
 ### Post-processing scripts
 
