@@ -7,7 +7,7 @@ doxygen:
 push:
 	message=update
 	git add .
-	git commit -m "$(message)"
+	git commit -m '$(message)'
 	git push 
 
 .PHONY: serve deploy doxygen push
