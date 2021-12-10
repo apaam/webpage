@@ -93,37 +93,37 @@
             
             
             
-                <li class="dropdown active">
+                <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Documentation <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                     
                         
-                            <li class="active">
-                                 <a href="./">Installation</a>
+                            <li >
+                                 <a href="../../documentation/installation/">Installation</a>
                             </li>
                         
                     
                         
                             <li >
-                                 <a href="../usage/">User manual</a>
+                                 <a href="../../documentation/usage/">User manual</a>
                             </li>
                         
                     
                         
                             <li >
-                                 <a href="../developer_manual/">Developer manual</a>
+                                 <a href="../../documentation/developer_manual/">Developer manual</a>
                             </li>
                         
                     
                         
                             <li >
-                                 <a href="../dem_manual/">DEM manual</a>
+                                 <a href="../../documentation/dem_manual/">DEM manual</a>
                             </li>
                         
                     
                         
                             <li >
-                                 <a href="../code_algorithms/">Code algorithms</a>
+                                 <a href="../../documentation/code_algorithms/">Code algorithms</a>
                             </li>
                         
                     
@@ -149,19 +149,19 @@
             
             
             
-                <li class="dropdown">
+                <li class="dropdown active">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Gallery <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                     
                         
                             <li >
-                                 <a href="../../gallery/snapshots/">Snapshots</a>
+                                 <a href="../snapshots/">Snapshots</a>
                             </li>
                         
                     
                         
-                            <li >
-                                 <a href="../../gallery/animations/">Animations</a>
+                            <li class="active">
+                                 <a href="./">Animations</a>
                             </li>
                         
                     
@@ -233,72 +233,82 @@
         
         <div class="container">
             
-            <div class="col-md-3 visible-xs visible-sm"><div class="bs-sidebar hidden-print affix well" role="complementary">
-    <ul class="nav bs-sidenav">
-    
-        <li class="main active"><a href="#_1"></a></li>
-        
-            <li><a href="#install">Install</a></li>
-        
-            <li><a href="#dependencies">Dependencies</a></li>
-        
-    
-    </ul>
-</div></div> <!-- toc on top on mobile -->
-            <div class="col-md-3 hidden-xs hidden-sm"><div class="bs-sidebar hidden-print affix well" role="complementary">
-    <ul class="nav bs-sidenav">
-    
-        <li class="main active"><a href="#_1"></a></li>
-        
-            <li><a href="#install">Install</a></li>
-        
-            <li><a href="#dependencies">Dependencies</a></li>
-        
-    
-    </ul>
-</div></div>
-            <div class="col-md-9" role="main">
+            <div class="col-md-12" role="main">
 
-<h2 id="_1"></h2>
-<h3 id="install">Install</h3>
-<h4 id="prerequisites">Prerequisites:</h4>
-<p>The compilation requires <code>gcc</code>, <code>autoconf</code>, <code>automake</code>, <code>cmake</code>, <code>mpi</code>, <code>boost</code>, which can be obtained using</p>
-<pre><code># For MacOS: use brew install, such as
-brew install gcc autoconf automake cmake openmpi boost
-
-# For Ubuntu: use apt-get install, such as
-sudo apt install build-essential
-sudo apt-get install -y autoconf-archive automake cmake texinfo
-sudo apt-get install openmpi-bin libopenmpi-dev libboost-all-dev
-</code></pre>
-<h4 id="compile-and-build">Compile and build:</h4>
-<pre><code>make sync_submodule
-make
-</code></pre>
-<p>If some third-party libraries have not been or cannot be downloaded successfully, you can delete them and do a <code>git checkout contrib</code> and <code>make sync_submodule</code> again.</p>
-<h4 id="test-the-installation">Test the installation:</h4>
-<pre><code>./scripts/run_tests.sh
-</code></pre>
-<h3 id="dependencies">Dependencies</h3>
-<ul>
-<li><a href="https://git-scm.com">git</a>, <a href="https://gcc.gnu.org">gcc</a>, <a href="https://cmake.org">cmake</a>: for code developing, configuring and compiling</li>
-<li><a href="https://www.mpich.org">mpich</a> or <a href="https://www.open-mpi.org">open mpi</a>: for parallel computing</li>
-<li><a href="https://github.com/ArthurSonzogni/nlohmann_json_cmake_fetchcontent.git">json</a>: for input data interchange</li>
-<li><a href="https://github.com/libigl/cork.git">cork</a>: for mesh boolean operation<ul>
-<li><a href="https://gmplib.org">gmp</a></li>
-</ul>
-</li>
-<li><a href="https://github.com/libigl/libigl.git">igl</a>: another option of mesh boolean operation (robust but much slower than cork)<ul>
-<li><a href="https://github.com/CGAL/cgal.git">cgal</a> (requires <a href="https://github.com/boostorg/boost.git">boost</a>, <a href="https://gmplib.org">gmp</a>, <a href="https://www.mpfr.org">mpfr</a>), <a href="https://openmp.llvm.org/">openmp</a>, <a href="https://gitlab.com/libeigen/eigen.git">eigen</a></li>
-</ul>
-</li>
-<li><a href="https://github.com/google/googletest.git">googletest</a>: for tests</li>
-<li><a href="https://github.com/mlpack/mlpack.git">mlpack</a>: for machine learning libraries<ul>
-<li><a href="http://arma.sourceforge.net/download.html">armadillo</a> (requires <a href="https://github.com/Reference-LAPACK/lapack.git">lapack</a>, <a href="https://github.com/opencollab/arpack-ng.git">arpack</a>, <a href="https://github.com/xianyi/OpenBLAS.git">openblas</a>), <a href="https://github.com/mlpack/ensmallen">ensmallen</a>, <a href="https://github.com/USCiLab/cereal">cereal</a>, <a href="https://github.com/boostorg/boost.git">boost</a>, <a href="https://github.com/nothings/stb.git">stb</a></li>
-</ul>
-</li>
-</ul>
-<p>Using dependencies already in the system would save the time required by the compilation of the whole project. Some dependencies (e.g., mlpack) would take fairly long time to compile. One can check out the log files in contrib/[package]/ep/src/[package]-stamp/ for the compiling, building and installing progresses of the dependencies. Some packages (e.g., <code>boost</code> and <code>mpi</code>) could take forever to compile. It is recommended that you install pre-build <code>boost</code> and <code>mpi</code> using tools such as <code>brew install</code> in mac os, or <code>apt-get install</code> in ubantu.</p></div>
+<p>This page collects animations from various simulations based on NetDEM.</p>
+<hr />
+<p><br>
+<center></p>
+<div class="col-md-4">
+<video controls="controls" poster="https://1307405355.vod2.myqcloud.com/7eb7938bvodtranscq1307405355/15a687408602268011220575497/coverBySnapshot/coverBySnapshot_10_0.jpg" width="95%">
+  <source src="https://1307405355.vod2.myqcloud.com/7eb7938bvodtranscq1307405355/15a687408602268011220575497/v.f100800.mp4" type="video/mp4">
+</video>
+<p>Random packing of poly-super-ellipsoid particles.</p>
+<hr />
+<video controls="controls" poster="https://1307405355.vod2.myqcloud.com/7eb7938bvodtranscq1307405355/b1ed73338602268011222670630/coverBySnapshot/coverBySnapshot_10_0.jpg" width="95%">
+  <source src="https://1307405355.vod2.myqcloud.com/7eb7938bvodtranscq1307405355/b1ed73338602268011222670630/v.f100800.mp4" type="video/mp4">
+</video>
+<p>Random packing of level-set particles.</p>
+<hr />
+<video controls="controls" poster="https://1307405355.vod2.myqcloud.com/7eb7938bvodtranscq1307405355/4583ae673701925923899310911/coverBySnapshot/coverBySnapshot_10_0.jpg" width="95%">
+  <source src="https://1307405355.vod2.myqcloud.com/7eb7938bvodtranscq1307405355/4583ae673701925923899310911/v.f100830.mp4" type="video/mp4">
+</video>
+<p>Granular mixing of spheres.</p>
+<hr />
+<video controls="controls" poster="https://1307405355.vod2.myqcloud.com/7eb7938bvodtranscq1307405355/5e9a7388387702292231970014/coverBySnapshot/coverBySnapshot_10_0.jpg" width="95%">
+  <source src="https://1307405355.vod2.myqcloud.com/7eb7938bvodtranscq1307405355/5e9a7388387702292231970014/v.f100830.mp4" type="video/mp4">
+</video>
+<p>Nut sliding on bolt without frition and damping, where the nut and bolt is modeled with polyhdral particles in DEM.</p>
+<hr />
+</div>
+<div class="col-md-4">
+<video controls="controls" poster="https://1307405355.vod2.myqcloud.com/7eb7938bvodtranscq1307405355/526695b88602268011224907711/coverBySnapshot/coverBySnapshot_10_0.jpg" width="95%">
+  <source src="https://1307405355.vod2.myqcloud.com/7eb7938bvodtranscq1307405355/526695b88602268011224907711/v.f100800.mp4" type="video/mp4">
+</video>
+<p>Random packing of poly-super-quadrics particles.</p>
+<hr />
+<video controls="controls" poster="https://1307405355.vod2.myqcloud.com/7eb7938bvodtranscq1307405355/b1ef0bb48602268011222673340/coverBySnapshot/coverBySnapshot_10_0.jpg" width="95%">
+  <source src="https://1307405355.vod2.myqcloud.com/7eb7938bvodtranscq1307405355/b1ef0bb48602268011222673340/v.f100800.mp4" type="video/mp4">
+</video>
+<p>Random packing of polydral particles.</p>
+<hr />
+<video controls="controls" poster="https://1307405355.vod2.myqcloud.com/7eb7938bvodtranscq1307405355/5db108d53701925924023161063/coverBySnapshot_10_0.jpg" width="95%">
+  <source src="https://1307405355.vod2.myqcloud.com/7eb7938bvodtranscq1307405355/5db108d53701925924023161063/v.f100840.mp4" type="video/mp4">
+</video>
+<p>Triaxial compression of irregular-shaped particles that are represented by spherical harmonics.</p>
+<hr />
+<video controls="controls" poster="https://1307405355.vod2.myqcloud.com/7eb7938bvodtranscq1307405355/f9b2d5bc3701925924025222097/coverBySnapshot_10_0.jpg" width="95%">
+  <source src="https://1307405355.vod2.myqcloud.com/7eb7938bvodtranscq1307405355/f9b2d5bc3701925924025222097/v.f100840.mp4" type="video/mp4">
+</video>
+<p>Random packing of generaly irregular-shaped particles, where the contacts are handled by neurual networks.</p>
+<hr />
+</div>
+<div class="col-md-4">
+<video controls="controls" poster="https://1307405355.vod2.myqcloud.com/7eb7938bvodtranscq1307405355/b1b83dd08602268011222642502/coverBySnapshot/coverBySnapshot_10_0.jpg" width="95%">
+  <source src="https://1307405355.vod2.myqcloud.com/7eb7938bvodtranscq1307405355/b1b83dd08602268011222642502/v.f100800.mp4" type="video/mp4">
+</video>
+<p>Random packing of spherical-harmonics particles.</p>
+<hr />
+<video controls="controls" poster="https://1307405355.vod2.myqcloud.com/7eb7938bvodtranscq1307405355/b1ee07d48602268011222671810/coverBySnapshot/coverBySnapshot_10_0.jpg" width="95%">
+  <source src="https://1307405355.vod2.myqcloud.com/7eb7938bvodtranscq1307405355/b1ee07d48602268011222671810/v.f100800.mp4" type="video/mp4">
+</video>
+<p>Random packing of mixed types of particles.</p>
+<hr />
+<video controls="controls" poster="https://1307405355.vod2.myqcloud.com/7eb7938bvodtranscq1307405355/66ac70453701925924023513996/coverBySnapshot_10_0.jpg" width="95%">
+  <source src="https://1307405355.vod2.myqcloud.com/7eb7938bvodtranscq1307405355/66ac70453701925924023513996/v.f100840.mp4" type="video/mp4">
+</video>
+<p>Column collapsing of irregular-shaped particles that are represented by spherical harmonics.</p>
+<hr />
+<video controls="controls" poster="https://1307405355.vod2.myqcloud.com/7eb7938bvodtranscq1307405355/b0972047387702292300211667/coverBySnapshot/coverBySnapshot_10_0.jpg" width="95%">
+  <source src="https://1307405355.vod2.myqcloud.com/7eb7938bvodtranscq1307405355/b0972047387702292300211667/v.f100830.mp4" type="video/mp4">
+</video>
+<p>Particle curshing simuated with coupled DEM-peridigm, where level set-based domain splitting appraoch is employed for fragments reconstruction.</p>
+<hr />
+</div>
+<p></center></p>
+<!-- <video controls width="49%" poster="">
+  <source src="" type="video/mp4">
+</video> --></div>
             <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
@@ -320,6 +330,7 @@ make
         </div>
     </div>
 </div>
+
             
         </div>
         

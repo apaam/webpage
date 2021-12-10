@@ -93,37 +93,37 @@
             
             
             
-                <li class="dropdown active">
+                <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Documentation <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                     
                         
-                            <li class="active">
-                                 <a href="./">Installation</a>
+                            <li >
+                                 <a href="../../documentation/installation/">Installation</a>
                             </li>
                         
                     
                         
                             <li >
-                                 <a href="../usage/">User manual</a>
+                                 <a href="../../documentation/usage/">User manual</a>
                             </li>
                         
                     
                         
                             <li >
-                                 <a href="../developer_manual/">Developer manual</a>
+                                 <a href="../../documentation/developer_manual/">Developer manual</a>
                             </li>
                         
                     
                         
                             <li >
-                                 <a href="../dem_manual/">DEM manual</a>
+                                 <a href="../../documentation/dem_manual/">DEM manual</a>
                             </li>
                         
                     
                         
                             <li >
-                                 <a href="../code_algorithms/">Code algorithms</a>
+                                 <a href="../../documentation/code_algorithms/">Code algorithms</a>
                             </li>
                         
                     
@@ -172,31 +172,31 @@
             
             
             
-                <li class="dropdown">
+                <li class="dropdown active">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">About <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                     
                         
-                            <li >
-                                 <a href="../../about/news_%26_updates/">News & Updates</a>
+                            <li class="active">
+                                 <a href="./">News & Updates</a>
                             </li>
                         
                     
                         
                             <li >
-                                 <a href="../../about/help_%26_support/">Help & Support</a>
+                                 <a href="../help_%26_support/">Help & Support</a>
                             </li>
                         
                     
                         
                             <li >
-                                 <a href="../../about/publications/">Publications</a>
+                                 <a href="../publications/">Publications</a>
                             </li>
                         
                     
                         
                             <li >
-                                 <a href="../../about/acknowledgement/">Acknowledgements</a>
+                                 <a href="../acknowledgement/">Acknowledgements</a>
                             </li>
                         
                     
@@ -236,11 +236,12 @@
             <div class="col-md-3 visible-xs visible-sm"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="main active"><a href="#_1"></a></li>
+        <li class="main active"><a href="#news">News</a></li>
         
-            <li><a href="#install">Install</a></li>
+            <li><a href="#2021">2021</a></li>
         
-            <li><a href="#dependencies">Dependencies</a></li>
+    
+        <li class="main "><a href="#release-logs">Release logs</a></li>
         
     
     </ul>
@@ -248,57 +249,51 @@
             <div class="col-md-3 hidden-xs hidden-sm"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="main active"><a href="#_1"></a></li>
+        <li class="main active"><a href="#news">News</a></li>
         
-            <li><a href="#install">Install</a></li>
+            <li><a href="#2021">2021</a></li>
         
-            <li><a href="#dependencies">Dependencies</a></li>
+    
+        <li class="main "><a href="#release-logs">Release logs</a></li>
         
     
     </ul>
 </div></div>
             <div class="col-md-9" role="main">
 
-<h2 id="_1"></h2>
-<h3 id="install">Install</h3>
-<h4 id="prerequisites">Prerequisites:</h4>
-<p>The compilation requires <code>gcc</code>, <code>autoconf</code>, <code>automake</code>, <code>cmake</code>, <code>mpi</code>, <code>boost</code>, which can be obtained using</p>
-<pre><code># For MacOS: use brew install, such as
-brew install gcc autoconf automake cmake openmpi boost
-
-# For Ubuntu: use apt-get install, such as
-sudo apt install build-essential
-sudo apt-get install -y autoconf-archive automake cmake texinfo
-sudo apt-get install openmpi-bin libopenmpi-dev libboost-all-dev
-</code></pre>
-<h4 id="compile-and-build">Compile and build:</h4>
-<pre><code>make sync_submodule
-make
-</code></pre>
-<p>If some third-party libraries have not been or cannot be downloaded successfully, you can delete them and do a <code>git checkout contrib</code> and <code>make sync_submodule</code> again.</p>
-<h4 id="test-the-installation">Test the installation:</h4>
-<pre><code>./scripts/run_tests.sh
-</code></pre>
-<h3 id="dependencies">Dependencies</h3>
-<ul>
-<li><a href="https://git-scm.com">git</a>, <a href="https://gcc.gnu.org">gcc</a>, <a href="https://cmake.org">cmake</a>: for code developing, configuring and compiling</li>
-<li><a href="https://www.mpich.org">mpich</a> or <a href="https://www.open-mpi.org">open mpi</a>: for parallel computing</li>
-<li><a href="https://github.com/ArthurSonzogni/nlohmann_json_cmake_fetchcontent.git">json</a>: for input data interchange</li>
-<li><a href="https://github.com/libigl/cork.git">cork</a>: for mesh boolean operation<ul>
-<li><a href="https://gmplib.org">gmp</a></li>
-</ul>
-</li>
-<li><a href="https://github.com/libigl/libigl.git">igl</a>: another option of mesh boolean operation (robust but much slower than cork)<ul>
-<li><a href="https://github.com/CGAL/cgal.git">cgal</a> (requires <a href="https://github.com/boostorg/boost.git">boost</a>, <a href="https://gmplib.org">gmp</a>, <a href="https://www.mpfr.org">mpfr</a>), <a href="https://openmp.llvm.org/">openmp</a>, <a href="https://gitlab.com/libeigen/eigen.git">eigen</a></li>
-</ul>
-</li>
-<li><a href="https://github.com/google/googletest.git">googletest</a>: for tests</li>
-<li><a href="https://github.com/mlpack/mlpack.git">mlpack</a>: for machine learning libraries<ul>
-<li><a href="http://arma.sourceforge.net/download.html">armadillo</a> (requires <a href="https://github.com/Reference-LAPACK/lapack.git">lapack</a>, <a href="https://github.com/opencollab/arpack-ng.git">arpack</a>, <a href="https://github.com/xianyi/OpenBLAS.git">openblas</a>), <a href="https://github.com/mlpack/ensmallen">ensmallen</a>, <a href="https://github.com/USCiLab/cereal">cereal</a>, <a href="https://github.com/boostorg/boost.git">boost</a>, <a href="https://github.com/nothings/stb.git">stb</a></li>
-</ul>
-</li>
-</ul>
-<p>Using dependencies already in the system would save the time required by the compilation of the whole project. Some dependencies (e.g., mlpack) would take fairly long time to compile. One can check out the log files in contrib/[package]/ep/src/[package]-stamp/ for the compiling, building and installing progresses of the dependencies. Some packages (e.g., <code>boost</code> and <code>mpi</code>) could take forever to compile. It is recommended that you install pre-build <code>boost</code> and <code>mpi</code> using tools such as <code>brew install</code> in mac os, or <code>apt-get install</code> in ubantu.</p></div>
+<h2 id="news">News</h2>
+<h3 id="2021">2021</h3>
+<table>
+<thead>
+<tr>
+<th>Date</th>
+<th>Message</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dec 10</td>
+<td>Particle breakage with peridigm-DEM coupling, domain splitting, bonded spheres, bonded voronois</td>
+</tr>
+<tr>
+<td>Dec 01</td>
+<td>Added pybind11 environment and python examples, exposed most APIs to python.</td>
+</tr>
+<tr>
+<td>Sep 10</td>
+<td>Poly-super-ellipsoid, poly-super-quadric, spherical harmonics, level set, polyhedron and etc.</td>
+</tr>
+<tr>
+<td>Aug 15</td>
+<td>Generlized two types of contact solvers, namely GJK and SDF.</td>
+</tr>
+<tr>
+<td>Mar 15</td>
+<td>Integrated the MLPACK as the machine learning environment.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="release-logs">Release logs</h2></div>
             <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
