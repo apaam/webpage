@@ -1,4 +1,4 @@
-This repository maintains the [documentation](https://net-dem.github.io/netdem_docs/) of the [NetDEM](https://github.com/net-dem/netdem) project.
+This repository maintains the [documentation](https://net-dem.github.io/netdem_docs/) of the [NetDEM](https://github.com/net-dem/netdem) project. It is built on [mkdocs](https://www.mkdocs.org/) and the template extracted from [mfem](https://mfem.org/).
 
 ## To update the site:
 
