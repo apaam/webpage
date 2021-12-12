@@ -15,3 +15,7 @@ The users are also cautioned that this code is under active development. If you 
  - Python interfaces.
  - Input mechanicsms.
  - GPU.
+
+### Contact
+
+- Dr. Zhengshou Lai, laizhengsh [AT] mail.sysu.edu.cn
