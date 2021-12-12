@@ -99,13 +99,7 @@
                     
                         
                             <li class="active">
-                                 <a href="./">Installation</a>
-                            </li>
-                        
-                    
-                        
-                            <li >
-                                 <a href="../usage/">User manual</a>
+                                 <a href="./">User manual</a>
                             </li>
                         
                     
@@ -117,7 +111,7 @@
                     
                         
                             <li >
-                                 <a href="../dem_manual/">DEM manual</a>
+                                 <a href="../dem_formulations/">DEM formulations</a>
                             </li>
                         
                     
@@ -236,11 +230,21 @@
             <div class="col-md-3 visible-xs visible-sm"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="main active"><a href="#_1"></a></li>
+        <li class="main active"><a href="#installation">Installation</a></li>
         
-            <li><a href="#install">Install</a></li>
+            <li><a href="#prerequisites">Prerequisites</a></li>
+        
+            <li><a href="#compile-and-build">Compile and build</a></li>
+        
+            <li><a href="#test-the-installation">Test the installation</a></li>
         
             <li><a href="#dependencies">Dependencies</a></li>
+        
+    
+        <li class="main "><a href="#run-built-in-examples">Run built-in examples</a></li>
+        
+    
+        <li class="main "><a href="#visualize-post-process">Visualize &amp; post-process</a></li>
         
     
     </ul>
@@ -248,20 +252,29 @@
             <div class="col-md-3 hidden-xs hidden-sm"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="main active"><a href="#_1"></a></li>
+        <li class="main active"><a href="#installation">Installation</a></li>
         
-            <li><a href="#install">Install</a></li>
+            <li><a href="#prerequisites">Prerequisites</a></li>
+        
+            <li><a href="#compile-and-build">Compile and build</a></li>
+        
+            <li><a href="#test-the-installation">Test the installation</a></li>
         
             <li><a href="#dependencies">Dependencies</a></li>
+        
+    
+        <li class="main "><a href="#run-built-in-examples">Run built-in examples</a></li>
+        
+    
+        <li class="main "><a href="#visualize-post-process">Visualize &amp; post-process</a></li>
         
     
     </ul>
 </div></div>
             <div class="col-md-9" role="main">
 
-<h2 id="_1"></h2>
-<h3 id="install">Install</h3>
-<h4 id="prerequisites">Prerequisites:</h4>
+<h3 id="installation">Installation</h3>
+<h4 id="prerequisites">Prerequisites</h4>
 <p>The compilation requires <code>gcc</code>, <code>autoconf</code>, <code>automake</code>, <code>cmake</code>, <code>mpi</code>, <code>boost</code>, which can be obtained using</p>
 <pre><code># For MacOS: use brew install, such as
 brew install gcc autoconf automake cmake openmpi boost
@@ -271,15 +284,15 @@ sudo apt install build-essential
 sudo apt-get install -y autoconf-archive automake cmake texinfo
 sudo apt-get install openmpi-bin libopenmpi-dev libboost-all-dev
 </code></pre>
-<h4 id="compile-and-build">Compile and build:</h4>
+<h4 id="compile-and-build">Compile and build</h4>
 <pre><code>make sync_submodule
 make
 </code></pre>
 <p>If some third-party libraries have not been or cannot be downloaded successfully, you can delete them and do a <code>git checkout contrib</code> and <code>make sync_submodule</code> again.</p>
-<h4 id="test-the-installation">Test the installation:</h4>
+<h4 id="test-the-installation">Test the installation</h4>
 <pre><code>./scripts/run_tests.sh
 </code></pre>
-<h3 id="dependencies">Dependencies</h3>
+<h4 id="dependencies">Dependencies</h4>
 <ul>
 <li><a href="https://git-scm.com">git</a>, <a href="https://gcc.gnu.org">gcc</a>, <a href="https://cmake.org">cmake</a>: for code developing, configuring and compiling</li>
 <li><a href="https://www.mpich.org">mpich</a> or <a href="https://www.open-mpi.org">open mpi</a>: for parallel computing</li>
@@ -298,7 +311,34 @@ make
 </ul>
 </li>
 </ul>
-<p>Using dependencies already in the system would save the time required by the compilation of the whole project. Some dependencies (e.g., mlpack) would take fairly long time to compile. One can check out the log files in contrib/[package]/ep/src/[package]-stamp/ for the compiling, building and installing progresses of the dependencies. Some packages (e.g., <code>boost</code> and <code>mpi</code>) could take forever to compile. It is recommended that you install pre-build <code>boost</code> and <code>mpi</code> using tools such as <code>brew install</code> in mac os, or <code>apt-get install</code> in ubantu.</p></div>
+<p>Using dependencies already in the system would save the time required by the compilation of the whole project. Some dependencies (e.g., mlpack) would take fairly long time to compile. One can check out the log files in contrib/[package]/ep/src/[package]-stamp/ for the compiling, building and installing progresses of the dependencies. Some packages (e.g., <code>boost</code> and <code>mpi</code>) could take forever to compile. It is recommended that you install pre-build <code>boost</code> and <code>mpi</code> using tools such as <code>brew install</code> in mac os, or <code>apt-get install</code> in ubantu.</p>
+<h3 id="run-built-in-examples">Run built-in examples</h3>
+<p>There are some built-in examples defined in the <code>examples/</code> directory. Once the software is installed, it will create an excutable file in the <code>build/bin</code> directory. </p>
+<ol>
+<li>Run an example using the following command in the root directory. The results will be stored in <code>tmp/out/</code> directory after the running of the example.</li>
+</ol>
+<pre><code>./build/bin/netdem_example_random_packing
+</code></pre>
+<ol>
+<li>
+<p>Visualize the results in <a href="https://www.paraview.org">paraview</a>.</p>
+</li>
+<li>
+<p>For irregular-shaped particles, use the following command to generate the results with particles represented by triangle meshes.</p>
+</li>
+</ol>
+<pre><code>./build/bin/netdem_tool_point2mesh [in.vtk] [out.vtk] [shape_dir]
+</code></pre>
+<p>In case one need to do the generation in batch, the following command can be used</p>
+<pre><code>./scripts/batch_data_point2mesh.sh [in_dir] [out_dir] [shape_dir]
+</code></pre>
+<p>or easier</p>
+<pre><code>./scripts/auto_mesh_particle.sh [out_dir]
+./scripts/auto_mesh_wall.sh [out_dir]
+</code></pre>
+<h3 id="visualize-post-process">Visualize &amp; post-process</h3>
+<p>Results can be dumped as VTK files, which can be visualized in <a href="https://www.paraview.org/">paraview</a>.</p>
+<p>We have a <a href="https://github.com/net-dem/dem_postprocess_scripts">side-repository</a> that provides some matlab or python scripts for post-process (e.g., VTK io, stress-strain, spherical histograms of contact anisotropy).</p></div>
             <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
@@ -330,10 +370,7 @@ make
                   <span id="busuanzi_container_site_uv">Vistors: <span id="busuanzi_value_site_uv"></span>. </span>
               </p>
               <p class="text-muted alignright">
-                  Developed by the <a href="https://net-dem.github.io/netdem_docs/about/acknowledgement/">NetDEM team</a>. SYSU, HKUST.
-                  <!-- at
-                  <a href="https://net-dem.github.io/netdem_docs/about/developers_team/">CASC</a>,
-                  <a href="https://www.llnl.gov/">LLNL</a> -->
+                &copy; <a href="https://net-dem.github.io/netdem_docs/about/acknowledgement/">NetDEM Team</a>. SYSU, HKUST.
               </p>
            </div>
         </footer>
