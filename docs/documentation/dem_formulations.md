@@ -1,6 +1,9 @@
 ##
 
-This section presents a brief introduction and review of the discrete
+[note: mkdocs bibtex does recognize dot symbol in bib-key, will need to replace 
+dot to underscore]
+
+This page presents a brief introduction and review of the discrete
 element method (DEM). The intention is to introduce the main components
 and basic computational workflow of a DEM model, providing necessary
 background information to the research presented in this dissertation.
@@ -9,11 +12,11 @@ background information to the research presented in this dissertation.
 
 DEM is a particle-based numerical model that is particularly suitable
 for describing the mechanical behavior of bulk granular materials. It
-was first proposed by @Cundall.Strack:1979 for the analysis of
+was first proposed by Cundall &Strack (1979) [@Cundall_Strack_1979] for the analysis of
 geotechnical materials. Since then, DEM has been applied to model all
 kinds of granular materials and to simulate the problems ranging from
 solids handling to powder flowing in a variety of different engineering
-branches [@Cleary:2009; @Tijskens.etal:2003; @OSullivan:2011]. In DEM,
+branches [@Cleary:2009] [@Tijskens_etal_2003] [@OSullivan:2011]. In DEM,
 all individual particles in the bulk granular material are explicitly
 modeled and a DEM model directly captures the interactions between
 particles and tracks the motions of each particle. The bulk behavior of
@@ -25,13 +28,13 @@ compared to the classical continuum theory-based numerical models.
 First, it bypasses the phenomenological constitutive models for
 describing the bulk behavior of a granular material within a
 representative volume
-[@Andrade.Avila:2012; @Andrade.etal:2012; @Guo.Zhao:2016]. Second, it is
+[@Andrade.Avila:2012] [@Andrade_etal_2012] [@Guo.Zhao:2016]. Second, it is
 straightforward for the DEM to simulate the problems involving large
 deformation or material failure, such as granular flow, penetration, or
 strain localization [@Chen:2011]. The major drawback of DEM is also
 obvious. As DEM tracks the interactions and motions of all particles,
 DEM simulations are quite computationally expensive, which makes it
-difficult to scale up [@Liu.Hrenya:2014; @Berger.Hrenya:2014].
+difficult to scale up [@Liu.Hrenya:2014] [@Berger.Hrenya:2014].
 Nevertheless, with the advent of computer hardware and parallel
 capabilities, the DEM has become an increasingly powerful numerical tool
 that can provide valuable information of and shed lights upon the
@@ -49,7 +52,7 @@ can have overlaps with each other. A particle is a body that has a
 closed surface. It may be represented by a simple geometry (e.g., sphere
 or ellipsoid) or a composition of several simple geometries that make up
 the body surface (see further discussions in ). A review on the particle
-geometric representations can be found in [@Zhong.etal:2016]. Particles
+geometric representations can be found in [@Zhong_etal_2016]. Particles
 have mass and their motion (i.e., position, velocity, and acceleration)
 is always tracked during a DEM simulation. Boundaries are also referred
 to as walls in the DEM literature. They may as well be represented by
@@ -75,8 +78,8 @@ contact point, contact branch vectors, and so on.
 Contact models are used to calculate the contact forces and moments
 between the two elements in contact. Commonly used contact models
 include the linear elastic model [@Cundall.Strack:1979], the rolling
-resistance model [@Jiang.etal:2005], the Hertz-Mindlin model
-[@Hertz:1882; @Mindlin:1953; @Renzo.Maio:2005], and the linear parallel
+resistance model [@Jiang_etal_2005], the Hertz-Mindlin model
+[@Hertz:1882] [@Mindlin:1953] [@Renzo.Maio:2005], and the linear parallel
 bond model [@Potyondy.Cundall:2004]. The formulation of these contact
 models will be presented in .
 
@@ -108,7 +111,7 @@ may include gravity, damping, contact forces and moments, and prescribed
 external forces and moments. Herein, the damping refers to the global
 damping, which is sometimes (artificially) introduced in a DEM model to
 facilitate energy dissipation and enhance a quasi-static simulation
-[@Chung:2006; @PFC:2014]. There is another type of damping called local
+[@Chung:2006] [[@PFC:2014]. There is another type of damping called local
 damping, which is usually incorporated into a contact model as dash-pot
 forces to account for the realistic energy dissipation due to particle
 interactions.
@@ -154,30 +157,30 @@ For non-spherical particles, the original Newton-Euler equations of
 motion cannot be simplified, and the calculation of the orientations and
 angular velocity will be much more complicated. A more detailed
 discussion on the time integration for non-spherical particles will not
-be included here but can be found in the work of @Chung:2006 and the PFC
+be included here but can be found in the work of [@Chung:2006] and the PFC
 user manual [@PFC:2014].
 
 #### Critical timestep
 
 The time integration based on the second-order Velocity Verlet algorithm
 is numerically stable only when the time increment being used is less
-than a threshold value, i.e. the critical timestep [@Otsubo.etal:2017].
+than a threshold value, i.e. the critical timestep [@Otsubo_etal_2017].
 If a time increment greater than the critical timestep is used,
 particles may move too much in one increment, which will result in
 spuriously infinite overlapping (i.e., abnormally large contact forces).
 
 A summary and empirical assessment of different approaches to estimate
 the critical timestep for DEM simulations can be found in
-@Otsubo.etal:2017. Basically, there are two categories of approaches to
+[@Otsubo_etal_2017]. Basically, there are two categories of approaches to
 estimate the critical timestep: the oscillation period of a single
 degree of freedom system (SDOF) based approaches
-[@Cundall.Strack:1979; @Hart.etal:1988], and the Rayleigh wave speed
-based approaches [@Thornton:2000; @Li.etal:2005]. The former approaches
+[@Cundall.Strack:1979] [@Hart_etal_1988], and the Rayleigh wave speed
+based approaches [@Thornton:2000] [@Li_etal_2005]. The former approaches
 consider the DEM system to be consist of rigid bodies connected by
 springs, while the latter ones consider the particles themselves to be
 springs.
 
-In the category of the SDOF-based approaches, @Cundall.Strack:1979
+In the category of the SDOF-based approaches, Cundall & Stract (1979) [@Cundall.Strack:1979]
 proposed the following expression to estimate the critical timestep
 $\Delta t_\text{crit}$
 
@@ -189,8 +192,8 @@ the particle; $k^\text{tran}$ and $k_i^\text{rot}$ represent the
 translational and rotational stiffness, and the subscript $i$ indicates
 the index of principal components.
 
-In the category of the Rayleigh wave speed based approaches,
-@Li.etal:2005 proposed that
+In the category of the Rayleigh wave speed based approaches, Li et al. (2005)
+[@Li_etal_2005] proposed that
 
 $$\Delta t_\text{crit} 
     = \frac{\pi R \sqrt{\rho/G}}{0.1631\nu+0.8766}$$
@@ -226,7 +229,7 @@ follows:
 ### Particle representation 
 
 There are basically two groups of methods to represent an irregular
-particle in DEM [@Zhong.etal:2016]: single-particle method and
+particle in DEM [@Zhong_etal_2016]: single-particle method and
 composite-particle method.
 
 #### Single-particle method
@@ -234,12 +237,12 @@ composite-particle method.
 The single-particle method utilizes closed geometries to represent
 particle shapes. Many single-particle-based DEM models have been
 proposed and developed with the adoption of some specific closed
-geometries, such as cylinder [@Feng.etal:2017], polyhedron (or polygon
-in 2D) [@Nassauer.etal:2013; @Daddetta.etal:2002], ellipsoid (or ellipse
-in 2D) [@Lin.Ng:1997; @Ting.etal:1993], superquadrics
-[@Williams.Pentland:1992; @Podlozhnyuk.etal:2017], Non-Uniform Rational
-Basis Spline (NURBS) [@Andrade.etal:2012], as well as their combinations
-(e.g., poly-ellipsoid [@Peters.etal:2009; @Zhang.etal:2017]).
+geometries, such as cylinder [@Feng_etal_2017], polyhedron (or polygon
+in 2D) [@Nassauer_etal_2013] [@Daddetta_etal_2002], ellipsoid (or ellipse
+in 2D) [@Lin.Ng:1997] [@Ting_etal_1993], superquadrics
+[@Williams.Pentland:1992] [@Podlozhnyuk_etal_2017], Non-Uniform Rational
+Basis Spline (NURBS) [@Andrade_etal_2012], as well as their combinations
+(e.g., poly-ellipsoid [@Peters_etal_2009] [@Zhang_etal_2017]).
 
 Each of these methods has its own advantages and limitations. The
 application of the cylinder-based or ellipsoid-based DEM models is
@@ -255,11 +258,11 @@ represented by polyhedron depends on the number of faces in a
 polyhedron, whereas a large number of faces would hinder the
 computational efficiency. Moreover, polyhedron can rarely replicate a
 smooth particle shape. The NURBS based granular element method,
-developed by @Andrade.etal:2012, is advantageous to replicate general
+developed by [@Andrade_etal_2012, is advantageous to replicate general
 and smooth particle shapes, whereas it is computationally expensive
 compared to the polyhedron-based DEM.
 
-Recently, @Kawamoto.etal:2016 developed another novel type of
+Recently, [@Kawamoto_etal_2016] developed another novel type of
 single-particle-based DEM, which utilizes the level set (LS) method to
 represent particles. The LS-DEM seamlessly utilizes the level set data
 of realistic particle shapes characterized from X-ray computational
@@ -271,7 +274,7 @@ large particulate systems.
 
 In a composite-particle method, a particle is represented by
 compositions of simple geometries (usually spheres in 3D or circles in
-2D [@Das:2007; @Shi.etal:2015]). This group of methods is advantageous
+2D [@Das:2007] [@Shi_etal_2015]). This group of methods is advantageous
 to implementation for that the contact detection and resolution
 algorithms for the simple geometries can be effortlessly exploited. It
 should be noted that the accuracy of particle shape represented by
@@ -281,10 +284,10 @@ computational expense though. Nonetheless, the composite-particle method
 (especially with spheres as the base elements) is currently the most
 prevalent method to model irregular particles and is supported in most
 commercial or open-source DEM packages such as PFC [@PFC:2014] and
-LIGGGHTS [@Kloss.etal:2012].
+LIGGGHTS [@Kloss_etal_2012].
 
 There are three options to represent a composite particle
-[@Shi.etal:2015]: the domain overlapping filling method, the domain
+[@Shi_etal_2015]: the domain overlapping filling method, the domain
 non-overlapping filling method, and the boundary filling method, as
 shown in with discs being used as the base elements, for instance. The
 composite particle generated by domain overlapping filling requires the
@@ -295,11 +298,11 @@ or distortion) or breakage. The boundary filling method, depending on
 the size of filling elements, could provide a better representation of
 surface roughness.
 
-![overlapping_filling](../img/overlapping_filling.png "Domain overlapping filling"){:style="width:32%"}
-![boundary_fiiling](../img/boundary_fiiling.png "Boundary filling"){:style="width:32%"}
-![non_overlapping_filling](../img/non_overlapping_filling.png "Domain non-overlapping filling"){:style="width:32%"}
+(a) | (b) | (c)
+----|-----|----
+![overlapping_filling](../img/overlapping_filling.png "Domain overlapping filling"){:style="width:100%"}|![boundary_fiiling](../img/boundary_fiiling.png "Boundary filling"){:style="width:100%"}|![non_overlapping_filling](../img/non_overlapping_filling.png "Domain non-overlapping filling"){:style="width:100%"}
 
-A schematic illustration of the three options to represent a composite particle with discs (modified after [@Shi.etal:2015])
+A schematic illustration of the three options to represent a composite particle with discs (modified after [@Shi_etal_2015])
 
 ### Contact models 
 
@@ -330,7 +333,7 @@ relative displacement increment at the contact during a timestep
 $\Delta t$ is given by its components $\Delta \delta_n$ (compression as
 a positive) and $\Delta \delta_s$, the contact law for a simple linear
 model with local damping updates the contact forces through
-[@Cundall.Strack:1979; @PFC:2014] 
+[@Cundall.Strack:1979] [@PFC:2014] 
 
 $$\begin{aligned}F_n &= F_n^0 + k_n\Delta\delta_n 
     - \eta_n\sqrt{\bar{m}k_n}\dot{\delta}_n \\
@@ -351,7 +354,7 @@ for the case of particle-boundary contact.
 The rolling resistance model is built upon the linear elastic model by
 adding a term of rolling resistance moment to the contact moment. The
 formulation to calculate the additional rolling resistance moment can be
-written as [@Iwashita.Oda:1998; @Jiang.etal:2005; @PFC:2014]
+written as [@Iwashita.Oda:1998] [@Jiang_etal_2005] [@PFC:2014]
 
 $$M = \min(M^0 + k_r\Delta\theta_b, \mu_r \bar{R} F_n)$$
 
@@ -370,7 +373,7 @@ corresponding radius $R_j \rightarrow \infty$.
 This model uses a simplified formulation for the rolling kinematics, and
 the particle size effects on the rolling resistance are implicitly
 incorporated in the rolling stiffness term. The interested reader is
-referred to [@Luding:2008; @Wang.etal:2015] for examples of improved and
+referred to [@Luding:2008] [@Wang_etal_2015] for examples of improved and
 more advanced rolling resistance models.
 
 #### Hertz-Mindlin model
@@ -472,14 +475,14 @@ impossible to be measured directly from physical tests, a calibration
 process is often needed to obtain the contact parameters for a specific
 material of interest. There are some researches available on the
 procedures to calibrate contact parameters for a DEM model
-[@Plassiard.etal:2009; @Chehreghani.etal:2017; @Coetzee:2017]. Usually,
+[@Plassiard_etal_2009] [@Chehreghani_etal_2017] [@Coetzee:2017]. Usually,
 the calibration process is accomplished by performing parametric studies
 on each of contact parameters and selecting values of the contact
 parameters with which the DEM simulation can reproduce the benchmark
 matrices of laboratory experiments. Commonly used laboratory experiments
 for calibration of DEM parameters include compression test, direct and
 ring shear test, and angle of repose test. Descriptions of these tests
-can be found in [@Schulze:2008; @Coetzee:2017].
+can be found in [@Schulze:2008] [@Coetzee:2017].
 
 There are some challenges and problems associated with the model
 calibration. First, to obtain reasonable and realistic contact
