@@ -101,8 +101,8 @@ or [comments](https://github.com/net-dem/netdem/issues/new?labels=comment).
 
 ## License & citation
 
-NetDEM is distributed under the BSD 3-Clause license, see [copyright and license](about/acknowledgement.md) for details.
+NetDEM is distributed under the GPL license, see [copyright and license](about/acknowledgement.md) for details.
 
-See&nbsp;the [about](about/acknowledgement.md) page for acknowledgements and citation information.
+See the [about](about/acknowledgement.md) page for acknowledgements and citation information.
 
 </div><div class="col-md-12 bottom"></div>
