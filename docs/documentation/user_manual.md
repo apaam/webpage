@@ -1,8 +1,6 @@
-##
+### Installation
 
-### Install
-
-#### Prerequisites: 
+#### Prerequisites
 
 The compilation requires ``gcc``, ``autoconf``, ``automake``, ``cmake``, ``mpi``, ``boost``, which can be obtained using
 
@@ -16,7 +14,7 @@ sudo apt-get install -y autoconf-archive automake cmake texinfo
 sudo apt-get install openmpi-bin libopenmpi-dev libboost-all-dev
 ```
 
-#### Compile and build:
+#### Compile and build
 
 ```
 make sync_submodule
@@ -26,13 +24,13 @@ make
 If some third-party libraries have not been or cannot be downloaded successfully, you can delete them and do a ``git checkout contrib`` and ``make sync_submodule`` again.
 
 
-#### Test the installation:
+#### Test the installation
 
 ```
 ./scripts/run_tests.sh
 ```
 
-### Dependencies
+#### Dependencies
 
  - [git](https://git-scm.com), [gcc](https://gcc.gnu.org), [cmake](https://cmake.org): for code developing, configuring and compiling
  - [mpich](https://www.mpich.org) or [open mpi](https://www.open-mpi.org): for parallel computing
@@ -46,3 +44,40 @@ If some third-party libraries have not been or cannot be downloaded successfully
     - [armadillo](http://arma.sourceforge.net/download.html) (requires [lapack](https://github.com/Reference-LAPACK/lapack.git), [arpack](https://github.com/opencollab/arpack-ng.git), [openblas](https://github.com/xianyi/OpenBLAS.git)), [ensmallen](https://github.com/mlpack/ensmallen), [cereal](https://github.com/USCiLab/cereal), [boost](https://github.com/boostorg/boost.git), [stb](https://github.com/nothings/stb.git)
 
 Using dependencies already in the system would save the time required by the compilation of the whole project. Some dependencies (e.g., mlpack) would take fairly long time to compile. One can check out the log files in contrib/[package]/ep/src/[package]-stamp/ for the compiling, building and installing progresses of the dependencies. Some packages (e.g., ``boost`` and ``mpi``) could take forever to compile. It is recommended that you install pre-build ``boost`` and ``mpi`` using tools such as ``brew install `` in mac os, or ``apt-get install`` in ubantu.
+
+### Run built-in examples
+
+There are some built-in examples defined in the ``examples/`` directory. Once the software is installed, it will create an excutable file in the ``build/bin`` directory. 
+
+1. Run an example using the following command in the root directory. The results will be stored in ``tmp/out/`` directory after the running of the example.
+
+```
+./build/bin/netdem_example_random_packing
+```
+
+2. Visualize the results in [paraview](https://www.paraview.org).
+
+3. For irregular-shaped particles, use the following command to generate the results with particles represented by triangle meshes.
+
+```
+./build/bin/netdem_tool_point2mesh [in.vtk] [out.vtk] [shape_dir]
+```
+
+In case one need to do the generation in batch, the following command can be used
+
+```
+./scripts/batch_data_point2mesh.sh [in_dir] [out_dir] [shape_dir]
+```
+
+or easier
+        
+```
+./scripts/auto_mesh_particle.sh [out_dir]
+./scripts/auto_mesh_wall.sh [out_dir]
+```
+
+### Visualize & post-process
+
+Results can be dumped as VTK files, which can be visualized in [paraview](https://www.paraview.org/).
+
+We have a [side-repository](https://github.com/net-dem/dem_postprocess_scripts) that provides some matlab or python scripts for post-process (e.g., VTK io, stress-strain, spherical histograms of contact anisotropy).
