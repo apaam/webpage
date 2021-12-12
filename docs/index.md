@@ -83,8 +83,7 @@ Mar 15, 2021 | Integrated the [MLPACK](https://github.com/mlpack/mlpack.git) as 
 ## Documentation
 
 
-[Building NetDEM](documentation/installation.md)
-┊ [Getting Started](documentation/usage.md)
+[Getting Started](documentation/user_manual.md)
 ┊ [Examples](gallery/animations.md)
 ┊ [Code doxygen](doxygen/html/index.html)
 ┊ [Sources](https://github.com/net-dem/netdem)
