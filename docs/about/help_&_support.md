@@ -7,13 +7,11 @@ The users are also cautioned that this code is under active development. If you 
 ### Known issues
 
  - The compilation of mlpack and its relevant sources in netdem with ``debug`` option would consume a lot of memory (~10 G), wihch might cause computers breakdown if compiling with multiple thread.
+ - GJK and EPA will encounter convergence issue for two particles contacting at a plane.
 
 ### TODOs
 
- - Servo control of wall does not work properly in MPI. In MPI, it will need the contact information from all domains. Will need to implement that.
- - Implement rigid and soft bonds (i.e., clump vs. cluster) using evaluators.
- - Python interfaces.
- - Input mechanicsms.
+ - Servo control of wall does not work properly in MPI. In MPI, it will need the contact information from all domains. 
  - GPU.
 
 ### Contact

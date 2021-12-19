@@ -16,6 +16,8 @@ Mar 15 | Integrated the MLPACK as the machine learning environment.
 
 ### v0.0
 
+- Rename evaluator to modifier for all classes and files
+- Add membrane with finite element and neo-hookean model
 - Dynamic properties in particle, wall and contacts
 - Seperate collision contacts and bond contacts in data dumper
 - Contact-wise numerical damping
