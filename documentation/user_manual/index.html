@@ -241,6 +241,11 @@
         
             <li><a href="#test-the-installation">Test the installation</a></li>
         
+    
+        <li class="main "><a href="#related-to-installation">Related to installation</a></li>
+        
+            <li><a href="#installation-on-apple-m1">Installation on Apple M1</a></li>
+        
             <li><a href="#dependencies">Dependencies</a></li>
         
     
@@ -265,6 +270,11 @@
             <li><a href="#compile-and-build">Compile and build</a></li>
         
             <li><a href="#test-the-installation">Test the installation</a></li>
+        
+    
+        <li class="main "><a href="#related-to-installation">Related to installation</a></li>
+        
+            <li><a href="#installation-on-apple-m1">Installation on Apple M1</a></li>
         
             <li><a href="#dependencies">Dependencies</a></li>
         
@@ -299,6 +309,33 @@ make
 <h4 id="test-the-installation">Test the installation</h4>
 <pre><code>./scripts/run_tests.sh
 </code></pre>
+<h3 id="related-to-installation">Related to installation</h3>
+<h4 id="installation-on-apple-m1">Installation on Apple M1</h4>
+<p>(As of Dec. 20 2021)</p>
+<ul>
+<li>OpenMP seems not compitible with Apple M1. To enforce an OpenMP installation, set <code>USE_INTERNAL_OPENMP</code> in netdem <code>CMakeLists.txt</code> to <code>OFF</code>, and use <code>brew install libomp</code> to install a pre-built copy of OpenMP.</li>
+<li>Add M1 support to <code>fast_winding_number</code> functional in <code>igl</code> via <code>SIMDE</code> (please see the discussion in <a href="https://github.com/sideeffects/WindingNumber/pull/3/files">https://github.com/sideeffects/WindingNumber/pull/3/files</a>): <ul>
+<li>Install simde using <code>brew install simde</code>.</li>
+<li>Add <code>-flax-vector-conversions</code> to the gcc complier flag in netdem <code>CMakeLists.txt</code>.</li>
+<li>Add the following lines to the <code>FastWindingNumberForSoups</code> in igl and comment out the <code>#include &lt;emmintrin.h&gt;</code> line.</li>
+</ul>
+</li>
+</ul>
+<pre><code>#include &lt;simde/x86/sse.h&gt;
+#include &lt;simde/x86/sse4.1.h&gt;
+
+// Recent GCC define the macro in x86intrin.h
+#ifndef _MM_MK_INSERTPS_NDX
+#define _MM_MK_INSERTPS_NDX(srcField, dstField, zeroMask) (((srcField)&lt;&lt;6) | ((dstField)&lt;&lt;4) | (zeroMask))
+#endif
+</code></pre>
+<ul>
+<li>Build netdem following the original procedures.</li>
+</ul>
+<p>Although we can build netdem via this work-around, we may encounter runtime errors that might be related with <code>OpenMP</code>. Some errors are listed bellow:</p>
+<ul>
+<li>terminate called after throwing an instance of 'std::bad_array_new_length'</li>
+</ul>
 <h4 id="dependencies">Dependencies</h4>
 <ul>
 <li><a href="https://git-scm.com">git</a>, <a href="https://gcc.gnu.org">gcc</a>, <a href="https://cmake.org">cmake</a>: for code developing, configuring and compiling</li>
