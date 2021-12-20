@@ -32,6 +32,34 @@ If some third-party libraries have not been or cannot be downloaded successfully
 ./scripts/run_tests.sh
 ```
 
+### Related to installation 
+
+#### Installation on Apple M1
+
+(As of Dec. 20 2021)
+
+- OpenMP seems not compitible with Apple M1. To enforce an OpenMP installation, set ``USE_INTERNAL_OPENMP`` in netdem ``CMakeLists.txt`` to ``OFF``, and use ``brew install libomp`` to install a pre-built copy of OpenMP.
+- Add M1 support to ``fast_winding_number`` functional in ``igl`` via ``SIMDE`` (please see the discussion in [https://github.com/sideeffects/WindingNumber/pull/3/files](https://github.com/sideeffects/WindingNumber/pull/3/files)): 
+    - Install simde using ``brew install simde``.
+    - Add ``-flax-vector-conversions`` to the gcc complier flag in netdem ``CMakeLists.txt``.
+    - Add the following lines to the ``FastWindingNumberForSoups`` in igl and comment out the ``#include <emmintrin.h>`` line.
+
+```
+#include <simde/x86/sse.h>
+#include <simde/x86/sse4.1.h>
+
+// Recent GCC define the macro in x86intrin.h
+#ifndef _MM_MK_INSERTPS_NDX
+#define _MM_MK_INSERTPS_NDX(srcField, dstField, zeroMask) (((srcField)<<6) | ((dstField)<<4) | (zeroMask))
+#endif
+```
+
+- Build netdem following the original procedures.
+
+Although we can build netdem via this work-around, we may encounter runtime errors that might be related with ``OpenMP``. Some errors are listed bellow:
+
+- terminate called after throwing an instance of 'std::bad_array_new_length'
+
 #### Dependencies
 
  - [git](https://git-scm.com), [gcc](https://gcc.gnu.org), [cmake](https://cmake.org): for code developing, configuring and compiling
