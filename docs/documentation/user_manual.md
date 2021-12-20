@@ -45,6 +45,7 @@ If some third-party libraries have not been or cannot be downloaded successfully
     - Add the following lines to the ``FastWindingNumberForSoups`` in igl and comment out the ``#include <emmintrin.h>`` line.
 
 ```
+#define SIMDE_ENABLE_NATIVE_ALIASES
 #include <simde/x86/sse.h>
 #include <simde/x86/sse4.1.h>
 
