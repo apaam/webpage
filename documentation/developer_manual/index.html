@@ -117,12 +117,6 @@
                     
                         
                             <li >
-                                 <a href="../code_algorithms/">Code algorithms</a>
-                            </li>
-                        
-                    
-                        
-                            <li >
                                  <a href="../../doxygen/html/">Code doxygen</a>
                             </li>
                         
@@ -233,6 +227,15 @@
         <li class="main active"><a href="#_1"></a></li>
         
     
+        <li class="main "><a href="#code-design">Code design</a></li>
+        
+            <li><a href="#general-framework">General framework</a></li>
+        
+            <li><a href="#basic-elements">Basic elements</a></li>
+        
+            <li><a href="#calculation-procedures">Calculation procedures</a></li>
+        
+    
         <li class="main "><a href="#coding-style">Coding style</a></li>
         
             <li><a href="#naming">Naming</a></li>
@@ -257,6 +260,15 @@
         <li class="main active"><a href="#_1"></a></li>
         
     
+        <li class="main "><a href="#code-design">Code design</a></li>
+        
+            <li><a href="#general-framework">General framework</a></li>
+        
+            <li><a href="#basic-elements">Basic elements</a></li>
+        
+            <li><a href="#calculation-procedures">Calculation procedures</a></li>
+        
+    
         <li class="main "><a href="#coding-style">Coding style</a></li>
         
             <li><a href="#naming">Naming</a></li>
@@ -277,17 +289,142 @@
 </div></div>
             <div class="col-md-9" role="main">
 
-<h3 id="_1"></h3>
-<h3 id="coding-style">Coding style</h3>
+<h2 id="_1"></h2>
+<h2 id="code-design">Code design</h2>
+<h3 id="general-framework">General framework</h3>
+<p>The program currently contains 7 basic moduli:</p>
+<ul>
+<li>dem: ingradients of DEM, including DEM solver, contact solver, contact models, and etc.</li>
+<li>domain: defines the computational domain</li>
+<li>input: used to interpret the input file. It is planned to adopt the json format as the data exchange format. Each json object corresponds to a command, and the simulation is constructed or modified through the execution of the command. The commands in plan definition 6: create, get, set, fix, unfix, run.<ul>
+<li>create: create objects such as shape, particle, wall, contact model, modifier, etc.</li>
+<li>get: get object properties</li>
+<li>set: set object properties</li>
+<li>fix: Bind the defined modifier to simulation to activate.</li>
+<li>unfix: Unbind the defined evalua to make it invalid.</li>
+<li>run: start discrete element calculation</li>
+</ul>
+</li>
+<li>modifier: defines some personalized calculations of the discrete element model, such as adding external forces, exporting data, etc. Because these personalized calculations are not required for every calculation model, they can be added to the model freely through this subscription method. Generally, the modifier is defined first, and then attached to a simulation and activated. When the discrete element is calculated to a certain node, the subscribed modifier will be called uniformly. Currently, two modifiers are defined: pre_modifier and post_modifier. pre_modifier is called at the beginning of each calculation cycle, and post_modifier is called at the end of each calculation cycle.</li>
+<li>mpi: data interaction between different parallel computing cores</li>
+<li>scene: contains particle, wall, contact model, modifier, etc.</li>
+<li>shape: defines the shape tmplates, including sphere, ellipsoid, cylinder, spherical harmonics, polyhedron, level set, and etc.</li>
+<li>utils: other tool functions</li>
+</ul>
+<p>Other moduli (as of Dec. 26, 2021):</p>
+<ul>
+<li>mfem: ingradients related to finite element analysis</li>
+<li>mlpack: wrapper of mlpack for machine learning exploration</li>
+<li>peridigm: wrapper of peridigm for particle breakage analysis</li>
+<li>pybind: for python interfaces</li>
+</ul>
+<h3 id="basic-elements">Basic elements</h3>
+<ul>
+<li>
+<p>Particles:</p>
+<ul>
+<li>Particles have variables or attributes such as shape, position, speed, and force</li>
+<li>The movement of particles obeys Newton's law of motion</li>
+<li>The particles are in contact with each other to generate contact force, which is calculated according to the corresponding contact model</li>
+</ul>
+</li>
+<li>
+<p>Wall or boundary:</p>
+<ul>
+<li>The boundary has variables or attributes such as shape, position, and force</li>
+<li>The boundary is generally assumed to be massless, so there is no need to calculate - Newtonian motion, just update its position according to the preset motion law</li>
+</ul>
+</li>
+<li>
+<p>Contact:</p>
+<ul>
+<li>particle-to-particle, or particle-to-boundary contact</li>
+<li>with contact geometric characteristics, contact force and other attributes</li>
+<li>The contact model describes the relationship between contact force and contact geometric characteristics</li>
+</ul>
+</li>
+</ul>
+<h3 id="calculation-procedures">Calculation procedures</h3>
+<p>The basic calculation process of discrete element (DEMSolver calculation process):</p>
+<ul>
+<li>Traverse all the "particles" in this calculation domain, and clear the force and torque to zero.</li>
+<li>Perform pre_modifier, such as gravity.</li>
+<li>Traverse all the "particles" in this computational domain to determine whether its contours touch other computational domains: if so, use MPI to transfer its data to the computational domain, and create a new particle in the target computational domain based on the particle data, as The particle is a proxy in the target computing domain, and the proxy particle can come into contact with other particles. The particles in this computing domain are called "particle agents to be sent", and the particles in the target computing domain are called "received particle agents".</li>
+<li>Receive the "particle agent" data and create an instance of the particle agent:<ul>
+<li>If this calculation domain already contains the id of the particle agent, find the particle pointer through particlem_map, and update the particle instance with the received particle agent data;</li>
+<li>If the id of the particle agent does not exist, create a new "particle_ghost" instance, and update the particle instance with the received particle agent data;</li>
+</ul>
+</li>
+<li>Traverse the "granular agent to be sent" and send its corresponding "contact data" to the target computing domain.</li>
+<li>Receive contact data and create contact instances:<ul>
+<li>Determine the pointer of the particle according to the particle id, and determine the pointer of the contact model according to the contact model id</li>
+<li>Determine whether the contact exists through the contact_pp_list of the particle<ul>
+<li>If it exists, update the contact instance from the received contact data.</li>
+<li>If it does not exist, establish a contact first, and use the received particle agent data to update the particle instance,</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Traverse all contacts and set their updated to false.</li>
+<li>Divide the computational domain into grids, traverse all the "particles" and "received particle agents" in the computational domain, and classify them into each grid. The classification criteria are: If the circumscribed cube of the particle or particle agent contacts a certain grid, then the particle or particle agent is added to the grid.</li>
+<li>Traverse all grids:<ul>
+<li>Traverse the particles and particle agents in this grid to determine whether they are in contact. If touched:<ul>
+<li>Determine whether it was in contact at the previous time step<ul>
+<li>If yes, find the contact instance, update its contact geometric features and contact force, and set the updated of the contact to true</li>
+<li>If not, create a new contact instance, initialize the contact geometric features and calculate the contact force, and set the updated of the contact to true</li>
+</ul>
+</li>
+<li>Apply contact force to particles and boundaries</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Traverse the "received particle agent":<ul>
+<li>Traverse the contact of the particle agent, if the updated state of the contact is true, use MPI to send the contact data back to the original computing domain</li>
+<li>Receive contacts returned from other computing domains and reconstruct contact instances<ul>
+<li>If the contact already exists, use the returned data to update the original contact</li>
+<li>If the contact does not exist, create a new contact and rebuild the particle pointer in the contact<ul>
+<li>If the particle exists in the computational domain, the particle pointer is found through particle_map and particle id.</li>
+<li>If the particle does not exist in the computational domain, create a new "particle illusion" and set the "particle illusion" pointer to the contact.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Apply contact force to particles</li>
+</ul>
+</li>
+<li>Traverse all contacts<ul>
+<li>If its updated status is false, delete the contact;</li>
+</ul>
+</li>
+<li>Traverse all particles
+        - Update its speed, position and other attributes according to Newton's law of motion</li>
+<li>Add the partial_proxy_list to the particle_ghost_list and clear the partial_proxy_list</li>
+<li>According to the updated particle position, traverse each particle to determine whether it exceeds the calculation domain:<ul>
+<li>If so, send its data to the new computational domain of the particle, and move the particle to particle_ghost_list.</li>
+</ul>
+</li>
+<li>Receive the "particle" data and create an instance of the particle:<ul>
+<li>If this calculation domain already contains the id of the particle, find the particle pointer through particlem_map, and update the particle instance with the received particle data;</li>
+<li>If the id of the particle does not exist, create a new particle instance and update the particle instance with the received particle data;</li>
+</ul>
+</li>
+<li>Traverse particle_ghost_list <ul>
+<li>If it is not in contact with any particles or boundaries, delete the "particle phantom"</li>
+</ul>
+</li>
+<li>Perform post_modifier, such as data output and other functions.</li>
+</ul>
+<h2 id="coding-style">Coding style</h2>
 <p>We generally follow <a href="https://google.github.io/styleguide/cppguide.html">Google C++ Style Guide</a>.</p>
-<h4 id="naming">Naming</h4>
+<h3 id="naming">Naming</h3>
 <ul>
 <li>Filenames: lowercase words connected by underscores, e.g. <code>particle.hpp</code>, <code>contact_pp.cpp</code>.</li>
 <li>Variable names: lowercase words connected by underscores, e.g. <code>dir_n</code>.</li>
 <li>Class and struct names: words with first letters capitalized, e.g. <code>DataDumper</code>.</li>
 <li>Macros: should be capital, such as <code>PI</code>.</li>
 </ul>
-<h4 id="comment">Comment</h4>
+<h3 id="comment">Comment</h3>
 <ul>
 <li>Comment is not a requisite, but please add it if an attribute or method is not self-explainary or is ambigious.</li>
 <li>
@@ -307,11 +444,11 @@
 </ul>
 </li>
 </ul>
-<h4 id="formatting">Formatting</h4>
+<h3 id="formatting">Formatting</h3>
 <ul>
 <li>Use <a href="https://clang.llvm.org/docs/ClangFormat.html">clang-format</a>.</li>
 </ul>
-<h4 id="programing-rules">Programing rules</h4>
+<h3 id="programing-rules">Programing rules</h3>
 <ul>
 <li>Use <code>auto</code> for local variables when appropriate.</li>
 <li>Mark <code>const</code> when appropriate.</li>
@@ -326,8 +463,8 @@
 <li><strong>Avoid</strong> using smart pointers, such as <code>std::unique_ptr</code>, <code>std::shared_ptr</code>.</li>
 <li><strong>Never</strong> ever use "using" (e.g., <code>using namespace std</code>) in <strong>headers</strong>.</li>
 </ul>
-<h3 id="performance-evaluation">Performance evaluation</h3>
-<h4 id="procedures">Procedures</h4>
+<h2 id="performance-evaluation">Performance evaluation</h2>
+<h3 id="procedures">Procedures</h3>
 <ul>
 <li>
 <p>Tool: linux perf</p>
