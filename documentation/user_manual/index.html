@@ -229,24 +229,43 @@
     
         <li class="main "><a href="#installation">Installation</a></li>
         
-            <li><a href="#prerequisites"> &#10087; Prerequisites</a></li>
+            <li><a href="#prerequisites"> &#9731; Prerequisites</a></li>
         
-            <li><a href="#compile-and-build"> &#10087; Compile and build</a></li>
+            <li><a href="#compile-and-build"> &#9731; Compile and build</a></li>
         
-            <li><a href="#test-the-installation"> &#10087; Test the installation</a></li>
+            <li><a href="#test-the-installation"> &#9731; Test the installation</a></li>
         
     
         <li class="main "><a href="#related-to-installation">Related to installation</a></li>
         
-            <li><a href="#installation-on-apple-m1"> &#10087; Installation on Apple M1</a></li>
+            <li><a href="#installation-on-apple-m1"> &#9731; Installation on Apple M1</a></li>
         
-            <li><a href="#dependencies"> &#10087; Dependencies</a></li>
-        
-    
-        <li class="main "><a href="#run-built-in-examples">Run built-in examples</a></li>
+            <li><a href="#dependencies"> &#9731; Dependencies</a></li>
         
     
-        <li class="main "><a href="#visualize-post-process">Visualize &amp; post-process</a></li>
+        <li class="main "><a href="#basic-usage">Basic usage</a></li>
+        
+            <li><a href="#run-built-in-examples"> &#9731; Run built-in examples</a></li>
+        
+            <li><a href="#reconstruct-mesh-of-particles-and-walls"> &#9731; Reconstruct mesh of particles and walls</a></li>
+        
+            <li><a href="#customized-simulation"> &#9731; Customized simulation</a></li>
+        
+    
+        <li class="main "><a href="#visualize-in-paraview">Visualize in paraview</a></li>
+        
+            <li><a href="#spherical-particles"> &#9731; Spherical particles</a></li>
+        
+            <li><a href="#general-particles-and-walls"> &#9731; General particles and walls</a></li>
+        
+            <li><a href="#contact-force-chain"> &#9731; Contact force chain</a></li>
+        
+            <li><a href="#ray-tracing"> &#9731; Ray tracing</a></li>
+        
+            <li><a href="#create-animation"> &#9731; Create animation</a></li>
+        
+    
+        <li class="main "><a href="#post-process">Post-process</a></li>
         
     
     </ul>
@@ -259,24 +278,43 @@
     
         <li class="main "><a href="#installation">Installation</a></li>
         
-            <li><a href="#prerequisites"> &#10087; Prerequisites</a></li>
+            <li><a href="#prerequisites"> &#9731; Prerequisites</a></li>
         
-            <li><a href="#compile-and-build"> &#10087; Compile and build</a></li>
+            <li><a href="#compile-and-build"> &#9731; Compile and build</a></li>
         
-            <li><a href="#test-the-installation"> &#10087; Test the installation</a></li>
+            <li><a href="#test-the-installation"> &#9731; Test the installation</a></li>
         
     
         <li class="main "><a href="#related-to-installation">Related to installation</a></li>
         
-            <li><a href="#installation-on-apple-m1"> &#10087; Installation on Apple M1</a></li>
+            <li><a href="#installation-on-apple-m1"> &#9731; Installation on Apple M1</a></li>
         
-            <li><a href="#dependencies"> &#10087; Dependencies</a></li>
-        
-    
-        <li class="main "><a href="#run-built-in-examples">Run built-in examples</a></li>
+            <li><a href="#dependencies"> &#9731; Dependencies</a></li>
         
     
-        <li class="main "><a href="#visualize-post-process">Visualize &amp; post-process</a></li>
+        <li class="main "><a href="#basic-usage">Basic usage</a></li>
+        
+            <li><a href="#run-built-in-examples"> &#9731; Run built-in examples</a></li>
+        
+            <li><a href="#reconstruct-mesh-of-particles-and-walls"> &#9731; Reconstruct mesh of particles and walls</a></li>
+        
+            <li><a href="#customized-simulation"> &#9731; Customized simulation</a></li>
+        
+    
+        <li class="main "><a href="#visualize-in-paraview">Visualize in paraview</a></li>
+        
+            <li><a href="#spherical-particles"> &#9731; Spherical particles</a></li>
+        
+            <li><a href="#general-particles-and-walls"> &#9731; General particles and walls</a></li>
+        
+            <li><a href="#contact-force-chain"> &#9731; Contact force chain</a></li>
+        
+            <li><a href="#ray-tracing"> &#9731; Ray tracing</a></li>
+        
+            <li><a href="#create-animation"> &#9731; Create animation</a></li>
+        
+    
+        <li class="main "><a href="#post-process">Post-process</a></li>
         
     
     </ul>
@@ -306,14 +344,12 @@ make
 <h3 id="related-to-installation">Related to installation</h3>
 <h4 id="installation-on-apple-m1">Installation on Apple M1</h4>
 <p>(As of Dec. 20 2021)</p>
+<p>OpenMP seems not compitible with Apple M1. To enforce an OpenMP installation, set <code>USE_INTERNAL_OPENMP</code> in netdem <code>CMakeLists.txt</code> to <code>OFF</code>, and use <code>brew install libomp</code> to install a pre-built copy of OpenMP.</p>
+<p>Add M1 support to <code>fast_winding_number</code> functional in <code>igl</code> via <code>SIMDE</code> (please see the discussion in <a href="https://github.com/sideeffects/WindingNumber/pull/3/files">https://github.com/sideeffects/WindingNumber/pull/3/files</a>): </p>
 <ul>
-<li>OpenMP seems not compitible with Apple M1. To enforce an OpenMP installation, set <code>USE_INTERNAL_OPENMP</code> in netdem <code>CMakeLists.txt</code> to <code>OFF</code>, and use <code>brew install libomp</code> to install a pre-built copy of OpenMP.</li>
-<li>Add M1 support to <code>fast_winding_number</code> functional in <code>igl</code> via <code>SIMDE</code> (please see the discussion in <a href="https://github.com/sideeffects/WindingNumber/pull/3/files">https://github.com/sideeffects/WindingNumber/pull/3/files</a>): <ul>
 <li>Install simde using <code>brew install simde</code>.</li>
 <li>Add <code>-flax-vector-conversions</code> to the gcc complier flag in netdem <code>CMakeLists.txt</code>.</li>
 <li>Add the following lines to the <code>FastWindingNumberForSoups</code> in igl and comment out the <code>#include &lt;emmintrin.h&gt;</code> line.</li>
-</ul>
-</li>
 </ul>
 <pre><code>#define SIMDE_ENABLE_NATIVE_ALIASES
 #include &lt;simde/x86/sse.h&gt;
@@ -324,17 +360,11 @@ make
 #define _MM_MK_INSERTPS_NDX(srcField, dstField, zeroMask) (((srcField)&lt;&lt;6) | ((dstField)&lt;&lt;4) | (zeroMask))
 #endif
 </code></pre>
-<ul>
-<li>Build netdem following the original procedures.</li>
-</ul>
-<p>Although we can build netdem via this work-around, we may encounter runtime errors that might be related with <code>OpenMP</code>. Some errors are listed bellow:</p>
-<ul>
-<li>terminate called after throwing an instance of 'std::bad_array_new_length'</li>
-</ul>
+<p>Build netdem following the original procedures.</p>
 <h4 id="dependencies">Dependencies</h4>
 <ul>
 <li><a href="https://git-scm.com">git</a>, <a href="https://gcc.gnu.org">gcc</a>, <a href="https://cmake.org">cmake</a>: for code developing, configuring and compiling</li>
-<li><a href="https://www.mpich.org">mpich</a> or <a href="https://www.open-mpi.org">open mpi</a>: for parallel computing</li>
+<li><a href="https://www.open-mpi.org">open mpi</a>: for parallel computing</li>
 <li><a href="https://github.com/ArthurSonzogni/nlohmann_json_cmake_fetchcontent.git">json</a>: for input data interchange</li>
 <li><a href="https://github.com/libigl/cork.git">cork</a>: for mesh boolean operation<ul>
 <li><a href="https://gmplib.org">gmp</a></li>
@@ -349,23 +379,19 @@ make
 <li><a href="http://arma.sourceforge.net/download.html">armadillo</a> (requires <a href="https://github.com/Reference-LAPACK/lapack.git">lapack</a>, <a href="https://github.com/opencollab/arpack-ng.git">arpack</a>, <a href="https://github.com/xianyi/OpenBLAS.git">openblas</a>), <a href="https://github.com/mlpack/ensmallen">ensmallen</a>, <a href="https://github.com/USCiLab/cereal">cereal</a>, <a href="https://github.com/boostorg/boost.git">boost</a>, <a href="https://github.com/nothings/stb.git">stb</a></li>
 </ul>
 </li>
+<li><a href="https://github.com/pybind/pybind11.git">pybind</a>: for python interface </li>
 </ul>
 <p>Using dependencies already in the system would save the time required by the compilation of the whole project. Some dependencies (e.g., mlpack) would take fairly long time to compile. One can check out the log files in contrib/[package]/ep/src/[package]-stamp/ for the compiling, building and installing progresses of the dependencies. Some packages (e.g., <code>boost</code> and <code>mpi</code>) could take forever to compile. It is recommended that you install pre-build <code>boost</code> and <code>mpi</code> using tools such as <code>brew install</code> in mac os, or <code>apt-get install</code> in ubantu.</p>
-<h3 id="run-built-in-examples">Run built-in examples</h3>
+<h3 id="basic-usage">Basic usage</h3>
+<h4 id="run-built-in-examples">Run built-in examples</h4>
 <p>There are some built-in examples defined in the <code>examples/</code> directory. Once the software is installed, it will create an excutable file in the <code>build/bin</code> directory. </p>
-<ol>
-<li>Run an example using the following command in the root directory. The results will be stored in <code>tmp/out/</code> directory after the running of the example.</li>
-</ol>
+<p>Run an example using the following command in the root directory. The results will be stored in <code>tmp/out/</code> directory after the running of the example, and can be visualized in <a href="https://www.paraview.org">paraview</a>.</p>
 <pre><code>./build/bin/netdem_example_random_packing
 </code></pre>
-<ol>
-<li>
-<p>Visualize the results in <a href="https://www.paraview.org">paraview</a>.</p>
-</li>
-<li>
+<pre><code>python3 example/00_random_packing/pynetdem_1_gjk_solver.py
+</code></pre>
+<h4 id="reconstruct-mesh-of-particles-and-walls"><a name="recon_mesh_ref"></a>Reconstruct mesh of particles and walls</h4>
 <p>For irregular-shaped particles, use the following command to generate the results with particles represented by triangle meshes.</p>
-</li>
-</ol>
 <pre><code>./build/bin/netdem_tool_point2mesh [in.vtk] [out.vtk] [shape_dir]
 </code></pre>
 <p>In case one need to do the generation in batch, the following command can be used</p>
@@ -375,8 +401,46 @@ make
 <pre><code>./scripts/auto_mesh_particle.sh [out_dir]
 ./scripts/auto_mesh_wall.sh [out_dir]
 </code></pre>
-<h3 id="visualize-post-process">Visualize &amp; post-process</h3>
+<h4 id="customized-simulation">Customized simulation</h4>
+<p>Please follow the built-in examples to write the c++ or python scripts.</p>
+<h3 id="visualize-in-paraview">Visualize in paraview</h3>
 <p>Results can be dumped as VTK files, which can be visualized in <a href="https://www.paraview.org/">paraview</a>.</p>
+<h4 id="spherical-particles">Spherical particles</h4>
+<ul>
+<li>Import particle info into paraview;</li>
+<li>Set <code>Representation</code> to <code>Point Gaussian</code>, and adjust the radius;</li>
+<li>In case particles are of various sizes, enable <code>Toggle advanced properties</code>, enable <code>Use Scale Array</code>, select the proper <code>Scale Array Component</code>, and adjust the <code>Range</code>.</li>
+</ul>
+<h4 id="general-particles-and-walls">General particles and walls</h4>
+<ul>
+<li><a href="#recon_mesh_ref">Reconstruc the mesh of particles and walls</a>;</li>
+<li>Import to praview;</li>
+</ul>
+<h4 id="contact-force-chain">Contact force chain</h4>
+<ul>
+<li>Enable dump contact force by set: <code>data_dump.dump_contact_info = true</code>;</li>
+<li>Import contact info into paraview;</li>
+<li>Add a <code>tube</code> filter to the contact force data in paraview, and adjust the radius of the contact tubes.</li>
+</ul>
+<h4 id="ray-tracing">Ray tracing</h4>
+<ul>
+<li><code>Enable Ray Tracing</code> at the end of Properties section;</li>
+<li>Change the <code>Back end</code> to <code>OsPRay pathtracer</code>;</li>
+<li>Increase the <code>Samples Per Pixel</code>, which gives fair results with a value 5 in reasonble rendering time;</li>
+<li>Set the <code>Background mode</code> to <code>Backplase</code>, which is while as suggested.</li>
+<li>One can play with the <code>Material</code> options in the middle-while of the Properties section.</li>
+</ul>
+<h4 id="create-animation">Create animation</h4>
+<ul>
+<li>In paraview, go <code>File</code> &rarr; <code>Save Animation</code>;</li>
+<li>Select the <code>avi</code> option and specify the name;</li>
+<li>Suggest to set the image resolution with <code>1920 x 1080</code>, i.e., 1080p, and Set the Frame Rate to <code>24</code> (a minimal value to give fluent animation);</li>
+<li>Compress the avi animation with third-party tools, such as <code>ffmpeg</code> or <code>Tencent Cloud</code>;<ul>
+<li>For <code>Tencent Cloud</code>, it is suggested to select <code>TESHD-H264-MP4-720P</code> format.</li>
+</ul>
+</li>
+</ul>
+<h3 id="post-process">Post-process</h3>
 <p>We have a <a href="https://github.com/net-dem/dem_postprocess_scripts">side-repository</a> that provides some matlab or python scripts for post-process (e.g., VTK io, stress-strain, spherical histograms of contact anisotropy).</p></div>
             <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
