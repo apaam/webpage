@@ -1,3 +1,5 @@
+###
+
 This page presents a brief introduction and review of the discrete
 element method (DEM). The intention is to introduce the main components
 and basic computational workflow of a DEM model, providing necessary
@@ -84,9 +86,12 @@ In DEM, the motion of a particle can be described by the Newton-Euler
 equations of motion. For any arbitrarily-shaped particle, the
 Newton-Euler equations of motion are written as
 
-$$\begin{aligned}
-m\boldsymbol{a} &= \boldsymbol{F} \\
-\boldsymbol{I}\boldsymbol{\alpha}+\boldsymbol{\omega}\times L &= \boldsymbol{M}\end{aligned}$$
+$$
+\begin{align}
+  m\boldsymbol{a} &= \boldsymbol{F} \\
+  \boldsymbol{I}\boldsymbol{\alpha}+\boldsymbol{\omega}\times L &= \boldsymbol{M}
+\end{align}
+$$
 
 where $m$ is the mass of the particle; $\boldsymbol{I}$ is the inertia tensor
 of the particle; $\boldsymbol{a}$ and $\boldsymbol{\alpha}$ are the translational and
@@ -96,9 +101,12 @@ the vector of the angular velocities about the principal axes. Herein,
 the variable in bold-symbol indicates a vector or a tensor. For
 spherical particles, the Newton-Euler equations of motion reduce to
 
-$$\begin{aligned}
+$$
+\begin{align}
   m\boldsymbol{a} &= \boldsymbol{F} \\
-  \boldsymbol{I}\boldsymbol{\alpha} &= \boldsymbol{M}\end{aligned}$$
+  \boldsymbol{I}\boldsymbol{\alpha} &= \boldsymbol{M}
+\end{align}
+$$
 
 In order to resolve the motion of each particle, all the forces and
 moments acting on the particle need to be evaluated and summed, which
@@ -121,32 +129,41 @@ indexed by time $t$ and the time increment to the next state is
 $\Delta t$, Velocity Verlet algorithm first calculates the particle
 velocities at time $t$+$\Delta t/2$ by
 
-$$\begin{aligned}
+$$
+\begin{align}
   \boldsymbol{v}^{t+\Delta t/2} &= \boldsymbol{v}^t 
     + \boldsymbol{a}^t\Delta t/2 \\
   \boldsymbol{\omega}^{t+\Delta t/2} &= \boldsymbol{\omega}^t 
-    + \boldsymbol{\alpha}^t\Delta t/2\end{aligned}$$
+    + \boldsymbol{\alpha}^t\Delta t/2
+\end{align}
+$$
 
 where $\boldsymbol{v}$ and $\boldsymbol{\omega}$ are translational and angular
 velocities, respectively. The superscripts (e.g., $t$ and $\Delta t/2$)
 indicate the time indexes. Then, the position and orientation of the
 particle at time $t$+$\Delta t$ are calculated as
 
-$$\begin{aligned}
+$$
+\begin{align}
   \boldsymbol{x}^{t+\Delta t} &= \boldsymbol{x}^t 
     + \boldsymbol{v}^{t+\Delta t/2}\Delta t \\
   \boldsymbol{\theta}^{t+\Delta t} &= \boldsymbol{\theta}^t 
-    + \boldsymbol{\omega}^{t+\Delta t/2}\Delta t \end{aligned}$$
+    + \boldsymbol{\omega}^{t+\Delta t/2}\Delta t 
+\end{align}
+$$
 
 where $\boldsymbol{x}$ is the vector of position and $\boldsymbol{\theta}$ is the
 vector of orientation. Correspondingly, the translational velocity and
 angular velocity at time $t+\Delta t$ are updated by
 
-$$\begin{aligned}
+$$
+\begin{align}
   \boldsymbol{v}^{t+\Delta t} &= \boldsymbol{v}^{t+\Delta t/2} 
     + \boldsymbol{a}^{t+\Delta t/2}\Delta t/2 \\
   \boldsymbol{\omega}^{t+\Delta t} &= \boldsymbol{\omega}^{t+\Delta t/2} 
-    + \boldsymbol{\alpha}^{t+\Delta t/2}\Delta t/2  \end{aligned}$$
+    + \boldsymbol{\alpha}^{t+\Delta t/2}\Delta t/2  
+\end{align}
+$$
 
 For non-spherical particles, the original Newton-Euler equations of
 motion cannot be simplified, and the calculation of the orientations and
@@ -179,8 +196,12 @@ In the category of the SDOF-based approaches, Cundall & Stract (1979) [@Cundall_
 proposed the following expression to estimate the critical timestep
 $\Delta t_\text{crit}$
 
-$$\Delta t_\text{crit} 
-    = \min(\sqrt{m/k^\text{tran}}, \sqrt{I_i/k_i^\text{rot}})$$
+$$
+\begin{align}
+  \Delta t_\text{crit} 
+    = \min(\sqrt{m/k^\text{tran}}, \sqrt{I_i/k_i^\text{rot}})
+\end{align}
+$$
 
 where $m$ is the mass of the particle; $I_i$ is the moment of inertia of
 the particle; $k^\text{tran}$ and $k_i^\text{rot}$ represent the
@@ -190,8 +211,10 @@ the index of principal components.
 In the category of the Rayleigh wave speed based approaches, Li et al. (2005)
 [@Li_etal_2005] proposed that
 
-$$\Delta t_\text{crit} 
-    = \frac{\pi R \sqrt{\rho/G}}{0.1631\nu+0.8766}$$
+$$\begin{align}
+  \Delta t_\text{crit} 
+    = \frac{\pi R \sqrt{\rho/G}}{0.1631\nu+0.8766}
+\end{align}$$
 
 where $R$ is the average particle radius; $\rho$ is the particle
 density; $G$ the particle shear modulus; and $\nu$ the Poisson's ratio
@@ -318,8 +341,10 @@ dash-pots, and a slider, as shown schematically in the following.
 The contact forces $\boldsymbol{F}$ are calculated from two parts: the normal
 force $\boldsymbol{F}_n$ and the shear (or tangential) force $\boldsymbol{F}_s$
 
-$$\boldsymbol{F} = \boldsymbol{F}_n + \boldsymbol{F}_s
-    = F_n\boldsymbol{n}_n + F_s\boldsymbol{n}_s$$
+$$\begin{align}
+  \boldsymbol{F} = \boldsymbol{F}_n + \boldsymbol{F}_s
+    = F_n\boldsymbol{n}_n + F_s\boldsymbol{n}_s
+\end{align}$$
 
 where $\boldsymbol{n}_n$ and $\boldsymbol{n}_s$ are the unit vectors denoting the
 direction of the normal and the shear force, respectively; $F_n$ and
@@ -330,10 +355,12 @@ a positive) and $\Delta \delta_s$, the contact law for a simple linear
 model with local damping updates the contact forces through
 [@Cundall_Strack_1979] [@PFC_2014] 
 
-$$\begin{aligned}F_n &= F_n^0 + k_n\Delta\delta_n 
+$$\begin{align}
+  F_n &= F_n^0 + k_n\Delta\delta_n 
     - \eta_n\sqrt{\bar{m}k_n}\dot{\delta}_n \\
   F_s &= \min(F_s^0 + k_s\Delta\delta_s 
-    - \eta_s\sqrt{\bar{m}k_s}\dot{\delta}_s, \mu_c F_n)\end{aligned}$$
+    - \eta_s\sqrt{\bar{m}k_s}\dot{\delta}_s, \mu_c F_n)
+\end{align}$$
 
 where $F_n^0$ and $F_s^0$ are the normal and the shear forces at the
 beginning of the current timestep, respectively; $k_n$ and $k_s$ are the
@@ -351,14 +378,18 @@ adding a term of rolling resistance moment to the contact moment. The
 formulation to calculate the additional rolling resistance moment can be
 written as [@Iwashita_Oda_1998] [@Jiang_etal_2005] [@PFC_2014]
 
-$$M = \min(M^0 + k_r\Delta\theta_b, \mu_r \bar{R} F_n)$$
+$$\begin{align}
+  M = \min(M^0 + k_r\Delta\theta_b, \mu_r \bar{R} F_n)
+\end{align}$$
 
 where $M^0$ is the contact moment at the beginning of the current
 timestep; $\Delta\theta_b$ is the relative bending-rotation increment;
 $\mu_r$ is the rolling resistance coefficient; $k_r$ is the rolling
 resistance stiffness defined as:
 
-$$k_r = k_s\bar{R}^2$$
+$$\begin{align}
+  k_r = k_s\bar{R}^2
+\end{align}$$
 
 where $\bar{R}$ is the contact effective radius defined as
 $\bar{R}=R_iR_j/(R_i+R_j)$, in which $R_i$ and $R_j$ are the radii of
@@ -388,26 +419,29 @@ calculated via the cumulative overlapping distance, while the linear
 elastic model uses either the cumulative or incremental overlapping
 distance. To update the contact forces, the Hertz-Mindlin model follows
 
-$$\begin{aligned}
+$$\begin{align}
     F_n &= k_n \delta_n 
       - \eta_n\sqrt{\bar{m}k_n}\dot{\delta}_n \\ 
     F_s &= \min(F_s^0 + k_s\Delta\delta_s 
-    - \eta_s\sqrt{\bar{m}k_s}\dot{\delta}_s, \mu_c F_n) \end{aligned}$$
+    - \eta_s\sqrt{\bar{m}k_s}\dot{\delta}_s, \mu_c F_n)
+\end{align}$$
 
 where $\delta_n$ is the cumulative overlapping distance, while $k_n$ and
 $k_s$ are calculated as [@Renzo_Maio_2005]:
 
-$$\begin{aligned}
+$$\begin{align}
   k_n &= \frac{4}{3}\bar{E}\sqrt{\bar{R}\delta_n} \\
-  k_s &= 8\bar{G}\sqrt{\bar{R}\delta_n} \end{aligned}$$
+  k_s &= 8\bar{G}\sqrt{\bar{R}\delta_n} 
+\end{align}$$
 
 in which
 
-$$\begin{aligned}
+$$\begin{align}
  \frac{1}{\bar{E}} &= \frac{(1-\nu_i^2)}{E_i} 
    + \frac{(1-\nu_j^2)}{E_j} \\
  \frac{1}{\bar{G}} &= \frac{2(2-\nu_i)(1+\nu_i)}{E_i} 
-   + \frac{2(2-\nu_j)(1+\nu_j)}{E_j} \end{aligned}$$
+   + \frac{2(2-\nu_j)(1+\nu_j)}{E_j} 
+\end{align}$$
 
 where $\bar{E}$ and $\bar{G}$ are the effective Young's modulus and
 shear modulus of the particles in contact; $E_i$ is the Young's modulus
@@ -427,11 +461,12 @@ shear resistances, respectively. The overall bonding force and moment
 are the integral of the normal and shear stresses at a cross-section of
 the bond, which can be calculated as [@Potyondy_Cundall_2004]
 
-$$\begin{aligned}
+$$\begin{align}
   \Delta F_n^b &= k_n^b A \Delta \delta_n \\  
   \Delta F_s^b &= k_s^b A \Delta \delta_s \\
   \Delta M_n^b &= k_s^b J \Delta \theta_n \\
-  \Delta M_s^b &= k_n^b I \Delta \theta_s\end{aligned}$$
+  \Delta M_s^b &= k_n^b I \Delta \theta_s
+\end{align}$$
 
 where $F_n^b$, $F_s^b$, $M_n^b$ and $M_s^b$ are the bond normal force,
 shear force, twisting moment, and swinging moment, respectively;
@@ -454,11 +489,12 @@ moment contribute to the normal stress, while both the shear force and
 twisting moment contribute to the shear stress. In this regard, the bond
 breakage criterion can be written as
 
-$$\begin{aligned}
+$$\begin{align}
   \sigma_{\max}^b &= \frac{F_n^b}{A}+\frac{M_s^bR^b}{I} 
     < \sigma_{Y,n}^b \\
   \tau_{\max}^b &= \frac{F_s^b}{A}+\frac{M_n^bR^b}{J} 
-    < \sigma_{Y,s}^b  \end{aligned}$$
+    < \sigma_{Y,s}^b  
+\end{align}$$
 
 where $\sigma_{Y,n}^b$ and $\sigma_{Y,s}^b$ are the normal and shear
 strength, respectively.
