@@ -38,3 +38,8 @@ git push
 ## To update the code doxygen
 
 Update the doxygen files in ``docs/`` using command ``doxygen Doxyfile``, then follow the previsous procedures to update the files to the remote and website. Make sure that the directory of the source code (i.e., ``INPUT = ../netdem/readme.md ../netdem/src``, near line 867 in ``Doxyfile``) is correct.
+
+
+## Tips
+
+- mkdocs does not support ``http``, please make sure the web links are starting with ``https``. For example, the videl links copied from ``tecent cloud`` are starting with ``http`` by default, which could result in no response when using ``http`` links in the ``Animations`` page.

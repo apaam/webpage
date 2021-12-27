@@ -151,7 +151,10 @@ Results can be dumped as VTK files, which can be visualized in [paraview](https:
 - Select the ``avi`` option and specify the name;
 - Suggest to set the image resolution with ``1920 x 1080``, i.e., 1080p, and Set the Frame Rate to ``24`` (a minimal value to give fluent animation);
 - Compress the avi animation with third-party tools, such as ``ffmpeg`` or ``Tencent Cloud``;
-    - For ``Tencent Cloud``, it is suggested to select ``TESHD-H264-MP4-720P`` format.
+    - For ``Tencent Cloud``, suggested procedures (in Chinese):
+    - 选择云产品``云点播``，在``媒资管理`` &rarr; ``音视频管理``中，上传视频;
+    - 上传视频后，选择待处理的视频，进行``视频处理``，建议选择``TESHD-H264-MP4-720P``转码模板;
+    - 点击右侧的``管理``，可查看视频封面和视频播放地址等链接，可用于网页制作.
 
 ### Post-process
 
