@@ -93,7 +93,7 @@
             
             
             
-                <li class="dropdown active">
+                <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Documentation <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                     
@@ -110,8 +110,8 @@
                         
                     
                         
-                            <li class="active">
-                                 <a href="./">DEM formulations</a>
+                            <li >
+                                 <a href="../dem_formulations/">DEM formulations</a>
                             </li>
                         
                     
@@ -227,10 +227,13 @@
         <li class="main active"><a href="#_1"></a></li>
         
     
-        <li class="main "><a href="#dem-basics">DEM basics</a></li>
+        <li class="main "><a href="#stress">应力 (Stress)</a></li>
         
     
-        <li class="main "><a href="#dem-elements">DEM elements</a></li>
+        <li class="main "><a href="#strain">应变 (Strain)</a></li>
+        
+    
+        <li class="main "><a href="#constitutive-tangent-moduli">本构张量 (Constitutive tangent moduli)</a></li>
         
     
     </ul>
@@ -241,10 +244,13 @@
         <li class="main active"><a href="#_1"></a></li>
         
     
-        <li class="main "><a href="#dem-basics">DEM basics</a></li>
+        <li class="main "><a href="#stress">应力 (Stress)</a></li>
         
     
-        <li class="main "><a href="#dem-elements">DEM elements</a></li>
+        <li class="main "><a href="#strain">应变 (Strain)</a></li>
+        
+    
+        <li class="main "><a href="#constitutive-tangent-moduli">本构张量 (Constitutive tangent moduli)</a></li>
         
     
     </ul>
@@ -252,12 +258,194 @@
             <div class="col-md-9" role="main">
 
 <h3 id="_1"></h3>
-<h3 id="dem-basics">DEM basics</h3>
-<p><a href="../dem_basics/">DEM basics</a>: presents a brief introduction and review of the discrete
-element method (DEM).</p>
-<h3 id="dem-elements">DEM elements</h3>
-<p><a href="../discrete_to_continuum/">Discrete to continuum</a>: derives the macroscopic continuum-sense stress, strain and tangent moduli from the particle contact geometries and contact forces at microscopic discrete level.</p>
-<p><a href="../particle_models/">Particle models</a>: describes the formulations of various particle models, including sphere, ellipsoid, poly-super-ellipsoid, poly-super-quadrics, cylinder, spherical harmonics, polyhedron, level set, and etc.</p></div>
+<p>[This page is prepared in Chinese, and will be part of a book aiming at beginners of DEM.]</p>
+<hr />
+<h3 id="stress">应力 (Stress)</h3>
+<p>基于连续性介质理论，材料的动量守恒方程可表示为（忽略体力及加速度项）</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+\begin{align}
+  \boldsymbol{\nabla} \cdot \boldsymbol{\sigma} = \boldsymbol{0}
+\end{align}
+</div>
+<script type="math/tex; mode=display">
+\begin{align}
+  \boldsymbol{\nabla} \cdot \boldsymbol{\sigma} = \boldsymbol{0}
+\end{align}
+</script>
+</div>
+<p>采用爱因斯坦求和约定，上式可写作</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+\begin{align}
+  \nabla_i \sigma_{ij} =  0_j
+\end{align}
+</div>
+<script type="math/tex; mode=display">
+\begin{align}
+  \nabla_i \sigma_{ij} =  0_j
+\end{align}
+</script>
+</div>
+<p>利用动量守恒方程可得等式</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+\begin{align}
+  \nabla_i (\sigma_{ij} x_k) 
+    = \nabla_i \sigma_{ij} x_k + \sigma_{ij} \nabla_i x_k
+    = \nabla_i \sigma_{ij} x_k + \sigma_{ij} \delta_{ik}
+    = \sigma_{jk}
+\end{align}
+</div>
+<script type="math/tex; mode=display">
+\begin{align}
+  \nabla_i (\sigma_{ij} x_k) 
+    = \nabla_i \sigma_{ij} x_k + \sigma_{ij} \nabla_i x_k
+    = \nabla_i \sigma_{ij} x_k + \sigma_{ij} \delta_{ik}
+    = \sigma_{jk}
+\end{align}
+</script>
+</div>
+<p>针对某个颗粒 <span class="arithmatex"><span class="MathJax_Preview">p</span><script type="math/tex">p</script></span>，其内部应力的积分可计算为</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+\begin{align}
+  \int \sigma_{jk} ~\text{d} \Omega 
+    = \int \nabla_i (\sigma_{ij} x_k) ~\text{d} \Omega
+    = \int n_i (\sigma_{ij} x_k) ~\text{d} \Gamma
+    = \int n_i (\sigma_{ij} x_k) ~\text{d} \Gamma
+    = \int f_j x_k ~\text{d} \Gamma
+    = \sum^c f_j x_k 
+\end{align}
+</div>
+<script type="math/tex; mode=display">
+\begin{align}
+  \int \sigma_{jk} ~\text{d} \Omega 
+    = \int \nabla_i (\sigma_{ij} x_k) ~\text{d} \Omega
+    = \int n_i (\sigma_{ij} x_k) ~\text{d} \Gamma
+    = \int n_i (\sigma_{ij} x_k) ~\text{d} \Gamma
+    = \int f_j x_k ~\text{d} \Gamma
+    = \sum^c f_j x_k 
+\end{align}
+</script>
+</div>
+<p>其中，<span class="arithmatex"><span class="MathJax_Preview">c</span><script type="math/tex">c</script></span> 表示该颗粒的所有接触、<span class="arithmatex"><span class="MathJax_Preview">f_j</span><script type="math/tex">f_j</script></span> 表示接触力、 <span class="arithmatex"><span class="MathJax_Preview">x_k</span><script type="math/tex">x_k</script></span> 表示接触位置。进而，利用颗粒在接触力作用下的静力平衡公式</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+\begin{align}
+  \sum^c f_j x_k^p = (\sum^c f_j) x_k^p = 0
+\end{align}
+</div>
+<script type="math/tex; mode=display">
+\begin{align}
+  \sum^c f_j x_k^p = (\sum^c f_j) x_k^p = 0
+\end{align}
+</script>
+</div>
+<p>可得</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+\begin{align}
+  \int \sigma_{jk} ~\text{d} \Omega 
+    = \sum^c f_j x_k 
+    = \sum^c f_j (x_k - x_k^p)
+    = \sum^c f_j b_k
+\end{align}
+</div>
+<script type="math/tex; mode=display">
+\begin{align}
+  \int \sigma_{jk} ~\text{d} \Omega 
+    = \sum^c f_j x_k 
+    = \sum^c f_j (x_k - x_k^p)
+    = \sum^c f_j b_k
+\end{align}
+</script>
+</div>
+<p>其中，<span class="arithmatex"><span class="MathJax_Preview">x_k^p</span><script type="math/tex">x_k^p</script></span> 为颗粒质心、<span class="arithmatex"><span class="MathJax_Preview">b_k</span><script type="math/tex">b_k</script></span> 为由接触点指向颗粒质心的向量（branch vector）。</p>
+<p>针对代表单元体，其域内的平均应力可由其内部所有颗粒内部的应力积分，再除于代表单元体体积得到，表达为</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+\begin{align}
+  \bar{\sigma}_{jk}
+    = \frac{1}{V} \int \sigma_{jk} ~\text{d} \Omega 
+    = \sum^c (f_j b_k^p - f_j b_k^q)
+    = \sum^c f_j d_k
+\end{align}
+</div>
+<script type="math/tex; mode=display">
+\begin{align}
+  \bar{\sigma}_{jk}
+    = \frac{1}{V} \int \sigma_{jk} ~\text{d} \Omega 
+    = \sum^c (f_j b_k^p - f_j b_k^q)
+    = \sum^c f_j d_k
+\end{align}
+</script>
+</div>
+<p>其中，<span class="arithmatex"><span class="MathJax_Preview">c</span><script type="math/tex">c</script></span> 为代表单元体内的所有接触、<span class="arithmatex"><span class="MathJax_Preview">d_k</span><script type="math/tex">d_k</script></span> 表示颗粒质心相对位置矢量。</p>
+<h3 id="strain">应变 (Strain)</h3>
+<p>假设单元变形梯度（deformation gradient）为 <span class="arithmatex"><span class="MathJax_Preview">\boldsymbol{F}</span><script type="math/tex">\boldsymbol{F}</script></span>，则变形后，颗粒 <span class="arithmatex"><span class="MathJax_Preview">p</span><script type="math/tex">p</script></span>（初始位置 <span class="arithmatex"><span class="MathJax_Preview">\boldsymbol{X}^p</span><script type="math/tex">\boldsymbol{X}^p</script></span>）与 颗粒 <span class="arithmatex"><span class="MathJax_Preview">q</span><script type="math/tex">q</script></span>（初始位置 <span class="arithmatex"><span class="MathJax_Preview">(\boldsymbol{X}^q</span><script type="math/tex">(\boldsymbol{X}^q</script></span>）质心相对位置矢量 <span class="arithmatex"><span class="MathJax_Preview">\boldsymbol{d}</span><script type="math/tex">\boldsymbol{d}</script></span> 可计算为</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+\begin{align}
+  d_i = F_{ij} (X^p_j - X^q_j)
+\end{align}
+</div>
+<script type="math/tex; mode=display">
+\begin{align}
+  d_i = F_{ij} (X^p_j - X^q_j)
+\end{align}
+</script>
+</div>
+<h3 id="constitutive-tangent-moduli">本构张量 (Constitutive tangent moduli)</h3>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+\begin{align}
+  \text{d} f_i = k_n (\text{d} F_{mn}) d_n n_n n_i + k_t (\text{d} F_{mn}) d_n t_n t_i
+\end{align}
+</div>
+<script type="math/tex; mode=display">
+\begin{align}
+  \text{d} f_i = k_n (\text{d} F_{mn}) d_n n_n n_i + k_t (\text{d} F_{mn}) d_n t_n t_i
+\end{align}
+</script>
+</div>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+\begin{align}
+  C_{ijkl} 
+    = \frac{\partial \sigma_{ij}}{\partial F_{kl}} 
+    = \sum^c k_n n_i d_j n_k d_l + k_t t_i d_j t_k d_l
+\end{align}
+</div>
+<script type="math/tex; mode=display">
+\begin{align}
+  C_{ijkl} 
+    = \frac{\partial \sigma_{ij}}{\partial F_{kl}} 
+    = \sum^c k_n n_i d_j n_k d_l + k_t t_i d_j t_k d_l
+\end{align}
+</script>
+</div>
+<p>参考文献 <sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup> <sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup> <sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup> <sup id="fnref:4"><a class="footnote-ref" href="#fn:4">4</a></sup> <sup id="fnref:5"><a class="footnote-ref" href="#fn:5">5</a></sup></p>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p>R. I. Borja and J. R. Wren. Micromechanics of granular media Part I: Generation of overall constitutive equation for assemblies of circular disks. <em>Computer Methods in Applied Mechanics and Engineering</em>, 127(1-4):13–36, November 1995. <a href="https://doi.org/10.1016/0045-7825(95)00846-2">doi:10.1016/0045-7825(95)00846-2</a>.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:2">
+<p>K. Bagi. Stress and strain in granular assemblies. <em>Mechanics of Materials</em>, 22(3):165–177, March 1996. <a href="https://doi.org/10.1016/0167-6636(95)00044-5">doi:10.1016/0167-6636(95)00044-5</a>.&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+<li id="fn:3">
+<p>J. R. Wren and R. I. Borja. Micromechanics of granular media Part II: Overall tangential moduli and localization model for periodic assemblies of circular disks. <em>Computer Methods in Applied Mechanics and Engineering</em>, 141(3):221–246, February 1997. <a href="https://doi.org/10.1016/S0045-7825(96)01110-3">doi:10.1016/S0045-7825(96)01110-3</a>.&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+</li>
+<li id="fn:4">
+<p>N. P. Kruyt and L. Rothenburg. Statistical theories for the elastic moduli of two-dimensional assemblies of granular materials. <em>International Journal of Engineering Science</em>, 36(10):1127–1142, August 1998. <a href="https://doi.org/10.1016/S0020-7225(98)00003-2">doi:10.1016/S0020-7225(98)00003-2</a>.&#160;<a class="footnote-backref" href="#fnref:4" title="Jump back to footnote 4 in the text">&#8617;</a></p>
+</li>
+<li id="fn:5">
+<p>S. Luding. Micro–macro transition for anisotropic, frictional granular packings. <em>International Journal of Solids and Structures</em>, 41(21):5821–5836, October 2004. <a href="https://doi.org/10.1016/j.ijsolstr.2004.05.048">doi:10.1016/j.ijsolstr.2004.05.048</a>.&#160;<a class="footnote-backref" href="#fnref:5" title="Jump back to footnote 5 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div></div>
             <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
