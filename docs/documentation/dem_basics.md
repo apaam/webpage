@@ -1,5 +1,9 @@
 ###
 
+[This page is part of Dr. Zhengshou Lai's [dissertation](https://tigerprints.clemson.edu/all_dissertations/2258/).]
+
+-------
+
 This page presents a brief introduction and review of the discrete
 element method (DEM). The intention is to introduce the main components
 and basic computational workflow of a DEM model, providing necessary
