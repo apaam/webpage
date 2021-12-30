@@ -1,6 +1,6 @@
 ### 
 
-[This page is prepared in Chinese, and will be part of a book aiming at beginers of DEM.]
+[This page is prepared in Chinese, and will be part of a book aiming at beginners of DEM.]
 
 -------
 
