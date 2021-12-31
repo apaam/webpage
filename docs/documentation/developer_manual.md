@@ -23,7 +23,6 @@ The program currently contains 7 basic moduli:
 
 Other moduli (as of Dec. 26, 2021):
 
-- mfem: ingradients related to finite element analysis
 - mlpack: wrapper of mlpack for machine learning exploration
 - peridigm: wrapper of peridigm for particle breakage analysis
 - pybind: for python interfaces
