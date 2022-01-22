@@ -1,5 +1,10 @@
 ###
 
+[DEM wiki](dem_wiki.md)
+┊ [Next](particle_models.md)
+
+-------
+
 [This page is part of Dr. Zhengshou Lai's [dissertation](https://tigerprints.clemson.edu/all_dissertations/2258/).]
 
 -------
@@ -539,5 +544,14 @@ contact parameters for a material calibrated for one experiment will be
 workable for another. In this regard, it would be necessary to perform
 the calibration with one experiment and validate the calibration results
 via another.
+
+-------
+
+[DEM wiki](dem_wiki.md)
+┊ [Next](particle_models.md)
+
+-------
+
+### References
 
 \bibliography

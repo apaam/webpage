@@ -1,5 +1,10 @@
 ### 
 
+[DEM wiki](dem_wiki.md)
+┊ [Previous](particle_models.md)
+
+-------
+
 [This page is prepared in Chinese, and will be part of a book aiming at beginners of DEM.]
 
 -------
@@ -107,5 +112,14 @@ $$
 $$
 
 参考文献 [@Borja_Wren_1995] [@Bagi_1996] [@Wren_Borja_1997] [@Kruyt_Rothenburg_1998] [@Luding_2004]
+
+-------
+
+[DEM wiki](dem_wiki.md)
+┊ [Previous](particle_models.md)
+
+-------
+
+### 参考文献 
 
 \bibliography
