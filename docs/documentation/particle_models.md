@@ -1,5 +1,11 @@
 ### 
 
+[DEM wiki](dem_wiki.md)
+┊ [Previous](dem_basics.md)
+┊ [Next](discrete_to_continuum.md)
+
+-------
+
 [This page is prepared in Chinese, and will be part of a book aiming at beginners of DEM.]
 
 -------
@@ -196,5 +202,15 @@ $$
 $$
 
 将上式带入公式\eqref{eq:poly_super_quadrics}可求得系数 $k$，进而得到该点的坐标 $x$、$y$ 和 $z$。
+
+-------
+
+[DEM wiki](dem_wiki.md)
+┊ [Previous](dem_basics.md)
+┊ [Next](discrete_to_continuum.md)
+
+-------
+
+### 参考文献
 
 \bibliography

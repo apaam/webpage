@@ -16,6 +16,8 @@ Mar 15 | Integrated the MLPACK as the machine learning environment.
 
 ### v0.0
 
+- Implement light-weight FEM to model deformable particle
+- Change raw array to std::vector, etc.
 - Rename evaluator to modifier for all classes and files
 - Add membrane with finite element and neo-hookean model
 - Dynamic properties in particle, wall and contacts
