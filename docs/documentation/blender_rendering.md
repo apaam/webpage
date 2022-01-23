@@ -29,11 +29,13 @@
 
 ![render_example](../img/render_example.png "Example of layort view."){:style="width:80%"}
 
-- Play with the VTK filters and blender feature to polish the scene. Below is an animation of membrane pulling and twisting, where the result data is simulated and created in ``NetDEM``.
+- Play with the VTK filters and blender feature to polish the scene (color represents the stress). Below is an animation of membrane pulling and twisting, where the result data is simulated and created in ``NetDEM``.
 
-<video controls width="95%" poster="../img/membrane_pull_twist.png">
-  <source src="../img/membrane_pull_twist.mp4" type="video/mp4">
+<center>
+<video controls width="80%" poster="https://1307405355.vod2.myqcloud.com/7eb7938bvodtranscq1307405355/6450ee7e387702294825734594/coverBySnapshot/coverBySnapshot_10_0.jpg">
+  <source src="https://1307405355.vod2.myqcloud.com/7eb7938bvodtranscq1307405355/6450ee7e387702294825734594/v.f100840.mp4" type="video/mp4">
 </video>
+</center>
 
 Hints:
 
