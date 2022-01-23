@@ -93,13 +93,13 @@
             
             
             
-                <li class="dropdown active">
+                <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Documentation <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                     
                         
-                            <li class="active">
-                                 <a href="./">User manual</a>
+                            <li >
+                                 <a href="../user_manual/">User manual</a>
                             </li>
                         
                     
@@ -227,7 +227,20 @@
         <li class="main active"><a href="#_1"></a></li>
         
     
-        <li class="main "><a href="#user-manual">User manual</a></li>
+        <li class="main "><a href="#installation">Installation</a></li>
+        
+            <li><a href="#prerequisites"> &#9731; Prerequisites</a></li>
+        
+            <li><a href="#compile-and-build"> &#9731; Compile and build</a></li>
+        
+            <li><a href="#test-the-installation"> &#9731; Test the installation</a></li>
+        
+    
+        <li class="main "><a href="#related-to-installation">Related to installation</a></li>
+        
+            <li><a href="#installation-on-apple-m1"> &#9731; Installation on Apple M1</a></li>
+        
+            <li><a href="#dependencies"> &#9731; Dependencies</a></li>
         
     
     </ul>
@@ -238,7 +251,20 @@
         <li class="main active"><a href="#_1"></a></li>
         
     
-        <li class="main "><a href="#user-manual">User manual</a></li>
+        <li class="main "><a href="#installation">Installation</a></li>
+        
+            <li><a href="#prerequisites"> &#9731; Prerequisites</a></li>
+        
+            <li><a href="#compile-and-build"> &#9731; Compile and build</a></li>
+        
+            <li><a href="#test-the-installation"> &#9731; Test the installation</a></li>
+        
+    
+        <li class="main "><a href="#related-to-installation">Related to installation</a></li>
+        
+            <li><a href="#installation-on-apple-m1"> &#9731; Installation on Apple M1</a></li>
+        
+            <li><a href="#dependencies"> &#9731; Dependencies</a></li>
         
     
     </ul>
@@ -246,10 +272,72 @@
             <div class="col-md-9" role="main">
 
 <h3 id="_1"></h3>
-<h3 id="user-manual">User manual</h3>
-<p><a href="../installation/">Installation</a>: for installation, test, and dependencies, etc.</p>
-<p><a href="../basic_usage/">Basic usage</a>: for runing simulation, particle shape reconstruction, post-processing, etc.</p>
-<p><a href="../blender_rendering/">Blender rendering</a>: for hints and procedures in blender rendering.</p></div>
+<p><a href="../user_manual/">User manual</a>
+┊ <a href="../basic_usage/">Next</a></p>
+<hr />
+<h3 id="installation">Installation</h3>
+<h4 id="prerequisites">Prerequisites</h4>
+<p>The compilation requires <code>gcc</code>, <code>autoconf</code>, <code>automake</code>, <code>cmake</code>, <code>mpi</code>, <code>boost</code>, which can be obtained using</p>
+<pre><code># For MacOS: use brew install, such as
+brew install gcc autoconf automake cmake openmpi boost
+
+# For Ubuntu: use apt-get install, such as
+sudo apt install build-essential
+sudo apt-get install -y autoconf-archive automake cmake texinfo
+sudo apt-get install openmpi-bin libopenmpi-dev libboost-all-dev
+</code></pre>
+<h4 id="compile-and-build">Compile and build</h4>
+<pre><code>make sync_submodule
+make
+</code></pre>
+<p>If some third-party libraries have not been or cannot be downloaded successfully, you can delete them and do a <code>git checkout contrib</code> and <code>make sync_submodule</code> again.</p>
+<h4 id="test-the-installation">Test the installation</h4>
+<pre><code>./scripts/run_tests.sh
+</code></pre>
+<h3 id="related-to-installation">Related to installation</h3>
+<h4 id="installation-on-apple-m1">Installation on Apple M1</h4>
+<p>(As of Dec. 20 2021)</p>
+<p>OpenMP seems not compitible with Apple M1. To enforce an OpenMP installation, set <code>USE_INTERNAL_OPENMP</code> in netdem <code>CMakeLists.txt</code> to <code>OFF</code>, and use <code>brew install libomp</code> to install a pre-built copy of OpenMP.</p>
+<p>Add M1 support to <code>fast_winding_number</code> functional in <code>igl</code> via <code>SIMDE</code> (please see the discussion in <a href="https://github.com/sideeffects/WindingNumber/pull/3/files">https://github.com/sideeffects/WindingNumber/pull/3/files</a>): </p>
+<ul>
+<li>Install simde using <code>brew install simde</code>.</li>
+<li>Add <code>-flax-vector-conversions</code> to the gcc complier flag in netdem <code>CMakeLists.txt</code>.</li>
+<li>Add the following lines to the <code>FastWindingNumberForSoups</code> in igl and comment out the <code>#include &lt;emmintrin.h&gt;</code> line.</li>
+</ul>
+<pre><code>#define SIMDE_ENABLE_NATIVE_ALIASES
+#include &lt;simde/x86/sse.h&gt;
+#include &lt;simde/x86/sse4.1.h&gt;
+
+// Recent GCC define the macro in x86intrin.h
+#ifndef _MM_MK_INSERTPS_NDX
+#define _MM_MK_INSERTPS_NDX(srcField, dstField, zeroMask) (((srcField)&lt;&lt;6) | ((dstField)&lt;&lt;4) | (zeroMask))
+#endif
+</code></pre>
+<p>Build netdem following the original procedures.</p>
+<h4 id="dependencies">Dependencies</h4>
+<ul>
+<li><a href="https://git-scm.com">git</a>, <a href="https://gcc.gnu.org">gcc</a>, <a href="https://cmake.org">cmake</a>: for code developing, configuring and compiling</li>
+<li><a href="https://www.open-mpi.org">open mpi</a>: for parallel computing</li>
+<li><a href="https://github.com/ArthurSonzogni/nlohmann_json_cmake_fetchcontent.git">json</a>: for input data interchange</li>
+<li><a href="https://github.com/libigl/cork.git">cork</a>: for mesh boolean operation<ul>
+<li><a href="https://gmplib.org">gmp</a></li>
+</ul>
+</li>
+<li><a href="https://github.com/libigl/libigl.git">igl</a>: another option of mesh boolean operation (robust but much slower than cork)<ul>
+<li><a href="https://github.com/CGAL/cgal.git">cgal</a> (requires <a href="https://github.com/boostorg/boost.git">boost</a>, <a href="https://gmplib.org">gmp</a>, <a href="https://www.mpfr.org">mpfr</a>), <a href="https://openmp.llvm.org/">openmp</a>, <a href="https://gitlab.com/libeigen/eigen.git">eigen</a></li>
+</ul>
+</li>
+<li><a href="https://github.com/google/googletest.git">googletest</a>: for tests</li>
+<li><a href="https://github.com/mlpack/mlpack.git">mlpack</a>: for machine learning libraries<ul>
+<li><a href="http://arma.sourceforge.net/download.html">armadillo</a> (requires <a href="https://github.com/Reference-LAPACK/lapack.git">lapack</a>, <a href="https://github.com/opencollab/arpack-ng.git">arpack</a>, <a href="https://github.com/xianyi/OpenBLAS.git">openblas</a>), <a href="https://github.com/mlpack/ensmallen">ensmallen</a>, <a href="https://github.com/USCiLab/cereal">cereal</a>, <a href="https://github.com/boostorg/boost.git">boost</a>, <a href="https://github.com/nothings/stb.git">stb</a></li>
+</ul>
+</li>
+<li><a href="https://github.com/pybind/pybind11.git">pybind</a>: for python interface </li>
+</ul>
+<p>Using dependencies already in the system would save the time required by the compilation of the whole project. Some dependencies (e.g., mlpack) would take fairly long time to compile. One can check out the log files in contrib/[package]/ep/src/[package]-stamp/ for the compiling, building and installing progresses of the dependencies. Some packages (e.g., <code>boost</code> and <code>mpi</code>) could take forever to compile. It is recommended that you install pre-build <code>boost</code> and <code>mpi</code> using tools such as <code>brew install</code> in mac os, or <code>apt-get install</code> in ubantu.</p>
+<hr />
+<p><a href="../user_manual/">User manual</a>
+┊ <a href="../basic_usage/">Next</a></p></div>
             <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
