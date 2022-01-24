@@ -15,7 +15,7 @@
 
 - Install ``BVtkNodes`` add-on, which can be obtained from [https://github.com/tkeskita/BVtkNodes](https://github.com/tkeskita/BVtkNodes). Thanks Silvano Imboden (s.imboden@cineca.it), Lorenzo Celli, and Paul Mc Manus for the [original work](https://github.com/simboden/BVtkNodes), and Tuomo Keskitalo for functionality extending and maintaining. 
 
-    Hint: to install add-on in blender: go to ``Edit`` &rarr; ``Preferences`` &rarr; ``add-on``, and ``install`` the add-on by selecting teh zip file downloaded from the github main/master branch.
+    Hint: to install add-on in blender: go to ``Edit`` &rarr; ``Preferences`` &rarr; ``add-on``, and ``install`` the add-on by selecting the zip file downloaded from the github main/master branch.
 
 ### Rendering
 

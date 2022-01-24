@@ -39,11 +39,13 @@ Granular mixing of spheres.
 
 Nut sliding on bolt without frition and damping, where the nut and bolt is modeled with polyhdral particles in DEM.
 
-<video controls width="95%" poster="https://1307405355.vod2.myqcloud.com/7eb7938bvodtranscq1307405355/7ab1b25f387702293021165110/coverBySnapshot/coverBySnapshot_10_0.jpg">
-  <source src="https://1307405355.vod2.myqcloud.com/7eb7938bvodtranscq1307405355/7ab1b25f387702293021165110/v.f100830.mp4" type="video/mp4">
+---
+
+<video controls width="95%" poster="https://1307405355.vod2.myqcloud.com/7eb7938bvodtranscq1307405355/a82c3846387702295083200603/coverBySnapshot/coverBySnapshot_10_0.jpg">
+  <source src="https://1307405355.vod2.myqcloud.com/7eb7938bvodtranscq1307405355/a82c3846387702295083200603/v.f100830.mp4" type="video/mp4">
 </video>
 
-Membrane tensiling and twisting, simulated with finite element and neo-hookean model.
+Packing of deformable particles, with particle deformation solved by finite element method and particle contacts solved by signed distance field approach.
 
 ---
 
@@ -81,6 +83,14 @@ Random packing of generaly irregular-shaped particles, where the contacts are ha
 
 ---
 
+<video controls width="95%" poster="https://1307405355.vod2.myqcloud.com/7eb7938bvodtranscq1307405355/7978011d387702295096167574/coverBySnapshot/coverBySnapshot_10_0.jpg">
+  <source src="https://1307405355.vod2.myqcloud.com/7eb7938bvodtranscq1307405355/7978011d387702295096167574/v.f100830.mp4" type="video/mp4">
+</video>
+
+Landslide simulation with spheres and triangles (using contact-area-weighted contact forces). Note this example is intended to demonstrate the capability of NetDEM but have not been calibrated to reassemble a real landslide.
+
+---
+
 </div><div class="col-md-4"  markdown="1">
 
 <video controls width="95%" poster="https://1307405355.vod2.myqcloud.com/7eb7938bvodtranscq1307405355/b1b83dd08602268011222642502/coverBySnapshot/coverBySnapshot_10_0.jpg">
@@ -112,6 +122,14 @@ Column collapsing of irregular-shaped particles that are represented by spherica
 </video>
 
 Particle curshing simuated with coupled DEM-peridigm, where level set-based domain splitting appraoch is employed for fragments reconstruction.
+
+---
+
+<video controls width="95%" poster="https://1307405355.vod2.myqcloud.com/7eb7938bvodtranscq1307405355/7ab1b25f387702293021165110/coverBySnapshot/coverBySnapshot_10_0.jpg">
+  <source src="https://1307405355.vod2.myqcloud.com/7eb7938bvodtranscq1307405355/7ab1b25f387702293021165110/v.f100830.mp4" type="video/mp4">
+</video>
+
+Membrane tensiling and twisting, simulated with finite element and neo-hookean model.
 
 ---
 
