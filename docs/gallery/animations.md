@@ -41,11 +41,11 @@ Nut sliding on bolt without frition and damping, where the nut and bolt is model
 
 ---
 
-<video controls width="95%" poster="https://1307405355.vod2.myqcloud.com/7eb7938bvodtranscq1307405355/a82c3846387702295083200603/coverBySnapshot/coverBySnapshot_10_0.jpg">
-  <source src="https://1307405355.vod2.myqcloud.com/7eb7938bvodtranscq1307405355/a82c3846387702295083200603/v.f100830.mp4" type="video/mp4">
+<video controls width="95%" poster="https://1307405355.vod2.myqcloud.com/7eb7938bvodtranscq1307405355/af775a35387702295083546506/coverBySnapshot_10_0.jpg">
+  <source src="https://1307405355.vod2.myqcloud.com/7eb7938bvodtranscq1307405355/af775a35387702295083546506/v.f100830.mp4" type="video/mp4">
 </video>
 
-Packing of deformable particles, with particle deformation solved by finite element method and particle contacts solved by signed distance field approach.
+Packing and compression of deformable particles, with particle deformation solved by finite element method and particle contacts solved by signed distance field approach.
 
 ---
 
