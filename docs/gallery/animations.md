@@ -87,7 +87,7 @@ Random packing of generaly irregular-shaped particles, where the contacts are ha
   <source src="https://1307405355.vod2.myqcloud.com/7eb7938bvodtranscq1307405355/7978011d387702295096167574/v.f100830.mp4" type="video/mp4">
 </video>
 
-Landslide simulation with spheres and triangles (using contact-area-weighted contact forces). Note this example is intended to demonstrate the capability of NetDEM but have not been calibrated to reassemble a real landslide.
+Debris flow simulation with spheres and triangles (using contact-area-weighted contact forces). Note this example is intended to demonstrate the capability of NetDEM but have not been calibrated to reassemble a real debris flow.
 
 ---
 
