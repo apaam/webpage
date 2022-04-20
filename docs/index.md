@@ -72,7 +72,7 @@ Mar 15, 2021 | Integrated the [mlpack](https://github.com/mlpack/mlpack.git) as 
 
 <!-- ## Latest Release -->
 
-<!-- [New features](https://github.com/net-dem/netdem/blob/v4.3/CHANGELOG) -->
+<!-- [New features](https://github.com/apaam/netdem/blob/v4.3/CHANGELOG) -->
 
 <!-- [<button type="button" class="btn btn-success">
 **Download mfem-4.3.tgz**
@@ -86,18 +86,18 @@ Mar 15, 2021 | Integrated the [mlpack](https://github.com/mlpack/mlpack.git) as 
 [Getting Started](documentation/user_manual.md)
 ┊ [Examples](gallery/animations.md)
 ┊ [Code doxygen](doxygen/html/index.html)
-┊ [Sources](https://github.com/net-dem/netdem)
+┊ [Sources](https://github.com/apaam/netdem)
 
-We recommend new users to start by examining the [example codes](https://github.com/net-dem/netdem/tree/main/examples).
+We recommend new users to start by examining the [example codes](https://github.com/apaam/netdem/tree/main/examples).
 
 Currently, we use [paraview](https://www.paraview.org) for visualization.
 
 ## Contact
 
-Use the GitHub [issue tracker](https://github.com/net-dem/netdem/issues)
-to report [bugs](https://github.com/net-dem/netdem/issues/new?labels=bug)
-or post [questions](https://github.com/net-dem/netdem/issues/new?labels=question)
-or [comments](https://github.com/net-dem/netdem/issues/new?labels=comment).
+Use the GitHub [issue tracker](https://github.com/apaam/netdem/issues)
+to report [bugs](https://github.com/apaam/netdem/issues/new?labels=bug)
+or post [questions](https://github.com/apaam/netdem/issues/new?labels=question)
+or [comments](https://github.com/apaam/netdem/issues/new?labels=comment).
 
 ## License & citation
 

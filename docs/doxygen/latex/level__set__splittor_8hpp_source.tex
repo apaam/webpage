@@ -1,0 +1,41 @@
+\hypertarget{level__set__splittor_8hpp_source}{}\doxysection{level\+\_\+set\+\_\+splittor.\+hpp}
+\label{level__set__splittor_8hpp_source}\index{/Users/lzhshou/Documents/Research/myProjects/apam/repo/netdem/src/peridigm/level\_set\_splittor.hpp@{/Users/lzhshou/Documents/Research/myProjects/apam/repo/netdem/src/peridigm/level\_set\_splittor.hpp}}
+\mbox{\hyperlink{level__set__splittor_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 }
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{domain__splittor_8hpp}{domain\_splittor.hpp}}"{}}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{level__set__function_8hpp}{level\_set\_function.hpp}}"{}}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacenetdem}{netdem}} \{}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10 \textcolor{keyword}{class }\mbox{\hyperlink{classnetdem_1_1_level_set_splittor}{LevelSetSplittor}} : \textcolor{keyword}{public} \mbox{\hyperlink{classnetdem_1_1_domain_splittor}{DomainSplittor}}, \textcolor{keyword}{public} \mbox{\hyperlink{classnetdem_1_1_level_set_function}{LevelSetFunction}} \{}
+\DoxyCodeLine{11 \textcolor{keyword}{public}:}
+\DoxyCodeLine{12   \mbox{\hyperlink{classnetdem_1_1_level_set_splittor_a289d6d10313442494952424539259cfb}{LevelSetSplittor}}();}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14   \textcolor{keywordtype}{void} \mbox{\hyperlink{classnetdem_1_1_level_set_splittor_aa989bbdd179daf6a8a3a1f442a3c9d57}{InitFromSTL}}(\mbox{\hyperlink{classnetdem_1_1_s_t_l_model}{STLModel}} \textcolor{keyword}{const} \&stl\_model, \textcolor{keywordtype}{int} res) \textcolor{keyword}{override};}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16   \textcolor{comment}{// data format: corner\_x, corner\_y, corner\_z, spacing, dim\_x, dim\_y, dim\_z,}}
+\DoxyCodeLine{17   \textcolor{comment}{// dist[i][j][k]}}
+\DoxyCodeLine{18   \textcolor{keywordtype}{void} \mbox{\hyperlink{classnetdem_1_1_level_set_splittor_ad25673dd9cf25208184b578816ec39c2}{InitFromDistanceMap}}(std::string \textcolor{keyword}{const} \&file\_name);}
+\DoxyCodeLine{19   \textcolor{keywordtype}{void} \mbox{\hyperlink{classnetdem_1_1_level_set_splittor_ad25673dd9cf25208184b578816ec39c2}{InitFromDistanceMap}}(\textcolor{keywordtype}{double} corner\_x, \textcolor{keywordtype}{double} corner\_y, \textcolor{keywordtype}{double} corner\_z,}
+\DoxyCodeLine{20                            \textcolor{keywordtype}{double} sp, \textcolor{keywordtype}{int} dim\_x, \textcolor{keywordtype}{int} dim\_y, \textcolor{keywordtype}{int} dim\_z,}
+\DoxyCodeLine{21                            \textcolor{keyword}{const} \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<double>}} \&dist\_list);}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23   \textcolor{keywordtype}{void} \mbox{\hyperlink{classnetdem_1_1_level_set_splittor_a2e355868dc806a9879354ad291039549}{GetPeriDigmNodes}}(\mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<Vec3d>}} *\textcolor{keyword}{const} nodes,}
+\DoxyCodeLine{24                         \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<double>}} *\textcolor{keyword}{const} node\_vols) \textcolor{keyword}{override};}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26   \textcolor{keywordtype}{void} \mbox{\hyperlink{classnetdem_1_1_level_set_splittor_a3444ff62140ca1dbf9d4f6ed8fed9053}{MakePorosity}}(\textcolor{keywordtype}{double} porosity) \textcolor{keyword}{override};}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28   \mbox{\hyperlink{classnetdem_1_1_s_t_l_model}{STLModel}} \mbox{\hyperlink{classnetdem_1_1_level_set_splittor_a1119c4b39c5b3705ccb98e8d9dfa4f8c}{GetSTLModel}}() \textcolor{keyword}{override};}
+\DoxyCodeLine{29   \mbox{\hyperlink{classnetdem_1_1_s_t_l_model}{STLModel}} \mbox{\hyperlink{classnetdem_1_1_level_set_splittor_a1119c4b39c5b3705ccb98e8d9dfa4f8c}{GetSTLModel}}(\textcolor{keyword}{const} \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<int>}} \&node\_indices) \textcolor{keyword}{override};}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31 \textcolor{keyword}{private}:}
+\DoxyCodeLine{32   \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<Vec3i>}} \mbox{\hyperlink{classnetdem_1_1_level_set_splittor_acfa166432e50e5d66c9c1c3cdb57e2f8}{node\_grid\_indices}};}
+\DoxyCodeLine{33 \};}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{35 \} \textcolor{comment}{// namespace netdem}}
+
+\end{DoxyCode}

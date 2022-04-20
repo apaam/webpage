@@ -1,0 +1,181 @@
+\hypertarget{classnetdem_1_1_solver_sphere_plane}{}\doxysection{netdem\+::Solver\+Sphere\+Plane Class Reference}
+\label{classnetdem_1_1_solver_sphere_plane}\index{netdem::SolverSpherePlane@{netdem::SolverSpherePlane}}
+
+
+{\ttfamily \#include $<$solver\+\_\+sphere\+\_\+plane.\+hpp$>$}
+
+Inheritance diagram for netdem\+::Solver\+Sphere\+Plane\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classnetdem_1_1_solver_sphere_plane}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classnetdem_1_1_solver_sphere_plane_af5cdcdca332cd8a8b8f246aeeed8bb55}{Solver\+Sphere\+Plane}} ()
+\item 
+\mbox{\hyperlink{classnetdem_1_1_solver_sphere_plane_a0ed9ba2c3bb563ca31deb339f5b09c36}{Solver\+Sphere\+Plane}} (\mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} $\ast$const p, \mbox{\hyperlink{classnetdem_1_1_wall}{Wall}} $\ast$const w)
+\item 
+\mbox{\hyperlink{classnetdem_1_1_collision_solver_p_w}{Collision\+Solver\+PW}} $\ast$ \mbox{\hyperlink{classnetdem_1_1_solver_sphere_plane_a2ee35d3106b96d2165d5f709b5a3974a}{Clone}} () const override
+\item 
+void \mbox{\hyperlink{classnetdem_1_1_solver_sphere_plane_ac156731b55e1679aa4c62960fe4e8f96}{Init}} (\mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} $\ast$const p, \mbox{\hyperlink{classnetdem_1_1_wall}{Wall}} $\ast$const w) override
+\item 
+bool \mbox{\hyperlink{classnetdem_1_1_solver_sphere_plane_af709e4c99da342f54bc24d35b17d2fba}{Detect}} () override
+\item 
+void \mbox{\hyperlink{classnetdem_1_1_solver_sphere_plane_a8099acaacd7d8cbcdb3c4f1a43277459}{Resolve\+Init}} (\mbox{\hyperlink{classnetdem_1_1_contact_p_w}{Contact\+PW}} $\ast$const cnt, double timestep) override
+\item 
+void \mbox{\hyperlink{classnetdem_1_1_solver_sphere_plane_a7d6f5c680c7a18211f39d8f6f17626ab}{Resolve\+Update}} (\mbox{\hyperlink{classnetdem_1_1_contact_p_w}{Contact\+PW}} $\ast$const cnt, double timestep) override
+\item 
+void \mbox{\hyperlink{classnetdem_1_1_solver_sphere_plane_a31d76e1ced28d4dedbd6be736c092e94}{Resolve\+Init}} (\mbox{\hyperlink{classnetdem_1_1_collision_geometries}{Collision\+Geometries}} $\ast$const cnt\+\_\+geoms, double timestep)
+\item 
+void \mbox{\hyperlink{classnetdem_1_1_solver_sphere_plane_ab37c6f709accc6819810044c518e96b0}{Resolve\+Update}} (\mbox{\hyperlink{classnetdem_1_1_collision_geometries}{Collision\+Geometries}} $\ast$const cnt\+\_\+geoms, double timestep)
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \mbox{\hyperlink{classnetdem_1_1_solver_sphere_plane_aac583bd11858c74046df104681175e60}{dpos\+\_\+12}}
+\item 
+double \mbox{\hyperlink{classnetdem_1_1_solver_sphere_plane_ad7e9245bb5d901048e6eb7177436f8b5}{radius\+\_\+1}}
+\item 
+double \mbox{\hyperlink{classnetdem_1_1_solver_sphere_plane_afd331d2d6e8447770608eb025508d7f4}{dist\+\_\+pc\+\_\+to\+\_\+plane}}
+\item 
+\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \mbox{\hyperlink{classnetdem_1_1_solver_sphere_plane_a40493812b7d5944974a8488437166204}{dir\+\_\+n}}
+\item 
+\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \mbox{\hyperlink{classnetdem_1_1_solver_sphere_plane_a351c2f163c786baf977e65bbeab3e64a}{cnt\+\_\+pos}}
+\item 
+\mbox{\hyperlink{classnetdem_1_1_plane}{Plane}} $\ast$ \mbox{\hyperlink{classnetdem_1_1_solver_sphere_plane_a5c59246dc9d61c5c89ec63d4040d19db}{plane}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+concrete geometric solver for sphere and plane contacts.
+\begin{DoxyItemize}
+\item len\+\_\+n\+: overlapping depth of sphere and plane
+\item dist\+\_\+pc\+\_\+to\+\_\+plane\+: distance from the particle centroid to the plane 
+\end{DoxyItemize}
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classnetdem_1_1_solver_sphere_plane_af5cdcdca332cd8a8b8f246aeeed8bb55}\label{classnetdem_1_1_solver_sphere_plane_af5cdcdca332cd8a8b8f246aeeed8bb55}} 
+\index{netdem::SolverSpherePlane@{netdem::SolverSpherePlane}!SolverSpherePlane@{SolverSpherePlane}}
+\index{SolverSpherePlane@{SolverSpherePlane}!netdem::SolverSpherePlane@{netdem::SolverSpherePlane}}
+\doxysubsubsection{\texorpdfstring{SolverSpherePlane()}{SolverSpherePlane()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily netdem\+::\+Solver\+Sphere\+Plane\+::\+Solver\+Sphere\+Plane (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classnetdem_1_1_solver_sphere_plane_a0ed9ba2c3bb563ca31deb339f5b09c36}\label{classnetdem_1_1_solver_sphere_plane_a0ed9ba2c3bb563ca31deb339f5b09c36}} 
+\index{netdem::SolverSpherePlane@{netdem::SolverSpherePlane}!SolverSpherePlane@{SolverSpherePlane}}
+\index{SolverSpherePlane@{SolverSpherePlane}!netdem::SolverSpherePlane@{netdem::SolverSpherePlane}}
+\doxysubsubsection{\texorpdfstring{SolverSpherePlane()}{SolverSpherePlane()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily netdem\+::\+Solver\+Sphere\+Plane\+::\+Solver\+Sphere\+Plane (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} $\ast$const}]{p,  }\item[{\mbox{\hyperlink{classnetdem_1_1_wall}{Wall}} $\ast$const}]{w }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classnetdem_1_1_solver_sphere_plane_a2ee35d3106b96d2165d5f709b5a3974a}\label{classnetdem_1_1_solver_sphere_plane_a2ee35d3106b96d2165d5f709b5a3974a}} 
+\index{netdem::SolverSpherePlane@{netdem::SolverSpherePlane}!Clone@{Clone}}
+\index{Clone@{Clone}!netdem::SolverSpherePlane@{netdem::SolverSpherePlane}}
+\doxysubsubsection{\texorpdfstring{Clone()}{Clone()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classnetdem_1_1_collision_solver_p_w}{Collision\+Solver\+PW}} $\ast$ netdem\+::\+Solver\+Sphere\+Plane\+::\+Clone (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classnetdem_1_1_collision_solver_p_w_a9a373faf193910562f49bc0ac15050e9}{netdem\+::\+Collision\+Solver\+PW}}.
+
+\mbox{\Hypertarget{classnetdem_1_1_solver_sphere_plane_af709e4c99da342f54bc24d35b17d2fba}\label{classnetdem_1_1_solver_sphere_plane_af709e4c99da342f54bc24d35b17d2fba}} 
+\index{netdem::SolverSpherePlane@{netdem::SolverSpherePlane}!Detect@{Detect}}
+\index{Detect@{Detect}!netdem::SolverSpherePlane@{netdem::SolverSpherePlane}}
+\doxysubsubsection{\texorpdfstring{Detect()}{Detect()}}
+{\footnotesize\ttfamily bool netdem\+::\+Solver\+Sphere\+Plane\+::\+Detect (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classnetdem_1_1_collision_solver_p_w_a662b4b47765dd9816e1cb46262e8ad32}{netdem\+::\+Collision\+Solver\+PW}}.
+
+\mbox{\Hypertarget{classnetdem_1_1_solver_sphere_plane_ac156731b55e1679aa4c62960fe4e8f96}\label{classnetdem_1_1_solver_sphere_plane_ac156731b55e1679aa4c62960fe4e8f96}} 
+\index{netdem::SolverSpherePlane@{netdem::SolverSpherePlane}!Init@{Init}}
+\index{Init@{Init}!netdem::SolverSpherePlane@{netdem::SolverSpherePlane}}
+\doxysubsubsection{\texorpdfstring{Init()}{Init()}}
+{\footnotesize\ttfamily void netdem\+::\+Solver\+Sphere\+Plane\+::\+Init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} $\ast$const}]{p,  }\item[{\mbox{\hyperlink{classnetdem_1_1_wall}{Wall}} $\ast$const}]{w }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{classnetdem_1_1_collision_solver_p_w_a23b3075924f949dfed8a681dbebedc03}{netdem\+::\+Collision\+Solver\+PW}}.
+
+\mbox{\Hypertarget{classnetdem_1_1_solver_sphere_plane_a31d76e1ced28d4dedbd6be736c092e94}\label{classnetdem_1_1_solver_sphere_plane_a31d76e1ced28d4dedbd6be736c092e94}} 
+\index{netdem::SolverSpherePlane@{netdem::SolverSpherePlane}!ResolveInit@{ResolveInit}}
+\index{ResolveInit@{ResolveInit}!netdem::SolverSpherePlane@{netdem::SolverSpherePlane}}
+\doxysubsubsection{\texorpdfstring{ResolveInit()}{ResolveInit()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void netdem\+::\+Solver\+Sphere\+Plane\+::\+Resolve\+Init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_collision_geometries}{Collision\+Geometries}} $\ast$const}]{cnt\+\_\+geoms,  }\item[{double}]{timestep }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classnetdem_1_1_solver_sphere_plane_a8099acaacd7d8cbcdb3c4f1a43277459}\label{classnetdem_1_1_solver_sphere_plane_a8099acaacd7d8cbcdb3c4f1a43277459}} 
+\index{netdem::SolverSpherePlane@{netdem::SolverSpherePlane}!ResolveInit@{ResolveInit}}
+\index{ResolveInit@{ResolveInit}!netdem::SolverSpherePlane@{netdem::SolverSpherePlane}}
+\doxysubsubsection{\texorpdfstring{ResolveInit()}{ResolveInit()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void netdem\+::\+Solver\+Sphere\+Plane\+::\+Resolve\+Init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_contact_p_w}{Contact\+PW}} $\ast$const}]{cnt,  }\item[{double}]{timestep }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classnetdem_1_1_collision_solver_p_w_a1a4559783964fdb3f7eea71950d88c93}{netdem\+::\+Collision\+Solver\+PW}}.
+
+\mbox{\Hypertarget{classnetdem_1_1_solver_sphere_plane_ab37c6f709accc6819810044c518e96b0}\label{classnetdem_1_1_solver_sphere_plane_ab37c6f709accc6819810044c518e96b0}} 
+\index{netdem::SolverSpherePlane@{netdem::SolverSpherePlane}!ResolveUpdate@{ResolveUpdate}}
+\index{ResolveUpdate@{ResolveUpdate}!netdem::SolverSpherePlane@{netdem::SolverSpherePlane}}
+\doxysubsubsection{\texorpdfstring{ResolveUpdate()}{ResolveUpdate()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void netdem\+::\+Solver\+Sphere\+Plane\+::\+Resolve\+Update (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_collision_geometries}{Collision\+Geometries}} $\ast$const}]{cnt\+\_\+geoms,  }\item[{double}]{timestep }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classnetdem_1_1_solver_sphere_plane_a7d6f5c680c7a18211f39d8f6f17626ab}\label{classnetdem_1_1_solver_sphere_plane_a7d6f5c680c7a18211f39d8f6f17626ab}} 
+\index{netdem::SolverSpherePlane@{netdem::SolverSpherePlane}!ResolveUpdate@{ResolveUpdate}}
+\index{ResolveUpdate@{ResolveUpdate}!netdem::SolverSpherePlane@{netdem::SolverSpherePlane}}
+\doxysubsubsection{\texorpdfstring{ResolveUpdate()}{ResolveUpdate()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void netdem\+::\+Solver\+Sphere\+Plane\+::\+Resolve\+Update (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_contact_p_w}{Contact\+PW}} $\ast$const}]{cnt,  }\item[{double}]{timestep }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classnetdem_1_1_collision_solver_p_w_a1fa6dc4af91346ec8ec28db0c2bdd08e}{netdem\+::\+Collision\+Solver\+PW}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classnetdem_1_1_solver_sphere_plane_a351c2f163c786baf977e65bbeab3e64a}\label{classnetdem_1_1_solver_sphere_plane_a351c2f163c786baf977e65bbeab3e64a}} 
+\index{netdem::SolverSpherePlane@{netdem::SolverSpherePlane}!cnt\_pos@{cnt\_pos}}
+\index{cnt\_pos@{cnt\_pos}!netdem::SolverSpherePlane@{netdem::SolverSpherePlane}}
+\doxysubsubsection{\texorpdfstring{cnt\_pos}{cnt\_pos}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} netdem\+::\+Solver\+Sphere\+Plane\+::cnt\+\_\+pos\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classnetdem_1_1_solver_sphere_plane_a40493812b7d5944974a8488437166204}\label{classnetdem_1_1_solver_sphere_plane_a40493812b7d5944974a8488437166204}} 
+\index{netdem::SolverSpherePlane@{netdem::SolverSpherePlane}!dir\_n@{dir\_n}}
+\index{dir\_n@{dir\_n}!netdem::SolverSpherePlane@{netdem::SolverSpherePlane}}
+\doxysubsubsection{\texorpdfstring{dir\_n}{dir\_n}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} netdem\+::\+Solver\+Sphere\+Plane\+::dir\+\_\+n\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classnetdem_1_1_solver_sphere_plane_afd331d2d6e8447770608eb025508d7f4}\label{classnetdem_1_1_solver_sphere_plane_afd331d2d6e8447770608eb025508d7f4}} 
+\index{netdem::SolverSpherePlane@{netdem::SolverSpherePlane}!dist\_pc\_to\_plane@{dist\_pc\_to\_plane}}
+\index{dist\_pc\_to\_plane@{dist\_pc\_to\_plane}!netdem::SolverSpherePlane@{netdem::SolverSpherePlane}}
+\doxysubsubsection{\texorpdfstring{dist\_pc\_to\_plane}{dist\_pc\_to\_plane}}
+{\footnotesize\ttfamily double netdem\+::\+Solver\+Sphere\+Plane\+::dist\+\_\+pc\+\_\+to\+\_\+plane\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classnetdem_1_1_solver_sphere_plane_aac583bd11858c74046df104681175e60}\label{classnetdem_1_1_solver_sphere_plane_aac583bd11858c74046df104681175e60}} 
+\index{netdem::SolverSpherePlane@{netdem::SolverSpherePlane}!dpos\_12@{dpos\_12}}
+\index{dpos\_12@{dpos\_12}!netdem::SolverSpherePlane@{netdem::SolverSpherePlane}}
+\doxysubsubsection{\texorpdfstring{dpos\_12}{dpos\_12}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} netdem\+::\+Solver\+Sphere\+Plane\+::dpos\+\_\+12\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classnetdem_1_1_solver_sphere_plane_a5c59246dc9d61c5c89ec63d4040d19db}\label{classnetdem_1_1_solver_sphere_plane_a5c59246dc9d61c5c89ec63d4040d19db}} 
+\index{netdem::SolverSpherePlane@{netdem::SolverSpherePlane}!plane@{plane}}
+\index{plane@{plane}!netdem::SolverSpherePlane@{netdem::SolverSpherePlane}}
+\doxysubsubsection{\texorpdfstring{plane}{plane}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classnetdem_1_1_plane}{Plane}}$\ast$ netdem\+::\+Solver\+Sphere\+Plane\+::plane\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classnetdem_1_1_solver_sphere_plane_ad7e9245bb5d901048e6eb7177436f8b5}\label{classnetdem_1_1_solver_sphere_plane_ad7e9245bb5d901048e6eb7177436f8b5}} 
+\index{netdem::SolverSpherePlane@{netdem::SolverSpherePlane}!radius\_1@{radius\_1}}
+\index{radius\_1@{radius\_1}!netdem::SolverSpherePlane@{netdem::SolverSpherePlane}}
+\doxysubsubsection{\texorpdfstring{radius\_1}{radius\_1}}
+{\footnotesize\ttfamily double netdem\+::\+Solver\+Sphere\+Plane\+::radius\+\_\+1\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/lzhshou/\+Documents/\+Research/my\+Projects/apam/repo/netdem/src/dem/\mbox{\hyperlink{solver__sphere__plane_8hpp}{solver\+\_\+sphere\+\_\+plane.\+hpp}}\item 
+/\+Users/lzhshou/\+Documents/\+Research/my\+Projects/apam/repo/netdem/src/dem/\mbox{\hyperlink{solver__sphere__plane_8cpp}{solver\+\_\+sphere\+\_\+plane.\+cpp}}\end{DoxyCompactItemize}

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.2"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>NetDEM: /Users/lzhshou/Documents/Research/myProjects/dem_developments/net_dem/netdem/src/utils/utils_io.hpp Source File</title>
+<title>NetDEM: /Users/lzhshou/Documents/Research/myProjects/apam/repo/netdem/src/utils/utils_io.hpp Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -71,23 +71,23 @@ $(function() {
 <div class="contents">
 <a href="utils__io_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;fstream&gt;</span></div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;iostream&gt;</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;sstream&gt;</span></div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &quot;<a class="code" href="utils__macros_8hpp.html">utils_macros.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;fstream&gt;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &lt;sstream&gt;</span></div>
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacenetdem.html">netdem</a> {</div>
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno"><a class="line" href="namespacenetdem.html#a87125ee5c76e6747cf59756411cae76b">   10</a></span><span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code hl_function" href="namespacenetdem.html#a87125ee5c76e6747cf59756411cae76b">PrintWarning</a>(<span class="keyword">const</span> std::string &amp;info) {</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno"><a class="line" href="namespacenetdem.html#a3748e2668906146e09654e01103c118f">   10</a></span><span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code hl_function" href="namespacenetdem.html#a3748e2668906146e09654e01103c118f">PrintWarning</a>(std::string <span class="keyword">const</span> &amp;info) {</div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>  std::cout &lt;&lt; <span class="stringliteral">&quot;warning: &quot;</span> &lt;&lt; info &lt;&lt; std::endl;</div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>}</div>
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="namespacenetdem.html#ae0fd7bf708a41736209e6c5d1c54cfb6">   14</a></span><span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code hl_function" href="namespacenetdem.html#ae0fd7bf708a41736209e6c5d1c54cfb6">PrintError</a>(<span class="keyword">const</span> std::string &amp;info) {</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="namespacenetdem.html#a9cc6e69a72a52a154aa434f1e91ba6a6">   14</a></span><span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code hl_function" href="namespacenetdem.html#a9cc6e69a72a52a154aa434f1e91ba6a6">PrintError</a>(std::string <span class="keyword">const</span> &amp;info) {</div>
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>  std::cout &lt;&lt; <span class="stringliteral">&quot;error: &quot;</span> &lt;&lt; info &lt;&lt; std::endl;</div>
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>  abort();</div>
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>}</div>
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="namespacenetdem.html#a291842685cc5341e23a376c78fe938de">   19</a></span><span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code hl_function" href="namespacenetdem.html#a291842685cc5341e23a376c78fe938de">PrintDebug</a>(<span class="keyword">const</span> std::string &amp;info) {</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="namespacenetdem.html#a188cc17f9d53fc152d2d87809d03880c">   19</a></span><span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code hl_function" href="namespacenetdem.html#a188cc17f9d53fc152d2d87809d03880c">PrintDebug</a>(std::string <span class="keyword">const</span> &amp;info) {</div>
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>  std::cout &lt;&lt; <span class="stringliteral">&quot;debug: &quot;</span> &lt;&lt; info &lt;&lt; std::endl;</div>
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>}</div>
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
@@ -103,19 +103,20 @@ $(function() {
 <div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>  <span class="keywordflow">return</span> ss.str();</div>
 <div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>}</div>
 <div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>std::vector&lt;double&gt; <a class="code hl_function" href="namespacenetdem.html#a9092bec41432852a29a045b032b8fdb5">ImportDataTxtToVec</a>(<span class="keyword">const</span> std::string &amp;filename,</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>                                       <span class="keywordtype">int</span> lines_to_skip = 0);</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>VecXT&lt;VecXT&lt;double&gt;&gt; <a class="code hl_function" href="namespacenetdem.html#a5e5b05ca4069406cf98bd61f33c7194a">ImportDataTxtToVec</a>(std::string <span class="keyword">const</span> &amp;filename,</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>                                 <span class="keywordtype">int</span> lines_to_skip = 0);</div>
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="keywordtype">bool</span> <a class="code hl_function" href="namespacenetdem.html#aadcd9eecb57a04f84b0267d745772b28">FileExist</a>(<span class="keyword">const</span> std::string &amp;filename);</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="keywordtype">bool</span> <a class="code hl_function" href="namespacenetdem.html#ac10c6768e83cab7d36b435978a11e872">FileExist</a>(std::string <span class="keyword">const</span> &amp;filename);</div>
 <div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>} <span class="comment">// namespace netdem</span></div>
 <div class="ttc" id="anamespacenetdem_html"><div class="ttname"><a href="namespacenetdem.html">netdem</a></div><div class="ttdef"><b>Definition:</b> bond_entry.hpp:7</div></div>
-<div class="ttc" id="anamespacenetdem_html_a291842685cc5341e23a376c78fe938de"><div class="ttname"><a href="namespacenetdem.html#a291842685cc5341e23a376c78fe938de">netdem::PrintDebug</a></div><div class="ttdeci">void PrintDebug(const std::string &amp;info)</div><div class="ttdef"><b>Definition:</b> utils_io.hpp:19</div></div>
+<div class="ttc" id="anamespacenetdem_html_a188cc17f9d53fc152d2d87809d03880c"><div class="ttname"><a href="namespacenetdem.html#a188cc17f9d53fc152d2d87809d03880c">netdem::PrintDebug</a></div><div class="ttdeci">void PrintDebug(std::string const &amp;info)</div><div class="ttdef"><b>Definition:</b> utils_io.hpp:19</div></div>
 <div class="ttc" id="anamespacenetdem_html_a36163f6d1b2423305f3c293ca0477c26"><div class="ttname"><a href="namespacenetdem.html#a36163f6d1b2423305f3c293ca0477c26">netdem::my_to_string</a></div><div class="ttdeci">std::string my_to_string(int value)</div><div class="ttdef"><b>Definition:</b> utils_io.hpp:23</div></div>
-<div class="ttc" id="anamespacenetdem_html_a87125ee5c76e6747cf59756411cae76b"><div class="ttname"><a href="namespacenetdem.html#a87125ee5c76e6747cf59756411cae76b">netdem::PrintWarning</a></div><div class="ttdeci">void PrintWarning(const std::string &amp;info)</div><div class="ttdef"><b>Definition:</b> utils_io.hpp:10</div></div>
-<div class="ttc" id="anamespacenetdem_html_a9092bec41432852a29a045b032b8fdb5"><div class="ttname"><a href="namespacenetdem.html#a9092bec41432852a29a045b032b8fdb5">netdem::ImportDataTxtToVec</a></div><div class="ttdeci">std::vector&lt; double &gt; ImportDataTxtToVec(const std::string &amp;filename, int lines_to_skip)</div><div class="ttdef"><b>Definition:</b> utils_io.cpp:9</div></div>
-<div class="ttc" id="anamespacenetdem_html_aadcd9eecb57a04f84b0267d745772b28"><div class="ttname"><a href="namespacenetdem.html#aadcd9eecb57a04f84b0267d745772b28">netdem::FileExist</a></div><div class="ttdeci">bool FileExist(const std::string &amp;filename)</div><div class="ttdef"><b>Definition:</b> utils_io.cpp:48</div></div>
-<div class="ttc" id="anamespacenetdem_html_ae0fd7bf708a41736209e6c5d1c54cfb6"><div class="ttname"><a href="namespacenetdem.html#ae0fd7bf708a41736209e6c5d1c54cfb6">netdem::PrintError</a></div><div class="ttdeci">void PrintError(const std::string &amp;info)</div><div class="ttdef"><b>Definition:</b> utils_io.hpp:14</div></div>
+<div class="ttc" id="anamespacenetdem_html_a3748e2668906146e09654e01103c118f"><div class="ttname"><a href="namespacenetdem.html#a3748e2668906146e09654e01103c118f">netdem::PrintWarning</a></div><div class="ttdeci">void PrintWarning(std::string const &amp;info)</div><div class="ttdef"><b>Definition:</b> utils_io.hpp:10</div></div>
+<div class="ttc" id="anamespacenetdem_html_a5e5b05ca4069406cf98bd61f33c7194a"><div class="ttname"><a href="namespacenetdem.html#a5e5b05ca4069406cf98bd61f33c7194a">netdem::ImportDataTxtToVec</a></div><div class="ttdeci">VecXT&lt; VecXT&lt; double &gt; &gt; ImportDataTxtToVec(std::string const &amp;filename, int lines_to_skip=0)</div><div class="ttdef"><b>Definition:</b> utils_io.cpp:9</div></div>
+<div class="ttc" id="anamespacenetdem_html_a9cc6e69a72a52a154aa434f1e91ba6a6"><div class="ttname"><a href="namespacenetdem.html#a9cc6e69a72a52a154aa434f1e91ba6a6">netdem::PrintError</a></div><div class="ttdeci">void PrintError(std::string const &amp;info)</div><div class="ttdef"><b>Definition:</b> utils_io.hpp:14</div></div>
+<div class="ttc" id="anamespacenetdem_html_ac10c6768e83cab7d36b435978a11e872"><div class="ttname"><a href="namespacenetdem.html#ac10c6768e83cab7d36b435978a11e872">netdem::FileExist</a></div><div class="ttdeci">bool FileExist(std::string const &amp;filename)</div><div class="ttdef"><b>Definition:</b> utils_io.cpp:62</div></div>
+<div class="ttc" id="autils__macros_8hpp_html"><div class="ttname"><a href="utils__macros_8hpp.html">utils_macros.hpp</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

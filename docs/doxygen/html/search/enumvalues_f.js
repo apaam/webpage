@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['walls_0',['walls',['../namespacenetdem.html#a3d1c9a57f81d32e05adbb87079c38501a805dcd0b4b4f7d1f06e5dc64e34ba45d',1,'netdem']]]
+  ['volume_5fbased_0',['volume_based',['../classnetdem_1_1_contact_model.html#a86b4462f72dd85e2e8a55dd6844f6b51afaaae10cad49f37d1574642e13ef751e',1,'netdem::ContactModel']]]
 ];

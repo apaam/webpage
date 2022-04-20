@@ -1,0 +1,51 @@
+\hypertarget{shape__triangle_8hpp_source}{}\doxysection{shape\+\_\+triangle.\+hpp}
+\label{shape__triangle_8hpp_source}\index{/Users/lzhshou/Documents/Research/myProjects/apam/repo/netdem/src/shape/shape\_triangle.hpp@{/Users/lzhshou/Documents/Research/myProjects/apam/repo/netdem/src/shape/shape\_triangle.hpp}}
+\mbox{\hyperlink{shape__triangle_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 }
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{shape_8hpp}{shape.hpp}}"{}}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <cmath>}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacenetdem}{netdem}} \{}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{9 \textcolor{keyword}{class }\mbox{\hyperlink{classnetdem_1_1_triangle}{Triangle}} : \textcolor{keyword}{public} \mbox{\hyperlink{classnetdem_1_1_shape}{Shape}} \{}
+\DoxyCodeLine{10 \textcolor{keyword}{public}:}
+\DoxyCodeLine{11   \mbox{\hyperlink{namespacenetdem_ae589ca87f7a16ea70807ee6b1c3bc1c8}{Mat3d}} \mbox{\hyperlink{classnetdem_1_1_triangle_ad1ee6873812d2d0397c172db2009453f}{vertices}};}
+\DoxyCodeLine{12   \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \mbox{\hyperlink{classnetdem_1_1_triangle_a799604eea15588bf9a5f160c07ecf2ce}{dir\_n}}\{0, 0, 1\};}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14   \mbox{\hyperlink{classnetdem_1_1_triangle_aaefe4ed500c07918d30c6f0e286332c5}{Triangle}}();}
+\DoxyCodeLine{15   \mbox{\hyperlink{classnetdem_1_1_triangle_aaefe4ed500c07918d30c6f0e286332c5}{Triangle}}(\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \textcolor{keyword}{const} \&a, \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \textcolor{keyword}{const} \&b, \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \textcolor{keyword}{const} \&c);}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{17   \mbox{\hyperlink{input__processor_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{nlohmann::json}} \mbox{\hyperlink{classnetdem_1_1_triangle_a5e488f329d8f0167ae3e313d774a6872}{PackJson}}() \textcolor{keyword}{override};}
+\DoxyCodeLine{18   \textcolor{keywordtype}{void} \mbox{\hyperlink{classnetdem_1_1_triangle_aa00708596c0f56d54b6fb9d7c8616e92}{InitFromJson}}(\mbox{\hyperlink{input__processor_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{nlohmann::json}} \textcolor{keyword}{const} \&js) \textcolor{keyword}{override};}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{20   \textcolor{keywordtype}{void} \mbox{\hyperlink{classnetdem_1_1_triangle_abeb4bce6ccf3daccb99d7e26affc2f41}{SetVertices}}(\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \textcolor{keyword}{const} \&a, \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \textcolor{keyword}{const} \&b, \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \textcolor{keyword}{const} \&c);}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22   \textcolor{keywordtype}{void} \mbox{\hyperlink{classnetdem_1_1_triangle_a23467bb9fdd38fa482548409a0427a7f}{Init}}();}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24   \textcolor{keywordtype}{void} \mbox{\hyperlink{classnetdem_1_1_triangle_a8df02b2c40374e520cd06132a3e27e4d}{Translate}}(\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \textcolor{keyword}{const} \&pos) \textcolor{keyword}{override};}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26   \textcolor{keywordtype}{void} \mbox{\hyperlink{classnetdem_1_1_triangle_aced309f19db0edb198abacfa411deac4}{UpdateNodes}}() \textcolor{keyword}{override};}
+\DoxyCodeLine{27   \textcolor{keywordtype}{void} \mbox{\hyperlink{classnetdem_1_1_triangle_aaeca4e307c30d2ba35026975260abf56}{UpdateShapeProperties}}() \textcolor{keyword}{override};}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29   \mbox{\hyperlink{classnetdem_1_1_shape}{Shape}} *\mbox{\hyperlink{classnetdem_1_1_triangle_a60ab7eb7eb676e67d51db331ab03c8b3}{Clone}}() \textcolor{keyword}{const override};}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31   \mbox{\hyperlink{classnetdem_1_1_s_t_l_model}{STLModel}} \mbox{\hyperlink{classnetdem_1_1_triangle_aa410137e1302a56332b274071056dd43}{GetSTLModel}}(\textcolor{keywordtype}{int} num\_facets = 400) \textcolor{keyword}{override};}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{33   \textcolor{keyword}{virtual} std::tuple<Vec3d, Vec3d> \mbox{\hyperlink{classnetdem_1_1_triangle_a9b62013d2c4dda0083a52878f61a5acd}{GetBoundAABB}}(\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \textcolor{keyword}{const} \&pos,}
+\DoxyCodeLine{34                                                 \mbox{\hyperlink{namespacenetdem_a13d5371f99b252a70fd5a5081b910370}{Vec4d}} \textcolor{keyword}{const} \&quat) \textcolor{keyword}{override};}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36   \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \mbox{\hyperlink{classnetdem_1_1_triangle_a00f538b9d7dab3b72e51cdc31244cc08}{SupportPoint}}(\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \textcolor{keyword}{const} \&dir) \textcolor{keyword}{override};}
+\DoxyCodeLine{37   \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<Vec3d>}} \mbox{\hyperlink{classnetdem_1_1_triangle_af837e1d4e1499bfe622032fb4877f4ac}{SupportPoints}}(\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \textcolor{keyword}{const} \&dir) \textcolor{keyword}{override};}
+\DoxyCodeLine{38 }
+\DoxyCodeLine{39   \textcolor{keywordtype}{double} \mbox{\hyperlink{classnetdem_1_1_triangle_a23dcd4b23a667cd6cccef05a56174091}{SignedDistance}}(\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \textcolor{keyword}{const} \&pos) \textcolor{keyword}{override};}
+\DoxyCodeLine{40   \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \mbox{\hyperlink{classnetdem_1_1_triangle_ac66c2309e8988444504be04eeef0d665}{SurfacePoint}}(\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \textcolor{keyword}{const} \&pos) \textcolor{keyword}{override};}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42   \textcolor{keywordtype}{bool} \mbox{\hyperlink{classnetdem_1_1_triangle_a17069a4245c661b02f1c1cd6d77468b2}{Enclose}}(\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \textcolor{keyword}{const} \&pos) \textcolor{keyword}{override};}
+\DoxyCodeLine{43 \};}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{45 \} \textcolor{comment}{// namespace netdem}}
+
+\end{DoxyCode}
