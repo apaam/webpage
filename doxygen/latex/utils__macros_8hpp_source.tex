@@ -1,0 +1,53 @@
+\hypertarget{utils__macros_8hpp_source}{}\doxysection{utils\+\_\+macros.\+hpp}
+\label{utils__macros_8hpp_source}\index{/Users/lzhshou/Documents/Research/myProjects/apam/repo/netdem/src/utils/utils\_macros.hpp@{/Users/lzhshou/Documents/Research/myProjects/apam/repo/netdem/src/utils/utils\_macros.hpp}}
+\mbox{\hyperlink{utils__macros_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 }
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include <array>}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <cmath>}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <tuple>}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacenetdem}{netdem}} \{}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10 \textcolor{keyword}{using} \textcolor{keywordtype}{size\_t} = \mbox{\hyperlink{namespacenetdem_ae321727aafb4558e74533fc491e55cca}{std::size\_t}};}
+\DoxyCodeLine{11 }
+\DoxyCodeLine{12 \textcolor{keyword}{using} \mbox{\hyperlink{namespacenetdem_ad732d71ff9685f48b7bcbfc82812e60e}{Vec2i}} = std::array<int, 2>;}
+\DoxyCodeLine{13 \textcolor{keyword}{using} \mbox{\hyperlink{namespacenetdem_a28e1404c8ce46c48bc78f553bd555980}{Vec3i}} = std::array<int, 3>;}
+\DoxyCodeLine{14 \textcolor{keyword}{using} \mbox{\hyperlink{namespacenetdem_a3888f166e48cde671ecd59da6c26e083}{Vec4i}} = std::array<int, 4>;}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 \textcolor{keyword}{using} \mbox{\hyperlink{namespacenetdem_ac259822745bc5554db4ac0b62e4f9360}{Vec2d}} = std::array<double, 2>;}
+\DoxyCodeLine{17 \textcolor{keyword}{using} \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} = std::array<double, 3>;}
+\DoxyCodeLine{18 \textcolor{keyword}{using} \mbox{\hyperlink{namespacenetdem_a13d5371f99b252a70fd5a5081b910370}{Vec4d}} = std::array<double, 4>;}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{20 \textcolor{keyword}{using} \mbox{\hyperlink{namespacenetdem_ab579cc2b45db8875b851b66758941908}{Mat2d}} = std::array<std::array<double, 2>, 2>;}
+\DoxyCodeLine{21 \textcolor{keyword}{using} \mbox{\hyperlink{namespacenetdem_ae589ca87f7a16ea70807ee6b1c3bc1c8}{Mat3d}} = std::array<std::array<double, 3>, 3>;}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23 \textcolor{keyword}{template} <\textcolor{keywordtype}{size\_t} N> \textcolor{keyword}{using} \mbox{\hyperlink{namespacenetdem_aac7c3a9255e340aefcf045b18c07d216}{VecNi}} = std::array<int, N>;}
+\DoxyCodeLine{24 \textcolor{keyword}{template} <\textcolor{keywordtype}{size\_t} N> \textcolor{keyword}{using} \mbox{\hyperlink{namespacenetdem_a7f7fb4ff80ab7bbf27f4bbf23df91e12}{VecNd}} = std::array<double, N>;}
+\DoxyCodeLine{25 \textcolor{keyword}{template} <\textcolor{keywordtype}{size\_t} Nr, \textcolor{keywordtype}{size\_t} Nc> \textcolor{keyword}{using} \mbox{\hyperlink{namespacenetdem_aa1535a5d1ed2f90088a89de1f7670952}{MatNd}} = std::array<std::array<double, Nc>, Nr>;}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27 \textcolor{keyword}{template} <\textcolor{keyword}{typename} T> \textcolor{keyword}{using} \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT}} = std::vector<T>;}
+\DoxyCodeLine{28 \textcolor{keyword}{template} <\textcolor{keyword}{typename} T, \textcolor{keywordtype}{size\_t} N> \textcolor{keyword}{using} \mbox{\hyperlink{namespacenetdem_a4c6a34e4b9bc01901ac527bb8ea83909}{VecNT}} = std::array<T, N>;}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{30 \textcolor{keyword}{namespace }Math \{}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{32 \textcolor{keyword}{constexpr} \textcolor{keywordtype}{double} \mbox{\hyperlink{namespacenetdem_1_1_math_a902d4826f3f4fb5e5b105a223e1aed6e}{PI}} = 3.1415926535897932384626433832795028841971;}
+\DoxyCodeLine{33 \textcolor{keyword}{constexpr} \textcolor{keywordtype}{double} \mbox{\hyperlink{namespacenetdem_1_1_math_a8ce16e05b829c06d81daf41109fffac7}{Infinity}} = 1.0e15;}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{35 \} \textcolor{comment}{// namespace Math}}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{37 \textcolor{keyword}{struct }\mbox{\hyperlink{structnetdem_1_1pair__hash}{pair\_hash}} \{}
+\DoxyCodeLine{38   \textcolor{keyword}{template} <\textcolor{keyword}{class} T1, \textcolor{keyword}{class} T2>}
+\DoxyCodeLine{39   \textcolor{keywordtype}{int} \mbox{\hyperlink{structnetdem_1_1pair__hash_a6e5b7e02ed87e6aeb9be2f3503bd223e}{operator()}}(\textcolor{keyword}{const} std::pair<T1, T2> \&p)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{40     \textcolor{keyword}{auto} h1 = std::hash<T1>\{\}(p.first);}
+\DoxyCodeLine{41     \textcolor{keyword}{auto} h2 = std::hash<T2>\{\}(p.second);}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{43     \textcolor{keywordflow}{return} h1 \string^ h2;}
+\DoxyCodeLine{44   \}}
+\DoxyCodeLine{45 \};}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{47 \} \textcolor{comment}{// namespace netdem}}
+
+\end{DoxyCode}

@@ -1,16 +1,13 @@
 var searchData=
 [
-  ['u_0',['u',['../classnetdem_1_1_stress_coefficient.html#a66b861359425718e6b0ff1f2aa745dfb',1,'netdem::StressCoefficient::u()'],['../classnetdem_1_1_elasticity_dynamic_solver.html#ac2fcd736d13666a633e47feddfe194a0',1,'netdem::ElasticityDynamicSolver::u()']]],
-  ['unbalanced_5fforce_5fnodes_1',['unbalanced_force_nodes',['../classnetdem_1_1_peri_digm_d_e_m_coupler.html#a0636f20ef61e3014271382b6ffa18fa8',1,'netdem::PeriDigmDEMCoupler']]],
-  ['unbalanced_5fforce_5fvalues_2',['unbalanced_force_values',['../classnetdem_1_1_peri_digm_d_e_m_coupler.html#a3093bd44c2ea8c46567184b16a5de9bc',1,'netdem::PeriDigmDEMCoupler']]],
-  ['unit_5fforce_3',['unit_force',['../classnetdem_1_1_body_force.html#aeb9d2ed04bb7fc904182014660d328be',1,'netdem::BodyForce::unit_force()'],['../classnetdem_1_1_gravity.html#a3cb0dd9e873b724559967439e41574ef',1,'netdem::Gravity::unit_force()']]],
-  ['update_5fwith_5fscene_4',['update_with_scene',['../classnetdem_1_1_evaluator.html#a8c1e3c0696128d8650ff373cba1bef25',1,'netdem::Evaluator']]],
-  ['use_5falpha_5fshape_5',['use_alpha_shape',['../classnetdem_1_1_peri_digm_d_e_m_coupler.html#a1ce84285dac9d397aaf856cc0bd0a7b4',1,'netdem::PeriDigmDEMCoupler']]],
-  ['use_5fauto_5ftimestep_6',['use_auto_timestep',['../classnetdem_1_1_peri_digm_settings.html#a6ba53a5a64d7aff17e1487be3bc26f7c',1,'netdem::PeriDigmSettings']]],
-  ['use_5fcustomized_5floading_5frate_7',['use_customized_loading_rate',['../classnetdem_1_1_peri_digm_d_e_m_coupler.html#a2ee76c8efb3053c97526ffe87e36b1c9',1,'netdem::PeriDigmDEMCoupler']]],
-  ['use_5fcustomized_5fsolver_8',['use_customized_solver',['../classnetdem_1_1_shape.html#a731518cf0917f5af9e02b12adcb3d54a',1,'netdem::Shape']]],
-  ['use_5ferosion_9',['use_erosion',['../classnetdem_1_1_solver_g_j_k_p_p.html#ab509ae070d4f84908e4aedc85e5dc4c4',1,'netdem::SolverGJKPP::use_erosion()'],['../classnetdem_1_1_solver_g_j_k_p_w.html#a60f8fabc30915ff5b005942fc42fc9a1',1,'netdem::SolverGJKPW::use_erosion()']]],
-  ['use_5fimplicit_10',['use_implicit',['../classnetdem_1_1_elasticity_dynamic.html#a89884c1afa1a3e61980664bba13209fd',1,'netdem::ElasticityDynamic']]],
-  ['use_5flinked_5fpatches_11',['use_linked_patches',['../classnetdem_1_1_tri_mesh.html#a37d69b0bfd72b90fcdf639eda5281ac3',1,'netdem::TriMesh']]],
-  ['use_5fnode_12',['use_node',['../classnetdem_1_1_shape.html#a05a8aa2b95d47cca08bb1e246ddd2d43',1,'netdem::Shape']]]
+  ['vel_0',['vel',['../classnetdem_1_1_wall_disp_control.html#aa9da7858eeaa9efa1b6f54fba3760792',1,'netdem::WallDispControl::vel()'],['../structnetdem_1_1_particle_data.html#a76207704e21f00bcca18bdb9e72fa765',1,'netdem::ParticleData::vel()'],['../classnetdem_1_1_d_e_m_fragment.html#a0516aebfbd6a6e84716678cea17df1d8',1,'netdem::DEMFragment::vel()'],['../classnetdem_1_1_particle.html#ac688521b75c58939970477eb8e621948',1,'netdem::Particle::vel()'],['../classnetdem_1_1_wall.html#acd288c4387e18d0acac5be58e00dea67',1,'netdem::Wall::vel()']]],
+  ['vel_5fm0p5_1',['vel_m0p5',['../structnetdem_1_1_particle_data.html#a0a7fbcf9bcaf5093fd800b41fafbd2be',1,'netdem::ParticleData::vel_m0p5()'],['../classnetdem_1_1_particle.html#a528be9bbcc7d7a40ab2e2e375d3a9d05',1,'netdem::Particle::vel_m0p5()']]],
+  ['vel_5fmax_2',['vel_max',['../classnetdem_1_1_wall_servo_control.html#ab13df74a52dfa4656b293ed994a9e84f',1,'netdem::WallServoControl']]],
+  ['vel_5fspin_3',['vel_spin',['../classnetdem_1_1_wall.html#a783d030377082375f71aa7d8300e956e',1,'netdem::Wall']]],
+  ['vertices_4',['vertices',['../classnetdem_1_1_triangle.html#ad1ee6873812d2d0397c172db2009453f',1,'netdem::Triangle::vertices()'],['../classnetdem_1_1_tri_mesh.html#acde0779520f91ee0596048099ea7b5e8',1,'netdem::TriMesh::vertices()'],['../class_polyhedron_builder.html#a800e63bc22c67e885a7d65387a598b23',1,'PolyhedronBuilder::vertices()'],['../classnetdem_1_1_s_d_f_calculator.html#a12ffc01ade8397c7243bc225baf75783',1,'netdem::SDFCalculator::vertices()'],['../classnetdem_1_1_s_t_l_model.html#a74db86ccf2a6a377aa4d7b0057f5082a',1,'netdem::STLModel::vertices()']]],
+  ['vertices_5fisct_5',['vertices_isct',['../classnetdem_1_1_solver_boolean_p_p.html#aa162fe6ff3828849c596a3efc642cf7f',1,'netdem::SolverBooleanPP::vertices_isct()'],['../classnetdem_1_1_solver_boolean_p_w.html#a3db4453ae6dd19d59aa5b19c4fff517c',1,'netdem::SolverBooleanPW::vertices_isct()']]],
+  ['vertices_5fneighs_6',['vertices_neighs',['../classnetdem_1_1_tri_mesh.html#a33d5bbcb9aa2de28a729e51344d5be17',1,'netdem::TriMesh']]],
+  ['vn_7',['VN',['../classnetdem_1_1_s_d_f_calculator.html#a3756fa0f3613081d2633131718286a77',1,'netdem::SDFCalculator']]],
+  ['vol_8',['vol',['../classnetdem_1_1_collision_geometries.html#ac600414290e538bedf45f99ca3d0ec95',1,'netdem::CollisionGeometries']]],
+  ['volume_9',['volume',['../classnetdem_1_1_shape.html#a1812859ebfa70a57c31626dbc0552ae6',1,'netdem::Shape']]]
 ];

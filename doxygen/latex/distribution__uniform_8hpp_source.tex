@@ -1,0 +1,46 @@
+\hypertarget{distribution__uniform_8hpp_source}{}\doxysection{distribution\+\_\+uniform.\+hpp}
+\label{distribution__uniform_8hpp_source}\index{/Users/lzhshou/Documents/Research/myProjects/apam/repo/netdem/src/utils/distribution\_uniform.hpp@{/Users/lzhshou/Documents/Research/myProjects/apam/repo/netdem/src/utils/distribution\_uniform.hpp}}
+\mbox{\hyperlink{distribution__uniform_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 }
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{distribution_8hpp}{distribution.hpp}}"{}}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <random>}}
+\DoxyCodeLine{5 }
+\DoxyCodeLine{6 \textcolor{keyword}{using namespace }\mbox{\hyperlink{namespacenetdem}{netdem}};}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{keyword}{class }\mbox{\hyperlink{class_uniform_distribution}{UniformDistribution}} : \textcolor{keyword}{public} \mbox{\hyperlink{classnetdem_1_1_distribution}{Distribution}} \{}
+\DoxyCodeLine{9 \textcolor{keyword}{public}:}
+\DoxyCodeLine{11   \textcolor{keywordtype}{double} \mbox{\hyperlink{class_uniform_distribution_a8149c07654582ab5bcba05286303c27f}{bound\_min}}, \mbox{\hyperlink{class_uniform_distribution_aa4f03d869bb468295ac3b8dcb9a4d434}{bound\_max}};}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13   \mbox{\hyperlink{class_uniform_distribution_a796cddf2004918526dabdba0037722ed}{UniformDistribution}}() : \mbox{\hyperlink{class_uniform_distribution_a8149c07654582ab5bcba05286303c27f}{bound\_min}}(0), \mbox{\hyperlink{class_uniform_distribution_aa4f03d869bb468295ac3b8dcb9a4d434}{bound\_max}}(1) \{}
+\DoxyCodeLine{14     std::random\_device rd;}
+\DoxyCodeLine{15     \mbox{\hyperlink{class_uniform_distribution_a1f9ae4079e31b34c3c42aef0f54219f9}{mt\_eng}} = std::mt19937(rd());}
+\DoxyCodeLine{16     \mbox{\hyperlink{class_uniform_distribution_a3c096aaa715f8bfeb9ccfc87fff7a98b}{real\_dist}} = std::uniform\_real\_distribution<double>(0, 1);}
+\DoxyCodeLine{17   \}}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19   \mbox{\hyperlink{class_uniform_distribution_a4e9d38caa8826e613f316a16a20f8159}{UniformDistribution}}(\textcolor{keywordtype}{double} \mbox{\hyperlink{class_uniform_distribution_a8149c07654582ab5bcba05286303c27f}{bound\_min}}, \textcolor{keywordtype}{double} \mbox{\hyperlink{class_uniform_distribution_aa4f03d869bb468295ac3b8dcb9a4d434}{bound\_max}})}
+\DoxyCodeLine{20       : \mbox{\hyperlink{class_uniform_distribution_a8149c07654582ab5bcba05286303c27f}{bound\_min}}(\mbox{\hyperlink{class_uniform_distribution_a8149c07654582ab5bcba05286303c27f}{bound\_min}}), \mbox{\hyperlink{class_uniform_distribution_aa4f03d869bb468295ac3b8dcb9a4d434}{bound\_max}}(\mbox{\hyperlink{class_uniform_distribution_aa4f03d869bb468295ac3b8dcb9a4d434}{bound\_max}}) \{}
+\DoxyCodeLine{21     std::random\_device rd;}
+\DoxyCodeLine{22     \mbox{\hyperlink{class_uniform_distribution_a1f9ae4079e31b34c3c42aef0f54219f9}{mt\_eng}} = std::mt19937(rd());}
+\DoxyCodeLine{23     \mbox{\hyperlink{class_uniform_distribution_a3c096aaa715f8bfeb9ccfc87fff7a98b}{real\_dist}} = std::uniform\_real\_distribution<double>(\mbox{\hyperlink{class_uniform_distribution_a8149c07654582ab5bcba05286303c27f}{bound\_min}}, \mbox{\hyperlink{class_uniform_distribution_aa4f03d869bb468295ac3b8dcb9a4d434}{bound\_max}});}
+\DoxyCodeLine{24   \}}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26   \textcolor{keywordtype}{double} \mbox{\hyperlink{class_uniform_distribution_aae19bbb1f331465ff67203b8621fac23}{Get}}()\textcolor{keyword}{ override }\{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_uniform_distribution_a3c096aaa715f8bfeb9ccfc87fff7a98b}{real\_dist}}(\mbox{\hyperlink{class_uniform_distribution_a1f9ae4079e31b34c3c42aef0f54219f9}{mt\_eng}}); \}}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28   \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<double>}} \mbox{\hyperlink{class_uniform_distribution_ad45593f9674287928452253fc5b84340}{Get}}(\textcolor{keywordtype}{int} num)\textcolor{keyword}{ override }\{}
+\DoxyCodeLine{29     \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<double>}} num\_list(num, 0);}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < num; i++) \{}
+\DoxyCodeLine{32       num\_list[i] = \mbox{\hyperlink{class_uniform_distribution_a3c096aaa715f8bfeb9ccfc87fff7a98b}{real\_dist}}(\mbox{\hyperlink{class_uniform_distribution_a1f9ae4079e31b34c3c42aef0f54219f9}{mt\_eng}});}
+\DoxyCodeLine{33     \}}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{35     \textcolor{keywordflow}{return} num\_list;}
+\DoxyCodeLine{36   \}}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{38 \textcolor{keyword}{private}:}
+\DoxyCodeLine{39   std::mt19937 \mbox{\hyperlink{class_uniform_distribution_a1f9ae4079e31b34c3c42aef0f54219f9}{mt\_eng}};}
+\DoxyCodeLine{40   std::uniform\_real\_distribution<double> \mbox{\hyperlink{class_uniform_distribution_a3c096aaa715f8bfeb9ccfc87fff7a98b}{real\_dist}};}
+\DoxyCodeLine{41 \};}
+
+\end{DoxyCode}

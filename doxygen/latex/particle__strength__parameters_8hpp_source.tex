@@ -1,0 +1,45 @@
+\hypertarget{particle__strength__parameters_8hpp_source}{}\doxysection{particle\+\_\+strength\+\_\+parameters.\+hpp}
+\label{particle__strength__parameters_8hpp_source}\index{/Users/lzhshou/Documents/Research/myProjects/apam/repo/netdem/src/peridigm/particle\_strength\_parameters.hpp@{/Users/lzhshou/Documents/Research/myProjects/apam/repo/netdem/src/peridigm/particle\_strength\_parameters.hpp}}
+\mbox{\hyperlink{particle__strength__parameters_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 }
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{utils__math_8hpp}{utils\_math.hpp}}"{}}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacenetdem}{netdem}} \{}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 \textcolor{keyword}{class }\mbox{\hyperlink{classnetdem_1_1_particle_strength_parameters}{ParticleStrengthParameters}} \{}
+\DoxyCodeLine{8 \textcolor{keyword}{public}:}
+\DoxyCodeLine{9   \textcolor{comment}{// particle breakage strength}}
+\DoxyCodeLine{10   \textcolor{keywordtype}{double} \mbox{\hyperlink{classnetdem_1_1_particle_strength_parameters_a68b52efeb4fe6730d25ddfa245a61a0c}{ref\_size}} = 1.5e-\/3;}
+\DoxyCodeLine{11   \textcolor{keywordtype}{double} \mbox{\hyperlink{classnetdem_1_1_particle_strength_parameters_a3dcad2a210e65894ee8684e1bfd54013}{ref\_energy\_release\_rate}} = 60.0;}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13   \textcolor{keywordtype}{double} \mbox{\hyperlink{classnetdem_1_1_particle_strength_parameters_a338945ec5c46454169ce18a05df14dc9}{weibull\_modulus}} = 3.1;  \textcolor{comment}{// McDowell 2002}}
+\DoxyCodeLine{14   \textcolor{keywordtype}{double} \mbox{\hyperlink{classnetdem_1_1_particle_strength_parameters_abad7e10d5c175a5fd713fe380622ee4d}{weibull\_coef\_a}} = -\/0.76; \textcolor{comment}{// Hanley et al 2015}}
+\DoxyCodeLine{15   \textcolor{keywordtype}{double} \mbox{\hyperlink{classnetdem_1_1_particle_strength_parameters_aad5de97c2a226f43cf725e0f1c24d3aa}{weibull\_coef\_b}} = 1.13;  \textcolor{comment}{// Hanley et al 2015}}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{17   \textcolor{keywordtype}{double} \mbox{\hyperlink{classnetdem_1_1_particle_strength_parameters_a13c5f1e556ba60f2d85ae46a3f9a9063}{min\_breakable\_size}} = 0.02;}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19   \textcolor{comment}{// note that the critical energy release rate is calculated with pre-\/assuming}}
+\DoxyCodeLine{20   \textcolor{comment}{// that the pd horizon is a same prescribed times of particle size divided by}}
+\DoxyCodeLine{21   \textcolor{comment}{// a same prescribed mesh resolution. Please refer to Zhu \& Zhao, 2019 CMAME}}
+\DoxyCodeLine{22   \textcolor{comment}{// for  detials}}
+\DoxyCodeLine{23   \textcolor{keywordtype}{double} \mbox{\hyperlink{classnetdem_1_1_particle_strength_parameters_a91ba1cf1ecee8124a773925049b166a9}{GetEnergyReleaseRate}}(\textcolor{keywordtype}{double} size) \{}
+\DoxyCodeLine{24     \textcolor{keywordtype}{double} strength\_ratio =}
+\DoxyCodeLine{25         (double(rand()) / double(RAND\_MAX) -\/ \mbox{\hyperlink{classnetdem_1_1_particle_strength_parameters_aad5de97c2a226f43cf725e0f1c24d3aa}{weibull\_coef\_b}}) / \mbox{\hyperlink{classnetdem_1_1_particle_strength_parameters_abad7e10d5c175a5fd713fe380622ee4d}{weibull\_coef\_a}};}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27     \textcolor{keywordflow}{return} \mbox{\hyperlink{classnetdem_1_1_particle_strength_parameters_a3dcad2a210e65894ee8684e1bfd54013}{ref\_energy\_release\_rate}} * strength\_ratio * strength\_ratio *}
+\DoxyCodeLine{28            pow(size / \mbox{\hyperlink{classnetdem_1_1_particle_strength_parameters_a68b52efeb4fe6730d25ddfa245a61a0c}{ref\_size}}, -\/6.0 / \mbox{\hyperlink{classnetdem_1_1_particle_strength_parameters_a338945ec5c46454169ce18a05df14dc9}{weibull\_modulus}} + 1.0);}
+\DoxyCodeLine{29   \}}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31   \textcolor{keywordtype}{double} \mbox{\hyperlink{classnetdem_1_1_particle_strength_parameters_a47b4589b5a84388232fb7eeb38bb310e}{GetEnergyReleaseRate}}(\textcolor{keywordtype}{double} size, \textcolor{keywordtype}{double} percentile) \{}
+\DoxyCodeLine{32     \textcolor{keywordtype}{double} strength\_ratio = (percentile -\/ \mbox{\hyperlink{classnetdem_1_1_particle_strength_parameters_aad5de97c2a226f43cf725e0f1c24d3aa}{weibull\_coef\_b}}) / \mbox{\hyperlink{classnetdem_1_1_particle_strength_parameters_abad7e10d5c175a5fd713fe380622ee4d}{weibull\_coef\_a}};}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34     \textcolor{keywordflow}{return} \mbox{\hyperlink{classnetdem_1_1_particle_strength_parameters_a3dcad2a210e65894ee8684e1bfd54013}{ref\_energy\_release\_rate}} * strength\_ratio * strength\_ratio *}
+\DoxyCodeLine{35            pow(size / \mbox{\hyperlink{classnetdem_1_1_particle_strength_parameters_a68b52efeb4fe6730d25ddfa245a61a0c}{ref\_size}}, -\/6.0 / \mbox{\hyperlink{classnetdem_1_1_particle_strength_parameters_a338945ec5c46454169ce18a05df14dc9}{weibull\_modulus}} + 1.0);}
+\DoxyCodeLine{36   \}}
+\DoxyCodeLine{37 \};}
+\DoxyCodeLine{38 }
+\DoxyCodeLine{39 \} \textcolor{comment}{// namespace netdem}}
+
+\end{DoxyCode}

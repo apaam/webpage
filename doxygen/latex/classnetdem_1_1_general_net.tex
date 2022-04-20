@@ -1,0 +1,152 @@
+\hypertarget{classnetdem_1_1_general_net}{}\doxysection{netdem\+::General\+Net Class Reference}
+\label{classnetdem_1_1_general_net}\index{netdem::GeneralNet@{netdem::GeneralNet}}
+
+
+{\ttfamily \#include $<$general\+\_\+net.\+hpp$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classnetdem_1_1_general_net_a1165fbcdceed3836bb65d07d2d5b2196}{Reset\+Model}} ()
+\item 
+void \mbox{\hyperlink{classnetdem_1_1_general_net_a77bdeb732a0d32d92945fb1277ee6435}{Add\+Layer}} (\mbox{\hyperlink{namespacenetdem_a2cdad8d3b028818b2034bb9f5e4a6583}{Layer\+Name}} layer\+\_\+name,...)
+\item 
+void \mbox{\hyperlink{classnetdem_1_1_general_net_a0c31c725dea72fe4a05faaf990407ac5}{Train}} (const arma\+::mat \&data\+\_\+x, const arma\+::mat \&data\+\_\+y)
+\item 
+arma\+::mat \mbox{\hyperlink{classnetdem_1_1_general_net_a1a0f3c83138854d1c1297cc339119a83}{Predict}} (const arma\+::mat \&data\+\_\+x)
+\item 
+arma\+::mat \mbox{\hyperlink{classnetdem_1_1_general_net_af2fc4261724d922ce5723f9d977bd21e}{Classify}} (const arma\+::mat \&data\+\_\+x)
+\item 
+arma\+::mat \mbox{\hyperlink{classnetdem_1_1_general_net_addeaee5b77ba0891085bb9be81caa4fd}{Regress}} (const arma\+::mat \&data\+\_\+x)
+\item 
+void \mbox{\hyperlink{classnetdem_1_1_general_net_a0a7b122315dff46529463a46d8d180a0}{Load}} (std\+::string const \&filename, std\+::string const \&label)
+\item 
+void \mbox{\hyperlink{classnetdem_1_1_general_net_a17354db1181787f46187d01ba5ed6e7f}{Save}} (std\+::string const \&filename, std\+::string const \&label)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+mlpack\+::ann\+::\+FFN \mbox{\hyperlink{classnetdem_1_1_general_net_a7524e4ad6ecd3f340dd169c7db35877d}{model}}
+\item 
+double \mbox{\hyperlink{classnetdem_1_1_general_net_acf8f8bfa2b6f06b038b787e50d22dd3a}{step\+\_\+size}} \{0.\+01\}
+\item 
+int \mbox{\hyperlink{classnetdem_1_1_general_net_a574f0358138db10dbaa6f5bfe12872af}{batch\+\_\+size}} \{32\}
+\item 
+double \mbox{\hyperlink{classnetdem_1_1_general_net_a8ab2d3a899e4f38a35016d4ea7f1c6be}{decay\+\_\+rate\+\_\+moment}} \{0.\+9\}
+\item 
+double \mbox{\hyperlink{classnetdem_1_1_general_net_a6d693856ed3098a1a73bf4d4eb3edeb0}{decay\+\_\+rate\+\_\+norm}} \{0.\+9\}
+\item 
+double \mbox{\hyperlink{classnetdem_1_1_general_net_a472de1286aa2158dfdcdfacab4db9ead}{gradient\+\_\+init\+\_\+param}} \{1e-\/8\}
+\item 
+int \mbox{\hyperlink{classnetdem_1_1_general_net_a670e27ee9ec7b2cbb97da6fd6168ae80}{epochs}} \{100\}
+\item 
+double \mbox{\hyperlink{classnetdem_1_1_general_net_abd908e5afc4e9215511c28471da2e52f}{stop\+\_\+tol}} \{1e-\/8\}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classnetdem_1_1_general_net_a77bdeb732a0d32d92945fb1277ee6435}\label{classnetdem_1_1_general_net_a77bdeb732a0d32d92945fb1277ee6435}} 
+\index{netdem::GeneralNet@{netdem::GeneralNet}!AddLayer@{AddLayer}}
+\index{AddLayer@{AddLayer}!netdem::GeneralNet@{netdem::GeneralNet}}
+\doxysubsubsection{\texorpdfstring{AddLayer()}{AddLayer()}}
+{\footnotesize\ttfamily void netdem\+::\+General\+Net\+::\+Add\+Layer (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacenetdem_a2cdad8d3b028818b2034bb9f5e4a6583}{Layer\+Name}}}]{layer\+\_\+name,  }\item[{}]{... }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classnetdem_1_1_general_net_af2fc4261724d922ce5723f9d977bd21e}\label{classnetdem_1_1_general_net_af2fc4261724d922ce5723f9d977bd21e}} 
+\index{netdem::GeneralNet@{netdem::GeneralNet}!Classify@{Classify}}
+\index{Classify@{Classify}!netdem::GeneralNet@{netdem::GeneralNet}}
+\doxysubsubsection{\texorpdfstring{Classify()}{Classify()}}
+{\footnotesize\ttfamily arma\+::mat netdem\+::\+General\+Net\+::\+Classify (\begin{DoxyParamCaption}\item[{const arma\+::mat \&}]{data\+\_\+x }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classnetdem_1_1_general_net_a0a7b122315dff46529463a46d8d180a0}\label{classnetdem_1_1_general_net_a0a7b122315dff46529463a46d8d180a0}} 
+\index{netdem::GeneralNet@{netdem::GeneralNet}!Load@{Load}}
+\index{Load@{Load}!netdem::GeneralNet@{netdem::GeneralNet}}
+\doxysubsubsection{\texorpdfstring{Load()}{Load()}}
+{\footnotesize\ttfamily void netdem\+::\+General\+Net\+::\+Load (\begin{DoxyParamCaption}\item[{std\+::string const \&}]{filename,  }\item[{std\+::string const \&}]{label }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classnetdem_1_1_general_net_a1a0f3c83138854d1c1297cc339119a83}\label{classnetdem_1_1_general_net_a1a0f3c83138854d1c1297cc339119a83}} 
+\index{netdem::GeneralNet@{netdem::GeneralNet}!Predict@{Predict}}
+\index{Predict@{Predict}!netdem::GeneralNet@{netdem::GeneralNet}}
+\doxysubsubsection{\texorpdfstring{Predict()}{Predict()}}
+{\footnotesize\ttfamily arma\+::mat netdem\+::\+General\+Net\+::\+Predict (\begin{DoxyParamCaption}\item[{const arma\+::mat \&}]{data\+\_\+x }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classnetdem_1_1_general_net_addeaee5b77ba0891085bb9be81caa4fd}\label{classnetdem_1_1_general_net_addeaee5b77ba0891085bb9be81caa4fd}} 
+\index{netdem::GeneralNet@{netdem::GeneralNet}!Regress@{Regress}}
+\index{Regress@{Regress}!netdem::GeneralNet@{netdem::GeneralNet}}
+\doxysubsubsection{\texorpdfstring{Regress()}{Regress()}}
+{\footnotesize\ttfamily arma\+::mat netdem\+::\+General\+Net\+::\+Regress (\begin{DoxyParamCaption}\item[{const arma\+::mat \&}]{data\+\_\+x }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classnetdem_1_1_general_net_a1165fbcdceed3836bb65d07d2d5b2196}\label{classnetdem_1_1_general_net_a1165fbcdceed3836bb65d07d2d5b2196}} 
+\index{netdem::GeneralNet@{netdem::GeneralNet}!ResetModel@{ResetModel}}
+\index{ResetModel@{ResetModel}!netdem::GeneralNet@{netdem::GeneralNet}}
+\doxysubsubsection{\texorpdfstring{ResetModel()}{ResetModel()}}
+{\footnotesize\ttfamily void netdem\+::\+General\+Net\+::\+Reset\+Model (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classnetdem_1_1_general_net_a17354db1181787f46187d01ba5ed6e7f}\label{classnetdem_1_1_general_net_a17354db1181787f46187d01ba5ed6e7f}} 
+\index{netdem::GeneralNet@{netdem::GeneralNet}!Save@{Save}}
+\index{Save@{Save}!netdem::GeneralNet@{netdem::GeneralNet}}
+\doxysubsubsection{\texorpdfstring{Save()}{Save()}}
+{\footnotesize\ttfamily void netdem\+::\+General\+Net\+::\+Save (\begin{DoxyParamCaption}\item[{std\+::string const \&}]{filename,  }\item[{std\+::string const \&}]{label }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classnetdem_1_1_general_net_a0c31c725dea72fe4a05faaf990407ac5}\label{classnetdem_1_1_general_net_a0c31c725dea72fe4a05faaf990407ac5}} 
+\index{netdem::GeneralNet@{netdem::GeneralNet}!Train@{Train}}
+\index{Train@{Train}!netdem::GeneralNet@{netdem::GeneralNet}}
+\doxysubsubsection{\texorpdfstring{Train()}{Train()}}
+{\footnotesize\ttfamily void netdem\+::\+General\+Net\+::\+Train (\begin{DoxyParamCaption}\item[{const arma\+::mat \&}]{data\+\_\+x,  }\item[{const arma\+::mat \&}]{data\+\_\+y }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classnetdem_1_1_general_net_a574f0358138db10dbaa6f5bfe12872af}\label{classnetdem_1_1_general_net_a574f0358138db10dbaa6f5bfe12872af}} 
+\index{netdem::GeneralNet@{netdem::GeneralNet}!batch\_size@{batch\_size}}
+\index{batch\_size@{batch\_size}!netdem::GeneralNet@{netdem::GeneralNet}}
+\doxysubsubsection{\texorpdfstring{batch\_size}{batch\_size}}
+{\footnotesize\ttfamily int netdem\+::\+General\+Net\+::batch\+\_\+size \{32\}}
+
+\mbox{\Hypertarget{classnetdem_1_1_general_net_a8ab2d3a899e4f38a35016d4ea7f1c6be}\label{classnetdem_1_1_general_net_a8ab2d3a899e4f38a35016d4ea7f1c6be}} 
+\index{netdem::GeneralNet@{netdem::GeneralNet}!decay\_rate\_moment@{decay\_rate\_moment}}
+\index{decay\_rate\_moment@{decay\_rate\_moment}!netdem::GeneralNet@{netdem::GeneralNet}}
+\doxysubsubsection{\texorpdfstring{decay\_rate\_moment}{decay\_rate\_moment}}
+{\footnotesize\ttfamily double netdem\+::\+General\+Net\+::decay\+\_\+rate\+\_\+moment \{0.\+9\}}
+
+\mbox{\Hypertarget{classnetdem_1_1_general_net_a6d693856ed3098a1a73bf4d4eb3edeb0}\label{classnetdem_1_1_general_net_a6d693856ed3098a1a73bf4d4eb3edeb0}} 
+\index{netdem::GeneralNet@{netdem::GeneralNet}!decay\_rate\_norm@{decay\_rate\_norm}}
+\index{decay\_rate\_norm@{decay\_rate\_norm}!netdem::GeneralNet@{netdem::GeneralNet}}
+\doxysubsubsection{\texorpdfstring{decay\_rate\_norm}{decay\_rate\_norm}}
+{\footnotesize\ttfamily double netdem\+::\+General\+Net\+::decay\+\_\+rate\+\_\+norm \{0.\+9\}}
+
+\mbox{\Hypertarget{classnetdem_1_1_general_net_a670e27ee9ec7b2cbb97da6fd6168ae80}\label{classnetdem_1_1_general_net_a670e27ee9ec7b2cbb97da6fd6168ae80}} 
+\index{netdem::GeneralNet@{netdem::GeneralNet}!epochs@{epochs}}
+\index{epochs@{epochs}!netdem::GeneralNet@{netdem::GeneralNet}}
+\doxysubsubsection{\texorpdfstring{epochs}{epochs}}
+{\footnotesize\ttfamily int netdem\+::\+General\+Net\+::epochs \{100\}}
+
+\mbox{\Hypertarget{classnetdem_1_1_general_net_a472de1286aa2158dfdcdfacab4db9ead}\label{classnetdem_1_1_general_net_a472de1286aa2158dfdcdfacab4db9ead}} 
+\index{netdem::GeneralNet@{netdem::GeneralNet}!gradient\_init\_param@{gradient\_init\_param}}
+\index{gradient\_init\_param@{gradient\_init\_param}!netdem::GeneralNet@{netdem::GeneralNet}}
+\doxysubsubsection{\texorpdfstring{gradient\_init\_param}{gradient\_init\_param}}
+{\footnotesize\ttfamily double netdem\+::\+General\+Net\+::gradient\+\_\+init\+\_\+param \{1e-\/8\}}
+
+\mbox{\Hypertarget{classnetdem_1_1_general_net_a7524e4ad6ecd3f340dd169c7db35877d}\label{classnetdem_1_1_general_net_a7524e4ad6ecd3f340dd169c7db35877d}} 
+\index{netdem::GeneralNet@{netdem::GeneralNet}!model@{model}}
+\index{model@{model}!netdem::GeneralNet@{netdem::GeneralNet}}
+\doxysubsubsection{\texorpdfstring{model}{model}}
+{\footnotesize\ttfamily mlpack\+::ann\+::\+FFN netdem\+::\+General\+Net\+::model}
+
+\mbox{\Hypertarget{classnetdem_1_1_general_net_acf8f8bfa2b6f06b038b787e50d22dd3a}\label{classnetdem_1_1_general_net_acf8f8bfa2b6f06b038b787e50d22dd3a}} 
+\index{netdem::GeneralNet@{netdem::GeneralNet}!step\_size@{step\_size}}
+\index{step\_size@{step\_size}!netdem::GeneralNet@{netdem::GeneralNet}}
+\doxysubsubsection{\texorpdfstring{step\_size}{step\_size}}
+{\footnotesize\ttfamily double netdem\+::\+General\+Net\+::step\+\_\+size \{0.\+01\}}
+
+\mbox{\Hypertarget{classnetdem_1_1_general_net_abd908e5afc4e9215511c28471da2e52f}\label{classnetdem_1_1_general_net_abd908e5afc4e9215511c28471da2e52f}} 
+\index{netdem::GeneralNet@{netdem::GeneralNet}!stop\_tol@{stop\_tol}}
+\index{stop\_tol@{stop\_tol}!netdem::GeneralNet@{netdem::GeneralNet}}
+\doxysubsubsection{\texorpdfstring{stop\_tol}{stop\_tol}}
+{\footnotesize\ttfamily double netdem\+::\+General\+Net\+::stop\+\_\+tol \{1e-\/8\}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/lzhshou/\+Documents/\+Research/my\+Projects/apam/repo/netdem/src/mlpack/\mbox{\hyperlink{general__net_8hpp}{general\+\_\+net.\+hpp}}\item 
+/\+Users/lzhshou/\+Documents/\+Research/my\+Projects/apam/repo/netdem/src/mlpack/\mbox{\hyperlink{general__net_8cpp}{general\+\_\+net.\+cpp}}\end{DoxyCompactItemize}

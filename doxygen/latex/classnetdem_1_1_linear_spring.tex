@@ -1,0 +1,181 @@
+\hypertarget{classnetdem_1_1_linear_spring}{}\doxysection{netdem\+::Linear\+Spring Class Reference}
+\label{classnetdem_1_1_linear_spring}\index{netdem::LinearSpring@{netdem::LinearSpring}}
+
+
+{\ttfamily \#include $<$model\+\_\+linear\+\_\+spring.\+hpp$>$}
+
+Inheritance diagram for netdem\+::Linear\+Spring\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classnetdem_1_1_linear_spring}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classnetdem_1_1_linear_spring_a92b4d742489e17e9db57213a877022d5}{Linear\+Spring}} ()
+\item 
+\mbox{\hyperlink{classnetdem_1_1_linear_spring_a8c1771a68d1fc40d23cf3e010e992025}{Linear\+Spring}} (double \mbox{\hyperlink{classnetdem_1_1_linear_spring_a2f1c34f217b708ddd2def45b0291936d}{kn}}, double \mbox{\hyperlink{classnetdem_1_1_linear_spring_a0b932bc41153a3b030334cba63367c30}{kt}}, double \mbox{\hyperlink{classnetdem_1_1_linear_spring_aa987d324343a1f5878f2bfd97bdb9cc3}{beta}}, double \mbox{\hyperlink{classnetdem_1_1_linear_spring_aa8edba335f67c91bef296243a6d7a449}{mu}})
+\item 
+\mbox{\hyperlink{mpi__manager_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{nlohmann\+::json}} \mbox{\hyperlink{classnetdem_1_1_linear_spring_a8e3f2351614ca70c5ae23532494a8e37}{Pack\+Json}} () override
+\item 
+void \mbox{\hyperlink{classnetdem_1_1_linear_spring_ad3d3e87f1de14c836c484dd210a9ae76}{Init\+From\+Json}} (\mbox{\hyperlink{mpi__manager_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{nlohmann\+::json}} const \&js) override
+\item 
+void \mbox{\hyperlink{classnetdem_1_1_linear_spring_a75c4ae4a723880f348870beda2ac2eab}{Set\+Property}} (\mbox{\hyperlink{mpi__manager_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{nlohmann\+::json}} const \&js) override
+\item 
+\mbox{\hyperlink{classnetdem_1_1_contact_model}{Contact\+Model}} $\ast$ \mbox{\hyperlink{classnetdem_1_1_linear_spring_a7c6f7710b72c617ea6f7af3c0cdf0b16}{Clone}} () const override
+\item 
+void \mbox{\hyperlink{classnetdem_1_1_linear_spring_afed81fe8d9220c7a8bcccf3dda63c4cd}{Evaluate\+Force\+Moment}} (\mbox{\hyperlink{classnetdem_1_1_contact_forces}{Contact\+Forces}} $\ast$const cnt\+\_\+forces, \mbox{\hyperlink{classnetdem_1_1_collision_geometries}{Collision\+Geometries}} \&cnt\+\_\+geoms, \mbox{\hyperlink{classnetdem_1_1_contact_p_p}{Contact\+PP}} $\ast$const cnt, double dt) const override
+\item 
+void \mbox{\hyperlink{classnetdem_1_1_linear_spring_ab8237ceba530f6b9ac6918c1a2f7d879}{Evaluate\+Force\+Moment}} (\mbox{\hyperlink{classnetdem_1_1_contact_forces}{Contact\+Forces}} $\ast$const cnt\+\_\+forces, \mbox{\hyperlink{classnetdem_1_1_collision_geometries}{Collision\+Geometries}} \&cnt\+\_\+geoms, \mbox{\hyperlink{classnetdem_1_1_contact_p_w}{Contact\+PW}} $\ast$const cnt, double dt) const override
+\item 
+void \mbox{\hyperlink{classnetdem_1_1_linear_spring_ac39b88c105fe0bd5e2a7fef4a69864f4}{Print}} () const override
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{classnetdem_1_1_linear_spring_a2f1c34f217b708ddd2def45b0291936d}{kn}} \{2e6\}
+\item 
+double \mbox{\hyperlink{classnetdem_1_1_linear_spring_a0b932bc41153a3b030334cba63367c30}{kt}} \{1e6\}
+\item 
+double \mbox{\hyperlink{classnetdem_1_1_linear_spring_aa987d324343a1f5878f2bfd97bdb9cc3}{beta}} \{0.\+7\}
+\item 
+double \mbox{\hyperlink{classnetdem_1_1_linear_spring_aa8edba335f67c91bef296243a6d7a449}{mu}} \{0.\+5\}
+\item 
+bool \mbox{\hyperlink{classnetdem_1_1_linear_spring_a8bf10c9dff540a4b963040904eab64f5}{use\+\_\+viscous\+\_\+damping}} \{false\}
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+
+\begin{DoxyItemize}
+\item kn, kt\+: normal and tangential contact stiffness. Generally, in the linear spring contact model, the contact force is the contact stiffness multiplied by the contact deformation.
+\item mu\+: friction coefficient, to incoorporate the Columnb\textquotesingle{}s friction law. According to this law, the tangential force should not exceed the normal force multiplied by the friction coefficient. 
+\end{DoxyItemize}
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classnetdem_1_1_linear_spring_a92b4d742489e17e9db57213a877022d5}\label{classnetdem_1_1_linear_spring_a92b4d742489e17e9db57213a877022d5}} 
+\index{netdem::LinearSpring@{netdem::LinearSpring}!LinearSpring@{LinearSpring}}
+\index{LinearSpring@{LinearSpring}!netdem::LinearSpring@{netdem::LinearSpring}}
+\doxysubsubsection{\texorpdfstring{LinearSpring()}{LinearSpring()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily netdem\+::\+Linear\+Spring\+::\+Linear\+Spring (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classnetdem_1_1_linear_spring_a8c1771a68d1fc40d23cf3e010e992025}\label{classnetdem_1_1_linear_spring_a8c1771a68d1fc40d23cf3e010e992025}} 
+\index{netdem::LinearSpring@{netdem::LinearSpring}!LinearSpring@{LinearSpring}}
+\index{LinearSpring@{LinearSpring}!netdem::LinearSpring@{netdem::LinearSpring}}
+\doxysubsubsection{\texorpdfstring{LinearSpring()}{LinearSpring()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily netdem\+::\+Linear\+Spring\+::\+Linear\+Spring (\begin{DoxyParamCaption}\item[{double}]{kn,  }\item[{double}]{kt,  }\item[{double}]{beta,  }\item[{double}]{mu }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classnetdem_1_1_linear_spring_a7c6f7710b72c617ea6f7af3c0cdf0b16}\label{classnetdem_1_1_linear_spring_a7c6f7710b72c617ea6f7af3c0cdf0b16}} 
+\index{netdem::LinearSpring@{netdem::LinearSpring}!Clone@{Clone}}
+\index{Clone@{Clone}!netdem::LinearSpring@{netdem::LinearSpring}}
+\doxysubsubsection{\texorpdfstring{Clone()}{Clone()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classnetdem_1_1_contact_model}{Contact\+Model}} $\ast$ netdem\+::\+Linear\+Spring\+::\+Clone (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{classnetdem_1_1_contact_model_a697207b7395fdc6cface026d9df65678}{netdem\+::\+Contact\+Model}}.
+
+\mbox{\Hypertarget{classnetdem_1_1_linear_spring_afed81fe8d9220c7a8bcccf3dda63c4cd}\label{classnetdem_1_1_linear_spring_afed81fe8d9220c7a8bcccf3dda63c4cd}} 
+\index{netdem::LinearSpring@{netdem::LinearSpring}!EvaluateForceMoment@{EvaluateForceMoment}}
+\index{EvaluateForceMoment@{EvaluateForceMoment}!netdem::LinearSpring@{netdem::LinearSpring}}
+\doxysubsubsection{\texorpdfstring{EvaluateForceMoment()}{EvaluateForceMoment()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void netdem\+::\+Linear\+Spring\+::\+Evaluate\+Force\+Moment (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_contact_forces}{Contact\+Forces}} $\ast$const}]{cnt\+\_\+forces,  }\item[{\mbox{\hyperlink{classnetdem_1_1_collision_geometries}{Collision\+Geometries}} \&}]{cnt\+\_\+geoms,  }\item[{\mbox{\hyperlink{classnetdem_1_1_contact_p_p}{Contact\+PP}} $\ast$const}]{cnt,  }\item[{double}]{dt }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{classnetdem_1_1_contact_model_aa518a60578e61a60c3a0ba50ee99ec4d}{netdem\+::\+Contact\+Model}}.
+
+\mbox{\Hypertarget{classnetdem_1_1_linear_spring_ab8237ceba530f6b9ac6918c1a2f7d879}\label{classnetdem_1_1_linear_spring_ab8237ceba530f6b9ac6918c1a2f7d879}} 
+\index{netdem::LinearSpring@{netdem::LinearSpring}!EvaluateForceMoment@{EvaluateForceMoment}}
+\index{EvaluateForceMoment@{EvaluateForceMoment}!netdem::LinearSpring@{netdem::LinearSpring}}
+\doxysubsubsection{\texorpdfstring{EvaluateForceMoment()}{EvaluateForceMoment()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void netdem\+::\+Linear\+Spring\+::\+Evaluate\+Force\+Moment (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_contact_forces}{Contact\+Forces}} $\ast$const}]{cnt\+\_\+forces,  }\item[{\mbox{\hyperlink{classnetdem_1_1_collision_geometries}{Collision\+Geometries}} \&}]{cnt\+\_\+geoms,  }\item[{\mbox{\hyperlink{classnetdem_1_1_contact_p_w}{Contact\+PW}} $\ast$const}]{cnt,  }\item[{double}]{dt }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{classnetdem_1_1_contact_model_a75d0d3da3432937dd69648f3146d9c1a}{netdem\+::\+Contact\+Model}}.
+
+\mbox{\Hypertarget{classnetdem_1_1_linear_spring_ad3d3e87f1de14c836c484dd210a9ae76}\label{classnetdem_1_1_linear_spring_ad3d3e87f1de14c836c484dd210a9ae76}} 
+\index{netdem::LinearSpring@{netdem::LinearSpring}!InitFromJson@{InitFromJson}}
+\index{InitFromJson@{InitFromJson}!netdem::LinearSpring@{netdem::LinearSpring}}
+\doxysubsubsection{\texorpdfstring{InitFromJson()}{InitFromJson()}}
+{\footnotesize\ttfamily void netdem\+::\+Linear\+Spring\+::\+Init\+From\+Json (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{mpi__manager_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{nlohmann\+::json}} const \&}]{js }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{classnetdem_1_1_contact_model_ad857f6a66c0ac793e12d5d66e69e679e}{netdem\+::\+Contact\+Model}}.
+
+\mbox{\Hypertarget{classnetdem_1_1_linear_spring_a8e3f2351614ca70c5ae23532494a8e37}\label{classnetdem_1_1_linear_spring_a8e3f2351614ca70c5ae23532494a8e37}} 
+\index{netdem::LinearSpring@{netdem::LinearSpring}!PackJson@{PackJson}}
+\index{PackJson@{PackJson}!netdem::LinearSpring@{netdem::LinearSpring}}
+\doxysubsubsection{\texorpdfstring{PackJson()}{PackJson()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{mpi__manager_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{nlohmann\+::json}} netdem\+::\+Linear\+Spring\+::\+Pack\+Json (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{classnetdem_1_1_contact_model_a191a737b001313dd8a39d5f1dc1d6a78}{netdem\+::\+Contact\+Model}}.
+
+\mbox{\Hypertarget{classnetdem_1_1_linear_spring_ac39b88c105fe0bd5e2a7fef4a69864f4}\label{classnetdem_1_1_linear_spring_ac39b88c105fe0bd5e2a7fef4a69864f4}} 
+\index{netdem::LinearSpring@{netdem::LinearSpring}!Print@{Print}}
+\index{Print@{Print}!netdem::LinearSpring@{netdem::LinearSpring}}
+\doxysubsubsection{\texorpdfstring{Print()}{Print()}}
+{\footnotesize\ttfamily void netdem\+::\+Linear\+Spring\+::\+Print (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{classnetdem_1_1_contact_model_a541fc910e1d85b1fc2bb75d73e50e984}{netdem\+::\+Contact\+Model}}.
+
+\mbox{\Hypertarget{classnetdem_1_1_linear_spring_a75c4ae4a723880f348870beda2ac2eab}\label{classnetdem_1_1_linear_spring_a75c4ae4a723880f348870beda2ac2eab}} 
+\index{netdem::LinearSpring@{netdem::LinearSpring}!SetProperty@{SetProperty}}
+\index{SetProperty@{SetProperty}!netdem::LinearSpring@{netdem::LinearSpring}}
+\doxysubsubsection{\texorpdfstring{SetProperty()}{SetProperty()}}
+{\footnotesize\ttfamily void netdem\+::\+Linear\+Spring\+::\+Set\+Property (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{mpi__manager_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{nlohmann\+::json}} const \&}]{js }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{classnetdem_1_1_contact_model_a03526d9c5e43b4bdde8f392975533666}{netdem\+::\+Contact\+Model}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classnetdem_1_1_linear_spring_aa987d324343a1f5878f2bfd97bdb9cc3}\label{classnetdem_1_1_linear_spring_aa987d324343a1f5878f2bfd97bdb9cc3}} 
+\index{netdem::LinearSpring@{netdem::LinearSpring}!beta@{beta}}
+\index{beta@{beta}!netdem::LinearSpring@{netdem::LinearSpring}}
+\doxysubsubsection{\texorpdfstring{beta}{beta}}
+{\footnotesize\ttfamily double netdem\+::\+Linear\+Spring\+::beta \{0.\+7\}}
+
+\mbox{\Hypertarget{classnetdem_1_1_linear_spring_a2f1c34f217b708ddd2def45b0291936d}\label{classnetdem_1_1_linear_spring_a2f1c34f217b708ddd2def45b0291936d}} 
+\index{netdem::LinearSpring@{netdem::LinearSpring}!kn@{kn}}
+\index{kn@{kn}!netdem::LinearSpring@{netdem::LinearSpring}}
+\doxysubsubsection{\texorpdfstring{kn}{kn}}
+{\footnotesize\ttfamily double netdem\+::\+Linear\+Spring\+::kn \{2e6\}}
+
+\mbox{\Hypertarget{classnetdem_1_1_linear_spring_a0b932bc41153a3b030334cba63367c30}\label{classnetdem_1_1_linear_spring_a0b932bc41153a3b030334cba63367c30}} 
+\index{netdem::LinearSpring@{netdem::LinearSpring}!kt@{kt}}
+\index{kt@{kt}!netdem::LinearSpring@{netdem::LinearSpring}}
+\doxysubsubsection{\texorpdfstring{kt}{kt}}
+{\footnotesize\ttfamily double netdem\+::\+Linear\+Spring\+::kt \{1e6\}}
+
+\mbox{\Hypertarget{classnetdem_1_1_linear_spring_aa8edba335f67c91bef296243a6d7a449}\label{classnetdem_1_1_linear_spring_aa8edba335f67c91bef296243a6d7a449}} 
+\index{netdem::LinearSpring@{netdem::LinearSpring}!mu@{mu}}
+\index{mu@{mu}!netdem::LinearSpring@{netdem::LinearSpring}}
+\doxysubsubsection{\texorpdfstring{mu}{mu}}
+{\footnotesize\ttfamily double netdem\+::\+Linear\+Spring\+::mu \{0.\+5\}}
+
+\mbox{\Hypertarget{classnetdem_1_1_linear_spring_a8bf10c9dff540a4b963040904eab64f5}\label{classnetdem_1_1_linear_spring_a8bf10c9dff540a4b963040904eab64f5}} 
+\index{netdem::LinearSpring@{netdem::LinearSpring}!use\_viscous\_damping@{use\_viscous\_damping}}
+\index{use\_viscous\_damping@{use\_viscous\_damping}!netdem::LinearSpring@{netdem::LinearSpring}}
+\doxysubsubsection{\texorpdfstring{use\_viscous\_damping}{use\_viscous\_damping}}
+{\footnotesize\ttfamily bool netdem\+::\+Linear\+Spring\+::use\+\_\+viscous\+\_\+damping \{false\}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/lzhshou/\+Documents/\+Research/my\+Projects/apam/repo/netdem/src/dem/\mbox{\hyperlink{model__linear__spring_8hpp}{model\+\_\+linear\+\_\+spring.\+hpp}}\item 
+/\+Users/lzhshou/\+Documents/\+Research/my\+Projects/apam/repo/netdem/src/dem/\mbox{\hyperlink{model__linear__spring_8cpp}{model\+\_\+linear\+\_\+spring.\+cpp}}\end{DoxyCompactItemize}

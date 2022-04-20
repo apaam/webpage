@@ -1,0 +1,269 @@
+\hypertarget{classnetdem_1_1_d_e_m_solver}{}\doxysection{netdem\+::DEMSolver Class Reference}
+\label{classnetdem_1_1_d_e_m_solver}\index{netdem::DEMSolver@{netdem::DEMSolver}}
+
+
+{\ttfamily \#include $<$dem\+\_\+solver.\+hpp$>$}
+
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{classnetdem_1_1_d_e_m_solver_a7b625d897bb69cd28838602603b8b0c4}{Cycle\+Point}} \{ \newline
+\mbox{\hyperlink{classnetdem_1_1_d_e_m_solver_a7b625d897bb69cd28838602603b8b0c4a03e21037ee2bb4ffa60b59913aafc1ae}{pre}}
+, \mbox{\hyperlink{classnetdem_1_1_d_e_m_solver_a7b625d897bb69cd28838602603b8b0c4a0155416866bc9ebbdb5d406118db307c}{mid\+\_\+0}}
+, \mbox{\hyperlink{classnetdem_1_1_d_e_m_solver_a7b625d897bb69cd28838602603b8b0c4a69786b2a409af23dce615f2de6fed7c8}{mid\+\_\+1}}
+, \mbox{\hyperlink{classnetdem_1_1_d_e_m_solver_a7b625d897bb69cd28838602603b8b0c4a01b3c5aa2f497958bd709b1587328a9b}{mid\+\_\+2}}
+, \newline
+\mbox{\hyperlink{classnetdem_1_1_d_e_m_solver_a7b625d897bb69cd28838602603b8b0c4acee104ef2b137bb7b79e5e9eef4c5783}{post}}
+, \mbox{\hyperlink{classnetdem_1_1_d_e_m_solver_a7b625d897bb69cd28838602603b8b0c4a9299a4b096e8f90873e365f1b49e5a24}{num\+\_\+cycle\+\_\+points}}
+ \}
+\begin{DoxyCompactList}\small\item\em this is used by modifiers. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classnetdem_1_1_d_e_m_solver_aedec0fdad0c9bbd11dbdeca367c6a9ac}{DEMSolver}} ()
+\item 
+void \mbox{\hyperlink{classnetdem_1_1_d_e_m_solver_a84eec875e502e4045e7b3aa346cd9b59}{Init}} (\mbox{\hyperlink{classnetdem_1_1_simulation}{Simulation}} $\ast$\mbox{\hyperlink{classnetdem_1_1_d_e_m_solver_a88cfb46303446f25e1e543a8cd7dfcdd}{sim}})
+\item 
+void \mbox{\hyperlink{classnetdem_1_1_d_e_m_solver_af64e293b3bcbcd833b033b76ddc3aec8}{Update\+Pre\+Modifiers}} ()
+\begin{DoxyCompactList}\small\item\em step 1 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classnetdem_1_1_d_e_m_solver_a1c15fef1e7f53acb4a43ab2ff0f4bc4b}{Update\+Linked\+List}} ()
+\begin{DoxyCompactList}\small\item\em step 2 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classnetdem_1_1_d_e_m_solver_a3bf2c499df14f86466f2a12016081f63}{Update\+Contacts}} ()
+\begin{DoxyCompactList}\small\item\em step 3 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classnetdem_1_1_d_e_m_solver_a37fab43e769aba9ecc2ed6704f4ce5bc}{Update\+Particles}} ()
+\begin{DoxyCompactList}\small\item\em step 4 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classnetdem_1_1_d_e_m_solver_ae8348456a9990bd603b7f8c66a1be8ec}{Update\+Walls}} ()
+\begin{DoxyCompactList}\small\item\em step 5 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classnetdem_1_1_d_e_m_solver_a23bd1817b11eda4488ca21649097a884}{Update\+Post\+Modifiers}} ()
+\begin{DoxyCompactList}\small\item\em step 6 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classnetdem_1_1_d_e_m_solver_a4a21b0cd9ee990cee7de35491647927d}{Cycle}} (int num\+\_\+cycles)
+\item 
+void \mbox{\hyperlink{classnetdem_1_1_d_e_m_solver_a04e1a0a2ec1ef65841335912a4c96e61}{Solve}} (double time)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{classnetdem_1_1_d_e_m_solver_a425c71e883bed7ce636ce51f50f42f7f}{timestep}} \{1.\+0e-\/4\}
+\item 
+\mbox{\hyperlink{classnetdem_1_1_d_e_m_profiler}{DEMProfiler}} \mbox{\hyperlink{classnetdem_1_1_d_e_m_solver_ae624ebb0180f90d7db46316171930fc9}{dem\+\_\+profiler}}
+\begin{DoxyCompactList}\small\item\em track the matics of interest \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classnetdem_1_1_contact_solver_factory}{Contact\+Solver\+Factory}} \mbox{\hyperlink{classnetdem_1_1_d_e_m_solver_afacb73a3ad5d0cdb271e71ba518ab545}{contact\+\_\+solver\+\_\+factory}}
+\begin{DoxyCompactList}\small\item\em stores the solvers for contacts between particles and walls \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classnetdem_1_1_d_e_m_solver_a7cf48d8c2ccce21403731290fbc0d3e8}{Update\+Mid\+Modifiers}} (\mbox{\hyperlink{classnetdem_1_1_d_e_m_solver_a7b625d897bb69cd28838602603b8b0c4}{Cycle\+Point}} cyc\+\_\+point)
+\item 
+void \mbox{\hyperlink{classnetdem_1_1_d_e_m_solver_ada8f81d4b485dac311fa9d9cd47d854a}{Cycle}} ()
+\item 
+void \mbox{\hyperlink{classnetdem_1_1_d_e_m_solver_a48bb51dc896d0d42ec8deaf776a55604}{Dry\+Cycle}} ()
+\item 
+void \mbox{\hyperlink{classnetdem_1_1_d_e_m_solver_a9c164d6c7e9ab6ab42a9e26561750ab4}{Solve\+Contact\+PP}} (\mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} $\ast$const p\+\_\+ii, \mbox{\hyperlink{classnetdem_1_1_neigh_pof_p}{Neigh\+PofP}} $\ast$const neigh\+\_\+tuple, \mbox{\hyperlink{classnetdem_1_1_contact_solver_factory}{Contact\+Solver\+Factory}} $\ast$const solver\+\_\+factory)
+\item 
+void \mbox{\hyperlink{classnetdem_1_1_d_e_m_solver_a0e2e6b28b7b923cf19670312f873a35f}{Solve\+Contact\+PW}} (\mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} $\ast$const p\+\_\+ii, \mbox{\hyperlink{classnetdem_1_1_neigh_wof_p}{Neigh\+WofP}} $\ast$const neigh\+\_\+tuple, \mbox{\hyperlink{classnetdem_1_1_contact_solver_factory}{Contact\+Solver\+Factory}} $\ast$const solver\+\_\+factory)
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classnetdem_1_1_simulation}{Simulation}} $\ast$ \mbox{\hyperlink{classnetdem_1_1_d_e_m_solver_a88cfb46303446f25e1e543a8cd7dfcdd}{sim}} \{nullptr\}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Enumeration Documentation}
+\mbox{\Hypertarget{classnetdem_1_1_d_e_m_solver_a7b625d897bb69cd28838602603b8b0c4}\label{classnetdem_1_1_d_e_m_solver_a7b625d897bb69cd28838602603b8b0c4}} 
+\index{netdem::DEMSolver@{netdem::DEMSolver}!CyclePoint@{CyclePoint}}
+\index{CyclePoint@{CyclePoint}!netdem::DEMSolver@{netdem::DEMSolver}}
+\doxysubsubsection{\texorpdfstring{CyclePoint}{CyclePoint}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{classnetdem_1_1_d_e_m_solver_a7b625d897bb69cd28838602603b8b0c4}{netdem\+::\+DEMSolver\+::\+Cycle\+Point}}}
+
+
+
+this is used by modifiers. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{pre@{pre}!netdem::DEMSolver@{netdem::DEMSolver}}\index{netdem::DEMSolver@{netdem::DEMSolver}!pre@{pre}}}\mbox{\Hypertarget{classnetdem_1_1_d_e_m_solver_a7b625d897bb69cd28838602603b8b0c4a03e21037ee2bb4ffa60b59913aafc1ae}\label{classnetdem_1_1_d_e_m_solver_a7b625d897bb69cd28838602603b8b0c4a03e21037ee2bb4ffa60b59913aafc1ae}} 
+pre&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{mid\_0@{mid\_0}!netdem::DEMSolver@{netdem::DEMSolver}}\index{netdem::DEMSolver@{netdem::DEMSolver}!mid\_0@{mid\_0}}}\mbox{\Hypertarget{classnetdem_1_1_d_e_m_solver_a7b625d897bb69cd28838602603b8b0c4a0155416866bc9ebbdb5d406118db307c}\label{classnetdem_1_1_d_e_m_solver_a7b625d897bb69cd28838602603b8b0c4a0155416866bc9ebbdb5d406118db307c}} 
+mid\+\_\+0&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{mid\_1@{mid\_1}!netdem::DEMSolver@{netdem::DEMSolver}}\index{netdem::DEMSolver@{netdem::DEMSolver}!mid\_1@{mid\_1}}}\mbox{\Hypertarget{classnetdem_1_1_d_e_m_solver_a7b625d897bb69cd28838602603b8b0c4a69786b2a409af23dce615f2de6fed7c8}\label{classnetdem_1_1_d_e_m_solver_a7b625d897bb69cd28838602603b8b0c4a69786b2a409af23dce615f2de6fed7c8}} 
+mid\+\_\+1&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{mid\_2@{mid\_2}!netdem::DEMSolver@{netdem::DEMSolver}}\index{netdem::DEMSolver@{netdem::DEMSolver}!mid\_2@{mid\_2}}}\mbox{\Hypertarget{classnetdem_1_1_d_e_m_solver_a7b625d897bb69cd28838602603b8b0c4a01b3c5aa2f497958bd709b1587328a9b}\label{classnetdem_1_1_d_e_m_solver_a7b625d897bb69cd28838602603b8b0c4a01b3c5aa2f497958bd709b1587328a9b}} 
+mid\+\_\+2&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{post@{post}!netdem::DEMSolver@{netdem::DEMSolver}}\index{netdem::DEMSolver@{netdem::DEMSolver}!post@{post}}}\mbox{\Hypertarget{classnetdem_1_1_d_e_m_solver_a7b625d897bb69cd28838602603b8b0c4acee104ef2b137bb7b79e5e9eef4c5783}\label{classnetdem_1_1_d_e_m_solver_a7b625d897bb69cd28838602603b8b0c4acee104ef2b137bb7b79e5e9eef4c5783}} 
+post&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{num\_cycle\_points@{num\_cycle\_points}!netdem::DEMSolver@{netdem::DEMSolver}}\index{netdem::DEMSolver@{netdem::DEMSolver}!num\_cycle\_points@{num\_cycle\_points}}}\mbox{\Hypertarget{classnetdem_1_1_d_e_m_solver_a7b625d897bb69cd28838602603b8b0c4a9299a4b096e8f90873e365f1b49e5a24}\label{classnetdem_1_1_d_e_m_solver_a7b625d897bb69cd28838602603b8b0c4a9299a4b096e8f90873e365f1b49e5a24}} 
+num\+\_\+cycle\+\_\+points&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classnetdem_1_1_d_e_m_solver_aedec0fdad0c9bbd11dbdeca367c6a9ac}\label{classnetdem_1_1_d_e_m_solver_aedec0fdad0c9bbd11dbdeca367c6a9ac}} 
+\index{netdem::DEMSolver@{netdem::DEMSolver}!DEMSolver@{DEMSolver}}
+\index{DEMSolver@{DEMSolver}!netdem::DEMSolver@{netdem::DEMSolver}}
+\doxysubsubsection{\texorpdfstring{DEMSolver()}{DEMSolver()}}
+{\footnotesize\ttfamily DEMSolver\+::\+DEMSolver (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classnetdem_1_1_d_e_m_solver_ada8f81d4b485dac311fa9d9cd47d854a}\label{classnetdem_1_1_d_e_m_solver_ada8f81d4b485dac311fa9d9cd47d854a}} 
+\index{netdem::DEMSolver@{netdem::DEMSolver}!Cycle@{Cycle}}
+\index{Cycle@{Cycle}!netdem::DEMSolver@{netdem::DEMSolver}}
+\doxysubsubsection{\texorpdfstring{Cycle()}{Cycle()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void DEMSolver\+::\+Cycle (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classnetdem_1_1_d_e_m_solver_a4a21b0cd9ee990cee7de35491647927d}\label{classnetdem_1_1_d_e_m_solver_a4a21b0cd9ee990cee7de35491647927d}} 
+\index{netdem::DEMSolver@{netdem::DEMSolver}!Cycle@{Cycle}}
+\index{Cycle@{Cycle}!netdem::DEMSolver@{netdem::DEMSolver}}
+\doxysubsubsection{\texorpdfstring{Cycle()}{Cycle()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void DEMSolver\+::\+Cycle (\begin{DoxyParamCaption}\item[{int}]{num\+\_\+cycles }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classnetdem_1_1_d_e_m_solver_a48bb51dc896d0d42ec8deaf776a55604}\label{classnetdem_1_1_d_e_m_solver_a48bb51dc896d0d42ec8deaf776a55604}} 
+\index{netdem::DEMSolver@{netdem::DEMSolver}!DryCycle@{DryCycle}}
+\index{DryCycle@{DryCycle}!netdem::DEMSolver@{netdem::DEMSolver}}
+\doxysubsubsection{\texorpdfstring{DryCycle()}{DryCycle()}}
+{\footnotesize\ttfamily void DEMSolver\+::\+Dry\+Cycle (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classnetdem_1_1_d_e_m_solver_a84eec875e502e4045e7b3aa346cd9b59}\label{classnetdem_1_1_d_e_m_solver_a84eec875e502e4045e7b3aa346cd9b59}} 
+\index{netdem::DEMSolver@{netdem::DEMSolver}!Init@{Init}}
+\index{Init@{Init}!netdem::DEMSolver@{netdem::DEMSolver}}
+\doxysubsubsection{\texorpdfstring{Init()}{Init()}}
+{\footnotesize\ttfamily void DEMSolver\+::\+Init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_simulation}{Simulation}} $\ast$}]{sim }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classnetdem_1_1_d_e_m_solver_a04e1a0a2ec1ef65841335912a4c96e61}\label{classnetdem_1_1_d_e_m_solver_a04e1a0a2ec1ef65841335912a4c96e61}} 
+\index{netdem::DEMSolver@{netdem::DEMSolver}!Solve@{Solve}}
+\index{Solve@{Solve}!netdem::DEMSolver@{netdem::DEMSolver}}
+\doxysubsubsection{\texorpdfstring{Solve()}{Solve()}}
+{\footnotesize\ttfamily void DEMSolver\+::\+Solve (\begin{DoxyParamCaption}\item[{double}]{time }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classnetdem_1_1_d_e_m_solver_a9c164d6c7e9ab6ab42a9e26561750ab4}\label{classnetdem_1_1_d_e_m_solver_a9c164d6c7e9ab6ab42a9e26561750ab4}} 
+\index{netdem::DEMSolver@{netdem::DEMSolver}!SolveContactPP@{SolveContactPP}}
+\index{SolveContactPP@{SolveContactPP}!netdem::DEMSolver@{netdem::DEMSolver}}
+\doxysubsubsection{\texorpdfstring{SolveContactPP()}{SolveContactPP()}}
+{\footnotesize\ttfamily void DEMSolver\+::\+Solve\+Contact\+PP (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} $\ast$const}]{p\+\_\+ii,  }\item[{\mbox{\hyperlink{classnetdem_1_1_neigh_pof_p}{Neigh\+PofP}} $\ast$const}]{neigh\+\_\+tuple,  }\item[{\mbox{\hyperlink{classnetdem_1_1_contact_solver_factory}{Contact\+Solver\+Factory}} $\ast$const}]{solver\+\_\+factory }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classnetdem_1_1_d_e_m_solver_a0e2e6b28b7b923cf19670312f873a35f}\label{classnetdem_1_1_d_e_m_solver_a0e2e6b28b7b923cf19670312f873a35f}} 
+\index{netdem::DEMSolver@{netdem::DEMSolver}!SolveContactPW@{SolveContactPW}}
+\index{SolveContactPW@{SolveContactPW}!netdem::DEMSolver@{netdem::DEMSolver}}
+\doxysubsubsection{\texorpdfstring{SolveContactPW()}{SolveContactPW()}}
+{\footnotesize\ttfamily void DEMSolver\+::\+Solve\+Contact\+PW (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} $\ast$const}]{p\+\_\+ii,  }\item[{\mbox{\hyperlink{classnetdem_1_1_neigh_wof_p}{Neigh\+WofP}} $\ast$const}]{neigh\+\_\+tuple,  }\item[{\mbox{\hyperlink{classnetdem_1_1_contact_solver_factory}{Contact\+Solver\+Factory}} $\ast$const}]{solver\+\_\+factory }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classnetdem_1_1_d_e_m_solver_a3bf2c499df14f86466f2a12016081f63}\label{classnetdem_1_1_d_e_m_solver_a3bf2c499df14f86466f2a12016081f63}} 
+\index{netdem::DEMSolver@{netdem::DEMSolver}!UpdateContacts@{UpdateContacts}}
+\index{UpdateContacts@{UpdateContacts}!netdem::DEMSolver@{netdem::DEMSolver}}
+\doxysubsubsection{\texorpdfstring{UpdateContacts()}{UpdateContacts()}}
+{\footnotesize\ttfamily void DEMSolver\+::\+Update\+Contacts (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+step 3 
+
+\mbox{\Hypertarget{classnetdem_1_1_d_e_m_solver_a1c15fef1e7f53acb4a43ab2ff0f4bc4b}\label{classnetdem_1_1_d_e_m_solver_a1c15fef1e7f53acb4a43ab2ff0f4bc4b}} 
+\index{netdem::DEMSolver@{netdem::DEMSolver}!UpdateLinkedList@{UpdateLinkedList}}
+\index{UpdateLinkedList@{UpdateLinkedList}!netdem::DEMSolver@{netdem::DEMSolver}}
+\doxysubsubsection{\texorpdfstring{UpdateLinkedList()}{UpdateLinkedList()}}
+{\footnotesize\ttfamily void DEMSolver\+::\+Update\+Linked\+List (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+step 2 
+
+\mbox{\Hypertarget{classnetdem_1_1_d_e_m_solver_a7cf48d8c2ccce21403731290fbc0d3e8}\label{classnetdem_1_1_d_e_m_solver_a7cf48d8c2ccce21403731290fbc0d3e8}} 
+\index{netdem::DEMSolver@{netdem::DEMSolver}!UpdateMidModifiers@{UpdateMidModifiers}}
+\index{UpdateMidModifiers@{UpdateMidModifiers}!netdem::DEMSolver@{netdem::DEMSolver}}
+\doxysubsubsection{\texorpdfstring{UpdateMidModifiers()}{UpdateMidModifiers()}}
+{\footnotesize\ttfamily void DEMSolver\+::\+Update\+Mid\+Modifiers (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_d_e_m_solver_a7b625d897bb69cd28838602603b8b0c4}{Cycle\+Point}}}]{cyc\+\_\+point }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classnetdem_1_1_d_e_m_solver_a37fab43e769aba9ecc2ed6704f4ce5bc}\label{classnetdem_1_1_d_e_m_solver_a37fab43e769aba9ecc2ed6704f4ce5bc}} 
+\index{netdem::DEMSolver@{netdem::DEMSolver}!UpdateParticles@{UpdateParticles}}
+\index{UpdateParticles@{UpdateParticles}!netdem::DEMSolver@{netdem::DEMSolver}}
+\doxysubsubsection{\texorpdfstring{UpdateParticles()}{UpdateParticles()}}
+{\footnotesize\ttfamily void DEMSolver\+::\+Update\+Particles (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+step 4 
+
+\mbox{\Hypertarget{classnetdem_1_1_d_e_m_solver_a23bd1817b11eda4488ca21649097a884}\label{classnetdem_1_1_d_e_m_solver_a23bd1817b11eda4488ca21649097a884}} 
+\index{netdem::DEMSolver@{netdem::DEMSolver}!UpdatePostModifiers@{UpdatePostModifiers}}
+\index{UpdatePostModifiers@{UpdatePostModifiers}!netdem::DEMSolver@{netdem::DEMSolver}}
+\doxysubsubsection{\texorpdfstring{UpdatePostModifiers()}{UpdatePostModifiers()}}
+{\footnotesize\ttfamily void DEMSolver\+::\+Update\+Post\+Modifiers (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+step 6 
+
+\mbox{\Hypertarget{classnetdem_1_1_d_e_m_solver_af64e293b3bcbcd833b033b76ddc3aec8}\label{classnetdem_1_1_d_e_m_solver_af64e293b3bcbcd833b033b76ddc3aec8}} 
+\index{netdem::DEMSolver@{netdem::DEMSolver}!UpdatePreModifiers@{UpdatePreModifiers}}
+\index{UpdatePreModifiers@{UpdatePreModifiers}!netdem::DEMSolver@{netdem::DEMSolver}}
+\doxysubsubsection{\texorpdfstring{UpdatePreModifiers()}{UpdatePreModifiers()}}
+{\footnotesize\ttfamily void DEMSolver\+::\+Update\+Pre\+Modifiers (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+step 1 
+
+\mbox{\Hypertarget{classnetdem_1_1_d_e_m_solver_ae8348456a9990bd603b7f8c66a1be8ec}\label{classnetdem_1_1_d_e_m_solver_ae8348456a9990bd603b7f8c66a1be8ec}} 
+\index{netdem::DEMSolver@{netdem::DEMSolver}!UpdateWalls@{UpdateWalls}}
+\index{UpdateWalls@{UpdateWalls}!netdem::DEMSolver@{netdem::DEMSolver}}
+\doxysubsubsection{\texorpdfstring{UpdateWalls()}{UpdateWalls()}}
+{\footnotesize\ttfamily void DEMSolver\+::\+Update\+Walls (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+step 5 
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classnetdem_1_1_d_e_m_solver_afacb73a3ad5d0cdb271e71ba518ab545}\label{classnetdem_1_1_d_e_m_solver_afacb73a3ad5d0cdb271e71ba518ab545}} 
+\index{netdem::DEMSolver@{netdem::DEMSolver}!contact\_solver\_factory@{contact\_solver\_factory}}
+\index{contact\_solver\_factory@{contact\_solver\_factory}!netdem::DEMSolver@{netdem::DEMSolver}}
+\doxysubsubsection{\texorpdfstring{contact\_solver\_factory}{contact\_solver\_factory}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classnetdem_1_1_contact_solver_factory}{Contact\+Solver\+Factory}} netdem\+::\+DEMSolver\+::contact\+\_\+solver\+\_\+factory}
+
+
+
+stores the solvers for contacts between particles and walls 
+
+\mbox{\Hypertarget{classnetdem_1_1_d_e_m_solver_ae624ebb0180f90d7db46316171930fc9}\label{classnetdem_1_1_d_e_m_solver_ae624ebb0180f90d7db46316171930fc9}} 
+\index{netdem::DEMSolver@{netdem::DEMSolver}!dem\_profiler@{dem\_profiler}}
+\index{dem\_profiler@{dem\_profiler}!netdem::DEMSolver@{netdem::DEMSolver}}
+\doxysubsubsection{\texorpdfstring{dem\_profiler}{dem\_profiler}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classnetdem_1_1_d_e_m_profiler}{DEMProfiler}} netdem\+::\+DEMSolver\+::dem\+\_\+profiler}
+
+
+
+track the matics of interest 
+
+\mbox{\Hypertarget{classnetdem_1_1_d_e_m_solver_a88cfb46303446f25e1e543a8cd7dfcdd}\label{classnetdem_1_1_d_e_m_solver_a88cfb46303446f25e1e543a8cd7dfcdd}} 
+\index{netdem::DEMSolver@{netdem::DEMSolver}!sim@{sim}}
+\index{sim@{sim}!netdem::DEMSolver@{netdem::DEMSolver}}
+\doxysubsubsection{\texorpdfstring{sim}{sim}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classnetdem_1_1_simulation}{Simulation}}$\ast$ netdem\+::\+DEMSolver\+::sim \{nullptr\}\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classnetdem_1_1_d_e_m_solver_a425c71e883bed7ce636ce51f50f42f7f}\label{classnetdem_1_1_d_e_m_solver_a425c71e883bed7ce636ce51f50f42f7f}} 
+\index{netdem::DEMSolver@{netdem::DEMSolver}!timestep@{timestep}}
+\index{timestep@{timestep}!netdem::DEMSolver@{netdem::DEMSolver}}
+\doxysubsubsection{\texorpdfstring{timestep}{timestep}}
+{\footnotesize\ttfamily double netdem\+::\+DEMSolver\+::timestep \{1.\+0e-\/4\}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/lzhshou/\+Documents/\+Research/my\+Projects/apam/repo/netdem/src/dem/\mbox{\hyperlink{dem__solver_8hpp}{dem\+\_\+solver.\+hpp}}\item 
+/\+Users/lzhshou/\+Documents/\+Research/my\+Projects/apam/repo/netdem/src/dem/\mbox{\hyperlink{dem__solver_8cpp}{dem\+\_\+solver.\+cpp}}\end{DoxyCompactItemize}
