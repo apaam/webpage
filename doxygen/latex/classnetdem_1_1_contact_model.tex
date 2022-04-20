@@ -1,0 +1,226 @@
+\hypertarget{classnetdem_1_1_contact_model}{}\doxysection{netdem\+::Contact\+Model Class Reference}
+\label{classnetdem_1_1_contact_model}\index{netdem::ContactModel@{netdem::ContactModel}}
+
+
+{\ttfamily \#include $<$contact\+\_\+model.\+hpp$>$}
+
+Inheritance diagram for netdem\+::Contact\+Model\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=1.944445cm]{classnetdem_1_1_contact_model}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{classnetdem_1_1_contact_model_a86b4462f72dd85e2e8a55dd6844f6b51}{Type}} \{ \newline
+\mbox{\hyperlink{classnetdem_1_1_contact_model_a86b4462f72dd85e2e8a55dd6844f6b51a283fafdd11e8dcf34397cefffa6e6f23}{none}}
+, \mbox{\hyperlink{classnetdem_1_1_contact_model_a86b4462f72dd85e2e8a55dd6844f6b51adb0a6e319bcfe5f0df23e62b48ab0955}{linear\+\_\+spring}}
+, \mbox{\hyperlink{classnetdem_1_1_contact_model_a86b4462f72dd85e2e8a55dd6844f6b51ae2bd1b0fede33e38b83f9de6f8f3cfb1}{hertz\+\_\+mindlin}}
+, \mbox{\hyperlink{classnetdem_1_1_contact_model_a86b4462f72dd85e2e8a55dd6844f6b51afaaae10cad49f37d1574642e13ef751e}{volume\+\_\+based}}
+, \newline
+\mbox{\hyperlink{classnetdem_1_1_contact_model_a86b4462f72dd85e2e8a55dd6844f6b51ac929ea908a2c3feaab83c52917856cd6}{parallel\+\_\+bond}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{mpi__manager_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{nlohmann\+::json}} \mbox{\hyperlink{classnetdem_1_1_contact_model_a191a737b001313dd8a39d5f1dc1d6a78}{Pack\+Json}} ()
+\item 
+virtual void \mbox{\hyperlink{classnetdem_1_1_contact_model_ad857f6a66c0ac793e12d5d66e69e679e}{Init\+From\+Json}} (\mbox{\hyperlink{mpi__manager_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{nlohmann\+::json}} const \&js)
+\item 
+virtual void \mbox{\hyperlink{classnetdem_1_1_contact_model_a03526d9c5e43b4bdde8f392975533666}{Set\+Property}} (\mbox{\hyperlink{mpi__manager_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{nlohmann\+::json}} const \&js)
+\item 
+virtual \mbox{\hyperlink{classnetdem_1_1_contact_model}{Contact\+Model}} $\ast$ \mbox{\hyperlink{classnetdem_1_1_contact_model_a697207b7395fdc6cface026d9df65678}{Clone}} () const
+\item 
+virtual void \mbox{\hyperlink{classnetdem_1_1_contact_model_aa518a60578e61a60c3a0ba50ee99ec4d}{Evaluate\+Force\+Moment}} (\mbox{\hyperlink{classnetdem_1_1_contact_forces}{Contact\+Forces}} $\ast$const cnt\+\_\+forces, \mbox{\hyperlink{classnetdem_1_1_collision_geometries}{Collision\+Geometries}} \&cnt\+\_\+geoms, \mbox{\hyperlink{classnetdem_1_1_contact_p_p}{Contact\+PP}} $\ast$const cnt, double dt) const
+\item 
+virtual void \mbox{\hyperlink{classnetdem_1_1_contact_model_ad21d8123a17a71ee430fb475b864d6a0}{Evaluate\+Force\+Moment}} (\mbox{\hyperlink{classnetdem_1_1_contact_forces}{Contact\+Forces}} $\ast$const cnt\+\_\+forces, \mbox{\hyperlink{classnetdem_1_1_bond_geometries}{Bond\+Geometries}} \&cnt\+\_\+geoms, \mbox{\hyperlink{classnetdem_1_1_contact_p_p}{Contact\+PP}} $\ast$const cnt, double dt) const
+\item 
+virtual void \mbox{\hyperlink{classnetdem_1_1_contact_model_a75d0d3da3432937dd69648f3146d9c1a}{Evaluate\+Force\+Moment}} (\mbox{\hyperlink{classnetdem_1_1_contact_forces}{Contact\+Forces}} $\ast$const cnt\+\_\+forces, \mbox{\hyperlink{classnetdem_1_1_collision_geometries}{Collision\+Geometries}} \&cnt\+\_\+geoms, \mbox{\hyperlink{classnetdem_1_1_contact_p_w}{Contact\+PW}} $\ast$const cnt, double dt) const
+\item 
+virtual void \mbox{\hyperlink{classnetdem_1_1_contact_model_aa7b8c2408fc61dd91fea4d7c56819235}{Evaluate\+Force\+Moment}} (\mbox{\hyperlink{classnetdem_1_1_contact_forces}{Contact\+Forces}} $\ast$const cnt\+\_\+forces, \mbox{\hyperlink{classnetdem_1_1_bond_geometries}{Bond\+Geometries}} \&cnt\+\_\+geoms, \mbox{\hyperlink{classnetdem_1_1_contact_p_w}{Contact\+PW}} $\ast$const cnt, double dt) const
+\item 
+virtual void \mbox{\hyperlink{classnetdem_1_1_contact_model_a541fc910e1d85b1fc2bb75d73e50e984}{Print}} () const
+\item 
+virtual \mbox{\hyperlink{classnetdem_1_1_contact_model_a8cc9483a6ac756f0c3d6832550232540}{$\sim$\+Contact\+Model}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{classnetdem_1_1_contact_model_af742c7150b1b9f1734cbc31644fb1105}{id}} \{0\}
+\item 
+std\+::string \mbox{\hyperlink{classnetdem_1_1_contact_model_ac452f37ee577eb8e2cefa4156d9c62ab}{label}} \{\char`\"{}default\char`\"{}\}
+\item 
+int \mbox{\hyperlink{classnetdem_1_1_contact_model_a79bc2c3ed2881b0e3640ceeba80308dc}{model\+\_\+type}} \{0\}
+\item 
+std\+::string \mbox{\hyperlink{classnetdem_1_1_contact_model_af4af438894db0d3a88e6ed66e397cc2b}{model\+\_\+name}} \{\char`\"{}contact\+\_\+model\char`\"{}\}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+interface of contact model. A concrete contact model should have and override the Evaluate\+Force\+Moment method. 
+
+\doxysubsection{Member Enumeration Documentation}
+\mbox{\Hypertarget{classnetdem_1_1_contact_model_a86b4462f72dd85e2e8a55dd6844f6b51}\label{classnetdem_1_1_contact_model_a86b4462f72dd85e2e8a55dd6844f6b51}} 
+\index{netdem::ContactModel@{netdem::ContactModel}!Type@{Type}}
+\index{Type@{Type}!netdem::ContactModel@{netdem::ContactModel}}
+\doxysubsubsection{\texorpdfstring{Type}{Type}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{classnetdem_1_1_contact_model_a86b4462f72dd85e2e8a55dd6844f6b51}{netdem\+::\+Contact\+Model\+::\+Type}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{none@{none}!netdem::ContactModel@{netdem::ContactModel}}\index{netdem::ContactModel@{netdem::ContactModel}!none@{none}}}\mbox{\Hypertarget{classnetdem_1_1_contact_model_a86b4462f72dd85e2e8a55dd6844f6b51a283fafdd11e8dcf34397cefffa6e6f23}\label{classnetdem_1_1_contact_model_a86b4462f72dd85e2e8a55dd6844f6b51a283fafdd11e8dcf34397cefffa6e6f23}} 
+none&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{linear\_spring@{linear\_spring}!netdem::ContactModel@{netdem::ContactModel}}\index{netdem::ContactModel@{netdem::ContactModel}!linear\_spring@{linear\_spring}}}\mbox{\Hypertarget{classnetdem_1_1_contact_model_a86b4462f72dd85e2e8a55dd6844f6b51adb0a6e319bcfe5f0df23e62b48ab0955}\label{classnetdem_1_1_contact_model_a86b4462f72dd85e2e8a55dd6844f6b51adb0a6e319bcfe5f0df23e62b48ab0955}} 
+linear\+\_\+spring&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{hertz\_mindlin@{hertz\_mindlin}!netdem::ContactModel@{netdem::ContactModel}}\index{netdem::ContactModel@{netdem::ContactModel}!hertz\_mindlin@{hertz\_mindlin}}}\mbox{\Hypertarget{classnetdem_1_1_contact_model_a86b4462f72dd85e2e8a55dd6844f6b51ae2bd1b0fede33e38b83f9de6f8f3cfb1}\label{classnetdem_1_1_contact_model_a86b4462f72dd85e2e8a55dd6844f6b51ae2bd1b0fede33e38b83f9de6f8f3cfb1}} 
+hertz\+\_\+mindlin&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{volume\_based@{volume\_based}!netdem::ContactModel@{netdem::ContactModel}}\index{netdem::ContactModel@{netdem::ContactModel}!volume\_based@{volume\_based}}}\mbox{\Hypertarget{classnetdem_1_1_contact_model_a86b4462f72dd85e2e8a55dd6844f6b51afaaae10cad49f37d1574642e13ef751e}\label{classnetdem_1_1_contact_model_a86b4462f72dd85e2e8a55dd6844f6b51afaaae10cad49f37d1574642e13ef751e}} 
+volume\+\_\+based&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{parallel\_bond@{parallel\_bond}!netdem::ContactModel@{netdem::ContactModel}}\index{netdem::ContactModel@{netdem::ContactModel}!parallel\_bond@{parallel\_bond}}}\mbox{\Hypertarget{classnetdem_1_1_contact_model_a86b4462f72dd85e2e8a55dd6844f6b51ac929ea908a2c3feaab83c52917856cd6}\label{classnetdem_1_1_contact_model_a86b4462f72dd85e2e8a55dd6844f6b51ac929ea908a2c3feaab83c52917856cd6}} 
+parallel\+\_\+bond&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classnetdem_1_1_contact_model_a8cc9483a6ac756f0c3d6832550232540}\label{classnetdem_1_1_contact_model_a8cc9483a6ac756f0c3d6832550232540}} 
+\index{netdem::ContactModel@{netdem::ContactModel}!````~ContactModel@{$\sim$ContactModel}}
+\index{````~ContactModel@{$\sim$ContactModel}!netdem::ContactModel@{netdem::ContactModel}}
+\doxysubsubsection{\texorpdfstring{$\sim$ContactModel()}{~ContactModel()}}
+{\footnotesize\ttfamily virtual netdem\+::\+Contact\+Model\+::$\sim$\+Contact\+Model (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classnetdem_1_1_contact_model_a697207b7395fdc6cface026d9df65678}\label{classnetdem_1_1_contact_model_a697207b7395fdc6cface026d9df65678}} 
+\index{netdem::ContactModel@{netdem::ContactModel}!Clone@{Clone}}
+\index{Clone@{Clone}!netdem::ContactModel@{netdem::ContactModel}}
+\doxysubsubsection{\texorpdfstring{Clone()}{Clone()}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{classnetdem_1_1_contact_model}{Contact\+Model}} $\ast$ netdem\+::\+Contact\+Model\+::\+Clone (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented in \mbox{\hyperlink{classnetdem_1_1_hertz_mindlin_aea81842323a50c60f013726065f75e3f}{netdem\+::\+Hertz\+Mindlin}}, \mbox{\hyperlink{classnetdem_1_1_linear_spring_a7c6f7710b72c617ea6f7af3c0cdf0b16}{netdem\+::\+Linear\+Spring}}, \mbox{\hyperlink{classnetdem_1_1_parallel_bond_a5a82aaff231747a0d2b36185b3f80834}{netdem\+::\+Parallel\+Bond}}, and \mbox{\hyperlink{classnetdem_1_1_volume_based_abec667a36ab01327a01b5722cba48c1b}{netdem\+::\+Volume\+Based}}.
+
+\mbox{\Hypertarget{classnetdem_1_1_contact_model_ad21d8123a17a71ee430fb475b864d6a0}\label{classnetdem_1_1_contact_model_ad21d8123a17a71ee430fb475b864d6a0}} 
+\index{netdem::ContactModel@{netdem::ContactModel}!EvaluateForceMoment@{EvaluateForceMoment}}
+\index{EvaluateForceMoment@{EvaluateForceMoment}!netdem::ContactModel@{netdem::ContactModel}}
+\doxysubsubsection{\texorpdfstring{EvaluateForceMoment()}{EvaluateForceMoment()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily virtual void netdem\+::\+Contact\+Model\+::\+Evaluate\+Force\+Moment (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_contact_forces}{Contact\+Forces}} $\ast$const}]{cnt\+\_\+forces,  }\item[{\mbox{\hyperlink{classnetdem_1_1_bond_geometries}{Bond\+Geometries}} \&}]{cnt\+\_\+geoms,  }\item[{\mbox{\hyperlink{classnetdem_1_1_contact_p_p}{Contact\+PP}} $\ast$const}]{cnt,  }\item[{double}]{dt }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented in \mbox{\hyperlink{classnetdem_1_1_parallel_bond_a59a03213a076756dd7b357bfda18aed4}{netdem\+::\+Parallel\+Bond}}.
+
+\mbox{\Hypertarget{classnetdem_1_1_contact_model_aa7b8c2408fc61dd91fea4d7c56819235}\label{classnetdem_1_1_contact_model_aa7b8c2408fc61dd91fea4d7c56819235}} 
+\index{netdem::ContactModel@{netdem::ContactModel}!EvaluateForceMoment@{EvaluateForceMoment}}
+\index{EvaluateForceMoment@{EvaluateForceMoment}!netdem::ContactModel@{netdem::ContactModel}}
+\doxysubsubsection{\texorpdfstring{EvaluateForceMoment()}{EvaluateForceMoment()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily virtual void netdem\+::\+Contact\+Model\+::\+Evaluate\+Force\+Moment (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_contact_forces}{Contact\+Forces}} $\ast$const}]{cnt\+\_\+forces,  }\item[{\mbox{\hyperlink{classnetdem_1_1_bond_geometries}{Bond\+Geometries}} \&}]{cnt\+\_\+geoms,  }\item[{\mbox{\hyperlink{classnetdem_1_1_contact_p_w}{Contact\+PW}} $\ast$const}]{cnt,  }\item[{double}]{dt }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented in \mbox{\hyperlink{classnetdem_1_1_parallel_bond_ad3a045c95142e5d924f1a33636ed8ba3}{netdem\+::\+Parallel\+Bond}}.
+
+\mbox{\Hypertarget{classnetdem_1_1_contact_model_aa518a60578e61a60c3a0ba50ee99ec4d}\label{classnetdem_1_1_contact_model_aa518a60578e61a60c3a0ba50ee99ec4d}} 
+\index{netdem::ContactModel@{netdem::ContactModel}!EvaluateForceMoment@{EvaluateForceMoment}}
+\index{EvaluateForceMoment@{EvaluateForceMoment}!netdem::ContactModel@{netdem::ContactModel}}
+\doxysubsubsection{\texorpdfstring{EvaluateForceMoment()}{EvaluateForceMoment()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily virtual void netdem\+::\+Contact\+Model\+::\+Evaluate\+Force\+Moment (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_contact_forces}{Contact\+Forces}} $\ast$const}]{cnt\+\_\+forces,  }\item[{\mbox{\hyperlink{classnetdem_1_1_collision_geometries}{Collision\+Geometries}} \&}]{cnt\+\_\+geoms,  }\item[{\mbox{\hyperlink{classnetdem_1_1_contact_p_p}{Contact\+PP}} $\ast$const}]{cnt,  }\item[{double}]{dt }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented in \mbox{\hyperlink{classnetdem_1_1_hertz_mindlin_aa6c90745ac05115a51082ad425b0759b}{netdem\+::\+Hertz\+Mindlin}}, \mbox{\hyperlink{classnetdem_1_1_linear_spring_afed81fe8d9220c7a8bcccf3dda63c4cd}{netdem\+::\+Linear\+Spring}}, and \mbox{\hyperlink{classnetdem_1_1_volume_based_a41613b5f841fe7dcc1f262c5ada711aa}{netdem\+::\+Volume\+Based}}.
+
+\mbox{\Hypertarget{classnetdem_1_1_contact_model_a75d0d3da3432937dd69648f3146d9c1a}\label{classnetdem_1_1_contact_model_a75d0d3da3432937dd69648f3146d9c1a}} 
+\index{netdem::ContactModel@{netdem::ContactModel}!EvaluateForceMoment@{EvaluateForceMoment}}
+\index{EvaluateForceMoment@{EvaluateForceMoment}!netdem::ContactModel@{netdem::ContactModel}}
+\doxysubsubsection{\texorpdfstring{EvaluateForceMoment()}{EvaluateForceMoment()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily virtual void netdem\+::\+Contact\+Model\+::\+Evaluate\+Force\+Moment (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_contact_forces}{Contact\+Forces}} $\ast$const}]{cnt\+\_\+forces,  }\item[{\mbox{\hyperlink{classnetdem_1_1_collision_geometries}{Collision\+Geometries}} \&}]{cnt\+\_\+geoms,  }\item[{\mbox{\hyperlink{classnetdem_1_1_contact_p_w}{Contact\+PW}} $\ast$const}]{cnt,  }\item[{double}]{dt }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented in \mbox{\hyperlink{classnetdem_1_1_hertz_mindlin_acec5c24755df3d4166435d0a1f4a82f8}{netdem\+::\+Hertz\+Mindlin}}, \mbox{\hyperlink{classnetdem_1_1_linear_spring_ab8237ceba530f6b9ac6918c1a2f7d879}{netdem\+::\+Linear\+Spring}}, and \mbox{\hyperlink{classnetdem_1_1_volume_based_ac69b7ecb791d653ca64c516824095537}{netdem\+::\+Volume\+Based}}.
+
+\mbox{\Hypertarget{classnetdem_1_1_contact_model_ad857f6a66c0ac793e12d5d66e69e679e}\label{classnetdem_1_1_contact_model_ad857f6a66c0ac793e12d5d66e69e679e}} 
+\index{netdem::ContactModel@{netdem::ContactModel}!InitFromJson@{InitFromJson}}
+\index{InitFromJson@{InitFromJson}!netdem::ContactModel@{netdem::ContactModel}}
+\doxysubsubsection{\texorpdfstring{InitFromJson()}{InitFromJson()}}
+{\footnotesize\ttfamily virtual void netdem\+::\+Contact\+Model\+::\+Init\+From\+Json (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{mpi__manager_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{nlohmann\+::json}} const \&}]{js }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented in \mbox{\hyperlink{classnetdem_1_1_hertz_mindlin_ac7545345b98316ec71b3e53c267f6c9f}{netdem\+::\+Hertz\+Mindlin}}, \mbox{\hyperlink{classnetdem_1_1_linear_spring_ad3d3e87f1de14c836c484dd210a9ae76}{netdem\+::\+Linear\+Spring}}, \mbox{\hyperlink{classnetdem_1_1_parallel_bond_a5c9bb9cac18250da3645ba4df3d69af1}{netdem\+::\+Parallel\+Bond}}, and \mbox{\hyperlink{classnetdem_1_1_volume_based_a5274fee66bc481cc4d0d4a4e4ac9fc3d}{netdem\+::\+Volume\+Based}}.
+
+\mbox{\Hypertarget{classnetdem_1_1_contact_model_a191a737b001313dd8a39d5f1dc1d6a78}\label{classnetdem_1_1_contact_model_a191a737b001313dd8a39d5f1dc1d6a78}} 
+\index{netdem::ContactModel@{netdem::ContactModel}!PackJson@{PackJson}}
+\index{PackJson@{PackJson}!netdem::ContactModel@{netdem::ContactModel}}
+\doxysubsubsection{\texorpdfstring{PackJson()}{PackJson()}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{mpi__manager_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{nlohmann\+::json}} netdem\+::\+Contact\+Model\+::\+Pack\+Json (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented in \mbox{\hyperlink{classnetdem_1_1_hertz_mindlin_a124e89ad6e3ba38671a922d2f5b86baa}{netdem\+::\+Hertz\+Mindlin}}, \mbox{\hyperlink{classnetdem_1_1_linear_spring_a8e3f2351614ca70c5ae23532494a8e37}{netdem\+::\+Linear\+Spring}}, \mbox{\hyperlink{classnetdem_1_1_parallel_bond_a3e9d98d5d555d197f7d0160ddefdebe3}{netdem\+::\+Parallel\+Bond}}, and \mbox{\hyperlink{classnetdem_1_1_volume_based_ab1dc97e8c128773f8573f6bc7d845e2e}{netdem\+::\+Volume\+Based}}.
+
+\mbox{\Hypertarget{classnetdem_1_1_contact_model_a541fc910e1d85b1fc2bb75d73e50e984}\label{classnetdem_1_1_contact_model_a541fc910e1d85b1fc2bb75d73e50e984}} 
+\index{netdem::ContactModel@{netdem::ContactModel}!Print@{Print}}
+\index{Print@{Print}!netdem::ContactModel@{netdem::ContactModel}}
+\doxysubsubsection{\texorpdfstring{Print()}{Print()}}
+{\footnotesize\ttfamily virtual void netdem\+::\+Contact\+Model\+::\+Print (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented in \mbox{\hyperlink{classnetdem_1_1_hertz_mindlin_a1c5120d7f765abc40defd743f2871912}{netdem\+::\+Hertz\+Mindlin}}, \mbox{\hyperlink{classnetdem_1_1_linear_spring_ac39b88c105fe0bd5e2a7fef4a69864f4}{netdem\+::\+Linear\+Spring}}, \mbox{\hyperlink{classnetdem_1_1_parallel_bond_ab5c5d1dae772f5aab1e6353a01feb2c5}{netdem\+::\+Parallel\+Bond}}, and \mbox{\hyperlink{classnetdem_1_1_volume_based_a6b7d45f2c9cafccc0dbba93722fd3994}{netdem\+::\+Volume\+Based}}.
+
+\mbox{\Hypertarget{classnetdem_1_1_contact_model_a03526d9c5e43b4bdde8f392975533666}\label{classnetdem_1_1_contact_model_a03526d9c5e43b4bdde8f392975533666}} 
+\index{netdem::ContactModel@{netdem::ContactModel}!SetProperty@{SetProperty}}
+\index{SetProperty@{SetProperty}!netdem::ContactModel@{netdem::ContactModel}}
+\doxysubsubsection{\texorpdfstring{SetProperty()}{SetProperty()}}
+{\footnotesize\ttfamily virtual void netdem\+::\+Contact\+Model\+::\+Set\+Property (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{mpi__manager_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{nlohmann\+::json}} const \&}]{js }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented in \mbox{\hyperlink{classnetdem_1_1_hertz_mindlin_ae7529c3b67eff010987b9766c8ad311c}{netdem\+::\+Hertz\+Mindlin}}, \mbox{\hyperlink{classnetdem_1_1_linear_spring_a75c4ae4a723880f348870beda2ac2eab}{netdem\+::\+Linear\+Spring}}, \mbox{\hyperlink{classnetdem_1_1_parallel_bond_afedeef8a214c03c7d89c45cb9f727297}{netdem\+::\+Parallel\+Bond}}, and \mbox{\hyperlink{classnetdem_1_1_volume_based_a368ec23aafa3fb20e9cd2d178483c784}{netdem\+::\+Volume\+Based}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classnetdem_1_1_contact_model_af742c7150b1b9f1734cbc31644fb1105}\label{classnetdem_1_1_contact_model_af742c7150b1b9f1734cbc31644fb1105}} 
+\index{netdem::ContactModel@{netdem::ContactModel}!id@{id}}
+\index{id@{id}!netdem::ContactModel@{netdem::ContactModel}}
+\doxysubsubsection{\texorpdfstring{id}{id}}
+{\footnotesize\ttfamily int netdem\+::\+Contact\+Model\+::id \{0\}}
+
+\mbox{\Hypertarget{classnetdem_1_1_contact_model_ac452f37ee577eb8e2cefa4156d9c62ab}\label{classnetdem_1_1_contact_model_ac452f37ee577eb8e2cefa4156d9c62ab}} 
+\index{netdem::ContactModel@{netdem::ContactModel}!label@{label}}
+\index{label@{label}!netdem::ContactModel@{netdem::ContactModel}}
+\doxysubsubsection{\texorpdfstring{label}{label}}
+{\footnotesize\ttfamily std\+::string netdem\+::\+Contact\+Model\+::label \{\char`\"{}default\char`\"{}\}}
+
+\mbox{\Hypertarget{classnetdem_1_1_contact_model_af4af438894db0d3a88e6ed66e397cc2b}\label{classnetdem_1_1_contact_model_af4af438894db0d3a88e6ed66e397cc2b}} 
+\index{netdem::ContactModel@{netdem::ContactModel}!model\_name@{model\_name}}
+\index{model\_name@{model\_name}!netdem::ContactModel@{netdem::ContactModel}}
+\doxysubsubsection{\texorpdfstring{model\_name}{model\_name}}
+{\footnotesize\ttfamily std\+::string netdem\+::\+Contact\+Model\+::model\+\_\+name \{\char`\"{}contact\+\_\+model\char`\"{}\}}
+
+\mbox{\Hypertarget{classnetdem_1_1_contact_model_a79bc2c3ed2881b0e3640ceeba80308dc}\label{classnetdem_1_1_contact_model_a79bc2c3ed2881b0e3640ceeba80308dc}} 
+\index{netdem::ContactModel@{netdem::ContactModel}!model\_type@{model\_type}}
+\index{model\_type@{model\_type}!netdem::ContactModel@{netdem::ContactModel}}
+\doxysubsubsection{\texorpdfstring{model\_type}{model\_type}}
+{\footnotesize\ttfamily int netdem\+::\+Contact\+Model\+::model\+\_\+type \{0\}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/lzhshou/\+Documents/\+Research/my\+Projects/apam/repo/netdem/src/dem/\mbox{\hyperlink{contact__model_8hpp}{contact\+\_\+model.\+hpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,48 @@
+\hypertarget{regression__net_8hpp_source}{}\doxysection{regression\+\_\+net.\+hpp}
+\label{regression__net_8hpp_source}\index{/Users/lzhshou/Documents/Research/myProjects/apam/repo/netdem/src/mlpack/regression\_net.hpp@{/Users/lzhshou/Documents/Research/myProjects/apam/repo/netdem/src/mlpack/regression\_net.hpp}}
+\mbox{\hyperlink{regression__net_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 }
+\DoxyCodeLine{3 \textcolor{comment}{// netdem}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{mlpack__utils_8hpp}{mlpack\_utils.hpp}}"{}}}
+\DoxyCodeLine{5 }
+\DoxyCodeLine{6 \textcolor{comment}{// mlpack}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include <mlpack/methods/ann/ffn.hpp>}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include <mlpack/methods/ann/init\_rules/he\_init.hpp>}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include <mlpack/methods/ann/loss\_functions/mean\_squared\_error.hpp>}}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11 \textcolor{comment}{// std}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include <cstdarg>}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{14 }
+\DoxyCodeLine{15 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacenetdem}{netdem}} \{}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{17 \textcolor{keyword}{class }\mbox{\hyperlink{classnetdem_1_1_regression_net}{RegressionNet}} \{}
+\DoxyCodeLine{18 \textcolor{keyword}{public}:}
+\DoxyCodeLine{19   mlpack::ann::FFN<mlpack::ann::MeanSquaredError<>,}
+\DoxyCodeLine{20                    mlpack::ann::HeInitialization>}
+\DoxyCodeLine{21       \mbox{\hyperlink{classnetdem_1_1_regression_net_a4a3e410f27ac1233d974124eb4fda66b}{model}};}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23   \textcolor{keywordtype}{double} \mbox{\hyperlink{classnetdem_1_1_regression_net_a758c000426a7fb15c7b97d24a6738fa9}{step\_size}}\{0.01\};}
+\DoxyCodeLine{24   \textcolor{keywordtype}{int} \mbox{\hyperlink{classnetdem_1_1_regression_net_a3ca962e545ed2af4603983956de02d26}{batch\_size}}\{32\};}
+\DoxyCodeLine{25   \textcolor{keywordtype}{double} \mbox{\hyperlink{classnetdem_1_1_regression_net_abf261e0b7bf21edeae84540e291b8662}{decay\_rate\_moment}}\{0.9\};}
+\DoxyCodeLine{26   \textcolor{keywordtype}{double} \mbox{\hyperlink{classnetdem_1_1_regression_net_a9678df579e50d45e2a2f090384dfdc2f}{decay\_rate\_norm}}\{0.9\};}
+\DoxyCodeLine{27   \textcolor{keywordtype}{double} \mbox{\hyperlink{classnetdem_1_1_regression_net_a0406a76411df7880fc0efa6583ab9ff0}{gradient\_init\_param}}\{1e-\/8\};}
+\DoxyCodeLine{28   \textcolor{keywordtype}{int} \mbox{\hyperlink{classnetdem_1_1_regression_net_a0dc8e89c7b9472b37a30dfd37c8e0bd8}{epochs}}\{100\};}
+\DoxyCodeLine{29   \textcolor{keywordtype}{double} \mbox{\hyperlink{classnetdem_1_1_regression_net_a1cae0bfa2c645438d554c8cecf50a069}{stop\_tol}}\{1e-\/8\};}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31   \textcolor{keywordtype}{void} \mbox{\hyperlink{classnetdem_1_1_regression_net_a6931ff47063fccee2dbe2109b9184e86}{ResetModel}}();}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{33   \textcolor{keywordtype}{void} \mbox{\hyperlink{classnetdem_1_1_regression_net_ae72d5f342f74cfbe1752c11ab1017a35}{AddLayer}}(\mbox{\hyperlink{namespacenetdem_a2cdad8d3b028818b2034bb9f5e4a6583}{LayerName}} layer\_name, ...);}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{35   \textcolor{keywordtype}{void} \mbox{\hyperlink{classnetdem_1_1_regression_net_ab20e93179fa0215bf6d07e71d58da101}{Train}}(\textcolor{keyword}{const} arma::mat \&data\_x, \textcolor{keyword}{const} arma::mat \&data\_y);}
+\DoxyCodeLine{36   arma::mat \mbox{\hyperlink{classnetdem_1_1_regression_net_ad0a454915d74f397ea4b6ce40c46f84e}{Predict}}(\textcolor{keyword}{const} arma::mat \&data\_x);}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{38   \textcolor{keywordtype}{void} \mbox{\hyperlink{classnetdem_1_1_regression_net_a4802cc4f75ad194e3a1136ee85bdb8e6}{Load}}(std::string \textcolor{keyword}{const} \&filename, std::string \textcolor{keyword}{const} \&label);}
+\DoxyCodeLine{39   \textcolor{keywordtype}{void} \mbox{\hyperlink{classnetdem_1_1_regression_net_a2e770b0c27b3dff14401815e762b2713}{Save}}(std::string \textcolor{keyword}{const} \&filename, std::string \textcolor{keyword}{const} \&label);}
+\DoxyCodeLine{40 \};}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42 \} \textcolor{comment}{// namespace netdem}}
+
+\end{DoxyCode}

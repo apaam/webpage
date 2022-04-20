@@ -1,0 +1,122 @@
+\hypertarget{wall_8hpp_source}{}\doxysection{wall.\+hpp}
+\label{wall_8hpp_source}\index{/Users/lzhshou/Documents/Research/myProjects/apam/repo/netdem/src/scene/wall.hpp@{/Users/lzhshou/Documents/Research/myProjects/apam/repo/netdem/src/scene/wall.hpp}}
+\mbox{\hyperlink{wall_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 }
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{mini__map_8hpp}{mini\_map.hpp}}"{}}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{shape_8hpp}{shape.hpp}}"{}}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{shape__trimesh_8hpp}{shape\_trimesh.hpp}}"{}}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <omp.h>}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include <unordered\_map>}}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{9 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacenetdem}{netdem}} \{}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11 \textcolor{keyword}{class }Particle;}
+\DoxyCodeLine{12 \textcolor{keyword}{class }ContactPW;}
+\DoxyCodeLine{13 \textcolor{keyword}{class }Cell;}
+\DoxyCodeLine{14 \textcolor{keyword}{class }DomainManager;}
+\DoxyCodeLine{15 \textcolor{keyword}{class }NeighPofW;}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{17 \textcolor{keyword}{class }\mbox{\hyperlink{classnetdem_1_1_wall}{Wall}} \{}
+\DoxyCodeLine{18 \textcolor{keyword}{public}:}
+\DoxyCodeLine{19   \textcolor{keywordtype}{int} \textcolor{keywordtype}{id}\{0\};}
+\DoxyCodeLine{20   std::string \mbox{\hyperlink{classnetdem_1_1_wall_a41d19a0e02f6a9618ce728a69767494e}{label}}\{\textcolor{stringliteral}{"{}default"{}}\};}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22   \mbox{\hyperlink{classnetdem_1_1_shape}{Shape}} *\mbox{\hyperlink{classnetdem_1_1_wall_a3b22786420b6c8a4cd949ccb39c2da88}{shape}};}
+\DoxyCodeLine{23   \textcolor{keywordtype}{int} \mbox{\hyperlink{classnetdem_1_1_wall_acfa2ab8c76d4a15795050a0ae296da2a}{material\_type}}\{0\};}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{28   \textcolor{keywordtype}{bool} \mbox{\hyperlink{classnetdem_1_1_wall_ace2cb151795b879d82844a02c75d8267}{enable\_rotation}}\{\textcolor{keyword}{false}\}, \mbox{\hyperlink{classnetdem_1_1_wall_ab092437bb9fc9b378e0a9e3d4cafe2b3}{enable\_bound\_aabb}}\{\textcolor{keyword}{true}\};}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{31   \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \mbox{\hyperlink{classnetdem_1_1_wall_a95718d667e6d8a378c0d2b1a5dbedaa2}{bound\_min}}, \mbox{\hyperlink{classnetdem_1_1_wall_a6cf9931eafb785f8ef9e9a2f8898c3cf}{bound\_max}}, \mbox{\hyperlink{classnetdem_1_1_wall_a59e7a5d0f6262170658ee3ca4b618ddd}{bound\_disp}}\{0, 0, 0\};}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{34   \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \mbox{\hyperlink{classnetdem_1_1_wall_a697ebaa4f1ce8103f0780b7c8736c2d2}{pos}}\{0, 0, 0\};}
+\DoxyCodeLine{35   \mbox{\hyperlink{namespacenetdem_a13d5371f99b252a70fd5a5081b910370}{Vec4d}} \mbox{\hyperlink{classnetdem_1_1_wall_a25c6168cce1ac1d7aeb18d2a9386ec3c}{quaternion}}\{1, 0, 0, 0\};}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{38   \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \mbox{\hyperlink{classnetdem_1_1_wall_a1265b814df37bae5a511deff0f2b0b10}{force}}\{0, 0, 0\}, \mbox{\hyperlink{classnetdem_1_1_wall_a2fc79eccf6f0e003784af724b2f15e03}{moment}}\{0, 0, 0\};}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{41   \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \mbox{\hyperlink{classnetdem_1_1_wall_acd288c4387e18d0acac5be58e00dea67}{vel}}\{0, 0, 0\}, \mbox{\hyperlink{classnetdem_1_1_wall_ac87232019857a3b064274443a86af8b4}{spin}}\{0, 0, 0\}, \mbox{\hyperlink{classnetdem_1_1_wall_a783d030377082375f71aa7d8300e956e}{vel\_spin}}\{0, 0, 0\};}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{44   \mbox{\hyperlink{classnetdem_1_1_mini_map}{MiniMap<std::string, double>}} \mbox{\hyperlink{classnetdem_1_1_wall_a5190135de316f8921d455e6eb7c63f38}{dynamic\_properties}};}
+\DoxyCodeLine{45 }
+\DoxyCodeLine{47   \textcolor{keywordtype}{bool} \mbox{\hyperlink{classnetdem_1_1_wall_afdbaacee0317e07b1d59cec90d28bfbc}{need\_update\_linked\_list}}\{\textcolor{keyword}{true}\};}
+\DoxyCodeLine{48   \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<std::pair<Cell *, int>}}> \mbox{\hyperlink{classnetdem_1_1_wall_a3f44e8d18465e15202dadf61e9ea1109}{linked\_cell\_list}};}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{50   \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<NeighPofW>}} \mbox{\hyperlink{classnetdem_1_1_wall_a3c5e488783727327525df4257bde8fff}{linked\_particle\_list}};}
+\DoxyCodeLine{51 }
+\DoxyCodeLine{52   \textcolor{comment}{// to recontruct the reference of contact history}}
+\DoxyCodeLine{53   \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<NeighPofW>}} \mbox{\hyperlink{classnetdem_1_1_wall_a18e15f41c9ff1959e82bf21b0499df68}{contact\_pw\_ref\_table}};}
+\DoxyCodeLine{54 }
+\DoxyCodeLine{57   \textcolor{keywordtype}{bool} \mbox{\hyperlink{classnetdem_1_1_wall_a548d8f14d10053794dfdcac6531299df}{need\_update\_stl\_model}}\{\textcolor{keyword}{false}\};}
+\DoxyCodeLine{58   \mbox{\hyperlink{classnetdem_1_1_s_t_l_model}{STLModel}} \mbox{\hyperlink{classnetdem_1_1_wall_a93c0900a24136767ca1ff330d4d5c31f}{stl\_model}};}
+\DoxyCodeLine{59 }
+\DoxyCodeLine{60 \textcolor{keyword}{public}:}
+\DoxyCodeLine{61   \mbox{\hyperlink{classnetdem_1_1_wall_a12dc41bc7bc045c55ec1034a43e52043}{Wall}}();}
+\DoxyCodeLine{62   \mbox{\hyperlink{classnetdem_1_1_wall_a12dc41bc7bc045c55ec1034a43e52043}{Wall}}(\mbox{\hyperlink{classnetdem_1_1_shape}{Shape}} *\textcolor{keyword}{const} \mbox{\hyperlink{classnetdem_1_1_wall_a3b22786420b6c8a4cd949ccb39c2da88}{shape}});}
+\DoxyCodeLine{63   \mbox{\hyperlink{classnetdem_1_1_wall}{Wall}} *\mbox{\hyperlink{classnetdem_1_1_wall_ad95865b64885b142503a308ca828de9d}{Clone}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{64 }
+\DoxyCodeLine{65   \textcolor{keywordtype}{void} \mbox{\hyperlink{classnetdem_1_1_wall_a270d2ba6cde4ea7879ecf25d9e979b39}{Init}}();}
+\DoxyCodeLine{66 }
+\DoxyCodeLine{67   \textcolor{keywordtype}{void} \mbox{\hyperlink{classnetdem_1_1_wall_a8c44963dfb071686db626459e06353a5}{SetShape}}(\mbox{\hyperlink{classnetdem_1_1_shape}{Shape}} *\textcolor{keyword}{const} \mbox{\hyperlink{classnetdem_1_1_wall_a3b22786420b6c8a4cd949ccb39c2da88}{shape}}, \textcolor{keywordtype}{bool} auto\_adapt = \textcolor{keyword}{false});}
+\DoxyCodeLine{68 }
+\DoxyCodeLine{69   \textcolor{keywordtype}{void} \mbox{\hyperlink{classnetdem_1_1_wall_a72260b6cfb980c6a53aaf716cff0e57e}{SetPosition}}(\textcolor{keywordtype}{double} pos\_x, \textcolor{keywordtype}{double} pos\_y, \textcolor{keywordtype}{double} pos\_z);}
+\DoxyCodeLine{70   \textcolor{keywordtype}{void} \mbox{\hyperlink{classnetdem_1_1_wall_a2dd22e447d4c73538521fed34efa9dbc}{SetRodrigues}}(\textcolor{keywordtype}{double} angle, \textcolor{keywordtype}{double} axis\_x, \textcolor{keywordtype}{double} axis\_y, \textcolor{keywordtype}{double} axis\_z);}
+\DoxyCodeLine{71   \textcolor{keywordtype}{void} \mbox{\hyperlink{classnetdem_1_1_wall_a01dde413501ffddde0ee31434ca5f9fe}{SetQuaternion}}(\textcolor{keywordtype}{double} q\_0, \textcolor{keywordtype}{double} q\_1, \textcolor{keywordtype}{double} q\_2, \textcolor{keywordtype}{double} q\_3);}
+\DoxyCodeLine{72 }
+\DoxyCodeLine{73   \textcolor{keywordtype}{void} \mbox{\hyperlink{classnetdem_1_1_wall_a68b4643c0cbb050977fcf5c23acd5bd7}{SetVelocity}}(\textcolor{keywordtype}{double} v\_x, \textcolor{keywordtype}{double} v\_y, \textcolor{keywordtype}{double} v\_z);}
+\DoxyCodeLine{74   \textcolor{keywordtype}{void} \mbox{\hyperlink{classnetdem_1_1_wall_a0ad805f88883d494b8f0117f57795223}{SetSpin}}(\textcolor{keywordtype}{double} spin\_x, \textcolor{keywordtype}{double} spin\_y, \textcolor{keywordtype}{double} spin\_z);}
+\DoxyCodeLine{75 }
+\DoxyCodeLine{76   \textcolor{comment}{// allows velocity varying according to radius Math::Cross spin}}
+\DoxyCodeLine{77   \textcolor{keywordtype}{void} \mbox{\hyperlink{classnetdem_1_1_wall_a3f2a6579f58a112ee4efc53377255413}{SetVelocitySpin}}(\textcolor{keywordtype}{double} spin\_x, \textcolor{keywordtype}{double} spin\_y, \textcolor{keywordtype}{double} spin\_z);}
+\DoxyCodeLine{78 }
+\DoxyCodeLine{79   \textcolor{comment}{// get the velocity of a position within the wall}}
+\DoxyCodeLine{80   \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \mbox{\hyperlink{classnetdem_1_1_wall_a39e04e921b561badacdb0c2a7feab612}{GetVelocity}}(\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \textcolor{keyword}{const}\& cnt\_pos);}
+\DoxyCodeLine{81 }
+\DoxyCodeLine{82   \textcolor{keywordtype}{void} \mbox{\hyperlink{classnetdem_1_1_wall_aca715fc6608aeca32bce9a28e16bc745}{AddForce}}(\textcolor{keyword}{const} \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \&f);}
+\DoxyCodeLine{83   \textcolor{keywordtype}{void} \mbox{\hyperlink{classnetdem_1_1_wall_a283ce66af0112ffab2dc03f89e4ceca5}{AddMoment}}(\textcolor{keyword}{const} \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \&m);}
+\DoxyCodeLine{84 }
+\DoxyCodeLine{85   \textcolor{keywordtype}{void} \mbox{\hyperlink{classnetdem_1_1_wall_a5b82d900d60e476c48cc4952050cee46}{AddForceAtomic}}(\textcolor{keyword}{const} \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \&f);}
+\DoxyCodeLine{86   \textcolor{keywordtype}{void} \mbox{\hyperlink{classnetdem_1_1_wall_ab986728df820c63a0d0b95abfb860c37}{AddMomentAtomic}}(\textcolor{keyword}{const} \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \&m);}
+\DoxyCodeLine{87 }
+\DoxyCodeLine{88   \textcolor{keywordtype}{void} \mbox{\hyperlink{classnetdem_1_1_wall_a19e807ed33e07b60b297085c09db3a80}{ClearForce}}();}
+\DoxyCodeLine{89   \textcolor{keywordtype}{void} \mbox{\hyperlink{classnetdem_1_1_wall_a4df04900de68d8b78e63df73df6ec5ce}{ClearMoment}}();}
+\DoxyCodeLine{90 }
+\DoxyCodeLine{91   \textcolor{keywordtype}{void} \mbox{\hyperlink{classnetdem_1_1_wall_ab89f47de2b1f3a48da3c80bb04f346c9}{ApplyContactForce}}(\mbox{\hyperlink{classnetdem_1_1_contact_p_w}{ContactPW}} \textcolor{keyword}{const} *cnt);}
+\DoxyCodeLine{92 }
+\DoxyCodeLine{93   \textcolor{keywordtype}{void} \mbox{\hyperlink{classnetdem_1_1_wall_a40e40b92accb1e46bffb7aa240f2aaa7}{UpdateContactForce}}();}
+\DoxyCodeLine{94 }
+\DoxyCodeLine{95   \textcolor{keywordtype}{void} \mbox{\hyperlink{classnetdem_1_1_wall_a1fd0878c5dca2c130d83628fb1974435}{UpdateMotion}}(\textcolor{keywordtype}{double} timestep);}
+\DoxyCodeLine{96 }
+\DoxyCodeLine{97   \textcolor{keywordtype}{void} \mbox{\hyperlink{classnetdem_1_1_wall_a1fd0878c5dca2c130d83628fb1974435}{UpdateMotion}}(\textcolor{keyword}{const} \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \&v, \textcolor{keyword}{const} \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \&s, \textcolor{keywordtype}{double} timestep);}
+\DoxyCodeLine{98   \textcolor{keywordtype}{void} \mbox{\hyperlink{classnetdem_1_1_wall_a1fd0878c5dca2c130d83628fb1974435}{UpdateMotion}}(\textcolor{keyword}{const} \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \&dpos, \textcolor{keyword}{const} \mbox{\hyperlink{namespacenetdem_a13d5371f99b252a70fd5a5081b910370}{Vec4d}} \&dquat);}
+\DoxyCodeLine{99 }
+\DoxyCodeLine{100   \textcolor{keywordtype}{void} \mbox{\hyperlink{classnetdem_1_1_wall_a0a1c40761ed1cf13e6a4e464a432ea22}{UpdateBound}}();}
+\DoxyCodeLine{101 }
+\DoxyCodeLine{102   \textcolor{keywordtype}{void} \mbox{\hyperlink{classnetdem_1_1_wall_a281c5d948e9ec671f069c848b989f74d}{ClearLinkedCells}}();}
+\DoxyCodeLine{103   \textcolor{keywordtype}{void} \mbox{\hyperlink{classnetdem_1_1_wall_aa521731f98c0141d5595adbee3073f73}{ClearLinkedNeighs}}();}
+\DoxyCodeLine{104 }
+\DoxyCodeLine{105   \textcolor{keywordtype}{void} \mbox{\hyperlink{classnetdem_1_1_wall_a88d4de5a9b44cd5a9235e20c0ff1b69c}{BuildContactRef}}();}
+\DoxyCodeLine{106   \textcolor{keywordtype}{void} \mbox{\hyperlink{classnetdem_1_1_wall_acb61a20cf3e03b78c82882c64867b45b}{ClearContactRef}}();}
+\DoxyCodeLine{107 }
+\DoxyCodeLine{108   \textcolor{keywordtype}{void} \mbox{\hyperlink{classnetdem_1_1_wall_a18f24ddb5ad4a5df1f7b6ad0a688220d}{UpdateLinkedCells}}(\mbox{\hyperlink{classnetdem_1_1_domain_manager}{DomainManager}} *\textcolor{keyword}{const} dm);}
+\DoxyCodeLine{109   \textcolor{keywordtype}{void} \mbox{\hyperlink{classnetdem_1_1_wall_a587b06332f02664e0bb34bb720ea0636}{UpdateLinkedNeighs}}(\mbox{\hyperlink{classnetdem_1_1_domain_manager}{DomainManager}} *\textcolor{keyword}{const} dm);}
+\DoxyCodeLine{110 }
+\DoxyCodeLine{111   \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<ContactPW *>}} \mbox{\hyperlink{classnetdem_1_1_wall_a218d4bfdba9b207e9817e618fb8bca8a}{GetContactPWs}}();}
+\DoxyCodeLine{112 }
+\DoxyCodeLine{113   \textcolor{keywordtype}{void} \mbox{\hyperlink{classnetdem_1_1_wall_a47136417915b3ab37d389b4444f827fd}{UpdateSTLModel}}();}
+\DoxyCodeLine{114 }
+\DoxyCodeLine{115   \textcolor{keywordtype}{void} \mbox{\hyperlink{classnetdem_1_1_wall_a20f4bc62d39d7fd9578b9c138aba9108}{SaveAsVTK}}(std::string \textcolor{keyword}{const} \&filename);}
+\DoxyCodeLine{116 }
+\DoxyCodeLine{117   \textcolor{keywordtype}{void} \mbox{\hyperlink{classnetdem_1_1_wall_a06079ec77913ed1f8458432d924176d6}{Print}}();}
+\DoxyCodeLine{118 }
+\DoxyCodeLine{119   \mbox{\hyperlink{classnetdem_1_1_wall_a9a2992f2b533e1c160513d1e719f920c}{\string~Wall}}();}
+\DoxyCodeLine{120 }
+\DoxyCodeLine{121 \textcolor{keyword}{public}:}
+\DoxyCodeLine{122   \textcolor{comment}{// functions for neighbor list and contact reference}}
+\DoxyCodeLine{123   \textcolor{keywordtype}{int} \mbox{\hyperlink{classnetdem_1_1_wall_af1ebd832df9b18cba689c9e93f623efd}{FindLinked}}(\mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} *\textcolor{keyword}{const} p);}
+\DoxyCodeLine{124   \textcolor{keywordtype}{int} \mbox{\hyperlink{classnetdem_1_1_wall_a847042d993e39b4307e21b6223dfb556}{FindContactRef}}(\mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} *\textcolor{keyword}{const} p);}
+\DoxyCodeLine{125 \};}
+\DoxyCodeLine{126 }
+\DoxyCodeLine{127 \} \textcolor{comment}{// namespace netdem}}
+
+\end{DoxyCode}

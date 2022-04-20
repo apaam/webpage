@@ -1,0 +1,337 @@
+\hypertarget{classnetdem_1_1_f_e_m_simulator}{}\doxysection{netdem\+::FEMSimulator Class Reference}
+\label{classnetdem_1_1_f_e_m_simulator}\index{netdem::FEMSimulator@{netdem::FEMSimulator}}
+
+
+{\ttfamily \#include $<$fem\+\_\+simulator.\+hpp$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classnetdem_1_1_f_e_m_simulator_a8103473aceb78ca3591a99ba7ea97b18}{FEMSimulator}} ()
+\item 
+void \mbox{\hyperlink{classnetdem_1_1_f_e_m_simulator_a374d6e30c0a679faae413dbb8d18d332}{Set\+Mesh}} (const \mbox{\hyperlink{classnetdem_1_1_tet_mesh}{Tet\+Mesh}} \&tetmesh)
+\item 
+void \mbox{\hyperlink{classnetdem_1_1_f_e_m_simulator_a5056c55e7908c8bf112c59f27310f5ca}{Init}} ()
+\item 
+void \mbox{\hyperlink{classnetdem_1_1_f_e_m_simulator_a2d535c125208b48c26ea7c4a08521027}{Set\+BCNodal\+Velocity}} (int nid, double vx, double vy, double vz, bool use\+\_\+prescribed\+\_\+vx, bool use\+\_\+prescribed\+\_\+vy, bool use\+\_\+prescribed\+\_\+vz)
+\item 
+void \mbox{\hyperlink{classnetdem_1_1_f_e_m_simulator_af25440de2f4674571d2168a9e1440200}{Add\+BCFacet\+Force}} (int bc\+\_\+fid, double fx, double fy, double fz)
+\item 
+void \mbox{\hyperlink{classnetdem_1_1_f_e_m_simulator_a0ea2d8ebd531818c53242ecb9d6193f3}{Set\+Nodal\+Vels}} (double v\+\_\+x, double v\+\_\+y, double v\+\_\+z)
+\item 
+void \mbox{\hyperlink{classnetdem_1_1_f_e_m_simulator_a3da4a79d5e282d3f8f2ad8be5b50d138}{Clear\+Boundary\+Condition}} ()
+\item 
+void \mbox{\hyperlink{classnetdem_1_1_f_e_m_simulator_aa9f3c738c27e83878c16abe224c559b6}{Solve}} (double dt)
+\item 
+\mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $>$ \mbox{\hyperlink{classnetdem_1_1_f_e_m_simulator_adcddf793dd1c1b75de485ecb593058a4}{Get\+Nodal\+Positions}} (\mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ int $>$ nids)
+\item 
+\mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $>$ \mbox{\hyperlink{classnetdem_1_1_f_e_m_simulator_a86f0aec7c74f936d65fa32f2de08a216}{Get\+Nodal\+Disps}} (\mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ int $>$ nids)
+\item 
+\mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $>$ \mbox{\hyperlink{classnetdem_1_1_f_e_m_simulator_aee51caae7991c0c14eca3d39416355ec}{Get\+Nodal\+Vels}} (\mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ int $>$ nids)
+\item 
+void \mbox{\hyperlink{classnetdem_1_1_f_e_m_simulator_acdd2db4c9d005fa4e0206838012a3644}{Save\+As\+VTK}} (std\+::string const \&file\+\_\+name)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{classnetdem_1_1_f_e_m_simulator_a291383735d6a869d3cd16c24d68b63e0}{neo\+\_\+k}} \{6.\+94e5\}
+\item 
+double \mbox{\hyperlink{classnetdem_1_1_f_e_m_simulator_a8b794c72c7c611d9a1fe5d16d2f616e2}{neo\+\_\+mu}} \{5.\+21e5\}
+\item 
+double \mbox{\hyperlink{classnetdem_1_1_f_e_m_simulator_afa699e8e627501767271f5be81a10f47}{density}} \{500.\+0\}
+\item 
+double \mbox{\hyperlink{classnetdem_1_1_f_e_m_simulator_a573acfffc6ec0f7197b020ffd97cf6d7}{damp\+\_\+coef}} \{0.\+7\}
+\item 
+\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \mbox{\hyperlink{classnetdem_1_1_f_e_m_simulator_a6690d61908a1e5db55b618b2e53484a2}{gravity\+\_\+coef}} \{0.\+0, 0.\+0, 0.\+0\}
+\item 
+double \mbox{\hyperlink{classnetdem_1_1_f_e_m_simulator_a011ee17fdeb932f09541e6d8812eab46}{timestep}} \{1.\+0e-\/4\}
+\item 
+\mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $>$ \mbox{\hyperlink{classnetdem_1_1_f_e_m_simulator_a2f9cc5f5d30f78838698670e13aa8985}{nodes}}
+\item 
+\mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_a3888f166e48cde671ecd59da6c26e083}{Vec4i}} $>$ \mbox{\hyperlink{classnetdem_1_1_f_e_m_simulator_afc150d6790e0f024b925380a4c67d52d}{elements}}
+\item 
+\mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $>$ \mbox{\hyperlink{classnetdem_1_1_f_e_m_simulator_a4af06416e2ed12a7fe330c1ff5813044}{nodes\+\_\+ref}}
+\item 
+\mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_a28e1404c8ce46c48bc78f553bd555980}{Vec3i}} $>$ \mbox{\hyperlink{classnetdem_1_1_f_e_m_simulator_a855f336f07cca891d2557ba23a86abd9}{bound\+\_\+facets}}
+\item 
+\mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ int $>$ \mbox{\hyperlink{classnetdem_1_1_f_e_m_simulator_aa70e2622c5bc64a4746202c8f0e0dd5d}{bound\+\_\+nodes}}
+\item 
+\mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ double $>$ \mbox{\hyperlink{classnetdem_1_1_f_e_m_simulator_a646a85b52103d37afe2a354de2137b89}{elemental\+\_\+vol}}
+\item 
+\mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_a4c6a34e4b9bc01901ac527bb8ea83909}{Vec\+NT}}$<$ double, 6 $>$ $>$ \mbox{\hyperlink{classnetdem_1_1_f_e_m_simulator_a009b1afa190b1fe0e7920ba61e9210f9}{elemental\+\_\+stress}}
+\item 
+\mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ double $>$ \mbox{\hyperlink{classnetdem_1_1_f_e_m_simulator_a2fe368b9d5837c583e65ecdc45023e4c}{nodal\+\_\+vols}}
+\item 
+\mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $>$ \mbox{\hyperlink{classnetdem_1_1_f_e_m_simulator_a0984ca9bb0e3ded032331dbb896eee85}{nodal\+\_\+vels}}
+\item 
+\mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $>$ \mbox{\hyperlink{classnetdem_1_1_f_e_m_simulator_a891cccab543d3fe76aa93b1f2a373912}{bc\+\_\+facet\+\_\+forces}}
+\item 
+\mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_a4c6a34e4b9bc01901ac527bb8ea83909}{Vec\+NT}}$<$ double, 6 $>$ $>$ \mbox{\hyperlink{classnetdem_1_1_f_e_m_simulator_a1e6ac8fa6706dc8094a944a92d758f87}{bc\+\_\+nodal\+\_\+vels}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classnetdem_1_1_f_e_m_simulator_ae1e5a5d8b98d281cc54fe855e218c05a}{Advance}} (double dt)
+\item 
+void \mbox{\hyperlink{classnetdem_1_1_f_e_m_simulator_a91d84a69c270e94c0d76efb98dd10f31}{Init\+Initial\+Condition}} ()
+\item 
+double \mbox{\hyperlink{classnetdem_1_1_f_e_m_simulator_a73ab053cf7514299113246cc87ea4dbe}{Get\+Element\+Volume}} (\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&v0, \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&v1, \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&v2, \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&v3)
+\item 
+\mbox{\hyperlink{namespacenetdem_ae589ca87f7a16ea70807ee6b1c3bc1c8}{Mat3d}} \mbox{\hyperlink{classnetdem_1_1_f_e_m_simulator_a7289c226741c45fa96eaee7e2412a25c}{Get\+Deformation\+Gradient}} (\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&v0\+\_\+new, \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&v1\+\_\+new, \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&v2\+\_\+new, \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&v3\+\_\+new, \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&v0\+\_\+ref, \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&v1\+\_\+ref, \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&v2\+\_\+ref, \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&v3\+\_\+ref)
+\item 
+\mbox{\hyperlink{namespacenetdem_ae589ca87f7a16ea70807ee6b1c3bc1c8}{Mat3d}} \mbox{\hyperlink{classnetdem_1_1_f_e_m_simulator_a34e2227e930103e389d83b7fc27d3bb6}{Get\+Cauchy\+Stress}} (\mbox{\hyperlink{namespacenetdem_ae589ca87f7a16ea70807ee6b1c3bc1c8}{Mat3d}} const \&def\+\_\+grad)
+\item 
+\mbox{\hyperlink{namespacenetdem_aa1535a5d1ed2f90088a89de1f7670952}{Mat\+Nd}}$<$ 4, 3 $>$ \mbox{\hyperlink{classnetdem_1_1_f_e_m_simulator_af8b9e96b01d415c7c767947598eaacf7}{Get\+Internal\+Forces}} (\mbox{\hyperlink{namespacenetdem_ae589ca87f7a16ea70807ee6b1c3bc1c8}{Mat3d}} const \&cauchy\+\_\+stress, \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&v0, \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&v1, \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&v2, \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&v3)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $>$ \mbox{\hyperlink{classnetdem_1_1_f_e_m_simulator_a7c297abc302044a158953c0d92ce235f}{nodal\+\_\+forces\+\_\+int}}
+\item 
+\mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $>$ \mbox{\hyperlink{classnetdem_1_1_f_e_m_simulator_a8078bc8966d1bb86552edcf417cb859c}{nodal\+\_\+forces\+\_\+ext}}
+\item 
+\mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $>$ \mbox{\hyperlink{classnetdem_1_1_f_e_m_simulator_a32575cd147728fc4181ee2a6f946f49d}{nodal\+\_\+vels\+\_\+ave}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classnetdem_1_1_f_e_m_simulator_a8103473aceb78ca3591a99ba7ea97b18}\label{classnetdem_1_1_f_e_m_simulator_a8103473aceb78ca3591a99ba7ea97b18}} 
+\index{netdem::FEMSimulator@{netdem::FEMSimulator}!FEMSimulator@{FEMSimulator}}
+\index{FEMSimulator@{FEMSimulator}!netdem::FEMSimulator@{netdem::FEMSimulator}}
+\doxysubsubsection{\texorpdfstring{FEMSimulator()}{FEMSimulator()}}
+{\footnotesize\ttfamily FEMSimulator\+::\+FEMSimulator (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classnetdem_1_1_f_e_m_simulator_af25440de2f4674571d2168a9e1440200}\label{classnetdem_1_1_f_e_m_simulator_af25440de2f4674571d2168a9e1440200}} 
+\index{netdem::FEMSimulator@{netdem::FEMSimulator}!AddBCFacetForce@{AddBCFacetForce}}
+\index{AddBCFacetForce@{AddBCFacetForce}!netdem::FEMSimulator@{netdem::FEMSimulator}}
+\doxysubsubsection{\texorpdfstring{AddBCFacetForce()}{AddBCFacetForce()}}
+{\footnotesize\ttfamily void FEMSimulator\+::\+Add\+BCFacet\+Force (\begin{DoxyParamCaption}\item[{int}]{bc\+\_\+fid,  }\item[{double}]{fx,  }\item[{double}]{fy,  }\item[{double}]{fz }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classnetdem_1_1_f_e_m_simulator_ae1e5a5d8b98d281cc54fe855e218c05a}\label{classnetdem_1_1_f_e_m_simulator_ae1e5a5d8b98d281cc54fe855e218c05a}} 
+\index{netdem::FEMSimulator@{netdem::FEMSimulator}!Advance@{Advance}}
+\index{Advance@{Advance}!netdem::FEMSimulator@{netdem::FEMSimulator}}
+\doxysubsubsection{\texorpdfstring{Advance()}{Advance()}}
+{\footnotesize\ttfamily void FEMSimulator\+::\+Advance (\begin{DoxyParamCaption}\item[{double}]{dt }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{classnetdem_1_1_f_e_m_simulator_a3da4a79d5e282d3f8f2ad8be5b50d138}\label{classnetdem_1_1_f_e_m_simulator_a3da4a79d5e282d3f8f2ad8be5b50d138}} 
+\index{netdem::FEMSimulator@{netdem::FEMSimulator}!ClearBoundaryCondition@{ClearBoundaryCondition}}
+\index{ClearBoundaryCondition@{ClearBoundaryCondition}!netdem::FEMSimulator@{netdem::FEMSimulator}}
+\doxysubsubsection{\texorpdfstring{ClearBoundaryCondition()}{ClearBoundaryCondition()}}
+{\footnotesize\ttfamily void FEMSimulator\+::\+Clear\+Boundary\+Condition (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classnetdem_1_1_f_e_m_simulator_a34e2227e930103e389d83b7fc27d3bb6}\label{classnetdem_1_1_f_e_m_simulator_a34e2227e930103e389d83b7fc27d3bb6}} 
+\index{netdem::FEMSimulator@{netdem::FEMSimulator}!GetCauchyStress@{GetCauchyStress}}
+\index{GetCauchyStress@{GetCauchyStress}!netdem::FEMSimulator@{netdem::FEMSimulator}}
+\doxysubsubsection{\texorpdfstring{GetCauchyStress()}{GetCauchyStress()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacenetdem_ae589ca87f7a16ea70807ee6b1c3bc1c8}{Mat3d}} FEMSimulator\+::\+Get\+Cauchy\+Stress (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacenetdem_ae589ca87f7a16ea70807ee6b1c3bc1c8}{Mat3d}} const \&}]{def\+\_\+grad }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{classnetdem_1_1_f_e_m_simulator_a7289c226741c45fa96eaee7e2412a25c}\label{classnetdem_1_1_f_e_m_simulator_a7289c226741c45fa96eaee7e2412a25c}} 
+\index{netdem::FEMSimulator@{netdem::FEMSimulator}!GetDeformationGradient@{GetDeformationGradient}}
+\index{GetDeformationGradient@{GetDeformationGradient}!netdem::FEMSimulator@{netdem::FEMSimulator}}
+\doxysubsubsection{\texorpdfstring{GetDeformationGradient()}{GetDeformationGradient()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacenetdem_ae589ca87f7a16ea70807ee6b1c3bc1c8}{Mat3d}} FEMSimulator\+::\+Get\+Deformation\+Gradient (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&}]{v0\+\_\+new,  }\item[{\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&}]{v1\+\_\+new,  }\item[{\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&}]{v2\+\_\+new,  }\item[{\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&}]{v3\+\_\+new,  }\item[{\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&}]{v0\+\_\+ref,  }\item[{\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&}]{v1\+\_\+ref,  }\item[{\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&}]{v2\+\_\+ref,  }\item[{\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&}]{v3\+\_\+ref }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{classnetdem_1_1_f_e_m_simulator_a73ab053cf7514299113246cc87ea4dbe}\label{classnetdem_1_1_f_e_m_simulator_a73ab053cf7514299113246cc87ea4dbe}} 
+\index{netdem::FEMSimulator@{netdem::FEMSimulator}!GetElementVolume@{GetElementVolume}}
+\index{GetElementVolume@{GetElementVolume}!netdem::FEMSimulator@{netdem::FEMSimulator}}
+\doxysubsubsection{\texorpdfstring{GetElementVolume()}{GetElementVolume()}}
+{\footnotesize\ttfamily double FEMSimulator\+::\+Get\+Element\+Volume (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&}]{v0,  }\item[{\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&}]{v1,  }\item[{\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&}]{v2,  }\item[{\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&}]{v3 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{classnetdem_1_1_f_e_m_simulator_af8b9e96b01d415c7c767947598eaacf7}\label{classnetdem_1_1_f_e_m_simulator_af8b9e96b01d415c7c767947598eaacf7}} 
+\index{netdem::FEMSimulator@{netdem::FEMSimulator}!GetInternalForces@{GetInternalForces}}
+\index{GetInternalForces@{GetInternalForces}!netdem::FEMSimulator@{netdem::FEMSimulator}}
+\doxysubsubsection{\texorpdfstring{GetInternalForces()}{GetInternalForces()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacenetdem_aa1535a5d1ed2f90088a89de1f7670952}{Mat\+Nd}}$<$ 4, 3 $>$ FEMSimulator\+::\+Get\+Internal\+Forces (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacenetdem_ae589ca87f7a16ea70807ee6b1c3bc1c8}{Mat3d}} const \&}]{cauchy\+\_\+stress,  }\item[{\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&}]{v0,  }\item[{\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&}]{v1,  }\item[{\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&}]{v2,  }\item[{\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&}]{v3 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{classnetdem_1_1_f_e_m_simulator_a86f0aec7c74f936d65fa32f2de08a216}\label{classnetdem_1_1_f_e_m_simulator_a86f0aec7c74f936d65fa32f2de08a216}} 
+\index{netdem::FEMSimulator@{netdem::FEMSimulator}!GetNodalDisps@{GetNodalDisps}}
+\index{GetNodalDisps@{GetNodalDisps}!netdem::FEMSimulator@{netdem::FEMSimulator}}
+\doxysubsubsection{\texorpdfstring{GetNodalDisps()}{GetNodalDisps()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $>$ FEMSimulator\+::\+Get\+Nodal\+Disps (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ int $>$}]{nids }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classnetdem_1_1_f_e_m_simulator_adcddf793dd1c1b75de485ecb593058a4}\label{classnetdem_1_1_f_e_m_simulator_adcddf793dd1c1b75de485ecb593058a4}} 
+\index{netdem::FEMSimulator@{netdem::FEMSimulator}!GetNodalPositions@{GetNodalPositions}}
+\index{GetNodalPositions@{GetNodalPositions}!netdem::FEMSimulator@{netdem::FEMSimulator}}
+\doxysubsubsection{\texorpdfstring{GetNodalPositions()}{GetNodalPositions()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $>$ FEMSimulator\+::\+Get\+Nodal\+Positions (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ int $>$}]{nids }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classnetdem_1_1_f_e_m_simulator_aee51caae7991c0c14eca3d39416355ec}\label{classnetdem_1_1_f_e_m_simulator_aee51caae7991c0c14eca3d39416355ec}} 
+\index{netdem::FEMSimulator@{netdem::FEMSimulator}!GetNodalVels@{GetNodalVels}}
+\index{GetNodalVels@{GetNodalVels}!netdem::FEMSimulator@{netdem::FEMSimulator}}
+\doxysubsubsection{\texorpdfstring{GetNodalVels()}{GetNodalVels()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $>$ FEMSimulator\+::\+Get\+Nodal\+Vels (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ int $>$}]{nids }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classnetdem_1_1_f_e_m_simulator_a5056c55e7908c8bf112c59f27310f5ca}\label{classnetdem_1_1_f_e_m_simulator_a5056c55e7908c8bf112c59f27310f5ca}} 
+\index{netdem::FEMSimulator@{netdem::FEMSimulator}!Init@{Init}}
+\index{Init@{Init}!netdem::FEMSimulator@{netdem::FEMSimulator}}
+\doxysubsubsection{\texorpdfstring{Init()}{Init()}}
+{\footnotesize\ttfamily void FEMSimulator\+::\+Init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classnetdem_1_1_f_e_m_simulator_a91d84a69c270e94c0d76efb98dd10f31}\label{classnetdem_1_1_f_e_m_simulator_a91d84a69c270e94c0d76efb98dd10f31}} 
+\index{netdem::FEMSimulator@{netdem::FEMSimulator}!InitInitialCondition@{InitInitialCondition}}
+\index{InitInitialCondition@{InitInitialCondition}!netdem::FEMSimulator@{netdem::FEMSimulator}}
+\doxysubsubsection{\texorpdfstring{InitInitialCondition()}{InitInitialCondition()}}
+{\footnotesize\ttfamily void FEMSimulator\+::\+Init\+Initial\+Condition (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{classnetdem_1_1_f_e_m_simulator_acdd2db4c9d005fa4e0206838012a3644}\label{classnetdem_1_1_f_e_m_simulator_acdd2db4c9d005fa4e0206838012a3644}} 
+\index{netdem::FEMSimulator@{netdem::FEMSimulator}!SaveAsVTK@{SaveAsVTK}}
+\index{SaveAsVTK@{SaveAsVTK}!netdem::FEMSimulator@{netdem::FEMSimulator}}
+\doxysubsubsection{\texorpdfstring{SaveAsVTK()}{SaveAsVTK()}}
+{\footnotesize\ttfamily void FEMSimulator\+::\+Save\+As\+VTK (\begin{DoxyParamCaption}\item[{std\+::string const \&}]{file\+\_\+name }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classnetdem_1_1_f_e_m_simulator_a2d535c125208b48c26ea7c4a08521027}\label{classnetdem_1_1_f_e_m_simulator_a2d535c125208b48c26ea7c4a08521027}} 
+\index{netdem::FEMSimulator@{netdem::FEMSimulator}!SetBCNodalVelocity@{SetBCNodalVelocity}}
+\index{SetBCNodalVelocity@{SetBCNodalVelocity}!netdem::FEMSimulator@{netdem::FEMSimulator}}
+\doxysubsubsection{\texorpdfstring{SetBCNodalVelocity()}{SetBCNodalVelocity()}}
+{\footnotesize\ttfamily void FEMSimulator\+::\+Set\+BCNodal\+Velocity (\begin{DoxyParamCaption}\item[{int}]{nid,  }\item[{double}]{vx,  }\item[{double}]{vy,  }\item[{double}]{vz,  }\item[{bool}]{use\+\_\+prescribed\+\_\+vx,  }\item[{bool}]{use\+\_\+prescribed\+\_\+vy,  }\item[{bool}]{use\+\_\+prescribed\+\_\+vz }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classnetdem_1_1_f_e_m_simulator_a374d6e30c0a679faae413dbb8d18d332}\label{classnetdem_1_1_f_e_m_simulator_a374d6e30c0a679faae413dbb8d18d332}} 
+\index{netdem::FEMSimulator@{netdem::FEMSimulator}!SetMesh@{SetMesh}}
+\index{SetMesh@{SetMesh}!netdem::FEMSimulator@{netdem::FEMSimulator}}
+\doxysubsubsection{\texorpdfstring{SetMesh()}{SetMesh()}}
+{\footnotesize\ttfamily void FEMSimulator\+::\+Set\+Mesh (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classnetdem_1_1_tet_mesh}{Tet\+Mesh}} \&}]{tetmesh }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classnetdem_1_1_f_e_m_simulator_a0ea2d8ebd531818c53242ecb9d6193f3}\label{classnetdem_1_1_f_e_m_simulator_a0ea2d8ebd531818c53242ecb9d6193f3}} 
+\index{netdem::FEMSimulator@{netdem::FEMSimulator}!SetNodalVels@{SetNodalVels}}
+\index{SetNodalVels@{SetNodalVels}!netdem::FEMSimulator@{netdem::FEMSimulator}}
+\doxysubsubsection{\texorpdfstring{SetNodalVels()}{SetNodalVels()}}
+{\footnotesize\ttfamily void FEMSimulator\+::\+Set\+Nodal\+Vels (\begin{DoxyParamCaption}\item[{double}]{v\+\_\+x,  }\item[{double}]{v\+\_\+y,  }\item[{double}]{v\+\_\+z }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classnetdem_1_1_f_e_m_simulator_aa9f3c738c27e83878c16abe224c559b6}\label{classnetdem_1_1_f_e_m_simulator_aa9f3c738c27e83878c16abe224c559b6}} 
+\index{netdem::FEMSimulator@{netdem::FEMSimulator}!Solve@{Solve}}
+\index{Solve@{Solve}!netdem::FEMSimulator@{netdem::FEMSimulator}}
+\doxysubsubsection{\texorpdfstring{Solve()}{Solve()}}
+{\footnotesize\ttfamily void FEMSimulator\+::\+Solve (\begin{DoxyParamCaption}\item[{double}]{dt }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classnetdem_1_1_f_e_m_simulator_a891cccab543d3fe76aa93b1f2a373912}\label{classnetdem_1_1_f_e_m_simulator_a891cccab543d3fe76aa93b1f2a373912}} 
+\index{netdem::FEMSimulator@{netdem::FEMSimulator}!bc\_facet\_forces@{bc\_facet\_forces}}
+\index{bc\_facet\_forces@{bc\_facet\_forces}!netdem::FEMSimulator@{netdem::FEMSimulator}}
+\doxysubsubsection{\texorpdfstring{bc\_facet\_forces}{bc\_facet\_forces}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}$>$ netdem\+::\+FEMSimulator\+::bc\+\_\+facet\+\_\+forces}
+
+\mbox{\Hypertarget{classnetdem_1_1_f_e_m_simulator_a1e6ac8fa6706dc8094a944a92d758f87}\label{classnetdem_1_1_f_e_m_simulator_a1e6ac8fa6706dc8094a944a92d758f87}} 
+\index{netdem::FEMSimulator@{netdem::FEMSimulator}!bc\_nodal\_vels@{bc\_nodal\_vels}}
+\index{bc\_nodal\_vels@{bc\_nodal\_vels}!netdem::FEMSimulator@{netdem::FEMSimulator}}
+\doxysubsubsection{\texorpdfstring{bc\_nodal\_vels}{bc\_nodal\_vels}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$\mbox{\hyperlink{namespacenetdem_a4c6a34e4b9bc01901ac527bb8ea83909}{Vec\+NT}}$<$double, 6$>$ $>$ netdem\+::\+FEMSimulator\+::bc\+\_\+nodal\+\_\+vels}
+
+\mbox{\Hypertarget{classnetdem_1_1_f_e_m_simulator_a855f336f07cca891d2557ba23a86abd9}\label{classnetdem_1_1_f_e_m_simulator_a855f336f07cca891d2557ba23a86abd9}} 
+\index{netdem::FEMSimulator@{netdem::FEMSimulator}!bound\_facets@{bound\_facets}}
+\index{bound\_facets@{bound\_facets}!netdem::FEMSimulator@{netdem::FEMSimulator}}
+\doxysubsubsection{\texorpdfstring{bound\_facets}{bound\_facets}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$\mbox{\hyperlink{namespacenetdem_a28e1404c8ce46c48bc78f553bd555980}{Vec3i}}$>$ netdem\+::\+FEMSimulator\+::bound\+\_\+facets}
+
+\mbox{\Hypertarget{classnetdem_1_1_f_e_m_simulator_aa70e2622c5bc64a4746202c8f0e0dd5d}\label{classnetdem_1_1_f_e_m_simulator_aa70e2622c5bc64a4746202c8f0e0dd5d}} 
+\index{netdem::FEMSimulator@{netdem::FEMSimulator}!bound\_nodes@{bound\_nodes}}
+\index{bound\_nodes@{bound\_nodes}!netdem::FEMSimulator@{netdem::FEMSimulator}}
+\doxysubsubsection{\texorpdfstring{bound\_nodes}{bound\_nodes}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$int$>$ netdem\+::\+FEMSimulator\+::bound\+\_\+nodes}
+
+\mbox{\Hypertarget{classnetdem_1_1_f_e_m_simulator_a573acfffc6ec0f7197b020ffd97cf6d7}\label{classnetdem_1_1_f_e_m_simulator_a573acfffc6ec0f7197b020ffd97cf6d7}} 
+\index{netdem::FEMSimulator@{netdem::FEMSimulator}!damp\_coef@{damp\_coef}}
+\index{damp\_coef@{damp\_coef}!netdem::FEMSimulator@{netdem::FEMSimulator}}
+\doxysubsubsection{\texorpdfstring{damp\_coef}{damp\_coef}}
+{\footnotesize\ttfamily double netdem\+::\+FEMSimulator\+::damp\+\_\+coef \{0.\+7\}}
+
+\mbox{\Hypertarget{classnetdem_1_1_f_e_m_simulator_afa699e8e627501767271f5be81a10f47}\label{classnetdem_1_1_f_e_m_simulator_afa699e8e627501767271f5be81a10f47}} 
+\index{netdem::FEMSimulator@{netdem::FEMSimulator}!density@{density}}
+\index{density@{density}!netdem::FEMSimulator@{netdem::FEMSimulator}}
+\doxysubsubsection{\texorpdfstring{density}{density}}
+{\footnotesize\ttfamily double netdem\+::\+FEMSimulator\+::density \{500.\+0\}}
+
+\mbox{\Hypertarget{classnetdem_1_1_f_e_m_simulator_a009b1afa190b1fe0e7920ba61e9210f9}\label{classnetdem_1_1_f_e_m_simulator_a009b1afa190b1fe0e7920ba61e9210f9}} 
+\index{netdem::FEMSimulator@{netdem::FEMSimulator}!elemental\_stress@{elemental\_stress}}
+\index{elemental\_stress@{elemental\_stress}!netdem::FEMSimulator@{netdem::FEMSimulator}}
+\doxysubsubsection{\texorpdfstring{elemental\_stress}{elemental\_stress}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$\mbox{\hyperlink{namespacenetdem_a4c6a34e4b9bc01901ac527bb8ea83909}{Vec\+NT}}$<$double, 6$>$ $>$ netdem\+::\+FEMSimulator\+::elemental\+\_\+stress}
+
+\mbox{\Hypertarget{classnetdem_1_1_f_e_m_simulator_a646a85b52103d37afe2a354de2137b89}\label{classnetdem_1_1_f_e_m_simulator_a646a85b52103d37afe2a354de2137b89}} 
+\index{netdem::FEMSimulator@{netdem::FEMSimulator}!elemental\_vol@{elemental\_vol}}
+\index{elemental\_vol@{elemental\_vol}!netdem::FEMSimulator@{netdem::FEMSimulator}}
+\doxysubsubsection{\texorpdfstring{elemental\_vol}{elemental\_vol}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$double$>$ netdem\+::\+FEMSimulator\+::elemental\+\_\+vol}
+
+\mbox{\Hypertarget{classnetdem_1_1_f_e_m_simulator_afc150d6790e0f024b925380a4c67d52d}\label{classnetdem_1_1_f_e_m_simulator_afc150d6790e0f024b925380a4c67d52d}} 
+\index{netdem::FEMSimulator@{netdem::FEMSimulator}!elements@{elements}}
+\index{elements@{elements}!netdem::FEMSimulator@{netdem::FEMSimulator}}
+\doxysubsubsection{\texorpdfstring{elements}{elements}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$\mbox{\hyperlink{namespacenetdem_a3888f166e48cde671ecd59da6c26e083}{Vec4i}}$>$ netdem\+::\+FEMSimulator\+::elements}
+
+\mbox{\Hypertarget{classnetdem_1_1_f_e_m_simulator_a6690d61908a1e5db55b618b2e53484a2}\label{classnetdem_1_1_f_e_m_simulator_a6690d61908a1e5db55b618b2e53484a2}} 
+\index{netdem::FEMSimulator@{netdem::FEMSimulator}!gravity\_coef@{gravity\_coef}}
+\index{gravity\_coef@{gravity\_coef}!netdem::FEMSimulator@{netdem::FEMSimulator}}
+\doxysubsubsection{\texorpdfstring{gravity\_coef}{gravity\_coef}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} netdem\+::\+FEMSimulator\+::gravity\+\_\+coef \{0.\+0, 0.\+0, 0.\+0\}}
+
+\mbox{\Hypertarget{classnetdem_1_1_f_e_m_simulator_a291383735d6a869d3cd16c24d68b63e0}\label{classnetdem_1_1_f_e_m_simulator_a291383735d6a869d3cd16c24d68b63e0}} 
+\index{netdem::FEMSimulator@{netdem::FEMSimulator}!neo\_k@{neo\_k}}
+\index{neo\_k@{neo\_k}!netdem::FEMSimulator@{netdem::FEMSimulator}}
+\doxysubsubsection{\texorpdfstring{neo\_k}{neo\_k}}
+{\footnotesize\ttfamily double netdem\+::\+FEMSimulator\+::neo\+\_\+k \{6.\+94e5\}}
+
+\mbox{\Hypertarget{classnetdem_1_1_f_e_m_simulator_a8b794c72c7c611d9a1fe5d16d2f616e2}\label{classnetdem_1_1_f_e_m_simulator_a8b794c72c7c611d9a1fe5d16d2f616e2}} 
+\index{netdem::FEMSimulator@{netdem::FEMSimulator}!neo\_mu@{neo\_mu}}
+\index{neo\_mu@{neo\_mu}!netdem::FEMSimulator@{netdem::FEMSimulator}}
+\doxysubsubsection{\texorpdfstring{neo\_mu}{neo\_mu}}
+{\footnotesize\ttfamily double netdem\+::\+FEMSimulator\+::neo\+\_\+mu \{5.\+21e5\}}
+
+\mbox{\Hypertarget{classnetdem_1_1_f_e_m_simulator_a8078bc8966d1bb86552edcf417cb859c}\label{classnetdem_1_1_f_e_m_simulator_a8078bc8966d1bb86552edcf417cb859c}} 
+\index{netdem::FEMSimulator@{netdem::FEMSimulator}!nodal\_forces\_ext@{nodal\_forces\_ext}}
+\index{nodal\_forces\_ext@{nodal\_forces\_ext}!netdem::FEMSimulator@{netdem::FEMSimulator}}
+\doxysubsubsection{\texorpdfstring{nodal\_forces\_ext}{nodal\_forces\_ext}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}$>$ netdem\+::\+FEMSimulator\+::nodal\+\_\+forces\+\_\+ext\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{classnetdem_1_1_f_e_m_simulator_a7c297abc302044a158953c0d92ce235f}\label{classnetdem_1_1_f_e_m_simulator_a7c297abc302044a158953c0d92ce235f}} 
+\index{netdem::FEMSimulator@{netdem::FEMSimulator}!nodal\_forces\_int@{nodal\_forces\_int}}
+\index{nodal\_forces\_int@{nodal\_forces\_int}!netdem::FEMSimulator@{netdem::FEMSimulator}}
+\doxysubsubsection{\texorpdfstring{nodal\_forces\_int}{nodal\_forces\_int}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}$>$ netdem\+::\+FEMSimulator\+::nodal\+\_\+forces\+\_\+int\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{classnetdem_1_1_f_e_m_simulator_a0984ca9bb0e3ded032331dbb896eee85}\label{classnetdem_1_1_f_e_m_simulator_a0984ca9bb0e3ded032331dbb896eee85}} 
+\index{netdem::FEMSimulator@{netdem::FEMSimulator}!nodal\_vels@{nodal\_vels}}
+\index{nodal\_vels@{nodal\_vels}!netdem::FEMSimulator@{netdem::FEMSimulator}}
+\doxysubsubsection{\texorpdfstring{nodal\_vels}{nodal\_vels}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}$>$ netdem\+::\+FEMSimulator\+::nodal\+\_\+vels}
+
+\mbox{\Hypertarget{classnetdem_1_1_f_e_m_simulator_a32575cd147728fc4181ee2a6f946f49d}\label{classnetdem_1_1_f_e_m_simulator_a32575cd147728fc4181ee2a6f946f49d}} 
+\index{netdem::FEMSimulator@{netdem::FEMSimulator}!nodal\_vels\_ave@{nodal\_vels\_ave}}
+\index{nodal\_vels\_ave@{nodal\_vels\_ave}!netdem::FEMSimulator@{netdem::FEMSimulator}}
+\doxysubsubsection{\texorpdfstring{nodal\_vels\_ave}{nodal\_vels\_ave}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}$>$ netdem\+::\+FEMSimulator\+::nodal\+\_\+vels\+\_\+ave\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{classnetdem_1_1_f_e_m_simulator_a2fe368b9d5837c583e65ecdc45023e4c}\label{classnetdem_1_1_f_e_m_simulator_a2fe368b9d5837c583e65ecdc45023e4c}} 
+\index{netdem::FEMSimulator@{netdem::FEMSimulator}!nodal\_vols@{nodal\_vols}}
+\index{nodal\_vols@{nodal\_vols}!netdem::FEMSimulator@{netdem::FEMSimulator}}
+\doxysubsubsection{\texorpdfstring{nodal\_vols}{nodal\_vols}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$double$>$ netdem\+::\+FEMSimulator\+::nodal\+\_\+vols}
+
+\mbox{\Hypertarget{classnetdem_1_1_f_e_m_simulator_a2f9cc5f5d30f78838698670e13aa8985}\label{classnetdem_1_1_f_e_m_simulator_a2f9cc5f5d30f78838698670e13aa8985}} 
+\index{netdem::FEMSimulator@{netdem::FEMSimulator}!nodes@{nodes}}
+\index{nodes@{nodes}!netdem::FEMSimulator@{netdem::FEMSimulator}}
+\doxysubsubsection{\texorpdfstring{nodes}{nodes}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}$>$ netdem\+::\+FEMSimulator\+::nodes}
+
+\mbox{\Hypertarget{classnetdem_1_1_f_e_m_simulator_a4af06416e2ed12a7fe330c1ff5813044}\label{classnetdem_1_1_f_e_m_simulator_a4af06416e2ed12a7fe330c1ff5813044}} 
+\index{netdem::FEMSimulator@{netdem::FEMSimulator}!nodes\_ref@{nodes\_ref}}
+\index{nodes\_ref@{nodes\_ref}!netdem::FEMSimulator@{netdem::FEMSimulator}}
+\doxysubsubsection{\texorpdfstring{nodes\_ref}{nodes\_ref}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}$>$ netdem\+::\+FEMSimulator\+::nodes\+\_\+ref}
+
+\mbox{\Hypertarget{classnetdem_1_1_f_e_m_simulator_a011ee17fdeb932f09541e6d8812eab46}\label{classnetdem_1_1_f_e_m_simulator_a011ee17fdeb932f09541e6d8812eab46}} 
+\index{netdem::FEMSimulator@{netdem::FEMSimulator}!timestep@{timestep}}
+\index{timestep@{timestep}!netdem::FEMSimulator@{netdem::FEMSimulator}}
+\doxysubsubsection{\texorpdfstring{timestep}{timestep}}
+{\footnotesize\ttfamily double netdem\+::\+FEMSimulator\+::timestep \{1.\+0e-\/4\}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/lzhshou/\+Documents/\+Research/my\+Projects/apam/repo/netdem/src/fem/\mbox{\hyperlink{fem__simulator_8hpp}{fem\+\_\+simulator.\+hpp}}\item 
+/\+Users/lzhshou/\+Documents/\+Research/my\+Projects/apam/repo/netdem/src/fem/\mbox{\hyperlink{fem__simulator_8cpp}{fem\+\_\+simulator.\+cpp}}\end{DoxyCompactItemize}

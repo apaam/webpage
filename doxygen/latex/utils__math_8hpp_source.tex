@@ -1,0 +1,544 @@
+\hypertarget{utils__math_8hpp_source}{}\doxysection{utils\+\_\+math.\+hpp}
+\label{utils__math_8hpp_source}\index{/Users/lzhshou/Documents/Research/myProjects/apam/repo/netdem/src/utils/utils\_math.hpp@{/Users/lzhshou/Documents/Research/myProjects/apam/repo/netdem/src/utils/utils\_math.hpp}}
+\mbox{\hyperlink{utils__math_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 }
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{utils__macros_8hpp}{utils\_macros.hpp}}"{}}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <cmath>}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <ctime>}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include <tuple>}}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{9 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacenetdem}{netdem}} \{}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11 \textcolor{keyword}{inline} std::ostream \&\mbox{\hyperlink{namespacenetdem_aaac6b60f29428f5ca33e24e544f74a82}{operator<<}}(std::ostream \&os, \mbox{\hyperlink{namespacenetdem_a28e1404c8ce46c48bc78f553bd555980}{Vec3i}} \textcolor{keyword}{const} \&obj) \{}
+\DoxyCodeLine{12   os << obj[0] << \textcolor{stringliteral}{"{}, "{}} << obj[1] << \textcolor{stringliteral}{"{}, "{}} << obj[2];}
+\DoxyCodeLine{13   \textcolor{keywordflow}{return} os;}
+\DoxyCodeLine{14 \}}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 \textcolor{keyword}{inline} std::ostream \&\mbox{\hyperlink{namespacenetdem_aaac6b60f29428f5ca33e24e544f74a82}{operator<<}}(std::ostream \&os, \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \textcolor{keyword}{const} \&obj) \{}
+\DoxyCodeLine{17   os << obj[0] << \textcolor{stringliteral}{"{}, "{}} << obj[1] << \textcolor{stringliteral}{"{}, "{}} << obj[2];}
+\DoxyCodeLine{18   \textcolor{keywordflow}{return} os;}
+\DoxyCodeLine{19 \}}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21 \textcolor{keyword}{inline} std::ostream \&\mbox{\hyperlink{namespacenetdem_aaac6b60f29428f5ca33e24e544f74a82}{operator<<}}(std::ostream \&os, \mbox{\hyperlink{namespacenetdem_a13d5371f99b252a70fd5a5081b910370}{Vec4d}} \textcolor{keyword}{const} \&obj) \{}
+\DoxyCodeLine{22   os << obj[0] << \textcolor{stringliteral}{"{}, "{}} << obj[1] << \textcolor{stringliteral}{"{}, "{}} << obj[2] << \textcolor{stringliteral}{"{}, "{}} << obj[3];}
+\DoxyCodeLine{23   \textcolor{keywordflow}{return} os;}
+\DoxyCodeLine{24 \}}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26 \textcolor{keyword}{inline} std::ostream \&\mbox{\hyperlink{namespacenetdem_aaac6b60f29428f5ca33e24e544f74a82}{operator<<}}(std::ostream \&os, \mbox{\hyperlink{namespacenetdem_ae589ca87f7a16ea70807ee6b1c3bc1c8}{Mat3d}} \textcolor{keyword}{const} \&obj) \{}
+\DoxyCodeLine{27   os << obj[0] << std::endl << obj[1] << std::endl << obj[2];}
+\DoxyCodeLine{28   \textcolor{keywordflow}{return} os;}
+\DoxyCodeLine{29 \}}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31 \textcolor{keyword}{inline} \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \mbox{\hyperlink{namespacenetdem_a58c64dc436d1af80ee92716cfc5ed668}{operator+}}(\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \textcolor{keyword}{const} \&lhs, \textcolor{keywordtype}{double} rhs) \{}
+\DoxyCodeLine{32   \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} res;}
+\DoxyCodeLine{33   res[0] = lhs[0] + rhs;}
+\DoxyCodeLine{34   res[1] = lhs[1] + rhs;}
+\DoxyCodeLine{35   res[2] = lhs[2] + rhs;}
+\DoxyCodeLine{36   \textcolor{keywordflow}{return} res;}
+\DoxyCodeLine{37 \}}
+\DoxyCodeLine{38 }
+\DoxyCodeLine{39 \textcolor{keyword}{inline} \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \mbox{\hyperlink{namespacenetdem_a58c64dc436d1af80ee92716cfc5ed668}{operator+}}(\textcolor{keywordtype}{double} lhs, \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \textcolor{keyword}{const} \&rhs) \{}
+\DoxyCodeLine{40   \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} res;}
+\DoxyCodeLine{41   res[0] = lhs + rhs[0];}
+\DoxyCodeLine{42   res[1] = lhs + rhs[1];}
+\DoxyCodeLine{43   res[2] = lhs + rhs[2];}
+\DoxyCodeLine{44   \textcolor{keywordflow}{return} res;}
+\DoxyCodeLine{45 \}}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{47 \textcolor{keyword}{inline} \mbox{\hyperlink{namespacenetdem_a28e1404c8ce46c48bc78f553bd555980}{Vec3i}} \mbox{\hyperlink{namespacenetdem_a58c64dc436d1af80ee92716cfc5ed668}{operator+}}(\mbox{\hyperlink{namespacenetdem_a28e1404c8ce46c48bc78f553bd555980}{Vec3i}} \textcolor{keyword}{const} \&lhs, \textcolor{keywordtype}{int} rhs) \{}
+\DoxyCodeLine{48   \mbox{\hyperlink{namespacenetdem_a28e1404c8ce46c48bc78f553bd555980}{Vec3i}} res;}
+\DoxyCodeLine{49   res[0] = lhs[0] + rhs;}
+\DoxyCodeLine{50   res[1] = lhs[1] + rhs;}
+\DoxyCodeLine{51   res[2] = lhs[2] + rhs;}
+\DoxyCodeLine{52   \textcolor{keywordflow}{return} res;}
+\DoxyCodeLine{53 \}}
+\DoxyCodeLine{54 }
+\DoxyCodeLine{55 \textcolor{keyword}{inline} \mbox{\hyperlink{namespacenetdem_a28e1404c8ce46c48bc78f553bd555980}{Vec3i}} \mbox{\hyperlink{namespacenetdem_a58c64dc436d1af80ee92716cfc5ed668}{operator+}}(\textcolor{keywordtype}{int} lhs, \mbox{\hyperlink{namespacenetdem_a28e1404c8ce46c48bc78f553bd555980}{Vec3i}} \textcolor{keyword}{const} \&rhs) \{}
+\DoxyCodeLine{56   \mbox{\hyperlink{namespacenetdem_a28e1404c8ce46c48bc78f553bd555980}{Vec3i}} res;}
+\DoxyCodeLine{57   res[0] = lhs + rhs[0];}
+\DoxyCodeLine{58   res[1] = lhs + rhs[1];}
+\DoxyCodeLine{59   res[2] = lhs + rhs[2];}
+\DoxyCodeLine{60   \textcolor{keywordflow}{return} res;}
+\DoxyCodeLine{61 \}}
+\DoxyCodeLine{62 }
+\DoxyCodeLine{63 \textcolor{keyword}{inline} \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \mbox{\hyperlink{namespacenetdem_ae296e511b481cbb8122e2eedf61c15f2}{operator-\/}}(\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \textcolor{keyword}{const} \&lhs, \textcolor{keywordtype}{double} rhs) \{}
+\DoxyCodeLine{64   \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} res;}
+\DoxyCodeLine{65   res[0] = lhs[0] -\/ rhs;}
+\DoxyCodeLine{66   res[1] = lhs[1] -\/ rhs;}
+\DoxyCodeLine{67   res[2] = lhs[2] -\/ rhs;}
+\DoxyCodeLine{68   \textcolor{keywordflow}{return} res;}
+\DoxyCodeLine{69 \}}
+\DoxyCodeLine{70 }
+\DoxyCodeLine{71 \textcolor{keyword}{inline} \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \mbox{\hyperlink{namespacenetdem_ae296e511b481cbb8122e2eedf61c15f2}{operator-\/}}(\textcolor{keywordtype}{double} lhs, \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \textcolor{keyword}{const} \&rhs) \{}
+\DoxyCodeLine{72   \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} res;}
+\DoxyCodeLine{73   res[0] = lhs -\/ rhs[0];}
+\DoxyCodeLine{74   res[1] = lhs -\/ rhs[1];}
+\DoxyCodeLine{75   res[2] = lhs -\/ rhs[2];}
+\DoxyCodeLine{76   \textcolor{keywordflow}{return} res;}
+\DoxyCodeLine{77 \}}
+\DoxyCodeLine{78 }
+\DoxyCodeLine{79 \textcolor{keyword}{inline} \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \mbox{\hyperlink{namespacenetdem_ad7f9811b50f61d2ed753b51b14eba44e}{operator*}}(\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \textcolor{keyword}{const} \&lhs, \textcolor{keywordtype}{double} rhs) \{}
+\DoxyCodeLine{80   \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} res;}
+\DoxyCodeLine{81   res[0] = lhs[0] * rhs;}
+\DoxyCodeLine{82   res[1] = lhs[1] * rhs;}
+\DoxyCodeLine{83   res[2] = lhs[2] * rhs;}
+\DoxyCodeLine{84   \textcolor{keywordflow}{return} res;}
+\DoxyCodeLine{85 \}}
+\DoxyCodeLine{86 }
+\DoxyCodeLine{87 \textcolor{keyword}{inline} \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \mbox{\hyperlink{namespacenetdem_ad7f9811b50f61d2ed753b51b14eba44e}{operator*}}(\textcolor{keywordtype}{double} lhs, \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \textcolor{keyword}{const} \&rhs) \{}
+\DoxyCodeLine{88   \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} res;}
+\DoxyCodeLine{89   res[0] = lhs * rhs[0];}
+\DoxyCodeLine{90   res[1] = lhs * rhs[1];}
+\DoxyCodeLine{91   res[2] = lhs * rhs[2];}
+\DoxyCodeLine{92   \textcolor{keywordflow}{return} res;}
+\DoxyCodeLine{93 \}}
+\DoxyCodeLine{94 }
+\DoxyCodeLine{95 \textcolor{keyword}{inline} \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \mbox{\hyperlink{namespacenetdem_adeb43f05217cbc8edf56066564484bdd}{operator/}}(\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \textcolor{keyword}{const} \&lhs, \textcolor{keywordtype}{double} rhs) \{}
+\DoxyCodeLine{96   \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} res;}
+\DoxyCodeLine{97   res[0] = lhs[0] / rhs;}
+\DoxyCodeLine{98   res[1] = lhs[1] / rhs;}
+\DoxyCodeLine{99   res[2] = lhs[2] / rhs;}
+\DoxyCodeLine{100   \textcolor{keywordflow}{return} res;}
+\DoxyCodeLine{101 \}}
+\DoxyCodeLine{102 }
+\DoxyCodeLine{103 \textcolor{keyword}{inline} \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \mbox{\hyperlink{namespacenetdem_adeb43f05217cbc8edf56066564484bdd}{operator/}}(\textcolor{keywordtype}{double} lhs, \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \textcolor{keyword}{const} \&rhs) \{}
+\DoxyCodeLine{104   \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} res;}
+\DoxyCodeLine{105   res[0] = lhs / rhs[0];}
+\DoxyCodeLine{106   res[1] = lhs / rhs[1];}
+\DoxyCodeLine{107   res[2] = lhs / rhs[2];}
+\DoxyCodeLine{108   \textcolor{keywordflow}{return} res;}
+\DoxyCodeLine{109 \}}
+\DoxyCodeLine{110 }
+\DoxyCodeLine{111 \textcolor{keyword}{inline} \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \mbox{\hyperlink{namespacenetdem_a58c64dc436d1af80ee92716cfc5ed668}{operator+}}(\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \textcolor{keyword}{const} \&lhs, \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \textcolor{keyword}{const} \&rhs) \{}
+\DoxyCodeLine{112   \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} res;}
+\DoxyCodeLine{113   res[0] = lhs[0] + rhs[0];}
+\DoxyCodeLine{114   res[1] = lhs[1] + rhs[1];}
+\DoxyCodeLine{115   res[2] = lhs[2] + rhs[2];}
+\DoxyCodeLine{116   \textcolor{keywordflow}{return} res;}
+\DoxyCodeLine{117 \}}
+\DoxyCodeLine{118 }
+\DoxyCodeLine{119 \textcolor{keyword}{inline} \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \mbox{\hyperlink{namespacenetdem_ae296e511b481cbb8122e2eedf61c15f2}{operator-\/}}(\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \textcolor{keyword}{const} \&lhs, \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \textcolor{keyword}{const} \&rhs) \{}
+\DoxyCodeLine{120   \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} res;}
+\DoxyCodeLine{121   res[0] = lhs[0] -\/ rhs[0];}
+\DoxyCodeLine{122   res[1] = lhs[1] -\/ rhs[1];}
+\DoxyCodeLine{123   res[2] = lhs[2] -\/ rhs[2];}
+\DoxyCodeLine{124   \textcolor{keywordflow}{return} res;}
+\DoxyCodeLine{125 \}}
+\DoxyCodeLine{126 }
+\DoxyCodeLine{127 \textcolor{keyword}{inline} \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \mbox{\hyperlink{namespacenetdem_ad7f9811b50f61d2ed753b51b14eba44e}{operator*}}(\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \textcolor{keyword}{const} \&lhs, \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \textcolor{keyword}{const} \&rhs) \{}
+\DoxyCodeLine{128   \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} res;}
+\DoxyCodeLine{129   res[0] = lhs[0] * rhs[0];}
+\DoxyCodeLine{130   res[1] = lhs[1] * rhs[1];}
+\DoxyCodeLine{131   res[2] = lhs[2] * rhs[2];}
+\DoxyCodeLine{132   \textcolor{keywordflow}{return} res;}
+\DoxyCodeLine{133 \}}
+\DoxyCodeLine{134 }
+\DoxyCodeLine{135 \textcolor{keyword}{inline} \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \mbox{\hyperlink{namespacenetdem_adeb43f05217cbc8edf56066564484bdd}{operator/}}(\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \textcolor{keyword}{const} \&lhs, \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \textcolor{keyword}{const} \&rhs) \{}
+\DoxyCodeLine{136   \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} res;}
+\DoxyCodeLine{137   res[0] = lhs[0] / rhs[0];}
+\DoxyCodeLine{138   res[1] = lhs[1] / rhs[1];}
+\DoxyCodeLine{139   res[2] = lhs[2] / rhs[2];}
+\DoxyCodeLine{140   \textcolor{keywordflow}{return} res;}
+\DoxyCodeLine{141 \}}
+\DoxyCodeLine{142 }
+\DoxyCodeLine{143 \textcolor{keyword}{namespace }Math \{}
+\DoxyCodeLine{144 }
+\DoxyCodeLine{145 \textcolor{keyword}{template} <\textcolor{keyword}{typename} T> \textcolor{keyword}{inline} \textcolor{keywordtype}{int} \mbox{\hyperlink{namespacenetdem_1_1_math_a9ccb7fdf2bcff97b38c849b9c7037e83}{Sign}}(T val) \{}
+\DoxyCodeLine{146   \textcolor{keywordflow}{return} (T(0) < val) -\/ (val < T(0));}
+\DoxyCodeLine{147 \}}
+\DoxyCodeLine{148 }
+\DoxyCodeLine{149 \textcolor{keyword}{inline} \textcolor{keywordtype}{double} \mbox{\hyperlink{namespacenetdem_1_1_math_aa89af4fc942125f1f4a7e947d5545bc6}{NormLen}}(\mbox{\hyperlink{namespacenetdem_ac259822745bc5554db4ac0b62e4f9360}{Vec2d}} \textcolor{keyword}{const} \&val) \{}
+\DoxyCodeLine{150   \textcolor{keywordflow}{return} std::sqrt((\textcolor{keywordtype}{long} \textcolor{keywordtype}{double})(val[0]) * (\textcolor{keywordtype}{long} \textcolor{keywordtype}{double})(val[0]) +}
+\DoxyCodeLine{151                    (\textcolor{keywordtype}{long} \textcolor{keywordtype}{double})(val[1]) * (\textcolor{keywordtype}{long} \textcolor{keywordtype}{double})(val[1]));}
+\DoxyCodeLine{152 \}}
+\DoxyCodeLine{153 }
+\DoxyCodeLine{154 \textcolor{keyword}{inline} \textcolor{keywordtype}{double} \mbox{\hyperlink{namespacenetdem_1_1_math_aa89af4fc942125f1f4a7e947d5545bc6}{NormLen}}(\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \textcolor{keyword}{const} \&val) \{}
+\DoxyCodeLine{155   \textcolor{keywordflow}{return} std::sqrt((\textcolor{keywordtype}{long} \textcolor{keywordtype}{double})(val[0]) * (\textcolor{keywordtype}{long} \textcolor{keywordtype}{double})(val[0]) +}
+\DoxyCodeLine{156                    (\textcolor{keywordtype}{long} \textcolor{keywordtype}{double})(val[1]) * (\textcolor{keywordtype}{long} \textcolor{keywordtype}{double})(val[1]) +}
+\DoxyCodeLine{157                    (\textcolor{keywordtype}{long} \textcolor{keywordtype}{double})(val[2]) * (\textcolor{keywordtype}{long} \textcolor{keywordtype}{double})(val[2]));}
+\DoxyCodeLine{158 \}}
+\DoxyCodeLine{159 }
+\DoxyCodeLine{160 \textcolor{keyword}{inline} \textcolor{keywordtype}{double} \mbox{\hyperlink{namespacenetdem_1_1_math_aa89af4fc942125f1f4a7e947d5545bc6}{NormLen}}(\textcolor{keywordtype}{double} val\_0, \textcolor{keywordtype}{double} val\_1) \{}
+\DoxyCodeLine{161   \textcolor{keywordflow}{return} std::sqrt((\textcolor{keywordtype}{long} \textcolor{keywordtype}{double})val\_0 * (\textcolor{keywordtype}{long} \textcolor{keywordtype}{double})val\_0 +}
+\DoxyCodeLine{162                    (\textcolor{keywordtype}{long} \textcolor{keywordtype}{double})val\_1 * (\textcolor{keywordtype}{long} \textcolor{keywordtype}{double})val\_1);}
+\DoxyCodeLine{163 \}}
+\DoxyCodeLine{164 }
+\DoxyCodeLine{165 \textcolor{keyword}{inline} \textcolor{keywordtype}{double} \mbox{\hyperlink{namespacenetdem_1_1_math_aa89af4fc942125f1f4a7e947d5545bc6}{NormLen}}(\textcolor{keywordtype}{double} val\_0, \textcolor{keywordtype}{double} val\_1, \textcolor{keywordtype}{double} val\_2) \{}
+\DoxyCodeLine{166   \textcolor{keywordflow}{return} std::sqrt((\textcolor{keywordtype}{long} \textcolor{keywordtype}{double})val\_0 * (\textcolor{keywordtype}{long} \textcolor{keywordtype}{double})val\_0 +}
+\DoxyCodeLine{167                    (\textcolor{keywordtype}{long} \textcolor{keywordtype}{double})val\_1 * (\textcolor{keywordtype}{long} \textcolor{keywordtype}{double})val\_1 +}
+\DoxyCodeLine{168                    (\textcolor{keywordtype}{long} \textcolor{keywordtype}{double})val\_2 * (\textcolor{keywordtype}{long} \textcolor{keywordtype}{double})val\_2);}
+\DoxyCodeLine{169 \}}
+\DoxyCodeLine{170 }
+\DoxyCodeLine{171 \textcolor{keyword}{inline} \textcolor{keywordtype}{double} \mbox{\hyperlink{namespacenetdem_1_1_math_aa89af4fc942125f1f4a7e947d5545bc6}{NormLen}}(\textcolor{keywordtype}{double} val\_0, \textcolor{keywordtype}{double} val\_1, \textcolor{keywordtype}{double} val\_2, \textcolor{keywordtype}{double} val\_3) \{}
+\DoxyCodeLine{172   \textcolor{keywordflow}{return} std::sqrt((\textcolor{keywordtype}{long} \textcolor{keywordtype}{double})val\_0 * (\textcolor{keywordtype}{long} \textcolor{keywordtype}{double})val\_0 +}
+\DoxyCodeLine{173                    (\textcolor{keywordtype}{long} \textcolor{keywordtype}{double})val\_1 * (\textcolor{keywordtype}{long} \textcolor{keywordtype}{double})val\_1 +}
+\DoxyCodeLine{174                    (\textcolor{keywordtype}{long} \textcolor{keywordtype}{double})val\_2 * (\textcolor{keywordtype}{long} \textcolor{keywordtype}{double})val\_2 +}
+\DoxyCodeLine{175                    (\textcolor{keywordtype}{long} \textcolor{keywordtype}{double})val\_3 * (\textcolor{keywordtype}{long} \textcolor{keywordtype}{double})val\_3);}
+\DoxyCodeLine{176 \}}
+\DoxyCodeLine{177 }
+\DoxyCodeLine{178 \textcolor{keyword}{inline} \textcolor{keywordtype}{double} \mbox{\hyperlink{namespacenetdem_1_1_math_a6c8da89458c538659243ef0226c7cccb}{Determinant}}(\mbox{\hyperlink{namespacenetdem_ab579cc2b45db8875b851b66758941908}{Mat2d}} \textcolor{keyword}{const} \&mat) \{}
+\DoxyCodeLine{179   \textcolor{keywordflow}{return} mat[0][0] * mat[1][1] -\/ mat[0][1] * mat[1][0];}
+\DoxyCodeLine{180 \}}
+\DoxyCodeLine{181 }
+\DoxyCodeLine{182 \textcolor{keyword}{inline} \textcolor{keywordtype}{double} \mbox{\hyperlink{namespacenetdem_1_1_math_a6c8da89458c538659243ef0226c7cccb}{Determinant}}(\mbox{\hyperlink{namespacenetdem_ae589ca87f7a16ea70807ee6b1c3bc1c8}{Mat3d}} \textcolor{keyword}{const} \&mat) \{}
+\DoxyCodeLine{183   \textcolor{keywordflow}{return} mat[0][0] * mat[1][1] * mat[2][2] + mat[0][1] * mat[1][2] * mat[2][0] +}
+\DoxyCodeLine{184          mat[0][2] * mat[1][0] * mat[2][1] -\/ mat[0][0] * mat[1][2] * mat[2][1] -\/}
+\DoxyCodeLine{185          mat[0][1] * mat[1][0] * mat[2][2] -\/ mat[0][2] * mat[1][1] * mat[2][0];}
+\DoxyCodeLine{186 \}}
+\DoxyCodeLine{187 }
+\DoxyCodeLine{188 \textcolor{keyword}{inline} \mbox{\hyperlink{namespacenetdem_ab579cc2b45db8875b851b66758941908}{Mat2d}} \mbox{\hyperlink{namespacenetdem_1_1_math_a5dc9aca13361fd82fd0f03efa76d46ea}{Inverse}}(\mbox{\hyperlink{namespacenetdem_ab579cc2b45db8875b851b66758941908}{Mat2d}} \textcolor{keyword}{const} \&m\_val) \{}
+\DoxyCodeLine{189   \textcolor{keywordtype}{double} m\_det = \mbox{\hyperlink{namespacenetdem_1_1_math_a6c8da89458c538659243ef0226c7cccb}{Determinant}}(m\_val);}
+\DoxyCodeLine{190   \textcolor{keywordflow}{if} (std::abs(m\_det) < 1.0e-\/24) \{}
+\DoxyCodeLine{191     std::cout << \textcolor{stringliteral}{"{}in Math::Inverse: mat determinant less than 1.0e-\/24"{}}}
+\DoxyCodeLine{192               << std::endl;}
+\DoxyCodeLine{193   \}}
+\DoxyCodeLine{194 }
+\DoxyCodeLine{195   \mbox{\hyperlink{namespacenetdem_ab579cc2b45db8875b851b66758941908}{Mat2d}} m\_res;}
+\DoxyCodeLine{196 }
+\DoxyCodeLine{197   m\_res[0][0] = m\_val[1][1] / m\_det;}
+\DoxyCodeLine{198   m\_res[0][1] = -\/m\_val[0][1] / m\_det;}
+\DoxyCodeLine{199 }
+\DoxyCodeLine{200   m\_res[1][0] = -\/m\_val[1][0] / m\_det;}
+\DoxyCodeLine{201   m\_res[1][1] = m\_val[0][0] / m\_det;}
+\DoxyCodeLine{202 }
+\DoxyCodeLine{203   \textcolor{keywordflow}{return} m\_res;}
+\DoxyCodeLine{204 \}}
+\DoxyCodeLine{205 }
+\DoxyCodeLine{206 \textcolor{keyword}{inline} \mbox{\hyperlink{namespacenetdem_ae589ca87f7a16ea70807ee6b1c3bc1c8}{Mat3d}} \mbox{\hyperlink{namespacenetdem_1_1_math_a5dc9aca13361fd82fd0f03efa76d46ea}{Inverse}}(\mbox{\hyperlink{namespacenetdem_ae589ca87f7a16ea70807ee6b1c3bc1c8}{Mat3d}} \textcolor{keyword}{const} \&m\_val) \{}
+\DoxyCodeLine{207   \textcolor{keywordtype}{double} m\_det = \mbox{\hyperlink{namespacenetdem_1_1_math_a6c8da89458c538659243ef0226c7cccb}{Determinant}}(m\_val);}
+\DoxyCodeLine{208   \textcolor{keywordflow}{if} (std::abs(m\_det) < 1.0e-\/24) \{}
+\DoxyCodeLine{209     std::cout << \textcolor{stringliteral}{"{}in Math::Inverse: mat determinant less than 1.0e-\/24"{}}}
+\DoxyCodeLine{210               << std::endl;}
+\DoxyCodeLine{211   \}}
+\DoxyCodeLine{212 }
+\DoxyCodeLine{213   \mbox{\hyperlink{namespacenetdem_ae589ca87f7a16ea70807ee6b1c3bc1c8}{Mat3d}} m\_res;}
+\DoxyCodeLine{214 }
+\DoxyCodeLine{215   m\_res[0][0] = (m\_val[1][1] * m\_val[2][2] -\/ m\_val[2][1] * m\_val[1][2]) / m\_det;}
+\DoxyCodeLine{216   m\_res[0][1] = (m\_val[2][1] * m\_val[0][2] -\/ m\_val[0][1] * m\_val[2][2]) / m\_det;}
+\DoxyCodeLine{217   m\_res[0][2] = (m\_val[0][1] * m\_val[1][2] -\/ m\_val[1][1] * m\_val[0][2]) / m\_det;}
+\DoxyCodeLine{218 }
+\DoxyCodeLine{219   m\_res[1][0] = (m\_val[1][2] * m\_val[2][0] -\/ m\_val[2][2] * m\_val[1][0]) / m\_det;}
+\DoxyCodeLine{220   m\_res[1][1] = (m\_val[2][2] * m\_val[0][0] -\/ m\_val[0][2] * m\_val[2][0]) / m\_det;}
+\DoxyCodeLine{221   m\_res[1][2] = (m\_val[0][2] * m\_val[1][0] -\/ m\_val[1][2] * m\_val[0][0]) / m\_det;}
+\DoxyCodeLine{222 }
+\DoxyCodeLine{223   m\_res[2][0] = (m\_val[1][0] * m\_val[2][1] -\/ m\_val[2][0] * m\_val[1][1]) / m\_det;}
+\DoxyCodeLine{224   m\_res[2][1] = (m\_val[2][0] * m\_val[0][1] -\/ m\_val[0][0] * m\_val[2][1]) / m\_det;}
+\DoxyCodeLine{225   m\_res[2][2] = (m\_val[0][0] * m\_val[1][1] -\/ m\_val[1][0] * m\_val[0][1]) / m\_det;}
+\DoxyCodeLine{226 }
+\DoxyCodeLine{227   \textcolor{keywordflow}{return} m\_res;}
+\DoxyCodeLine{228 \}}
+\DoxyCodeLine{229 }
+\DoxyCodeLine{230 \textcolor{keyword}{template} <\textcolor{keywordtype}{size\_t} r, \textcolor{keywordtype}{size\_t} cr, \textcolor{keywordtype}{size\_t} c>}
+\DoxyCodeLine{231 \textcolor{keyword}{inline} \mbox{\hyperlink{namespacenetdem_aa1535a5d1ed2f90088a89de1f7670952}{MatNd<r, c>}} \mbox{\hyperlink{namespacenetdem_1_1_math_ad7f89b1ec2000c79853417190f8f14bd}{Dot}}(\mbox{\hyperlink{namespacenetdem_aa1535a5d1ed2f90088a89de1f7670952}{MatNd<r, cr>}} \textcolor{keyword}{const} \&m\_1, \mbox{\hyperlink{namespacenetdem_aa1535a5d1ed2f90088a89de1f7670952}{MatNd<cr, c>}} \textcolor{keyword}{const} \&m\_2) \{}
+\DoxyCodeLine{232   \mbox{\hyperlink{namespacenetdem_aa1535a5d1ed2f90088a89de1f7670952}{MatNd<r, c>}} m\_res;}
+\DoxyCodeLine{233 }
+\DoxyCodeLine{234   \textcolor{keywordflow}{for} (\textcolor{keywordtype}{size\_t} i = 0; i < r; i++) \{}
+\DoxyCodeLine{235     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{size\_t} j = 0; j < c; j++) \{}
+\DoxyCodeLine{236       m\_res[i][j] = 0;}
+\DoxyCodeLine{237     \}}
+\DoxyCodeLine{238   \}}
+\DoxyCodeLine{239 }
+\DoxyCodeLine{240   \textcolor{keywordflow}{for} (\textcolor{keywordtype}{size\_t} i = 0; i < r; i++) \{}
+\DoxyCodeLine{241     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{size\_t} k = 0; k < cr; k++) \{}
+\DoxyCodeLine{242       \textcolor{keywordflow}{for} (\textcolor{keywordtype}{size\_t} j = 0; j < c; j++) \{}
+\DoxyCodeLine{243         m\_res[i][j] += m\_1[i][k] * m\_2[k][j];}
+\DoxyCodeLine{244       \}}
+\DoxyCodeLine{245     \}}
+\DoxyCodeLine{246   \}}
+\DoxyCodeLine{247 }
+\DoxyCodeLine{248   \textcolor{keywordflow}{return} m\_res;}
+\DoxyCodeLine{249 \}}
+\DoxyCodeLine{250 }
+\DoxyCodeLine{251 \textcolor{keyword}{template} <\textcolor{keywordtype}{size\_t} r, \textcolor{keywordtype}{size\_t} cr, \textcolor{keywordtype}{size\_t} c>}
+\DoxyCodeLine{252 \textcolor{keyword}{inline} \mbox{\hyperlink{namespacenetdem_aa1535a5d1ed2f90088a89de1f7670952}{MatNd<r, c>}} \mbox{\hyperlink{namespacenetdem_1_1_math_a6030da6531558a403846fe97e54ce77c}{DotTransportLHS}}(\mbox{\hyperlink{namespacenetdem_aa1535a5d1ed2f90088a89de1f7670952}{MatNd<cr, r>}} \textcolor{keyword}{const} \&m\_1,}
+\DoxyCodeLine{253                                    \mbox{\hyperlink{namespacenetdem_aa1535a5d1ed2f90088a89de1f7670952}{MatNd<cr, c>}} \textcolor{keyword}{const} \&m\_2) \{}
+\DoxyCodeLine{254   \mbox{\hyperlink{namespacenetdem_aa1535a5d1ed2f90088a89de1f7670952}{MatNd<r, c>}} m\_res;}
+\DoxyCodeLine{255 }
+\DoxyCodeLine{256   \textcolor{keywordflow}{for} (\textcolor{keywordtype}{size\_t} i = 0; i < r; i++) \{}
+\DoxyCodeLine{257     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{size\_t} j = 0; j < c; j++) \{}
+\DoxyCodeLine{258       m\_res[i][j] = 0;}
+\DoxyCodeLine{259     \}}
+\DoxyCodeLine{260   \}}
+\DoxyCodeLine{261 }
+\DoxyCodeLine{262   \textcolor{keywordflow}{for} (\textcolor{keywordtype}{size\_t} i = 0; i < r; i++) \{}
+\DoxyCodeLine{263     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{size\_t} k = 0; k < cr; k++) \{}
+\DoxyCodeLine{264       \textcolor{keywordflow}{for} (\textcolor{keywordtype}{size\_t} j = 0; j < c; j++) \{}
+\DoxyCodeLine{265         m\_res[i][j] += m\_1[k][i] * m\_2[k][j];}
+\DoxyCodeLine{266       \}}
+\DoxyCodeLine{267     \}}
+\DoxyCodeLine{268   \}}
+\DoxyCodeLine{269 }
+\DoxyCodeLine{270   \textcolor{keywordflow}{return} m\_res;}
+\DoxyCodeLine{271 \}}
+\DoxyCodeLine{272 }
+\DoxyCodeLine{273 \textcolor{keyword}{template} <\textcolor{keywordtype}{size\_t} r, \textcolor{keywordtype}{size\_t} cr, \textcolor{keywordtype}{size\_t} c>}
+\DoxyCodeLine{274 \textcolor{keyword}{inline} \mbox{\hyperlink{namespacenetdem_aa1535a5d1ed2f90088a89de1f7670952}{MatNd<r, c>}} \mbox{\hyperlink{namespacenetdem_1_1_math_a660d78bd0e471c0cb51c1e39c1090011}{DotTransportRHS}}(\mbox{\hyperlink{namespacenetdem_aa1535a5d1ed2f90088a89de1f7670952}{MatNd<r, cr>}} \textcolor{keyword}{const} \&m\_1,}
+\DoxyCodeLine{275                                    \mbox{\hyperlink{namespacenetdem_aa1535a5d1ed2f90088a89de1f7670952}{MatNd<c, cr>}} \textcolor{keyword}{const} \&m\_2) \{}
+\DoxyCodeLine{276   \mbox{\hyperlink{namespacenetdem_aa1535a5d1ed2f90088a89de1f7670952}{MatNd<r, c>}} m\_res;}
+\DoxyCodeLine{277 }
+\DoxyCodeLine{278   \textcolor{keywordflow}{for} (\textcolor{keywordtype}{size\_t} i = 0; i < r; i++) \{}
+\DoxyCodeLine{279     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{size\_t} j = 0; j < c; j++) \{}
+\DoxyCodeLine{280       m\_res[i][j] = 0;}
+\DoxyCodeLine{281     \}}
+\DoxyCodeLine{282   \}}
+\DoxyCodeLine{283 }
+\DoxyCodeLine{284   \textcolor{keywordflow}{for} (\textcolor{keywordtype}{size\_t} i = 0; i < r; i++) \{}
+\DoxyCodeLine{285     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{size\_t} j = 0; j < c; j++) \{}
+\DoxyCodeLine{286       \textcolor{keywordflow}{for} (\textcolor{keywordtype}{size\_t} k = 0; k < cr; k++) \{}
+\DoxyCodeLine{287         m\_res[i][j] += m\_1[i][k] * m\_2[j][k];}
+\DoxyCodeLine{288       \}}
+\DoxyCodeLine{289     \}}
+\DoxyCodeLine{290   \}}
+\DoxyCodeLine{291 }
+\DoxyCodeLine{292   \textcolor{keywordflow}{return} m\_res;}
+\DoxyCodeLine{293 \}}
+\DoxyCodeLine{294 }
+\DoxyCodeLine{295 \textcolor{keyword}{inline} \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \mbox{\hyperlink{namespacenetdem_1_1_math_a02c3488243ea9a0a1bfdaa73f2f47b98}{Cross}}(\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \textcolor{keyword}{const} \&val\_1, \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \textcolor{keyword}{const} \&val\_2) \{}
+\DoxyCodeLine{296   \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} val\_res;}
+\DoxyCodeLine{297   val\_res[0] = val\_1[1] * val\_2[2] -\/ val\_1[2] * val\_2[1];}
+\DoxyCodeLine{298   val\_res[1] = val\_1[2] * val\_2[0] -\/ val\_1[0] * val\_2[2];}
+\DoxyCodeLine{299   val\_res[2] = val\_1[0] * val\_2[1] -\/ val\_1[1] * val\_2[0];}
+\DoxyCodeLine{300   \textcolor{keywordflow}{return} val\_res;}
+\DoxyCodeLine{301 \}}
+\DoxyCodeLine{302 }
+\DoxyCodeLine{303 \textcolor{keyword}{inline} \textcolor{keywordtype}{double} \mbox{\hyperlink{namespacenetdem_1_1_math_ad7f89b1ec2000c79853417190f8f14bd}{Dot}}(\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \textcolor{keyword}{const} \&val\_1, \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \textcolor{keyword}{const} \&val\_2) \{}
+\DoxyCodeLine{304   \textcolor{keywordflow}{return} val\_1[0] * val\_2[0] + val\_1[1] * val\_2[1] + val\_1[2] * val\_2[2];}
+\DoxyCodeLine{305 \}}
+\DoxyCodeLine{306 }
+\DoxyCodeLine{307 \textcolor{keyword}{inline} \textcolor{keywordtype}{double} \mbox{\hyperlink{namespacenetdem_1_1_math_ad7f89b1ec2000c79853417190f8f14bd}{Dot}}(\mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<double>}} \textcolor{keyword}{const} \&val\_1, \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<double>}} \textcolor{keyword}{const} \&val\_2) \{}
+\DoxyCodeLine{308   \textcolor{keywordflow}{if} (val\_1.size() != val\_2.size()) \{}
+\DoxyCodeLine{309     std::cout << \textcolor{stringliteral}{"{}in Math::Dot, vector size not equal: "{}} << std::endl;}
+\DoxyCodeLine{310     std::abort();}
+\DoxyCodeLine{311   \}}
+\DoxyCodeLine{312 }
+\DoxyCodeLine{313   \textcolor{keywordtype}{double} res = 0.0;}
+\DoxyCodeLine{314   \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < val\_1.size(); i++) \{}
+\DoxyCodeLine{315     res += val\_1[i] * val\_2[i];}
+\DoxyCodeLine{316   \}}
+\DoxyCodeLine{317   \textcolor{keywordflow}{return} res;}
+\DoxyCodeLine{318 \}}
+\DoxyCodeLine{319 }
+\DoxyCodeLine{320 \textcolor{keyword}{inline} \textcolor{keywordtype}{void} \mbox{\hyperlink{namespacenetdem_1_1_math_a3ca3a978e0cc3c0b218745bd420e3298}{Normalize}}(\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} *\textcolor{keyword}{const} val) \{}
+\DoxyCodeLine{321   \textcolor{keywordtype}{double} tmp\_norm = \mbox{\hyperlink{namespacenetdem_1_1_math_aa89af4fc942125f1f4a7e947d5545bc6}{NormLen}}(*val);}
+\DoxyCodeLine{322   \textcolor{keywordflow}{if} (tmp\_norm > 0.0) \{}
+\DoxyCodeLine{323     \textcolor{keywordtype}{double} by\_val\_norm = 1.0 / tmp\_norm;}
+\DoxyCodeLine{324     (*val)[0] *= by\_val\_norm;}
+\DoxyCodeLine{325     (*val)[1] *= by\_val\_norm;}
+\DoxyCodeLine{326     (*val)[2] *= by\_val\_norm;}
+\DoxyCodeLine{327   \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{328     std::cout << \textcolor{stringliteral}{"{}in Math::Normalize, vector is of zero norm len"{}} << std::endl;}
+\DoxyCodeLine{329     (*val)[0] = 1.0;}
+\DoxyCodeLine{330     (*val)[1] = 0.0;}
+\DoxyCodeLine{331     (*val)[2] = 0.0;}
+\DoxyCodeLine{332   \}}
+\DoxyCodeLine{333 \}}
+\DoxyCodeLine{334 }
+\DoxyCodeLine{335 \textcolor{keyword}{namespace }Quaternion \{}
+\DoxyCodeLine{336 }
+\DoxyCodeLine{337 \textcolor{keyword}{inline} \mbox{\hyperlink{namespacenetdem_a13d5371f99b252a70fd5a5081b910370}{Vec4d}} \mbox{\hyperlink{namespacenetdem_1_1_math_1_1_quaternion_a2c06b259ef67e03611e3bc3002737947}{FromRodrigues}}(\textcolor{keywordtype}{double} rot\_angle, \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \textcolor{keyword}{const} \&rot\_axis) \{}
+\DoxyCodeLine{338   \mbox{\hyperlink{namespacenetdem_a13d5371f99b252a70fd5a5081b910370}{Vec4d}} quat;}
+\DoxyCodeLine{339 }
+\DoxyCodeLine{340   quat[0] = std::cos(0.5 * rot\_angle);}
+\DoxyCodeLine{341   \textcolor{keywordtype}{double} sin\_half\_angle\_by\_axis\_norm =}
+\DoxyCodeLine{342       std::sin(0.5 * rot\_angle) / \mbox{\hyperlink{namespacenetdem_1_1_math_aa89af4fc942125f1f4a7e947d5545bc6}{NormLen}}(rot\_axis);}
+\DoxyCodeLine{343 }
+\DoxyCodeLine{344   quat[1] = rot\_axis[0] * sin\_half\_angle\_by\_axis\_norm;}
+\DoxyCodeLine{345   quat[2] = rot\_axis[1] * sin\_half\_angle\_by\_axis\_norm;}
+\DoxyCodeLine{346   quat[3] = rot\_axis[2] * sin\_half\_angle\_by\_axis\_norm;}
+\DoxyCodeLine{347 }
+\DoxyCodeLine{348   \textcolor{keywordflow}{return} quat;}
+\DoxyCodeLine{349 \}}
+\DoxyCodeLine{350 }
+\DoxyCodeLine{351 \textcolor{keyword}{inline} std::tuple<double, Vec3d> \mbox{\hyperlink{namespacenetdem_1_1_math_1_1_quaternion_a4c63bd23d3002cd0c1627b6aaf98e409}{ToRodrigues}}(\mbox{\hyperlink{namespacenetdem_a13d5371f99b252a70fd5a5081b910370}{Vec4d}} \textcolor{keyword}{const} \&quat) \{}
+\DoxyCodeLine{352   \textcolor{keywordtype}{double} rot\_angle =}
+\DoxyCodeLine{353       2.0 * std::atan2(\mbox{\hyperlink{namespacenetdem_1_1_math_aa89af4fc942125f1f4a7e947d5545bc6}{NormLen}}(quat[1], quat[2], quat[3]), quat[0]);}
+\DoxyCodeLine{354   \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} rot\_axis;}
+\DoxyCodeLine{355 }
+\DoxyCodeLine{356   \textcolor{keywordtype}{double} sin\_half\_angle = std::sin(0.5 * rot\_angle);}
+\DoxyCodeLine{357   \textcolor{keywordflow}{if} (std::abs(sin\_half\_angle) > 1.0e-\/15) \{}
+\DoxyCodeLine{358     \textcolor{keywordtype}{double} term\_norm =}
+\DoxyCodeLine{359         1.0 / sin\_half\_angle / \mbox{\hyperlink{namespacenetdem_1_1_math_aa89af4fc942125f1f4a7e947d5545bc6}{NormLen}}(quat[0], quat[1], quat[2], quat[3]);}
+\DoxyCodeLine{360     rot\_axis[0] = quat[1] * term\_norm;}
+\DoxyCodeLine{361     rot\_axis[1] = quat[2] * term\_norm;}
+\DoxyCodeLine{362     rot\_axis[2] = quat[3] * term\_norm;}
+\DoxyCodeLine{363   \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{364     rot\_axis[0] = 1.0;}
+\DoxyCodeLine{365     rot\_axis[1] = 0.0;}
+\DoxyCodeLine{366     rot\_axis[2] = 0.0;}
+\DoxyCodeLine{367   \}}
+\DoxyCodeLine{368 }
+\DoxyCodeLine{369   \textcolor{keywordflow}{return} std::tie(rot\_angle, rot\_axis);}
+\DoxyCodeLine{370 \}}
+\DoxyCodeLine{371 }
+\DoxyCodeLine{372 \textcolor{keyword}{inline} \mbox{\hyperlink{namespacenetdem_a13d5371f99b252a70fd5a5081b910370}{Vec4d}} \mbox{\hyperlink{namespacenetdem_1_1_math_1_1_quaternion_a0a627298c695d099405813e3580bc3b2}{FromMatrix}}(\mbox{\hyperlink{namespacenetdem_ae589ca87f7a16ea70807ee6b1c3bc1c8}{Mat3d}} \textcolor{keyword}{const} \&rot\_mat) \{}
+\DoxyCodeLine{373   \mbox{\hyperlink{namespacenetdem_a13d5371f99b252a70fd5a5081b910370}{Vec4d}} quat;}
+\DoxyCodeLine{374 }
+\DoxyCodeLine{375   quat[0] =}
+\DoxyCodeLine{376       0.5 * std::sqrt(std::max(1.0e-\/24, 1.0 + rot\_mat[0][0] + rot\_mat[1][1] +}
+\DoxyCodeLine{377                                             rot\_mat[2][2]));}
+\DoxyCodeLine{378   quat[1] = 0.25 * (rot\_mat[2][1] -\/ rot\_mat[1][2]) / quat[0];}
+\DoxyCodeLine{379   quat[2] = 0.25 * (rot\_mat[0][2] -\/ rot\_mat[2][0]) / quat[0];}
+\DoxyCodeLine{380   quat[3] = 0.25 * (rot\_mat[1][0] -\/ rot\_mat[0][1]) / quat[0];}
+\DoxyCodeLine{381 }
+\DoxyCodeLine{382   \textcolor{comment}{// double by\_q\_norm = 1.0 / NormLen(quat[0], quat[1], quat[2], quat[3]);}}
+\DoxyCodeLine{383   \textcolor{comment}{// quat[0] *= by\_q\_norm;}}
+\DoxyCodeLine{384   \textcolor{comment}{// quat[1] *= by\_q\_norm;}}
+\DoxyCodeLine{385   \textcolor{comment}{// quat[2] *= by\_q\_norm;}}
+\DoxyCodeLine{386   \textcolor{comment}{// quat[3] *= by\_q\_norm;}}
+\DoxyCodeLine{387 }
+\DoxyCodeLine{388   \textcolor{keywordflow}{return} quat;}
+\DoxyCodeLine{389 \}}
+\DoxyCodeLine{390 }
+\DoxyCodeLine{391 \textcolor{keyword}{inline} \mbox{\hyperlink{namespacenetdem_ae589ca87f7a16ea70807ee6b1c3bc1c8}{Mat3d}} \mbox{\hyperlink{namespacenetdem_1_1_math_1_1_quaternion_a54b854f1bb0f00a1d7d966c0c5cf653e}{ToMatrix}}(\mbox{\hyperlink{namespacenetdem_a13d5371f99b252a70fd5a5081b910370}{Vec4d}} \textcolor{keyword}{const} \&quat) \{}
+\DoxyCodeLine{392   \mbox{\hyperlink{namespacenetdem_ae589ca87f7a16ea70807ee6b1c3bc1c8}{Mat3d}} rot\_mat;}
+\DoxyCodeLine{393 }
+\DoxyCodeLine{394   rot\_mat[0][0] = 1 -\/ 2 * quat[2] * quat[2] -\/ 2 * quat[3] * quat[3];}
+\DoxyCodeLine{395   rot\_mat[0][1] = 2 * quat[1] * quat[2] -\/ 2 * quat[0] * quat[3];}
+\DoxyCodeLine{396   rot\_mat[0][2] = 2 * quat[1] * quat[3] + 2 * quat[0] * quat[2];}
+\DoxyCodeLine{397 }
+\DoxyCodeLine{398   rot\_mat[1][0] = 2 * quat[1] * quat[2] + 2 * quat[0] * quat[3];}
+\DoxyCodeLine{399   rot\_mat[1][1] = 1 -\/ 2 * quat[1] * quat[1] -\/ 2 * quat[3] * quat[3];}
+\DoxyCodeLine{400   rot\_mat[1][2] = 2 * quat[2] * quat[3] -\/ 2 * quat[0] * quat[1];}
+\DoxyCodeLine{401 }
+\DoxyCodeLine{402   rot\_mat[2][0] = 2 * quat[1] * quat[3] -\/ 2 * quat[0] * quat[2];}
+\DoxyCodeLine{403   rot\_mat[2][1] = 2 * quat[2] * quat[3] + 2 * quat[0] * quat[1];}
+\DoxyCodeLine{404   rot\_mat[2][2] = 1 -\/ 2 * quat[1] * quat[1] -\/ 2 * quat[2] * quat[2];}
+\DoxyCodeLine{405 }
+\DoxyCodeLine{406   \textcolor{keywordflow}{return} rot\_mat;}
+\DoxyCodeLine{407 \}}
+\DoxyCodeLine{408 }
+\DoxyCodeLine{409 \textcolor{keyword}{inline} \mbox{\hyperlink{namespacenetdem_a13d5371f99b252a70fd5a5081b910370}{Vec4d}} \mbox{\hyperlink{namespacenetdem_1_1_math_1_1_quaternion_a29aae7d692a8b0d843e91b5a9f8e133f}{Multiply}}(\mbox{\hyperlink{namespacenetdem_a13d5371f99b252a70fd5a5081b910370}{Vec4d}} \textcolor{keyword}{const} \&p, \mbox{\hyperlink{namespacenetdem_a13d5371f99b252a70fd5a5081b910370}{Vec4d}} \textcolor{keyword}{const} \&q) \{}
+\DoxyCodeLine{410   \mbox{\hyperlink{namespacenetdem_a13d5371f99b252a70fd5a5081b910370}{Vec4d}} res;}
+\DoxyCodeLine{411 }
+\DoxyCodeLine{412   \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} p\_vec\{p[1], p[2], p[3]\};}
+\DoxyCodeLine{413   \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} q\_vec\{q[1], q[2], q[3]\};}
+\DoxyCodeLine{414   \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} p\_cross\_q = \mbox{\hyperlink{namespacenetdem_1_1_math_a02c3488243ea9a0a1bfdaa73f2f47b98}{Cross}}(p\_vec, q\_vec);}
+\DoxyCodeLine{415 }
+\DoxyCodeLine{416   res[0] = p[0] * q[0] -\/ \mbox{\hyperlink{namespacenetdem_1_1_math_ad7f89b1ec2000c79853417190f8f14bd}{Dot}}(p\_vec, q\_vec);}
+\DoxyCodeLine{417   res[1] = p[0] * q\_vec[0] + q[0] * p\_vec[0] + p\_cross\_q[0];}
+\DoxyCodeLine{418   res[2] = p[0] * q\_vec[1] + q[0] * p\_vec[1] + p\_cross\_q[1];}
+\DoxyCodeLine{419   res[3] = p[0] * q\_vec[2] + q[0] * p\_vec[2] + p\_cross\_q[2];}
+\DoxyCodeLine{420 }
+\DoxyCodeLine{421   \textcolor{keywordflow}{return} res;}
+\DoxyCodeLine{422 \}}
+\DoxyCodeLine{423 }
+\DoxyCodeLine{424 \textcolor{keyword}{inline} \mbox{\hyperlink{namespacenetdem_a13d5371f99b252a70fd5a5081b910370}{Vec4d}} \mbox{\hyperlink{namespacenetdem_1_1_math_1_1_quaternion_a5902017db7f70ae914cbef68ceffe4ef}{Add}}(\mbox{\hyperlink{namespacenetdem_a13d5371f99b252a70fd5a5081b910370}{Vec4d}} \textcolor{keyword}{const} \&p, \mbox{\hyperlink{namespacenetdem_a13d5371f99b252a70fd5a5081b910370}{Vec4d}} \textcolor{keyword}{const} \&q) \{}
+\DoxyCodeLine{425   \mbox{\hyperlink{namespacenetdem_a13d5371f99b252a70fd5a5081b910370}{Vec4d}} res;}
+\DoxyCodeLine{426 }
+\DoxyCodeLine{427   res[0] = p[0] + q[0];}
+\DoxyCodeLine{428   res[1] = p[1] + q[1];}
+\DoxyCodeLine{429   res[2] = p[2] + q[2];}
+\DoxyCodeLine{430   res[3] = p[3] + q[3];}
+\DoxyCodeLine{431 }
+\DoxyCodeLine{432   \textcolor{keywordflow}{return} res;}
+\DoxyCodeLine{433 \}}
+\DoxyCodeLine{434 }
+\DoxyCodeLine{435 \textcolor{keyword}{inline} \mbox{\hyperlink{namespacenetdem_a13d5371f99b252a70fd5a5081b910370}{Vec4d}} \mbox{\hyperlink{namespacenetdem_1_1_math_1_1_quaternion_a7a8d9e915b47d202c5c2b49d227c55b5}{Conjugate}}(\mbox{\hyperlink{namespacenetdem_a13d5371f99b252a70fd5a5081b910370}{Vec4d}} \textcolor{keyword}{const} \&p) \{}
+\DoxyCodeLine{436   \mbox{\hyperlink{namespacenetdem_a13d5371f99b252a70fd5a5081b910370}{Vec4d}} res;}
+\DoxyCodeLine{437 }
+\DoxyCodeLine{438   res[0] = p[0];}
+\DoxyCodeLine{439   res[1] = -\/p[1];}
+\DoxyCodeLine{440   res[2] = -\/p[2];}
+\DoxyCodeLine{441   res[3] = -\/p[3];}
+\DoxyCodeLine{442 }
+\DoxyCodeLine{443   \textcolor{keywordflow}{return} res;}
+\DoxyCodeLine{444 \}}
+\DoxyCodeLine{445 }
+\DoxyCodeLine{446 \textcolor{keyword}{inline} \textcolor{keywordtype}{void} \mbox{\hyperlink{namespacenetdem_1_1_math_1_1_quaternion_add266fc4975ecd8673e5fc62e0e5a8fd}{Normalize}}(\mbox{\hyperlink{namespacenetdem_a13d5371f99b252a70fd5a5081b910370}{Vec4d}} *\textcolor{keyword}{const} q) \{}
+\DoxyCodeLine{447   \textcolor{keywordtype}{double} by\_q\_norm = 1.0 / \mbox{\hyperlink{namespacenetdem_1_1_math_aa89af4fc942125f1f4a7e947d5545bc6}{NormLen}}((*q)[0], (*q)[1], (*q)[2], (*q)[3]);}
+\DoxyCodeLine{448   (*q)[0] *= by\_q\_norm;}
+\DoxyCodeLine{449   (*q)[1] *= by\_q\_norm;}
+\DoxyCodeLine{450   (*q)[2] *= by\_q\_norm;}
+\DoxyCodeLine{451   (*q)[3] *= by\_q\_norm;}
+\DoxyCodeLine{452 \}}
+\DoxyCodeLine{453 }
+\DoxyCodeLine{454 \} \textcolor{comment}{// namespace Quaternion}}
+\DoxyCodeLine{455 }
+\DoxyCodeLine{456 \textcolor{keyword}{inline} \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \mbox{\hyperlink{namespacenetdem_1_1_math_a716f870b2d6be6d3318830eaada66565}{Rotate}}(\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \textcolor{keyword}{const} \&val\_old, \textcolor{keywordtype}{double} rot\_angle\_cos,}
+\DoxyCodeLine{457                     \textcolor{keywordtype}{double} rot\_angle\_sin, \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \textcolor{keyword}{const} \&rot\_axis) \{}
+\DoxyCodeLine{458   \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} val\_new;}
+\DoxyCodeLine{459 }
+\DoxyCodeLine{460   \textcolor{keywordtype}{double} by\_axis\_norm = 1.0 / \mbox{\hyperlink{namespacenetdem_1_1_math_aa89af4fc942125f1f4a7e947d5545bc6}{NormLen}}(rot\_axis);}
+\DoxyCodeLine{461   \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} rot\_axis\_unit\{rot\_axis[0] * by\_axis\_norm, rot\_axis[1] * by\_axis\_norm,}
+\DoxyCodeLine{462                       rot\_axis[2] * by\_axis\_norm\};}
+\DoxyCodeLine{463 }
+\DoxyCodeLine{464   \textcolor{keyword}{auto} axis\_cross\_val = \mbox{\hyperlink{namespacenetdem_1_1_math_a02c3488243ea9a0a1bfdaa73f2f47b98}{Cross}}(rot\_axis\_unit, val\_old);}
+\DoxyCodeLine{465   \textcolor{keywordtype}{double} axis\_dot\_val = \mbox{\hyperlink{namespacenetdem_1_1_math_ad7f89b1ec2000c79853417190f8f14bd}{Dot}}(rot\_axis\_unit, val\_old);}
+\DoxyCodeLine{466 }
+\DoxyCodeLine{467   val\_new[0] = val\_old[0] * rot\_angle\_cos + axis\_cross\_val[0] * rot\_angle\_sin +}
+\DoxyCodeLine{468                rot\_axis\_unit[0] * axis\_dot\_val * (1.0 -\/ rot\_angle\_cos);}
+\DoxyCodeLine{469   val\_new[1] = val\_old[1] * rot\_angle\_cos + axis\_cross\_val[1] * rot\_angle\_sin +}
+\DoxyCodeLine{470                rot\_axis\_unit[1] * axis\_dot\_val * (1.0 -\/ rot\_angle\_cos);}
+\DoxyCodeLine{471   val\_new[2] = val\_old[2] * rot\_angle\_cos + axis\_cross\_val[2] * rot\_angle\_sin +}
+\DoxyCodeLine{472                rot\_axis\_unit[2] * axis\_dot\_val * (1.0 -\/ rot\_angle\_cos);}
+\DoxyCodeLine{473 }
+\DoxyCodeLine{474   \textcolor{keywordflow}{return} val\_new;}
+\DoxyCodeLine{475 \}}
+\DoxyCodeLine{476 }
+\DoxyCodeLine{477 \textcolor{keyword}{inline} \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \mbox{\hyperlink{namespacenetdem_1_1_math_a716f870b2d6be6d3318830eaada66565}{Rotate}}(\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \textcolor{keyword}{const} \&val\_old, \textcolor{keywordtype}{double} rot\_angle,}
+\DoxyCodeLine{478                     \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \textcolor{keyword}{const} \&rot\_axis) \{}
+\DoxyCodeLine{479   \textcolor{keywordflow}{return} \mbox{\hyperlink{namespacenetdem_1_1_math_a716f870b2d6be6d3318830eaada66565}{Rotate}}(val\_old, std::cos(rot\_angle), std::sin(rot\_angle), rot\_axis);}
+\DoxyCodeLine{480 \}}
+\DoxyCodeLine{481 }
+\DoxyCodeLine{482 \textcolor{keyword}{inline} \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \mbox{\hyperlink{namespacenetdem_1_1_math_a716f870b2d6be6d3318830eaada66565}{Rotate}}(\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \textcolor{keyword}{const} \&val\_old, \mbox{\hyperlink{namespacenetdem_a13d5371f99b252a70fd5a5081b910370}{Vec4d}} \textcolor{keyword}{const} \&quat) \{}
+\DoxyCodeLine{483   \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} val\_new;}
+\DoxyCodeLine{484 }
+\DoxyCodeLine{485   \textcolor{keywordtype}{double} val\_norm = \mbox{\hyperlink{namespacenetdem_1_1_math_aa89af4fc942125f1f4a7e947d5545bc6}{NormLen}}(val\_old);}
+\DoxyCodeLine{486   \textcolor{keywordflow}{if} (val\_norm > 1.0e-\/15) \{}
+\DoxyCodeLine{487     \textcolor{keyword}{auto} quat\_conj = \mbox{\hyperlink{namespacenetdem_1_1_math_1_1_quaternion_a7a8d9e915b47d202c5c2b49d227c55b5}{Quaternion::Conjugate}}(quat);}
+\DoxyCodeLine{488     \mbox{\hyperlink{namespacenetdem_a13d5371f99b252a70fd5a5081b910370}{Vec4d}} quat\_val\_old\{0, val\_old[0], val\_old[1], val\_old[2]\};}
+\DoxyCodeLine{489 }
+\DoxyCodeLine{490     \textcolor{keyword}{auto} quat\_val\_tmp = \mbox{\hyperlink{namespacenetdem_1_1_math_1_1_quaternion_a29aae7d692a8b0d843e91b5a9f8e133f}{Quaternion::Multiply}}(quat\_val\_old, quat\_conj);}
+\DoxyCodeLine{491     \textcolor{keyword}{auto} quat\_val\_new = \mbox{\hyperlink{namespacenetdem_1_1_math_1_1_quaternion_a29aae7d692a8b0d843e91b5a9f8e133f}{Quaternion::Multiply}}(quat, quat\_val\_tmp);}
+\DoxyCodeLine{492 }
+\DoxyCodeLine{493     \textcolor{keywordtype}{double} renorm\_factor =}
+\DoxyCodeLine{494         val\_norm / \mbox{\hyperlink{namespacenetdem_1_1_math_aa89af4fc942125f1f4a7e947d5545bc6}{NormLen}}(quat\_val\_new[1], quat\_val\_new[2], quat\_val\_new[3]);}
+\DoxyCodeLine{495     val\_new[0] = quat\_val\_new[1] * renorm\_factor;}
+\DoxyCodeLine{496     val\_new[1] = quat\_val\_new[2] * renorm\_factor;}
+\DoxyCodeLine{497     val\_new[2] = quat\_val\_new[3] * renorm\_factor;}
+\DoxyCodeLine{498   \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{499     val\_new[0] = 0;}
+\DoxyCodeLine{500     val\_new[1] = 0;}
+\DoxyCodeLine{501     val\_new[2] = 0;}
+\DoxyCodeLine{502   \}}
+\DoxyCodeLine{503 }
+\DoxyCodeLine{504   \textcolor{keywordflow}{return} val\_new;}
+\DoxyCodeLine{505 \}}
+\DoxyCodeLine{506 }
+\DoxyCodeLine{507 \textcolor{keyword}{inline} \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \mbox{\hyperlink{namespacenetdem_1_1_math_a716f870b2d6be6d3318830eaada66565}{Rotate}}(\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \textcolor{keyword}{const} \&val\_old, \mbox{\hyperlink{namespacenetdem_ae589ca87f7a16ea70807ee6b1c3bc1c8}{Mat3d}} \textcolor{keyword}{const} \&rot\_mat) \{}
+\DoxyCodeLine{508   \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} val\_new;}
+\DoxyCodeLine{509 }
+\DoxyCodeLine{510   val\_new[0] = rot\_mat[0][0] * val\_old[0] + rot\_mat[0][1] * val\_old[1] +}
+\DoxyCodeLine{511                rot\_mat[0][2] * val\_old[2];}
+\DoxyCodeLine{512   val\_new[1] = rot\_mat[1][0] * val\_old[0] + rot\_mat[1][1] * val\_old[1] +}
+\DoxyCodeLine{513                rot\_mat[1][2] * val\_old[2];}
+\DoxyCodeLine{514   val\_new[2] = rot\_mat[2][0] * val\_old[0] + rot\_mat[2][1] * val\_old[1] +}
+\DoxyCodeLine{515                rot\_mat[2][2] * val\_old[2];}
+\DoxyCodeLine{516 }
+\DoxyCodeLine{517   \textcolor{keywordflow}{return} val\_new;}
+\DoxyCodeLine{518 \}}
+\DoxyCodeLine{519 }
+\DoxyCodeLine{520 \textcolor{keyword}{inline} \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \mbox{\hyperlink{namespacenetdem_1_1_math_ae7a47a613783723485c408defac2d690}{CartesianToSpherical}}(\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \textcolor{keyword}{const} \&vert\_cart) \{}
+\DoxyCodeLine{521   \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} vert\_sph;}
+\DoxyCodeLine{522   vert\_sph[0] = \mbox{\hyperlink{namespacenetdem_1_1_math_aa89af4fc942125f1f4a7e947d5545bc6}{NormLen}}(vert\_cart);}
+\DoxyCodeLine{523   vert\_sph[1] = std::acos(vert\_cart[2] / vert\_sph[0]);}
+\DoxyCodeLine{524   vert\_sph[2] = std::atan2(vert\_cart[1], vert\_cart[0]);}
+\DoxyCodeLine{525   \textcolor{keywordflow}{return} vert\_sph;}
+\DoxyCodeLine{526 \}}
+\DoxyCodeLine{527 }
+\DoxyCodeLine{528 \textcolor{keyword}{inline} \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \mbox{\hyperlink{namespacenetdem_1_1_math_ab5632c9cfd48278078c18f3b256f338e}{SphericalToCartesian}}(\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \textcolor{keyword}{const} \&vert\_sph) \{}
+\DoxyCodeLine{529   \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} vert\_cart;}
+\DoxyCodeLine{530   vert\_cart[0] = vert\_sph[0] * std::sin(vert\_sph[1]) * std::cos(vert\_sph[2]);}
+\DoxyCodeLine{531   vert\_cart[1] = vert\_sph[0] * std::sin(vert\_sph[1]) * std::sin(vert\_sph[2]);}
+\DoxyCodeLine{532   vert\_cart[2] = vert\_sph[0] * std::cos(vert\_sph[1]);}
+\DoxyCodeLine{533   \textcolor{keywordflow}{return} vert\_cart;}
+\DoxyCodeLine{534 \}}
+\DoxyCodeLine{535 }
+\DoxyCodeLine{536 \} \textcolor{comment}{// namespace Math}}
+\DoxyCodeLine{537 }
+\DoxyCodeLine{538 \} \textcolor{comment}{// namespace netdem}}
+
+\end{DoxyCode}

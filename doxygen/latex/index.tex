@@ -1,0 +1,63 @@
+\label{index_md__Users_lzhshou_Documents_Research_myProjects_apam_repo_netdem_readme}%
+\Hypertarget{index_md__Users_lzhshou_Documents_Research_myProjects_apam_repo_netdem_readme}%
+ \href{https://apaam.github.io/netdem_docs/}{\texttt{ {\bfseries{Net\+DEM}}}} is a C++ program library targeted at the computational mechanics of irregular granular materials and utilizing machine learning tools to boost the computational effciency.
+
+It is currently capable of performing basic and general DEM simulations, with following features\+:
+
+
+\begin{DoxyItemize}
+\item Sphere and triangle facets contact solver
+\item GJK contact solver for convex particles
+\item SDF contact solver for arbitrary (convex and concave) particles
+\item Hybrid Open\+MP and MPI parallel computing
+\item Integrated \href{https://www.mlpack.org/}{\texttt{ mlpack}} machine learning environment
+\end{DoxyItemize}
+
+The supported particle shapes include {\ttfamily sphere}, {\ttfamily cylinder}, {\ttfamily poly-\/super-\/ellipsoid}, {\ttfamily poly-\/super-\/quadrics}, {\ttfamily spherical harmonics}, {\ttfamily triangle mesh}, {\ttfamily level set}, etc.\hypertarget{index_autotoc_md1}{}\doxysection{Get started}\label{index_autotoc_md1}
+\hypertarget{index_autotoc_md2}{}\doxysubsection{Install}\label{index_autotoc_md2}
+\hypertarget{index_autotoc_md3}{}\doxysubsubsection{Prerequisites\+:}\label{index_autotoc_md3}
+The compilation requires {\ttfamily gcc}, {\ttfamily autoconf}, {\ttfamily automake}, {\ttfamily cmake}, {\ttfamily mpi}, {\ttfamily boost}, which can be obtained using
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\# For MacOS: use brew install, such as}
+\DoxyCodeLine{brew install gcc autoconf automake cmake openmpi boost}
+\DoxyCodeLine{        }
+\DoxyCodeLine{\# For Ubuntu: use apt-\/get install, such as}
+\DoxyCodeLine{sudo apt install build-\/essential}
+\DoxyCodeLine{sudo apt-\/get install -\/y autoconf-\/archive automake cmake texinfo}
+\DoxyCodeLine{sudo apt-\/get install openmpi-\/bin libopenmpi-\/dev libboost-\/all-\/dev}
+
+\end{DoxyCode}
+\hypertarget{index_autotoc_md4}{}\doxysubsubsection{Compile and build\+:}\label{index_autotoc_md4}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{make sync\_submodule}
+\DoxyCodeLine{make}
+
+\end{DoxyCode}
+
+
+If some third-\/party libraries have not been or cannot be downloaded successfully, you can delete them and do a {\ttfamily git checkout contrib} and {\ttfamily make sync\+\_\+submodule} again.\hypertarget{index_autotoc_md5}{}\doxysubsubsection{Test the installation\+:}\label{index_autotoc_md5}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{./scripts/run\_tests.sh}
+
+\end{DoxyCode}
+\hypertarget{index_autotoc_md6}{}\doxysubsection{Examples \& tutorials}\label{index_autotoc_md6}
+Some preliminary examples are located under directory {\ttfamily examples/}, which can be run with, e.\+g.,
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{./build/bin/netdem\_example\_random\_packing 1}
+
+\end{DoxyCode}
+
+
+For more details please refer to the \href{https://apaam.github.io/netdem_docs/}{\texttt{ website}}.\hypertarget{index_autotoc_md7}{}\doxysubsection{Visualize \& post-\/process}\label{index_autotoc_md7}
+Results can be dumped as VTK files, which can be visualized in \href{https://www.paraview.org/}{\texttt{ paraview}}.
+
+We have a \href{https://github.com/apaam/dem_postprocess_scripts}{\texttt{ side-\/repository}} that provides some matlab or python scripts for post-\/process (e.\+g., VTK io, stress-\/strain, spherical histograms of contact anisotropy).\hypertarget{index_autotoc_md8}{}\doxysection{Support}\label{index_autotoc_md8}
+This code is under active development. Please join us if you have an interest to contribute.
+
+If you need help using Net\+DEM, or have found a bug, please \href{https://github.com/apaam/netdem/issues}{\texttt{ open an issue}} or \href{https://github.com/apaam/netdem/pulls}{\texttt{ submit a pull request}}. 

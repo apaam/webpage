@@ -1,0 +1,56 @@
+\hypertarget{modifier__manager_8hpp_source}{}\doxysection{modifier\+\_\+manager.\+hpp}
+\label{modifier__manager_8hpp_source}\index{/Users/lzhshou/Documents/Research/myProjects/apam/repo/netdem/src/modifier/modifier\_manager.hpp@{/Users/lzhshou/Documents/Research/myProjects/apam/repo/netdem/src/modifier/modifier\_manager.hpp}}
+\mbox{\hyperlink{modifier__manager_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 }
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{modifier_8hpp}{modifier.hpp}}"{}}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <memory>}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <unordered\_map>}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include <unordered\_set>}}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{9 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacenetdem}{netdem}} \{}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11 \textcolor{keyword}{class }Simulation;}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{28 \textcolor{keyword}{class }\mbox{\hyperlink{classnetdem_1_1_modifier_manager}{ModifierManager}} \{}
+\DoxyCodeLine{29 \textcolor{keyword}{public}:}
+\DoxyCodeLine{30   \textcolor{comment}{// object maps}}
+\DoxyCodeLine{31   std::unordered\_map<std::string, Modifier *> \mbox{\hyperlink{classnetdem_1_1_modifier_manager_a84c8e69cbd4836167ac446cccc7cff88}{modifier\_lib}};}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{33   \textcolor{comment}{// active modifiers}}
+\DoxyCodeLine{34   \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<std::unordered\_set<Modifier *>}}> \mbox{\hyperlink{classnetdem_1_1_modifier_manager_a469f09e681a548f18fbb78a5ea9543dd}{modifier\_list}};}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36   \textcolor{comment}{// subscribers}}
+\DoxyCodeLine{37   std::unordered\_set<Modifier *> \mbox{\hyperlink{classnetdem_1_1_modifier_manager_a9eb8bfc1c5b78e6d3e6ad2e843d14a0d}{scene\_state\_subscribers}};}
+\DoxyCodeLine{38 }
+\DoxyCodeLine{39   \mbox{\hyperlink{classnetdem_1_1_modifier_manager_a87f2065f56285e3b60f72d887fc67043}{ModifierManager}}();}
+\DoxyCodeLine{40 }
+\DoxyCodeLine{41   \textcolor{keywordtype}{void} \mbox{\hyperlink{classnetdem_1_1_modifier_manager_a1179562f59841398cce0c0d8999bb294}{Init}}(\mbox{\hyperlink{classnetdem_1_1_simulation}{Simulation}} *s);}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{44   \mbox{\hyperlink{classnetdem_1_1_modifier}{Modifier}} *\mbox{\hyperlink{classnetdem_1_1_modifier_manager_a6748f7dfd9b3e8e9999c4981684a9945}{Insert}}(\mbox{\hyperlink{classnetdem_1_1_modifier}{Modifier}} *e);}
+\DoxyCodeLine{45   \textcolor{keywordtype}{void} \mbox{\hyperlink{classnetdem_1_1_modifier_manager_ab361b307afdf6ee71bc40a59f2d87a7e}{RemoveModifier}}(std::string \textcolor{keyword}{const} \&label);}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{48   \textcolor{keywordtype}{void} \mbox{\hyperlink{classnetdem_1_1_modifier_manager_a75ba1abedb33d45398052ada3177baa2}{Enable}}(std::string \textcolor{keyword}{const} \&label);}
+\DoxyCodeLine{49   \textcolor{keywordtype}{void} \mbox{\hyperlink{classnetdem_1_1_modifier_manager_ab88c1611f705b3e7b964125c791746c4}{Disable}}(std::string \textcolor{keyword}{const} \&label);}
+\DoxyCodeLine{50 }
+\DoxyCodeLine{51   \textcolor{keywordtype}{void} \mbox{\hyperlink{classnetdem_1_1_modifier_manager_a75ba1abedb33d45398052ada3177baa2}{Enable}}(\mbox{\hyperlink{classnetdem_1_1_modifier}{Modifier}} *\textcolor{keyword}{const} e);}
+\DoxyCodeLine{52   \textcolor{keywordtype}{void} \mbox{\hyperlink{classnetdem_1_1_modifier_manager_ab88c1611f705b3e7b964125c791746c4}{Disable}}(\mbox{\hyperlink{classnetdem_1_1_modifier}{Modifier}} *\textcolor{keyword}{const} e);}
+\DoxyCodeLine{53 }
+\DoxyCodeLine{55   \mbox{\hyperlink{classnetdem_1_1_modifier}{Modifier}} *\mbox{\hyperlink{classnetdem_1_1_modifier_manager_a394fb1f03924b6a5251b8bc687973779}{FindModifier}}(std::string \textcolor{keyword}{const} \&label);}
+\DoxyCodeLine{56   \textcolor{keywordtype}{bool} \mbox{\hyperlink{classnetdem_1_1_modifier_manager_a394fb1f03924b6a5251b8bc687973779}{FindModifier}}(\mbox{\hyperlink{classnetdem_1_1_modifier}{Modifier}} *\textcolor{keyword}{const} e);}
+\DoxyCodeLine{57 }
+\DoxyCodeLine{59   \textcolor{keywordtype}{void} \mbox{\hyperlink{classnetdem_1_1_modifier_manager_a2c882c34517217e77c9d5df143b0e709}{UpdateModifiers}}();}
+\DoxyCodeLine{60 }
+\DoxyCodeLine{62   \textcolor{keywordtype}{void} \mbox{\hyperlink{classnetdem_1_1_modifier_manager_ae5eb767ca885a19999aa607c3ac0b5e1}{ExecuteModifiers}}(\mbox{\hyperlink{classnetdem_1_1_d_e_m_solver_a7b625d897bb69cd28838602603b8b0c4}{DEMSolver::CyclePoint}} cycle\_point);}
+\DoxyCodeLine{63 }
+\DoxyCodeLine{64   \mbox{\hyperlink{classnetdem_1_1_modifier_manager_a40befdf4101570942907589f377f2ccb}{\string~ModifierManager}}();}
+\DoxyCodeLine{65 }
+\DoxyCodeLine{66 \textcolor{keyword}{private}:}
+\DoxyCodeLine{67   \mbox{\hyperlink{classnetdem_1_1_simulation}{Simulation}} *\mbox{\hyperlink{classnetdem_1_1_modifier_manager_ab16cfa9bc9a23f3ab46e8e055a7ea59c}{sim}}\{\textcolor{keyword}{nullptr}\};}
+\DoxyCodeLine{68 \};}
+\DoxyCodeLine{69 }
+\DoxyCodeLine{70 \} \textcolor{comment}{// namespace netdem}}
+
+\end{DoxyCode}

@@ -1,0 +1,46 @@
+\hypertarget{shape__cylinder_8hpp_source}{}\doxysection{shape\+\_\+cylinder.\+hpp}
+\label{shape__cylinder_8hpp_source}\index{/Users/lzhshou/Documents/Research/myProjects/apam/repo/netdem/src/shape/shape\_cylinder.hpp@{/Users/lzhshou/Documents/Research/myProjects/apam/repo/netdem/src/shape/shape\_cylinder.hpp}}
+\mbox{\hyperlink{shape__cylinder_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 }
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{shape_8hpp}{shape.hpp}}"{}}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{5 }
+\DoxyCodeLine{6 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacenetdem}{netdem}} \{}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{keyword}{class }\mbox{\hyperlink{classnetdem_1_1_cylinder}{Cylinder}} : \textcolor{keyword}{public} \mbox{\hyperlink{classnetdem_1_1_shape}{Shape}} \{}
+\DoxyCodeLine{9 \textcolor{keyword}{public}:}
+\DoxyCodeLine{10   \textcolor{keywordtype}{double} \mbox{\hyperlink{classnetdem_1_1_cylinder_a2715bc1831e31a4b57e613967597f8c1}{radius}}\{0.5\}, \mbox{\hyperlink{classnetdem_1_1_cylinder_a285f558ffd34e2191e4e364ce3645efa}{height}}\{1.0\};}
+\DoxyCodeLine{11 }
+\DoxyCodeLine{12   \mbox{\hyperlink{classnetdem_1_1_cylinder_a01dc978cb576f834b9545e43d4dad2a2}{Cylinder}}();}
+\DoxyCodeLine{13   \mbox{\hyperlink{classnetdem_1_1_cylinder_a01dc978cb576f834b9545e43d4dad2a2}{Cylinder}}(\textcolor{keywordtype}{double} r, \textcolor{keywordtype}{double} h);}
+\DoxyCodeLine{14 }
+\DoxyCodeLine{15   Shape *\mbox{\hyperlink{classnetdem_1_1_cylinder_ad11efbeb39caa230210f1941c9712374}{Clone}}() \textcolor{keyword}{const override};}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{17   \mbox{\hyperlink{input__processor_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{nlohmann::json}} \mbox{\hyperlink{classnetdem_1_1_cylinder_ae6d981867cf8d7fd496a759d0432fd27}{PackJson}}() \textcolor{keyword}{override};}
+\DoxyCodeLine{18   \textcolor{keywordtype}{void} \mbox{\hyperlink{classnetdem_1_1_cylinder_a2c92f10bd2bbb43160d6ff9f19b84d0b}{InitFromJson}}(\mbox{\hyperlink{input__processor_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{nlohmann::json}} \textcolor{keyword}{const} \&js) \textcolor{keyword}{override};}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{20   \textcolor{keywordtype}{void} \mbox{\hyperlink{classnetdem_1_1_cylinder_a52ad6ed301c47412abaa8ad84f38c0ad}{Init}}();}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22   \textcolor{keywordtype}{void} \mbox{\hyperlink{classnetdem_1_1_cylinder_a6a9e6194364f3f3a744c26b64c5154a2}{SetSize}}(\textcolor{keywordtype}{double} d) \textcolor{keyword}{override};}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24   \textcolor{keywordtype}{void} \mbox{\hyperlink{classnetdem_1_1_cylinder_a447f0c2c81e7aa85cf29e6e4c21207c0}{UpdateNodes}}() \textcolor{keyword}{override};}
+\DoxyCodeLine{25   \textcolor{keywordtype}{void} \mbox{\hyperlink{classnetdem_1_1_cylinder_a0436260a6ff3b2397c6bac008a08ad9c}{UpdateShapeProperties}}() \textcolor{keyword}{override};}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27   STLModel \mbox{\hyperlink{classnetdem_1_1_cylinder_a8585c32925fc6ac07b7ff4545587f1a9}{GetSTLModel}}(\textcolor{keywordtype}{int} num\_facets = 400) \textcolor{keyword}{override};}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29   \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \mbox{\hyperlink{classnetdem_1_1_cylinder_a5248ab1ded29aa2de6ff1c5851046946}{SupportPoint}}(\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \textcolor{keyword}{const} \&dir) \textcolor{keyword}{override};}
+\DoxyCodeLine{30   VecXT<Vec3d> \mbox{\hyperlink{classnetdem_1_1_cylinder_a8265b0f36b63b9057695919a6691b30e}{SupportPoints}}(\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \textcolor{keyword}{const} \&dir) \textcolor{keyword}{override};}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{32   \textcolor{keywordtype}{double} \mbox{\hyperlink{classnetdem_1_1_cylinder_acc14c8e708e840e6372e5369f73ae319}{SignedDistance}}(\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \textcolor{keyword}{const} \&pos) \textcolor{keyword}{override};}
+\DoxyCodeLine{33   \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \mbox{\hyperlink{classnetdem_1_1_cylinder_aee7d26b00f124ff25ec2474c28677b04}{SurfacePoint}}(\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \textcolor{keyword}{const} \&pos) \textcolor{keyword}{override};}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{35   \textcolor{keywordtype}{double} \mbox{\hyperlink{classnetdem_1_1_cylinder_aac71cfafdb0cac1a2492687dbc133dbf}{CalculateRho}}(\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \textcolor{keyword}{const} \&dir);}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{37   \textcolor{keywordtype}{void} \mbox{\hyperlink{classnetdem_1_1_cylinder_ad281167b035a1cf1d2255a510aaf130d}{Print}}() \textcolor{keyword}{override};}
+\DoxyCodeLine{38 \};}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40 \} \textcolor{comment}{// namespace netdem}}
+
+\end{DoxyCode}

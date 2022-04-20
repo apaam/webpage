@@ -1,0 +1,165 @@
+\hypertarget{gen__pack_8hpp_source}{}\doxysection{gen\+\_\+pack.\+hpp}
+\label{gen__pack_8hpp_source}\index{/Users/lzhshou/Documents/Research/myProjects/apam/repo/netdem/src/scene/gen\_pack.hpp@{/Users/lzhshou/Documents/Research/myProjects/apam/repo/netdem/src/scene/gen\_pack.hpp}}
+\mbox{\hyperlink{gen__pack_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 }
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{bonded__spheres_8hpp}{bonded\_spheres.hpp}}"{}}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{bonded__voronois_8hpp}{bonded\_voronois.hpp}}"{}}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{distribution__uniform_8hpp}{distribution\_uniform.hpp}}"{}}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{particle_8hpp}{particle.hpp}}"{}}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{shape_8hpp}{shape.hpp}}"{}}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{shape__sphere_8hpp}{shape\_sphere.hpp}}"{}}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{utils__math_8hpp}{utils\_math.hpp}}"{}}}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacenetdem}{netdem}} \{}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{28 \textcolor{keyword}{class }\mbox{\hyperlink{classnetdem_1_1_pack_generator}{PackGenerator}} \{}
+\DoxyCodeLine{29 \textcolor{keyword}{public}:}
+\DoxyCodeLine{30   \textcolor{keyword}{static} \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<Particle>}} \mbox{\hyperlink{classnetdem_1_1_pack_generator_af13eb514a833e6353949898bb34b2f39}{GetGridPack}}(\textcolor{keywordtype}{double} len\_x, \textcolor{keywordtype}{double} len\_y, \textcolor{keywordtype}{double} len\_z,}
+\DoxyCodeLine{31                                      \textcolor{keywordtype}{double} center\_x, \textcolor{keywordtype}{double} center\_y,}
+\DoxyCodeLine{32                                      \textcolor{keywordtype}{double} center\_z, \textcolor{keywordtype}{int} num\_x, \textcolor{keywordtype}{int} num\_y,}
+\DoxyCodeLine{33                                      \textcolor{keywordtype}{int} num\_z,}
+\DoxyCodeLine{34                                      \textcolor{keyword}{const} \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<Shape *>}} \&shape\_list) \{}
+\DoxyCodeLine{35     \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<Particle>}} particle\_list;}
+\DoxyCodeLine{36     particle\_list.resize(num\_x * num\_y * num\_z);}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{38     \textcolor{keywordtype}{double} spacing\_x = len\_x / num\_x;}
+\DoxyCodeLine{39     \textcolor{keywordtype}{double} spacing\_y = len\_y / num\_y;}
+\DoxyCodeLine{40     \textcolor{keywordtype}{double} spacing\_z = len\_z / num\_z;}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42     \mbox{\hyperlink{class_uniform_distribution}{UniformDistribution}} unifrom\_dist(0, 1);}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < num\_x; i++) \{}
+\DoxyCodeLine{45       \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} j = 0; j < num\_y; j++) \{}
+\DoxyCodeLine{46         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} k = 0; k < num\_z; k++) \{}
+\DoxyCodeLine{47           \textcolor{keywordtype}{int} shape\_id = unifrom\_dist.\mbox{\hyperlink{class_uniform_distribution_aae19bbb1f331465ff67203b8621fac23}{Get}}() * shape\_list.size();}
+\DoxyCodeLine{48           \textcolor{keywordtype}{double} pos\_rand = unifrom\_dist.\mbox{\hyperlink{class_uniform_distribution_aae19bbb1f331465ff67203b8621fac23}{Get}}() * shape\_list[shape\_id]-\/>skin;}
+\DoxyCodeLine{49           \mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} p = \mbox{\hyperlink{classnetdem_1_1_particle}{Particle}}(shape\_list[shape\_id]);}
+\DoxyCodeLine{50           p.\mbox{\hyperlink{classnetdem_1_1_particle_a3f272179dd1b248f9ea09638c1beecfb}{SetPosition}}(}
+\DoxyCodeLine{51               spacing\_x * (i + 0.5) + center\_x -\/ 0.5 * len\_x + pos\_rand,}
+\DoxyCodeLine{52               spacing\_y * (j + 0.5) + center\_y -\/ 0.5 * len\_y + pos\_rand,}
+\DoxyCodeLine{53               spacing\_z * (k + 0.5) + center\_z -\/ 0.5 * len\_z);}
+\DoxyCodeLine{54           \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} rot\_axis\{unifrom\_dist.\mbox{\hyperlink{class_uniform_distribution_aae19bbb1f331465ff67203b8621fac23}{Get}}(), unifrom\_dist.\mbox{\hyperlink{class_uniform_distribution_aae19bbb1f331465ff67203b8621fac23}{Get}}(),}
+\DoxyCodeLine{55                          unifrom\_dist.\mbox{\hyperlink{class_uniform_distribution_aae19bbb1f331465ff67203b8621fac23}{Get}}()\};}
+\DoxyCodeLine{56           \mbox{\hyperlink{namespacenetdem_1_1_math_a3ca3a978e0cc3c0b218745bd420e3298}{Math::Normalize}}(\&rot\_axis);}
+\DoxyCodeLine{57           p.\mbox{\hyperlink{classnetdem_1_1_particle_a116ae8a62a290ca23e7d3a48cf45fbef}{SetRodrigues}}(unifrom\_dist.\mbox{\hyperlink{class_uniform_distribution_aae19bbb1f331465ff67203b8621fac23}{Get}}() * \mbox{\hyperlink{namespacenetdem_1_1_math_a902d4826f3f4fb5e5b105a223e1aed6e}{Math::PI}}, rot\_axis[0], rot\_axis[1],}
+\DoxyCodeLine{58                          rot\_axis[2]);}
+\DoxyCodeLine{59           particle\_list[i * num\_y * num\_z + j * num\_z + k] = p;}
+\DoxyCodeLine{60         \}}
+\DoxyCodeLine{61       \}}
+\DoxyCodeLine{62     \}}
+\DoxyCodeLine{63     \textcolor{keywordflow}{return} particle\_list;}
+\DoxyCodeLine{64   \}}
+\DoxyCodeLine{65 }
+\DoxyCodeLine{66   \textcolor{keyword}{static} \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<Particle>}} \mbox{\hyperlink{classnetdem_1_1_pack_generator_a7fab1b76b3d20c214949a9cbdff437a3}{GetGridPack}}(\textcolor{keywordtype}{double} len\_x, \textcolor{keywordtype}{double} len\_y, \textcolor{keywordtype}{double} len\_z,}
+\DoxyCodeLine{67                                      \textcolor{keywordtype}{double} center\_x, \textcolor{keywordtype}{double} center\_y,}
+\DoxyCodeLine{68                                      \textcolor{keywordtype}{double} center\_z, \textcolor{keywordtype}{int} num\_x, \textcolor{keywordtype}{int} num\_y,}
+\DoxyCodeLine{69                                      \textcolor{keywordtype}{int} num\_z, \mbox{\hyperlink{classnetdem_1_1_shape}{Shape}} *shape) \{}
+\DoxyCodeLine{70     \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<Particle>}} particle\_list;}
+\DoxyCodeLine{71     particle\_list.resize(num\_x * num\_y * num\_z);}
+\DoxyCodeLine{72 }
+\DoxyCodeLine{73     \textcolor{keywordtype}{double} spacing\_x = len\_x / num\_x;}
+\DoxyCodeLine{74     \textcolor{keywordtype}{double} spacing\_y = len\_y / num\_y;}
+\DoxyCodeLine{75     \textcolor{keywordtype}{double} spacing\_z = len\_z / num\_z;}
+\DoxyCodeLine{76 }
+\DoxyCodeLine{77     \mbox{\hyperlink{class_uniform_distribution}{UniformDistribution}} unifrom\_dist(0, 1);}
+\DoxyCodeLine{78 }
+\DoxyCodeLine{79     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < num\_x; i++) \{}
+\DoxyCodeLine{80       \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} j = 0; j < num\_y; j++) \{}
+\DoxyCodeLine{81         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} k = 0; k < num\_z; k++) \{}
+\DoxyCodeLine{82           \mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} p = \mbox{\hyperlink{classnetdem_1_1_particle}{Particle}}(shape);}
+\DoxyCodeLine{83           \textcolor{keywordtype}{double} pos\_rand = unifrom\_dist.\mbox{\hyperlink{class_uniform_distribution_aae19bbb1f331465ff67203b8621fac23}{Get}}() * shape-\/>\mbox{\hyperlink{classnetdem_1_1_shape_ac864f3e9a93cf92fcaea59c567d30301}{skin}};}
+\DoxyCodeLine{84           p.\mbox{\hyperlink{classnetdem_1_1_particle_a3f272179dd1b248f9ea09638c1beecfb}{SetPosition}}(}
+\DoxyCodeLine{85               spacing\_x * (i + 0.5) + center\_x -\/ 0.5 * len\_x + pos\_rand,}
+\DoxyCodeLine{86               spacing\_y * (j + 0.5) + center\_y -\/ 0.5 * len\_y + pos\_rand,}
+\DoxyCodeLine{87               spacing\_z * (k + 0.5) + center\_z -\/ 0.5 * len\_z);}
+\DoxyCodeLine{88           \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} rot\_axis\{unifrom\_dist.\mbox{\hyperlink{class_uniform_distribution_aae19bbb1f331465ff67203b8621fac23}{Get}}(), unifrom\_dist.\mbox{\hyperlink{class_uniform_distribution_aae19bbb1f331465ff67203b8621fac23}{Get}}(),}
+\DoxyCodeLine{89                          unifrom\_dist.\mbox{\hyperlink{class_uniform_distribution_aae19bbb1f331465ff67203b8621fac23}{Get}}()\};}
+\DoxyCodeLine{90           \mbox{\hyperlink{namespacenetdem_1_1_math_a3ca3a978e0cc3c0b218745bd420e3298}{Math::Normalize}}(\&rot\_axis);}
+\DoxyCodeLine{91           p.\mbox{\hyperlink{classnetdem_1_1_particle_a116ae8a62a290ca23e7d3a48cf45fbef}{SetRodrigues}}(unifrom\_dist.\mbox{\hyperlink{class_uniform_distribution_aae19bbb1f331465ff67203b8621fac23}{Get}}() * \mbox{\hyperlink{namespacenetdem_1_1_math_a902d4826f3f4fb5e5b105a223e1aed6e}{Math::PI}}, rot\_axis[0], rot\_axis[1],}
+\DoxyCodeLine{92                          rot\_axis[2]);}
+\DoxyCodeLine{93           particle\_list[i * num\_y * num\_z + j * num\_z + k] = p;}
+\DoxyCodeLine{94         \}}
+\DoxyCodeLine{95       \}}
+\DoxyCodeLine{96     \}}
+\DoxyCodeLine{97     \textcolor{keywordflow}{return} particle\_list;}
+\DoxyCodeLine{98   \}}
+\DoxyCodeLine{99 }
+\DoxyCodeLine{100   \textcolor{keyword}{static} \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<BondedSpheres>}}}
+\DoxyCodeLine{101   \mbox{\hyperlink{classnetdem_1_1_pack_generator_a78ce82ead99fd60781a89bcc211116ee}{GetGridPack}}(\textcolor{keywordtype}{double} len\_x, \textcolor{keywordtype}{double} len\_y, \textcolor{keywordtype}{double} len\_z, \textcolor{keywordtype}{double} center\_x,}
+\DoxyCodeLine{102               \textcolor{keywordtype}{double} center\_y, \textcolor{keywordtype}{double} center\_z, \textcolor{keywordtype}{int} num\_x, \textcolor{keywordtype}{int} num\_y, \textcolor{keywordtype}{int} num\_z,}
+\DoxyCodeLine{103               \textcolor{keyword}{const} \mbox{\hyperlink{classnetdem_1_1_bonded_spheres}{BondedSpheres}} \&bonded\_spheres\_template) \{}
+\DoxyCodeLine{104     \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<BondedSpheres>}} particle\_list;}
+\DoxyCodeLine{105     particle\_list.resize(num\_x * num\_y * num\_z);}
+\DoxyCodeLine{106 }
+\DoxyCodeLine{107     \textcolor{keywordtype}{double} spacing\_x = len\_x / num\_x;}
+\DoxyCodeLine{108     \textcolor{keywordtype}{double} spacing\_y = len\_y / num\_y;}
+\DoxyCodeLine{109     \textcolor{keywordtype}{double} spacing\_z = len\_z / num\_z;}
+\DoxyCodeLine{110 }
+\DoxyCodeLine{111     \mbox{\hyperlink{class_uniform_distribution}{UniformDistribution}} unifrom\_dist(0, 1);}
+\DoxyCodeLine{112 }
+\DoxyCodeLine{113     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < num\_x; i++) \{}
+\DoxyCodeLine{114       \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} j = 0; j < num\_y; j++) \{}
+\DoxyCodeLine{115         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} k = 0; k < num\_z; k++) \{}
+\DoxyCodeLine{116           \textcolor{keywordtype}{double} pos\_rand =}
+\DoxyCodeLine{117               unifrom\_dist.\mbox{\hyperlink{class_uniform_distribution_aae19bbb1f331465ff67203b8621fac23}{Get}}() * bonded\_spheres\_template.\mbox{\hyperlink{classnetdem_1_1_bonded_spheres_a1597ecd32f7f43fea26b371414af9b24}{sphere}}.\mbox{\hyperlink{classnetdem_1_1_shape_ac864f3e9a93cf92fcaea59c567d30301}{skin}};}
+\DoxyCodeLine{118           \mbox{\hyperlink{classnetdem_1_1_bonded_spheres}{BondedSpheres}} bp = bonded\_spheres\_template;}
+\DoxyCodeLine{119 }
+\DoxyCodeLine{120           bp.\mbox{\hyperlink{classnetdem_1_1_bonded_spheres_a3ffc7e1c274b93cd67a49cbb0ab28ff8}{Translate}}(}
+\DoxyCodeLine{121               spacing\_x * (i + 0.5) + center\_x -\/ 0.5 * len\_x + pos\_rand,}
+\DoxyCodeLine{122               spacing\_y * (j + 0.5) + center\_y -\/ 0.5 * len\_y + pos\_rand,}
+\DoxyCodeLine{123               spacing\_z * (k + 0.5) + center\_z -\/ 0.5 * len\_z);}
+\DoxyCodeLine{124           \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} rot\_axis\{unifrom\_dist.\mbox{\hyperlink{class_uniform_distribution_aae19bbb1f331465ff67203b8621fac23}{Get}}(), unifrom\_dist.\mbox{\hyperlink{class_uniform_distribution_aae19bbb1f331465ff67203b8621fac23}{Get}}(),}
+\DoxyCodeLine{125                          unifrom\_dist.\mbox{\hyperlink{class_uniform_distribution_aae19bbb1f331465ff67203b8621fac23}{Get}}()\};}
+\DoxyCodeLine{126           \mbox{\hyperlink{namespacenetdem_1_1_math_a3ca3a978e0cc3c0b218745bd420e3298}{Math::Normalize}}(\&rot\_axis);}
+\DoxyCodeLine{127           bp.\mbox{\hyperlink{classnetdem_1_1_bonded_spheres_a9841edd63f2fc769ac407df34c4aac54}{RotateByRodrigues}}(unifrom\_dist.\mbox{\hyperlink{class_uniform_distribution_aae19bbb1f331465ff67203b8621fac23}{Get}}() * \mbox{\hyperlink{namespacenetdem_1_1_math_a902d4826f3f4fb5e5b105a223e1aed6e}{Math::PI}}, rot\_axis[0],}
+\DoxyCodeLine{128                                rot\_axis[1], rot\_axis[2]);}
+\DoxyCodeLine{129           particle\_list[i * num\_y * num\_z + j * num\_z + k] = bp;}
+\DoxyCodeLine{130         \}}
+\DoxyCodeLine{131       \}}
+\DoxyCodeLine{132     \}}
+\DoxyCodeLine{133     \textcolor{keywordflow}{return} particle\_list;}
+\DoxyCodeLine{134   \}}
+\DoxyCodeLine{135 }
+\DoxyCodeLine{136   \textcolor{keyword}{static} \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<BondedVoronois>}}}
+\DoxyCodeLine{137   \mbox{\hyperlink{classnetdem_1_1_pack_generator_a760f3b4483a61866fec16fc9b43f8472}{GetGridPack}}(\textcolor{keywordtype}{double} len\_x, \textcolor{keywordtype}{double} len\_y, \textcolor{keywordtype}{double} len\_z, \textcolor{keywordtype}{double} center\_x,}
+\DoxyCodeLine{138               \textcolor{keywordtype}{double} center\_y, \textcolor{keywordtype}{double} center\_z, \textcolor{keywordtype}{int} num\_x, \textcolor{keywordtype}{int} num\_y, \textcolor{keywordtype}{int} num\_z,}
+\DoxyCodeLine{139               \textcolor{keyword}{const} \mbox{\hyperlink{classnetdem_1_1_bonded_voronois}{BondedVoronois}} \&bonded\_voronois\_template) \{}
+\DoxyCodeLine{140     \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<BondedVoronois>}} particle\_list;}
+\DoxyCodeLine{141     particle\_list.resize(num\_x * num\_y * num\_z);}
+\DoxyCodeLine{142 }
+\DoxyCodeLine{143     \textcolor{keywordtype}{double} spacing\_x = len\_x / num\_x;}
+\DoxyCodeLine{144     \textcolor{keywordtype}{double} spacing\_y = len\_y / num\_y;}
+\DoxyCodeLine{145     \textcolor{keywordtype}{double} spacing\_z = len\_z / num\_z;}
+\DoxyCodeLine{146 }
+\DoxyCodeLine{147     \mbox{\hyperlink{class_uniform_distribution}{UniformDistribution}} unifrom\_dist(0, 1);}
+\DoxyCodeLine{148 }
+\DoxyCodeLine{149     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < num\_x; i++) \{}
+\DoxyCodeLine{150       \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} j = 0; j < num\_y; j++) \{}
+\DoxyCodeLine{151         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} k = 0; k < num\_z; k++) \{}
+\DoxyCodeLine{152           \textcolor{keywordtype}{double} pos\_rand = unifrom\_dist.\mbox{\hyperlink{class_uniform_distribution_aae19bbb1f331465ff67203b8621fac23}{Get}}() *}
+\DoxyCodeLine{153                             bonded\_voronois\_template.\mbox{\hyperlink{classnetdem_1_1_bonded_voronois_a08dbac4387391e32a4de32e2e672e76d}{trimesh\_list}}[0].skin;}
+\DoxyCodeLine{154           \mbox{\hyperlink{classnetdem_1_1_bonded_voronois}{BondedVoronois}} bp = bonded\_voronois\_template;}
+\DoxyCodeLine{155           bp.\mbox{\hyperlink{classnetdem_1_1_bonded_voronois_a5b3586e59a90b7d153d95ffabf33943c}{RefreshPointers}}();}
+\DoxyCodeLine{156 }
+\DoxyCodeLine{157           bp.\mbox{\hyperlink{classnetdem_1_1_bonded_voronois_ab8726aa5c56de1f2e7e4857cc70b9a4f}{Translate}}(}
+\DoxyCodeLine{158               spacing\_x * (i + 0.5) + center\_x -\/ 0.5 * len\_x + pos\_rand,}
+\DoxyCodeLine{159               spacing\_y * (j + 0.5) + center\_y -\/ 0.5 * len\_y + pos\_rand,}
+\DoxyCodeLine{160               spacing\_z * (k + 0.5) + center\_z -\/ 0.5 * len\_z);}
+\DoxyCodeLine{161           \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} rot\_axis\{unifrom\_dist.\mbox{\hyperlink{class_uniform_distribution_aae19bbb1f331465ff67203b8621fac23}{Get}}(), unifrom\_dist.\mbox{\hyperlink{class_uniform_distribution_aae19bbb1f331465ff67203b8621fac23}{Get}}(),}
+\DoxyCodeLine{162                          unifrom\_dist.\mbox{\hyperlink{class_uniform_distribution_aae19bbb1f331465ff67203b8621fac23}{Get}}()\};}
+\DoxyCodeLine{163           \mbox{\hyperlink{namespacenetdem_1_1_math_a3ca3a978e0cc3c0b218745bd420e3298}{Math::Normalize}}(\&rot\_axis);}
+\DoxyCodeLine{164           bp.\mbox{\hyperlink{classnetdem_1_1_bonded_voronois_aec2d341db2a3078106aa647ccdf8ab3a}{RotateByRodrigues}}(unifrom\_dist.\mbox{\hyperlink{class_uniform_distribution_aae19bbb1f331465ff67203b8621fac23}{Get}}() * \mbox{\hyperlink{namespacenetdem_1_1_math_a902d4826f3f4fb5e5b105a223e1aed6e}{Math::PI}}, rot\_axis[0],}
+\DoxyCodeLine{165                                rot\_axis[1], rot\_axis[2]);}
+\DoxyCodeLine{166           particle\_list[i * num\_y * num\_z + j * num\_z + k] = bp;}
+\DoxyCodeLine{167         \}}
+\DoxyCodeLine{168       \}}
+\DoxyCodeLine{169     \}}
+\DoxyCodeLine{170     \textcolor{keywordflow}{return} particle\_list;}
+\DoxyCodeLine{171   \}}
+\DoxyCodeLine{172 \};}
+\DoxyCodeLine{173 }
+\DoxyCodeLine{174 \} \textcolor{comment}{// namespace netdem}}
+
+\end{DoxyCode}
