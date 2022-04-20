@@ -21,7 +21,8 @@ var searchData=
   ['contactpwparser_18',['ContactPWParser',['../classnetdem_1_1_contact_p_w_parser.html',1,'netdem']]],
   ['contactsolverfactory_19',['ContactSolverFactory',['../classnetdem_1_1_contact_solver_factory.html',1,'netdem']]],
   ['contactsolversettings_20',['ContactSolverSettings',['../classnetdem_1_1_contact_solver_settings.html',1,'netdem']]],
-  ['corktriangle_21',['CorkTriangle',['../structnetdem_1_1_cork_triangle.html',1,'netdem']]],
-  ['corkvertex_22',['CorkVertex',['../structnetdem_1_1_cork_vertex.html',1,'netdem']]],
-  ['cylinder_23',['Cylinder',['../classnetdem_1_1_cylinder.html',1,'netdem']]]
+  ['cork_21',['Cork',['../classnetdem_1_1_cork.html',1,'netdem']]],
+  ['corktriangle_22',['CorkTriangle',['../struct_cork_triangle.html',1,'']]],
+  ['corkvertex_23',['CorkVertex',['../struct_cork_vertex.html',1,'']]],
+  ['cylinder_24',['Cylinder',['../classnetdem_1_1_cylinder.html',1,'netdem']]]
 ];

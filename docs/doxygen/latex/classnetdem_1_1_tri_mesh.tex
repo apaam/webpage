@@ -1,0 +1,453 @@
+\hypertarget{classnetdem_1_1_tri_mesh}{}\doxysection{netdem\+::Tri\+Mesh Class Reference}
+\label{classnetdem_1_1_tri_mesh}\index{netdem::TriMesh@{netdem::TriMesh}}
+
+
+{\ttfamily \#include $<$shape\+\_\+trimesh.\+hpp$>$}
+
+Inheritance diagram for netdem\+::Tri\+Mesh\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classnetdem_1_1_tri_mesh}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classnetdem_1_1_tri_mesh_a826986fcfb35b980cc02b99824f691f0}{Tri\+Mesh}} ()
+\item 
+\mbox{\hyperlink{mpi__manager_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{nlohmann\+::json}} \mbox{\hyperlink{classnetdem_1_1_tri_mesh_a79d5e6ff34471f9460ee8d209bd743d7}{Pack\+Json}} () override
+\item 
+void \mbox{\hyperlink{classnetdem_1_1_tri_mesh_a3e728182668931acad31e5b859179341}{Init\+From\+Json}} (\mbox{\hyperlink{mpi__manager_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{nlohmann\+::json}} const \&js) override
+\item 
+void \mbox{\hyperlink{classnetdem_1_1_tri_mesh_a1dc42a1f9439c900d76f213155ebb56d}{Init\+From\+STL}} (std\+::string const \&file)
+\item 
+void \mbox{\hyperlink{classnetdem_1_1_tri_mesh_abe8ed7d08c547836067613d0ae9d7bbd}{Init\+From\+OFF}} (std\+::string const \&file)
+\item 
+void \mbox{\hyperlink{classnetdem_1_1_tri_mesh_ae4dde95afe4c2f0cf05a9bc97b85da04}{Init\+From\+STL}} (\mbox{\hyperlink{classnetdem_1_1_s_t_l_model}{STLModel}} const \&stl\+\_\+model)
+\item 
+void \mbox{\hyperlink{classnetdem_1_1_tri_mesh_a4b10987c918c8fe42981f88fd02e2257}{Init}} ()
+\item 
+void \mbox{\hyperlink{classnetdem_1_1_tri_mesh_aa149712da01e2f068f28b8eba4395e14}{Align\+Axes}} ()
+\item 
+void \mbox{\hyperlink{classnetdem_1_1_tri_mesh_a6676d86d935edffc85b01191695a60b9}{Decimate}} (int num\+\_\+facets)
+\item 
+void \mbox{\hyperlink{classnetdem_1_1_tri_mesh_a028e853ada387b4f8843fd1bb14232ab}{Make\+Convex}} ()
+\item 
+void \mbox{\hyperlink{classnetdem_1_1_tri_mesh_afcd5ffba5f30ce8aa2818914f54eb100}{Update\+Nodes}} () override
+\item 
+void \mbox{\hyperlink{classnetdem_1_1_tri_mesh_a24b979a6ef74186c5012401189d0af3b}{Update\+Shape\+Properties}} () override
+\item 
+void \mbox{\hyperlink{classnetdem_1_1_tri_mesh_aa2378c12f277056e112f8e6a0b31669b}{Set\+Size}} (double d) override
+\item 
+\mbox{\hyperlink{classnetdem_1_1_shape}{Shape}} $\ast$ \mbox{\hyperlink{classnetdem_1_1_tri_mesh_afc7d5dd2112a679a7d13fe376f6b55f3}{Clone}} () const override
+\item 
+\mbox{\hyperlink{classnetdem_1_1_s_t_l_model}{STLModel}} \mbox{\hyperlink{classnetdem_1_1_tri_mesh_ae6ce4c100384bd10ff46bd6a08d38a99}{Get\+STLModel}} (int num\+\_\+facets=400) override
+\item 
+\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \mbox{\hyperlink{classnetdem_1_1_tri_mesh_aff3dfe3ddcc67f8f2814c38c2fadf16b}{Support\+Point}} (\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&dir) override
+\item 
+\mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $>$ \mbox{\hyperlink{classnetdem_1_1_tri_mesh_af192c1c5379abe98e3e6d82a3be8871b}{Support\+Points}} (\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&dir) override
+\item 
+\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \mbox{\hyperlink{classnetdem_1_1_tri_mesh_ad846f2c98a546015cf0eec25aa27f927}{Support\+Point\+\_\+\+Hill\+Climb}} (\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&dir)
+\item 
+\mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $>$ \mbox{\hyperlink{classnetdem_1_1_tri_mesh_a83b8f2ac9dafedda1fb45663e017a2da}{Support\+Points\+\_\+\+Hill\+Climb}} (\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&dir)
+\item 
+void \mbox{\hyperlink{classnetdem_1_1_tri_mesh_ae7b1a930f7e4234d051a1761bb928f84}{Support\+Points\+\_\+\+Hill\+Climb\+Check\+Coplane}} (int vert\+\_\+id, \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&max\+\_\+pos, \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ int $>$ $\ast$const vert\+\_\+id\+\_\+list, \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&dir)
+\item 
+\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \mbox{\hyperlink{classnetdem_1_1_tri_mesh_a7c06985747f024541bf6b96101b206a1}{Support\+Point\+\_\+\+Sweep}} (\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&dir)
+\item 
+\mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $>$ \mbox{\hyperlink{classnetdem_1_1_tri_mesh_a368da00dfb215a1e8196c4224581be34}{Support\+Points\+\_\+\+Sweep}} (\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&dir)
+\item 
+\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \mbox{\hyperlink{classnetdem_1_1_tri_mesh_a5584552415f726059998a9c5b2c97e52}{Support\+Point\+\_\+\+Linked\+Vertices}} (\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&dir)
+\item 
+\mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $>$ \mbox{\hyperlink{classnetdem_1_1_tri_mesh_ad5579910b9527747bc15a05eceeddccd}{Support\+Points\+\_\+\+Linked\+Vertices}} (\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&dir)
+\item 
+double \mbox{\hyperlink{classnetdem_1_1_tri_mesh_a56322dd0fa63760957b50cfa60a37c48}{Signed\+Distance}} (\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&pos) override
+\item 
+\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \mbox{\hyperlink{classnetdem_1_1_tri_mesh_a7f86c3eb4da8a4e6991c9a442a12acdc}{Surface\+Point}} (\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&pos) override
+\item 
+int \mbox{\hyperlink{classnetdem_1_1_tri_mesh_ac79ece07d94c1d7f9cb434de4b59f67b}{Closest\+Facet}} (\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&pos)
+\item 
+void \mbox{\hyperlink{classnetdem_1_1_tri_mesh_accfab373dd95150ef8276cf1262da082}{Print}} () override
+\item 
+void \mbox{\hyperlink{classnetdem_1_1_tri_mesh_a92660c96f1a325372bcc9e6794654c75}{Save\+Normal\+Patches\+Spherical}} (std\+::string const \&file)
+\item 
+void \mbox{\hyperlink{classnetdem_1_1_tri_mesh_a342fc3c8618cb8212b945f5826fe5208}{Save\+Normal\+Patches\+Cubic}} (std\+::string const \&file)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $>$ \mbox{\hyperlink{classnetdem_1_1_tri_mesh_acde0779520f91ee0596048099ea7b5e8}{vertices}}
+\item 
+\mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_a28e1404c8ce46c48bc78f553bd555980}{Vec3i}} $>$ \mbox{\hyperlink{classnetdem_1_1_tri_mesh_aba68dfcd0734fba3a9f0106ec83e0066}{facets}}
+\item 
+\mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ int $>$ $>$ \mbox{\hyperlink{classnetdem_1_1_tri_mesh_a33d5bbcb9aa2de28a729e51344d5be17}{vertices\+\_\+neighs}}
+\item 
+bool \mbox{\hyperlink{classnetdem_1_1_tri_mesh_a37d69b0bfd72b90fcdf639eda5281ac3}{use\+\_\+linked\+\_\+patches}} \{false\}
+\item 
+int \mbox{\hyperlink{classnetdem_1_1_tri_mesh_a88515b6a64766d16eb61de5f7d09fda4}{num\+\_\+cells}} \{8\}
+\item 
+\mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ int $>$ $>$ \mbox{\hyperlink{classnetdem_1_1_tri_mesh_aebaaf2c1a835d872b4f1144a250495ef}{linked\+\_\+vertices}}
+\item 
+\mbox{\hyperlink{classnetdem_1_1_s_d_f_calculator}{SDFCalculator}} \mbox{\hyperlink{classnetdem_1_1_tri_mesh_a61ab58f72d319c22473f926a5917339e}{sdf\+\_\+calculator}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classnetdem_1_1_tri_mesh_a45c79788e02002ea98f20d5552e8def7}{Update\+Vertices\+Neighs}} ()
+\item 
+void \mbox{\hyperlink{classnetdem_1_1_tri_mesh_aacdcebc395e34b5de658629fb1ef955b}{Update\+Linked\+Vertices}} ()
+\item 
+void \mbox{\hyperlink{classnetdem_1_1_tri_mesh_ac0b1e6ff7537cfbd93721afd31191a9e}{Update\+Linked\+Vertices\+Sub}} (int vid)
+\item 
+\mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $>$ \mbox{\hyperlink{classnetdem_1_1_tri_mesh_a0dc8f2792298143d388576249843c0cd}{Compute\+Normal\+Patch}} (int vid)
+\item 
+void \mbox{\hyperlink{classnetdem_1_1_tri_mesh_ac099f407e6a3884c11adba9b0505fc33}{Sort\+Normal\+Patch\+Vertices}} (\mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $>$ $\ast$const normals)
+\item 
+\mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $>$ \mbox{\hyperlink{classnetdem_1_1_tri_mesh_a55370493c8fb76efb87f6d20ae1107a9}{Compute\+Cartesian\+Project}} (const \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $>$ \&normals)
+\item 
+\mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $>$ \mbox{\hyperlink{classnetdem_1_1_tri_mesh_aa6318fc586d381806ec04846fe7a9c68}{Compute\+Cartesian\+Project}} (const \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \&v1, const \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \&v2)
+\item 
+bool \mbox{\hyperlink{classnetdem_1_1_tri_mesh_a482fdd96c9395ef40f44cc702e0f48d0}{Contain\+Corner}} (\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&corner, const \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $>$ \&normals)
+\item 
+bool \mbox{\hyperlink{classnetdem_1_1_tri_mesh_a371897e08f2ad9cbad6b90b1b025ab3b}{Find}} (const \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ int $>$ \&vert\+\_\+id\+\_\+list, int \mbox{\hyperlink{classnetdem_1_1_shape_a1b039a89b8be0177106617ba10c00484}{id}})
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classnetdem_1_1_tri_mesh_a826986fcfb35b980cc02b99824f691f0}\label{classnetdem_1_1_tri_mesh_a826986fcfb35b980cc02b99824f691f0}} 
+\index{netdem::TriMesh@{netdem::TriMesh}!TriMesh@{TriMesh}}
+\index{TriMesh@{TriMesh}!netdem::TriMesh@{netdem::TriMesh}}
+\doxysubsubsection{\texorpdfstring{TriMesh()}{TriMesh()}}
+{\footnotesize\ttfamily Tri\+Mesh\+::\+Tri\+Mesh (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classnetdem_1_1_tri_mesh_aa149712da01e2f068f28b8eba4395e14}\label{classnetdem_1_1_tri_mesh_aa149712da01e2f068f28b8eba4395e14}} 
+\index{netdem::TriMesh@{netdem::TriMesh}!AlignAxes@{AlignAxes}}
+\index{AlignAxes@{AlignAxes}!netdem::TriMesh@{netdem::TriMesh}}
+\doxysubsubsection{\texorpdfstring{AlignAxes()}{AlignAxes()}}
+{\footnotesize\ttfamily void Tri\+Mesh\+::\+Align\+Axes (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classnetdem_1_1_tri_mesh_afc7d5dd2112a679a7d13fe376f6b55f3}\label{classnetdem_1_1_tri_mesh_afc7d5dd2112a679a7d13fe376f6b55f3}} 
+\index{netdem::TriMesh@{netdem::TriMesh}!Clone@{Clone}}
+\index{Clone@{Clone}!netdem::TriMesh@{netdem::TriMesh}}
+\doxysubsubsection{\texorpdfstring{Clone()}{Clone()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classnetdem_1_1_shape}{Shape}} $\ast$ Tri\+Mesh\+::\+Clone (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{classnetdem_1_1_shape_aa2f0bb26f5aa8f637a6bb3d5e735f45a}{netdem\+::\+Shape}}.
+
+\mbox{\Hypertarget{classnetdem_1_1_tri_mesh_ac79ece07d94c1d7f9cb434de4b59f67b}\label{classnetdem_1_1_tri_mesh_ac79ece07d94c1d7f9cb434de4b59f67b}} 
+\index{netdem::TriMesh@{netdem::TriMesh}!ClosestFacet@{ClosestFacet}}
+\index{ClosestFacet@{ClosestFacet}!netdem::TriMesh@{netdem::TriMesh}}
+\doxysubsubsection{\texorpdfstring{ClosestFacet()}{ClosestFacet()}}
+{\footnotesize\ttfamily int Tri\+Mesh\+::\+Closest\+Facet (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&}]{pos }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classnetdem_1_1_tri_mesh_aa6318fc586d381806ec04846fe7a9c68}\label{classnetdem_1_1_tri_mesh_aa6318fc586d381806ec04846fe7a9c68}} 
+\index{netdem::TriMesh@{netdem::TriMesh}!ComputeCartesianProject@{ComputeCartesianProject}}
+\index{ComputeCartesianProject@{ComputeCartesianProject}!netdem::TriMesh@{netdem::TriMesh}}
+\doxysubsubsection{\texorpdfstring{ComputeCartesianProject()}{ComputeCartesianProject()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $>$ Tri\+Mesh\+::\+Compute\+Cartesian\+Project (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \&}]{v1,  }\item[{const \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \&}]{v2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classnetdem_1_1_tri_mesh_a55370493c8fb76efb87f6d20ae1107a9}\label{classnetdem_1_1_tri_mesh_a55370493c8fb76efb87f6d20ae1107a9}} 
+\index{netdem::TriMesh@{netdem::TriMesh}!ComputeCartesianProject@{ComputeCartesianProject}}
+\index{ComputeCartesianProject@{ComputeCartesianProject}!netdem::TriMesh@{netdem::TriMesh}}
+\doxysubsubsection{\texorpdfstring{ComputeCartesianProject()}{ComputeCartesianProject()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $>$ Tri\+Mesh\+::\+Compute\+Cartesian\+Project (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $>$ \&}]{normals }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classnetdem_1_1_tri_mesh_a0dc8f2792298143d388576249843c0cd}\label{classnetdem_1_1_tri_mesh_a0dc8f2792298143d388576249843c0cd}} 
+\index{netdem::TriMesh@{netdem::TriMesh}!ComputeNormalPatch@{ComputeNormalPatch}}
+\index{ComputeNormalPatch@{ComputeNormalPatch}!netdem::TriMesh@{netdem::TriMesh}}
+\doxysubsubsection{\texorpdfstring{ComputeNormalPatch()}{ComputeNormalPatch()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $>$ Tri\+Mesh\+::\+Compute\+Normal\+Patch (\begin{DoxyParamCaption}\item[{int}]{vid }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classnetdem_1_1_tri_mesh_a482fdd96c9395ef40f44cc702e0f48d0}\label{classnetdem_1_1_tri_mesh_a482fdd96c9395ef40f44cc702e0f48d0}} 
+\index{netdem::TriMesh@{netdem::TriMesh}!ContainCorner@{ContainCorner}}
+\index{ContainCorner@{ContainCorner}!netdem::TriMesh@{netdem::TriMesh}}
+\doxysubsubsection{\texorpdfstring{ContainCorner()}{ContainCorner()}}
+{\footnotesize\ttfamily bool Tri\+Mesh\+::\+Contain\+Corner (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&}]{corner,  }\item[{const \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $>$ \&}]{normals }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classnetdem_1_1_tri_mesh_a6676d86d935edffc85b01191695a60b9}\label{classnetdem_1_1_tri_mesh_a6676d86d935edffc85b01191695a60b9}} 
+\index{netdem::TriMesh@{netdem::TriMesh}!Decimate@{Decimate}}
+\index{Decimate@{Decimate}!netdem::TriMesh@{netdem::TriMesh}}
+\doxysubsubsection{\texorpdfstring{Decimate()}{Decimate()}}
+{\footnotesize\ttfamily void Tri\+Mesh\+::\+Decimate (\begin{DoxyParamCaption}\item[{int}]{num\+\_\+facets }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classnetdem_1_1_tri_mesh_a371897e08f2ad9cbad6b90b1b025ab3b}\label{classnetdem_1_1_tri_mesh_a371897e08f2ad9cbad6b90b1b025ab3b}} 
+\index{netdem::TriMesh@{netdem::TriMesh}!Find@{Find}}
+\index{Find@{Find}!netdem::TriMesh@{netdem::TriMesh}}
+\doxysubsubsection{\texorpdfstring{Find()}{Find()}}
+{\footnotesize\ttfamily bool Tri\+Mesh\+::\+Find (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ int $>$ \&}]{vert\+\_\+id\+\_\+list,  }\item[{int}]{id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classnetdem_1_1_tri_mesh_ae6ce4c100384bd10ff46bd6a08d38a99}\label{classnetdem_1_1_tri_mesh_ae6ce4c100384bd10ff46bd6a08d38a99}} 
+\index{netdem::TriMesh@{netdem::TriMesh}!GetSTLModel@{GetSTLModel}}
+\index{GetSTLModel@{GetSTLModel}!netdem::TriMesh@{netdem::TriMesh}}
+\doxysubsubsection{\texorpdfstring{GetSTLModel()}{GetSTLModel()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classnetdem_1_1_s_t_l_model}{STLModel}} Tri\+Mesh\+::\+Get\+STLModel (\begin{DoxyParamCaption}\item[{int}]{num\+\_\+facets = {\ttfamily 400} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{classnetdem_1_1_shape_ab3a616a53e637b4654fedf7ffd498f94}{netdem\+::\+Shape}}.
+
+\mbox{\Hypertarget{classnetdem_1_1_tri_mesh_a4b10987c918c8fe42981f88fd02e2257}\label{classnetdem_1_1_tri_mesh_a4b10987c918c8fe42981f88fd02e2257}} 
+\index{netdem::TriMesh@{netdem::TriMesh}!Init@{Init}}
+\index{Init@{Init}!netdem::TriMesh@{netdem::TriMesh}}
+\doxysubsubsection{\texorpdfstring{Init()}{Init()}}
+{\footnotesize\ttfamily void Tri\+Mesh\+::\+Init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classnetdem_1_1_tri_mesh_a3e728182668931acad31e5b859179341}\label{classnetdem_1_1_tri_mesh_a3e728182668931acad31e5b859179341}} 
+\index{netdem::TriMesh@{netdem::TriMesh}!InitFromJson@{InitFromJson}}
+\index{InitFromJson@{InitFromJson}!netdem::TriMesh@{netdem::TriMesh}}
+\doxysubsubsection{\texorpdfstring{InitFromJson()}{InitFromJson()}}
+{\footnotesize\ttfamily void Tri\+Mesh\+::\+Init\+From\+Json (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{mpi__manager_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{nlohmann\+::json}} const \&}]{js }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{classnetdem_1_1_shape_a01bdee57a765ce5432d16d9ef001c948}{netdem\+::\+Shape}}.
+
+\mbox{\Hypertarget{classnetdem_1_1_tri_mesh_abe8ed7d08c547836067613d0ae9d7bbd}\label{classnetdem_1_1_tri_mesh_abe8ed7d08c547836067613d0ae9d7bbd}} 
+\index{netdem::TriMesh@{netdem::TriMesh}!InitFromOFF@{InitFromOFF}}
+\index{InitFromOFF@{InitFromOFF}!netdem::TriMesh@{netdem::TriMesh}}
+\doxysubsubsection{\texorpdfstring{InitFromOFF()}{InitFromOFF()}}
+{\footnotesize\ttfamily void Tri\+Mesh\+::\+Init\+From\+OFF (\begin{DoxyParamCaption}\item[{std\+::string const \&}]{file }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classnetdem_1_1_tri_mesh_a1dc42a1f9439c900d76f213155ebb56d}\label{classnetdem_1_1_tri_mesh_a1dc42a1f9439c900d76f213155ebb56d}} 
+\index{netdem::TriMesh@{netdem::TriMesh}!InitFromSTL@{InitFromSTL}}
+\index{InitFromSTL@{InitFromSTL}!netdem::TriMesh@{netdem::TriMesh}}
+\doxysubsubsection{\texorpdfstring{InitFromSTL()}{InitFromSTL()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void netdem\+::\+Tri\+Mesh\+::\+Init\+From\+STL (\begin{DoxyParamCaption}\item[{std\+::string const \&}]{file }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classnetdem_1_1_tri_mesh_ae4dde95afe4c2f0cf05a9bc97b85da04}\label{classnetdem_1_1_tri_mesh_ae4dde95afe4c2f0cf05a9bc97b85da04}} 
+\index{netdem::TriMesh@{netdem::TriMesh}!InitFromSTL@{InitFromSTL}}
+\index{InitFromSTL@{InitFromSTL}!netdem::TriMesh@{netdem::TriMesh}}
+\doxysubsubsection{\texorpdfstring{InitFromSTL()}{InitFromSTL()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Tri\+Mesh\+::\+Init\+From\+STL (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_s_t_l_model}{STLModel}} const \&}]{stl\+\_\+model }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classnetdem_1_1_tri_mesh_a028e853ada387b4f8843fd1bb14232ab}\label{classnetdem_1_1_tri_mesh_a028e853ada387b4f8843fd1bb14232ab}} 
+\index{netdem::TriMesh@{netdem::TriMesh}!MakeConvex@{MakeConvex}}
+\index{MakeConvex@{MakeConvex}!netdem::TriMesh@{netdem::TriMesh}}
+\doxysubsubsection{\texorpdfstring{MakeConvex()}{MakeConvex()}}
+{\footnotesize\ttfamily void Tri\+Mesh\+::\+Make\+Convex (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classnetdem_1_1_tri_mesh_a79d5e6ff34471f9460ee8d209bd743d7}\label{classnetdem_1_1_tri_mesh_a79d5e6ff34471f9460ee8d209bd743d7}} 
+\index{netdem::TriMesh@{netdem::TriMesh}!PackJson@{PackJson}}
+\index{PackJson@{PackJson}!netdem::TriMesh@{netdem::TriMesh}}
+\doxysubsubsection{\texorpdfstring{PackJson()}{PackJson()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{mpi__manager_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{nlohmann\+::json}} Tri\+Mesh\+::\+Pack\+Json (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{classnetdem_1_1_shape_aaceb6d02ba07578916c4723eb14c1365}{netdem\+::\+Shape}}.
+
+\mbox{\Hypertarget{classnetdem_1_1_tri_mesh_accfab373dd95150ef8276cf1262da082}\label{classnetdem_1_1_tri_mesh_accfab373dd95150ef8276cf1262da082}} 
+\index{netdem::TriMesh@{netdem::TriMesh}!Print@{Print}}
+\index{Print@{Print}!netdem::TriMesh@{netdem::TriMesh}}
+\doxysubsubsection{\texorpdfstring{Print()}{Print()}}
+{\footnotesize\ttfamily void Tri\+Mesh\+::\+Print (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{classnetdem_1_1_shape_a5e11d9bc46005ddf54d7bff51024c2bb}{netdem\+::\+Shape}}.
+
+\mbox{\Hypertarget{classnetdem_1_1_tri_mesh_a342fc3c8618cb8212b945f5826fe5208}\label{classnetdem_1_1_tri_mesh_a342fc3c8618cb8212b945f5826fe5208}} 
+\index{netdem::TriMesh@{netdem::TriMesh}!SaveNormalPatchesCubic@{SaveNormalPatchesCubic}}
+\index{SaveNormalPatchesCubic@{SaveNormalPatchesCubic}!netdem::TriMesh@{netdem::TriMesh}}
+\doxysubsubsection{\texorpdfstring{SaveNormalPatchesCubic()}{SaveNormalPatchesCubic()}}
+{\footnotesize\ttfamily void Tri\+Mesh\+::\+Save\+Normal\+Patches\+Cubic (\begin{DoxyParamCaption}\item[{std\+::string const \&}]{file }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classnetdem_1_1_tri_mesh_a92660c96f1a325372bcc9e6794654c75}\label{classnetdem_1_1_tri_mesh_a92660c96f1a325372bcc9e6794654c75}} 
+\index{netdem::TriMesh@{netdem::TriMesh}!SaveNormalPatchesSpherical@{SaveNormalPatchesSpherical}}
+\index{SaveNormalPatchesSpherical@{SaveNormalPatchesSpherical}!netdem::TriMesh@{netdem::TriMesh}}
+\doxysubsubsection{\texorpdfstring{SaveNormalPatchesSpherical()}{SaveNormalPatchesSpherical()}}
+{\footnotesize\ttfamily void Tri\+Mesh\+::\+Save\+Normal\+Patches\+Spherical (\begin{DoxyParamCaption}\item[{std\+::string const \&}]{file }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classnetdem_1_1_tri_mesh_aa2378c12f277056e112f8e6a0b31669b}\label{classnetdem_1_1_tri_mesh_aa2378c12f277056e112f8e6a0b31669b}} 
+\index{netdem::TriMesh@{netdem::TriMesh}!SetSize@{SetSize}}
+\index{SetSize@{SetSize}!netdem::TriMesh@{netdem::TriMesh}}
+\doxysubsubsection{\texorpdfstring{SetSize()}{SetSize()}}
+{\footnotesize\ttfamily void Tri\+Mesh\+::\+Set\+Size (\begin{DoxyParamCaption}\item[{double}]{d }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{classnetdem_1_1_shape_a83a4e08bc55fde5d3f99b5041efa6beb}{netdem\+::\+Shape}}.
+
+\mbox{\Hypertarget{classnetdem_1_1_tri_mesh_a56322dd0fa63760957b50cfa60a37c48}\label{classnetdem_1_1_tri_mesh_a56322dd0fa63760957b50cfa60a37c48}} 
+\index{netdem::TriMesh@{netdem::TriMesh}!SignedDistance@{SignedDistance}}
+\index{SignedDistance@{SignedDistance}!netdem::TriMesh@{netdem::TriMesh}}
+\doxysubsubsection{\texorpdfstring{SignedDistance()}{SignedDistance()}}
+{\footnotesize\ttfamily double Tri\+Mesh\+::\+Signed\+Distance (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&}]{pos }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{classnetdem_1_1_shape_af2f21939e3b0f408bdfc1b8d58205e90}{netdem\+::\+Shape}}.
+
+\mbox{\Hypertarget{classnetdem_1_1_tri_mesh_ac099f407e6a3884c11adba9b0505fc33}\label{classnetdem_1_1_tri_mesh_ac099f407e6a3884c11adba9b0505fc33}} 
+\index{netdem::TriMesh@{netdem::TriMesh}!SortNormalPatchVertices@{SortNormalPatchVertices}}
+\index{SortNormalPatchVertices@{SortNormalPatchVertices}!netdem::TriMesh@{netdem::TriMesh}}
+\doxysubsubsection{\texorpdfstring{SortNormalPatchVertices()}{SortNormalPatchVertices()}}
+{\footnotesize\ttfamily void Tri\+Mesh\+::\+Sort\+Normal\+Patch\+Vertices (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $>$ $\ast$const}]{normals }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classnetdem_1_1_tri_mesh_aff3dfe3ddcc67f8f2814c38c2fadf16b}\label{classnetdem_1_1_tri_mesh_aff3dfe3ddcc67f8f2814c38c2fadf16b}} 
+\index{netdem::TriMesh@{netdem::TriMesh}!SupportPoint@{SupportPoint}}
+\index{SupportPoint@{SupportPoint}!netdem::TriMesh@{netdem::TriMesh}}
+\doxysubsubsection{\texorpdfstring{SupportPoint()}{SupportPoint()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} Tri\+Mesh\+::\+Support\+Point (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&}]{dir }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{classnetdem_1_1_shape_a0cf9b4a6d035810b85aa24e118b81d1a}{netdem\+::\+Shape}}.
+
+\mbox{\Hypertarget{classnetdem_1_1_tri_mesh_ad846f2c98a546015cf0eec25aa27f927}\label{classnetdem_1_1_tri_mesh_ad846f2c98a546015cf0eec25aa27f927}} 
+\index{netdem::TriMesh@{netdem::TriMesh}!SupportPoint\_HillClimb@{SupportPoint\_HillClimb}}
+\index{SupportPoint\_HillClimb@{SupportPoint\_HillClimb}!netdem::TriMesh@{netdem::TriMesh}}
+\doxysubsubsection{\texorpdfstring{SupportPoint\_HillClimb()}{SupportPoint\_HillClimb()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} Tri\+Mesh\+::\+Support\+Point\+\_\+\+Hill\+Climb (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&}]{dir }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classnetdem_1_1_tri_mesh_a5584552415f726059998a9c5b2c97e52}\label{classnetdem_1_1_tri_mesh_a5584552415f726059998a9c5b2c97e52}} 
+\index{netdem::TriMesh@{netdem::TriMesh}!SupportPoint\_LinkedVertices@{SupportPoint\_LinkedVertices}}
+\index{SupportPoint\_LinkedVertices@{SupportPoint\_LinkedVertices}!netdem::TriMesh@{netdem::TriMesh}}
+\doxysubsubsection{\texorpdfstring{SupportPoint\_LinkedVertices()}{SupportPoint\_LinkedVertices()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} Tri\+Mesh\+::\+Support\+Point\+\_\+\+Linked\+Vertices (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&}]{dir }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classnetdem_1_1_tri_mesh_a7c06985747f024541bf6b96101b206a1}\label{classnetdem_1_1_tri_mesh_a7c06985747f024541bf6b96101b206a1}} 
+\index{netdem::TriMesh@{netdem::TriMesh}!SupportPoint\_Sweep@{SupportPoint\_Sweep}}
+\index{SupportPoint\_Sweep@{SupportPoint\_Sweep}!netdem::TriMesh@{netdem::TriMesh}}
+\doxysubsubsection{\texorpdfstring{SupportPoint\_Sweep()}{SupportPoint\_Sweep()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} Tri\+Mesh\+::\+Support\+Point\+\_\+\+Sweep (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&}]{dir }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classnetdem_1_1_tri_mesh_af192c1c5379abe98e3e6d82a3be8871b}\label{classnetdem_1_1_tri_mesh_af192c1c5379abe98e3e6d82a3be8871b}} 
+\index{netdem::TriMesh@{netdem::TriMesh}!SupportPoints@{SupportPoints}}
+\index{SupportPoints@{SupportPoints}!netdem::TriMesh@{netdem::TriMesh}}
+\doxysubsubsection{\texorpdfstring{SupportPoints()}{SupportPoints()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $>$ Tri\+Mesh\+::\+Support\+Points (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&}]{dir }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{classnetdem_1_1_shape_a15152dc02a9d8dfcae6a412e6f2131bd}{netdem\+::\+Shape}}.
+
+\mbox{\Hypertarget{classnetdem_1_1_tri_mesh_a83b8f2ac9dafedda1fb45663e017a2da}\label{classnetdem_1_1_tri_mesh_a83b8f2ac9dafedda1fb45663e017a2da}} 
+\index{netdem::TriMesh@{netdem::TriMesh}!SupportPoints\_HillClimb@{SupportPoints\_HillClimb}}
+\index{SupportPoints\_HillClimb@{SupportPoints\_HillClimb}!netdem::TriMesh@{netdem::TriMesh}}
+\doxysubsubsection{\texorpdfstring{SupportPoints\_HillClimb()}{SupportPoints\_HillClimb()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $>$ Tri\+Mesh\+::\+Support\+Points\+\_\+\+Hill\+Climb (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&}]{dir }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classnetdem_1_1_tri_mesh_ae7b1a930f7e4234d051a1761bb928f84}\label{classnetdem_1_1_tri_mesh_ae7b1a930f7e4234d051a1761bb928f84}} 
+\index{netdem::TriMesh@{netdem::TriMesh}!SupportPoints\_HillClimbCheckCoplane@{SupportPoints\_HillClimbCheckCoplane}}
+\index{SupportPoints\_HillClimbCheckCoplane@{SupportPoints\_HillClimbCheckCoplane}!netdem::TriMesh@{netdem::TriMesh}}
+\doxysubsubsection{\texorpdfstring{SupportPoints\_HillClimbCheckCoplane()}{SupportPoints\_HillClimbCheckCoplane()}}
+{\footnotesize\ttfamily void Tri\+Mesh\+::\+Support\+Points\+\_\+\+Hill\+Climb\+Check\+Coplane (\begin{DoxyParamCaption}\item[{int}]{vert\+\_\+id,  }\item[{\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&}]{max\+\_\+pos,  }\item[{\mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ int $>$ $\ast$const}]{vert\+\_\+id\+\_\+list,  }\item[{\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&}]{dir }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classnetdem_1_1_tri_mesh_ad5579910b9527747bc15a05eceeddccd}\label{classnetdem_1_1_tri_mesh_ad5579910b9527747bc15a05eceeddccd}} 
+\index{netdem::TriMesh@{netdem::TriMesh}!SupportPoints\_LinkedVertices@{SupportPoints\_LinkedVertices}}
+\index{SupportPoints\_LinkedVertices@{SupportPoints\_LinkedVertices}!netdem::TriMesh@{netdem::TriMesh}}
+\doxysubsubsection{\texorpdfstring{SupportPoints\_LinkedVertices()}{SupportPoints\_LinkedVertices()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $>$ Tri\+Mesh\+::\+Support\+Points\+\_\+\+Linked\+Vertices (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&}]{dir }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classnetdem_1_1_tri_mesh_a368da00dfb215a1e8196c4224581be34}\label{classnetdem_1_1_tri_mesh_a368da00dfb215a1e8196c4224581be34}} 
+\index{netdem::TriMesh@{netdem::TriMesh}!SupportPoints\_Sweep@{SupportPoints\_Sweep}}
+\index{SupportPoints\_Sweep@{SupportPoints\_Sweep}!netdem::TriMesh@{netdem::TriMesh}}
+\doxysubsubsection{\texorpdfstring{SupportPoints\_Sweep()}{SupportPoints\_Sweep()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $>$ Tri\+Mesh\+::\+Support\+Points\+\_\+\+Sweep (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&}]{dir }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classnetdem_1_1_tri_mesh_a7f86c3eb4da8a4e6991c9a442a12acdc}\label{classnetdem_1_1_tri_mesh_a7f86c3eb4da8a4e6991c9a442a12acdc}} 
+\index{netdem::TriMesh@{netdem::TriMesh}!SurfacePoint@{SurfacePoint}}
+\index{SurfacePoint@{SurfacePoint}!netdem::TriMesh@{netdem::TriMesh}}
+\doxysubsubsection{\texorpdfstring{SurfacePoint()}{SurfacePoint()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} Tri\+Mesh\+::\+Surface\+Point (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&}]{pos }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+calculate the surface point corrsponding to a intruding node. It will be used to compute the contact point 
+
+Reimplemented from \mbox{\hyperlink{classnetdem_1_1_shape_a8528b3f4a6e03c5e83821c9842f596ac}{netdem\+::\+Shape}}.
+
+\mbox{\Hypertarget{classnetdem_1_1_tri_mesh_aacdcebc395e34b5de658629fb1ef955b}\label{classnetdem_1_1_tri_mesh_aacdcebc395e34b5de658629fb1ef955b}} 
+\index{netdem::TriMesh@{netdem::TriMesh}!UpdateLinkedVertices@{UpdateLinkedVertices}}
+\index{UpdateLinkedVertices@{UpdateLinkedVertices}!netdem::TriMesh@{netdem::TriMesh}}
+\doxysubsubsection{\texorpdfstring{UpdateLinkedVertices()}{UpdateLinkedVertices()}}
+{\footnotesize\ttfamily void Tri\+Mesh\+::\+Update\+Linked\+Vertices (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classnetdem_1_1_tri_mesh_ac0b1e6ff7537cfbd93721afd31191a9e}\label{classnetdem_1_1_tri_mesh_ac0b1e6ff7537cfbd93721afd31191a9e}} 
+\index{netdem::TriMesh@{netdem::TriMesh}!UpdateLinkedVerticesSub@{UpdateLinkedVerticesSub}}
+\index{UpdateLinkedVerticesSub@{UpdateLinkedVerticesSub}!netdem::TriMesh@{netdem::TriMesh}}
+\doxysubsubsection{\texorpdfstring{UpdateLinkedVerticesSub()}{UpdateLinkedVerticesSub()}}
+{\footnotesize\ttfamily void Tri\+Mesh\+::\+Update\+Linked\+Vertices\+Sub (\begin{DoxyParamCaption}\item[{int}]{vid }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classnetdem_1_1_tri_mesh_afcd5ffba5f30ce8aa2818914f54eb100}\label{classnetdem_1_1_tri_mesh_afcd5ffba5f30ce8aa2818914f54eb100}} 
+\index{netdem::TriMesh@{netdem::TriMesh}!UpdateNodes@{UpdateNodes}}
+\index{UpdateNodes@{UpdateNodes}!netdem::TriMesh@{netdem::TriMesh}}
+\doxysubsubsection{\texorpdfstring{UpdateNodes()}{UpdateNodes()}}
+{\footnotesize\ttfamily void Tri\+Mesh\+::\+Update\+Nodes (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{classnetdem_1_1_shape_a9f11fadd05e55890a9f90c676d0d1ae8}{netdem\+::\+Shape}}.
+
+\mbox{\Hypertarget{classnetdem_1_1_tri_mesh_a24b979a6ef74186c5012401189d0af3b}\label{classnetdem_1_1_tri_mesh_a24b979a6ef74186c5012401189d0af3b}} 
+\index{netdem::TriMesh@{netdem::TriMesh}!UpdateShapeProperties@{UpdateShapeProperties}}
+\index{UpdateShapeProperties@{UpdateShapeProperties}!netdem::TriMesh@{netdem::TriMesh}}
+\doxysubsubsection{\texorpdfstring{UpdateShapeProperties()}{UpdateShapeProperties()}}
+{\footnotesize\ttfamily void Tri\+Mesh\+::\+Update\+Shape\+Properties (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{classnetdem_1_1_shape_a4286b79ebde34db279b1c13d167901ed}{netdem\+::\+Shape}}.
+
+\mbox{\Hypertarget{classnetdem_1_1_tri_mesh_a45c79788e02002ea98f20d5552e8def7}\label{classnetdem_1_1_tri_mesh_a45c79788e02002ea98f20d5552e8def7}} 
+\index{netdem::TriMesh@{netdem::TriMesh}!UpdateVerticesNeighs@{UpdateVerticesNeighs}}
+\index{UpdateVerticesNeighs@{UpdateVerticesNeighs}!netdem::TriMesh@{netdem::TriMesh}}
+\doxysubsubsection{\texorpdfstring{UpdateVerticesNeighs()}{UpdateVerticesNeighs()}}
+{\footnotesize\ttfamily void Tri\+Mesh\+::\+Update\+Vertices\+Neighs (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classnetdem_1_1_tri_mesh_aba68dfcd0734fba3a9f0106ec83e0066}\label{classnetdem_1_1_tri_mesh_aba68dfcd0734fba3a9f0106ec83e0066}} 
+\index{netdem::TriMesh@{netdem::TriMesh}!facets@{facets}}
+\index{facets@{facets}!netdem::TriMesh@{netdem::TriMesh}}
+\doxysubsubsection{\texorpdfstring{facets}{facets}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$\mbox{\hyperlink{namespacenetdem_a28e1404c8ce46c48bc78f553bd555980}{Vec3i}}$>$ netdem\+::\+Tri\+Mesh\+::facets}
+
+\mbox{\Hypertarget{classnetdem_1_1_tri_mesh_aebaaf2c1a835d872b4f1144a250495ef}\label{classnetdem_1_1_tri_mesh_aebaaf2c1a835d872b4f1144a250495ef}} 
+\index{netdem::TriMesh@{netdem::TriMesh}!linked\_vertices@{linked\_vertices}}
+\index{linked\_vertices@{linked\_vertices}!netdem::TriMesh@{netdem::TriMesh}}
+\doxysubsubsection{\texorpdfstring{linked\_vertices}{linked\_vertices}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$\mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$int$>$ $>$ netdem\+::\+Tri\+Mesh\+::linked\+\_\+vertices}
+
+\mbox{\Hypertarget{classnetdem_1_1_tri_mesh_a88515b6a64766d16eb61de5f7d09fda4}\label{classnetdem_1_1_tri_mesh_a88515b6a64766d16eb61de5f7d09fda4}} 
+\index{netdem::TriMesh@{netdem::TriMesh}!num\_cells@{num\_cells}}
+\index{num\_cells@{num\_cells}!netdem::TriMesh@{netdem::TriMesh}}
+\doxysubsubsection{\texorpdfstring{num\_cells}{num\_cells}}
+{\footnotesize\ttfamily int netdem\+::\+Tri\+Mesh\+::num\+\_\+cells \{8\}}
+
+\mbox{\Hypertarget{classnetdem_1_1_tri_mesh_a61ab58f72d319c22473f926a5917339e}\label{classnetdem_1_1_tri_mesh_a61ab58f72d319c22473f926a5917339e}} 
+\index{netdem::TriMesh@{netdem::TriMesh}!sdf\_calculator@{sdf\_calculator}}
+\index{sdf\_calculator@{sdf\_calculator}!netdem::TriMesh@{netdem::TriMesh}}
+\doxysubsubsection{\texorpdfstring{sdf\_calculator}{sdf\_calculator}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classnetdem_1_1_s_d_f_calculator}{SDFCalculator}} netdem\+::\+Tri\+Mesh\+::sdf\+\_\+calculator}
+
+\mbox{\Hypertarget{classnetdem_1_1_tri_mesh_a37d69b0bfd72b90fcdf639eda5281ac3}\label{classnetdem_1_1_tri_mesh_a37d69b0bfd72b90fcdf639eda5281ac3}} 
+\index{netdem::TriMesh@{netdem::TriMesh}!use\_linked\_patches@{use\_linked\_patches}}
+\index{use\_linked\_patches@{use\_linked\_patches}!netdem::TriMesh@{netdem::TriMesh}}
+\doxysubsubsection{\texorpdfstring{use\_linked\_patches}{use\_linked\_patches}}
+{\footnotesize\ttfamily bool netdem\+::\+Tri\+Mesh\+::use\+\_\+linked\+\_\+patches \{false\}}
+
+\mbox{\Hypertarget{classnetdem_1_1_tri_mesh_acde0779520f91ee0596048099ea7b5e8}\label{classnetdem_1_1_tri_mesh_acde0779520f91ee0596048099ea7b5e8}} 
+\index{netdem::TriMesh@{netdem::TriMesh}!vertices@{vertices}}
+\index{vertices@{vertices}!netdem::TriMesh@{netdem::TriMesh}}
+\doxysubsubsection{\texorpdfstring{vertices}{vertices}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}$>$ netdem\+::\+Tri\+Mesh\+::vertices}
+
+\mbox{\Hypertarget{classnetdem_1_1_tri_mesh_a33d5bbcb9aa2de28a729e51344d5be17}\label{classnetdem_1_1_tri_mesh_a33d5bbcb9aa2de28a729e51344d5be17}} 
+\index{netdem::TriMesh@{netdem::TriMesh}!vertices\_neighs@{vertices\_neighs}}
+\index{vertices\_neighs@{vertices\_neighs}!netdem::TriMesh@{netdem::TriMesh}}
+\doxysubsubsection{\texorpdfstring{vertices\_neighs}{vertices\_neighs}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$\mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$int$>$ $>$ netdem\+::\+Tri\+Mesh\+::vertices\+\_\+neighs}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/lzhshou/\+Documents/\+Research/my\+Projects/apam/repo/netdem/src/shape/\mbox{\hyperlink{shape__trimesh_8hpp}{shape\+\_\+trimesh.\+hpp}}\item 
+/\+Users/lzhshou/\+Documents/\+Research/my\+Projects/apam/repo/netdem/src/shape/\mbox{\hyperlink{shape__trimesh_8cpp}{shape\+\_\+trimesh.\+cpp}}\end{DoxyCompactItemize}

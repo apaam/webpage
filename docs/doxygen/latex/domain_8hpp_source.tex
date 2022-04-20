@@ -1,0 +1,56 @@
+\hypertarget{domain_8hpp_source}{}\doxysection{domain.\+hpp}
+\label{domain_8hpp_source}\index{/Users/lzhshou/Documents/Research/myProjects/apam/repo/netdem/src/domain/domain.hpp@{/Users/lzhshou/Documents/Research/myProjects/apam/repo/netdem/src/domain/domain.hpp}}
+\mbox{\hyperlink{domain_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 }
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{cell__manager_8hpp}{cell\_manager.hpp}}"{}}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{particle_8hpp}{particle.hpp}}"{}}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{particle__data_8hpp}{particle\_data.hpp}}"{}}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{wall_8hpp}{wall.hpp}}"{}}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacenetdem}{netdem}} \{}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10 \textcolor{keyword}{class }Scene;}
+\DoxyCodeLine{11 }
+\DoxyCodeLine{12 \textcolor{keyword}{class }\mbox{\hyperlink{classnetdem_1_1_domain}{Domain}} \{}
+\DoxyCodeLine{13 \textcolor{keyword}{public}:}
+\DoxyCodeLine{15   \textcolor{keywordtype}{int} \mbox{\hyperlink{classnetdem_1_1_domain_aba19a387ce292703247c84ccd7add03f}{my\_rank}}\{0\}, \mbox{\hyperlink{classnetdem_1_1_domain_aa66dce51253289cef083d830440542c2}{num\_procs}}\{0\};}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{19   \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \mbox{\hyperlink{classnetdem_1_1_domain_aea1c970434db7a0bf1bc4e3d3f659c52}{bound\_min}}\{-\/0.5, -\/0.5, -\/0.5\}, \mbox{\hyperlink{classnetdem_1_1_domain_a45bdb56d579dde8e79ff994831fd38dc}{bound\_max}}\{0.5, 0.5, 0.5\};}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{22   \mbox{\hyperlink{classnetdem_1_1_cell_manager}{CellManager}} \mbox{\hyperlink{classnetdem_1_1_domain_aa80301e3bf41e221907acb43e2ee5231}{cell\_manager}};}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{29   \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<std::pair<Particle *, int>}}> \mbox{\hyperlink{classnetdem_1_1_domain_a1a8e5bab56c64ad2869d78e456f5ed03}{outer\_particle\_list}};}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31   \mbox{\hyperlink{classnetdem_1_1_domain_a6adccae537e53d4fde2b70f875e6b8d0}{Domain}}();}
+\DoxyCodeLine{32   \mbox{\hyperlink{classnetdem_1_1_domain_a6adccae537e53d4fde2b70f875e6b8d0}{Domain}}(\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \textcolor{keyword}{const} \&bmin, \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \textcolor{keyword}{const} \&bmax);}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34   \textcolor{keywordtype}{void} \mbox{\hyperlink{classnetdem_1_1_domain_a1334b8c934f04067de6c2967fb201587}{Init}}();}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{37   \textcolor{keywordtype}{void} \mbox{\hyperlink{classnetdem_1_1_domain_a94e0a497303bd6ca07007cb7836d374c}{SetBound}}(\textcolor{keywordtype}{double} bmin\_x, \textcolor{keywordtype}{double} bmin\_y, \textcolor{keywordtype}{double} bmin\_z, \textcolor{keywordtype}{double} bmax\_x,}
+\DoxyCodeLine{38                 \textcolor{keywordtype}{double} bmax\_y, \textcolor{keywordtype}{double} bmax\_z);}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{42   \textcolor{keywordtype}{bool} \mbox{\hyperlink{classnetdem_1_1_domain_a52776e753337107cad5fcc3b24e130e5}{IsJudgeDomain}}(\mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} \textcolor{keyword}{const} \&p, \mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} \textcolor{keyword}{const} \&q);}
+\DoxyCodeLine{43   \textcolor{keywordtype}{bool} \mbox{\hyperlink{classnetdem_1_1_domain_a52776e753337107cad5fcc3b24e130e5}{IsJudgeDomain}}(\mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} \textcolor{keyword}{const} \&p, \mbox{\hyperlink{classnetdem_1_1_wall}{Wall}} \textcolor{keyword}{const} \&w);}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{47   \textcolor{keywordtype}{bool} \mbox{\hyperlink{classnetdem_1_1_domain_a116e2a57079d28e0a4e10ed16e5e29e7}{IsBelongToDomain}}(\mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} \textcolor{keyword}{const} \&p);}
+\DoxyCodeLine{48   \textcolor{keywordtype}{bool} \mbox{\hyperlink{classnetdem_1_1_domain_a116e2a57079d28e0a4e10ed16e5e29e7}{IsBelongToDomain}}(\mbox{\hyperlink{structnetdem_1_1_particle_data}{ParticleData}} \textcolor{keyword}{const} \&p);}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{52   \textcolor{keywordtype}{bool} \mbox{\hyperlink{classnetdem_1_1_domain_a97911f50df2fc16fd3be42a98d6b9e5e}{IsParticleProxyToSend}}(\mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} \textcolor{keyword}{const} \&p);}
+\DoxyCodeLine{53 }
+\DoxyCodeLine{57   \textcolor{keywordtype}{bool} \mbox{\hyperlink{classnetdem_1_1_domain_a4890978b239449958d9f8311a0bb8482}{IsParticleProxyToRecv}}(\mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} \textcolor{keyword}{const} \&p);}
+\DoxyCodeLine{58   \textcolor{keywordtype}{bool} \mbox{\hyperlink{classnetdem_1_1_domain_a4890978b239449958d9f8311a0bb8482}{IsParticleProxyToRecv}}(\mbox{\hyperlink{structnetdem_1_1_particle_data}{ParticleData}} \textcolor{keyword}{const} \&p);}
+\DoxyCodeLine{59 }
+\DoxyCodeLine{61   \textcolor{keywordtype}{void} \mbox{\hyperlink{classnetdem_1_1_domain_abfde1b768bc19b3c2cc2c578b46f6486}{Print}}();}
+\DoxyCodeLine{62 }
+\DoxyCodeLine{63   \textcolor{keywordtype}{void} \mbox{\hyperlink{classnetdem_1_1_domain_a2f2178a4000eaea63dfeaf84fd6b17a1}{ClearLinkedLists}}();}
+\DoxyCodeLine{64 }
+\DoxyCodeLine{66   \mbox{\hyperlink{classnetdem_1_1_s_t_l_model}{STLModel}} \mbox{\hyperlink{classnetdem_1_1_domain_a3d91d50450d1c313aa04ce127e3584bc}{GetSTLModel}}();}
+\DoxyCodeLine{67 }
+\DoxyCodeLine{68   \mbox{\hyperlink{classnetdem_1_1_domain_a29cec9afb2e54c810ba1f3c1a49543a8}{\string~Domain}}();}
+\DoxyCodeLine{69 \};}
+\DoxyCodeLine{70 }
+\DoxyCodeLine{71 \}; \textcolor{comment}{// namespace netdem}}
+
+\end{DoxyCode}

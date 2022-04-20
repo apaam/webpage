@@ -1,0 +1,358 @@
+\hypertarget{classnetdem_1_1_solver_s_d_f_p_w}{}\doxysection{netdem\+::Solver\+SDFPW Class Reference}
+\label{classnetdem_1_1_solver_s_d_f_p_w}\index{netdem::SolverSDFPW@{netdem::SolverSDFPW}}
+
+
+{\ttfamily \#include $<$solver\+\_\+sdf\+\_\+pw.\+hpp$>$}
+
+Inheritance diagram for netdem\+::Solver\+SDFPW\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classnetdem_1_1_solver_s_d_f_p_w}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{classnetdem_1_1_solver_s_d_f_p_w_a5a5eb4fdc74c1276be050e7a92d5abb2}{Potential\+Type}} \{ \mbox{\hyperlink{classnetdem_1_1_solver_s_d_f_p_w_a5a5eb4fdc74c1276be050e7a92d5abb2a72452b11d2b55c1d0ffbefa88a5260fc}{linear}}
+, \mbox{\hyperlink{classnetdem_1_1_solver_s_d_f_p_w_a5a5eb4fdc74c1276be050e7a92d5abb2a92cd2b5d619574ce2fc452ba4906fc9b}{hertz}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classnetdem_1_1_solver_s_d_f_p_w_abfb55a7ef45d7f460662553a066ed851}{Solver\+SDFPW}} ()
+\item 
+\mbox{\hyperlink{classnetdem_1_1_solver_s_d_f_p_w_a4ba4654f6d584abfa6c89ed5833e4226}{Solver\+SDFPW}} (\mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} $\ast$const p, \mbox{\hyperlink{classnetdem_1_1_wall}{Wall}} $\ast$const w)
+\item 
+\mbox{\hyperlink{classnetdem_1_1_collision_solver_p_w}{Collision\+Solver\+PW}} $\ast$ \mbox{\hyperlink{classnetdem_1_1_solver_s_d_f_p_w_a7ba5eac7ce54b3cd887fd3704f1a292d}{Clone}} () const override
+\item 
+void \mbox{\hyperlink{classnetdem_1_1_solver_s_d_f_p_w_a63fb7fbf9bd6e3e59643fab40f50676e}{Init}} (\mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} $\ast$const p, \mbox{\hyperlink{classnetdem_1_1_wall}{Wall}} $\ast$const w) override
+\item 
+bool \mbox{\hyperlink{classnetdem_1_1_solver_s_d_f_p_w_a12a223019a63d13ec271f8f984f45ecb}{Detect}} () override
+\item 
+void \mbox{\hyperlink{classnetdem_1_1_solver_s_d_f_p_w_a36a0052e769c792ea93ecdb1569b5729}{Resolve\+Init}} (\mbox{\hyperlink{classnetdem_1_1_contact_p_w}{Contact\+PW}} $\ast$const cnt, double timestep) override
+\item 
+void \mbox{\hyperlink{classnetdem_1_1_solver_s_d_f_p_w_a1c1fd6e474289240892763599a267f12}{Resolve\+Update}} (\mbox{\hyperlink{classnetdem_1_1_contact_p_w}{Contact\+PW}} $\ast$const cnt, double timestep) override
+\item 
+void \mbox{\hyperlink{classnetdem_1_1_solver_s_d_f_p_w_a9eb7693d27ab007242a02f24ac4a6e81}{Resolve\+Init}} (\mbox{\hyperlink{classnetdem_1_1_collision_geometries}{Collision\+Geometries}} $\ast$const cnt\+\_\+geoms, double timestep)
+\item 
+void \mbox{\hyperlink{classnetdem_1_1_solver_s_d_f_p_w_a91663bb5dc65da1eeaf16f90d7e1b6e2}{Resolve\+Update}} (\mbox{\hyperlink{classnetdem_1_1_collision_geometries}{Collision\+Geometries}} $\ast$const cnt\+\_\+geoms, double timestep)
+\item 
+void \mbox{\hyperlink{classnetdem_1_1_solver_s_d_f_p_w_a40fdb70570a2f28e3f3ee11181b33dcd}{Resolve\+Init\+WToP}} (\mbox{\hyperlink{classnetdem_1_1_collision_geometries}{Collision\+Geometries}} $\ast$const cnt\+\_\+geoms, double timestep)
+\item 
+void \mbox{\hyperlink{classnetdem_1_1_solver_s_d_f_p_w_a53250f3c6c5c2af2f9bfdd3c35ffc050}{Resolve\+Update\+WToP}} (\mbox{\hyperlink{classnetdem_1_1_collision_geometries}{Collision\+Geometries}} $\ast$const cnt\+\_\+geoms, double timestep)
+\item 
+void \mbox{\hyperlink{classnetdem_1_1_solver_s_d_f_p_w_afc85af9a83a2f6c932901f17fc2960be}{Resolve\+Init\+PToW}} (\mbox{\hyperlink{classnetdem_1_1_collision_geometries}{Collision\+Geometries}} $\ast$const cnt\+\_\+geoms, double timestep)
+\item 
+void \mbox{\hyperlink{classnetdem_1_1_solver_s_d_f_p_w_a2927f477db76d7c4cc7f687176a3a4d1}{Resolve\+Update\+PToW}} (\mbox{\hyperlink{classnetdem_1_1_collision_geometries}{Collision\+Geometries}} $\ast$const cnt\+\_\+geoms, double timestep)
+\item 
+double \mbox{\hyperlink{classnetdem_1_1_solver_s_d_f_p_w_adf426a55527e60ad8a7ee0f20d501a1b}{Potential}} (double dist, \mbox{\hyperlink{classnetdem_1_1_shape}{Shape}} $\ast$shape)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{classnetdem_1_1_solver_s_d_f_p_w_a7b4a89276056a7f48dc150048352e46e}{potential\+\_\+type}} \{Potential\+Type\+::linear\}
+\item 
+bool \mbox{\hyperlink{classnetdem_1_1_solver_s_d_f_p_w_ab69111df02ba58c0959e526fee3c0e89}{solve\+\_\+two\+\_\+sides}} \{false\}
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{classnetdem_1_1_solver_s_d_f_p_w_a252a789c5cced3a2626df10c7c89a09c}{solve\+\_\+p\+\_\+to\+\_\+w}} \{false\}
+\item 
+bool \mbox{\hyperlink{classnetdem_1_1_solver_s_d_f_p_w_ad7d8b1d7d2b6f4e22d6a1f1b601fb93a}{solve\+\_\+w\+\_\+to\+\_\+p}} \{false\}
+\item 
+double \mbox{\hyperlink{classnetdem_1_1_solver_s_d_f_p_w_ac872e4042a5e22c8f5cf5c124c4e32be}{bound\+\_\+sphere\+\_\+radius\+\_\+1}}
+\item 
+double \mbox{\hyperlink{classnetdem_1_1_solver_s_d_f_p_w_a3e62b330735da74fd147ff9446c805a9}{bound\+\_\+sphere\+\_\+radius\+\_\+2}}
+\item 
+\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \mbox{\hyperlink{classnetdem_1_1_solver_s_d_f_p_w_a213f9f666d441019ca8ca5828d0492bb}{pos\+\_\+1}}
+\item 
+\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \mbox{\hyperlink{classnetdem_1_1_solver_s_d_f_p_w_ac6542d348cb05afcdaaf5955fca30b3d}{dpos\+\_\+12}}
+\item 
+\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \mbox{\hyperlink{classnetdem_1_1_solver_s_d_f_p_w_ae2287d7351ad703f1755438e246624fe}{dpos\+\_\+12\+\_\+ref}}
+\item 
+\mbox{\hyperlink{namespacenetdem_a13d5371f99b252a70fd5a5081b910370}{Vec4d}} \mbox{\hyperlink{classnetdem_1_1_solver_s_d_f_p_w_a00102ebd2e7976f7d2fe1d1214631fa8}{quat\+\_\+1}}
+\item 
+\mbox{\hyperlink{namespacenetdem_a13d5371f99b252a70fd5a5081b910370}{Vec4d}} \mbox{\hyperlink{classnetdem_1_1_solver_s_d_f_p_w_a48fab960ad617a34ef574e8851f7b859}{dquat\+\_\+12}}
+\item 
+\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \mbox{\hyperlink{classnetdem_1_1_solver_s_d_f_p_w_a53cca3379cfb340e9a7b65e0c94675da}{pos\+\_\+2}}
+\item 
+\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \mbox{\hyperlink{classnetdem_1_1_solver_s_d_f_p_w_a48beb94a858a4a5057cb77e2d5f534c7}{dpos\+\_\+21}}
+\item 
+\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \mbox{\hyperlink{classnetdem_1_1_solver_s_d_f_p_w_a977961240f61c4620cd22615cea6ebf0}{dpos\+\_\+21\+\_\+ref}}
+\item 
+\mbox{\hyperlink{namespacenetdem_a13d5371f99b252a70fd5a5081b910370}{Vec4d}} \mbox{\hyperlink{classnetdem_1_1_solver_s_d_f_p_w_a5bd96e797c2e52405da67ab6bbe270a1}{quat\+\_\+2}}
+\item 
+\mbox{\hyperlink{namespacenetdem_a13d5371f99b252a70fd5a5081b910370}{Vec4d}} \mbox{\hyperlink{classnetdem_1_1_solver_s_d_f_p_w_ab8c7f2b0370270ec108a43f79f00a5eb}{dquat\+\_\+21}}
+\item 
+\mbox{\hyperlink{classnetdem_1_1_shape}{Shape}} $\ast$ \mbox{\hyperlink{classnetdem_1_1_solver_s_d_f_p_w_a1bbdb72a16740266c90883f841be3659}{shape\+\_\+1}} \{nullptr\}
+\item 
+\mbox{\hyperlink{classnetdem_1_1_shape}{Shape}} $\ast$ \mbox{\hyperlink{classnetdem_1_1_solver_s_d_f_p_w_a098bc2c6811af6a1112104a9de4ea877}{shape\+\_\+2}} \{nullptr\}
+\item 
+\mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ int $>$ \mbox{\hyperlink{classnetdem_1_1_solver_s_d_f_p_w_abc5db9881cccd2b86b6a22c062a8c3d8}{node\+\_\+id\+\_\+list}}
+\item 
+\mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ double $>$ \mbox{\hyperlink{classnetdem_1_1_solver_s_d_f_p_w_af2b44d4df16acc947652f17edb58f3bb}{node\+\_\+dist\+\_\+list}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+Signed distance field-\/based contact solver 
+
+\doxysubsection{Member Enumeration Documentation}
+\mbox{\Hypertarget{classnetdem_1_1_solver_s_d_f_p_w_a5a5eb4fdc74c1276be050e7a92d5abb2}\label{classnetdem_1_1_solver_s_d_f_p_w_a5a5eb4fdc74c1276be050e7a92d5abb2}} 
+\index{netdem::SolverSDFPW@{netdem::SolverSDFPW}!PotentialType@{PotentialType}}
+\index{PotentialType@{PotentialType}!netdem::SolverSDFPW@{netdem::SolverSDFPW}}
+\doxysubsubsection{\texorpdfstring{PotentialType}{PotentialType}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{classnetdem_1_1_solver_s_d_f_p_w_a5a5eb4fdc74c1276be050e7a92d5abb2}{netdem\+::\+Solver\+SDFPW\+::\+Potential\+Type}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{linear@{linear}!netdem::SolverSDFPW@{netdem::SolverSDFPW}}\index{netdem::SolverSDFPW@{netdem::SolverSDFPW}!linear@{linear}}}\mbox{\Hypertarget{classnetdem_1_1_solver_s_d_f_p_w_a5a5eb4fdc74c1276be050e7a92d5abb2a72452b11d2b55c1d0ffbefa88a5260fc}\label{classnetdem_1_1_solver_s_d_f_p_w_a5a5eb4fdc74c1276be050e7a92d5abb2a72452b11d2b55c1d0ffbefa88a5260fc}} 
+linear&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{hertz@{hertz}!netdem::SolverSDFPW@{netdem::SolverSDFPW}}\index{netdem::SolverSDFPW@{netdem::SolverSDFPW}!hertz@{hertz}}}\mbox{\Hypertarget{classnetdem_1_1_solver_s_d_f_p_w_a5a5eb4fdc74c1276be050e7a92d5abb2a92cd2b5d619574ce2fc452ba4906fc9b}\label{classnetdem_1_1_solver_s_d_f_p_w_a5a5eb4fdc74c1276be050e7a92d5abb2a92cd2b5d619574ce2fc452ba4906fc9b}} 
+hertz&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classnetdem_1_1_solver_s_d_f_p_w_abfb55a7ef45d7f460662553a066ed851}\label{classnetdem_1_1_solver_s_d_f_p_w_abfb55a7ef45d7f460662553a066ed851}} 
+\index{netdem::SolverSDFPW@{netdem::SolverSDFPW}!SolverSDFPW@{SolverSDFPW}}
+\index{SolverSDFPW@{SolverSDFPW}!netdem::SolverSDFPW@{netdem::SolverSDFPW}}
+\doxysubsubsection{\texorpdfstring{SolverSDFPW()}{SolverSDFPW()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily netdem\+::\+Solver\+SDFPW\+::\+Solver\+SDFPW (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classnetdem_1_1_solver_s_d_f_p_w_a4ba4654f6d584abfa6c89ed5833e4226}\label{classnetdem_1_1_solver_s_d_f_p_w_a4ba4654f6d584abfa6c89ed5833e4226}} 
+\index{netdem::SolverSDFPW@{netdem::SolverSDFPW}!SolverSDFPW@{SolverSDFPW}}
+\index{SolverSDFPW@{SolverSDFPW}!netdem::SolverSDFPW@{netdem::SolverSDFPW}}
+\doxysubsubsection{\texorpdfstring{SolverSDFPW()}{SolverSDFPW()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily netdem\+::\+Solver\+SDFPW\+::\+Solver\+SDFPW (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} $\ast$const}]{p,  }\item[{\mbox{\hyperlink{classnetdem_1_1_wall}{Wall}} $\ast$const}]{w }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classnetdem_1_1_solver_s_d_f_p_w_a7ba5eac7ce54b3cd887fd3704f1a292d}\label{classnetdem_1_1_solver_s_d_f_p_w_a7ba5eac7ce54b3cd887fd3704f1a292d}} 
+\index{netdem::SolverSDFPW@{netdem::SolverSDFPW}!Clone@{Clone}}
+\index{Clone@{Clone}!netdem::SolverSDFPW@{netdem::SolverSDFPW}}
+\doxysubsubsection{\texorpdfstring{Clone()}{Clone()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classnetdem_1_1_collision_solver_p_w}{Collision\+Solver\+PW}} $\ast$ netdem\+::\+Solver\+SDFPW\+::\+Clone (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classnetdem_1_1_collision_solver_p_w_a9a373faf193910562f49bc0ac15050e9}{netdem\+::\+Collision\+Solver\+PW}}.
+
+\mbox{\Hypertarget{classnetdem_1_1_solver_s_d_f_p_w_a12a223019a63d13ec271f8f984f45ecb}\label{classnetdem_1_1_solver_s_d_f_p_w_a12a223019a63d13ec271f8f984f45ecb}} 
+\index{netdem::SolverSDFPW@{netdem::SolverSDFPW}!Detect@{Detect}}
+\index{Detect@{Detect}!netdem::SolverSDFPW@{netdem::SolverSDFPW}}
+\doxysubsubsection{\texorpdfstring{Detect()}{Detect()}}
+{\footnotesize\ttfamily bool netdem\+::\+Solver\+SDFPW\+::\+Detect (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classnetdem_1_1_collision_solver_p_w_a662b4b47765dd9816e1cb46262e8ad32}{netdem\+::\+Collision\+Solver\+PW}}.
+
+\mbox{\Hypertarget{classnetdem_1_1_solver_s_d_f_p_w_a63fb7fbf9bd6e3e59643fab40f50676e}\label{classnetdem_1_1_solver_s_d_f_p_w_a63fb7fbf9bd6e3e59643fab40f50676e}} 
+\index{netdem::SolverSDFPW@{netdem::SolverSDFPW}!Init@{Init}}
+\index{Init@{Init}!netdem::SolverSDFPW@{netdem::SolverSDFPW}}
+\doxysubsubsection{\texorpdfstring{Init()}{Init()}}
+{\footnotesize\ttfamily void netdem\+::\+Solver\+SDFPW\+::\+Init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} $\ast$const}]{p,  }\item[{\mbox{\hyperlink{classnetdem_1_1_wall}{Wall}} $\ast$const}]{w }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{classnetdem_1_1_collision_solver_p_w_a23b3075924f949dfed8a681dbebedc03}{netdem\+::\+Collision\+Solver\+PW}}.
+
+\mbox{\Hypertarget{classnetdem_1_1_solver_s_d_f_p_w_adf426a55527e60ad8a7ee0f20d501a1b}\label{classnetdem_1_1_solver_s_d_f_p_w_adf426a55527e60ad8a7ee0f20d501a1b}} 
+\index{netdem::SolverSDFPW@{netdem::SolverSDFPW}!Potential@{Potential}}
+\index{Potential@{Potential}!netdem::SolverSDFPW@{netdem::SolverSDFPW}}
+\doxysubsubsection{\texorpdfstring{Potential()}{Potential()}}
+{\footnotesize\ttfamily double netdem\+::\+Solver\+SDFPW\+::\+Potential (\begin{DoxyParamCaption}\item[{double}]{dist,  }\item[{\mbox{\hyperlink{classnetdem_1_1_shape}{Shape}} $\ast$}]{shape }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classnetdem_1_1_solver_s_d_f_p_w_a9eb7693d27ab007242a02f24ac4a6e81}\label{classnetdem_1_1_solver_s_d_f_p_w_a9eb7693d27ab007242a02f24ac4a6e81}} 
+\index{netdem::SolverSDFPW@{netdem::SolverSDFPW}!ResolveInit@{ResolveInit}}
+\index{ResolveInit@{ResolveInit}!netdem::SolverSDFPW@{netdem::SolverSDFPW}}
+\doxysubsubsection{\texorpdfstring{ResolveInit()}{ResolveInit()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void netdem\+::\+Solver\+SDFPW\+::\+Resolve\+Init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_collision_geometries}{Collision\+Geometries}} $\ast$const}]{cnt\+\_\+geoms,  }\item[{double}]{timestep }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classnetdem_1_1_solver_s_d_f_p_w_a36a0052e769c792ea93ecdb1569b5729}\label{classnetdem_1_1_solver_s_d_f_p_w_a36a0052e769c792ea93ecdb1569b5729}} 
+\index{netdem::SolverSDFPW@{netdem::SolverSDFPW}!ResolveInit@{ResolveInit}}
+\index{ResolveInit@{ResolveInit}!netdem::SolverSDFPW@{netdem::SolverSDFPW}}
+\doxysubsubsection{\texorpdfstring{ResolveInit()}{ResolveInit()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void netdem\+::\+Solver\+SDFPW\+::\+Resolve\+Init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_contact_p_w}{Contact\+PW}} $\ast$const}]{cnt,  }\item[{double}]{timestep }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classnetdem_1_1_collision_solver_p_w_a1a4559783964fdb3f7eea71950d88c93}{netdem\+::\+Collision\+Solver\+PW}}.
+
+\mbox{\Hypertarget{classnetdem_1_1_solver_s_d_f_p_w_afc85af9a83a2f6c932901f17fc2960be}\label{classnetdem_1_1_solver_s_d_f_p_w_afc85af9a83a2f6c932901f17fc2960be}} 
+\index{netdem::SolverSDFPW@{netdem::SolverSDFPW}!ResolveInitPToW@{ResolveInitPToW}}
+\index{ResolveInitPToW@{ResolveInitPToW}!netdem::SolverSDFPW@{netdem::SolverSDFPW}}
+\doxysubsubsection{\texorpdfstring{ResolveInitPToW()}{ResolveInitPToW()}}
+{\footnotesize\ttfamily void netdem\+::\+Solver\+SDFPW\+::\+Resolve\+Init\+PToW (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_collision_geometries}{Collision\+Geometries}} $\ast$const}]{cnt\+\_\+geoms,  }\item[{double}]{timestep }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classnetdem_1_1_solver_s_d_f_p_w_a40fdb70570a2f28e3f3ee11181b33dcd}\label{classnetdem_1_1_solver_s_d_f_p_w_a40fdb70570a2f28e3f3ee11181b33dcd}} 
+\index{netdem::SolverSDFPW@{netdem::SolverSDFPW}!ResolveInitWToP@{ResolveInitWToP}}
+\index{ResolveInitWToP@{ResolveInitWToP}!netdem::SolverSDFPW@{netdem::SolverSDFPW}}
+\doxysubsubsection{\texorpdfstring{ResolveInitWToP()}{ResolveInitWToP()}}
+{\footnotesize\ttfamily void netdem\+::\+Solver\+SDFPW\+::\+Resolve\+Init\+WToP (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_collision_geometries}{Collision\+Geometries}} $\ast$const}]{cnt\+\_\+geoms,  }\item[{double}]{timestep }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classnetdem_1_1_solver_s_d_f_p_w_a91663bb5dc65da1eeaf16f90d7e1b6e2}\label{classnetdem_1_1_solver_s_d_f_p_w_a91663bb5dc65da1eeaf16f90d7e1b6e2}} 
+\index{netdem::SolverSDFPW@{netdem::SolverSDFPW}!ResolveUpdate@{ResolveUpdate}}
+\index{ResolveUpdate@{ResolveUpdate}!netdem::SolverSDFPW@{netdem::SolverSDFPW}}
+\doxysubsubsection{\texorpdfstring{ResolveUpdate()}{ResolveUpdate()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void netdem\+::\+Solver\+SDFPW\+::\+Resolve\+Update (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_collision_geometries}{Collision\+Geometries}} $\ast$const}]{cnt\+\_\+geoms,  }\item[{double}]{timestep }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classnetdem_1_1_solver_s_d_f_p_w_a1c1fd6e474289240892763599a267f12}\label{classnetdem_1_1_solver_s_d_f_p_w_a1c1fd6e474289240892763599a267f12}} 
+\index{netdem::SolverSDFPW@{netdem::SolverSDFPW}!ResolveUpdate@{ResolveUpdate}}
+\index{ResolveUpdate@{ResolveUpdate}!netdem::SolverSDFPW@{netdem::SolverSDFPW}}
+\doxysubsubsection{\texorpdfstring{ResolveUpdate()}{ResolveUpdate()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void netdem\+::\+Solver\+SDFPW\+::\+Resolve\+Update (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_contact_p_w}{Contact\+PW}} $\ast$const}]{cnt,  }\item[{double}]{timestep }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classnetdem_1_1_collision_solver_p_w_a1fa6dc4af91346ec8ec28db0c2bdd08e}{netdem\+::\+Collision\+Solver\+PW}}.
+
+\mbox{\Hypertarget{classnetdem_1_1_solver_s_d_f_p_w_a2927f477db76d7c4cc7f687176a3a4d1}\label{classnetdem_1_1_solver_s_d_f_p_w_a2927f477db76d7c4cc7f687176a3a4d1}} 
+\index{netdem::SolverSDFPW@{netdem::SolverSDFPW}!ResolveUpdatePToW@{ResolveUpdatePToW}}
+\index{ResolveUpdatePToW@{ResolveUpdatePToW}!netdem::SolverSDFPW@{netdem::SolverSDFPW}}
+\doxysubsubsection{\texorpdfstring{ResolveUpdatePToW()}{ResolveUpdatePToW()}}
+{\footnotesize\ttfamily void netdem\+::\+Solver\+SDFPW\+::\+Resolve\+Update\+PToW (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_collision_geometries}{Collision\+Geometries}} $\ast$const}]{cnt\+\_\+geoms,  }\item[{double}]{timestep }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classnetdem_1_1_solver_s_d_f_p_w_a53250f3c6c5c2af2f9bfdd3c35ffc050}\label{classnetdem_1_1_solver_s_d_f_p_w_a53250f3c6c5c2af2f9bfdd3c35ffc050}} 
+\index{netdem::SolverSDFPW@{netdem::SolverSDFPW}!ResolveUpdateWToP@{ResolveUpdateWToP}}
+\index{ResolveUpdateWToP@{ResolveUpdateWToP}!netdem::SolverSDFPW@{netdem::SolverSDFPW}}
+\doxysubsubsection{\texorpdfstring{ResolveUpdateWToP()}{ResolveUpdateWToP()}}
+{\footnotesize\ttfamily void netdem\+::\+Solver\+SDFPW\+::\+Resolve\+Update\+WToP (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_collision_geometries}{Collision\+Geometries}} $\ast$const}]{cnt\+\_\+geoms,  }\item[{double}]{timestep }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classnetdem_1_1_solver_s_d_f_p_w_ac872e4042a5e22c8f5cf5c124c4e32be}\label{classnetdem_1_1_solver_s_d_f_p_w_ac872e4042a5e22c8f5cf5c124c4e32be}} 
+\index{netdem::SolverSDFPW@{netdem::SolverSDFPW}!bound\_sphere\_radius\_1@{bound\_sphere\_radius\_1}}
+\index{bound\_sphere\_radius\_1@{bound\_sphere\_radius\_1}!netdem::SolverSDFPW@{netdem::SolverSDFPW}}
+\doxysubsubsection{\texorpdfstring{bound\_sphere\_radius\_1}{bound\_sphere\_radius\_1}}
+{\footnotesize\ttfamily double netdem\+::\+Solver\+SDFPW\+::bound\+\_\+sphere\+\_\+radius\+\_\+1\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classnetdem_1_1_solver_s_d_f_p_w_a3e62b330735da74fd147ff9446c805a9}\label{classnetdem_1_1_solver_s_d_f_p_w_a3e62b330735da74fd147ff9446c805a9}} 
+\index{netdem::SolverSDFPW@{netdem::SolverSDFPW}!bound\_sphere\_radius\_2@{bound\_sphere\_radius\_2}}
+\index{bound\_sphere\_radius\_2@{bound\_sphere\_radius\_2}!netdem::SolverSDFPW@{netdem::SolverSDFPW}}
+\doxysubsubsection{\texorpdfstring{bound\_sphere\_radius\_2}{bound\_sphere\_radius\_2}}
+{\footnotesize\ttfamily double netdem\+::\+Solver\+SDFPW\+::bound\+\_\+sphere\+\_\+radius\+\_\+2\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classnetdem_1_1_solver_s_d_f_p_w_ac6542d348cb05afcdaaf5955fca30b3d}\label{classnetdem_1_1_solver_s_d_f_p_w_ac6542d348cb05afcdaaf5955fca30b3d}} 
+\index{netdem::SolverSDFPW@{netdem::SolverSDFPW}!dpos\_12@{dpos\_12}}
+\index{dpos\_12@{dpos\_12}!netdem::SolverSDFPW@{netdem::SolverSDFPW}}
+\doxysubsubsection{\texorpdfstring{dpos\_12}{dpos\_12}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} netdem\+::\+Solver\+SDFPW\+::dpos\+\_\+12\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classnetdem_1_1_solver_s_d_f_p_w_ae2287d7351ad703f1755438e246624fe}\label{classnetdem_1_1_solver_s_d_f_p_w_ae2287d7351ad703f1755438e246624fe}} 
+\index{netdem::SolverSDFPW@{netdem::SolverSDFPW}!dpos\_12\_ref@{dpos\_12\_ref}}
+\index{dpos\_12\_ref@{dpos\_12\_ref}!netdem::SolverSDFPW@{netdem::SolverSDFPW}}
+\doxysubsubsection{\texorpdfstring{dpos\_12\_ref}{dpos\_12\_ref}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} netdem\+::\+Solver\+SDFPW\+::dpos\+\_\+12\+\_\+ref\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classnetdem_1_1_solver_s_d_f_p_w_a48beb94a858a4a5057cb77e2d5f534c7}\label{classnetdem_1_1_solver_s_d_f_p_w_a48beb94a858a4a5057cb77e2d5f534c7}} 
+\index{netdem::SolverSDFPW@{netdem::SolverSDFPW}!dpos\_21@{dpos\_21}}
+\index{dpos\_21@{dpos\_21}!netdem::SolverSDFPW@{netdem::SolverSDFPW}}
+\doxysubsubsection{\texorpdfstring{dpos\_21}{dpos\_21}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} netdem\+::\+Solver\+SDFPW\+::dpos\+\_\+21\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classnetdem_1_1_solver_s_d_f_p_w_a977961240f61c4620cd22615cea6ebf0}\label{classnetdem_1_1_solver_s_d_f_p_w_a977961240f61c4620cd22615cea6ebf0}} 
+\index{netdem::SolverSDFPW@{netdem::SolverSDFPW}!dpos\_21\_ref@{dpos\_21\_ref}}
+\index{dpos\_21\_ref@{dpos\_21\_ref}!netdem::SolverSDFPW@{netdem::SolverSDFPW}}
+\doxysubsubsection{\texorpdfstring{dpos\_21\_ref}{dpos\_21\_ref}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} netdem\+::\+Solver\+SDFPW\+::dpos\+\_\+21\+\_\+ref\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classnetdem_1_1_solver_s_d_f_p_w_a48fab960ad617a34ef574e8851f7b859}\label{classnetdem_1_1_solver_s_d_f_p_w_a48fab960ad617a34ef574e8851f7b859}} 
+\index{netdem::SolverSDFPW@{netdem::SolverSDFPW}!dquat\_12@{dquat\_12}}
+\index{dquat\_12@{dquat\_12}!netdem::SolverSDFPW@{netdem::SolverSDFPW}}
+\doxysubsubsection{\texorpdfstring{dquat\_12}{dquat\_12}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacenetdem_a13d5371f99b252a70fd5a5081b910370}{Vec4d}} netdem\+::\+Solver\+SDFPW\+::dquat\+\_\+12\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classnetdem_1_1_solver_s_d_f_p_w_ab8c7f2b0370270ec108a43f79f00a5eb}\label{classnetdem_1_1_solver_s_d_f_p_w_ab8c7f2b0370270ec108a43f79f00a5eb}} 
+\index{netdem::SolverSDFPW@{netdem::SolverSDFPW}!dquat\_21@{dquat\_21}}
+\index{dquat\_21@{dquat\_21}!netdem::SolverSDFPW@{netdem::SolverSDFPW}}
+\doxysubsubsection{\texorpdfstring{dquat\_21}{dquat\_21}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacenetdem_a13d5371f99b252a70fd5a5081b910370}{Vec4d}} netdem\+::\+Solver\+SDFPW\+::dquat\+\_\+21\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classnetdem_1_1_solver_s_d_f_p_w_af2b44d4df16acc947652f17edb58f3bb}\label{classnetdem_1_1_solver_s_d_f_p_w_af2b44d4df16acc947652f17edb58f3bb}} 
+\index{netdem::SolverSDFPW@{netdem::SolverSDFPW}!node\_dist\_list@{node\_dist\_list}}
+\index{node\_dist\_list@{node\_dist\_list}!netdem::SolverSDFPW@{netdem::SolverSDFPW}}
+\doxysubsubsection{\texorpdfstring{node\_dist\_list}{node\_dist\_list}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$double$>$ netdem\+::\+Solver\+SDFPW\+::node\+\_\+dist\+\_\+list\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classnetdem_1_1_solver_s_d_f_p_w_abc5db9881cccd2b86b6a22c062a8c3d8}\label{classnetdem_1_1_solver_s_d_f_p_w_abc5db9881cccd2b86b6a22c062a8c3d8}} 
+\index{netdem::SolverSDFPW@{netdem::SolverSDFPW}!node\_id\_list@{node\_id\_list}}
+\index{node\_id\_list@{node\_id\_list}!netdem::SolverSDFPW@{netdem::SolverSDFPW}}
+\doxysubsubsection{\texorpdfstring{node\_id\_list}{node\_id\_list}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$int$>$ netdem\+::\+Solver\+SDFPW\+::node\+\_\+id\+\_\+list\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classnetdem_1_1_solver_s_d_f_p_w_a213f9f666d441019ca8ca5828d0492bb}\label{classnetdem_1_1_solver_s_d_f_p_w_a213f9f666d441019ca8ca5828d0492bb}} 
+\index{netdem::SolverSDFPW@{netdem::SolverSDFPW}!pos\_1@{pos\_1}}
+\index{pos\_1@{pos\_1}!netdem::SolverSDFPW@{netdem::SolverSDFPW}}
+\doxysubsubsection{\texorpdfstring{pos\_1}{pos\_1}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} netdem\+::\+Solver\+SDFPW\+::pos\+\_\+1\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classnetdem_1_1_solver_s_d_f_p_w_a53cca3379cfb340e9a7b65e0c94675da}\label{classnetdem_1_1_solver_s_d_f_p_w_a53cca3379cfb340e9a7b65e0c94675da}} 
+\index{netdem::SolverSDFPW@{netdem::SolverSDFPW}!pos\_2@{pos\_2}}
+\index{pos\_2@{pos\_2}!netdem::SolverSDFPW@{netdem::SolverSDFPW}}
+\doxysubsubsection{\texorpdfstring{pos\_2}{pos\_2}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} netdem\+::\+Solver\+SDFPW\+::pos\+\_\+2\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classnetdem_1_1_solver_s_d_f_p_w_a7b4a89276056a7f48dc150048352e46e}\label{classnetdem_1_1_solver_s_d_f_p_w_a7b4a89276056a7f48dc150048352e46e}} 
+\index{netdem::SolverSDFPW@{netdem::SolverSDFPW}!potential\_type@{potential\_type}}
+\index{potential\_type@{potential\_type}!netdem::SolverSDFPW@{netdem::SolverSDFPW}}
+\doxysubsubsection{\texorpdfstring{potential\_type}{potential\_type}}
+{\footnotesize\ttfamily int netdem\+::\+Solver\+SDFPW\+::potential\+\_\+type \{Potential\+Type\+::linear\}}
+
+\mbox{\Hypertarget{classnetdem_1_1_solver_s_d_f_p_w_a00102ebd2e7976f7d2fe1d1214631fa8}\label{classnetdem_1_1_solver_s_d_f_p_w_a00102ebd2e7976f7d2fe1d1214631fa8}} 
+\index{netdem::SolverSDFPW@{netdem::SolverSDFPW}!quat\_1@{quat\_1}}
+\index{quat\_1@{quat\_1}!netdem::SolverSDFPW@{netdem::SolverSDFPW}}
+\doxysubsubsection{\texorpdfstring{quat\_1}{quat\_1}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacenetdem_a13d5371f99b252a70fd5a5081b910370}{Vec4d}} netdem\+::\+Solver\+SDFPW\+::quat\+\_\+1\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classnetdem_1_1_solver_s_d_f_p_w_a5bd96e797c2e52405da67ab6bbe270a1}\label{classnetdem_1_1_solver_s_d_f_p_w_a5bd96e797c2e52405da67ab6bbe270a1}} 
+\index{netdem::SolverSDFPW@{netdem::SolverSDFPW}!quat\_2@{quat\_2}}
+\index{quat\_2@{quat\_2}!netdem::SolverSDFPW@{netdem::SolverSDFPW}}
+\doxysubsubsection{\texorpdfstring{quat\_2}{quat\_2}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacenetdem_a13d5371f99b252a70fd5a5081b910370}{Vec4d}} netdem\+::\+Solver\+SDFPW\+::quat\+\_\+2\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classnetdem_1_1_solver_s_d_f_p_w_a1bbdb72a16740266c90883f841be3659}\label{classnetdem_1_1_solver_s_d_f_p_w_a1bbdb72a16740266c90883f841be3659}} 
+\index{netdem::SolverSDFPW@{netdem::SolverSDFPW}!shape\_1@{shape\_1}}
+\index{shape\_1@{shape\_1}!netdem::SolverSDFPW@{netdem::SolverSDFPW}}
+\doxysubsubsection{\texorpdfstring{shape\_1}{shape\_1}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classnetdem_1_1_shape}{Shape}}$\ast$ netdem\+::\+Solver\+SDFPW\+::shape\+\_\+1 \{nullptr\}\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classnetdem_1_1_solver_s_d_f_p_w_a098bc2c6811af6a1112104a9de4ea877}\label{classnetdem_1_1_solver_s_d_f_p_w_a098bc2c6811af6a1112104a9de4ea877}} 
+\index{netdem::SolverSDFPW@{netdem::SolverSDFPW}!shape\_2@{shape\_2}}
+\index{shape\_2@{shape\_2}!netdem::SolverSDFPW@{netdem::SolverSDFPW}}
+\doxysubsubsection{\texorpdfstring{shape\_2}{shape\_2}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classnetdem_1_1_shape}{Shape}} $\ast$ netdem\+::\+Solver\+SDFPW\+::shape\+\_\+2 \{nullptr\}\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classnetdem_1_1_solver_s_d_f_p_w_a252a789c5cced3a2626df10c7c89a09c}\label{classnetdem_1_1_solver_s_d_f_p_w_a252a789c5cced3a2626df10c7c89a09c}} 
+\index{netdem::SolverSDFPW@{netdem::SolverSDFPW}!solve\_p\_to\_w@{solve\_p\_to\_w}}
+\index{solve\_p\_to\_w@{solve\_p\_to\_w}!netdem::SolverSDFPW@{netdem::SolverSDFPW}}
+\doxysubsubsection{\texorpdfstring{solve\_p\_to\_w}{solve\_p\_to\_w}}
+{\footnotesize\ttfamily bool netdem\+::\+Solver\+SDFPW\+::solve\+\_\+p\+\_\+to\+\_\+w \{false\}\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classnetdem_1_1_solver_s_d_f_p_w_ab69111df02ba58c0959e526fee3c0e89}\label{classnetdem_1_1_solver_s_d_f_p_w_ab69111df02ba58c0959e526fee3c0e89}} 
+\index{netdem::SolverSDFPW@{netdem::SolverSDFPW}!solve\_two\_sides@{solve\_two\_sides}}
+\index{solve\_two\_sides@{solve\_two\_sides}!netdem::SolverSDFPW@{netdem::SolverSDFPW}}
+\doxysubsubsection{\texorpdfstring{solve\_two\_sides}{solve\_two\_sides}}
+{\footnotesize\ttfamily bool netdem\+::\+Solver\+SDFPW\+::solve\+\_\+two\+\_\+sides \{false\}}
+
+\mbox{\Hypertarget{classnetdem_1_1_solver_s_d_f_p_w_ad7d8b1d7d2b6f4e22d6a1f1b601fb93a}\label{classnetdem_1_1_solver_s_d_f_p_w_ad7d8b1d7d2b6f4e22d6a1f1b601fb93a}} 
+\index{netdem::SolverSDFPW@{netdem::SolverSDFPW}!solve\_w\_to\_p@{solve\_w\_to\_p}}
+\index{solve\_w\_to\_p@{solve\_w\_to\_p}!netdem::SolverSDFPW@{netdem::SolverSDFPW}}
+\doxysubsubsection{\texorpdfstring{solve\_w\_to\_p}{solve\_w\_to\_p}}
+{\footnotesize\ttfamily bool netdem\+::\+Solver\+SDFPW\+::solve\+\_\+w\+\_\+to\+\_\+p \{false\}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/lzhshou/\+Documents/\+Research/my\+Projects/apam/repo/netdem/src/dem/\mbox{\hyperlink{solver__sdf__pw_8hpp}{solver\+\_\+sdf\+\_\+pw.\+hpp}}\item 
+/\+Users/lzhshou/\+Documents/\+Research/my\+Projects/apam/repo/netdem/src/dem/\mbox{\hyperlink{solver__sdf__pw_8cpp}{solver\+\_\+sdf\+\_\+pw.\+cpp}}\end{DoxyCompactItemize}

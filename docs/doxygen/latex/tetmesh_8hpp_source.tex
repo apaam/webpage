@@ -1,0 +1,52 @@
+\hypertarget{tetmesh_8hpp_source}{}\doxysection{tetmesh.\+hpp}
+\label{tetmesh_8hpp_source}\index{/Users/lzhshou/Documents/Research/myProjects/apam/repo/netdem/src/fem/tetmesh.hpp@{/Users/lzhshou/Documents/Research/myProjects/apam/repo/netdem/src/fem/tetmesh.hpp}}
+\mbox{\hyperlink{tetmesh_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 }
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{stl__model_8hpp}{stl\_model.hpp}}"{}}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{utils__macros_8hpp}{utils\_macros.hpp}}"{}}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacenetdem}{netdem}} \{}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{9 \textcolor{keyword}{class }\mbox{\hyperlink{classnetdem_1_1_tet_mesh}{TetMesh}} \{}
+\DoxyCodeLine{10 \textcolor{keyword}{public}:}
+\DoxyCodeLine{11   \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<Vec3d>}} \mbox{\hyperlink{classnetdem_1_1_tet_mesh_a851cb634900ec65f4370559106970bfb}{nodes}};}
+\DoxyCodeLine{12   \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<Vec4i>}} \mbox{\hyperlink{classnetdem_1_1_tet_mesh_a5dd303e9bfa26bc42403dad241bb230c}{elements}};}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14   \textcolor{comment}{// connectivity}}
+\DoxyCodeLine{15   \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<Vec3i>}} \mbox{\hyperlink{classnetdem_1_1_tet_mesh_a01b7cfd0e000ce958cfe8e54ba5a486f}{bound\_facets}};}
+\DoxyCodeLine{16   \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<Vec2i>}} \mbox{\hyperlink{classnetdem_1_1_tet_mesh_a16e8cf44195ebc36b3e80df0f8560ffc}{bound\_edges}};}
+\DoxyCodeLine{17   \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<int>}} \mbox{\hyperlink{classnetdem_1_1_tet_mesh_aba118e6a18089e79e116c77fa8732d21}{bound\_nodes}};}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19   \textcolor{comment}{// surface triangle mesh, for dem to apply contact forces}}
+\DoxyCodeLine{20   \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<Vec3d>}} \mbox{\hyperlink{classnetdem_1_1_tet_mesh_a5ac85d0c3b8592f598c59b4bbf1218be}{surface\_nodes}};}
+\DoxyCodeLine{21   \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<Vec3i>}} \mbox{\hyperlink{classnetdem_1_1_tet_mesh_aa2baea46708bebdc706be0ad9bc20c95}{surface\_facets}};}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23   \textcolor{comment}{// ids of the bound\_facets that contains the node}}
+\DoxyCodeLine{24   \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<VecXT<int>}}> \mbox{\hyperlink{classnetdem_1_1_tet_mesh_aa962b613b3ff4b37bf2765a4e6cfae39}{surface\_node\_linked\_bounaries}};}
+\DoxyCodeLine{25   \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<double>}} \mbox{\hyperlink{classnetdem_1_1_tet_mesh_a6f83eeccf1ac409f0dd8d29857e2b1e6}{bound\_facet\_areas}};}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27 \textcolor{keyword}{public}:}
+\DoxyCodeLine{28   \mbox{\hyperlink{classnetdem_1_1_tet_mesh_a7b77c72e7e1a07137854d21a4de592ff}{TetMesh}}();}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{30   \mbox{\hyperlink{classnetdem_1_1_tet_mesh_a7b77c72e7e1a07137854d21a4de592ff}{TetMesh}}(\textcolor{keyword}{const} \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<Vec3d>}} \&tv, \textcolor{keyword}{const} \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<Vec4i>}} \&tt);}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{32   \mbox{\hyperlink{classnetdem_1_1_tet_mesh_a7b77c72e7e1a07137854d21a4de592ff}{TetMesh}}(\mbox{\hyperlink{classnetdem_1_1_s_t_l_model}{STLModel}} \textcolor{keyword}{const} \&stl\_model, \textcolor{keywordtype}{double} mesh\_size);}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34   \mbox{\hyperlink{classnetdem_1_1_tet_mesh_a7b77c72e7e1a07137854d21a4de592ff}{TetMesh}}(\textcolor{keyword}{const} \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<Vec3d>}} \&vv, \textcolor{keyword}{const} \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<Vec3i>}} \&ff, \textcolor{keywordtype}{double} mesh\_size);}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36   \textcolor{keywordtype}{void} \mbox{\hyperlink{classnetdem_1_1_tet_mesh_a990167ef526d28b181b1221fc9afcd38}{Init}}();}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{38   \mbox{\hyperlink{classnetdem_1_1_s_t_l_model}{STLModel}} \mbox{\hyperlink{classnetdem_1_1_tet_mesh_abd86ff3a037925b0bd9f4ae3f2d34927}{GetSurfaceSTL}}();}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40   \textcolor{keywordtype}{void} \mbox{\hyperlink{classnetdem_1_1_tet_mesh_a50395a58e2ead4cdec93932aaa054cd0}{SaveAsVTK}}(std::string \textcolor{keyword}{const} \&file);}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42 \textcolor{keyword}{private}:}
+\DoxyCodeLine{43   \textcolor{keywordtype}{void} \mbox{\hyperlink{classnetdem_1_1_tet_mesh_aa60ba8fef04dcc90574859a59082a35d}{InitBoundary}}();}
+\DoxyCodeLine{44 \};}
+\DoxyCodeLine{45 }
+\DoxyCodeLine{46 \} \textcolor{comment}{// namespace netdem}}
+
+\end{DoxyCode}

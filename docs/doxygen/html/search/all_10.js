@@ -1,15 +1,10 @@
 var searchData=
 [
-  ['quat_5f1_0',['quat_1',['../classnetdem_1_1_solver_s_d_f_p_p.html#a1810729749feb7857a7898aeb058727d',1,'netdem::SolverSDFPP::quat_1()'],['../classnetdem_1_1_solver_s_d_f_p_w.html#aec765aeb6fa26b60b362888ad80d3890',1,'netdem::SolverSDFPW::quat_1()']]],
-  ['quat_5f1_5fini_1',['quat_1_ini',['../classnetdem_1_1_bond_geometries.html#a67442d11b369c10877a13e84ec7b76d1',1,'netdem::BondGeometries::quat_1_ini()'],['../structnetdem_1_1_bond_entry_data.html#a054b98dcfbea2773cb5e20c084a9b808',1,'netdem::BondEntryData::quat_1_ini()']]],
-  ['quat_5f2_5fini_2',['quat_2_ini',['../classnetdem_1_1_bond_geometries.html#afad70503b3980824f6aab146b2fc8bfe',1,'netdem::BondGeometries::quat_2_ini()'],['../structnetdem_1_1_bond_entry_data.html#a0bc0d46924370062f519b7b4f4215222',1,'netdem::BondEntryData::quat_2_ini()']]],
-  ['quat_5fconj_3',['quat_conj',['../classnetdem_1_1_poly_super_ellipsoid.html#ab659761f6cbc9273e5980e7ec2e239ba',1,'netdem::PolySuperEllipsoid::quat_conj()'],['../classnetdem_1_1_poly_super_quadrics.html#a3a20db517cc4aec8195779637b045ff4',1,'netdem::PolySuperQuadrics::quat_conj()']]],
-  ['quat_5fref_4',['quat_ref',['../classnetdem_1_1_poly_super_ellipsoid.html#abff7e03a813e035f50d1765066f08d7d',1,'netdem::PolySuperEllipsoid::quat_ref()'],['../classnetdem_1_1_poly_super_quadrics.html#af3d0d72d6213d751ed59af5c8d71d0e5',1,'netdem::PolySuperQuadrics::quat_ref()']]],
-  ['quaternion_5',['quaternion',['../structnetdem_1_1_particle_data.html#afd03d38c1ad8334a3830bafe4a7756ce',1,'netdem::ParticleData::quaternion()'],['../classnetdem_1_1_particle.html#a6b56a14ccc01bc12e48520543e64b543',1,'netdem::Particle::quaternion()'],['../classnetdem_1_1_wall.html#a8fcb2941bd7aed4d6942b6cfafa05ae5',1,'netdem::Wall::quaternion()']]],
-  ['quaternionadd_6',['QuaternionAdd',['../namespacenetdem.html#ae54fc97d4d876d5c31f85e83595a2a4d',1,'netdem']]],
-  ['quaternionconjugate_7',['QuaternionConjugate',['../namespacenetdem.html#aeb30855c629550e3974c2ecf86514abe',1,'netdem']]],
-  ['quaternionmultiply_8',['QuaternionMultiply',['../namespacenetdem.html#aadf86ecfdc9972a58513e02eef5e7c86',1,'netdem']]],
-  ['quaternionnormalize_9',['QuaternionNormalize',['../namespacenetdem.html#a5781b8f7c6013952a85764e0d2642398',1,'netdem']]],
-  ['quaterniontomatrix_10',['QuaternionToMatrix',['../namespacenetdem.html#a8e99458fe0c51c427e12d90cadb10b35',1,'netdem']]],
-  ['quaterniontorodrigues_11',['QuaternionToRodrigues',['../namespacenetdem.html#a14cf738f32e151c33964a69adb7fa855',1,'netdem']]]
+  ['quat_5f1_0',['quat_1',['../classnetdem_1_1_solver_s_d_f_p_p.html#a9a1703b0f91212cc0e47b070b52c5380',1,'netdem::SolverSDFPP::quat_1()'],['../classnetdem_1_1_solver_s_d_f_p_w.html#a00102ebd2e7976f7d2fe1d1214631fa8',1,'netdem::SolverSDFPW::quat_1()']]],
+  ['quat_5f1_5fini_1',['quat_1_ini',['../classnetdem_1_1_bond_geometries.html#afbc9465428a1bf8559c039a4a308ddc6',1,'netdem::BondGeometries::quat_1_ini()'],['../structnetdem_1_1_bond_entry_data.html#a054b98dcfbea2773cb5e20c084a9b808',1,'netdem::BondEntryData::quat_1_ini()']]],
+  ['quat_5f2_2',['quat_2',['../classnetdem_1_1_solver_s_d_f_p_p.html#a40efde6c27928eb049e22c1b71f8f00d',1,'netdem::SolverSDFPP::quat_2()'],['../classnetdem_1_1_solver_s_d_f_p_w.html#a5bd96e797c2e52405da67ab6bbe270a1',1,'netdem::SolverSDFPW::quat_2()']]],
+  ['quat_5f2_5fini_3',['quat_2_ini',['../classnetdem_1_1_bond_geometries.html#a83f3b15f171598c1024d5746cec061bb',1,'netdem::BondGeometries::quat_2_ini()'],['../structnetdem_1_1_bond_entry_data.html#a0bc0d46924370062f519b7b4f4215222',1,'netdem::BondEntryData::quat_2_ini()']]],
+  ['quat_5fconj_4',['quat_conj',['../classnetdem_1_1_poly_super_ellipsoid.html#aeac0f30737cf618e91ee207e4cfdcc0c',1,'netdem::PolySuperEllipsoid::quat_conj()'],['../classnetdem_1_1_poly_super_quadrics.html#a1f8403f295819b02c58e0165eb135ad9',1,'netdem::PolySuperQuadrics::quat_conj()']]],
+  ['quat_5fref_5',['quat_ref',['../classnetdem_1_1_poly_super_ellipsoid.html#af804f192a323b2e87abf8f720eb0af41',1,'netdem::PolySuperEllipsoid::quat_ref()'],['../classnetdem_1_1_poly_super_quadrics.html#afc4c8a872516512ef3fa433278974411',1,'netdem::PolySuperQuadrics::quat_ref()']]],
+  ['quaternion_6',['quaternion',['../structnetdem_1_1_particle_data.html#afd03d38c1ad8334a3830bafe4a7756ce',1,'netdem::ParticleData::quaternion()'],['../classnetdem_1_1_particle.html#a419c571fbf7604011f11c2ce77388720',1,'netdem::Particle::quaternion()'],['../classnetdem_1_1_wall.html#a25c6168cce1ac1d7aeb18d2a9386ec3c',1,'netdem::Wall::quaternion()']]]
 ];

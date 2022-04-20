@@ -1,0 +1,366 @@
+\hypertarget{classnetdem_1_1_solver_g_j_k_p_w}{}\doxysection{netdem\+::Solver\+GJKPW Class Reference}
+\label{classnetdem_1_1_solver_g_j_k_p_w}\index{netdem::SolverGJKPW@{netdem::SolverGJKPW}}
+
+
+{\ttfamily \#include $<$solver\+\_\+gjk\+\_\+pw.\+hpp$>$}
+
+Inheritance diagram for netdem\+::Solver\+GJKPW\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classnetdem_1_1_solver_g_j_k_p_w}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classnetdem_1_1_solver_g_j_k_p_w_adc23957cf7a7b4a63c9c8c7ab96877e9}{Solver\+GJKPW}} ()
+\item 
+\mbox{\hyperlink{classnetdem_1_1_solver_g_j_k_p_w_ac236c727b75d0f7483c44f088646075c}{Solver\+GJKPW}} (\mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} $\ast$const p, \mbox{\hyperlink{classnetdem_1_1_wall}{Wall}} $\ast$const w)
+\item 
+\mbox{\hyperlink{classnetdem_1_1_collision_solver_p_w}{Collision\+Solver\+PW}} $\ast$ \mbox{\hyperlink{classnetdem_1_1_solver_g_j_k_p_w_a815bf3346ae862ded8ac5d71aac5e940}{Clone}} () const override
+\item 
+void \mbox{\hyperlink{classnetdem_1_1_solver_g_j_k_p_w_a6669fed020623a901701e750514f255b}{Init}} (\mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} $\ast$const p, \mbox{\hyperlink{classnetdem_1_1_wall}{Wall}} $\ast$const w) override
+\item 
+bool \mbox{\hyperlink{classnetdem_1_1_solver_g_j_k_p_w_a2d11fd3fc846fa346e4ec7a26f8c9c6f}{Detect}} () override
+\item 
+void \mbox{\hyperlink{classnetdem_1_1_solver_g_j_k_p_w_ac85ed6024b95fe175e268e0c2127198b}{Resolve\+Init}} (\mbox{\hyperlink{classnetdem_1_1_contact_p_w}{Contact\+PW}} $\ast$const cnt, double timestep) override
+\item 
+void \mbox{\hyperlink{classnetdem_1_1_solver_g_j_k_p_w_a2c9b8bcfe63029d1d1cc2467c060dc04}{Resolve\+Update}} (\mbox{\hyperlink{classnetdem_1_1_contact_p_w}{Contact\+PW}} $\ast$const cnt, double timestep) override
+\item 
+void \mbox{\hyperlink{classnetdem_1_1_solver_g_j_k_p_w_a3bcd29a34dc569cd066b2c0ca69a5728}{Resolve\+Init}} (\mbox{\hyperlink{classnetdem_1_1_collision_geometries}{Collision\+Geometries}} $\ast$const cnt\+\_\+geoms, double timestep)
+\item 
+void \mbox{\hyperlink{classnetdem_1_1_solver_g_j_k_p_w_afdfe9df40f7f48566033357d7d88bfb1}{Resolve\+Update}} (\mbox{\hyperlink{classnetdem_1_1_collision_geometries}{Collision\+Geometries}} $\ast$const cnt\+\_\+geoms, double timestep)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{classnetdem_1_1_solver_g_j_k_p_w_a6099a47da700cf0ddb1ad92bcf548bc4}{erosion\+\_\+ratio\+\_\+initial}} \{0.\+01\}
+\item 
+double \mbox{\hyperlink{classnetdem_1_1_solver_g_j_k_p_w_a47fa0d78805c1071b131b7273e3c6ac8}{erosion\+\_\+ratio\+\_\+increment}} \{0.\+01\}
+\item 
+bool \mbox{\hyperlink{classnetdem_1_1_solver_g_j_k_p_w_a60f8fabc30915ff5b005942fc42fc9a1}{use\+\_\+erosion}} \{false\}
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{classnetdem_1_1_solver_g_j_k_p_w_aec5da17fff1d6a27af11f75a3248e063}{GJK}} ()
+\item 
+std\+::tuple$<$ double, \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}, \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $>$ \mbox{\hyperlink{classnetdem_1_1_solver_g_j_k_p_w_a4fcbf42a4942c7ec2d6df847cbba764d}{GJK\+\_\+\+EROSION}} ()
+\item 
+std\+::tuple$<$ double, \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}, \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $>$ \mbox{\hyperlink{classnetdem_1_1_solver_g_j_k_p_w_ada27394138a67fb792de85536cfd8b44}{EPA}} ()
+\item 
+std\+::tuple$<$ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}, bool $>$ \mbox{\hyperlink{classnetdem_1_1_solver_g_j_k_p_w_a10cf7c119b7929c6b2c080346d457048}{Get\+Contact\+Point}} (\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&dir)
+\item 
+std\+::tuple$<$ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}, bool $>$ \mbox{\hyperlink{classnetdem_1_1_solver_g_j_k_p_w_a9c1506d44ae78113f7eaebb9119ddbcd}{Get\+Contact\+Point\+\_\+\+Plane\+Case}} (\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&dir, const \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $>$ \&pos\+\_\+vec\+\_\+1, const \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $>$ \&pos\+\_\+vec\+\_\+2)
+\item 
+\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \mbox{\hyperlink{classnetdem_1_1_solver_g_j_k_p_w_ac8379eba82442f0583794faaa2187dbf}{Minkowski\+Diff}} (\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&dir, double erosion\+\_\+ratio=0)
+\item 
+void \mbox{\hyperlink{classnetdem_1_1_solver_g_j_k_p_w_af79a43789179bcfab25582699befb914}{Update\+Simplex}} (\mbox{\hyperlink{classnetdem_1_1_simplex}{Simplex}} $\ast$const s, \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $\ast$const dir, double $\ast$const min\+\_\+dist, bool $\ast$const cnt\+\_\+flag)
+\item 
+void \mbox{\hyperlink{classnetdem_1_1_solver_g_j_k_p_w_a1c6f7ee179b4057b1cfed16ccc1a5bfc}{Update\+Simplex\+Line}} (\mbox{\hyperlink{classnetdem_1_1_simplex}{Simplex}} $\ast$const s, \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $\ast$const dir, double $\ast$const min\+\_\+dist, bool $\ast$const cnt\+\_\+flag)
+\item 
+void \mbox{\hyperlink{classnetdem_1_1_solver_g_j_k_p_w_ac290fb4718863dcc732274d8fa51551d}{Update\+Simplex\+Triangle}} (\mbox{\hyperlink{classnetdem_1_1_simplex}{Simplex}} $\ast$const s, \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $\ast$const dir, double $\ast$const min\+\_\+dist, bool $\ast$const cnt\+\_\+flag)
+\item 
+void \mbox{\hyperlink{classnetdem_1_1_solver_g_j_k_p_w_a7a9dc385ff44f9d652cab7b02a342a77}{Update\+Simplex\+Tetrahedron}} (\mbox{\hyperlink{classnetdem_1_1_simplex}{Simplex}} $\ast$const s, \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $\ast$const dir, double $\ast$const min\+\_\+dist, bool $\ast$const cnt\+\_\+flag)
+\item 
+std\+::tuple$<$ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}, double $>$ \mbox{\hyperlink{classnetdem_1_1_solver_g_j_k_p_w_a3349cde79b907d92d2833eb1d0ecb0aa}{Get\+Facet\+Normal}} (\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&a, \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&b, \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&c)
+\item 
+void \mbox{\hyperlink{classnetdem_1_1_solver_g_j_k_p_w_a4701f80189010506558b28613a65d61d}{Get\+Loose\+Edges}} (\mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_ad732d71ff9685f48b7bcbfc82812e60e}{Vec2i}} $>$ $\ast$const edges, \mbox{\hyperlink{namespacenetdem_a28e1404c8ce46c48bc78f553bd555980}{Vec3i}} const \&facet)
+\item 
+void \mbox{\hyperlink{classnetdem_1_1_solver_g_j_k_p_w_ad7a91154f860c57fd4b81ec5db643408}{Get\+Intersections}} (\mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $>$ $\ast$const intersects, \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&dir\+\_\+n, \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&l1\+\_\+p, \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&l1\+\_\+w, \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&l2\+\_\+p, \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&l2\+\_\+w)
+\item 
+void \mbox{\hyperlink{classnetdem_1_1_solver_g_j_k_p_w_af11adfcf54773aff8651b30553d59a0f}{Get\+Intersections\+Aggresive}} (\mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $>$ $\ast$const intersects, \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&dir\+\_\+n, \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&l1\+\_\+p, \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&l1\+\_\+w, \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&l2\+\_\+p, \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&l2\+\_\+w)
+\item 
+void \mbox{\hyperlink{classnetdem_1_1_solver_g_j_k_p_w_a8560c9af1d05698d14c53143dda09a44}{Sort\+Vertices}} (\mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $>$ $\ast$const pos\+\_\+vec, \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&dir\+\_\+n)
+\item 
+bool \mbox{\hyperlink{classnetdem_1_1_solver_g_j_k_p_w_ad0592c911ed60443fbfeb735396b98eb}{Is\+Inside\+Polygon}} (\mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $>$ const \&pos\+\_\+vec, \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&dir\+\_\+n, \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&pos)
+\item 
+\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \mbox{\hyperlink{classnetdem_1_1_solver_g_j_k_p_w_a4eb07c0cd79d03d3ad46f2ae192d1039}{Get\+Polygon\+Centroid}} (\mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $>$ const \&pos\+\_\+vec, \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&dir\+\_\+n)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classnetdem_1_1_shape}{Shape}} $\ast$ \mbox{\hyperlink{classnetdem_1_1_solver_g_j_k_p_w_a2e06d6117ada1a64f675aac7166a9a34}{shape\+\_\+1}} \{nullptr\}
+\item 
+\mbox{\hyperlink{classnetdem_1_1_shape}{Shape}} $\ast$ \mbox{\hyperlink{classnetdem_1_1_solver_g_j_k_p_w_a87358859cb92c840487b032d7c23dc94}{shape\+\_\+2}} \{nullptr\}
+\item 
+double \mbox{\hyperlink{classnetdem_1_1_solver_g_j_k_p_w_a99d9ee4b32b1eefa32bf0b6ff5935a29}{bound\+\_\+sphere\+\_\+radius\+\_\+1}}
+\item 
+double \mbox{\hyperlink{classnetdem_1_1_solver_g_j_k_p_w_a390dcef70c479e0036ab3ed6da56fecf}{bound\+\_\+sphere\+\_\+radius\+\_\+2}}
+\item 
+\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \mbox{\hyperlink{classnetdem_1_1_solver_g_j_k_p_w_a8cd055b0035061d793513b5f508b557e}{dpos\+\_\+12}}
+\item 
+\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \mbox{\hyperlink{classnetdem_1_1_solver_g_j_k_p_w_ae21a75030c99fcf95a2760718728821e}{dpos\+\_\+12\+\_\+ref}}
+\item 
+\mbox{\hyperlink{namespacenetdem_a13d5371f99b252a70fd5a5081b910370}{Vec4d}} \mbox{\hyperlink{classnetdem_1_1_solver_g_j_k_p_w_ace5ea02576a9d25322a6117a72682262}{dquat\+\_\+12}}
+\item 
+\mbox{\hyperlink{namespacenetdem_a13d5371f99b252a70fd5a5081b910370}{Vec4d}} \mbox{\hyperlink{classnetdem_1_1_solver_g_j_k_p_w_ac3061473b3ea8fc11804d300ee31089e}{dquat\+\_\+12\+\_\+conj}}
+\item 
+\mbox{\hyperlink{classnetdem_1_1_simplex}{Simplex}} \mbox{\hyperlink{classnetdem_1_1_solver_g_j_k_p_w_a469991b70c328e11f8f4eaba634385b2}{simplex\+\_\+after\+\_\+gjk}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+gjk solver for convex geometries 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classnetdem_1_1_solver_g_j_k_p_w_adc23957cf7a7b4a63c9c8c7ab96877e9}\label{classnetdem_1_1_solver_g_j_k_p_w_adc23957cf7a7b4a63c9c8c7ab96877e9}} 
+\index{netdem::SolverGJKPW@{netdem::SolverGJKPW}!SolverGJKPW@{SolverGJKPW}}
+\index{SolverGJKPW@{SolverGJKPW}!netdem::SolverGJKPW@{netdem::SolverGJKPW}}
+\doxysubsubsection{\texorpdfstring{SolverGJKPW()}{SolverGJKPW()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily netdem\+::\+Solver\+GJKPW\+::\+Solver\+GJKPW (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classnetdem_1_1_solver_g_j_k_p_w_ac236c727b75d0f7483c44f088646075c}\label{classnetdem_1_1_solver_g_j_k_p_w_ac236c727b75d0f7483c44f088646075c}} 
+\index{netdem::SolverGJKPW@{netdem::SolverGJKPW}!SolverGJKPW@{SolverGJKPW}}
+\index{SolverGJKPW@{SolverGJKPW}!netdem::SolverGJKPW@{netdem::SolverGJKPW}}
+\doxysubsubsection{\texorpdfstring{SolverGJKPW()}{SolverGJKPW()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily netdem\+::\+Solver\+GJKPW\+::\+Solver\+GJKPW (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} $\ast$const}]{p,  }\item[{\mbox{\hyperlink{classnetdem_1_1_wall}{Wall}} $\ast$const}]{w }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classnetdem_1_1_solver_g_j_k_p_w_a815bf3346ae862ded8ac5d71aac5e940}\label{classnetdem_1_1_solver_g_j_k_p_w_a815bf3346ae862ded8ac5d71aac5e940}} 
+\index{netdem::SolverGJKPW@{netdem::SolverGJKPW}!Clone@{Clone}}
+\index{Clone@{Clone}!netdem::SolverGJKPW@{netdem::SolverGJKPW}}
+\doxysubsubsection{\texorpdfstring{Clone()}{Clone()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classnetdem_1_1_collision_solver_p_w}{Collision\+Solver\+PW}} $\ast$ netdem\+::\+Solver\+GJKPW\+::\+Clone (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classnetdem_1_1_collision_solver_p_w_a9a373faf193910562f49bc0ac15050e9}{netdem\+::\+Collision\+Solver\+PW}}.
+
+\mbox{\Hypertarget{classnetdem_1_1_solver_g_j_k_p_w_a2d11fd3fc846fa346e4ec7a26f8c9c6f}\label{classnetdem_1_1_solver_g_j_k_p_w_a2d11fd3fc846fa346e4ec7a26f8c9c6f}} 
+\index{netdem::SolverGJKPW@{netdem::SolverGJKPW}!Detect@{Detect}}
+\index{Detect@{Detect}!netdem::SolverGJKPW@{netdem::SolverGJKPW}}
+\doxysubsubsection{\texorpdfstring{Detect()}{Detect()}}
+{\footnotesize\ttfamily bool netdem\+::\+Solver\+GJKPW\+::\+Detect (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classnetdem_1_1_collision_solver_p_w_a662b4b47765dd9816e1cb46262e8ad32}{netdem\+::\+Collision\+Solver\+PW}}.
+
+\mbox{\Hypertarget{classnetdem_1_1_solver_g_j_k_p_w_ada27394138a67fb792de85536cfd8b44}\label{classnetdem_1_1_solver_g_j_k_p_w_ada27394138a67fb792de85536cfd8b44}} 
+\index{netdem::SolverGJKPW@{netdem::SolverGJKPW}!EPA@{EPA}}
+\index{EPA@{EPA}!netdem::SolverGJKPW@{netdem::SolverGJKPW}}
+\doxysubsubsection{\texorpdfstring{EPA()}{EPA()}}
+{\footnotesize\ttfamily tuple$<$ double, \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}, \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $>$ netdem\+::\+Solver\+GJKPW\+::\+EPA (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{classnetdem_1_1_solver_g_j_k_p_w_a10cf7c119b7929c6b2c080346d457048}\label{classnetdem_1_1_solver_g_j_k_p_w_a10cf7c119b7929c6b2c080346d457048}} 
+\index{netdem::SolverGJKPW@{netdem::SolverGJKPW}!GetContactPoint@{GetContactPoint}}
+\index{GetContactPoint@{GetContactPoint}!netdem::SolverGJKPW@{netdem::SolverGJKPW}}
+\doxysubsubsection{\texorpdfstring{GetContactPoint()}{GetContactPoint()}}
+{\footnotesize\ttfamily tuple$<$ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}, bool $>$ netdem\+::\+Solver\+GJKPW\+::\+Get\+Contact\+Point (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&}]{dir }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{classnetdem_1_1_solver_g_j_k_p_w_a9c1506d44ae78113f7eaebb9119ddbcd}\label{classnetdem_1_1_solver_g_j_k_p_w_a9c1506d44ae78113f7eaebb9119ddbcd}} 
+\index{netdem::SolverGJKPW@{netdem::SolverGJKPW}!GetContactPoint\_PlaneCase@{GetContactPoint\_PlaneCase}}
+\index{GetContactPoint\_PlaneCase@{GetContactPoint\_PlaneCase}!netdem::SolverGJKPW@{netdem::SolverGJKPW}}
+\doxysubsubsection{\texorpdfstring{GetContactPoint\_PlaneCase()}{GetContactPoint\_PlaneCase()}}
+{\footnotesize\ttfamily tuple$<$ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}, bool $>$ netdem\+::\+Solver\+GJKPW\+::\+Get\+Contact\+Point\+\_\+\+Plane\+Case (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&}]{dir,  }\item[{const \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $>$ \&}]{pos\+\_\+vec\+\_\+1,  }\item[{const \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $>$ \&}]{pos\+\_\+vec\+\_\+2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{classnetdem_1_1_solver_g_j_k_p_w_a3349cde79b907d92d2833eb1d0ecb0aa}\label{classnetdem_1_1_solver_g_j_k_p_w_a3349cde79b907d92d2833eb1d0ecb0aa}} 
+\index{netdem::SolverGJKPW@{netdem::SolverGJKPW}!GetFacetNormal@{GetFacetNormal}}
+\index{GetFacetNormal@{GetFacetNormal}!netdem::SolverGJKPW@{netdem::SolverGJKPW}}
+\doxysubsubsection{\texorpdfstring{GetFacetNormal()}{GetFacetNormal()}}
+{\footnotesize\ttfamily std\+::tuple$<$ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}, double $>$ netdem\+::\+Solver\+GJKPW\+::\+Get\+Facet\+Normal (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&}]{a,  }\item[{\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&}]{b,  }\item[{\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&}]{c }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+
+\mbox{\Hypertarget{classnetdem_1_1_solver_g_j_k_p_w_ad7a91154f860c57fd4b81ec5db643408}\label{classnetdem_1_1_solver_g_j_k_p_w_ad7a91154f860c57fd4b81ec5db643408}} 
+\index{netdem::SolverGJKPW@{netdem::SolverGJKPW}!GetIntersections@{GetIntersections}}
+\index{GetIntersections@{GetIntersections}!netdem::SolverGJKPW@{netdem::SolverGJKPW}}
+\doxysubsubsection{\texorpdfstring{GetIntersections()}{GetIntersections()}}
+{\footnotesize\ttfamily void netdem\+::\+Solver\+GJKPW\+::\+Get\+Intersections (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $>$ $\ast$const}]{intersects,  }\item[{\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&}]{dir\+\_\+n,  }\item[{\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&}]{l1\+\_\+p,  }\item[{\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&}]{l1\+\_\+w,  }\item[{\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&}]{l2\+\_\+p,  }\item[{\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&}]{l2\+\_\+w }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{classnetdem_1_1_solver_g_j_k_p_w_af11adfcf54773aff8651b30553d59a0f}\label{classnetdem_1_1_solver_g_j_k_p_w_af11adfcf54773aff8651b30553d59a0f}} 
+\index{netdem::SolverGJKPW@{netdem::SolverGJKPW}!GetIntersectionsAggresive@{GetIntersectionsAggresive}}
+\index{GetIntersectionsAggresive@{GetIntersectionsAggresive}!netdem::SolverGJKPW@{netdem::SolverGJKPW}}
+\doxysubsubsection{\texorpdfstring{GetIntersectionsAggresive()}{GetIntersectionsAggresive()}}
+{\footnotesize\ttfamily void netdem\+::\+Solver\+GJKPW\+::\+Get\+Intersections\+Aggresive (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $>$ $\ast$const}]{intersects,  }\item[{\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&}]{dir\+\_\+n,  }\item[{\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&}]{l1\+\_\+p,  }\item[{\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&}]{l1\+\_\+w,  }\item[{\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&}]{l2\+\_\+p,  }\item[{\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&}]{l2\+\_\+w }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{classnetdem_1_1_solver_g_j_k_p_w_a4701f80189010506558b28613a65d61d}\label{classnetdem_1_1_solver_g_j_k_p_w_a4701f80189010506558b28613a65d61d}} 
+\index{netdem::SolverGJKPW@{netdem::SolverGJKPW}!GetLooseEdges@{GetLooseEdges}}
+\index{GetLooseEdges@{GetLooseEdges}!netdem::SolverGJKPW@{netdem::SolverGJKPW}}
+\doxysubsubsection{\texorpdfstring{GetLooseEdges()}{GetLooseEdges()}}
+{\footnotesize\ttfamily void netdem\+::\+Solver\+GJKPW\+::\+Get\+Loose\+Edges (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_ad732d71ff9685f48b7bcbfc82812e60e}{Vec2i}} $>$ $\ast$const}]{edges,  }\item[{\mbox{\hyperlink{namespacenetdem_a28e1404c8ce46c48bc78f553bd555980}{Vec3i}} const \&}]{facet }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{classnetdem_1_1_solver_g_j_k_p_w_a4eb07c0cd79d03d3ad46f2ae192d1039}\label{classnetdem_1_1_solver_g_j_k_p_w_a4eb07c0cd79d03d3ad46f2ae192d1039}} 
+\index{netdem::SolverGJKPW@{netdem::SolverGJKPW}!GetPolygonCentroid@{GetPolygonCentroid}}
+\index{GetPolygonCentroid@{GetPolygonCentroid}!netdem::SolverGJKPW@{netdem::SolverGJKPW}}
+\doxysubsubsection{\texorpdfstring{GetPolygonCentroid()}{GetPolygonCentroid()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} netdem\+::\+Solver\+GJKPW\+::\+Get\+Polygon\+Centroid (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $>$ const \&}]{pos\+\_\+vec,  }\item[{\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&}]{dir\+\_\+n }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{classnetdem_1_1_solver_g_j_k_p_w_aec5da17fff1d6a27af11f75a3248e063}\label{classnetdem_1_1_solver_g_j_k_p_w_aec5da17fff1d6a27af11f75a3248e063}} 
+\index{netdem::SolverGJKPW@{netdem::SolverGJKPW}!GJK@{GJK}}
+\index{GJK@{GJK}!netdem::SolverGJKPW@{netdem::SolverGJKPW}}
+\doxysubsubsection{\texorpdfstring{GJK()}{GJK()}}
+{\footnotesize\ttfamily bool netdem\+::\+Solver\+GJKPW\+::\+GJK (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{classnetdem_1_1_solver_g_j_k_p_w_a4fcbf42a4942c7ec2d6df847cbba764d}\label{classnetdem_1_1_solver_g_j_k_p_w_a4fcbf42a4942c7ec2d6df847cbba764d}} 
+\index{netdem::SolverGJKPW@{netdem::SolverGJKPW}!GJK\_EROSION@{GJK\_EROSION}}
+\index{GJK\_EROSION@{GJK\_EROSION}!netdem::SolverGJKPW@{netdem::SolverGJKPW}}
+\doxysubsubsection{\texorpdfstring{GJK\_EROSION()}{GJK\_EROSION()}}
+{\footnotesize\ttfamily tuple$<$ double, \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}, \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $>$ netdem\+::\+Solver\+GJKPW\+::\+GJK\+\_\+\+EROSION (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{classnetdem_1_1_solver_g_j_k_p_w_a6669fed020623a901701e750514f255b}\label{classnetdem_1_1_solver_g_j_k_p_w_a6669fed020623a901701e750514f255b}} 
+\index{netdem::SolverGJKPW@{netdem::SolverGJKPW}!Init@{Init}}
+\index{Init@{Init}!netdem::SolverGJKPW@{netdem::SolverGJKPW}}
+\doxysubsubsection{\texorpdfstring{Init()}{Init()}}
+{\footnotesize\ttfamily void netdem\+::\+Solver\+GJKPW\+::\+Init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} $\ast$const}]{p,  }\item[{\mbox{\hyperlink{classnetdem_1_1_wall}{Wall}} $\ast$const}]{w }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{classnetdem_1_1_collision_solver_p_w_a23b3075924f949dfed8a681dbebedc03}{netdem\+::\+Collision\+Solver\+PW}}.
+
+\mbox{\Hypertarget{classnetdem_1_1_solver_g_j_k_p_w_ad0592c911ed60443fbfeb735396b98eb}\label{classnetdem_1_1_solver_g_j_k_p_w_ad0592c911ed60443fbfeb735396b98eb}} 
+\index{netdem::SolverGJKPW@{netdem::SolverGJKPW}!IsInsidePolygon@{IsInsidePolygon}}
+\index{IsInsidePolygon@{IsInsidePolygon}!netdem::SolverGJKPW@{netdem::SolverGJKPW}}
+\doxysubsubsection{\texorpdfstring{IsInsidePolygon()}{IsInsidePolygon()}}
+{\footnotesize\ttfamily bool netdem\+::\+Solver\+GJKPW\+::\+Is\+Inside\+Polygon (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $>$ const \&}]{pos\+\_\+vec,  }\item[{\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&}]{dir\+\_\+n,  }\item[{\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&}]{pos }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{classnetdem_1_1_solver_g_j_k_p_w_ac8379eba82442f0583794faaa2187dbf}\label{classnetdem_1_1_solver_g_j_k_p_w_ac8379eba82442f0583794faaa2187dbf}} 
+\index{netdem::SolverGJKPW@{netdem::SolverGJKPW}!MinkowskiDiff@{MinkowskiDiff}}
+\index{MinkowskiDiff@{MinkowskiDiff}!netdem::SolverGJKPW@{netdem::SolverGJKPW}}
+\doxysubsubsection{\texorpdfstring{MinkowskiDiff()}{MinkowskiDiff()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} netdem\+::\+Solver\+GJKPW\+::\+Minkowski\+Diff (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&}]{dir,  }\item[{double}]{erosion\+\_\+ratio = {\ttfamily 0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+
+\mbox{\Hypertarget{classnetdem_1_1_solver_g_j_k_p_w_a3bcd29a34dc569cd066b2c0ca69a5728}\label{classnetdem_1_1_solver_g_j_k_p_w_a3bcd29a34dc569cd066b2c0ca69a5728}} 
+\index{netdem::SolverGJKPW@{netdem::SolverGJKPW}!ResolveInit@{ResolveInit}}
+\index{ResolveInit@{ResolveInit}!netdem::SolverGJKPW@{netdem::SolverGJKPW}}
+\doxysubsubsection{\texorpdfstring{ResolveInit()}{ResolveInit()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void netdem\+::\+Solver\+GJKPW\+::\+Resolve\+Init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_collision_geometries}{Collision\+Geometries}} $\ast$const}]{cnt\+\_\+geoms,  }\item[{double}]{timestep }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classnetdem_1_1_solver_g_j_k_p_w_ac85ed6024b95fe175e268e0c2127198b}\label{classnetdem_1_1_solver_g_j_k_p_w_ac85ed6024b95fe175e268e0c2127198b}} 
+\index{netdem::SolverGJKPW@{netdem::SolverGJKPW}!ResolveInit@{ResolveInit}}
+\index{ResolveInit@{ResolveInit}!netdem::SolverGJKPW@{netdem::SolverGJKPW}}
+\doxysubsubsection{\texorpdfstring{ResolveInit()}{ResolveInit()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void netdem\+::\+Solver\+GJKPW\+::\+Resolve\+Init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_contact_p_w}{Contact\+PW}} $\ast$const}]{cnt,  }\item[{double}]{timestep }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classnetdem_1_1_collision_solver_p_w_a1a4559783964fdb3f7eea71950d88c93}{netdem\+::\+Collision\+Solver\+PW}}.
+
+\mbox{\Hypertarget{classnetdem_1_1_solver_g_j_k_p_w_afdfe9df40f7f48566033357d7d88bfb1}\label{classnetdem_1_1_solver_g_j_k_p_w_afdfe9df40f7f48566033357d7d88bfb1}} 
+\index{netdem::SolverGJKPW@{netdem::SolverGJKPW}!ResolveUpdate@{ResolveUpdate}}
+\index{ResolveUpdate@{ResolveUpdate}!netdem::SolverGJKPW@{netdem::SolverGJKPW}}
+\doxysubsubsection{\texorpdfstring{ResolveUpdate()}{ResolveUpdate()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void netdem\+::\+Solver\+GJKPW\+::\+Resolve\+Update (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_collision_geometries}{Collision\+Geometries}} $\ast$const}]{cnt\+\_\+geoms,  }\item[{double}]{timestep }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classnetdem_1_1_solver_g_j_k_p_w_a2c9b8bcfe63029d1d1cc2467c060dc04}\label{classnetdem_1_1_solver_g_j_k_p_w_a2c9b8bcfe63029d1d1cc2467c060dc04}} 
+\index{netdem::SolverGJKPW@{netdem::SolverGJKPW}!ResolveUpdate@{ResolveUpdate}}
+\index{ResolveUpdate@{ResolveUpdate}!netdem::SolverGJKPW@{netdem::SolverGJKPW}}
+\doxysubsubsection{\texorpdfstring{ResolveUpdate()}{ResolveUpdate()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void netdem\+::\+Solver\+GJKPW\+::\+Resolve\+Update (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_contact_p_w}{Contact\+PW}} $\ast$const}]{cnt,  }\item[{double}]{timestep }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classnetdem_1_1_collision_solver_p_w_a1fa6dc4af91346ec8ec28db0c2bdd08e}{netdem\+::\+Collision\+Solver\+PW}}.
+
+\mbox{\Hypertarget{classnetdem_1_1_solver_g_j_k_p_w_a8560c9af1d05698d14c53143dda09a44}\label{classnetdem_1_1_solver_g_j_k_p_w_a8560c9af1d05698d14c53143dda09a44}} 
+\index{netdem::SolverGJKPW@{netdem::SolverGJKPW}!SortVertices@{SortVertices}}
+\index{SortVertices@{SortVertices}!netdem::SolverGJKPW@{netdem::SolverGJKPW}}
+\doxysubsubsection{\texorpdfstring{SortVertices()}{SortVertices()}}
+{\footnotesize\ttfamily void netdem\+::\+Solver\+GJKPW\+::\+Sort\+Vertices (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $>$ $\ast$const}]{pos\+\_\+vec,  }\item[{\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&}]{dir\+\_\+n }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{classnetdem_1_1_solver_g_j_k_p_w_af79a43789179bcfab25582699befb914}\label{classnetdem_1_1_solver_g_j_k_p_w_af79a43789179bcfab25582699befb914}} 
+\index{netdem::SolverGJKPW@{netdem::SolverGJKPW}!UpdateSimplex@{UpdateSimplex}}
+\index{UpdateSimplex@{UpdateSimplex}!netdem::SolverGJKPW@{netdem::SolverGJKPW}}
+\doxysubsubsection{\texorpdfstring{UpdateSimplex()}{UpdateSimplex()}}
+{\footnotesize\ttfamily void netdem\+::\+Solver\+GJKPW\+::\+Update\+Simplex (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_simplex}{Simplex}} $\ast$const}]{s,  }\item[{\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $\ast$const}]{dir,  }\item[{double $\ast$const}]{min\+\_\+dist,  }\item[{bool $\ast$const}]{cnt\+\_\+flag }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{classnetdem_1_1_solver_g_j_k_p_w_a1c6f7ee179b4057b1cfed16ccc1a5bfc}\label{classnetdem_1_1_solver_g_j_k_p_w_a1c6f7ee179b4057b1cfed16ccc1a5bfc}} 
+\index{netdem::SolverGJKPW@{netdem::SolverGJKPW}!UpdateSimplexLine@{UpdateSimplexLine}}
+\index{UpdateSimplexLine@{UpdateSimplexLine}!netdem::SolverGJKPW@{netdem::SolverGJKPW}}
+\doxysubsubsection{\texorpdfstring{UpdateSimplexLine()}{UpdateSimplexLine()}}
+{\footnotesize\ttfamily void netdem\+::\+Solver\+GJKPW\+::\+Update\+Simplex\+Line (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_simplex}{Simplex}} $\ast$const}]{s,  }\item[{\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $\ast$const}]{dir,  }\item[{double $\ast$const}]{min\+\_\+dist,  }\item[{bool $\ast$const}]{cnt\+\_\+flag }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{classnetdem_1_1_solver_g_j_k_p_w_a7a9dc385ff44f9d652cab7b02a342a77}\label{classnetdem_1_1_solver_g_j_k_p_w_a7a9dc385ff44f9d652cab7b02a342a77}} 
+\index{netdem::SolverGJKPW@{netdem::SolverGJKPW}!UpdateSimplexTetrahedron@{UpdateSimplexTetrahedron}}
+\index{UpdateSimplexTetrahedron@{UpdateSimplexTetrahedron}!netdem::SolverGJKPW@{netdem::SolverGJKPW}}
+\doxysubsubsection{\texorpdfstring{UpdateSimplexTetrahedron()}{UpdateSimplexTetrahedron()}}
+{\footnotesize\ttfamily void netdem\+::\+Solver\+GJKPW\+::\+Update\+Simplex\+Tetrahedron (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_simplex}{Simplex}} $\ast$const}]{s,  }\item[{\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $\ast$const}]{dir,  }\item[{double $\ast$const}]{min\+\_\+dist,  }\item[{bool $\ast$const}]{cnt\+\_\+flag }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{classnetdem_1_1_solver_g_j_k_p_w_ac290fb4718863dcc732274d8fa51551d}\label{classnetdem_1_1_solver_g_j_k_p_w_ac290fb4718863dcc732274d8fa51551d}} 
+\index{netdem::SolverGJKPW@{netdem::SolverGJKPW}!UpdateSimplexTriangle@{UpdateSimplexTriangle}}
+\index{UpdateSimplexTriangle@{UpdateSimplexTriangle}!netdem::SolverGJKPW@{netdem::SolverGJKPW}}
+\doxysubsubsection{\texorpdfstring{UpdateSimplexTriangle()}{UpdateSimplexTriangle()}}
+{\footnotesize\ttfamily void netdem\+::\+Solver\+GJKPW\+::\+Update\+Simplex\+Triangle (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_simplex}{Simplex}} $\ast$const}]{s,  }\item[{\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $\ast$const}]{dir,  }\item[{double $\ast$const}]{min\+\_\+dist,  }\item[{bool $\ast$const}]{cnt\+\_\+flag }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classnetdem_1_1_solver_g_j_k_p_w_a99d9ee4b32b1eefa32bf0b6ff5935a29}\label{classnetdem_1_1_solver_g_j_k_p_w_a99d9ee4b32b1eefa32bf0b6ff5935a29}} 
+\index{netdem::SolverGJKPW@{netdem::SolverGJKPW}!bound\_sphere\_radius\_1@{bound\_sphere\_radius\_1}}
+\index{bound\_sphere\_radius\_1@{bound\_sphere\_radius\_1}!netdem::SolverGJKPW@{netdem::SolverGJKPW}}
+\doxysubsubsection{\texorpdfstring{bound\_sphere\_radius\_1}{bound\_sphere\_radius\_1}}
+{\footnotesize\ttfamily double netdem\+::\+Solver\+GJKPW\+::bound\+\_\+sphere\+\_\+radius\+\_\+1\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{classnetdem_1_1_solver_g_j_k_p_w_a390dcef70c479e0036ab3ed6da56fecf}\label{classnetdem_1_1_solver_g_j_k_p_w_a390dcef70c479e0036ab3ed6da56fecf}} 
+\index{netdem::SolverGJKPW@{netdem::SolverGJKPW}!bound\_sphere\_radius\_2@{bound\_sphere\_radius\_2}}
+\index{bound\_sphere\_radius\_2@{bound\_sphere\_radius\_2}!netdem::SolverGJKPW@{netdem::SolverGJKPW}}
+\doxysubsubsection{\texorpdfstring{bound\_sphere\_radius\_2}{bound\_sphere\_radius\_2}}
+{\footnotesize\ttfamily double netdem\+::\+Solver\+GJKPW\+::bound\+\_\+sphere\+\_\+radius\+\_\+2\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{classnetdem_1_1_solver_g_j_k_p_w_a8cd055b0035061d793513b5f508b557e}\label{classnetdem_1_1_solver_g_j_k_p_w_a8cd055b0035061d793513b5f508b557e}} 
+\index{netdem::SolverGJKPW@{netdem::SolverGJKPW}!dpos\_12@{dpos\_12}}
+\index{dpos\_12@{dpos\_12}!netdem::SolverGJKPW@{netdem::SolverGJKPW}}
+\doxysubsubsection{\texorpdfstring{dpos\_12}{dpos\_12}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} netdem\+::\+Solver\+GJKPW\+::dpos\+\_\+12\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{classnetdem_1_1_solver_g_j_k_p_w_ae21a75030c99fcf95a2760718728821e}\label{classnetdem_1_1_solver_g_j_k_p_w_ae21a75030c99fcf95a2760718728821e}} 
+\index{netdem::SolverGJKPW@{netdem::SolverGJKPW}!dpos\_12\_ref@{dpos\_12\_ref}}
+\index{dpos\_12\_ref@{dpos\_12\_ref}!netdem::SolverGJKPW@{netdem::SolverGJKPW}}
+\doxysubsubsection{\texorpdfstring{dpos\_12\_ref}{dpos\_12\_ref}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} netdem\+::\+Solver\+GJKPW\+::dpos\+\_\+12\+\_\+ref\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{classnetdem_1_1_solver_g_j_k_p_w_ace5ea02576a9d25322a6117a72682262}\label{classnetdem_1_1_solver_g_j_k_p_w_ace5ea02576a9d25322a6117a72682262}} 
+\index{netdem::SolverGJKPW@{netdem::SolverGJKPW}!dquat\_12@{dquat\_12}}
+\index{dquat\_12@{dquat\_12}!netdem::SolverGJKPW@{netdem::SolverGJKPW}}
+\doxysubsubsection{\texorpdfstring{dquat\_12}{dquat\_12}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacenetdem_a13d5371f99b252a70fd5a5081b910370}{Vec4d}} netdem\+::\+Solver\+GJKPW\+::dquat\+\_\+12\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{classnetdem_1_1_solver_g_j_k_p_w_ac3061473b3ea8fc11804d300ee31089e}\label{classnetdem_1_1_solver_g_j_k_p_w_ac3061473b3ea8fc11804d300ee31089e}} 
+\index{netdem::SolverGJKPW@{netdem::SolverGJKPW}!dquat\_12\_conj@{dquat\_12\_conj}}
+\index{dquat\_12\_conj@{dquat\_12\_conj}!netdem::SolverGJKPW@{netdem::SolverGJKPW}}
+\doxysubsubsection{\texorpdfstring{dquat\_12\_conj}{dquat\_12\_conj}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacenetdem_a13d5371f99b252a70fd5a5081b910370}{Vec4d}} netdem\+::\+Solver\+GJKPW\+::dquat\+\_\+12\+\_\+conj\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{classnetdem_1_1_solver_g_j_k_p_w_a47fa0d78805c1071b131b7273e3c6ac8}\label{classnetdem_1_1_solver_g_j_k_p_w_a47fa0d78805c1071b131b7273e3c6ac8}} 
+\index{netdem::SolverGJKPW@{netdem::SolverGJKPW}!erosion\_ratio\_increment@{erosion\_ratio\_increment}}
+\index{erosion\_ratio\_increment@{erosion\_ratio\_increment}!netdem::SolverGJKPW@{netdem::SolverGJKPW}}
+\doxysubsubsection{\texorpdfstring{erosion\_ratio\_increment}{erosion\_ratio\_increment}}
+{\footnotesize\ttfamily double netdem\+::\+Solver\+GJKPW\+::erosion\+\_\+ratio\+\_\+increment \{0.\+01\}}
+
+\mbox{\Hypertarget{classnetdem_1_1_solver_g_j_k_p_w_a6099a47da700cf0ddb1ad92bcf548bc4}\label{classnetdem_1_1_solver_g_j_k_p_w_a6099a47da700cf0ddb1ad92bcf548bc4}} 
+\index{netdem::SolverGJKPW@{netdem::SolverGJKPW}!erosion\_ratio\_initial@{erosion\_ratio\_initial}}
+\index{erosion\_ratio\_initial@{erosion\_ratio\_initial}!netdem::SolverGJKPW@{netdem::SolverGJKPW}}
+\doxysubsubsection{\texorpdfstring{erosion\_ratio\_initial}{erosion\_ratio\_initial}}
+{\footnotesize\ttfamily double netdem\+::\+Solver\+GJKPW\+::erosion\+\_\+ratio\+\_\+initial \{0.\+01\}}
+
+\mbox{\Hypertarget{classnetdem_1_1_solver_g_j_k_p_w_a2e06d6117ada1a64f675aac7166a9a34}\label{classnetdem_1_1_solver_g_j_k_p_w_a2e06d6117ada1a64f675aac7166a9a34}} 
+\index{netdem::SolverGJKPW@{netdem::SolverGJKPW}!shape\_1@{shape\_1}}
+\index{shape\_1@{shape\_1}!netdem::SolverGJKPW@{netdem::SolverGJKPW}}
+\doxysubsubsection{\texorpdfstring{shape\_1}{shape\_1}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classnetdem_1_1_shape}{Shape}}$\ast$ netdem\+::\+Solver\+GJKPW\+::shape\+\_\+1 \{nullptr\}\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{classnetdem_1_1_solver_g_j_k_p_w_a87358859cb92c840487b032d7c23dc94}\label{classnetdem_1_1_solver_g_j_k_p_w_a87358859cb92c840487b032d7c23dc94}} 
+\index{netdem::SolverGJKPW@{netdem::SolverGJKPW}!shape\_2@{shape\_2}}
+\index{shape\_2@{shape\_2}!netdem::SolverGJKPW@{netdem::SolverGJKPW}}
+\doxysubsubsection{\texorpdfstring{shape\_2}{shape\_2}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classnetdem_1_1_shape}{Shape}} $\ast$ netdem\+::\+Solver\+GJKPW\+::shape\+\_\+2 \{nullptr\}\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{classnetdem_1_1_solver_g_j_k_p_w_a469991b70c328e11f8f4eaba634385b2}\label{classnetdem_1_1_solver_g_j_k_p_w_a469991b70c328e11f8f4eaba634385b2}} 
+\index{netdem::SolverGJKPW@{netdem::SolverGJKPW}!simplex\_after\_gjk@{simplex\_after\_gjk}}
+\index{simplex\_after\_gjk@{simplex\_after\_gjk}!netdem::SolverGJKPW@{netdem::SolverGJKPW}}
+\doxysubsubsection{\texorpdfstring{simplex\_after\_gjk}{simplex\_after\_gjk}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classnetdem_1_1_simplex}{Simplex}} netdem\+::\+Solver\+GJKPW\+::simplex\+\_\+after\+\_\+gjk\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{classnetdem_1_1_solver_g_j_k_p_w_a60f8fabc30915ff5b005942fc42fc9a1}\label{classnetdem_1_1_solver_g_j_k_p_w_a60f8fabc30915ff5b005942fc42fc9a1}} 
+\index{netdem::SolverGJKPW@{netdem::SolverGJKPW}!use\_erosion@{use\_erosion}}
+\index{use\_erosion@{use\_erosion}!netdem::SolverGJKPW@{netdem::SolverGJKPW}}
+\doxysubsubsection{\texorpdfstring{use\_erosion}{use\_erosion}}
+{\footnotesize\ttfamily bool netdem\+::\+Solver\+GJKPW\+::use\+\_\+erosion \{false\}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/lzhshou/\+Documents/\+Research/my\+Projects/apam/repo/netdem/src/dem/\mbox{\hyperlink{solver__gjk__pw_8hpp}{solver\+\_\+gjk\+\_\+pw.\+hpp}}\item 
+/\+Users/lzhshou/\+Documents/\+Research/my\+Projects/apam/repo/netdem/src/dem/\mbox{\hyperlink{solver__gjk__pw_8cpp}{solver\+\_\+gjk\+\_\+pw.\+cpp}}\end{DoxyCompactItemize}

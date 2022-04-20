@@ -1,0 +1,143 @@
+\hypertarget{classnetdem_1_1_cell}{}\doxysection{netdem\+::Cell Class Reference}
+\label{classnetdem_1_1_cell}\index{netdem::Cell@{netdem::Cell}}
+
+
+{\ttfamily \#include $<$cell.\+hpp$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classnetdem_1_1_cell_a394510643e8664cf12b5efaf5cb99f71}{Cell}} ()
+\item 
+\mbox{\hyperlink{classnetdem_1_1_cell_ac04c905212af3d12f81f9466cf2d827a}{Cell}} (\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&bmin, \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&bmax)
+\item 
+bool \mbox{\hyperlink{classnetdem_1_1_cell_a77ddcecf6dd798b2009fb80ed2cd90bd}{Is\+Judge\+Cell}} (\mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} const \&p, \mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} const \&q)
+\item 
+bool \mbox{\hyperlink{classnetdem_1_1_cell_a440ef10926963a9e37a9dba4924fa9b7}{Is\+Judge\+Cell}} (\mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} const \&p, \mbox{\hyperlink{classnetdem_1_1_wall}{Wall}} const \&w)
+\item 
+void \mbox{\hyperlink{classnetdem_1_1_cell_a16b2debdbaf07c2a98e700a1cb115a82}{Clear\+Linked\+Lists}} ()
+\item 
+\mbox{\hyperlink{classnetdem_1_1_s_t_l_model}{STLModel}} \mbox{\hyperlink{classnetdem_1_1_cell_a01b91d2d13137269856bacd9ced8904d}{Get\+STLModel}} ()
+\begin{DoxyCompactList}\small\item\em for visualization purpose \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classnetdem_1_1_cell_a9fa559f7a28e2b4336c6879ca09304d8}{$\sim$\+Cell}} ()
+\item 
+void \mbox{\hyperlink{classnetdem_1_1_cell_af71040602de48882145f0a241b34b9d4}{Print}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \mbox{\hyperlink{classnetdem_1_1_cell_a8cac2b018f1c1800dd25b89802535e90}{bound\+\_\+min}} \{-\/0.\+5, -\/0.\+5, -\/0.\+5\}
+\item 
+\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \mbox{\hyperlink{classnetdem_1_1_cell_ae3d3ed4322434ef86d5cace1ba277443}{bound\+\_\+max}} \{0.\+5, 0.\+5, 0.\+5\}
+\item 
+\mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ std\+::pair$<$ \mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} $\ast$, int $>$ $>$ \mbox{\hyperlink{classnetdem_1_1_cell_aaaa3575af0d035fea16fd7b7e1287929}{linked\+\_\+particle\+\_\+list}}
+\begin{DoxyCompactList}\small\item\em this list is maintained by Update\+Linked\+Cells in particle \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ std\+::pair$<$ \mbox{\hyperlink{classnetdem_1_1_wall}{Wall}} $\ast$, int $>$ $>$ \mbox{\hyperlink{classnetdem_1_1_cell_ace812eb598a049427b3f8e0b8b9a5445}{linked\+\_\+wall\+\_\+list}}
+\begin{DoxyCompactList}\small\item\em this list is maintained by Update\+Linked\+Cells in wall \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+cell is used for broad-\/phase contact detection. The particles in a sub-\/domain will first be sorted into cells, so that only the particles that fall in the same cell could be potentially contact with each other.
+\begin{DoxyItemize}
+\item bound\+\_\+min, bound\+\_\+max\+: coordinates of the lower and upper boundary of the rectangle cell.
+\item particle\+\_\+list\+: particles that fall in this cell.
+\item wall\+\_\+list\+: walls that fall in this cell. 
+\end{DoxyItemize}
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classnetdem_1_1_cell_a394510643e8664cf12b5efaf5cb99f71}\label{classnetdem_1_1_cell_a394510643e8664cf12b5efaf5cb99f71}} 
+\index{netdem::Cell@{netdem::Cell}!Cell@{Cell}}
+\index{Cell@{Cell}!netdem::Cell@{netdem::Cell}}
+\doxysubsubsection{\texorpdfstring{Cell()}{Cell()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Cell\+::\+Cell (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classnetdem_1_1_cell_ac04c905212af3d12f81f9466cf2d827a}\label{classnetdem_1_1_cell_ac04c905212af3d12f81f9466cf2d827a}} 
+\index{netdem::Cell@{netdem::Cell}!Cell@{Cell}}
+\index{Cell@{Cell}!netdem::Cell@{netdem::Cell}}
+\doxysubsubsection{\texorpdfstring{Cell()}{Cell()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Cell\+::\+Cell (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&}]{bmin,  }\item[{\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&}]{bmax }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classnetdem_1_1_cell_a9fa559f7a28e2b4336c6879ca09304d8}\label{classnetdem_1_1_cell_a9fa559f7a28e2b4336c6879ca09304d8}} 
+\index{netdem::Cell@{netdem::Cell}!````~Cell@{$\sim$Cell}}
+\index{````~Cell@{$\sim$Cell}!netdem::Cell@{netdem::Cell}}
+\doxysubsubsection{\texorpdfstring{$\sim$Cell()}{~Cell()}}
+{\footnotesize\ttfamily Cell\+::$\sim$\+Cell (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classnetdem_1_1_cell_a16b2debdbaf07c2a98e700a1cb115a82}\label{classnetdem_1_1_cell_a16b2debdbaf07c2a98e700a1cb115a82}} 
+\index{netdem::Cell@{netdem::Cell}!ClearLinkedLists@{ClearLinkedLists}}
+\index{ClearLinkedLists@{ClearLinkedLists}!netdem::Cell@{netdem::Cell}}
+\doxysubsubsection{\texorpdfstring{ClearLinkedLists()}{ClearLinkedLists()}}
+{\footnotesize\ttfamily void Cell\+::\+Clear\+Linked\+Lists (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classnetdem_1_1_cell_a01b91d2d13137269856bacd9ced8904d}\label{classnetdem_1_1_cell_a01b91d2d13137269856bacd9ced8904d}} 
+\index{netdem::Cell@{netdem::Cell}!GetSTLModel@{GetSTLModel}}
+\index{GetSTLModel@{GetSTLModel}!netdem::Cell@{netdem::Cell}}
+\doxysubsubsection{\texorpdfstring{GetSTLModel()}{GetSTLModel()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classnetdem_1_1_s_t_l_model}{STLModel}} Cell\+::\+Get\+STLModel (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+for visualization purpose 
+
+\mbox{\Hypertarget{classnetdem_1_1_cell_a77ddcecf6dd798b2009fb80ed2cd90bd}\label{classnetdem_1_1_cell_a77ddcecf6dd798b2009fb80ed2cd90bd}} 
+\index{netdem::Cell@{netdem::Cell}!IsJudgeCell@{IsJudgeCell}}
+\index{IsJudgeCell@{IsJudgeCell}!netdem::Cell@{netdem::Cell}}
+\doxysubsubsection{\texorpdfstring{IsJudgeCell()}{IsJudgeCell()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily bool Cell\+::\+Is\+Judge\+Cell (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} const \&}]{p,  }\item[{\mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} const \&}]{q }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classnetdem_1_1_cell_a440ef10926963a9e37a9dba4924fa9b7}\label{classnetdem_1_1_cell_a440ef10926963a9e37a9dba4924fa9b7}} 
+\index{netdem::Cell@{netdem::Cell}!IsJudgeCell@{IsJudgeCell}}
+\index{IsJudgeCell@{IsJudgeCell}!netdem::Cell@{netdem::Cell}}
+\doxysubsubsection{\texorpdfstring{IsJudgeCell()}{IsJudgeCell()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily bool Cell\+::\+Is\+Judge\+Cell (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} const \&}]{p,  }\item[{\mbox{\hyperlink{classnetdem_1_1_wall}{Wall}} const \&}]{w }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classnetdem_1_1_cell_af71040602de48882145f0a241b34b9d4}\label{classnetdem_1_1_cell_af71040602de48882145f0a241b34b9d4}} 
+\index{netdem::Cell@{netdem::Cell}!Print@{Print}}
+\index{Print@{Print}!netdem::Cell@{netdem::Cell}}
+\doxysubsubsection{\texorpdfstring{Print()}{Print()}}
+{\footnotesize\ttfamily void Cell\+::\+Print (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classnetdem_1_1_cell_ae3d3ed4322434ef86d5cace1ba277443}\label{classnetdem_1_1_cell_ae3d3ed4322434ef86d5cace1ba277443}} 
+\index{netdem::Cell@{netdem::Cell}!bound\_max@{bound\_max}}
+\index{bound\_max@{bound\_max}!netdem::Cell@{netdem::Cell}}
+\doxysubsubsection{\texorpdfstring{bound\_max}{bound\_max}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} netdem\+::\+Cell\+::bound\+\_\+max \{0.\+5, 0.\+5, 0.\+5\}}
+
+\mbox{\Hypertarget{classnetdem_1_1_cell_a8cac2b018f1c1800dd25b89802535e90}\label{classnetdem_1_1_cell_a8cac2b018f1c1800dd25b89802535e90}} 
+\index{netdem::Cell@{netdem::Cell}!bound\_min@{bound\_min}}
+\index{bound\_min@{bound\_min}!netdem::Cell@{netdem::Cell}}
+\doxysubsubsection{\texorpdfstring{bound\_min}{bound\_min}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} netdem\+::\+Cell\+::bound\+\_\+min \{-\/0.\+5, -\/0.\+5, -\/0.\+5\}}
+
+\mbox{\Hypertarget{classnetdem_1_1_cell_aaaa3575af0d035fea16fd7b7e1287929}\label{classnetdem_1_1_cell_aaaa3575af0d035fea16fd7b7e1287929}} 
+\index{netdem::Cell@{netdem::Cell}!linked\_particle\_list@{linked\_particle\_list}}
+\index{linked\_particle\_list@{linked\_particle\_list}!netdem::Cell@{netdem::Cell}}
+\doxysubsubsection{\texorpdfstring{linked\_particle\_list}{linked\_particle\_list}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$std\+::pair$<$\mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} $\ast$, int$>$ $>$ netdem\+::\+Cell\+::linked\+\_\+particle\+\_\+list}
+
+
+
+this list is maintained by Update\+Linked\+Cells in particle 
+
+\mbox{\Hypertarget{classnetdem_1_1_cell_ace812eb598a049427b3f8e0b8b9a5445}\label{classnetdem_1_1_cell_ace812eb598a049427b3f8e0b8b9a5445}} 
+\index{netdem::Cell@{netdem::Cell}!linked\_wall\_list@{linked\_wall\_list}}
+\index{linked\_wall\_list@{linked\_wall\_list}!netdem::Cell@{netdem::Cell}}
+\doxysubsubsection{\texorpdfstring{linked\_wall\_list}{linked\_wall\_list}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$std\+::pair$<$\mbox{\hyperlink{classnetdem_1_1_wall}{Wall}} $\ast$, int$>$ $>$ netdem\+::\+Cell\+::linked\+\_\+wall\+\_\+list}
+
+
+
+this list is maintained by Update\+Linked\+Cells in wall 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/lzhshou/\+Documents/\+Research/my\+Projects/apam/repo/netdem/src/domain/\mbox{\hyperlink{cell_8hpp}{cell.\+hpp}}\item 
+/\+Users/lzhshou/\+Documents/\+Research/my\+Projects/apam/repo/netdem/src/domain/\mbox{\hyperlink{cell_8cpp}{cell.\+cpp}}\end{DoxyCompactItemize}
