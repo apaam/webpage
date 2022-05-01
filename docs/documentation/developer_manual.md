@@ -98,7 +98,7 @@ We generally follow [Google C++ Style Guide](https://google.github.io/styleguide
 
   - Filenames: lowercase words connected by underscores, e.g. ``particle.hpp``, ``contact_pp.cpp``.
   - Variable names: lowercase words connected by underscores, e.g. ``dir_n``.
-  - Class and struct names: words with first letters capitalized, e.g. ``DataDumper``.
+  - Class and struct names: words with first letters capitalized, e.g. ``DataDumper``. Word following abbreviations shoudl be capitalized accordingly, e.g., GJKsolver, DEMgjk, GJKdemGJK, etc.
   - Macros: should be capital, such as ``PI``.
 
 ### Comment
