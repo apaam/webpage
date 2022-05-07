@@ -271,12 +271,18 @@ make
 <h3 id="related-to-installation">Related to installation</h3>
 <h4 id="installation-on-apple-m1">Installation on Apple M1</h4>
 <p>(As of Dec. 20 2021)</p>
+<ul>
+<li>
 <p>OpenMP seems not compitible with Apple M1. To enforce an OpenMP installation, set <code>USE_INTERNAL_OPENMP</code> in netdem <code>CMakeLists.txt</code> to <code>OFF</code>, and use <code>brew install libomp</code> to install a pre-built copy of OpenMP.</p>
+</li>
+<li>
 <p>Add M1 support to <code>fast_winding_number</code> functional in <code>igl</code> via <code>SIMDE</code> (please see the discussion in <a href="https://github.com/sideeffects/WindingNumber/pull/3/files">https://github.com/sideeffects/WindingNumber/pull/3/files</a>): </p>
 <ul>
 <li>Install simde using <code>brew install simde</code>.</li>
 <li>Add <code>-flax-vector-conversions</code> to the gcc complier flag in netdem <code>CMakeLists.txt</code>.</li>
 <li>Add the following lines to the <code>FastWindingNumberForSoups</code> in igl and comment out the <code>#include &lt;emmintrin.h&gt;</code> line.</li>
+</ul>
+</li>
 </ul>
 <pre><code>#define SIMDE_ENABLE_NATIVE_ALIASES
 #include &lt;simde/x86/sse.h&gt;
@@ -287,7 +293,9 @@ make
 #define _MM_MK_INSERTPS_NDX(srcField, dstField, zeroMask) (((srcField)&lt;&lt;6) | ((dstField)&lt;&lt;4) | (zeroMask))
 #endif
 </code></pre>
-<p>Build netdem following the original procedures.</p>
+<ul>
+<li>Build netdem following the original procedures.</li>
+</ul>
 <h4 id="dependencies">Dependencies</h4>
 <ul>
 <li><a href="https://git-scm.com">git</a>, <a href="https://gcc.gnu.org">gcc</a>, <a href="https://cmake.org">cmake</a>: for code developing, configuring and compiling</li>
