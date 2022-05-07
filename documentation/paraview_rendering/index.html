@@ -201,10 +201,7 @@
         <li class="main active"><a href="#_1"></a></li>
         
     
-        <li class="main "><a href="#install-blender-and-add-ons">Install blender and add-ons</a></li>
-        
-    
-        <li class="main "><a href="#rendering">Rendering</a></li>
+        <li class="main "><a href="#clientserver">Client/Server</a></li>
         
     
     </ul>
@@ -215,10 +212,7 @@
         <li class="main active"><a href="#_1"></a></li>
         
     
-        <li class="main "><a href="#install-blender-and-add-ons">Install blender and add-ons</a></li>
-        
-    
-        <li class="main "><a href="#rendering">Rendering</a></li>
+        <li class="main "><a href="#clientserver">Client/Server</a></li>
         
     
     </ul>
@@ -227,55 +221,25 @@
 
 <h3 id="_1"></h3>
 <p><a href="../user_manual/">User manual</a>
-┊ <a href="paravew_rendering.md">Previous</a></p>
+┊ <a href="../basic_usage/">Previous</a>
+┊ <a href="../blender_rendering/">Next</a></p>
 <hr />
-<h3 id="install-blender-and-add-ons">Install blender and add-ons</h3>
+<h3 id="clientserver">Client/Server</h3>
 <ul>
+<li><code>ssh</code> to remote server and start a <code>pvserver</code>;</li>
 <li>
-<p>Install blender, which can be obtained from <a href="https://www.blender.org">https://www.blender.org</a>.</p>
+<p>Establish tunneling using: (remote-hostname can be obtained from the prompt message of pvserver)</p>
+<pre><code>ssh -L 11111:[remote-hostname]:11111 -p [port] [user]@[remote-ip]
+</code></pre>
 </li>
 <li>
-<p>Install <code>VTK</code> inside the blender python environment.</p>
-<p>Hint: to add vtk support in blender, please visit <a href="https://github.com/simboden/BVtkNodes/blob/master/build_vtk.md">https://github.com/simboden/BVtkNodes/blob/master/build_vtk.md</a>.</p>
-</li>
-<li>
-<p>Install <code>BVtkNodes</code> add-on, which can be obtained from <a href="https://github.com/tkeskita/BVtkNodes">https://github.com/tkeskita/BVtkNodes</a>. Thanks Silvano Imboden (s.imboden@cineca.it), Lorenzo Celli, and Paul Mc Manus for the <a href="https://github.com/simboden/BVtkNodes">original work</a>, and Tuomo Keskitalo for functionality extending and maintaining. </p>
-<p>Hint: to install add-on in blender: go to <code>Edit</code> &rarr; <code>Preferences</code> &rarr; <code>add-on</code>, and <code>install</code> the add-on by selecting the zip file downloaded from the github main/master branch.</p>
-</li>
-</ul>
-<h3 id="rendering">Rendering</h3>
-<ul>
-<li>Switch to the <code>BVTK Node Tree</code> editor, and new a node tree similar to the following figure.</li>
-</ul>
-<p><img alt="blender_enditor_layout" src="../../img/blender_enditor_layout.png" style="width:80%" title="Layouts of the blender editors." /></p>
-<p><img alt="node_example" src="../../img/node_example.png" style="width:80%" title="Example of node layout for importing and rendering vtk polydate in blender." /></p>
-<ul>
-<li>Switch back to the <code>3D Viewport</code> editor, and you should get a scene as following.</li>
-</ul>
-<p><img alt="render_example" src="../../img/render_example.png" style="width:80%" title="Example of layort view." /></p>
-<ul>
-<li>Play with the VTK filters and blender feature to polish the scene (color represents the stress). Below is an animation of membrane pulling and twisting, where the result data is simulated and created in <code>NetDEM</code>.</li>
-</ul>
-<p><center></p>
-<video controls width="80%" poster="https://1307405355.vod2.myqcloud.com/7eb7938bvodtranscq1307405355/6450ee7e387702294825734594/coverBySnapshot/coverBySnapshot_10_0.jpg">
-  <source src="https://1307405355.vod2.myqcloud.com/7eb7938bvodtranscq1307405355/6450ee7e387702294825734594/v.f100840.mp4" type="video/mp4">
-</video>
-<p></center></p>
-<p>Hints:</p>
-<ul>
-<li>
-<p>Shortkeys: <code>ctrl</code>+<code>alt</code>+<code>NumPad 0</code> to set the camera to current view; <code>G</code> to translate the selected object; <code>x</code> to delete the selected object; <code>ctrl</code> or <code>shift</code> + mouse operalaitons to pan, zoom-in and zoom-out the view.</p>
-</li>
-<li>
-<p>Rendering settings: suggest to use <code>cycles</code> engine, with the <code>Max Samples</code> set to <code>10</code>.</p>
-</li>
-<li>
-<p>For rendering animaiton: the <code>Time Selector</code> filter will change the file name according to the index of frame. At current stage, the file names should indexed with sequential numbers, i.e., <code>xx_000.vtk</code>, <code>xx_001.vtk</code>, <code>xx_999.vtk</code>, etc. One can play with the vtk filters for possible entension.</p>
+<p>Open paraview in local, add and connect to server with type <code>Client/Server</code>, host <code>localhost</code> and port <code>11111</code></p>
 </li>
 </ul>
 <hr />
 <p><a href="../user_manual/">User manual</a>
-┊ <a href="paravew_rendering.md">Previous</a></p></div>
+┊ <a href="../basic_usage/">Previous</a>
+┊ <a href="../blender_rendering/">Next</a></p></div>
             <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
