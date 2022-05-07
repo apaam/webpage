@@ -226,14 +226,18 @@
 <hr />
 <h3 id="clientserver">Client/Server</h3>
 <ul>
-<li><code>ssh</code> to remote server and start a <code>pvserver</code>;</li>
 <li>
-<p>Establish tunneling using: (remote-hostname can be obtained from the prompt message of pvserver)</p>
-<pre><code>ssh -L 11111:[remote-hostname]:11111 -p [port] [user]@[remote-ip]
+<p>Establish tunneling using:</p>
+<pre><code>ssh -L 11111:localhost:11111 -p [port] [user]@[remote-ip]
 </code></pre>
 </li>
 <li>
-<p>Open paraview in local, add and connect to server with type <code>Client/Server</code>, host <code>localhost</code> and port <code>11111</code></p>
+<p>Start <code>pvserver</code> on remote</p>
+<pre><code>pvserver
+</code></pre>
+</li>
+<li>
+<p>Open paraview at local, add and connect to server with type <code>Client/Server</code>, host <code>localhost</code> and port <code>11111</code></p>
 </li>
 </ul>
 <hr />
