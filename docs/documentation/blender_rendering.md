@@ -1,7 +1,7 @@
 ###
 
 [User manual](user_manual.md)
-┊ [Previous](basic_usage.md)
+┊ [Previous](paravew_rendering.md)
 
 ------
 
@@ -48,4 +48,4 @@ Hints:
 ------
 
 [User manual](user_manual.md)
-┊ [Previous](basic_usage.md)
+┊ [Previous](paravew_rendering.md)

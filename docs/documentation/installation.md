@@ -43,13 +43,13 @@ If some third-party libraries have not been or cannot be downloaded successfully
 
 (As of Dec. 20 2021)
 
-OpenMP seems not compitible with Apple M1. To enforce an OpenMP installation, set ``USE_INTERNAL_OPENMP`` in netdem ``CMakeLists.txt`` to ``OFF``, and use ``brew install libomp`` to install a pre-built copy of OpenMP.
+- OpenMP seems not compitible with Apple M1. To enforce an OpenMP installation, set ``USE_INTERNAL_OPENMP`` in netdem ``CMakeLists.txt`` to ``OFF``, and use ``brew install libomp`` to install a pre-built copy of OpenMP.
 
-Add M1 support to ``fast_winding_number`` functional in ``igl`` via ``SIMDE`` (please see the discussion in [https://github.com/sideeffects/WindingNumber/pull/3/files](https://github.com/sideeffects/WindingNumber/pull/3/files)): 
+- Add M1 support to ``fast_winding_number`` functional in ``igl`` via ``SIMDE`` (please see the discussion in [https://github.com/sideeffects/WindingNumber/pull/3/files](https://github.com/sideeffects/WindingNumber/pull/3/files)): 
 
-- Install simde using ``brew install simde``.
-- Add ``-flax-vector-conversions`` to the gcc complier flag in netdem ``CMakeLists.txt``.
-- Add the following lines to the ``FastWindingNumberForSoups`` in igl and comment out the ``#include <emmintrin.h>`` line.
+    - Install simde using ``brew install simde``.
+    - Add ``-flax-vector-conversions`` to the gcc complier flag in netdem ``CMakeLists.txt``.
+    - Add the following lines to the ``FastWindingNumberForSoups`` in igl and comment out the ``#include <emmintrin.h>`` line.
 
 ```
 #define SIMDE_ENABLE_NATIVE_ALIASES
@@ -62,7 +62,7 @@ Add M1 support to ``fast_winding_number`` functional in ``igl`` via ``SIMDE`` (p
 #endif
 ```
 
-Build netdem following the original procedures.
+- Build netdem following the original procedures.
 
 #### Dependencies
 

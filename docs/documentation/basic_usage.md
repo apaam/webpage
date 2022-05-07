@@ -2,11 +2,11 @@
 
 [User manual](user_manual.md)
 ┊ [Previous](installation.md)
-┊ [Next](blender_rendering.md)
+┊ [Next](paraview_rendering.md)
 
 -------
 
-#### Run built-in examples
+### Run built-in examples
 
 There are some built-in examples defined in the ``examples/`` directory. Once the software is installed, it will create an excutable file in the ``build/bin`` directory. 
 
@@ -32,7 +32,6 @@ In case one need to do the generation in batch, the following command can be use
 
 ```
 ./scripts/batch_data_point2mesh.sh [in_dir] [out_dir] [shape_dir] [0, 1]
-
 ```
 
 Option [0, 1] is for importing shape informaiton, such that ``0`` indicates using the ``json`` shape info (i.e., shape_000_000000000000000.json), ``1`` indicates using ``stl`` shape files. For ``json`` shape info, please specify the exact file name for ``[shape_dir]``, whereas the directory ``shape/`` for ``stl`` shape info.
@@ -98,4 +97,4 @@ We have a [side-repository](https://github.com/apaam/dem_postprocess_scripts) th
 
 [User manual](user_manual.md)
 ┊ [Previous](installation.md)
-┊ [Next](blender_rendering.md)
+┊ [Next](paraview_rendering.md)
