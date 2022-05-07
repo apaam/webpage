@@ -8,12 +8,15 @@
 
 ### Client/Server
 
-- ``ssh`` to remote server and start a ``pvserver``;
-- Establish tunneling using: (remote-hostname can be obtained from the prompt message of pvserver)
+- Establish tunneling using:
 
-        ssh -L 11111:[remote-hostname]:11111 -p [port] [user]@[remote-ip]
+        ssh -L 11111:localhost:11111 -p [port] [user]@[remote-ip]
 
-- Open paraview in local, add and connect to server with type ``Client/Server``, host ``localhost`` and port ``11111``
+- Start ``pvserver`` on remote
+
+        pvserver
+
+- Open paraview at local, add and connect to server with type ``Client/Server``, host ``localhost`` and port ``11111``
 
 ------
 
