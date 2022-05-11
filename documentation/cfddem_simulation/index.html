@@ -67,13 +67,13 @@
             
             
             
-                <li class="dropdown active">
+                <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Documentation <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                     
                         
-                            <li class="active">
-                                 <a href="./">User manual</a>
+                            <li >
+                                 <a href="../user_manual/">User manual</a>
                             </li>
                         
                     
@@ -201,7 +201,16 @@
         <li class="main active"><a href="#_1"></a></li>
         
     
-        <li class="main "><a href="#user-manual">User manual</a></li>
+        <li class="main "><a href="#installation">Installation</a></li>
+        
+    
+        <li class="main "><a href="#run-water-entry-example">Run water entry example</a></li>
+        
+    
+        <li class="main "><a href="#paraview-rendering">Paraview Rendering</a></li>
+        
+    
+        <li class="main "><a href="#modify-the-water-entry-parameters">Modify the water entry parameters</a></li>
         
     
     </ul>
@@ -212,7 +221,16 @@
         <li class="main active"><a href="#_1"></a></li>
         
     
-        <li class="main "><a href="#user-manual">User manual</a></li>
+        <li class="main "><a href="#installation">Installation</a></li>
+        
+    
+        <li class="main "><a href="#run-water-entry-example">Run water entry example</a></li>
+        
+    
+        <li class="main "><a href="#paraview-rendering">Paraview Rendering</a></li>
+        
+    
+        <li class="main "><a href="#modify-the-water-entry-parameters">Modify the water entry parameters</a></li>
         
     
     </ul>
@@ -220,12 +238,105 @@
             <div class="col-md-9" role="main">
 
 <h3 id="_1"></h3>
-<h3 id="user-manual">User manual</h3>
-<p><a href="../installation/">Installation</a>: installation, test, and dependencies, etc.</p>
-<p><a href="../basic_usage/">Basic usage</a>: running simulation, particle shape reconstruction, post-processing, etc.</p>
-<p><a href="../paraview_rendering/">Paraview rendering</a>: hints and procedures in blender paraview.</p>
-<p><a href="../blender_rendering/">Blender rendering</a>: hints and procedures in blender rendering.</p>
-<p><a href="../cfddem_simulation/">CFD-DEM simulation</a>: coupled CFD-DEM simulation using OpenFOAM NetDEM.</p></div>
+<p><a href="../user_manual/">User manual</a></p>
+<hr />
+<h3 id="installation">Installation</h3>
+<ul>
+<li>
+<p>Install <code>netdem</code>, <code>openfoam</code>, and <code>cfddem</code> from <a href="https://github.com/apaam">https://github.com/apaam</a>.</p>
+<pre><code>mkdir apaam
+cd apaam
+
+git clone https://github.com/apaam/netdem.git .
+cd netdem
+make
+cd ..
+
+git clone https://github.com/apaam/openfoam_customized.git .
+cd openfoam_customized
+make
+cd ..
+
+git clone https://github.com/apaam/cfddem.git .
+cd cfddem
+make
+cd ..
+</code></pre>
+</li>
+<li>
+<p>Add the binary directory to syatem PATH in .bashrc (where <code>$path_apaam</code> is the path of apaam)</p>
+<pre><code>export PATH=$PATH:$path_apaam/cfddem/build/bin
+</code></pre>
+</li>
+</ul>
+<h3 id="run-water-entry-example">Run water entry example</h3>
+<ul>
+<li>
+<p>Copy the example folder to a local directory</p>
+<pre><code>cd cfddem
+cp -rf examples/interIBdem/water_entry local/interIBdem/
+</code></pre>
+</li>
+<li>
+<p>Run the example</p>
+<ul>
+<li>Please note that <code>system/fvSolution</code> -&gt; <code>coupling</code> specifies the DEM file and function that will be invoked for the coupling.<pre><code>cd local/interIBdem/water_entry
+./Allclean
+./Allrun-parallel
+</code></pre>
+</li>
+</ul>
+</li>
+<li>
+<p>In case the run fails, please check the lib path has been correctly set in <code>createDEM.py</code>, where the path is the directory of netdem libs.</p>
+</li>
+</ul>
+<h3 id="paraview-rendering">Paraview Rendering</h3>
+<ul>
+<li>
+<p>Render CFD results</p>
+<ul>
+<li>Open <code>interIBdem.foam</code> to paraview</li>
+<li>Change the properties <code>Type Case</code> to <code>Decomposed Case</code> and uncheck <code>Skip Zero Time</code> (optional)</li>
+<li>Play with the result fields</li>
+<li>Optinal: for viaulizeing interal filed results, one can use the <code>Clip</code> or <code>Slice</code> filter</li>
+<li>Optinal: to construct the interface of the water and air, one can add <code>Contour</code> filter to <code>interIBdem.foam</code>, set <code>Contour by</code> to <code>alpha.water</code> and change the contour value to <code>0.5</code></li>
+</ul>
+</li>
+<li>
+<p>Render DEM results</p>
+<ul>
+<li>Open dem/particle_mesh_xxx.vtk.serries to paraview</li>
+<li>Optional: select all particle_mesh_xxx.vtk.serries and add a <code>Group Datesets</code> filter</li>
+<li>Optional: add a <code>Caculator</code> filter after the <code>Group Datesets</code> filter, set <code>Result Array Name</code> to <code>U</code>, and input formulation <code>vel</code>. This will add a <code>U</code> field to the particles, wihch can be linked with the CFD field <code>U</code></li>
+<li>Optional: for probing the evolution of a property value with time, one can add a <code>Plot Data Over Time</code> filter to the <code>Group Datesets</code>, and change the <code>Field Associates</code> to <code>Cells</code>. Then, one can play with the property to show in the newly opened <code>Line Chart View</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="modify-the-water-entry-parameters">Modify the water entry parameters</h3>
+<ul>
+<li>Fuild properties such as viscosity and density is specified in file <code>constant/transportProperties</code>. <ul>
+<li>Please note that fuilds being used are speficied in <code>phases</code>.</li>
+</ul>
+</li>
+<li>Geometries are determined by the <code>system/blockMeshDict</code>. Please note that when <code>scale</code> exist, the coordinates of the vertices with be multiplied by the scale when creating the real mesh.<ul>
+<li>Mesh size are govened by the three values before <code>simpleGrading</code> in the <code>blocks</code> -&gt; <code>hex</code> entry. It is suggested to use cubic elements.</li>
+</ul>
+</li>
+<li>The inital volume fraction of the fuilds are specifed in <code>system/setFiledsDict</code>. <ul>
+<li>Please not that the <code>scale</code> parameter in <code>system/blockMeshDict</code> will not work here, thus the vertices here are their exact values.</li>
+<li>Entry <code>box (-0.05 -0.05 -0.15) (0.05 0.05 0.03)</code> specifies the lower-left-front and upper-right-back coordicates of the box</li>
+<li>Please note that the field entry <code>alpha.glycerol</code> should be consistent with that specified in <code>constant/transportProperties</code> -&gt; <code>phases</code></li>
+</ul>
+</li>
+<li>File <code>system/controlDict</code> specifies the simulation time, timestep and writing interval, etc.</li>
+<li>In <code>createDEM.py</code> -&gt; <code>oneSphere()</code> funciton, one can modify the DEM domain geometries and particle properties.<ul>
+<li>Please note that in the present funciton, the parameter <code>scale</code> varies the size of the DEM domain, wall box and particle intertion region, whereas the <code>p_size</code> is the exact value of particle diameter.</li>
+</ul>
+</li>
+</ul>
+<hr />
+<p><a href="../user_manual/">User manual</a></p></div>
             <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
