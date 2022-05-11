@@ -1,13 +1,8 @@
-serve:
+local:
 	mkdocs serve
-deploy:
+remote:
 	mkdocs gh-deploy
 doxygen: 
 	doxygen Doxyfile
-push:
-	message=update
-	git add .
-	git commit -m '$(message)'
-	git push 
 
-.PHONY: serve deploy doxygen push
+.PHONY: local remote doxygen 
