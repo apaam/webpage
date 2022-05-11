@@ -26,7 +26,14 @@
         make
         cd ..
 
-  - Add the binary directory to syatem PATH in .bashrc (where ``$path_apaam`` is the path of apaam)
+ - Init OpenFOAM environment by adding the following lines to and sourcing the ``.bashrc`` (where ``$path_apaam`` is the path of apaam)
+
+        export path_openfoam=$path_apaam/openfoam_customized/OpenFOAM-build
+        alias openfoam_init='source $path_openfoam/etc/bashrc'
+        openfoam_init
+        echo "using openfoam=$path_openfoam"
+
+ - Add the binary directory to syatem PATH in ``.bashrc`` (where ``$path_apaam`` is the path of apaam)
 
         export PATH=$PATH:$path_apaam/cfddem/build/bin
 
