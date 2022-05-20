@@ -7,7 +7,7 @@
 
 ### Post-processing scripts
 
-- Matlab: [https://github.com/apaam/dem_postprocess_scripts](https://github.com/apaam/dem_postprocess_scripts)
+- Matlab: [https://github.com/apaam/postprocess_scripts](https://github.com/apaam/postprocess_scripts)
 
 ### Other relevant softwares
 
