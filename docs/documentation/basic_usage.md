@@ -91,7 +91,7 @@ Results can be dumped as VTK files, which can be visualized in [paraview](https:
 
 ### Post-process
 
-We have a [side-repository](https://github.com/apaam/dem_postprocess_scripts) that provides some matlab or python scripts for post-process (e.g., VTK io, stress-strain, spherical histograms of contact anisotropy).
+We have a [side-repository](https://github.com/apaam/postprocess_scripts) that provides some matlab or python scripts for post-process (e.g., VTK io, stress-strain, spherical histograms of contact anisotropy).
 
 -------
 
