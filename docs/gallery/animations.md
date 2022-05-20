@@ -67,6 +67,14 @@ Debris flow simulation with spheres and triangles (using contact-area-weighted c
 
 ---
 
+<video controls width="95%" poster="https://1307405355.vod2.myqcloud.com/7eb7938bvodtranscq1307405355/c9a1ede3387702301041088307/coverBySnapshot_10_0.jpg">
+  <source src="https://1307405355.vod2.myqcloud.com/7eb7938bvodtranscq1307405355/c9a1ede3387702301041088307/v.f100830.mp4" type="video/mp4">
+</video>
+
+Dam break and waves strike onto irregular-shaped particle assembly, a demonstrative example of integrating with OpenFOAM for coupled CFD-DEM simulation.
+
+---
+
 </div><div class="col-md-4"  markdown="1">
 
 <video controls width="95%" poster="https://1307405355.vod2.myqcloud.com/7eb7938bvodtranscq1307405355/66ac70453701925924023513996/coverBySnapshot_10_0.jpg">
