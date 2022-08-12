@@ -4,15 +4,8 @@
 
 We do not have a paper for this extire library for now. Please cite one of our relevant works with
 
-```
-@article{lai2021revisiting,
-  title={Revisiting the GJK and shape erosion method for contact resolution in DEM},
-  author={Lai, Zhengshou and Zhao, Shiwei and Zhao, Jidong and Huang, Linchong},
-  journal={Powder Technology},
-  year={2021},
-  publisher={Elsevier}
-}
-```
+- Lai, Z., Zhao, S., Zhao, J., & Huang, L. (2021). [Revisiting the GJK and shape erosion method for contact resolution in DEM](https://www.sciencedirect.com/science/article/pii/S0032591021007555). Powder Technology, 394, 363-371.
+- Lai, Z., Zhao, S., Zhao, J., & Huang, L. (2022). [Signed distance field framework for unified DEM modeling of granular media with arbitrary particle shapes](https://link.springer.com/article/10.1007/s00466-022-02220-8). Computational Mechanics, 1-21.
 
 ### Contributors
 
