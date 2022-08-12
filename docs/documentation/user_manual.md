@@ -6,8 +6,8 @@
 
 [Basic usage](basic_usage.md): running simulation, particle shape reconstruction, post-processing, etc.
 
-[Paraview rendering](paraview_rendering.md): hints and procedures in blender paraview.
+[Paraview rendering](paraview_rendering.md): hints and procedures in paraview visualization.
 
-[Blender rendering](blender_rendering.md): hints and procedures in blender rendering.
+[Blender rendering](blender_rendering.md): hints and procedures in blender visualization.
 
 [CFD-DEM simulation](cfddem_simulation.md): coupled CFD-DEM simulation using OpenFOAM NetDEM.
