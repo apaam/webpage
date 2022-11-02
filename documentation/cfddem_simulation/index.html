@@ -200,8 +200,12 @@
     
         <li class="main active"><a href="#_1"></a></li>
         
+            <li><a href="#prerequisites"> &#9731; Prerequisites:</a></li>
+        
+            <li><a href="#installation"> &#9731; Installation:</a></li>
+        
     
-        <li class="main "><a href="#installation">Installation</a></li>
+        <li class="main "><a href="#examples-tutorials">Examples &amp; tutorials</a></li>
         
     
         <li class="main "><a href="#run-water-entry-example">Run water entry example</a></li>
@@ -220,8 +224,12 @@
     
         <li class="main active"><a href="#_1"></a></li>
         
+            <li><a href="#prerequisites"> &#9731; Prerequisites:</a></li>
+        
+            <li><a href="#installation"> &#9731; Installation:</a></li>
+        
     
-        <li class="main "><a href="#installation">Installation</a></li>
+        <li class="main "><a href="#examples-tutorials">Examples &amp; tutorials</a></li>
         
     
         <li class="main "><a href="#run-water-entry-example">Run water entry example</a></li>
@@ -240,10 +248,20 @@
 <h3 id="_1"></h3>
 <p><a href="../user_manual/">User manual</a></p>
 <hr />
-<h3 id="installation">Installation</h3>
+<h4 id="prerequisites">Prerequisites:</h4>
+<p>The compilation requires <code>gcc</code>, <code>autoconf</code>, <code>automake</code>, <code>cmake</code>, <code>mpi</code>, <code>boost</code>, which can be obtained using</p>
+<pre><code>    # For MacOS: use brew install, such as
+    brew install gcc autoconf automake cmake openmpi boost
+
+    # For Ubuntu: use apt-get install, such as
+    sudo apt-get install build-essential cmake
+    sudo apt-get install libopenmpi-dev openmpi-bin zlib1g-dev libboost-system-dev libboost-thread-dev 
+    sudo apt-get install flex bison gnuplot libreadline-dev libncurses-dev libxt-dev
+</code></pre>
+<h4 id="installation">Installation:</h4>
 <ul>
 <li>
-<p>Install <code>netdem</code>, <code>openfoam</code>, and <code>cfddem</code> from <a href="https://github.com/apaam">https://github.com/apaam</a>.</p>
+<p>Install <code>netdem</code> from <a href="https://github.com/apaam">https://github.com/apaam</a>.</p>
 <pre><code>mkdir apaam
 cd apaam
 
@@ -251,24 +269,31 @@ git clone https://github.com/apaam/netdem.git .
 cd netdem
 make
 cd ..
-
-git clone https://github.com/apaam/openfoam_customized.git .
+</code></pre>
+</li>
+<li>
+<p>Install <code>openfoam</code> from <a href="https://github.com/apaam">https://github.com/apaam</a>.</p>
+<pre><code>git clone https://github.com/apaam/openfoam_customized.git .
 cd openfoam_customized
-make
-cd ..
-
-git clone https://github.com/apaam/cfddem.git .
-cd cfddem
 make
 cd ..
 </code></pre>
 </li>
 <li>
 <p>Init OpenFOAM environment by adding the following lines to and sourcing the <code>.bashrc</code> (where <code>$path_apaam</code> is the path of apaam)</p>
-<pre><code>export path_openfoam=$path_apaam/openfoam_customized/OpenFOAM-build
+<pre><code>export APAAM_DIR=$path_apaam
+export path_openfoam=$path_apaam/openfoam_customized/OpenFOAM-build
 alias openfoam_init='source $path_openfoam/etc/bashrc'
 openfoam_init
 echo "using openfoam=$path_openfoam"
+</code></pre>
+</li>
+<li>
+<p>Install <code>cfddem</code> from <a href="https://github.com/apaam">https://github.com/apaam</a>.</p>
+<pre><code>git clone https://github.com/apaam/cfddem.git .
+cd cfddem
+make
+cd ..
 </code></pre>
 </li>
 <li>
@@ -277,6 +302,11 @@ echo "using openfoam=$path_openfoam"
 </code></pre>
 </li>
 </ul>
+<h3 id="examples-tutorials">Examples &amp; tutorials</h3>
+<p>Some preliminary examples are located under directory <code>examples/</code>, which can be run with, e.g., (in the example directory)</p>
+<pre><code>    ./Allrun
+</code></pre>
+<p>Note one might need to update the path (e.g., <code>sys.path.append("/Users/lzhshou/Documents/Research/myProjects/apaam/repo/netdem/build/lib/")</code>) of the <code>netdem</code> python library in <code>createDEM.py</code> directory.</p>
 <h3 id="run-water-entry-example">Run water entry example</h3>
 <ul>
 <li>
