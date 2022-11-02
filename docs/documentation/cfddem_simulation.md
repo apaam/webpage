@@ -4,9 +4,21 @@
 
 -------
 
-### Installation
+#### Prerequisites: 
 
- - Install ``netdem``, ``openfoam``, and ``cfddem`` from [https://github.com/apaam](https://github.com/apaam).
+The compilation requires ``gcc``, ``autoconf``, ``automake``, ``cmake``, ``mpi``, ``boost``, which can be obtained using
+
+        # For MacOS: use brew install, such as
+        brew install gcc autoconf automake cmake openmpi boost
+        
+        # For Ubuntu: use apt-get install, such as
+        sudo apt-get install build-essential cmake
+        sudo apt-get install libopenmpi-dev openmpi-bin zlib1g-dev libboost-system-dev libboost-thread-dev 
+        sudo apt-get install flex bison gnuplot libreadline-dev libncurses-dev libxt-dev 
+
+#### Installation:
+
+ - Install ``netdem`` from [https://github.com/apaam](https://github.com/apaam).
 
         mkdir apaam
         cd apaam
@@ -16,26 +28,40 @@
         make
         cd ..
 
+ - Install ``openfoam`` from [https://github.com/apaam](https://github.com/apaam).
+
         git clone https://github.com/apaam/openfoam_customized.git .
         cd openfoam_customized
         make
         cd ..
+
+ - Init OpenFOAM environment by adding the following lines to and sourcing the ``.bashrc`` (where ``$path_apaam`` is the path of apaam)
+
+        export APAAM_DIR=$path_apaam
+        export path_openfoam=$path_apaam/openfoam_customized/OpenFOAM-build
+        alias openfoam_init='source $path_openfoam/etc/bashrc'
+        openfoam_init
+        echo "using openfoam=$path_openfoam"
+
+ - Install ``cfddem`` from [https://github.com/apaam](https://github.com/apaam).
 
         git clone https://github.com/apaam/cfddem.git .
         cd cfddem
         make
         cd ..
 
- - Init OpenFOAM environment by adding the following lines to and sourcing the ``.bashrc`` (where ``$path_apaam`` is the path of apaam)
-
-        export path_openfoam=$path_apaam/openfoam_customized/OpenFOAM-build
-        alias openfoam_init='source $path_openfoam/etc/bashrc'
-        openfoam_init
-        echo "using openfoam=$path_openfoam"
-
  - Add the binary directory to syatem PATH in ``.bashrc`` (where ``$path_apaam`` is the path of apaam)
 
         export PATH=$PATH:$path_apaam/cfddem/build/bin
+
+### Examples & tutorials
+
+Some preliminary examples are located under directory ``examples/``, which can be run with, e.g., (in the example directory)
+
+
+        ./Allrun
+
+Note one might need to update the path (e.g., ``sys.path.append("/Users/lzhshou/Documents/Research/myProjects/apaam/repo/netdem/build/lib/")``) of the ``netdem`` python library in ``createDEM.py`` directory.
 
 
 ### Run water entry example
