@@ -48,9 +48,10 @@
         make
         cd ..
 
- - Add the binary directory to syatem PATH in ``.bashrc`` (where ``$path_apaam`` is the path of apaam)
+ - Add the library and binary directory to system PATH in ``.bashrc`` (where ``$path_apaam`` is the path of apaam)
 
         export PATH=$PATH:$path_apaam/cfddem/build/bin
+        export PYTHONPATH=$path_apaam/netdem/build/lib
 
 ### Examples & tutorials
 
@@ -59,7 +60,7 @@ Some preliminary examples are located under directory ``examples/``, which can b
 
         ./Allrun
 
-Note one might need to update the path (e.g., ``sys.path.append("/Users/lzhshou/Documents/Research/myProjects/apaam/repo/netdem/build/lib/")``) of the ``netdem`` python library in ``createDEM.py`` directory.
+Note if the ``pynetdem`` package cannot be imported into python, one might need to exiplictly add the path (e.g., ``sys.path.append("/Users/lzhshou/Documents/Research/myProjects/apaam/repo/netdem/build/lib/")``) of the ``netdem`` python library in ``createDEM.py``.
 
 
 ### Run water entry example
