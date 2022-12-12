@@ -13,7 +13,7 @@
         
         # For Ubuntu: use apt-get install, such as
         sudo apt-get install build-essential cmake
-        sudo apt-get install libopenmpi-dev openmpi-bin zlib1g-dev libboost-system-dev libboost-thread-dev 
+        sudo apt-get install libopenmpi-dev openmpi-bin zlib1g-dev libboost-all-dev
         sudo apt-get install flex bison gnuplot libreadline-dev libncurses-dev libxt-dev 
 
  - Install ``netdem`` from [https://github.com/apaam](https://github.com/apaam).
