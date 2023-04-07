@@ -11,3 +11,8 @@
 [Blender rendering](blender_rendering.md): hints and procedures in blender visualization.
 
 [CFD-DEM simulation](cfddem_simulation.md): coupled CFD-DEM simulation using OpenFOAM NetDEM.
+
+### Class reference
+
+[dem](ref_dem.md): defines the basic classes for dem calculations, including contact model, contact solver, etc.
+[domain](ref_domain.md): 
