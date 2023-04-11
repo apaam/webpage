@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="https://apaam.github.io/netdem_docs/img/favicon.ico">
+        <meta name="keywords" content="Finite Element Library,Finite Element Code,Finite Element Method Library,Finite Element Method Code,Finite Element C++,Finite Element Method C++,Finite Element Library C++,Finite Element Code C++,FEM Code,FEM Library,FEM C++">
+        <meta name="google-site-verification" content="45K56TawSdzbgy-uDtfJdYwp7zaVdL3fIAGYt869wwU" />
+<!--	<title></title>  -->
+        <title>NetDEM - Neural Network Enabled Discret Element Method</title>
+
+        <link href="../../css/bootstrap-netdem.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome-4.0.3.css" rel="stylesheet">
+        <link href="../../css/highlight.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+        
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <!-- Main title -->
+            <a class="navbar-brand" href="https://apaam.github.io/netdem_docs/">NetDEM</a>
+        </div>
+
+        <script>var base_url = '../..';</script>
+        <!-- <script data-main="../../mkdocs/js/search.js" src="../../mkdocs/js/require.js"></script> -->
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            <!-- Main navigation -->
+            <ul class="nav navbar-nav">
+            
+            
+            
+            
+            
+                <li >
+                    <!-- Replace "nav_item.url|url" with "nav_item.url" for older mkdocs (before 1.0) -->
+                    <a href="../../examples/">Examples</a>
+                </li>
+            
+            
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Documentation <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+                            <li >
+                                 <a href="../user_manual/">User manual</a>
+                            </li>
+                        
+                    
+                        
+                            <li >
+                                 <a href="../developer_manual/">Developer manual</a>
+                            </li>
+                        
+                    
+                        
+                            <li >
+                                 <a href="../dem_wiki/">DEM wiki</a>
+                            </li>
+                        
+                    
+                        
+                            <li >
+                                 <a href="../../doxygen/html/">Code doxygen</a>
+                            </li>
+                        
+                    
+                    </ul>
+                </li>
+            
+            
+            
+            
+            
+                <li >
+                    <!-- Replace "nav_item.url|url" with "nav_item.url" for older mkdocs (before 1.0) -->
+                    <a href="../../download/">Download</a>
+                </li>
+            
+            
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Gallery <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+                            <li >
+                                 <a href="../../gallery/snapshots/">Snapshots</a>
+                            </li>
+                        
+                    
+                        
+                            <li >
+                                 <a href="../../gallery/animations/">Animations</a>
+                            </li>
+                        
+                    
+                    </ul>
+                </li>
+            
+            
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">About <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+                            <li >
+                                 <a href="../../about/news_%26_updates/">News & Updates</a>
+                            </li>
+                        
+                    
+                        
+                            <li >
+                                 <a href="../../about/help_%26_support/">Help & Support</a>
+                            </li>
+                        
+                    
+                        
+                            <li >
+                                 <a href="../../about/publications/">Publications</a>
+                            </li>
+                        
+                    
+                        
+                            <li >
+                                 <a href="../../about/acknowledgement/">Acknowledgements</a>
+                            </li>
+                        
+                    
+                    </ul>
+                </li>
+            
+            
+            
+            </ul>
+
+            <!-- Search, Navigation and Repo links -->
+            <ul class="nav navbar-nav navbar-right">
+                <li class="nav-item">
+                    <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                        <i class="fa fa-search"></i> Search
+                    </a>
+                </li>
+                
+                
+                <li>
+                    <a href="https://github.com/apaam/netdem_docs/">
+                        
+                            <i class="fa fa-github-square"></i>
+                        
+                        GitHub
+                    </a>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+
+        
+        <div class="container">
+            
+            <div class="col-md-3 visible-xs visible-sm"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+    
+        <li class="main active"><a href="#_1"></a></li>
+        
+    
+        <li class="main "><a href="#shape">Shape</a></li>
+        
+    
+        <li class="main "><a href="#sphere">Sphere</a></li>
+        
+    
+        <li class="main "><a href="#pointsphere">PointSphere</a></li>
+        
+    
+        <li class="main "><a href="#plane">Plane</a></li>
+        
+    
+        <li class="main "><a href="#triangle">Triangle</a></li>
+        
+    
+        <li class="main "><a href="#cylinder">Cylinder</a></li>
+        
+            <li><a href="#constructor"> &#9731; Constructor</a></li>
+        
+    
+        <li class="main "><a href="#ellipsoid">Ellipsoid</a></li>
+        
+    
+        <li class="main "><a href="#sphericalharmonics">SphericalHarmonics</a></li>
+        
+    
+        <li class="main "><a href="#polysuperellipsoid">PolySuperEllipsoid</a></li>
+        
+    
+        <li class="main "><a href="#polysuperquadrics">PolySuperQuadrics</a></li>
+        
+    
+        <li class="main "><a href="#levelset">LevelSet</a></li>
+        
+    
+        <li class="main "><a href="#trimesh">TriMesh</a></li>
+        
+    
+        <li class="main "><a href="#initpyshapemodule">InitPyShapeModule</a></li>
+        
+            <li><a href="#initpyshape"> &#9731; InitPyShape</a></li>
+        
+            <li><a href="#initpysphere"> &#9731; InitPySphere</a></li>
+        
+            <li><a href="#initpypointsphere"> &#9731; InitPyPointSphere</a></li>
+        
+    
+    </ul>
+</div></div> <!-- toc on top on mobile -->
+            <div class="col-md-3 hidden-xs hidden-sm"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+    
+        <li class="main active"><a href="#_1"></a></li>
+        
+    
+        <li class="main "><a href="#shape">Shape</a></li>
+        
+    
+        <li class="main "><a href="#sphere">Sphere</a></li>
+        
+    
+        <li class="main "><a href="#pointsphere">PointSphere</a></li>
+        
+    
+        <li class="main "><a href="#plane">Plane</a></li>
+        
+    
+        <li class="main "><a href="#triangle">Triangle</a></li>
+        
+    
+        <li class="main "><a href="#cylinder">Cylinder</a></li>
+        
+            <li><a href="#constructor"> &#9731; Constructor</a></li>
+        
+    
+        <li class="main "><a href="#ellipsoid">Ellipsoid</a></li>
+        
+    
+        <li class="main "><a href="#sphericalharmonics">SphericalHarmonics</a></li>
+        
+    
+        <li class="main "><a href="#polysuperellipsoid">PolySuperEllipsoid</a></li>
+        
+    
+        <li class="main "><a href="#polysuperquadrics">PolySuperQuadrics</a></li>
+        
+    
+        <li class="main "><a href="#levelset">LevelSet</a></li>
+        
+    
+        <li class="main "><a href="#trimesh">TriMesh</a></li>
+        
+    
+        <li class="main "><a href="#initpyshapemodule">InitPyShapeModule</a></li>
+        
+            <li><a href="#initpyshape"> &#9731; InitPyShape</a></li>
+        
+            <li><a href="#initpysphere"> &#9731; InitPySphere</a></li>
+        
+            <li><a href="#initpypointsphere"> &#9731; InitPyPointSphere</a></li>
+        
+    
+    </ul>
+</div></div>
+            <div class="col-md-9" role="main">
+
+<h3 id="_1"></h3>
+<p><a href="../user_manual/">User manual</a>
+┊ <a href="../ref_dem/">Previous</a>
+┊ <a href="../ref_domain/">Next</a></p>
+<hr />
+<h3 id="shape">Shape</h3>
+<p>This class represents a shape.</p>
+<p>Constructor
+Shape()
+Creates a new instance of the Shape class.</p>
+<p>Attributes
+id
+An integer ID for the shape.</p>
+<p>label
+A string label for the shape.</p>
+<p>shape_type
+An enumeration representing the type of the shape.</p>
+<p>shape_name
+A string name for the shape.</p>
+<p>size
+A Vec3d vector representing the size of the shape.</p>
+<p>volume
+A double representing the volume of the shape.</p>
+<p>inertia
+A Vec3d vector representing the inertia tensor of the shape.</p>
+<p>bound_sphere_radius
+A double representing the radius of the bounding sphere of the shape.</p>
+<p>skin
+A bool indicating whether the shape has a skin.</p>
+<p>skin_factor
+A double representing the skin factor of the shape.</p>
+<p>bound_aabb_min
+A Vec3d vector representing the minimum corner of the axis-aligned bounding box of the shape.</p>
+<p>bound_aabb_max
+A Vec3d vector representing the maximum corner of the axis-aligned bounding box of the shape.</p>
+<p>use_node
+A bool indicating whether the shape uses a node.</p>
+<p>node_num
+An integer representing the number of nodes used by the shape.</p>
+<p>node_spacing
+A double representing the spacing between nodes of the shape.</p>
+<p>nodes
+A vector of Vec3d vectors representing the nodes of the shape.</p>
+<p>is_convex
+A bool indicating whether the shape is convex.</p>
+<p>use_customized_solver
+A bool indicating whether the shape uses a customized solver.</p>
+<p>Methods
+PackJson()
+Pack the shape data into a JSON object.</p>
+<p>InitFromJson(json_data)
+Initialize the shape from a JSON object.</p>
+<p>json_data (JSON object): A JSON object containing the data to initialize the shape.
+InitFromJsonFile(json_file)
+Initialize the shape from a JSON file.</p>
+<p>json_file (string): The path of the JSON file to load.
+UpdateNodes()
+Update the nodes of the shape.</p>
+<p>UpdateShapeProperties()
+Update the properties of the shape.</p>
+<p>SetSize(size)
+Set the size of the shape.</p>
+<p>size (Vec3d): The new size of the shape.
+Clone()
+Create a new instance of the shape that is a copy of the current shape.</p>
+<p>GetSTLModel()
+Get the STL model of the shape.</p>
+<p>SaveAsVTK(filename)
+Save the shape as a VTK file.</p>
+<p>filename (string): The path of the file to save.
+SaveAsSTL(filename)
+Save the shape as an STL file.</p>
+<p>filename (string): The path of the file to save.
+GetBoundAABB()
+Get the axis-aligned bounding box of the shape.</p>
+<p>SignedDistance(point)
+Compute the signed distance between a point and the surface of the shape.</p>
+<p>point (Vec3d): The point to compute the signed distance from.
+SurfacePoint(point)
+Find the surface point of the shape closest to a given point.</p>
+<p>point (Vec3d): The point to find the closest surface point to.
+Enclose(shapes)
+Create a new shape that encloses a set of shapes.</p>
+<p>shapes (vector of Shape objects): The set of shapes to enclose.
+Print()
+Print the properties of the shape to the console.</p>
+<hr />
+<h3 id="sphere">Sphere</h3>
+<p>Represents a sphere.</p>
+<p>Constructor
+Sphere()
+Creates a new instance of the Sphere class.</p>
+<p>Sphere(radius: float)
+Creates a new instance of the Sphere class with the given radius.</p>
+<p>radius (float): The radius of the sphere.</p>
+<hr />
+<h3 id="pointsphere">PointSphere</h3>
+<p>Represents a point sphere.</p>
+<p>Constructor
+PointSphere()
+Creates a new instance of the PointSphere class.</p>
+<p>PointSphere(radius: float)
+Creates a new instance of the PointSphere class with the given radius.</p>
+<p>radius (float): The radius of the point sphere.</p>
+<hr />
+<h3 id="plane">Plane</h3>
+<p>Represents a plane.</p>
+<p>Constructor
+Plane()
+Creates a new instance of the Plane class.</p>
+<p>Plane(center: Vec3d, dir_n: Vec3d, extent: float)
+Creates a new instance of the Plane class with the given center, normal vector, and extent.</p>
+<p>center (Vec3d): The center point of the plane.
+dir_n (Vec3d): The normal vector of the plane.
+extent (float): The extent of the plane.
+Attributes
+center
+The center point of the plane.</p>
+<p>dir_n
+The normal vector of the plane.</p>
+<p>extent
+The extent of the plane.</p>
+<p>Methods
+SetExtent(extent: float)
+Sets the extent of the plane.</p>
+<p>extent (float): The extent to set for the plane.
+SetCenter(center: Vec3d)
+Sets the center point of the plane.</p>
+<p>center (Vec3d): The center point to set for the plane.
+SetNormal(dir_n: Vec3d)
+Sets the normal vector of the plane.</p>
+<p>dir_n (Vec3d): The normal vector to set for the plane.</p>
+<hr />
+<h3 id="triangle">Triangle</h3>
+<p>Represents a triangle.</p>
+<p>Constructor
+Triangle()
+Creates a new instance of the Triangle class.</p>
+<p>Triangle(v1: Vec3d, v2: Vec3d, v3: Vec3d)
+Creates a new instance of the Triangle class with the given vertices.</p>
+<p>v1 (Vec3d): The first vertex of the triangle.
+v2 (Vec3d): The second vertex of the triangle.
+v3 (Vec3d): The third vertex of the triangle.
+Attributes
+vertices
+The vertices of the triangle.</p>
+<p>dir_n
+The normal vector of the triangle.</p>
+<p>Methods
+SetVertices(v1: Vec3d, v2: Vec3d, v3: Vec3d)
+Sets the vertices of the triangle.</p>
+<p>v1 (Vec3d): The first vertex of the triangle.
+v2 (Vec3d): The second vertex of the triangle.
+v3 (Vec3d): The third vertex of the triangle.</p>
+<hr />
+<h3 id="cylinder">Cylinder</h3>
+<p>This class represents a cylinder.</p>
+<h4 id="constructor">Constructor</h4>
+<p>Cylinder()
+Creates a new instance of the Cylinder class with default values.</p>
+<p>Cylinder(radius, height): Creates a new instance of the Cylinder class with the given radius and height values.
+Attributes
+radius: The radius of the cylinder.
+height: The height of the cylinder.
+Methods
+Init(): Initializes the cylinder with default values.
+Init(radius, height): Initializes the cylinder with the given radius and height values.</p>
+<hr />
+<h3 id="ellipsoid">Ellipsoid</h3>
+<p>This class represents an ellipsoid.</p>
+<p>Constructor
+Ellipsoid(): Creates a new instance of the Ellipsoid class with default values.
+Ellipsoid(axis_a, axis_b, axis_c): Creates a new instance of the Ellipsoid class with the given axis_a, axis_b, and axis_c values.
+Attributes
+axis_a: The length of the semi-axis along the x-axis.
+axis_b: The length of the semi-axis along the y-axis.
+axis_c: The length of the semi-axis along the z-axis.
+Methods
+Init(): Initializes the ellipsoid with default values.
+Init(axis_a, axis_b, axis_c): Initializes the ellipsoid with the given axis_a, axis_b, and axis_c values.</p>
+<hr />
+<h3 id="sphericalharmonics">SphericalHarmonics</h3>
+<p>This class represents a spherical harmonics shape.</p>
+<p>Constructor
+SphericalHarmonics(): Creates a new instance of the SphericalHarmonics class with default values.
+SphericalHarmonics(degree): Creates a new instance of the SphericalHarmonics class with the given degree value.
+Attributes
+degree: The degree of the spherical harmonics shape.
+a_nm: The coefficients of the spherical harmonics shape.
+Methods
+Init(): Initializes the spherical harmonics shape with default values.
+Init(degree): Initializes the spherical harmonics shape with the given degree value.
+InitFromSTL(file_path): Initializes the spherical harmonics shape from an STL file located at file_path.
+InitFromSTL(stl_model): Initializes the spherical harmonics shape from an STLModel object stl_model.</p>
+<hr />
+<h3 id="polysuperellipsoid">PolySuperEllipsoid</h3>
+<p>This class represents a poly super ellipsoid shape.</p>
+<p>Constructor
+PolySuperEllipsoid()
+Creates a new instance of the PolySuperEllipsoid class.</p>
+<p>Attributes
+axis_a
+The axis a value of the poly super ellipsoid.</p>
+<p>axis_b
+The axis b value of the poly super ellipsoid.</p>
+<p>axis_c
+The axis c value of the poly super ellipsoid.</p>
+<p>order_ab
+The order ab value of the poly super ellipsoid.</p>
+<p>order_c
+The order c value of the poly super ellipsoid.</p>
+<p>Methods
+Init(axis_a, axis_b, axis_c, order_ab, order_c)
+Initializes the poly super ellipsoid with the given parameters.</p>
+<p>axis_a (float): The axis a value to set.
+axis_b (float): The axis b value to set.
+axis_c (float): The axis c value to set.
+order_ab (float): The order ab value to set.
+order_c (float): The order c value to set.</p>
+<hr />
+<h3 id="polysuperquadrics">PolySuperQuadrics</h3>
+<p>This class represents a poly superquadric shape.</p>
+<p>Constructor
+PolySuperQuadrics(axis_a=1, axis_b=1, axis_c=1, order_a=2, order_b=2, order_c=2, x=0, y=0, z=0, qx=0, qy=0, qz=0)
+Creates a new instance of the PolySuperQuadrics class.</p>
+<p>axis_a (float, optional): The scaling factor for the x axis. Default is 1.
+axis_b (float, optional): The scaling factor for the y axis. Default is 1.
+axis_c (float, optional): The scaling factor for the z axis. Default is 1.
+order_a (float, optional): The order of the polynomial for the x axis. Default is 2.
+order_b (float, optional): The order of the polynomial for the y axis. Default is 2.
+order_c (float, optional): The order of the polynomial for the z axis. Default is 2.
+x (float, optional): The x-coordinate of the position. Default is 0.
+y (float, optional): The y-coordinate of the position. Default is 0.
+z (float, optional): The z-coordinate of the position. Default is 0.
+qx (float, optional): The x-component of the rotation quaternion. Default is 0.
+qy (float, optional): The y-component of the rotation quaternion. Default is 0.
+qz (float, optional): The z-component of the rotation quaternion. Default is 0.
+Attributes
+axis_a
+The scaling factor for the x axis.</p>
+<p>axis_b
+The scaling factor for the y axis.</p>
+<p>axis_c
+The scaling factor for the z axis.</p>
+<p>order_a
+The order of the polynomial for the x axis.</p>
+<p>order_b
+The order of the polynomial for the y axis.</p>
+<p>order_c
+The order of the polynomial for the z axis.</p>
+<p>Methods
+Init()
+Initialize the poly superquadric shape.</p>
+<p>void
+InitFromJSON(json_data)
+Initialize the poly superquadric shape from a JSON object.</p>
+<p>json_data (JSON object): A JSON object containing the parameters to set.
+Init(axis_a, axis_b, axis_c, order_a, order_b, order_c)
+Initialize the poly superquadric shape.</p>
+<p>axis_a (float): The scaling factor for the x axis.
+axis_b (float): The scaling factor for the y axis.
+axis_c (float): The scaling factor for the z axis.
+order_a (float): The order of the polynomial for the x axis.
+order_b (float): The order of the polynomial for the y axis.
+order_c (float): The order of the polynomial for the z axis.</p>
+<hr />
+<h3 id="levelset">LevelSet</h3>
+<p>This class represents a level set.</p>
+<p>Constructor
+LevelSet()
+Creates a new instance of the LevelSet class.</p>
+<p>Methods
+InitFromSTL(stl_file, sign)
+Initialize the level set from an STL file.</p>
+<p>stl_file (string): The name of the STL file.
+sign (int): The sign of the level set.
+InitFromSTL(stl_model, sign)
+Initialize the level set from an STL model.</p>
+<p>stl_model (STLModel): The STL model.
+sign (int): The sign of the level set.
+InitFromDistanceMap(distance_map)
+Initialize the level set from a distance map.</p>
+<p>distance_map (DistanceMap): The distance map.
+SurfacePoint(point)
+Get the surface point of the level set.</p>
+<p>point (Vector3d): The point.
+AlignAxes()
+Align the axes of the level set.</p>
+<hr />
+<h3 id="trimesh">TriMesh</h3>
+<p>This class represents a triangular mesh.</p>
+<p>Constructor
+TriMesh()
+Creates a new instance of the TriMesh class.</p>
+<p>Attributes
+vertices
+A list of vertices that make up the mesh.</p>
+<p>facets
+A list of facets that make up the mesh.</p>
+<p>Methods
+Init()
+Initialize the triangular mesh.</p>
+<p>InitFromSTL(file_name)
+Initialize the triangular mesh from an STL file.</p>
+<p>file_name (string): The name of the STL file.
+InitFromOFF(file_name)
+Initialize the triangular mesh from an OFF file.</p>
+<p>file_name (string): The name of the OFF file.
+Decimate(num_faces)
+Decimate the mesh to reduce the number of faces.</p>
+<p>num_faces (int): The target number of faces for the decimated mesh.
+MakeConvex()
+Make the mesh convex.</p>
+<p>AlignAxes()
+Align the axes of the mesh.</p>
+<hr />
+<h3 id="initpyshapemodule">InitPyShapeModule</h3>
+<p>This function initializes a Python module with various shape classes and functions. The following functions are called to add their respective classes to the module:</p>
+<h4 id="initpyshape"><code>InitPyShape</code></h4>
+<h4 id="initpysphere"><code>InitPySphere</code></h4>
+<h4 id="initpypointsphere">InitPyPointSphere</h4>
+<p>InitPyPlane
+InitPyTriangle
+InitPyCylinder
+InitPyEllipsoid
+InitPySphericalHarmonics
+InitPyPolySuperEllipsoid
+InitPyPolySuperQuadrics
+InitPyLevelSet
+InitPyTriMesh</p>
+<hr />
+<p><a href="../user_manual/">User manual</a>
+┊ <a href="../ref_dem/">Previous</a>
+┊ <a href="../ref_domain/">Next</a></p></div>
+            <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>Enter your search keywords below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+            
+        </div>
+        
+
+        <footer class="footer">
+           <div class="container">
+              <p class="text-muted alignleft">
+                  <span id="busuanzi_container_site_uv" style='display:none'>Vistors: <span id="busuanzi_value_site_uv"></span>. </span>
+              </p>
+              <p class="text-muted alignright">
+                &copy; <a href="https://apaam.github.io/netdem_docs/about/acknowledgement/">NetDEM Team</a>. SYSU, HKUST.
+              </p>
+           </div>
+        </footer>
+
+        <script src="../../js/jquery-1.10.2.min.js"></script>
+        <script src="../../js/bootstrap-3.0.3.min.js"></script>
+        <script src="../../js/highlight.pack.js"></script>
+        <script src="../../js/base.js"></script>
+        <script src="../../js/retina.min.js"></script>
+        <!-- <script data-main="../../mkdocs/js/search.js" src="../../mkdocs/js/require.js"></script> -->
+        <script src="../../mathjax-config.js"></script>
+        <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+        <script src="../../search/main.js"></script>
+    </body>
+</html>
