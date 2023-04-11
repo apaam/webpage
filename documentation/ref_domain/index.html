@@ -204,6 +204,12 @@
         <li class="main "><a href="#domainmanager">DomainManager</a></li>
         
     
+        <li class="main "><a href="#create-a-new-instance-of-the-cellmanager-class">Create a new instance of the CellManager class</a></li>
+        
+    
+        <li class="main "><a href="#set-the-spacing">Set the spacing</a></li>
+        
+    
     </ul>
 </div></div> <!-- toc on top on mobile -->
             <div class="col-md-3 hidden-xs hidden-sm"><div class="bs-sidebar hidden-print affix well" role="complementary">
@@ -213,6 +219,12 @@
         
     
         <li class="main "><a href="#domainmanager">DomainManager</a></li>
+        
+    
+        <li class="main "><a href="#create-a-new-instance-of-the-cellmanager-class">Create a new instance of the CellManager class</a></li>
+        
+    
+        <li class="main "><a href="#set-the-spacing">Set the spacing</a></li>
         
     
     </ul>
@@ -225,6 +237,109 @@
 ┊ <a href="./">Next</a></p>
 <hr />
 <h3 id="domainmanager">DomainManager</h3>
+<p>CellManager
+This class represents a cell manager.</p>
+<p>Constructor
+CellManager()
+Creates a new instance of the CellManager class.</p>
+<p>Methods
+SetSpacing(spacing)
+Set the spacing of the cell manager.</p>
+<p>spacing (float): The value of the spacing to set.
+Python Interface
+Here is an example of how to use the CellManager class in Python:</p>
+<p>python
+Copy code
+import pynetdem</p>
+<h1 id="create-a-new-instance-of-the-cellmanager-class">Create a new instance of the CellManager class</h1>
+<p>cell_manager = pynetdem.CellManager()</p>
+<h1 id="set-the-spacing">Set the spacing</h1>
+<p>cell_manager.SetSpacing(0.1)</p>
+<hr />
+<p>Domain
+This class represents a computational domain.</p>
+<p>Constructor
+Domain()
+Creates a new instance of the Domain class.</p>
+<p>Attributes
+cell_manager
+An instance of the CellManager class.</p>
+<p>self_rank
+The rank of the current process.</p>
+<p>total_rank
+The total number of processes.</p>
+<p>bound_min
+The minimum bound of the domain.</p>
+<p>bound_max
+The maximum bound of the domain.</p>
+<p>Methods
+SetBound(bound_min, bound_max)
+Set the bounds of the domain.</p>
+<p>bound_min (Vec3): The minimum bound of the domain.
+bound_max (Vec3): The maximum bound of the domain.
+SetCellSpacing(spacing)
+Set the spacing between cells.</p>
+<p>spacing (Vec3): The spacing between cells.
+IsJudgeDomain(particle1, particle2)
+Check if two particles belong to the same domain.</p>
+<p>particle1 (Particle): The first particle.
+particle2 (Particle): The second particle.
+IsJudgeDomain(particle, wall)
+Check if a particle and a wall belong to the same domain.</p>
+<p>particle (Particle): The particle.
+wall (Wall): The wall.
+IsBelongToDomain(particle)
+Check if a particle belongs to the domain.</p>
+<p>particle (Particle): The particle.
+IsBelongToDomain(particle_data)
+Check if a particle data belongs to the domain.</p>
+<p>particle_data (ParticleData): The particle data. </p>
+<hr />
+<p>DomainManager
+This class manages the domains in a distributed computing environment.</p>
+<p>Constructor
+DomainManager()
+Creates a new instance of the DomainManager class.</p>
+<p>Methods
+SetBound(bound_min, bound_max)
+Sets the bounding box of the domains.</p>
+<p>bound_min (tuple of floats): The minimum coordinates of the bounding box.
+bound_max (tuple of floats): The maximum coordinates of the bounding box.
+SetDecomposition(num_subdomains)
+Sets the number of subdomains for decomposition.</p>
+<p>num_subdomains (int): The number of subdomains to decompose the domain into.
+SetCellSpacing(spacing)
+Sets the cell spacing for the subdomains.</p>
+<p>spacing (float): The cell spacing for the subdomains.
+GetGhostSubDomains() -&gt; list of Domain
+Returns a list of ghost subdomains.</p>
+<p>GetSelfGhostSubDomain() -&gt; Domain
+Returns the ghost subdomain for the current process.</p>
+<p>GetSelfSubDomain() -&gt; Domain
+Returns the subdomain for the current process.</p>
+<hr />
+<p>DomainManager
+This class manages the domains in a distributed computing environment.</p>
+<p>Constructor
+DomainManager()
+Creates a new instance of the DomainManager class.</p>
+<p>Methods
+SetBound(bound_min, bound_max)
+Sets the bounding box of the domains.</p>
+<p>bound_min (tuple of floats): The minimum coordinates of the bounding box.
+bound_max (tuple of floats): The maximum coordinates of the bounding box.
+SetDecomposition(num_subdomains)
+Sets the number of subdomains for decomposition.</p>
+<p>num_subdomains (int): The number of subdomains to decompose the domain into.
+SetCellSpacing(spacing)
+Sets the cell spacing for the subdomains.</p>
+<p>spacing (float): The cell spacing for the subdomains.
+GetGhostSubDomains() -&gt; list of Domain
+Returns a list of ghost subdomains.</p>
+<p>GetSelfGhostSubDomain() -&gt; Domain
+Returns the ghost subdomain for the current process.</p>
+<p>GetSelfSubDomain() -&gt; Domain
+Returns the subdomain for the current process.</p>
 <hr />
 <p><a href="../user_manual/">User manual</a>
 ┊ <a href="../ref_dem/">Previous</a>

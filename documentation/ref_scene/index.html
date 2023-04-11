@@ -201,32 +201,26 @@
         <li class="main active"><a href="#_1"></a></li>
         
     
-        <li class="main "><a href="#contactmodel">ContactModel</a></li>
+        <li class="main "><a href="#demobjectpool">DEMObjectPool</a></li>
         
             <li><a href="#constructor"> &#9731; Constructor</a></li>
-        
-            <li><a href="#attributes"> &#9731; Attributes</a></li>
         
             <li><a href="#methods"> &#9731; Methods</a></li>
         
     
-        <li class="main "><a href="#linearspring">LinearSpring</a></li>
+        <li class="main "><a href="#initpybondedspheres">InitPyBondedSpheres</a></li>
+        
+    
+        <li class="main "><a href="#attributes">Attributes</a></li>
+        
+    
+        <li class="main "><a href="#contactpw">ContactPW</a></li>
         
             <li><a href="#constructor_1"> &#9731; Constructor</a></li>
         
-    
-        <li class="main "><a href="#parallelbond">ParallelBond</a></li>
-        
-            <li><a href="#constructor_2"> &#9731; Constructor</a></li>
-        
-            <li><a href="#inheritance"> &#9731; Inheritance</a></li>
-        
-    
-        <li class="main "><a href="#demsolver">DEMSolver</a></li>
-        
-            <li><a href="#constructor_3"> &#9731; Constructor</a></li>
-        
             <li><a href="#attributes_1"> &#9731; Attributes</a></li>
+        
+            <li><a href="#methods_1"> &#9731; Methods</a></li>
         
     
     </ul>
@@ -237,32 +231,26 @@
         <li class="main active"><a href="#_1"></a></li>
         
     
-        <li class="main "><a href="#contactmodel">ContactModel</a></li>
+        <li class="main "><a href="#demobjectpool">DEMObjectPool</a></li>
         
             <li><a href="#constructor"> &#9731; Constructor</a></li>
-        
-            <li><a href="#attributes"> &#9731; Attributes</a></li>
         
             <li><a href="#methods"> &#9731; Methods</a></li>
         
     
-        <li class="main "><a href="#linearspring">LinearSpring</a></li>
+        <li class="main "><a href="#initpybondedspheres">InitPyBondedSpheres</a></li>
+        
+    
+        <li class="main "><a href="#attributes">Attributes</a></li>
+        
+    
+        <li class="main "><a href="#contactpw">ContactPW</a></li>
         
             <li><a href="#constructor_1"> &#9731; Constructor</a></li>
         
-    
-        <li class="main "><a href="#parallelbond">ParallelBond</a></li>
-        
-            <li><a href="#constructor_2"> &#9731; Constructor</a></li>
-        
-            <li><a href="#inheritance"> &#9731; Inheritance</a></li>
-        
-    
-        <li class="main "><a href="#demsolver">DEMSolver</a></li>
-        
-            <li><a href="#constructor_3"> &#9731; Constructor</a></li>
-        
             <li><a href="#attributes_1"> &#9731; Attributes</a></li>
+        
+            <li><a href="#methods_1"> &#9731; Methods</a></li>
         
     
     </ul>
@@ -271,105 +259,272 @@
 
 <h3 id="_1"></h3>
 <p><a href="../user_manual/">User manual</a>
-┊ <a href="../cfddem_simulation/">Previous</a>
-┊ <a href="../ref_domain/">Next</a></p>
+┊ <a href="ref_peridigm.md">Previous</a>
+┊ <a href="../ref_shape/">Next</a></p>
 <hr />
-<h3 id="contactmodel">ContactModel</h3>
-<p>This class represents a contact model.</p>
+<h3 id="demobjectpool">DEMObjectPool</h3>
+<p>This class represents a pool of DEM objects.</p>
 <h4 id="constructor">Constructor</h4>
-<h5 id="contactmodellabel"><code>ContactModel(label='')</code></h5>
-<p>Creates a new instance of the <code>ContactModel</code> class.</p>
-<ul>
-<li><code>label</code> (string, optional): A string label for the contact model. Default is an empty string.</li>
-</ul>
-<h4 id="attributes">Attributes</h4>
-<h5 id="label"><code>label</code></h5>
-<p>A string label for the contact model.</p>
+<p>The DEMObjectPool class does not have a constructor.</p>
 <h4 id="methods">Methods</h4>
-<h5 id="setpropertyjson_data"><code>SetProperty(json_data)</code></h5>
-<p>Set the properties of the contact model from a JSON object.</p>
+<p><code>init()</code></p>
+<p>Initialize the DEMObjectPool.</p>
+<p><code>GetParticle()</code></p>
+<p>Get a reference to a particle object in the pool.</p>
 <ul>
-<li><code>json_data</code> (JSON object): A JSON object containing the properties to set.</li>
+<li>Returns: A reference to a Particle object.</li>
 </ul>
-<h5 id="setpropertyprop_name-prop_value"><code>SetProperty(prop_name, prop_value)</code></h5>
-<p>Set a specific property of the contact model.</p>
+<p><code>GetContactPP()</code></p>
+<p>Get a reference to a ContactPP object in the pool.</p>
 <ul>
-<li><code>prop_name</code> (string): The name of the property to set.</li>
-<li><code>prop_value</code> (float): The value to set for the property.</li>
+<li>Returns: A reference to a ContactPP object.</li>
+</ul>
+<p><code>GetContactPW()</code></p>
+<p>Get a reference to a ContactPW object in the pool.</p>
+<ul>
+<li>Returns: A reference to a ContactPW object.</li>
+</ul>
+<p><code>Clone(contact_pp)</code></p>
+<p>Create a copy of a ContactPP object in the pool.</p>
+<p><code>contact_pp</code> (ContactPP const*): A pointer to the ContactPP object to clone.</p>
+<ul>
+<li>Returns: A reference to a new ContactPP object.</li>
+</ul>
+<p><code>Clone(contact_pw)</code></p>
+<p>Create a copy of a ContactPW object in the pool.</p>
+<p><code>contact_pw</code> (ContactPW const*): A pointer to the ContactPW object to clone.</p>
+<ul>
+<li>Returns:A reference to a new ContactPW object.</li>
 </ul>
 <hr />
-<h3 id="linearspring">LinearSpring</h3>
-<p>This class represents a linear spring.</p>
-<h4 id="constructor_1">Constructor</h4>
-<h5 id="linearspring_1"><code>LinearSpring()</code></h5>
-<p>Creates a new instance of the LinearSpring class.</p>
-<p>LinearSpring(stiffness, damping, rest_length, contact_radius)
-Creates a new instance of the LinearSpring class with specific parameters.</p>
-<p>stiffness (float): The spring stiffness.
-damping (float): The spring damping.
-rest_length (float): The rest length of the spring.
-contact_radius (float): The contact radius of the spring.</p>
 <hr />
-<h3 id="parallelbond">ParallelBond</h3>
-<p>This class represents a parallel bond contact model.</p>
-<h4 id="constructor_2">Constructor</h4>
-<p>ParallelBond()
-Creates a new instance of the ParallelBond class.</p>
-<p>ParallelBond(kn, kt, gamma, t0)
-Creates a new instance of the ParallelBond class with specified parameters.</p>
-<p>kn (float): Normal contact stiffness.
-kt (float): Tangential contact stiffness.
-gamma (float): Viscoelastic parameter.
-t0 (float): Yield strength.</p>
-<h4 id="inheritance">Inheritance</h4>
-<p><code>ParallelBond</code> inherits from 'ContactModel'</p>
 <hr />
-<p>ContactSolverSettings Class
-This class represents settings for the contact solver.</p>
-<p>Attributes
-solver_type (SolverType): The type of contact solver to use. Default is SolverType.automatic.
-gjk_use_erosion (bool): Whether to use erosion for the GJK contact solver. Default is False.
-gjk_erosion_ratio_initial (float): The initial erosion ratio for the GJK contact solver. Default is 0.1.
-gjk_erosion_ratio_increment (float): The increment of erosion ratio for the GJK contact solver. Default is 0.05.
-sdf_potential_type (int): The type of potential function to use for the SDF contact solver. Default is 0.
-SolverType Enumeration
-This enumeration represents the type of contact solver.</p>
-<p>SolverType.gjk: The GJK contact solver.
-SolverType.sdf: The SDF contact solver.
-SolverType.automatic: The automatic contact solver.
-ContactSolverFactory Class
-This class is responsible for creating instances of contact solvers based on settings.</p>
-<p>Attributes
-settings (ContactSolverSettings): The settings for the contact solver.
+<hr />
+<hr />
+<hr />
+<p>WallBoxPlane and WallBoxPlate
+These classes represent wall objects in the simulation scene, with a box shape and a plane or a plate surface.</p>
+<p>Constructors
+WallBoxPlane(x, y, z, w, h, d)
+Creates a new instance of the WallBoxPlane class with the following parameters:</p>
+<p>x (float): x coordinate of the center of the box
+y (float): y coordinate of the center of the box
+z (float): z coordinate of the center of the box
+w (float): width of the box
+h (float): height of the box
+d (float): depth of the box
+WallBoxPlate(x, y, z, w, h, d)
+Creates a new instance of the WallBoxPlate class with the following parameters:</p>
+<p>x (float): x coordinate of the center of the box
+y (float): y coordinate of the center of the box
+z (float): z coordinate of the center of the box
+w (float): width of the box
+h (float): height of the box
+d (float): depth of the box
 Methods
-<strong>init</strong>(): Constructs a new instance of the ContactSolverFactory class with default settings.
-<strong>init</strong>(factory: ContactSolverFactory): Constructs a new instance of the ContactSolverFactory class with settings copied from factory.
-<strong>copy</strong>(): Copies the settings of the contact solver factory to a new instance of the ContactSolverFactory class.</p>
+GetShapes()
+Returns a list of shape objects of the wall.</p>
+<p>GetWalls()
+Returns a list of wall objects of the wall.</p>
+<p>ImportToScene()
+Imports the wall object to the simulation scene.</p>
 <hr />
-<h3 id="demsolver">DEMSolver</h3>
-<p>This class represents a discrete element method (DEM) solver.</p>
-<h4 id="constructor_3">Constructor</h4>
-<h5 id="demsolver_1"><code>DEMSolver()</code></h5>
-<p>Creates a new instance of the <code>DEMSolver</code> class.</p>
+<h3 id="initpybondedspheres">InitPyBondedSpheres</h3>
+<p>This function initializes a PyBind11 module for the BondedSpheres class.</p>
+<p>Parameters
+m (PyBind11 module): The module to initialize.
+Attributes
+sphere
+A Sphere object representing the bonded sphere.</p>
+<p>particle_list
+A list of Particle objects.</p>
+<p>contact_list
+A list of Contact objects.</p>
+<p>bond_pair_list
+A list of bonded particle pairs.</p>
+<p>bond_model
+A reference to the BondModel object used to calculate bonds.</p>
+<p>Methods
+<strong>init</strong>
+The default constructor.</p>
+<p><strong>init</strong>(BondedSpheres)
+A copy constructor that initializes a BondedSpheres object from another BondedSpheres object.</p>
+<p>SetBondModel
+Sets the bond model used to calculate bonds.</p>
+<p>Translate
+Translates the BondedSpheres object.</p>
+<p>RotateByRodrigues
+Rotates the BondedSpheres object using Rodrigues' rotation formula.</p>
+<p>GetCentroid
+Returns the centroid of the BondedSpheres object.</p>
+<p>InitFromSTL
+Initializes the BondedSpheres object from an STL file.</p>
+<p>filename (string): The path to the STL file.
+radius (float): The radius of the sphere.
+InitFromGrid
+Initializes the BondedSpheres object from a grid.</p>
+<p>MakePorosity
+Creates porosity in the BondedSpheres object.</p>
+<p>InitBonds
+Initializes the bonded pairs in the BondedSpheres object.</p>
+<p>ImportToScene
+Imports the BondedSpheres object to a scene.</p>
+<hr />
+<p>BondedVoronois
+This class represents a bonded Voronois object.</p>
+<p>Constructor
+BondedVoronois()
+Creates a new instance of the BondedVoronois class.</p>
+<p>Attributes
+trimesh_list
+A list of trimeshes.</p>
+<p>particle_list
+A list of particles.</p>
+<p>contact_list
+A list of contacts.</p>
+<p>bond_pair_list
+A list of bond pairs.</p>
+<p>cvt_max_iters
+The maximum number of iterations for the CVT algorithm.</p>
+<p>cvt_tol
+The tolerance for the CVT algorithm.</p>
+<p>bond_model
+The bond model used by the BondedVoronois object.</p>
+<p>Methods
+SetBondModel(bond_model)
+Set the bond model used by the BondedVoronois object.</p>
+<p>bond_model (BondModel): The bond model to set.
+Translate(x, y, z)
+Translate the BondedVoronois object.</p>
+<p>x (float): The amount to translate in the x direction.
+y (float): The amount to translate in the y direction.
+z (float): The amount to translate in the z direction.
+RotateByRodrigues(theta, u)
+Rotate the BondedVoronois object by the Rodrigues formula.</p>
+<p>theta (float): The angle of rotation.
+u (array-like): The axis of rotation.
+GetCentroid()
+Get the centroid of the BondedVoronois object.</p>
+<p>InitFromSTL(stl_file, label='')
+Initialize the BondedVoronois object from an STL file.</p>
+<p>stl_file (string): The path to the STL file.
+label (string, optional): A label for the object. Default is an empty string.
+MakePorosity(porosity)
+Make the BondedVoronois object porous.</p>
+<p>porosity (float): The desired porosity.
+InitBonds()
+Initialize the bonds of the BondedVoronois object.</p>
+<p>RefreshPointers()
+Refresh the pointers of the BondedVoronois object.</p>
+<p>SaveAsVTK(filename)
+Save the BondedVoronois object as a VTK file.</p>
+<p>filename (string): The name of the VTK file.
+ImportToScene(scene)
+Import the BondedVoronois object to a scene.</p>
+<p>scene (Scene): The scene to import to.</p>
+<hr />
+<p>ContactPP
+This class represents a contact model between two particles.</p>
+<p>Constructor
+ContactPP()
+Creates a new instance of the ContactPP class.</p>
+<p>ContactPP(particle_1, particle_2)
+Creates a new instance of the ContactPP class with the given particles.</p>
+<p>particle_1 (Particle<em> const): Pointer to the first particle.
+particle_2 (Particle</em> const): Pointer to the second particle.</p>
+<h3 id="attributes">Attributes</h3>
+<p>particle_1
+Pointer to the first particle involved in the contact.</p>
+<p>particle_2
+Pointer to the second particle involved in the contact.</p>
+<p>bond_entries
+A vector of bond entries for the contact.</p>
+<p>collision_entries
+A vector of collision entries for the contact.</p>
+<p>active
+A boolean value indicating whether the contact is active or not.</p>
+<p>dynamic_properties
+A dictionary of dynamic properties for the contact.</p>
+<p>Methods
+SetBondModel(bond_model)
+Set the bond model for the contact.</p>
+<p>bond_model (BondModel*): Pointer to the bond model.
+SetCollisionModel(collision_model)
+Set the collision model for the contact.</p>
+<p>collision_model (CollisionModel*): Pointer to the collision model.
+EvaluateForceMoment()
+Evaluate the force and moment for the contact.</p>
+<p>ApplyToParticle()
+Apply the contact force and moment to the particles.</p>
+<p>ApplyToParticle1()
+Apply the contact force and moment to the first particle.</p>
+<p>ApplyToParticle2()
+Apply the contact force and moment to the second particle.</p>
+<p>IsActive()
+Return a boolean indicating whether the contact is active or not.</p>
+<p>Clear()
+Clear the contact data.</p>
+<p>Print()
+Print the contact data.</p>
+<hr />
+<h3 id="contactpw">ContactPW</h3>
+<p>This class represents a contact between a particle and a wall.</p>
+<h4 id="constructor_1">Constructor</h4>
+<p><code>ContactPW(particle, wall)</code></p>
+<p>Creates a new instance of the <code>ContactPW</code> class with a given particle and wall.</p>
+<ul>
+<li>
+<p><code>particle</code> (Particle object): The particle involved in the contact.</p>
+</li>
+<li>
+<p><code>wall</code> (Wall object): The wall involved in the contact.</p>
+</li>
+</ul>
 <h4 id="attributes_1">Attributes</h4>
-<h5 id="timestep"><code>timestep</code></h5>
-<p>The timestep used for the simulation.</p>
-<h5 id="contact_solver_factory"><code>contact_solver_factory</code></h5>
-<p>The contact solver factory used to create contact solvers for the simulation.</p>
-<p>Enums</p>
-<p>CyclePoint</p>
-<p>An enumeration representing the different cycle points in the simulation.</p>
-<p>pre: The pre-collision cycle point.
-- <code>mid_0</code>: The first mid-collision cycle point.
-- <code>mid_1</code>: The second mid-collision cycle point.
-- <code>mid_2</code>: The third mid-collision cycle point.
-- <code>mid_3</code>: The fourth mid-collision cycle point.
-- <code>mid_4</code>: The fifth mid-collision cycle point.
-post: The post-collision cycle point.</p>
+<p><code>particle</code></p>
+<p>The particle involved in the contact.</p>
+<p><code>wall</code></p>
+<p>The wall involved in the contact.</p>
+<p><code>bond_model</code></p>
+<p>The bond model used for the contact.</p>
+<p><code>collision_model</code></p>
+<p>The collision model used for the contact.</p>
+<p><code>bond_entries</code></p>
+<p>A list of bond entries for the contact.</p>
+<p>collision_entries
+A list of collision entries for the contact.</p>
+<p>active
+A boolean flag indicating whether the contact is currently active.</p>
+<p>dynamic_properties
+A dictionary of dynamic properties associated with the contact.</p>
+<h4 id="methods_1">Methods</h4>
+<p><code>SetBondModel(bond_model)</code></p>
+<p>Set the bond model for the contact.</p>
+<ul>
+<li><code>bond_model</code> (BondModel object): The bond model to use for the contact.</li>
+</ul>
+<p><code>SetCollisionModel(collision_model)</code></p>
+<p>Set the collision model for the contact.</p>
+<ul>
+<li><code>collision_model</code> (CollisionModel object): The collision model to use for the contact.</li>
+</ul>
+<p><code>EvaluateForceMoment()</code></p>
+<p>Calculate and return the force and moment of the contact.</p>
+<p><code>ApplyToParticle()</code></p>
+<p>Apply the contact to the particle involved in the contact.</p>
+<p><code>ApplyToWall()</code></p>
+<p>Apply the contact to the wall involved in the contact.</p>
+<p><code>IsActive()</code></p>
+<p>Return True if the contact is currently active, False otherwise.</p>
+<p><code>Clear()</code></p>
+<p>Clear all bond and collision entries for the contact.</p>
+<p><code>Print()</code></p>
+<p>Print information about the contact.</p>
+<hr />
 <hr />
 <p><a href="../user_manual/">User manual</a>
-┊ <a href="../cfddem_simulation/">Previous</a>
-┊ <a href="../ref_domain/">Next</a></p></div>
+┊ <a href="ref_peridigm.md">Previous</a>
+┊ <a href="../ref_shape/">Next</a></p></div>
             <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
