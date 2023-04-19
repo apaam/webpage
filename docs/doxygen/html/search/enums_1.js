@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['layername_0',['LayerName',['../namespacenetdem.html#a2cdad8d3b028818b2034bb9f5e4a6583',1,'netdem']]]
+  ['layertype_0',['LayerType',['../namespacenetdem.html#a06635636eca09676377d47de7cb4c02c',1,'netdem']]]
 ];

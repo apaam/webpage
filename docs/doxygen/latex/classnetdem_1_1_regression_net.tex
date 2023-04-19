@@ -9,11 +9,13 @@
 \item 
 void \mbox{\hyperlink{classnetdem_1_1_regression_net_a6931ff47063fccee2dbe2109b9184e86}{Reset\+Model}} ()
 \item 
-void \mbox{\hyperlink{classnetdem_1_1_regression_net_ae72d5f342f74cfbe1752c11ab1017a35}{Add\+Layer}} (\mbox{\hyperlink{namespacenetdem_a2cdad8d3b028818b2034bb9f5e4a6583}{Layer\+Name}} layer\+\_\+name,...)
+void \mbox{\hyperlink{classnetdem_1_1_regression_net_a50664a34e7c9df9d7bd20238d1a4032f}{Add\+Layer}} (\mbox{\hyperlink{namespacenetdem_a06635636eca09676377d47de7cb4c02c}{Layer\+Type}} layer\+\_\+name,...)
 \item 
 void \mbox{\hyperlink{classnetdem_1_1_regression_net_ab20e93179fa0215bf6d07e71d58da101}{Train}} (const arma\+::mat \&data\+\_\+x, const arma\+::mat \&data\+\_\+y)
 \item 
 arma\+::mat \mbox{\hyperlink{classnetdem_1_1_regression_net_ad0a454915d74f397ea4b6ce40c46f84e}{Predict}} (const arma\+::mat \&data\+\_\+x)
+\item 
+arma\+::mat \mbox{\hyperlink{classnetdem_1_1_regression_net_a20b97ff96a288d2d0468fb494ae6e8af}{Gradient}} (const arma\+::mat \&data\+\_\+x)
 \item 
 void \mbox{\hyperlink{classnetdem_1_1_regression_net_a4802cc4f75ad194e3a1136ee85bdb8e6}{Load}} (std\+::string const \&filename, std\+::string const \&label)
 \item 
@@ -22,7 +24,7 @@ void \mbox{\hyperlink{classnetdem_1_1_regression_net_a2e770b0c27b3dff14401815e76
 \doxysubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-mlpack\+::ann\+::\+FFN$<$ mlpack\+::ann\+::\+Mean\+Squared\+Error$<$$>$, mlpack\+::ann\+::\+He\+Initialization $>$ \mbox{\hyperlink{classnetdem_1_1_regression_net_a4a3e410f27ac1233d974124eb4fda66b}{model}}
+mlpack\+::\+FFN$<$ mlpack\+::\+Mean\+Squared\+Error, mlpack\+::\+He\+Initialization $>$ \mbox{\hyperlink{classnetdem_1_1_regression_net_a3f4673f7e5605b02357c35da305bb37a}{model}}
 \item 
 double \mbox{\hyperlink{classnetdem_1_1_regression_net_a758c000426a7fb15c7b97d24a6738fa9}{step\+\_\+size}} \{0.\+01\}
 \item 
@@ -37,15 +39,23 @@ double \mbox{\hyperlink{classnetdem_1_1_regression_net_a0406a76411df7880fc0efa65
 int \mbox{\hyperlink{classnetdem_1_1_regression_net_a0dc8e89c7b9472b37a30dfd37c8e0bd8}{epochs}} \{100\}
 \item 
 double \mbox{\hyperlink{classnetdem_1_1_regression_net_a1cae0bfa2c645438d554c8cecf50a069}{stop\+\_\+tol}} \{1e-\/8\}
+\item 
+bool \mbox{\hyperlink{classnetdem_1_1_regression_net_afcc7f4b5b730bc1c8c9e7b7e9eaafbca}{enable\+\_\+logging}} \{true\}
 \end{DoxyCompactItemize}
 
 
 \doxysubsection{Member Function Documentation}
-\mbox{\Hypertarget{classnetdem_1_1_regression_net_ae72d5f342f74cfbe1752c11ab1017a35}\label{classnetdem_1_1_regression_net_ae72d5f342f74cfbe1752c11ab1017a35}} 
+\mbox{\Hypertarget{classnetdem_1_1_regression_net_a50664a34e7c9df9d7bd20238d1a4032f}\label{classnetdem_1_1_regression_net_a50664a34e7c9df9d7bd20238d1a4032f}} 
 \index{netdem::RegressionNet@{netdem::RegressionNet}!AddLayer@{AddLayer}}
 \index{AddLayer@{AddLayer}!netdem::RegressionNet@{netdem::RegressionNet}}
 \doxysubsubsection{\texorpdfstring{AddLayer()}{AddLayer()}}
-{\footnotesize\ttfamily void netdem\+::\+Regression\+Net\+::\+Add\+Layer (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacenetdem_a2cdad8d3b028818b2034bb9f5e4a6583}{Layer\+Name}}}]{layer\+\_\+name,  }\item[{}]{... }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void netdem\+::\+Regression\+Net\+::\+Add\+Layer (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacenetdem_a06635636eca09676377d47de7cb4c02c}{Layer\+Type}}}]{layer\+\_\+name,  }\item[{}]{... }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classnetdem_1_1_regression_net_a20b97ff96a288d2d0468fb494ae6e8af}\label{classnetdem_1_1_regression_net_a20b97ff96a288d2d0468fb494ae6e8af}} 
+\index{netdem::RegressionNet@{netdem::RegressionNet}!Gradient@{Gradient}}
+\index{Gradient@{Gradient}!netdem::RegressionNet@{netdem::RegressionNet}}
+\doxysubsubsection{\texorpdfstring{Gradient()}{Gradient()}}
+{\footnotesize\ttfamily arma\+::mat netdem\+::\+Regression\+Net\+::\+Gradient (\begin{DoxyParamCaption}\item[{const arma\+::mat \&}]{data\+\_\+x }\end{DoxyParamCaption})}
 
 \mbox{\Hypertarget{classnetdem_1_1_regression_net_a4802cc4f75ad194e3a1136ee85bdb8e6}\label{classnetdem_1_1_regression_net_a4802cc4f75ad194e3a1136ee85bdb8e6}} 
 \index{netdem::RegressionNet@{netdem::RegressionNet}!Load@{Load}}
@@ -98,6 +108,12 @@ double \mbox{\hyperlink{classnetdem_1_1_regression_net_a1cae0bfa2c645438d554c8ce
 \doxysubsubsection{\texorpdfstring{decay\_rate\_norm}{decay\_rate\_norm}}
 {\footnotesize\ttfamily double netdem\+::\+Regression\+Net\+::decay\+\_\+rate\+\_\+norm \{0.\+9\}}
 
+\mbox{\Hypertarget{classnetdem_1_1_regression_net_afcc7f4b5b730bc1c8c9e7b7e9eaafbca}\label{classnetdem_1_1_regression_net_afcc7f4b5b730bc1c8c9e7b7e9eaafbca}} 
+\index{netdem::RegressionNet@{netdem::RegressionNet}!enable\_logging@{enable\_logging}}
+\index{enable\_logging@{enable\_logging}!netdem::RegressionNet@{netdem::RegressionNet}}
+\doxysubsubsection{\texorpdfstring{enable\_logging}{enable\_logging}}
+{\footnotesize\ttfamily bool netdem\+::\+Regression\+Net\+::enable\+\_\+logging \{true\}}
+
 \mbox{\Hypertarget{classnetdem_1_1_regression_net_a0dc8e89c7b9472b37a30dfd37c8e0bd8}\label{classnetdem_1_1_regression_net_a0dc8e89c7b9472b37a30dfd37c8e0bd8}} 
 \index{netdem::RegressionNet@{netdem::RegressionNet}!epochs@{epochs}}
 \index{epochs@{epochs}!netdem::RegressionNet@{netdem::RegressionNet}}
@@ -110,11 +126,11 @@ double \mbox{\hyperlink{classnetdem_1_1_regression_net_a1cae0bfa2c645438d554c8ce
 \doxysubsubsection{\texorpdfstring{gradient\_init\_param}{gradient\_init\_param}}
 {\footnotesize\ttfamily double netdem\+::\+Regression\+Net\+::gradient\+\_\+init\+\_\+param \{1e-\/8\}}
 
-\mbox{\Hypertarget{classnetdem_1_1_regression_net_a4a3e410f27ac1233d974124eb4fda66b}\label{classnetdem_1_1_regression_net_a4a3e410f27ac1233d974124eb4fda66b}} 
+\mbox{\Hypertarget{classnetdem_1_1_regression_net_a3f4673f7e5605b02357c35da305bb37a}\label{classnetdem_1_1_regression_net_a3f4673f7e5605b02357c35da305bb37a}} 
 \index{netdem::RegressionNet@{netdem::RegressionNet}!model@{model}}
 \index{model@{model}!netdem::RegressionNet@{netdem::RegressionNet}}
 \doxysubsubsection{\texorpdfstring{model}{model}}
-{\footnotesize\ttfamily mlpack\+::ann\+::\+FFN$<$mlpack\+::ann\+::\+Mean\+Squared\+Error$<$$>$, mlpack\+::ann\+::\+He\+Initialization$>$ netdem\+::\+Regression\+Net\+::model}
+{\footnotesize\ttfamily mlpack\+::\+FFN$<$mlpack\+::\+Mean\+Squared\+Error, mlpack\+::\+He\+Initialization$>$ netdem\+::\+Regression\+Net\+::model}
 
 \mbox{\Hypertarget{classnetdem_1_1_regression_net_a758c000426a7fb15c7b97d24a6738fa9}\label{classnetdem_1_1_regression_net_a758c000426a7fb15c7b97d24a6738fa9}} 
 \index{netdem::RegressionNet@{netdem::RegressionNet}!step\_size@{step\_size}}
@@ -132,5 +148,5 @@ double \mbox{\hyperlink{classnetdem_1_1_regression_net_a1cae0bfa2c645438d554c8ce
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-/\+Users/lzhshou/\+Documents/\+Research/my\+Projects/apam/repo/netdem/src/mlpack/\mbox{\hyperlink{regression__net_8hpp}{regression\+\_\+net.\+hpp}}\item 
-/\+Users/lzhshou/\+Documents/\+Research/my\+Projects/apam/repo/netdem/src/mlpack/\mbox{\hyperlink{regression__net_8cpp}{regression\+\_\+net.\+cpp}}\end{DoxyCompactItemize}
+/\+Users/lzhshou/\+Documents/\+Research/my\+Projects/apaam/repo/netdem/src/mlpack/\mbox{\hyperlink{regression__net_8hpp}{regression\+\_\+net.\+hpp}}\item 
+/\+Users/lzhshou/\+Documents/\+Research/my\+Projects/apaam/repo/netdem/src/mlpack/\mbox{\hyperlink{regression__net_8cpp}{regression\+\_\+net.\+cpp}}\end{DoxyCompactItemize}

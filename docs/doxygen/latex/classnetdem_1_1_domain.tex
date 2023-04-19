@@ -13,8 +13,16 @@
 \item 
 void \mbox{\hyperlink{classnetdem_1_1_domain_a1334b8c934f04067de6c2967fb201587}{Init}} ()
 \item 
+void \mbox{\hyperlink{classnetdem_1_1_domain_a80d31be8c44a3eda331b974c958ad14a}{Init\+Scene}} (\mbox{\hyperlink{classnetdem_1_1_scene}{Scene}} $\ast$const \mbox{\hyperlink{classnetdem_1_1_domain_ad6e5d2c94348a9a57c38bc9493373931}{scene}})
+\item 
+void \mbox{\hyperlink{classnetdem_1_1_domain_a2a0a1c85b9b5b1356899f4ca2d8741c8}{Init\+Scene}} ()
+\item 
+\mbox{\hyperlink{classnetdem_1_1_scene}{Scene}} $\ast$ \mbox{\hyperlink{classnetdem_1_1_domain_a2801363ee6e9955dd169e78e80dd3989}{Get\+Scene}} ()
+\item 
 void \mbox{\hyperlink{classnetdem_1_1_domain_a94e0a497303bd6ca07007cb7836d374c}{Set\+Bound}} (double bmin\+\_\+x, double bmin\+\_\+y, double bmin\+\_\+z, double bmax\+\_\+x, double bmax\+\_\+y, double bmax\+\_\+z)
 \begin{DoxyCompactList}\small\item\em set the domain size \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classnetdem_1_1_domain_a6101bc81ae0793dd8505057445a50c37}{Set\+Cell\+Spacing}} (double s\+\_\+x, double s\+\_\+y, double s\+\_\+z)
+\begin{DoxyCompactList}\small\item\em set cell spacing \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{classnetdem_1_1_domain_a52776e753337107cad5fcc3b24e130e5}{Is\+Judge\+Domain}} (\mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} const \&p, \mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} const \&q)
 \item 
 bool \mbox{\hyperlink{classnetdem_1_1_domain_a6175f0d5a60b47231235d2b5f2cb2dff}{Is\+Judge\+Domain}} (\mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} const \&p, \mbox{\hyperlink{classnetdem_1_1_wall}{Wall}} const \&w)
@@ -22,6 +30,8 @@ bool \mbox{\hyperlink{classnetdem_1_1_domain_a6175f0d5a60b47231235d2b5f2cb2dff}{
 bool \mbox{\hyperlink{classnetdem_1_1_domain_a116e2a57079d28e0a4e10ed16e5e29e7}{Is\+Belong\+To\+Domain}} (\mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} const \&p)
 \item 
 bool \mbox{\hyperlink{classnetdem_1_1_domain_a589f61cf8fc8f212f8bbca8831902102}{Is\+Belong\+To\+Domain}} (\mbox{\hyperlink{structnetdem_1_1_particle_data}{Particle\+Data}} const \&p)
+\item 
+bool \mbox{\hyperlink{classnetdem_1_1_domain_ae23c02cfe4f3ef70e284b4d1e0524bf6}{Is\+Belong\+To\+Domain}} (\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&pos)
 \item 
 bool \mbox{\hyperlink{classnetdem_1_1_domain_a97911f50df2fc16fd3be42a98d6b9e5e}{Is\+Particle\+Proxy\+To\+Send}} (\mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} const \&p)
 \item 
@@ -40,9 +50,9 @@ void \mbox{\hyperlink{classnetdem_1_1_domain_a2f2178a4000eaea63dfeaf84fd6b17a1}{
 \doxysubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-int \mbox{\hyperlink{classnetdem_1_1_domain_aba19a387ce292703247c84ccd7add03f}{my\+\_\+rank}} \{0\}
+int \mbox{\hyperlink{classnetdem_1_1_domain_ae60c4e4e51a9bebee0001ab9898aea39}{self\+\_\+rank}} \{0\}
 \begin{DoxyCompactList}\small\item\em the rank id and the total number of processes of a mpi run. \end{DoxyCompactList}\item 
-int \mbox{\hyperlink{classnetdem_1_1_domain_aa66dce51253289cef083d830440542c2}{num\+\_\+procs}} \{0\}
+int \mbox{\hyperlink{classnetdem_1_1_domain_aa92306cd48bd59a1c3daf90b16cc5cdc}{total\+\_\+rank}} \{0\}
 \item 
 \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \mbox{\hyperlink{classnetdem_1_1_domain_aea1c970434db7a0bf1bc4e3d3f659c52}{bound\+\_\+min}} \{-\/0.\+5, -\/0.\+5, -\/0.\+5\}
 \item 
@@ -51,6 +61,13 @@ int \mbox{\hyperlink{classnetdem_1_1_domain_aa66dce51253289cef083d830440542c2}{n
 \mbox{\hyperlink{classnetdem_1_1_cell_manager}{Cell\+Manager}} \mbox{\hyperlink{classnetdem_1_1_domain_aa80301e3bf41e221907acb43e2ee5231}{cell\+\_\+manager}}
 \begin{DoxyCompactList}\small\item\em manages the cells, which are used in the borad-\/phase contact detection. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ std\+::pair$<$ \mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} $\ast$, int $>$ $>$ \mbox{\hyperlink{classnetdem_1_1_domain_a1a8e5bab56c64ad2869d78e456f5ed03}{outer\+\_\+particle\+\_\+list}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classnetdem_1_1_scene}{Scene}} $\ast$ \mbox{\hyperlink{classnetdem_1_1_domain_ad6e5d2c94348a9a57c38bc9493373931}{scene}} \{nullptr\}
+\item 
+bool \mbox{\hyperlink{classnetdem_1_1_domain_af24f4ad86d651c03e2bf5127ede3ad1c}{scene\+\_\+is\+\_\+borrowed}} \{true\}
 \end{DoxyCompactItemize}
 
 
@@ -82,6 +99,12 @@ int \mbox{\hyperlink{classnetdem_1_1_domain_aa66dce51253289cef083d830440542c2}{n
 \doxysubsubsection{\texorpdfstring{ClearLinkedLists()}{ClearLinkedLists()}}
 {\footnotesize\ttfamily void Domain\+::\+Clear\+Linked\+Lists (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
+\mbox{\Hypertarget{classnetdem_1_1_domain_a2801363ee6e9955dd169e78e80dd3989}\label{classnetdem_1_1_domain_a2801363ee6e9955dd169e78e80dd3989}} 
+\index{netdem::Domain@{netdem::Domain}!GetScene@{GetScene}}
+\index{GetScene@{GetScene}!netdem::Domain@{netdem::Domain}}
+\doxysubsubsection{\texorpdfstring{GetScene()}{GetScene()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classnetdem_1_1_scene}{Scene}} $\ast$ Domain\+::\+Get\+Scene (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
 \mbox{\Hypertarget{classnetdem_1_1_domain_a3d91d50450d1c313aa04ce127e3584bc}\label{classnetdem_1_1_domain_a3d91d50450d1c313aa04ce127e3584bc}} 
 \index{netdem::Domain@{netdem::Domain}!GetSTLModel@{GetSTLModel}}
 \index{GetSTLModel@{GetSTLModel}!netdem::Domain@{netdem::Domain}}
@@ -98,17 +121,35 @@ for visualization purpose
 \doxysubsubsection{\texorpdfstring{Init()}{Init()}}
 {\footnotesize\ttfamily void Domain\+::\+Init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
+\mbox{\Hypertarget{classnetdem_1_1_domain_a2a0a1c85b9b5b1356899f4ca2d8741c8}\label{classnetdem_1_1_domain_a2a0a1c85b9b5b1356899f4ca2d8741c8}} 
+\index{netdem::Domain@{netdem::Domain}!InitScene@{InitScene}}
+\index{InitScene@{InitScene}!netdem::Domain@{netdem::Domain}}
+\doxysubsubsection{\texorpdfstring{InitScene()}{InitScene()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Domain\+::\+Init\+Scene (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classnetdem_1_1_domain_a80d31be8c44a3eda331b974c958ad14a}\label{classnetdem_1_1_domain_a80d31be8c44a3eda331b974c958ad14a}} 
+\index{netdem::Domain@{netdem::Domain}!InitScene@{InitScene}}
+\index{InitScene@{InitScene}!netdem::Domain@{netdem::Domain}}
+\doxysubsubsection{\texorpdfstring{InitScene()}{InitScene()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Domain\+::\+Init\+Scene (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_scene}{Scene}} $\ast$const}]{scene }\end{DoxyParamCaption})}
+
 \mbox{\Hypertarget{classnetdem_1_1_domain_a116e2a57079d28e0a4e10ed16e5e29e7}\label{classnetdem_1_1_domain_a116e2a57079d28e0a4e10ed16e5e29e7}} 
 \index{netdem::Domain@{netdem::Domain}!IsBelongToDomain@{IsBelongToDomain}}
 \index{IsBelongToDomain@{IsBelongToDomain}!netdem::Domain@{netdem::Domain}}
-\doxysubsubsection{\texorpdfstring{IsBelongToDomain()}{IsBelongToDomain()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+\doxysubsubsection{\texorpdfstring{IsBelongToDomain()}{IsBelongToDomain()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
 {\footnotesize\ttfamily bool Domain\+::\+Is\+Belong\+To\+Domain (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} const \&}]{p }\end{DoxyParamCaption})}
 
 to check if the particle belongs to this domain. A particle is assumed to belong to this domain if its centroid is inside this domain. \mbox{\Hypertarget{classnetdem_1_1_domain_a589f61cf8fc8f212f8bbca8831902102}\label{classnetdem_1_1_domain_a589f61cf8fc8f212f8bbca8831902102}} 
 \index{netdem::Domain@{netdem::Domain}!IsBelongToDomain@{IsBelongToDomain}}
 \index{IsBelongToDomain@{IsBelongToDomain}!netdem::Domain@{netdem::Domain}}
-\doxysubsubsection{\texorpdfstring{IsBelongToDomain()}{IsBelongToDomain()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+\doxysubsubsection{\texorpdfstring{IsBelongToDomain()}{IsBelongToDomain()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
 {\footnotesize\ttfamily bool Domain\+::\+Is\+Belong\+To\+Domain (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structnetdem_1_1_particle_data}{Particle\+Data}} const \&}]{p }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classnetdem_1_1_domain_ae23c02cfe4f3ef70e284b4d1e0524bf6}\label{classnetdem_1_1_domain_ae23c02cfe4f3ef70e284b4d1e0524bf6}} 
+\index{netdem::Domain@{netdem::Domain}!IsBelongToDomain@{IsBelongToDomain}}
+\index{IsBelongToDomain@{IsBelongToDomain}!netdem::Domain@{netdem::Domain}}
+\doxysubsubsection{\texorpdfstring{IsBelongToDomain()}{IsBelongToDomain()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily bool Domain\+::\+Is\+Belong\+To\+Domain (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&}]{pos }\end{DoxyParamCaption})}
 
 \mbox{\Hypertarget{classnetdem_1_1_domain_a52776e753337107cad5fcc3b24e130e5}\label{classnetdem_1_1_domain_a52776e753337107cad5fcc3b24e130e5}} 
 \index{netdem::Domain@{netdem::Domain}!IsJudgeDomain@{IsJudgeDomain}}
@@ -160,6 +201,16 @@ print domain information to the screen
 
 set the domain size 
 
+\mbox{\Hypertarget{classnetdem_1_1_domain_a6101bc81ae0793dd8505057445a50c37}\label{classnetdem_1_1_domain_a6101bc81ae0793dd8505057445a50c37}} 
+\index{netdem::Domain@{netdem::Domain}!SetCellSpacing@{SetCellSpacing}}
+\index{SetCellSpacing@{SetCellSpacing}!netdem::Domain@{netdem::Domain}}
+\doxysubsubsection{\texorpdfstring{SetCellSpacing()}{SetCellSpacing()}}
+{\footnotesize\ttfamily void Domain\+::\+Set\+Cell\+Spacing (\begin{DoxyParamCaption}\item[{double}]{s\+\_\+x,  }\item[{double}]{s\+\_\+y,  }\item[{double}]{s\+\_\+z }\end{DoxyParamCaption})}
+
+
+
+set cell spacing 
+
 
 
 \doxysubsection{Member Data Documentation}
@@ -185,31 +236,43 @@ the lower and upper bounds of the x, y, and z coordinates of the domain. By defa
 
 manages the cells, which are used in the borad-\/phase contact detection. 
 
-\mbox{\Hypertarget{classnetdem_1_1_domain_aba19a387ce292703247c84ccd7add03f}\label{classnetdem_1_1_domain_aba19a387ce292703247c84ccd7add03f}} 
-\index{netdem::Domain@{netdem::Domain}!my\_rank@{my\_rank}}
-\index{my\_rank@{my\_rank}!netdem::Domain@{netdem::Domain}}
-\doxysubsubsection{\texorpdfstring{my\_rank}{my\_rank}}
-{\footnotesize\ttfamily int netdem\+::\+Domain\+::my\+\_\+rank \{0\}}
-
-
-
-the rank id and the total number of processes of a mpi run. 
-
-\mbox{\Hypertarget{classnetdem_1_1_domain_aa66dce51253289cef083d830440542c2}\label{classnetdem_1_1_domain_aa66dce51253289cef083d830440542c2}} 
-\index{netdem::Domain@{netdem::Domain}!num\_procs@{num\_procs}}
-\index{num\_procs@{num\_procs}!netdem::Domain@{netdem::Domain}}
-\doxysubsubsection{\texorpdfstring{num\_procs}{num\_procs}}
-{\footnotesize\ttfamily int netdem\+::\+Domain\+::num\+\_\+procs \{0\}}
-
 \mbox{\Hypertarget{classnetdem_1_1_domain_a1a8e5bab56c64ad2869d78e456f5ed03}\label{classnetdem_1_1_domain_a1a8e5bab56c64ad2869d78e456f5ed03}} 
 \index{netdem::Domain@{netdem::Domain}!outer\_particle\_list@{outer\_particle\_list}}
 \index{outer\_particle\_list@{outer\_particle\_list}!netdem::Domain@{netdem::Domain}}
 \doxysubsubsection{\texorpdfstring{outer\_particle\_list}{outer\_particle\_list}}
 {\footnotesize\ttfamily \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$std\+::pair$<$\mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} $\ast$, int$>$ $>$ netdem\+::\+Domain\+::outer\+\_\+particle\+\_\+list}
 
-manages the particles that overlaps with this domains. Siimlar to the linked-\/list algorithm for cells in dem\+\_\+solver, this list is updated by Update\+Linked\+Domains of particle, and will be used by mpi\+\_\+manager\+: if a particle is linked to a domain, it will be transferred to this domain for contact detection. 
+manages the particles that overlaps with this domains. Siimlar to the linked-\/list algorithm for cells in dem\+\_\+solver, this list is updated by Update\+Linked\+Domains of particle, and will be used by mpi\+\_\+manager\+: if a particle is linked to a domain, it will be transferred to this domain for contact detection. \mbox{\Hypertarget{classnetdem_1_1_domain_ad6e5d2c94348a9a57c38bc9493373931}\label{classnetdem_1_1_domain_ad6e5d2c94348a9a57c38bc9493373931}} 
+\index{netdem::Domain@{netdem::Domain}!scene@{scene}}
+\index{scene@{scene}!netdem::Domain@{netdem::Domain}}
+\doxysubsubsection{\texorpdfstring{scene}{scene}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classnetdem_1_1_scene}{Scene}}$\ast$ netdem\+::\+Domain\+::scene \{nullptr\}\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classnetdem_1_1_domain_af24f4ad86d651c03e2bf5127ede3ad1c}\label{classnetdem_1_1_domain_af24f4ad86d651c03e2bf5127ede3ad1c}} 
+\index{netdem::Domain@{netdem::Domain}!scene\_is\_borrowed@{scene\_is\_borrowed}}
+\index{scene\_is\_borrowed@{scene\_is\_borrowed}!netdem::Domain@{netdem::Domain}}
+\doxysubsubsection{\texorpdfstring{scene\_is\_borrowed}{scene\_is\_borrowed}}
+{\footnotesize\ttfamily bool netdem\+::\+Domain\+::scene\+\_\+is\+\_\+borrowed \{true\}\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classnetdem_1_1_domain_ae60c4e4e51a9bebee0001ab9898aea39}\label{classnetdem_1_1_domain_ae60c4e4e51a9bebee0001ab9898aea39}} 
+\index{netdem::Domain@{netdem::Domain}!self\_rank@{self\_rank}}
+\index{self\_rank@{self\_rank}!netdem::Domain@{netdem::Domain}}
+\doxysubsubsection{\texorpdfstring{self\_rank}{self\_rank}}
+{\footnotesize\ttfamily int netdem\+::\+Domain\+::self\+\_\+rank \{0\}}
+
+
+
+the rank id and the total number of processes of a mpi run. 
+
+\mbox{\Hypertarget{classnetdem_1_1_domain_aa92306cd48bd59a1c3daf90b16cc5cdc}\label{classnetdem_1_1_domain_aa92306cd48bd59a1c3daf90b16cc5cdc}} 
+\index{netdem::Domain@{netdem::Domain}!total\_rank@{total\_rank}}
+\index{total\_rank@{total\_rank}!netdem::Domain@{netdem::Domain}}
+\doxysubsubsection{\texorpdfstring{total\_rank}{total\_rank}}
+{\footnotesize\ttfamily int netdem\+::\+Domain\+::total\+\_\+rank \{0\}}
+
+
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-/\+Users/lzhshou/\+Documents/\+Research/my\+Projects/apam/repo/netdem/src/domain/\mbox{\hyperlink{domain_8hpp}{domain.\+hpp}}\item 
-/\+Users/lzhshou/\+Documents/\+Research/my\+Projects/apam/repo/netdem/src/domain/\mbox{\hyperlink{domain_8cpp}{domain.\+cpp}}\end{DoxyCompactItemize}
+/\+Users/lzhshou/\+Documents/\+Research/my\+Projects/apaam/repo/netdem/src/domain/\mbox{\hyperlink{domain_8hpp}{domain.\+hpp}}\item 
+/\+Users/lzhshou/\+Documents/\+Research/my\+Projects/apaam/repo/netdem/src/domain/\mbox{\hyperlink{domain_8cpp}{domain.\+cpp}}\end{DoxyCompactItemize}

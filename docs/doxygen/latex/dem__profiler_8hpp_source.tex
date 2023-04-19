@@ -1,60 +1,70 @@
 \hypertarget{dem__profiler_8hpp_source}{}\doxysection{dem\+\_\+profiler.\+hpp}
-\label{dem__profiler_8hpp_source}\index{/Users/lzhshou/Documents/Research/myProjects/apam/repo/netdem/src/dem/dem\_profiler.hpp@{/Users/lzhshou/Documents/Research/myProjects/apam/repo/netdem/src/dem/dem\_profiler.hpp}}
+\label{dem__profiler_8hpp_source}\index{/Users/lzhshou/Documents/Research/myProjects/apaam/repo/netdem/src/dem/dem\_profiler.hpp@{/Users/lzhshou/Documents/Research/myProjects/apaam/repo/netdem/src/dem/dem\_profiler.hpp}}
 \mbox{\hyperlink{dem__profiler_8hpp}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
-\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
-\DoxyCodeLine{2 }
-\DoxyCodeLine{3 \textcolor{preprocessor}{\#ifdef \_WIN32}}
-\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <windows.h>}}
-\DoxyCodeLine{5 \textcolor{preprocessor}{\#else}}
-\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <sys/time.h>}}
-\DoxyCodeLine{7 \textcolor{preprocessor}{\#endif}}
-\DoxyCodeLine{8 }
-\DoxyCodeLine{9 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacenetdem}{netdem}} \{}
-\DoxyCodeLine{10 }
-\DoxyCodeLine{11 \textcolor{preprocessor}{\#if defined(\_WIN32) \&\& !defined(CYGWIN)}}
-\DoxyCodeLine{12 \textcolor{keyword}{typedef} \_\_int64 \mbox{\hyperlink{namespacenetdem_a13434eec0cbb4e188101abb60e920e21}{int64t}};}
-\DoxyCodeLine{13 \textcolor{preprocessor}{\#else}}
-\DoxyCodeLine{14 \textcolor{keyword}{typedef} \textcolor{keywordtype}{long} \textcolor{keywordtype}{long} \mbox{\hyperlink{namespacenetdem_a13434eec0cbb4e188101abb60e920e21}{int64t}};}
-\DoxyCodeLine{15 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// \_WIN32}}
-\DoxyCodeLine{16 }
-\DoxyCodeLine{17 \textcolor{keyword}{enum} \mbox{\hyperlink{namespacenetdem_a3d1c9a57f81d32e05adbb87079c38501}{TimerType}} \{}
-\DoxyCodeLine{18   \mbox{\hyperlink{namespacenetdem_a3d1c9a57f81d32e05adbb87079c38501a9a735ec7821ddf983286f9983036013a}{linked\_list}},}
-\DoxyCodeLine{19   \mbox{\hyperlink{namespacenetdem_a3d1c9a57f81d32e05adbb87079c38501aa211e9201b5f2351dd24af1fb02405d9}{contacts}},}
-\DoxyCodeLine{20   \mbox{\hyperlink{namespacenetdem_a3d1c9a57f81d32e05adbb87079c38501aa671882bf8672ed5bd60dcf59a5ce6f5}{particles}},}
-\DoxyCodeLine{21   \mbox{\hyperlink{namespacenetdem_a3d1c9a57f81d32e05adbb87079c38501a805dcd0b4b4f7d1f06e5dc64e34ba45d}{walls}},}
-\DoxyCodeLine{22   \mbox{\hyperlink{namespacenetdem_a3d1c9a57f81d32e05adbb87079c38501aae44d5a6dbdfa19cb85f63e64ce5693b}{pre\_modifiers}},}
-\DoxyCodeLine{23   \mbox{\hyperlink{namespacenetdem_a3d1c9a57f81d32e05adbb87079c38501a22fa008a640a5e6475f2be4f5f76c4dd}{mid\_modifiers}},}
-\DoxyCodeLine{24   \mbox{\hyperlink{namespacenetdem_a3d1c9a57f81d32e05adbb87079c38501a62e6108e2cca571c4815577b5286e7cf}{post\_modifiers}},}
-\DoxyCodeLine{25   \mbox{\hyperlink{namespacenetdem_a3d1c9a57f81d32e05adbb87079c38501a4c3fe49d5b693ae3ccf415bfda9e5958}{mpi\_communication}},}
-\DoxyCodeLine{26   \mbox{\hyperlink{namespacenetdem_a3d1c9a57f81d32e05adbb87079c38501a3b823e7356e4e47a286937766a99cdd7}{custom}},}
-\DoxyCodeLine{27   \mbox{\hyperlink{namespacenetdem_a3d1c9a57f81d32e05adbb87079c38501ad4a2a1ca9ed510f9220347b5418e15e4}{num\_timers}}}
-\DoxyCodeLine{28 \};}
-\DoxyCodeLine{29 }
-\DoxyCodeLine{30 \textcolor{keyword}{class }\mbox{\hyperlink{classnetdem_1_1_d_e_m_profiler}{DEMProfiler}} \{}
-\DoxyCodeLine{31 \textcolor{keyword}{public}:}
-\DoxyCodeLine{32   \mbox{\hyperlink{namespacenetdem_a13434eec0cbb4e188101abb60e920e21}{int64t}} \mbox{\hyperlink{classnetdem_1_1_d_e_m_profiler_a1807f89997ec1340772b0dc4cd99db6c}{timer\_list}}[\mbox{\hyperlink{namespacenetdem_a3d1c9a57f81d32e05adbb87079c38501ad4a2a1ca9ed510f9220347b5418e15e4}{TimerType::num\_timers}}];}
-\DoxyCodeLine{33 }
-\DoxyCodeLine{34   \textcolor{keywordtype}{int} \mbox{\hyperlink{classnetdem_1_1_d_e_m_profiler_a7d28d05419ceeab8fd685584b843e79d}{num\_particles}}\{0\}, \mbox{\hyperlink{classnetdem_1_1_d_e_m_profiler_a04cce239bba3d5f2e13782b28e9b91cf}{num\_walls}}\{0\}, \mbox{\hyperlink{classnetdem_1_1_d_e_m_profiler_a4f24387f9a6dcca396ae35f7526782d2}{num\_neighs}}\{0\}, \mbox{\hyperlink{classnetdem_1_1_d_e_m_profiler_a3c88365db2283b5298cf5234c183a20f}{num\_neigh\_builds}}\{0\};}
-\DoxyCodeLine{35   \textcolor{keywordtype}{double} \mbox{\hyperlink{classnetdem_1_1_d_e_m_profiler_a63797e23b4be48da7195e088fe5f0a72}{num\_neighs\_per\_p}}\{0\};}
-\DoxyCodeLine{36 }
-\DoxyCodeLine{37   \mbox{\hyperlink{classnetdem_1_1_d_e_m_profiler_a46aba9b0373388df0829757af1c1c851}{DEMProfiler}}();}
-\DoxyCodeLine{38 }
-\DoxyCodeLine{39   \textcolor{keyword}{static} \mbox{\hyperlink{namespacenetdem_a13434eec0cbb4e188101abb60e920e21}{int64t}} \mbox{\hyperlink{classnetdem_1_1_d_e_m_profiler_a997fb73ac349236eefcadba4893a3d9e}{GetTimeMicros}}();}
-\DoxyCodeLine{40 }
-\DoxyCodeLine{41   \textcolor{keywordtype}{void} \mbox{\hyperlink{classnetdem_1_1_d_e_m_profiler_aec4a998774b78edc07c06b148f0b3cf7}{StartTimer}}(\mbox{\hyperlink{namespacenetdem_a3d1c9a57f81d32e05adbb87079c38501}{TimerType}} t\_type);}
-\DoxyCodeLine{42   \textcolor{keywordtype}{void} \mbox{\hyperlink{classnetdem_1_1_d_e_m_profiler_aac02a7272beacf6e1b5a52fb9cb01d4a}{EndTimer}}(\mbox{\hyperlink{namespacenetdem_a3d1c9a57f81d32e05adbb87079c38501}{TimerType}} t\_type);}
-\DoxyCodeLine{43 }
-\DoxyCodeLine{44   \textcolor{keywordtype}{void} \mbox{\hyperlink{classnetdem_1_1_d_e_m_profiler_a78b51bc67b8a79503f870ee34ac89e76}{Clear}}();}
-\DoxyCodeLine{45   \textcolor{keywordtype}{void} \mbox{\hyperlink{classnetdem_1_1_d_e_m_profiler_a0d25477fcf226067c6e3fa8965a0c56f}{Print}}();}
-\DoxyCodeLine{46 }
-\DoxyCodeLine{47 \textcolor{keyword}{private}:}
-\DoxyCodeLine{48   \mbox{\hyperlink{namespacenetdem_a13434eec0cbb4e188101abb60e920e21}{int64t}} \mbox{\hyperlink{classnetdem_1_1_d_e_m_profiler_ab7d2947cb98fab1a0ad2d96be95cc8b4}{t\_start}}[\mbox{\hyperlink{namespacenetdem_a3d1c9a57f81d32e05adbb87079c38501ad4a2a1ca9ed510f9220347b5418e15e4}{TimerType::num\_timers}}];}
-\DoxyCodeLine{49   \textcolor{keywordtype}{bool} \mbox{\hyperlink{classnetdem_1_1_d_e_m_profiler_a1e1255ea4691e9da8cb53e4a155f27a7}{timer\_started}}[\mbox{\hyperlink{namespacenetdem_a3d1c9a57f81d32e05adbb87079c38501ad4a2a1ca9ed510f9220347b5418e15e4}{TimerType::num\_timers}}];}
-\DoxyCodeLine{50 }
-\DoxyCodeLine{51   \textcolor{keyword}{inline} \mbox{\hyperlink{namespacenetdem_a13434eec0cbb4e188101abb60e920e21}{int64t}} \mbox{\hyperlink{classnetdem_1_1_d_e_m_profiler_a74553e644ff3bd03709ea90fdce749e4}{GetTotalTime}}();}
-\DoxyCodeLine{52 \};}
-\DoxyCodeLine{53 }
-\DoxyCodeLine{54 \} \textcolor{comment}{// namespace netdem}}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#ifdef\ \_WIN32}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <windows.h>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <sys/time.h>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacenetdem}{netdem}}\ \{}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#if\ defined(\_WIN32)\ \&\&\ !defined(CYGWIN)}}
+\DoxyCodeLine{00012\ \textcolor{keyword}{typedef}\ \_\_int64\ \mbox{\hyperlink{namespacenetdem_a13434eec0cbb4e188101abb60e920e21}{int64t}};}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00014\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{long}\ \mbox{\hyperlink{namespacenetdem_a13434eec0cbb4e188101abb60e920e21}{int64t}};}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ \_WIN32}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{keyword}{enum}\ \mbox{\hyperlink{namespacenetdem_a3d1c9a57f81d32e05adbb87079c38501}{TimerType}}\ \{}
+\DoxyCodeLine{00018\ \ \ \mbox{\hyperlink{namespacenetdem_a3d1c9a57f81d32e05adbb87079c38501a9a735ec7821ddf983286f9983036013a}{linked\_list}},}
+\DoxyCodeLine{00019\ \ \ \mbox{\hyperlink{namespacenetdem_a3d1c9a57f81d32e05adbb87079c38501aa211e9201b5f2351dd24af1fb02405d9}{contacts}},}
+\DoxyCodeLine{00020\ \ \ \mbox{\hyperlink{namespacenetdem_a3d1c9a57f81d32e05adbb87079c38501aa671882bf8672ed5bd60dcf59a5ce6f5}{particles}},}
+\DoxyCodeLine{00021\ \ \ \mbox{\hyperlink{namespacenetdem_a3d1c9a57f81d32e05adbb87079c38501a805dcd0b4b4f7d1f06e5dc64e34ba45d}{walls}},}
+\DoxyCodeLine{00022\ \ \ \mbox{\hyperlink{namespacenetdem_a3d1c9a57f81d32e05adbb87079c38501aae44d5a6dbdfa19cb85f63e64ce5693b}{pre\_modifiers}},}
+\DoxyCodeLine{00023\ \ \ \mbox{\hyperlink{namespacenetdem_a3d1c9a57f81d32e05adbb87079c38501a22fa008a640a5e6475f2be4f5f76c4dd}{mid\_modifiers}},}
+\DoxyCodeLine{00024\ \ \ \mbox{\hyperlink{namespacenetdem_a3d1c9a57f81d32e05adbb87079c38501a62e6108e2cca571c4815577b5286e7cf}{post\_modifiers}},}
+\DoxyCodeLine{00025\ \ \ \mbox{\hyperlink{namespacenetdem_a3d1c9a57f81d32e05adbb87079c38501a4c3fe49d5b693ae3ccf415bfda9e5958}{mpi\_communication}},}
+\DoxyCodeLine{00026\ \ \ \mbox{\hyperlink{namespacenetdem_a3d1c9a57f81d32e05adbb87079c38501a3b823e7356e4e47a286937766a99cdd7}{custom}},}
+\DoxyCodeLine{00027\ \ \ \mbox{\hyperlink{namespacenetdem_a3d1c9a57f81d32e05adbb87079c38501ad4a2a1ca9ed510f9220347b5418e15e4}{num\_timers}}}
+\DoxyCodeLine{00028\ \};}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00041\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classnetdem_1_1_d_e_m_profiler}{DEMProfiler}}\ \{}
+\DoxyCodeLine{00042\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00045\ \ \ \mbox{\hyperlink{namespacenetdem_a13434eec0cbb4e188101abb60e920e21}{int64t}}\ \mbox{\hyperlink{classnetdem_1_1_d_e_m_profiler_a1807f89997ec1340772b0dc4cd99db6c}{timer\_list}}[\mbox{\hyperlink{namespacenetdem_a3d1c9a57f81d32e05adbb87079c38501ad4a2a1ca9ed510f9220347b5418e15e4}{TimerType::num\_timers}}];}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00048\ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classnetdem_1_1_d_e_m_profiler_a7d28d05419ceeab8fd685584b843e79d}{num\_particles}}\{0\};}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00051\ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classnetdem_1_1_d_e_m_profiler_a04cce239bba3d5f2e13782b28e9b91cf}{num\_walls}}\{0\};}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00054\ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classnetdem_1_1_d_e_m_profiler_a4f24387f9a6dcca396ae35f7526782d2}{num\_neighs}}\{0\};}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00057\ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classnetdem_1_1_d_e_m_profiler_a3c88365db2283b5298cf5234c183a20f}{num\_neigh\_builds}}\{0\};}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00060\ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classnetdem_1_1_d_e_m_profiler_a63797e23b4be48da7195e088fe5f0a72}{num\_neighs\_per\_p}}\{0\};}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00063\ \ \ \mbox{\hyperlink{classnetdem_1_1_d_e_m_profiler_a46aba9b0373388df0829757af1c1c851}{DEMProfiler}}();}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00074\ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{namespacenetdem_a13434eec0cbb4e188101abb60e920e21}{int64t}}\ \mbox{\hyperlink{classnetdem_1_1_d_e_m_profiler_a997fb73ac349236eefcadba4893a3d9e}{GetTimeMicros}}();}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00086\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_d_e_m_profiler_aec4a998774b78edc07c06b148f0b3cf7}{StartTimer}}(\mbox{\hyperlink{namespacenetdem_a3d1c9a57f81d32e05adbb87079c38501}{TimerType}}\ t\_type);}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00098\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_d_e_m_profiler_aac02a7272beacf6e1b5a52fb9cb01d4a}{EndTimer}}(\mbox{\hyperlink{namespacenetdem_a3d1c9a57f81d32e05adbb87079c38501}{TimerType}}\ t\_type);}
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00101\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_d_e_m_profiler_a78b51bc67b8a79503f870ee34ac89e76}{Clear}}();}
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00104\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_d_e_m_profiler_a0d25477fcf226067c6e3fa8965a0c56f}{Print}}();}
+\DoxyCodeLine{00105\ }
+\DoxyCodeLine{00106\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00109\ \ \ \mbox{\hyperlink{namespacenetdem_a13434eec0cbb4e188101abb60e920e21}{int64t}}\ \mbox{\hyperlink{classnetdem_1_1_d_e_m_profiler_ab7d2947cb98fab1a0ad2d96be95cc8b4}{t\_start}}[\mbox{\hyperlink{namespacenetdem_a3d1c9a57f81d32e05adbb87079c38501ad4a2a1ca9ed510f9220347b5418e15e4}{TimerType::num\_timers}}];}
+\DoxyCodeLine{00110\ }
+\DoxyCodeLine{00112\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classnetdem_1_1_d_e_m_profiler_a1e1255ea4691e9da8cb53e4a155f27a7}{timer\_started}}[\mbox{\hyperlink{namespacenetdem_a3d1c9a57f81d32e05adbb87079c38501ad4a2a1ca9ed510f9220347b5418e15e4}{TimerType::num\_timers}}];}
+\DoxyCodeLine{00113\ }
+\DoxyCodeLine{00124\ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{namespacenetdem_a13434eec0cbb4e188101abb60e920e21}{int64t}}\ \mbox{\hyperlink{classnetdem_1_1_d_e_m_profiler_a74553e644ff3bd03709ea90fdce749e4}{GetTotalTime}}();}
+\DoxyCodeLine{00125\ \};}
+\DoxyCodeLine{00126\ }
+\DoxyCodeLine{00127\ \}\ \textcolor{comment}{//\ namespace\ netdem}}
 
 \end{DoxyCode}

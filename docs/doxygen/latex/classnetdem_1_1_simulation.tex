@@ -13,8 +13,12 @@ void \mbox{\hyperlink{classnetdem_1_1_simulation_a096ddc0ac2a273c662c77cc1ace957
 \begin{DoxyCompactList}\small\item\em initialize with default settings \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classnetdem_1_1_simulation_a7bc026e30080fdeae1e6a6e28e9d8a30}{Auto\+Read\+Restart}} (std\+::string const \&path, int mech\+\_\+cyc, int shape\+\_\+info\+\_\+case=0)
 \begin{DoxyCompactList}\small\item\em restart the simulation using output files \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classnetdem_1_1_simulation_abdfe25e46e1c962ad8dd6372e26ecece}{Set\+Time\+And\+Cycles}} (double t, int cycs)
+\begin{DoxyCompactList}\small\item\em set the current time and cycles \mbox{[}usually invoked after Auto\+Read\+Restart\mbox{]} \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classnetdem_1_1_simulation_a358efcc8d6d906b11ef8fce7a2624943}{Run}} (double time)
-\begin{DoxyCompactList}\small\item\em Run the simulaiton for a preiod. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Run the simulaiton for a preiod. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classnetdem_1_1_simulation_a80fad3f57dfaf195a36f7bc49bc88279}{$\sim$\+Simulation}} ()
+\end{DoxyCompactItemize}
 \doxysubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -34,7 +38,7 @@ double \mbox{\hyperlink{classnetdem_1_1_simulation_ab626640936fbfd5309d5e5d2a9bb
 \begin{DoxyCompactList}\small\item\em the mechanical time in the simulation world \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{classnetdem_1_1_simulation_ab71819d5c10074f0aed8895b15110ccd}{mech\+\_\+cycles}} \{0\}
 \item 
-bool \mbox{\hyperlink{classnetdem_1_1_simulation_abc88ecdf3cbc79dde2d615a893b7130a}{log\+\_\+flag}} \{true\}
+bool \mbox{\hyperlink{classnetdem_1_1_simulation_ad61481c1aa9cc663002322ddd308547d}{enable\+\_\+logging}} \{true\}
 \begin{DoxyCompactList}\small\item\em if output the log information onto screen \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
@@ -44,6 +48,12 @@ bool \mbox{\hyperlink{classnetdem_1_1_simulation_abc88ecdf3cbc79dde2d615a893b713
 \index{Simulation@{Simulation}!netdem::Simulation@{netdem::Simulation}}
 \doxysubsubsection{\texorpdfstring{Simulation()}{Simulation()}}
 {\footnotesize\ttfamily Simulation\+::\+Simulation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classnetdem_1_1_simulation_a80fad3f57dfaf195a36f7bc49bc88279}\label{classnetdem_1_1_simulation_a80fad3f57dfaf195a36f7bc49bc88279}} 
+\index{netdem::Simulation@{netdem::Simulation}!````~Simulation@{$\sim$Simulation}}
+\index{````~Simulation@{$\sim$Simulation}!netdem::Simulation@{netdem::Simulation}}
+\doxysubsubsection{\texorpdfstring{$\sim$Simulation()}{~Simulation()}}
+{\footnotesize\ttfamily Simulation\+::$\sim$\+Simulation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 
 
@@ -78,6 +88,16 @@ initialize with default settings
 
 Run the simulaiton for a preiod. 
 
+\mbox{\Hypertarget{classnetdem_1_1_simulation_abdfe25e46e1c962ad8dd6372e26ecece}\label{classnetdem_1_1_simulation_abdfe25e46e1c962ad8dd6372e26ecece}} 
+\index{netdem::Simulation@{netdem::Simulation}!SetTimeAndCycles@{SetTimeAndCycles}}
+\index{SetTimeAndCycles@{SetTimeAndCycles}!netdem::Simulation@{netdem::Simulation}}
+\doxysubsubsection{\texorpdfstring{SetTimeAndCycles()}{SetTimeAndCycles()}}
+{\footnotesize\ttfamily void Simulation\+::\+Set\+Time\+And\+Cycles (\begin{DoxyParamCaption}\item[{double}]{t,  }\item[{int}]{cycs }\end{DoxyParamCaption})}
+
+
+
+set the current time and cycles \mbox{[}usually invoked after Auto\+Read\+Restart\mbox{]} 
+
 
 
 \doxysubsection{Member Data Documentation}
@@ -101,6 +121,16 @@ implments DEM algorithms and using DEM to solve the scene
 
 manages the calculations involving domain and sub-\/domains 
 
+\mbox{\Hypertarget{classnetdem_1_1_simulation_ad61481c1aa9cc663002322ddd308547d}\label{classnetdem_1_1_simulation_ad61481c1aa9cc663002322ddd308547d}} 
+\index{netdem::Simulation@{netdem::Simulation}!enable\_logging@{enable\_logging}}
+\index{enable\_logging@{enable\_logging}!netdem::Simulation@{netdem::Simulation}}
+\doxysubsubsection{\texorpdfstring{enable\_logging}{enable\_logging}}
+{\footnotesize\ttfamily bool netdem\+::\+Simulation\+::enable\+\_\+logging \{true\}}
+
+
+
+if output the log information onto screen 
+
 \mbox{\Hypertarget{classnetdem_1_1_simulation_ab956f37272397c5c8cbd85b95cdb85b8}\label{classnetdem_1_1_simulation_ab956f37272397c5c8cbd85b95cdb85b8}} 
 \index{netdem::Simulation@{netdem::Simulation}!input\_processor@{input\_processor}}
 \index{input\_processor@{input\_processor}!netdem::Simulation@{netdem::Simulation}}
@@ -110,16 +140,6 @@ manages the calculations involving domain and sub-\/domains
 
 
 create or modify a DEM simulation based on commands defined by json file 
-
-\mbox{\Hypertarget{classnetdem_1_1_simulation_abc88ecdf3cbc79dde2d615a893b7130a}\label{classnetdem_1_1_simulation_abc88ecdf3cbc79dde2d615a893b7130a}} 
-\index{netdem::Simulation@{netdem::Simulation}!log\_flag@{log\_flag}}
-\index{log\_flag@{log\_flag}!netdem::Simulation@{netdem::Simulation}}
-\doxysubsubsection{\texorpdfstring{log\_flag}{log\_flag}}
-{\footnotesize\ttfamily bool netdem\+::\+Simulation\+::log\+\_\+flag \{true\}}
-
-
-
-if output the log information onto screen 
 
 \mbox{\Hypertarget{classnetdem_1_1_simulation_ab71819d5c10074f0aed8895b15110ccd}\label{classnetdem_1_1_simulation_ab71819d5c10074f0aed8895b15110ccd}} 
 \index{netdem::Simulation@{netdem::Simulation}!mech\_cycles@{mech\_cycles}}
@@ -163,5 +183,5 @@ contains and manages the basic DEM objects (e.\+g., shapes, particle, and wall) 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-/\+Users/lzhshou/\+Documents/\+Research/my\+Projects/apam/repo/netdem/src/\mbox{\hyperlink{simulation_8hpp}{simulation.\+hpp}}\item 
-/\+Users/lzhshou/\+Documents/\+Research/my\+Projects/apam/repo/netdem/src/\mbox{\hyperlink{simulation_8cpp}{simulation.\+cpp}}\end{DoxyCompactItemize}
+/\+Users/lzhshou/\+Documents/\+Research/my\+Projects/apaam/repo/netdem/src/\mbox{\hyperlink{simulation_8hpp}{simulation.\+hpp}}\item 
+/\+Users/lzhshou/\+Documents/\+Research/my\+Projects/apaam/repo/netdem/src/\mbox{\hyperlink{simulation_8cpp}{simulation.\+cpp}}\end{DoxyCompactItemize}

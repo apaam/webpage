@@ -1,32 +1,29 @@
 \hypertarget{mlpack__utils_8hpp_source}{}\doxysection{mlpack\+\_\+utils.\+hpp}
-\label{mlpack__utils_8hpp_source}\index{/Users/lzhshou/Documents/Research/myProjects/apam/repo/netdem/src/mlpack/mlpack\_utils.hpp@{/Users/lzhshou/Documents/Research/myProjects/apam/repo/netdem/src/mlpack/mlpack\_utils.hpp}}
+\label{mlpack__utils_8hpp_source}\index{/Users/lzhshou/Documents/Research/myProjects/apaam/repo/netdem/src/mlpack/mlpack\_utils.hpp@{/Users/lzhshou/Documents/Research/myProjects/apaam/repo/netdem/src/mlpack/mlpack\_utils.hpp}}
 \mbox{\hyperlink{mlpack__utils_8hpp}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
-\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
-\DoxyCodeLine{2 }
-\DoxyCodeLine{3 \textcolor{preprocessor}{\#include <mlpack/core.hpp>}}
-\DoxyCodeLine{4 }
-\DoxyCodeLine{5 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacenetdem}{netdem}} \{}
-\DoxyCodeLine{6 }
-\DoxyCodeLine{7 \textcolor{keyword}{enum class} \mbox{\hyperlink{namespacenetdem_a2cdad8d3b028818b2034bb9f5e4a6583}{LayerName}} \{}
-\DoxyCodeLine{8   \mbox{\hyperlink{namespacenetdem_a2cdad8d3b028818b2034bb9f5e4a6583ac815127d07d6aad214117b99c01c01c4}{IdentityLayer}},}
-\DoxyCodeLine{9   \mbox{\hyperlink{namespacenetdem_a2cdad8d3b028818b2034bb9f5e4a6583ac363ac7ca063bb8a75fb8a11883bcb2c}{LayerNorm}},}
-\DoxyCodeLine{10   \mbox{\hyperlink{namespacenetdem_a2cdad8d3b028818b2034bb9f5e4a6583a32a843da6ea40ab3b17a3421ccdf671b}{Linear}},}
-\DoxyCodeLine{11   \mbox{\hyperlink{namespacenetdem_a2cdad8d3b028818b2034bb9f5e4a6583add10d919fa85cf27fc78c0e06fe0b378}{ReLU}},}
-\DoxyCodeLine{12   \mbox{\hyperlink{namespacenetdem_a2cdad8d3b028818b2034bb9f5e4a6583abb7ba525e0c40179fab22b4f7021e1f8}{LeakyReLU}},}
-\DoxyCodeLine{13   \mbox{\hyperlink{namespacenetdem_a2cdad8d3b028818b2034bb9f5e4a6583a4894bd8caf0d8154e8fdfd6a4c16e811}{FlexibleReLU}},}
-\DoxyCodeLine{14   \mbox{\hyperlink{namespacenetdem_a2cdad8d3b028818b2034bb9f5e4a6583a5b44c930bf0ddeef48b50ef11e5ddd58}{ELU}},}
-\DoxyCodeLine{15   \mbox{\hyperlink{namespacenetdem_a2cdad8d3b028818b2034bb9f5e4a6583a31d953b9d49a6b4378f45097047976d0}{Softmax}},}
-\DoxyCodeLine{16   \mbox{\hyperlink{namespacenetdem_a2cdad8d3b028818b2034bb9f5e4a6583a4acdcc5d78331eed943edb19fd0824c6}{LogSoftMax}},}
-\DoxyCodeLine{17   \mbox{\hyperlink{namespacenetdem_a2cdad8d3b028818b2034bb9f5e4a6583aeca9158c08600cd86442dfd1c18a3c86}{LSTM}}}
-\DoxyCodeLine{18 \};}
-\DoxyCodeLine{19 }
-\DoxyCodeLine{20 \textcolor{keywordtype}{double} \mbox{\hyperlink{namespacenetdem_a37c0eeef9dec99483df08b041b080a39}{GetMSE}}(\textcolor{keyword}{const} arma::mat \&pred, \textcolor{keyword}{const} arma::mat \&Y);}
-\DoxyCodeLine{21 }
-\DoxyCodeLine{22 \textcolor{keywordtype}{double} \mbox{\hyperlink{namespacenetdem_af6bd6d014bac6dadb9724a1f46b26e24}{GetMAE}}(\textcolor{keyword}{const} arma::mat \&pred, \textcolor{keyword}{const} arma::mat \&Y);}
-\DoxyCodeLine{23 }
-\DoxyCodeLine{24 arma::mat \mbox{\hyperlink{namespacenetdem_afac3651282d2b274aa1a5c8ac7a6d292}{GetLabels}}(\textcolor{keyword}{const} arma::mat \&ann\_outputs);}
-\DoxyCodeLine{25 }
-\DoxyCodeLine{26 \} \textcolor{comment}{// namespace netdem}}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <mlpack.hpp>}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacenetdem}{netdem}}\ \{}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{keyword}{enum\ class}\ \mbox{\hyperlink{namespacenetdem_a06635636eca09676377d47de7cb4c02c}{LayerType}}\ \{}
+\DoxyCodeLine{00008\ \ \ \mbox{\hyperlink{namespacenetdem_a06635636eca09676377d47de7cb4c02cac9c5c65fb4af9cf90eb99b3b84424189}{Identity}},}
+\DoxyCodeLine{00009\ \ \ \mbox{\hyperlink{namespacenetdem_a06635636eca09676377d47de7cb4c02ca32a843da6ea40ab3b17a3421ccdf671b}{Linear}},}
+\DoxyCodeLine{00010\ \ \ \mbox{\hyperlink{namespacenetdem_a06635636eca09676377d47de7cb4c02cadd10d919fa85cf27fc78c0e06fe0b378}{ReLU}},}
+\DoxyCodeLine{00011\ \ \ \mbox{\hyperlink{namespacenetdem_a06635636eca09676377d47de7cb4c02cabb7ba525e0c40179fab22b4f7021e1f8}{LeakyReLU}},}
+\DoxyCodeLine{00012\ \ \ \mbox{\hyperlink{namespacenetdem_a06635636eca09676377d47de7cb4c02ca5b44c930bf0ddeef48b50ef11e5ddd58}{ELU}},}
+\DoxyCodeLine{00013\ \ \ \mbox{\hyperlink{namespacenetdem_a06635636eca09676377d47de7cb4c02ca31d953b9d49a6b4378f45097047976d0}{Softmax}},}
+\DoxyCodeLine{00014\ \ \ \mbox{\hyperlink{namespacenetdem_a06635636eca09676377d47de7cb4c02ca4acdcc5d78331eed943edb19fd0824c6}{LogSoftMax}}}
+\DoxyCodeLine{00015\ \};}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{namespacenetdem_a37c0eeef9dec99483df08b041b080a39}{GetMSE}}(\textcolor{keyword}{const}\ arma::mat\ \&pred,\ \textcolor{keyword}{const}\ arma::mat\ \&Y);}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{namespacenetdem_af6bd6d014bac6dadb9724a1f46b26e24}{GetMAE}}(\textcolor{keyword}{const}\ arma::mat\ \&pred,\ \textcolor{keyword}{const}\ arma::mat\ \&Y);}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ arma::mat\ \mbox{\hyperlink{namespacenetdem_afac3651282d2b274aa1a5c8ac7a6d292}{GetLabels}}(\textcolor{keyword}{const}\ arma::mat\ \&ann\_outputs);}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \}\ \textcolor{comment}{//\ namespace\ netdem}}
 
 \end{DoxyCode}

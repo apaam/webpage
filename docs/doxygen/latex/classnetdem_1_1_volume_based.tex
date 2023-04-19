@@ -17,19 +17,44 @@ Inheritance diagram for netdem\+::Volume\+Based\+:\begin{figure}[H]
 \item 
 \mbox{\hyperlink{classnetdem_1_1_volume_based_a83ce840069b4ebf94e8eb12bb548809a}{Volume\+Based}} (double \mbox{\hyperlink{classnetdem_1_1_volume_based_ad57cca6f9d0fa0d1fb9c7d140a0c279d}{kn}}, double \mbox{\hyperlink{classnetdem_1_1_volume_based_a4345f916cbad906b2d6802c21b6e8eaf}{kt}}, double \mbox{\hyperlink{classnetdem_1_1_volume_based_a1118e688f9ac6bcf366e2f206aef0ef9}{beta}}, double \mbox{\hyperlink{classnetdem_1_1_volume_based_af63e965787f179a4325306200d464cc6}{mu}})
 \item 
-\mbox{\hyperlink{mpi__manager_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{nlohmann\+::json}} \mbox{\hyperlink{classnetdem_1_1_volume_based_ab1dc97e8c128773f8573f6bc7d845e2e}{Pack\+Json}} () override
-\item 
-void \mbox{\hyperlink{classnetdem_1_1_volume_based_a5274fee66bc481cc4d0d4a4e4ac9fc3d}{Init\+From\+Json}} (\mbox{\hyperlink{mpi__manager_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{nlohmann\+::json}} const \&js) override
-\item 
-void \mbox{\hyperlink{classnetdem_1_1_volume_based_a368ec23aafa3fb20e9cd2d178483c784}{Set\+Property}} (\mbox{\hyperlink{mpi__manager_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{nlohmann\+::json}} const \&js) override
-\item 
+nlohmann\+::json \mbox{\hyperlink{classnetdem_1_1_volume_based_ab1dc97e8c128773f8573f6bc7d845e2e}{Pack\+Json}} () override
+\begin{DoxyCompactList}\small\item\em Serialize this contact model to JSON format. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classnetdem_1_1_volume_based_a5274fee66bc481cc4d0d4a4e4ac9fc3d}{Init\+From\+Json}} (nlohmann\+::json const \&js) override
+\begin{DoxyCompactList}\small\item\em Initialize this contact model from a JSON configuration object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classnetdem_1_1_volume_based_a368ec23aafa3fb20e9cd2d178483c784}{Set\+Property}} (nlohmann\+::json const \&js) override
+\begin{DoxyCompactList}\small\item\em Set a property of this contact model from a JSON object. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classnetdem_1_1_contact_model}{Contact\+Model}} $\ast$ \mbox{\hyperlink{classnetdem_1_1_volume_based_abec667a36ab01327a01b5722cba48c1b}{Clone}} () const override
-\item 
+\begin{DoxyCompactList}\small\item\em Create a new instance of this contact model. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classnetdem_1_1_volume_based_a41613b5f841fe7dcc1f262c5ada711aa}{Evaluate\+Force\+Moment}} (\mbox{\hyperlink{classnetdem_1_1_contact_forces}{Contact\+Forces}} $\ast$const cnt\+\_\+forces, \mbox{\hyperlink{classnetdem_1_1_collision_geometries}{Collision\+Geometries}} \&cnt\+\_\+geoms, \mbox{\hyperlink{classnetdem_1_1_contact_p_p}{Contact\+PP}} $\ast$const cnt, double dt) const override
-\item 
+\begin{DoxyCompactList}\small\item\em Calculate the contact forces and moments due to this model. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classnetdem_1_1_volume_based_ac69b7ecb791d653ca64c516824095537}{Evaluate\+Force\+Moment}} (\mbox{\hyperlink{classnetdem_1_1_contact_forces}{Contact\+Forces}} $\ast$const cnt\+\_\+forces, \mbox{\hyperlink{classnetdem_1_1_collision_geometries}{Collision\+Geometries}} \&cnt\+\_\+geoms, \mbox{\hyperlink{classnetdem_1_1_contact_p_w}{Contact\+PW}} $\ast$const cnt, double dt) const override
-\item 
+\begin{DoxyCompactList}\small\item\em Calculate the contact forces and moments due to this model. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classnetdem_1_1_volume_based_a6b7d45f2c9cafccc0dbba93722fd3994}{Print}} () const override
+\begin{DoxyCompactList}\small\item\em Print debugging information about this contact model. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions inherited from \mbox{\hyperlink{classnetdem_1_1_contact_model}{netdem\+::\+Contact\+Model}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual nlohmann\+::json \mbox{\hyperlink{classnetdem_1_1_contact_model_a191a737b001313dd8a39d5f1dc1d6a78}{Pack\+Json}} ()
+\begin{DoxyCompactList}\small\item\em Serialize this contact model to JSON format. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classnetdem_1_1_contact_model_ad857f6a66c0ac793e12d5d66e69e679e}{Init\+From\+Json}} (nlohmann\+::json const \&js)
+\begin{DoxyCompactList}\small\item\em Initialize this contact model from a JSON configuration object. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classnetdem_1_1_contact_model_a03526d9c5e43b4bdde8f392975533666}{Set\+Property}} (nlohmann\+::json const \&js)
+\begin{DoxyCompactList}\small\item\em Set a property of this contact model from a JSON object. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classnetdem_1_1_contact_model_a44804e500c1e234486125e9be7e5c9b5}{Set\+Property}} (std\+::string const \&name, double value)
+\begin{DoxyCompactList}\small\item\em Set a property of this contact model by name and value. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{classnetdem_1_1_contact_model}{Contact\+Model}} $\ast$ \mbox{\hyperlink{classnetdem_1_1_contact_model_a697207b7395fdc6cface026d9df65678}{Clone}} () const
+\begin{DoxyCompactList}\small\item\em Create a new instance of this contact model. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classnetdem_1_1_contact_model_aa518a60578e61a60c3a0ba50ee99ec4d}{Evaluate\+Force\+Moment}} (\mbox{\hyperlink{classnetdem_1_1_contact_forces}{Contact\+Forces}} $\ast$const cnt\+\_\+forces, \mbox{\hyperlink{classnetdem_1_1_collision_geometries}{Collision\+Geometries}} \&cnt\+\_\+geoms, \mbox{\hyperlink{classnetdem_1_1_contact_p_p}{Contact\+PP}} $\ast$const cnt, double dt) const
+\begin{DoxyCompactList}\small\item\em Calculate the contact forces and moments due to this model. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classnetdem_1_1_contact_model_ad21d8123a17a71ee430fb475b864d6a0}{Evaluate\+Force\+Moment}} (\mbox{\hyperlink{classnetdem_1_1_contact_forces}{Contact\+Forces}} $\ast$const cnt\+\_\+forces, \mbox{\hyperlink{classnetdem_1_1_bond_geometries}{Bond\+Geometries}} \&cnt\+\_\+geoms, \mbox{\hyperlink{classnetdem_1_1_contact_p_p}{Contact\+PP}} $\ast$const cnt, double dt) const
+\begin{DoxyCompactList}\small\item\em Calculate the contact forces and moments due to this model. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classnetdem_1_1_contact_model_a75d0d3da3432937dd69648f3146d9c1a}{Evaluate\+Force\+Moment}} (\mbox{\hyperlink{classnetdem_1_1_contact_forces}{Contact\+Forces}} $\ast$const cnt\+\_\+forces, \mbox{\hyperlink{classnetdem_1_1_collision_geometries}{Collision\+Geometries}} \&cnt\+\_\+geoms, \mbox{\hyperlink{classnetdem_1_1_contact_p_w}{Contact\+PW}} $\ast$const cnt, double dt) const
+\begin{DoxyCompactList}\small\item\em Calculate the contact forces and moments due to this model. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classnetdem_1_1_contact_model_aa7b8c2408fc61dd91fea4d7c56819235}{Evaluate\+Force\+Moment}} (\mbox{\hyperlink{classnetdem_1_1_contact_forces}{Contact\+Forces}} $\ast$const cnt\+\_\+forces, \mbox{\hyperlink{classnetdem_1_1_bond_geometries}{Bond\+Geometries}} \&cnt\+\_\+geoms, \mbox{\hyperlink{classnetdem_1_1_contact_p_w}{Contact\+PW}} $\ast$const cnt, double dt) const
+\begin{DoxyCompactList}\small\item\em Calculate the contact forces and moments due to this model. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classnetdem_1_1_contact_model_a541fc910e1d85b1fc2bb75d73e50e984}{Print}} () const
+\begin{DoxyCompactList}\small\item\em Print debugging information about this contact model. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{classnetdem_1_1_contact_model_a8cc9483a6ac756f0c3d6832550232540}{$\sim$\+Contact\+Model}} ()
 \end{DoxyCompactItemize}
 \doxysubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
@@ -44,7 +69,30 @@ double \mbox{\hyperlink{classnetdem_1_1_volume_based_a1118e688f9ac6bcf366e2f206a
 \item 
 double \mbox{\hyperlink{classnetdem_1_1_volume_based_af63e965787f179a4325306200d464cc6}{mu}} \{0.\+5\}
 \end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes inherited from \mbox{\hyperlink{classnetdem_1_1_contact_model}{netdem\+::\+Contact\+Model}}}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{classnetdem_1_1_contact_model_af742c7150b1b9f1734cbc31644fb1105}{id}} \{0\}
+\item 
+std\+::string \mbox{\hyperlink{classnetdem_1_1_contact_model_ac452f37ee577eb8e2cefa4156d9c62ab}{label}} \{\char`\"{}default\char`\"{}\}
+\item 
+int \mbox{\hyperlink{classnetdem_1_1_contact_model_a79bc2c3ed2881b0e3640ceeba80308dc}{model\+\_\+type}} \{0\}
+\item 
+std\+::string \mbox{\hyperlink{classnetdem_1_1_contact_model_af4af438894db0d3a88e6ed66e397cc2b}{model\+\_\+name}} \{\char`\"{}contact\+\_\+model\char`\"{}\}
+\end{DoxyCompactItemize}
 \doxysubsection*{Additional Inherited Members}
+\doxysubsubsection*{Public Types inherited from \mbox{\hyperlink{classnetdem_1_1_contact_model}{netdem\+::\+Contact\+Model}}}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{classnetdem_1_1_contact_model_a86b4462f72dd85e2e8a55dd6844f6b51}{Type}} \{ \newline
+\mbox{\hyperlink{classnetdem_1_1_contact_model_a86b4462f72dd85e2e8a55dd6844f6b51a283fafdd11e8dcf34397cefffa6e6f23}{none}}
+, \mbox{\hyperlink{classnetdem_1_1_contact_model_a86b4462f72dd85e2e8a55dd6844f6b51adb0a6e319bcfe5f0df23e62b48ab0955}{linear\+\_\+spring}}
+, \mbox{\hyperlink{classnetdem_1_1_contact_model_a86b4462f72dd85e2e8a55dd6844f6b51ae2bd1b0fede33e38b83f9de6f8f3cfb1}{hertz\+\_\+mindlin}}
+, \mbox{\hyperlink{classnetdem_1_1_contact_model_a86b4462f72dd85e2e8a55dd6844f6b51afaaae10cad49f37d1574642e13ef751e}{volume\+\_\+based}}
+, \newline
+\mbox{\hyperlink{classnetdem_1_1_contact_model_a86b4462f72dd85e2e8a55dd6844f6b51ac929ea908a2c3feaab83c52917856cd6}{parallel\+\_\+bond}}
+ \}
+\end{DoxyCompactItemize}
 
 
 \doxysubsection{Constructor \& Destructor Documentation}
@@ -71,6 +119,15 @@ double \mbox{\hyperlink{classnetdem_1_1_volume_based_af63e965787f179a4325306200d
 
 
 
+Create a new instance of this contact model. 
+
+This method creates a new instance of the current contact model and returns a pointer to it. This is a virtual method that can be overridden in any subclass of {\ttfamily \mbox{\hyperlink{classnetdem_1_1_contact_model}{Contact\+Model}}} that needs to customize the cloning behavior.
+
+\begin{DoxyReturn}{Returns}
+A pointer to a new instance of this contact model. 
+\end{DoxyReturn}
+
+
 Reimplemented from \mbox{\hyperlink{classnetdem_1_1_contact_model_a697207b7395fdc6cface026d9df65678}{netdem\+::\+Contact\+Model}}.
 
 \mbox{\Hypertarget{classnetdem_1_1_volume_based_a41613b5f841fe7dcc1f262c5ada711aa}\label{classnetdem_1_1_volume_based_a41613b5f841fe7dcc1f262c5ada711aa}} 
@@ -79,6 +136,23 @@ Reimplemented from \mbox{\hyperlink{classnetdem_1_1_contact_model_a697207b7395fd
 \doxysubsubsection{\texorpdfstring{EvaluateForceMoment()}{EvaluateForceMoment()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily void netdem\+::\+Volume\+Based\+::\+Evaluate\+Force\+Moment (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_contact_forces}{Contact\+Forces}} $\ast$const}]{cnt\+\_\+forces,  }\item[{\mbox{\hyperlink{classnetdem_1_1_collision_geometries}{Collision\+Geometries}} \&}]{cnt\+\_\+geoms,  }\item[{\mbox{\hyperlink{classnetdem_1_1_contact_p_p}{Contact\+PP}} $\ast$const}]{cnt,  }\item[{double}]{dt }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
+
+
+Calculate the contact forces and moments due to this model. 
+
+Given a set of collision or bond geometries representing the contact interaction, this method calculates the resulting contact forces and moments and stores them in the provided {\ttfamily \mbox{\hyperlink{classnetdem_1_1_contact_forces}{Contact\+Forces}}} object. This is a pure virtual method that must be implemented by any subclass of {\ttfamily \mbox{\hyperlink{classnetdem_1_1_contact_model}{Contact\+Model}}}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em cnt\+\_\+forces} & A pointer to the {\ttfamily \mbox{\hyperlink{classnetdem_1_1_contact_forces}{Contact\+Forces}}} object to store the resulting forces and moments in. \\
+\hline
+{\em cnt\+\_\+geoms} & The collision or bond geometries representing the contact interaction. \\
+\hline
+{\em cnt} & A pointer to the {\ttfamily \mbox{\hyperlink{classnetdem_1_1_contact_p_p}{Contact\+PP}}} or {\ttfamily \mbox{\hyperlink{classnetdem_1_1_contact_p_w}{Contact\+PW}}} object representing the contact point(s). \\
+\hline
+{\em dt} & The time step size for the simulation. \\
+\hline
+\end{DoxyParams}
 
 
 Reimplemented from \mbox{\hyperlink{classnetdem_1_1_contact_model_aa518a60578e61a60c3a0ba50ee99ec4d}{netdem\+::\+Contact\+Model}}.
@@ -91,14 +165,42 @@ Reimplemented from \mbox{\hyperlink{classnetdem_1_1_contact_model_aa518a60578e61
 
 
 
+Calculate the contact forces and moments due to this model. 
+
+Given a set of collision geometries representing the contact interaction, this method calculates the resulting contact forces and moments and stores them in the provided {\ttfamily \mbox{\hyperlink{classnetdem_1_1_contact_forces}{Contact\+Forces}}} object. This is a pure virtual method that must be implemented by any subclass of {\ttfamily \mbox{\hyperlink{classnetdem_1_1_contact_model}{Contact\+Model}}}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em cnt\+\_\+forces} & A pointer to the {\ttfamily \mbox{\hyperlink{classnetdem_1_1_contact_forces}{Contact\+Forces}}} object to store the resulting forces and moments in. \\
+\hline
+{\em cnt\+\_\+geoms} & The collision geometries representing the contact interaction. \\
+\hline
+{\em cnt} & A pointer to the {\ttfamily \mbox{\hyperlink{classnetdem_1_1_contact_p_w}{Contact\+PW}}} object representing the contact point(s). \\
+\hline
+{\em dt} & The time step size for the simulation. \\
+\hline
+\end{DoxyParams}
+
+
 Reimplemented from \mbox{\hyperlink{classnetdem_1_1_contact_model_a75d0d3da3432937dd69648f3146d9c1a}{netdem\+::\+Contact\+Model}}.
 
 \mbox{\Hypertarget{classnetdem_1_1_volume_based_a5274fee66bc481cc4d0d4a4e4ac9fc3d}\label{classnetdem_1_1_volume_based_a5274fee66bc481cc4d0d4a4e4ac9fc3d}} 
 \index{netdem::VolumeBased@{netdem::VolumeBased}!InitFromJson@{InitFromJson}}
 \index{InitFromJson@{InitFromJson}!netdem::VolumeBased@{netdem::VolumeBased}}
 \doxysubsubsection{\texorpdfstring{InitFromJson()}{InitFromJson()}}
-{\footnotesize\ttfamily void netdem\+::\+Volume\+Based\+::\+Init\+From\+Json (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{mpi__manager_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{nlohmann\+::json}} const \&}]{js }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+{\footnotesize\ttfamily void netdem\+::\+Volume\+Based\+::\+Init\+From\+Json (\begin{DoxyParamCaption}\item[{nlohmann\+::json const \&}]{js }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
+
+
+Initialize this contact model from a JSON configuration object. 
+
+Given a JSON object containing configuration data for this contact model, this method reads the data and updates the state of the object accordingly. This is a pure virtual method that must be implemented by any subclass of {\ttfamily \mbox{\hyperlink{classnetdem_1_1_contact_model}{Contact\+Model}}}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em js} & A JSON object containing configuration data for this contact model. \\
+\hline
+\end{DoxyParams}
 
 
 Reimplemented from \mbox{\hyperlink{classnetdem_1_1_contact_model_ad857f6a66c0ac793e12d5d66e69e679e}{netdem\+::\+Contact\+Model}}.
@@ -107,8 +209,17 @@ Reimplemented from \mbox{\hyperlink{classnetdem_1_1_contact_model_ad857f6a66c0ac
 \index{netdem::VolumeBased@{netdem::VolumeBased}!PackJson@{PackJson}}
 \index{PackJson@{PackJson}!netdem::VolumeBased@{netdem::VolumeBased}}
 \doxysubsubsection{\texorpdfstring{PackJson()}{PackJson()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{mpi__manager_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{nlohmann\+::json}} netdem\+::\+Volume\+Based\+::\+Pack\+Json (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+{\footnotesize\ttfamily nlohmann\+::json netdem\+::\+Volume\+Based\+::\+Pack\+Json (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
+
+
+Serialize this contact model to JSON format. 
+
+This method converts the current state of the contact model to a JSON object and returns it as the result value.
+
+\begin{DoxyReturn}{Returns}
+A JSON object containing serialization data for this contact model. 
+\end{DoxyReturn}
 
 
 Reimplemented from \mbox{\hyperlink{classnetdem_1_1_contact_model_a191a737b001313dd8a39d5f1dc1d6a78}{netdem\+::\+Contact\+Model}}.
@@ -121,14 +232,29 @@ Reimplemented from \mbox{\hyperlink{classnetdem_1_1_contact_model_a191a737b00131
 
 
 
+Print debugging information about this contact model. 
+
+This method prints a summary of the current state of the contact model to the console or log file, including the values of all member variables and any other relevant information. 
+
 Reimplemented from \mbox{\hyperlink{classnetdem_1_1_contact_model_a541fc910e1d85b1fc2bb75d73e50e984}{netdem\+::\+Contact\+Model}}.
 
 \mbox{\Hypertarget{classnetdem_1_1_volume_based_a368ec23aafa3fb20e9cd2d178483c784}\label{classnetdem_1_1_volume_based_a368ec23aafa3fb20e9cd2d178483c784}} 
 \index{netdem::VolumeBased@{netdem::VolumeBased}!SetProperty@{SetProperty}}
 \index{SetProperty@{SetProperty}!netdem::VolumeBased@{netdem::VolumeBased}}
 \doxysubsubsection{\texorpdfstring{SetProperty()}{SetProperty()}}
-{\footnotesize\ttfamily void netdem\+::\+Volume\+Based\+::\+Set\+Property (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{mpi__manager_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{nlohmann\+::json}} const \&}]{js }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+{\footnotesize\ttfamily void netdem\+::\+Volume\+Based\+::\+Set\+Property (\begin{DoxyParamCaption}\item[{nlohmann\+::json const \&}]{js }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
+
+
+Set a property of this contact model from a JSON object. 
+
+Given a JSON object representing a named property of this contact model, this method reads the value of the property and updates the state of the object accordingly. This is a pure virtual method that must be implemented by any subclass of {\ttfamily \mbox{\hyperlink{classnetdem_1_1_contact_model}{Contact\+Model}}}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em js} & A JSON object representing a named property of this contact model. \\
+\hline
+\end{DoxyParams}
 
 
 Reimplemented from \mbox{\hyperlink{classnetdem_1_1_contact_model_a03526d9c5e43b4bdde8f392975533666}{netdem\+::\+Contact\+Model}}.
@@ -170,5 +296,5 @@ Reimplemented from \mbox{\hyperlink{classnetdem_1_1_contact_model_a03526d9c5e43b
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-/\+Users/lzhshou/\+Documents/\+Research/my\+Projects/apam/repo/netdem/src/dem/\mbox{\hyperlink{model__volume__based_8hpp}{model\+\_\+volume\+\_\+based.\+hpp}}\item 
-/\+Users/lzhshou/\+Documents/\+Research/my\+Projects/apam/repo/netdem/src/dem/\mbox{\hyperlink{model__volume__based_8cpp}{model\+\_\+volume\+\_\+based.\+cpp}}\end{DoxyCompactItemize}
+/\+Users/lzhshou/\+Documents/\+Research/my\+Projects/apaam/repo/netdem/src/dem/\mbox{\hyperlink{model__volume__based_8hpp}{model\+\_\+volume\+\_\+based.\+hpp}}\item 
+/\+Users/lzhshou/\+Documents/\+Research/my\+Projects/apaam/repo/netdem/src/dem/\mbox{\hyperlink{model__volume__based_8cpp}{model\+\_\+volume\+\_\+based.\+cpp}}\end{DoxyCompactItemize}
