@@ -1,46 +1,46 @@
 \hypertarget{model__parallel__bond_8hpp_source}{}\doxysection{model\+\_\+parallel\+\_\+bond.\+hpp}
-\label{model__parallel__bond_8hpp_source}\index{/Users/lzhshou/Documents/Research/myProjects/apam/repo/netdem/src/dem/model\_parallel\_bond.hpp@{/Users/lzhshou/Documents/Research/myProjects/apam/repo/netdem/src/dem/model\_parallel\_bond.hpp}}
+\label{model__parallel__bond_8hpp_source}\index{/Users/lzhshou/Documents/Research/myProjects/apaam/repo/netdem/src/dem/model\_parallel\_bond.hpp@{/Users/lzhshou/Documents/Research/myProjects/apaam/repo/netdem/src/dem/model\_parallel\_bond.hpp}}
 \mbox{\hyperlink{model__parallel__bond_8hpp}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
-\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
-\DoxyCodeLine{2 }
-\DoxyCodeLine{3 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{contact__model_8hpp}{contact\_model.hpp}}"{}}}
-\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{utils__math_8hpp}{utils\_math.hpp}}"{}}}
-\DoxyCodeLine{5 }
-\DoxyCodeLine{6 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacenetdem}{netdem}} \{}
-\DoxyCodeLine{7 }
-\DoxyCodeLine{8 \textcolor{keyword}{class }ContactPP;}
-\DoxyCodeLine{9 \textcolor{keyword}{class }ContactPW;}
-\DoxyCodeLine{10 }
-\DoxyCodeLine{11 \textcolor{keyword}{class }\mbox{\hyperlink{classnetdem_1_1_parallel_bond}{ParallelBond}} : \textcolor{keyword}{public} \mbox{\hyperlink{classnetdem_1_1_contact_model}{ContactModel}} \{}
-\DoxyCodeLine{12 \textcolor{keyword}{public}:}
-\DoxyCodeLine{13   \textcolor{keywordtype}{double} \mbox{\hyperlink{classnetdem_1_1_parallel_bond_ab4c058cc8545278e936311546d4c8b71}{kn}}\{2e6\}, \mbox{\hyperlink{classnetdem_1_1_parallel_bond_a4423055cd5983f2d661d2a0e1eba924b}{kt}}\{1e6\};}
-\DoxyCodeLine{14   \textcolor{keywordtype}{double} \mbox{\hyperlink{classnetdem_1_1_parallel_bond_ae6096390858f2fcd6cb9d01780463c6a}{max\_sig\_n}}\{1.0e6\}, \mbox{\hyperlink{classnetdem_1_1_parallel_bond_ae8d0e1fb7ca7d71112ec5256be0b4bcd}{max\_sig\_t}}\{1.0e6\};}
-\DoxyCodeLine{15 }
-\DoxyCodeLine{16   \mbox{\hyperlink{classnetdem_1_1_parallel_bond_a1081f6b8f94daa0cad8009b3f00cde97}{ParallelBond}}();}
-\DoxyCodeLine{17   \mbox{\hyperlink{classnetdem_1_1_parallel_bond_a1081f6b8f94daa0cad8009b3f00cde97}{ParallelBond}}(\textcolor{keywordtype}{double} \mbox{\hyperlink{classnetdem_1_1_parallel_bond_ab4c058cc8545278e936311546d4c8b71}{kn}}, \textcolor{keywordtype}{double} \mbox{\hyperlink{classnetdem_1_1_parallel_bond_a4423055cd5983f2d661d2a0e1eba924b}{kt}}, \textcolor{keywordtype}{double} sig\_n, \textcolor{keywordtype}{double} sig\_t);}
-\DoxyCodeLine{18 }
-\DoxyCodeLine{19   \mbox{\hyperlink{input__processor_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{nlohmann::json}} \mbox{\hyperlink{classnetdem_1_1_parallel_bond_a3e9d98d5d555d197f7d0160ddefdebe3}{PackJson}}() \textcolor{keyword}{override};}
-\DoxyCodeLine{20 }
-\DoxyCodeLine{21   \textcolor{keywordtype}{void} \mbox{\hyperlink{classnetdem_1_1_parallel_bond_a5c9bb9cac18250da3645ba4df3d69af1}{InitFromJson}}(\mbox{\hyperlink{input__processor_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{nlohmann::json}} \textcolor{keyword}{const} \&js) \textcolor{keyword}{override};}
-\DoxyCodeLine{22 }
-\DoxyCodeLine{23   \textcolor{keywordtype}{void} \mbox{\hyperlink{classnetdem_1_1_parallel_bond_afedeef8a214c03c7d89c45cb9f727297}{SetProperty}}(\mbox{\hyperlink{input__processor_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{nlohmann::json}} \textcolor{keyword}{const} \&js) \textcolor{keyword}{override};}
-\DoxyCodeLine{24 }
-\DoxyCodeLine{25   ContactModel *\mbox{\hyperlink{classnetdem_1_1_parallel_bond_a5a82aaff231747a0d2b36185b3f80834}{Clone}}() \textcolor{keyword}{const override};}
-\DoxyCodeLine{26 }
-\DoxyCodeLine{27   \textcolor{keywordtype}{void} \mbox{\hyperlink{classnetdem_1_1_parallel_bond_a9ecd8f257c99607cb7734dc9e9253498}{SetRadius}}(\textcolor{keywordtype}{double} r);}
-\DoxyCodeLine{28 }
-\DoxyCodeLine{29   \textcolor{keywordtype}{void} \mbox{\hyperlink{classnetdem_1_1_parallel_bond_a59a03213a076756dd7b357bfda18aed4}{EvaluateForceMoment}}(\mbox{\hyperlink{classnetdem_1_1_contact_forces}{ContactForces}} *\textcolor{keyword}{const} cnt\_forces,}
-\DoxyCodeLine{30                            \mbox{\hyperlink{classnetdem_1_1_bond_geometries}{BondGeometries}} \&cnt\_geoms, \mbox{\hyperlink{classnetdem_1_1_contact_p_p}{ContactPP}} *\textcolor{keyword}{const} cnt,}
-\DoxyCodeLine{31                            \textcolor{keywordtype}{double} dt) \textcolor{keyword}{const override};}
-\DoxyCodeLine{32 }
-\DoxyCodeLine{33   \textcolor{keywordtype}{void} \mbox{\hyperlink{classnetdem_1_1_parallel_bond_a59a03213a076756dd7b357bfda18aed4}{EvaluateForceMoment}}(\mbox{\hyperlink{classnetdem_1_1_contact_forces}{ContactForces}} *\textcolor{keyword}{const} cnt\_forces,}
-\DoxyCodeLine{34                            \mbox{\hyperlink{classnetdem_1_1_bond_geometries}{BondGeometries}} \&cnt\_geoms, \mbox{\hyperlink{classnetdem_1_1_contact_p_w}{ContactPW}} *\textcolor{keyword}{const} cnt,}
-\DoxyCodeLine{35                            \textcolor{keywordtype}{double} dt) \textcolor{keyword}{const override};}
-\DoxyCodeLine{36 }
-\DoxyCodeLine{37   \textcolor{keywordtype}{void} \mbox{\hyperlink{classnetdem_1_1_parallel_bond_ab5c5d1dae772f5aab1e6353a01feb2c5}{Print}}() \textcolor{keyword}{const override};}
-\DoxyCodeLine{38 \};}
-\DoxyCodeLine{39 }
-\DoxyCodeLine{40 \} \textcolor{comment}{// namespace netdem}}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{contact__model_8hpp}{contact\_model.hpp}}"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{utils__math_8hpp}{utils\_math.hpp}}"{}}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacenetdem}{netdem}}\ \{}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{keyword}{class\ }ContactPP;}
+\DoxyCodeLine{00009\ \textcolor{keyword}{class\ }ContactPW;}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classnetdem_1_1_parallel_bond}{ParallelBond}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classnetdem_1_1_contact_model}{ContactModel}}\ \{}
+\DoxyCodeLine{00012\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00013\ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classnetdem_1_1_parallel_bond_ab4c058cc8545278e936311546d4c8b71}{kn}}\{2e6\},\ \mbox{\hyperlink{classnetdem_1_1_parallel_bond_a4423055cd5983f2d661d2a0e1eba924b}{kt}}\{1e6\};}
+\DoxyCodeLine{00014\ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classnetdem_1_1_parallel_bond_ae6096390858f2fcd6cb9d01780463c6a}{max\_sig\_n}}\{1.0e6\},\ \mbox{\hyperlink{classnetdem_1_1_parallel_bond_ae8d0e1fb7ca7d71112ec5256be0b4bcd}{max\_sig\_t}}\{1.0e6\};}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \ \ \mbox{\hyperlink{classnetdem_1_1_parallel_bond_a1081f6b8f94daa0cad8009b3f00cde97}{ParallelBond}}();}
+\DoxyCodeLine{00017\ \ \ \mbox{\hyperlink{classnetdem_1_1_parallel_bond_a1081f6b8f94daa0cad8009b3f00cde97}{ParallelBond}}(\textcolor{keywordtype}{double}\ \mbox{\hyperlink{classnetdem_1_1_parallel_bond_ab4c058cc8545278e936311546d4c8b71}{kn}},\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classnetdem_1_1_parallel_bond_a4423055cd5983f2d661d2a0e1eba924b}{kt}},\ \textcolor{keywordtype}{double}\ sig\_n,\ \textcolor{keywordtype}{double}\ sig\_t);}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \ \ nlohmann::json\ \mbox{\hyperlink{classnetdem_1_1_parallel_bond_a3e9d98d5d555d197f7d0160ddefdebe3}{PackJson}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_parallel_bond_a5c9bb9cac18250da3645ba4df3d69af1}{InitFromJson}}(nlohmann::json\ \textcolor{keyword}{const}\ \&js)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_parallel_bond_afedeef8a214c03c7d89c45cb9f727297}{SetProperty}}(nlohmann::json\ \textcolor{keyword}{const}\ \&js)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \ \ ContactModel\ *\mbox{\hyperlink{classnetdem_1_1_parallel_bond_a5a82aaff231747a0d2b36185b3f80834}{Clone}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_parallel_bond_a9ecd8f257c99607cb7734dc9e9253498}{SetRadius}}(\textcolor{keywordtype}{double}\ r);}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_parallel_bond_a59a03213a076756dd7b357bfda18aed4}{EvaluateForceMoment}}(\mbox{\hyperlink{classnetdem_1_1_contact_forces}{ContactForces}}\ *\textcolor{keyword}{const}\ cnt\_forces,}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classnetdem_1_1_bond_geometries}{BondGeometries}}\ \&cnt\_geoms,\ \mbox{\hyperlink{classnetdem_1_1_contact_p_p}{ContactPP}}\ *\textcolor{keyword}{const}\ cnt,}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ dt)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_parallel_bond_a59a03213a076756dd7b357bfda18aed4}{EvaluateForceMoment}}(\mbox{\hyperlink{classnetdem_1_1_contact_forces}{ContactForces}}\ *\textcolor{keyword}{const}\ cnt\_forces,}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classnetdem_1_1_bond_geometries}{BondGeometries}}\ \&cnt\_geoms,\ \mbox{\hyperlink{classnetdem_1_1_contact_p_w}{ContactPW}}\ *\textcolor{keyword}{const}\ cnt,}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ dt)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_parallel_bond_ab5c5d1dae772f5aab1e6353a01feb2c5}{Print}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00038\ \};}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \}\ \textcolor{comment}{//\ namespace\ netdem}}
 
 \end{DoxyCode}

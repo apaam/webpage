@@ -2,6 +2,11 @@
 \label{classnetdem_1_1_bond_solver_p_p}\index{netdem::BondSolverPP@{netdem::BondSolverPP}}
 
 
+A class for solving point-\/point bonds between particles.  
+
+
+
+
 {\ttfamily \#include $<$bond\+\_\+solver\+\_\+pp.\+hpp$>$}
 
 \doxysubsection*{Public Member Functions}
@@ -11,8 +16,6 @@
 \item 
 \mbox{\hyperlink{classnetdem_1_1_bond_solver_p_p_a6cb769c6f822102abefc1e6a792fa79c}{Bond\+Solver\+PP}} (\mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} $\ast$const p1, \mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} $\ast$const p2)
 \item 
-void \mbox{\hyperlink{classnetdem_1_1_bond_solver_p_p_a0d8c7ddc176556623b277aa86cec3597}{Init}} (\mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} $\ast$const p1, \mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} $\ast$const p2)
-\item 
 void \mbox{\hyperlink{classnetdem_1_1_bond_solver_p_p_a1eddde9666cb69acbfe84b8785b8f0a1}{Resolve\+Init}} (\mbox{\hyperlink{classnetdem_1_1_contact_p_p}{Contact\+PP}} $\ast$const cnt, double timestep)
 \item 
 void \mbox{\hyperlink{classnetdem_1_1_bond_solver_p_p_a760d0488416d44b463c2dda67b9f38a4}{Resolve\+Update}} (\mbox{\hyperlink{classnetdem_1_1_contact_p_p}{Contact\+PP}} $\ast$const cnt, double timestep)
@@ -20,15 +23,22 @@ void \mbox{\hyperlink{classnetdem_1_1_bond_solver_p_p_a760d0488416d44b463c2dda67
 void \mbox{\hyperlink{classnetdem_1_1_bond_solver_p_p_a7a73071059b472ad4c1c1365a16093e8}{Resolve\+Init}} (\mbox{\hyperlink{classnetdem_1_1_bond_geometries}{Bond\+Geometries}} $\ast$const cnt\+\_\+geoms, \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&bond\+\_\+pos, \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&bond\+\_\+dir\+\_\+n, double bound\+\_\+radius)
 \item 
 void \mbox{\hyperlink{classnetdem_1_1_bond_solver_p_p_af8cecf84ed57f9d7c3596c18b11c9385}{Resolve\+Update}} (\mbox{\hyperlink{classnetdem_1_1_bond_geometries}{Bond\+Geometries}} $\ast$const cnt\+\_\+geoms, double timestep)
+\item 
+void \mbox{\hyperlink{classnetdem_1_1_bond_solver_p_p_a0d8c7ddc176556623b277aa86cec3597}{Init}} (\mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} $\ast$const p1, \mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} $\ast$const p2)
 \end{DoxyCompactItemize}
 \doxysubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} $\ast$ \mbox{\hyperlink{classnetdem_1_1_bond_solver_p_p_a9b4eae46f1090bd944c6b97c58b431de}{particle\+\_\+1}} \{nullptr\}
 \item 
-\mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} $\ast$ \mbox{\hyperlink{classnetdem_1_1_bond_solver_p_p_a33bc7a35a3ec9f9b803ed1f0fcca374a}{particle\+\_\+2}} \{nullptr\}
+\mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} $\ast$ \mbox{\hyperlink{classnetdem_1_1_bond_solver_p_p_a49a636ab3c68e6bce32cfaba956d45d2}{particle\+\_\+2}} \{nullptr\}
 \end{DoxyCompactItemize}
 
+
+\doxysubsection{Detailed Description}
+A class for solving point-\/point bonds between particles. 
+
+This class performs initialization and updates for point-\/point contacts associated with a pair of particles connected by a bond. It can also perform initialization and updates for bonds that are not associated with a contact. 
 
 \doxysubsection{Constructor \& Destructor Documentation}
 \mbox{\Hypertarget{classnetdem_1_1_bond_solver_p_p_a225271d3f5e4d2295b4704f30a8ae684}\label{classnetdem_1_1_bond_solver_p_p_a225271d3f5e4d2295b4704f30a8ae684}} 
@@ -37,12 +47,21 @@ void \mbox{\hyperlink{classnetdem_1_1_bond_solver_p_p_af8cecf84ed57f9d7c3596c18b
 \doxysubsubsection{\texorpdfstring{BondSolverPP()}{BondSolverPP()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily Bond\+Solver\+PP\+::\+Bond\+Solver\+PP (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-\mbox{\Hypertarget{classnetdem_1_1_bond_solver_p_p_a6cb769c6f822102abefc1e6a792fa79c}\label{classnetdem_1_1_bond_solver_p_p_a6cb769c6f822102abefc1e6a792fa79c}} 
+Default constructor for the {\ttfamily \mbox{\hyperlink{classnetdem_1_1_bond_solver_p_p}{Bond\+Solver\+PP}}} class. \mbox{\Hypertarget{classnetdem_1_1_bond_solver_p_p_a6cb769c6f822102abefc1e6a792fa79c}\label{classnetdem_1_1_bond_solver_p_p_a6cb769c6f822102abefc1e6a792fa79c}} 
 \index{netdem::BondSolverPP@{netdem::BondSolverPP}!BondSolverPP@{BondSolverPP}}
 \index{BondSolverPP@{BondSolverPP}!netdem::BondSolverPP@{netdem::BondSolverPP}}
 \doxysubsubsection{\texorpdfstring{BondSolverPP()}{BondSolverPP()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
 {\footnotesize\ttfamily Bond\+Solver\+PP\+::\+Bond\+Solver\+PP (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} $\ast$const}]{p1,  }\item[{\mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} $\ast$const}]{p2 }\end{DoxyParamCaption})}
 
+Constructor for the {\ttfamily \mbox{\hyperlink{classnetdem_1_1_bond_solver_p_p}{Bond\+Solver\+PP}}} class that initializes particles.
+
+
+\begin{DoxyParams}{Parameters}
+{\em p1} & A pointer to the first particle. \\
+\hline
+{\em p2} & A pointer to the second particle. \\
+\hline
+\end{DoxyParams}
 
 
 \doxysubsection{Member Function Documentation}
@@ -52,30 +71,79 @@ void \mbox{\hyperlink{classnetdem_1_1_bond_solver_p_p_af8cecf84ed57f9d7c3596c18b
 \doxysubsubsection{\texorpdfstring{Init()}{Init()}}
 {\footnotesize\ttfamily void Bond\+Solver\+PP\+::\+Init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} $\ast$const}]{p1,  }\item[{\mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} $\ast$const}]{p2 }\end{DoxyParamCaption})}
 
+Initializes the particles associated with this bond.
+
+
+\begin{DoxyParams}{Parameters}
+{\em p1} & A pointer to the first particle. \\
+\hline
+{\em p2} & A pointer to the second particle. \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{classnetdem_1_1_bond_solver_p_p_a7a73071059b472ad4c1c1365a16093e8}\label{classnetdem_1_1_bond_solver_p_p_a7a73071059b472ad4c1c1365a16093e8}} 
 \index{netdem::BondSolverPP@{netdem::BondSolverPP}!ResolveInit@{ResolveInit}}
 \index{ResolveInit@{ResolveInit}!netdem::BondSolverPP@{netdem::BondSolverPP}}
 \doxysubsubsection{\texorpdfstring{ResolveInit()}{ResolveInit()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily void Bond\+Solver\+PP\+::\+Resolve\+Init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_bond_geometries}{Bond\+Geometries}} $\ast$const}]{cnt\+\_\+geoms,  }\item[{\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&}]{bond\+\_\+pos,  }\item[{\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&}]{bond\+\_\+dir\+\_\+n,  }\item[{double}]{bound\+\_\+radius }\end{DoxyParamCaption})}
 
+Initializes the solver for a bond that is not associated with a contact.
+
+
+\begin{DoxyParams}{Parameters}
+{\em cnt\+\_\+geoms} & A pointer to the bond geometries. \\
+\hline
+{\em bond\+\_\+pos} & The position of the bond. \\
+\hline
+{\em bond\+\_\+dir\+\_\+n} & The normal direction of the bond. \\
+\hline
+{\em bound\+\_\+radius} & The radius of the bond. \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{classnetdem_1_1_bond_solver_p_p_a1eddde9666cb69acbfe84b8785b8f0a1}\label{classnetdem_1_1_bond_solver_p_p_a1eddde9666cb69acbfe84b8785b8f0a1}} 
 \index{netdem::BondSolverPP@{netdem::BondSolverPP}!ResolveInit@{ResolveInit}}
 \index{ResolveInit@{ResolveInit}!netdem::BondSolverPP@{netdem::BondSolverPP}}
 \doxysubsubsection{\texorpdfstring{ResolveInit()}{ResolveInit()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
 {\footnotesize\ttfamily void Bond\+Solver\+PP\+::\+Resolve\+Init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_contact_p_p}{Contact\+PP}} $\ast$const}]{cnt,  }\item[{double}]{timestep }\end{DoxyParamCaption})}
 
+Initializes the solver for a given point-\/point contact.
+
+
+\begin{DoxyParams}{Parameters}
+{\em cnt} & A pointer to the point-\/point contact. \\
+\hline
+{\em timestep} & The simulation time step. \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{classnetdem_1_1_bond_solver_p_p_af8cecf84ed57f9d7c3596c18b11c9385}\label{classnetdem_1_1_bond_solver_p_p_af8cecf84ed57f9d7c3596c18b11c9385}} 
 \index{netdem::BondSolverPP@{netdem::BondSolverPP}!ResolveUpdate@{ResolveUpdate}}
 \index{ResolveUpdate@{ResolveUpdate}!netdem::BondSolverPP@{netdem::BondSolverPP}}
 \doxysubsubsection{\texorpdfstring{ResolveUpdate()}{ResolveUpdate()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily void Bond\+Solver\+PP\+::\+Resolve\+Update (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_bond_geometries}{Bond\+Geometries}} $\ast$const}]{cnt\+\_\+geoms,  }\item[{double}]{timestep }\end{DoxyParamCaption})}
 
+Updates the solver for a bond that is not associated with a contact.
+
+
+\begin{DoxyParams}{Parameters}
+{\em cnt\+\_\+geoms} & A pointer to the bond geometries. \\
+\hline
+{\em timestep} & The simulation time step. \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{classnetdem_1_1_bond_solver_p_p_a760d0488416d44b463c2dda67b9f38a4}\label{classnetdem_1_1_bond_solver_p_p_a760d0488416d44b463c2dda67b9f38a4}} 
 \index{netdem::BondSolverPP@{netdem::BondSolverPP}!ResolveUpdate@{ResolveUpdate}}
 \index{ResolveUpdate@{ResolveUpdate}!netdem::BondSolverPP@{netdem::BondSolverPP}}
 \doxysubsubsection{\texorpdfstring{ResolveUpdate()}{ResolveUpdate()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
 {\footnotesize\ttfamily void Bond\+Solver\+PP\+::\+Resolve\+Update (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_contact_p_p}{Contact\+PP}} $\ast$const}]{cnt,  }\item[{double}]{timestep }\end{DoxyParamCaption})}
 
+Updates the solver for a given point-\/point contact.
+
+
+\begin{DoxyParams}{Parameters}
+{\em cnt} & A pointer to the point-\/point contact. \\
+\hline
+{\em timestep} & The simulation time step. \\
+\hline
+\end{DoxyParams}
 
 
 \doxysubsection{Member Data Documentation}
@@ -85,15 +153,15 @@ void \mbox{\hyperlink{classnetdem_1_1_bond_solver_p_p_af8cecf84ed57f9d7c3596c18b
 \doxysubsubsection{\texorpdfstring{particle\_1}{particle\_1}}
 {\footnotesize\ttfamily \mbox{\hyperlink{classnetdem_1_1_particle}{Particle}}$\ast$ netdem\+::\+Bond\+Solver\+PP\+::particle\+\_\+1 \{nullptr\}}
 
-\mbox{\Hypertarget{classnetdem_1_1_bond_solver_p_p_a33bc7a35a3ec9f9b803ed1f0fcca374a}\label{classnetdem_1_1_bond_solver_p_p_a33bc7a35a3ec9f9b803ed1f0fcca374a}} 
+A pointer to the first particle associated with this bond. \mbox{\Hypertarget{classnetdem_1_1_bond_solver_p_p_a49a636ab3c68e6bce32cfaba956d45d2}\label{classnetdem_1_1_bond_solver_p_p_a49a636ab3c68e6bce32cfaba956d45d2}} 
 \index{netdem::BondSolverPP@{netdem::BondSolverPP}!particle\_2@{particle\_2}}
 \index{particle\_2@{particle\_2}!netdem::BondSolverPP@{netdem::BondSolverPP}}
 \doxysubsubsection{\texorpdfstring{particle\_2}{particle\_2}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} $\ast$ netdem\+::\+Bond\+Solver\+PP\+::particle\+\_\+2 \{nullptr\}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classnetdem_1_1_particle}{Particle}}$\ast$ netdem\+::\+Bond\+Solver\+PP\+::particle\+\_\+2 \{nullptr\}}
 
-
+A pointer to the second particle associated with this bond. 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-/\+Users/lzhshou/\+Documents/\+Research/my\+Projects/apam/repo/netdem/src/dem/\mbox{\hyperlink{bond__solver__pp_8hpp}{bond\+\_\+solver\+\_\+pp.\+hpp}}\item 
-/\+Users/lzhshou/\+Documents/\+Research/my\+Projects/apam/repo/netdem/src/dem/\mbox{\hyperlink{bond__solver__pp_8cpp}{bond\+\_\+solver\+\_\+pp.\+cpp}}\end{DoxyCompactItemize}
+/\+Users/lzhshou/\+Documents/\+Research/my\+Projects/apaam/repo/netdem/src/dem/\mbox{\hyperlink{bond__solver__pp_8hpp}{bond\+\_\+solver\+\_\+pp.\+hpp}}\item 
+/\+Users/lzhshou/\+Documents/\+Research/my\+Projects/apaam/repo/netdem/src/dem/\mbox{\hyperlink{bond__solver__pp_8cpp}{bond\+\_\+solver\+\_\+pp.\+cpp}}\end{DoxyCompactItemize}

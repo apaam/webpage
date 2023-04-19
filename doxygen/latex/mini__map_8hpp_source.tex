@@ -1,92 +1,113 @@
 \hypertarget{mini__map_8hpp_source}{}\doxysection{mini\+\_\+map.\+hpp}
-\label{mini__map_8hpp_source}\index{/Users/lzhshou/Documents/Research/myProjects/apam/repo/netdem/src/utils/mini\_map.hpp@{/Users/lzhshou/Documents/Research/myProjects/apam/repo/netdem/src/utils/mini\_map.hpp}}
+\label{mini__map_8hpp_source}\index{/Users/lzhshou/Documents/Research/myProjects/apaam/repo/netdem/src/utils/mini\_map.hpp@{/Users/lzhshou/Documents/Research/myProjects/apaam/repo/netdem/src/utils/mini\_map.hpp}}
 \mbox{\hyperlink{mini__map_8hpp}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
-\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
-\DoxyCodeLine{2 }
-\DoxyCodeLine{3 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{utils__io_8hpp}{utils\_io.hpp}}"{}}}
-\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{utils__macros_8hpp}{utils\_macros.hpp}}"{}}}
-\DoxyCodeLine{5 }
-\DoxyCodeLine{6 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacenetdem}{netdem}} \{}
-\DoxyCodeLine{7 }
-\DoxyCodeLine{8 \textcolor{keyword}{template} <\textcolor{keyword}{typename} T\_key, \textcolor{keyword}{typename} T\_val> \textcolor{keyword}{struct }\mbox{\hyperlink{structnetdem_1_1my__pair}{my\_pair}} \{}
-\DoxyCodeLine{9 \textcolor{keyword}{public}:}
-\DoxyCodeLine{10   T\_key \mbox{\hyperlink{structnetdem_1_1my__pair_a9da1db022e20ef90e1d7dfc622813274}{first}};}
-\DoxyCodeLine{11   T\_val \mbox{\hyperlink{structnetdem_1_1my__pair_ab71e801e6aaf02b8d6891902f6533a3a}{second}};}
-\DoxyCodeLine{12 }
-\DoxyCodeLine{13   \mbox{\hyperlink{structnetdem_1_1my__pair_a4a6a378835e9392fb5415b07901dea5b}{my\_pair}}() \{\}}
-\DoxyCodeLine{14   \mbox{\hyperlink{structnetdem_1_1my__pair_ad7938373c98758eb74fa78cb68806734}{my\_pair}}(\textcolor{keyword}{const} T\_key \&key, \textcolor{keyword}{const} T\_key \&val) : \mbox{\hyperlink{structnetdem_1_1my__pair_a9da1db022e20ef90e1d7dfc622813274}{first}}(key), \mbox{\hyperlink{structnetdem_1_1my__pair_ab71e801e6aaf02b8d6891902f6533a3a}{second}}(val) \{\}}
-\DoxyCodeLine{15 \};}
-\DoxyCodeLine{16 }
-\DoxyCodeLine{17 \textcolor{keyword}{template} <\textcolor{keyword}{typename} T\_key, \textcolor{keyword}{typename} T\_val> \textcolor{keyword}{class }\mbox{\hyperlink{classnetdem_1_1_mini_map}{MiniMap}} \{}
-\DoxyCodeLine{18 \textcolor{keyword}{public}:}
-\DoxyCodeLine{19   \textcolor{keyword}{const} \mbox{\hyperlink{structnetdem_1_1my__pair}{my\_pair<T\_key, T\_val>}} *\mbox{\hyperlink{classnetdem_1_1_mini_map_a7345afc4c787234dc5060a816cfad930}{begin}}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} \&(\mbox{\hyperlink{classnetdem_1_1_mini_map_a21ab527d32fd3650394918edc1e8376e}{pair\_list}}.front()); \}}
-\DoxyCodeLine{20 }
-\DoxyCodeLine{21   \mbox{\hyperlink{structnetdem_1_1my__pair}{my\_pair<T\_key, T\_val>}} *\mbox{\hyperlink{classnetdem_1_1_mini_map_ab5d58f4da2bd920797b739fb87880afc}{begin}}() \{ \textcolor{keywordflow}{return} \&(\mbox{\hyperlink{classnetdem_1_1_mini_map_a21ab527d32fd3650394918edc1e8376e}{pair\_list}}.front()); \}}
-\DoxyCodeLine{22 }
-\DoxyCodeLine{23   \textcolor{keyword}{const} \mbox{\hyperlink{structnetdem_1_1my__pair}{my\_pair<T\_key, T\_val>}} *\mbox{\hyperlink{classnetdem_1_1_mini_map_a6cf53028e89c65486abf73d3d080f75b}{end}}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} \&(\mbox{\hyperlink{classnetdem_1_1_mini_map_a21ab527d32fd3650394918edc1e8376e}{pair\_list}}.back()) + 1; \}}
-\DoxyCodeLine{24 }
-\DoxyCodeLine{25   \mbox{\hyperlink{structnetdem_1_1my__pair}{my\_pair<T\_key, T\_val>}} *\mbox{\hyperlink{classnetdem_1_1_mini_map_ac8da82bbc7d23ad07d0b23e99a5c94d3}{end}}() \{ \textcolor{keywordflow}{return} \&(\mbox{\hyperlink{classnetdem_1_1_mini_map_a21ab527d32fd3650394918edc1e8376e}{pair\_list}}.back()) + 1; \}}
-\DoxyCodeLine{26 }
-\DoxyCodeLine{27   \textcolor{keywordtype}{void} \mbox{\hyperlink{classnetdem_1_1_mini_map_aa2776c6a85ba91320c71b2af02be3daf}{erase}}(\mbox{\hyperlink{structnetdem_1_1my__pair}{my\_pair<T\_key, T\_val>}} *it) \{}
-\DoxyCodeLine{28     *it = \mbox{\hyperlink{classnetdem_1_1_mini_map_a21ab527d32fd3650394918edc1e8376e}{pair\_list}}.back();}
-\DoxyCodeLine{29     \mbox{\hyperlink{classnetdem_1_1_mini_map_a21ab527d32fd3650394918edc1e8376e}{pair\_list}}.pop\_back();}
-\DoxyCodeLine{30   \}}
-\DoxyCodeLine{31 }
-\DoxyCodeLine{32   \textcolor{keywordtype}{void} \mbox{\hyperlink{classnetdem_1_1_mini_map_acd9fb7377d8e98bd4cc80a5e94874545}{erase}}(\textcolor{keyword}{const} T\_key \&key) \{}
-\DoxyCodeLine{33     \textcolor{keyword}{auto} it = \mbox{\hyperlink{classnetdem_1_1_mini_map_a259b66743b700d55061aec209dbe33bb}{find}}(key);}
-\DoxyCodeLine{34     \mbox{\hyperlink{classnetdem_1_1_mini_map_aa2776c6a85ba91320c71b2af02be3daf}{erase}}(it);}
-\DoxyCodeLine{35   \}}
-\DoxyCodeLine{36 }
-\DoxyCodeLine{37   \textcolor{keyword}{const} \mbox{\hyperlink{structnetdem_1_1my__pair}{my\_pair<T\_key, T\_val>}} *\mbox{\hyperlink{classnetdem_1_1_mini_map_a259b66743b700d55061aec209dbe33bb}{find}}(\textcolor{keyword}{const} T\_key \&key)\textcolor{keyword}{ const }\{}
-\DoxyCodeLine{38     \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} \&pair\_item : \mbox{\hyperlink{classnetdem_1_1_mini_map_a21ab527d32fd3650394918edc1e8376e}{pair\_list}}) \{}
-\DoxyCodeLine{39       \textcolor{keywordflow}{if} (pair\_item.first == key) \{}
-\DoxyCodeLine{40         \textcolor{keywordflow}{return} \&pair\_item;}
-\DoxyCodeLine{41       \}}
-\DoxyCodeLine{42     \}}
-\DoxyCodeLine{43     \textcolor{keywordflow}{return} \mbox{\hyperlink{classnetdem_1_1_mini_map_a6cf53028e89c65486abf73d3d080f75b}{end}}();}
-\DoxyCodeLine{44   \}}
-\DoxyCodeLine{45 }
-\DoxyCodeLine{46   \mbox{\hyperlink{structnetdem_1_1my__pair}{my\_pair<T\_key, T\_val>}} *\mbox{\hyperlink{classnetdem_1_1_mini_map_a6bb9cd27a1cac3755472583b71b8eb54}{find}}(\textcolor{keyword}{const} T\_key \&key) \{}
-\DoxyCodeLine{47     \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} \&pair\_item : \mbox{\hyperlink{classnetdem_1_1_mini_map_a21ab527d32fd3650394918edc1e8376e}{pair\_list}}) \{}
-\DoxyCodeLine{48       \textcolor{keywordflow}{if} (pair\_item.first == key) \{}
-\DoxyCodeLine{49         \textcolor{keywordflow}{return} \&pair\_item;}
-\DoxyCodeLine{50       \}}
-\DoxyCodeLine{51     \}}
-\DoxyCodeLine{52     \textcolor{keywordflow}{return} \mbox{\hyperlink{classnetdem_1_1_mini_map_a6cf53028e89c65486abf73d3d080f75b}{end}}();}
-\DoxyCodeLine{53   \}}
-\DoxyCodeLine{54 }
-\DoxyCodeLine{55   \textcolor{keywordtype}{int} \mbox{\hyperlink{classnetdem_1_1_mini_map_a34597854d9ded9b826e2c370202095df}{size}}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classnetdem_1_1_mini_map_a21ab527d32fd3650394918edc1e8376e}{pair\_list}}.size(); \};}
-\DoxyCodeLine{56 }
-\DoxyCodeLine{57   \textcolor{keywordtype}{int} \mbox{\hyperlink{classnetdem_1_1_mini_map_af0f48b8ad47f3d0c73ea74e3d6f16372}{size}}() \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classnetdem_1_1_mini_map_a21ab527d32fd3650394918edc1e8376e}{pair\_list}}.size(); \};}
-\DoxyCodeLine{58 }
-\DoxyCodeLine{59   \textcolor{keyword}{const} T\_val \&\mbox{\hyperlink{classnetdem_1_1_mini_map_a41ce5eaf46a00e89f2d7899c4d486e2e}{operator[]}}(\textcolor{keyword}{const} T\_key \&key)\textcolor{keyword}{ const }\{}
-\DoxyCodeLine{60     \textcolor{keyword}{auto} it = \mbox{\hyperlink{classnetdem_1_1_mini_map_a259b66743b700d55061aec209dbe33bb}{find}}(key);}
-\DoxyCodeLine{61     \textcolor{keywordflow}{if} (it != \mbox{\hyperlink{classnetdem_1_1_mini_map_a6cf53028e89c65486abf73d3d080f75b}{end}}()) \{}
-\DoxyCodeLine{62       \textcolor{keywordflow}{return} it-\/>second;}
-\DoxyCodeLine{63     \} \textcolor{keywordflow}{else} \{}
-\DoxyCodeLine{64       \mbox{\hyperlink{namespacenetdem_a9cc6e69a72a52a154aa434f1e91ba6a6}{PrintError}}(\textcolor{stringliteral}{"{}in MiniMap[], key not exist"{}});}
-\DoxyCodeLine{65       \textcolor{keywordflow}{return} \mbox{\hyperlink{classnetdem_1_1_mini_map_a21ab527d32fd3650394918edc1e8376e}{pair\_list}}.back().second;}
-\DoxyCodeLine{66     \}}
-\DoxyCodeLine{67   \}}
-\DoxyCodeLine{68 }
-\DoxyCodeLine{69   T\_val \&\mbox{\hyperlink{classnetdem_1_1_mini_map_a76b68fa65d9f93206f34fa393e3ffd51}{operator[]}}(\textcolor{keyword}{const} T\_key \&key) \{}
-\DoxyCodeLine{70     \textcolor{keyword}{auto} it = \mbox{\hyperlink{classnetdem_1_1_mini_map_a259b66743b700d55061aec209dbe33bb}{find}}(key);}
-\DoxyCodeLine{71     \textcolor{keywordflow}{if} (it != \mbox{\hyperlink{classnetdem_1_1_mini_map_a6cf53028e89c65486abf73d3d080f75b}{end}}()) \{}
-\DoxyCodeLine{72       \textcolor{keywordflow}{return} it-\/>second;}
-\DoxyCodeLine{73     \} \textcolor{keywordflow}{else} \{}
-\DoxyCodeLine{74       \mbox{\hyperlink{classnetdem_1_1_mini_map_a21ab527d32fd3650394918edc1e8376e}{pair\_list}}.emplace\_back();}
-\DoxyCodeLine{75       \mbox{\hyperlink{classnetdem_1_1_mini_map_a21ab527d32fd3650394918edc1e8376e}{pair\_list}}.back().first = key;}
-\DoxyCodeLine{76       \textcolor{keywordflow}{return} \mbox{\hyperlink{classnetdem_1_1_mini_map_a21ab527d32fd3650394918edc1e8376e}{pair\_list}}.back().second;}
-\DoxyCodeLine{77     \}}
-\DoxyCodeLine{78   \}}
-\DoxyCodeLine{79 }
-\DoxyCodeLine{80   \textcolor{keywordtype}{void} \mbox{\hyperlink{classnetdem_1_1_mini_map_a98011c15e695979ef3a4b09f6e9aa798}{clear}}() \{ \mbox{\hyperlink{classnetdem_1_1_mini_map_a21ab527d32fd3650394918edc1e8376e}{pair\_list}}.clear(); \}}
-\DoxyCodeLine{81 }
-\DoxyCodeLine{82 \textcolor{keyword}{private}:}
-\DoxyCodeLine{83   \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<my\_pair<T\_key, T\_val>}}> \mbox{\hyperlink{classnetdem_1_1_mini_map_a21ab527d32fd3650394918edc1e8376e}{pair\_list}};}
-\DoxyCodeLine{84 \};}
-\DoxyCodeLine{85 }
-\DoxyCodeLine{86 \} \textcolor{comment}{// namespace netdem}}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{utils__io_8hpp}{utils\_io.hpp}}"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{utils__macros_8hpp}{utils\_macros.hpp}}"{}}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacenetdem}{netdem}}\ \{}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T\_key,\ \textcolor{keyword}{typename}\ T\_val>\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structnetdem_1_1my__pair}{my\_pair}}\ \{}
+\DoxyCodeLine{00009\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00010\ \ \ T\_key\ \mbox{\hyperlink{structnetdem_1_1my__pair_a9da1db022e20ef90e1d7dfc622813274}{first}};}
+\DoxyCodeLine{00011\ \ \ T\_val\ \mbox{\hyperlink{structnetdem_1_1my__pair_ab71e801e6aaf02b8d6891902f6533a3a}{second}};}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \ \ \mbox{\hyperlink{structnetdem_1_1my__pair_a4a6a378835e9392fb5415b07901dea5b}{my\_pair}}()\ \{\}}
+\DoxyCodeLine{00014\ \ \ \mbox{\hyperlink{structnetdem_1_1my__pair_ad7938373c98758eb74fa78cb68806734}{my\_pair}}(\textcolor{keyword}{const}\ T\_key\ \&key,\ \textcolor{keyword}{const}\ T\_key\ \&val)\ :\ \mbox{\hyperlink{structnetdem_1_1my__pair_a9da1db022e20ef90e1d7dfc622813274}{first}}(key),\ \mbox{\hyperlink{structnetdem_1_1my__pair_ab71e801e6aaf02b8d6891902f6533a3a}{second}}(val)\ \{\}}
+\DoxyCodeLine{00015\ \};}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T\_key,\ \textcolor{keyword}{typename}\ T\_val>\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classnetdem_1_1_mini_map}{MiniMap}}\ \{}
+\DoxyCodeLine{00018\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00019\ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{structnetdem_1_1my__pair}{my\_pair<T\_key,\ T\_val>}}\ *\mbox{\hyperlink{classnetdem_1_1_mini_map_a7345afc4c787234dc5060a816cfad930}{begin}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \&(\mbox{\hyperlink{classnetdem_1_1_mini_map_a21ab527d32fd3650394918edc1e8376e}{pair\_list}}.front());\ \}}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \ \ \mbox{\hyperlink{structnetdem_1_1my__pair}{my\_pair<T\_key,\ T\_val>}}\ *\mbox{\hyperlink{classnetdem_1_1_mini_map_ab5d58f4da2bd920797b739fb87880afc}{begin}}()\ \{\ \textcolor{keywordflow}{return}\ \&(\mbox{\hyperlink{classnetdem_1_1_mini_map_a21ab527d32fd3650394918edc1e8376e}{pair\_list}}.front());\ \}}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{structnetdem_1_1my__pair}{my\_pair<T\_key,\ T\_val>}}\ *\mbox{\hyperlink{classnetdem_1_1_mini_map_a6cf53028e89c65486abf73d3d080f75b}{end}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \&(\mbox{\hyperlink{classnetdem_1_1_mini_map_a21ab527d32fd3650394918edc1e8376e}{pair\_list}}.back())\ +\ 1;\ \}}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \ \ \mbox{\hyperlink{structnetdem_1_1my__pair}{my\_pair<T\_key,\ T\_val>}}\ *\mbox{\hyperlink{classnetdem_1_1_mini_map_ac8da82bbc7d23ad07d0b23e99a5c94d3}{end}}()\ \{\ \textcolor{keywordflow}{return}\ \&(\mbox{\hyperlink{classnetdem_1_1_mini_map_a21ab527d32fd3650394918edc1e8376e}{pair\_list}}.back())\ +\ 1;\ \}}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_mini_map_aa2776c6a85ba91320c71b2af02be3daf}{erase}}(\mbox{\hyperlink{structnetdem_1_1my__pair}{my\_pair<T\_key,\ T\_val>}}\ *it)\ \{}
+\DoxyCodeLine{00028\ \ \ \ \ *it\ =\ \mbox{\hyperlink{classnetdem_1_1_mini_map_a21ab527d32fd3650394918edc1e8376e}{pair\_list}}.back();}
+\DoxyCodeLine{00029\ \ \ \ \ \mbox{\hyperlink{classnetdem_1_1_mini_map_a21ab527d32fd3650394918edc1e8376e}{pair\_list}}.pop\_back();}
+\DoxyCodeLine{00030\ \ \ \}}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_mini_map_acd9fb7377d8e98bd4cc80a5e94874545}{erase}}(\textcolor{keyword}{const}\ T\_key\ \&key)\ \{}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keyword}{auto}\ it\ =\ \mbox{\hyperlink{classnetdem_1_1_mini_map_a259b66743b700d55061aec209dbe33bb}{find}}(key);}
+\DoxyCodeLine{00034\ \ \ \ \ \mbox{\hyperlink{classnetdem_1_1_mini_map_aa2776c6a85ba91320c71b2af02be3daf}{erase}}(it);}
+\DoxyCodeLine{00035\ \ \ \}}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{structnetdem_1_1my__pair}{my\_pair<T\_key,\ T\_val>}}\ *\mbox{\hyperlink{classnetdem_1_1_mini_map_a259b66743b700d55061aec209dbe33bb}{find}}(\textcolor{keyword}{const}\ T\_key\ \&key)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \&pair\_item\ :\ \mbox{\hyperlink{classnetdem_1_1_mini_map_a21ab527d32fd3650394918edc1e8376e}{pair\_list}})\ \{}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (pair\_item.first\ ==\ key)\ \{}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \&pair\_item;}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00042\ \ \ \ \ \}}
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classnetdem_1_1_mini_map_a6cf53028e89c65486abf73d3d080f75b}{end}}();}
+\DoxyCodeLine{00044\ \ \ \}}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \ \ \mbox{\hyperlink{structnetdem_1_1my__pair}{my\_pair<T\_key,\ T\_val>}}\ *\mbox{\hyperlink{classnetdem_1_1_mini_map_a6bb9cd27a1cac3755472583b71b8eb54}{find}}(\textcolor{keyword}{const}\ T\_key\ \&key)\ \{}
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \&pair\_item\ :\ \mbox{\hyperlink{classnetdem_1_1_mini_map_a21ab527d32fd3650394918edc1e8376e}{pair\_list}})\ \{}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (pair\_item.first\ ==\ key)\ \{}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \&pair\_item;}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00051\ \ \ \ \ \}}
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classnetdem_1_1_mini_map_a6cf53028e89c65486abf73d3d080f75b}{end}}();}
+\DoxyCodeLine{00053\ \ \ \}}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classnetdem_1_1_mini_map_a34597854d9ded9b826e2c370202095df}{size}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classnetdem_1_1_mini_map_a21ab527d32fd3650394918edc1e8376e}{pair\_list}}.size();\ \};}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classnetdem_1_1_mini_map_af0f48b8ad47f3d0c73ea74e3d6f16372}{size}}()\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classnetdem_1_1_mini_map_a21ab527d32fd3650394918edc1e8376e}{pair\_list}}.size();\ \};}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \ \ \textcolor{keyword}{const}\ T\_val\ \&\mbox{\hyperlink{classnetdem_1_1_mini_map_a41ce5eaf46a00e89f2d7899c4d486e2e}{operator[]}}(\textcolor{keyword}{const}\ T\_key\ \&key)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keyword}{auto}\ it\ =\ \mbox{\hyperlink{classnetdem_1_1_mini_map_a259b66743b700d55061aec209dbe33bb}{find}}(key);}
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keywordflow}{if}\ (it\ !=\ \mbox{\hyperlink{classnetdem_1_1_mini_map_a6cf53028e89c65486abf73d3d080f75b}{end}}())\ \{}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ it-\/>second;}
+\DoxyCodeLine{00063\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \mbox{\hyperlink{namespacenetdem_1_1_i_o_a015fb6e06d3b796b6b5fd1f33f61e08e}{IO::PrintError}}(\textcolor{stringliteral}{"{}in\ MiniMap[],\ key\ not\ exist"{}});}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classnetdem_1_1_mini_map_a21ab527d32fd3650394918edc1e8376e}{pair\_list}}.back().second;}
+\DoxyCodeLine{00066\ \ \ \ \ \}}
+\DoxyCodeLine{00067\ \ \ \}}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00069\ \ \ T\_val\ \&\mbox{\hyperlink{classnetdem_1_1_mini_map_a76b68fa65d9f93206f34fa393e3ffd51}{operator[]}}(\textcolor{keyword}{const}\ T\_key\ \&key)\ \{}
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{keyword}{auto}\ it\ =\ \mbox{\hyperlink{classnetdem_1_1_mini_map_a259b66743b700d55061aec209dbe33bb}{find}}(key);}
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keywordflow}{if}\ (it\ !=\ \mbox{\hyperlink{classnetdem_1_1_mini_map_a6cf53028e89c65486abf73d3d080f75b}{end}}())\ \{}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ it-\/>second;}
+\DoxyCodeLine{00073\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \mbox{\hyperlink{classnetdem_1_1_mini_map_a21ab527d32fd3650394918edc1e8376e}{pair\_list}}.emplace\_back();}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \mbox{\hyperlink{classnetdem_1_1_mini_map_a21ab527d32fd3650394918edc1e8376e}{pair\_list}}.back().first\ =\ key;}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \mbox{\hyperlink{classnetdem_1_1_mini_map_a21ab527d32fd3650394918edc1e8376e}{pair\_list}}.back().second\ =\ T\_val();}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classnetdem_1_1_mini_map_a21ab527d32fd3650394918edc1e8376e}{pair\_list}}.back().second;}
+\DoxyCodeLine{00078\ \ \ \ \ \}}
+\DoxyCodeLine{00079\ \ \ \}}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00081\ \ \ \textcolor{keyword}{const}\ T\_val\ \&\mbox{\hyperlink{classnetdem_1_1_mini_map_a94a636bd629fff810604924858bccba4}{at}}(\textcolor{keyword}{const}\ T\_key\ \&key)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{keyword}{auto}\ it\ =\ \mbox{\hyperlink{classnetdem_1_1_mini_map_a259b66743b700d55061aec209dbe33bb}{find}}(key);}
+\DoxyCodeLine{00083\ \ \ \ \ \textcolor{keywordflow}{if}\ (it\ !=\ \mbox{\hyperlink{classnetdem_1_1_mini_map_a6cf53028e89c65486abf73d3d080f75b}{end}}())\ \{}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ it-\/>second;}
+\DoxyCodeLine{00085\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \mbox{\hyperlink{namespacenetdem_1_1_i_o_a015fb6e06d3b796b6b5fd1f33f61e08e}{IO::PrintError}}(\textcolor{stringliteral}{"{}in\ MiniMap[],\ key\ not\ exist"{}});}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classnetdem_1_1_mini_map_a21ab527d32fd3650394918edc1e8376e}{pair\_list}}.back().second;}
+\DoxyCodeLine{00088\ \ \ \ \ \}}
+\DoxyCodeLine{00089\ \ \ \}}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00091\ \ \ T\_val\ \&\mbox{\hyperlink{classnetdem_1_1_mini_map_a75e09ca1bc3794d6b04fb6c7456e3e31}{at}}(\textcolor{keyword}{const}\ T\_key\ \&key)\ \{}
+\DoxyCodeLine{00092\ \ \ \ \ \textcolor{keyword}{auto}\ it\ =\ \mbox{\hyperlink{classnetdem_1_1_mini_map_a259b66743b700d55061aec209dbe33bb}{find}}(key);}
+\DoxyCodeLine{00093\ \ \ \ \ \textcolor{keywordflow}{if}\ (it\ !=\ \mbox{\hyperlink{classnetdem_1_1_mini_map_a6cf53028e89c65486abf73d3d080f75b}{end}}())\ \{}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ it-\/>second;}
+\DoxyCodeLine{00095\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \mbox{\hyperlink{namespacenetdem_1_1_i_o_a015fb6e06d3b796b6b5fd1f33f61e08e}{IO::PrintError}}(\textcolor{stringliteral}{"{}in\ MiniMap[],\ key\ not\ exist"{}});}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classnetdem_1_1_mini_map_a21ab527d32fd3650394918edc1e8376e}{pair\_list}}.back().second;}
+\DoxyCodeLine{00098\ \ \ \ \ \}}
+\DoxyCodeLine{00099\ \ \ \}}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00101\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_mini_map_a98011c15e695979ef3a4b09f6e9aa798}{clear}}()\ \{\ \mbox{\hyperlink{classnetdem_1_1_mini_map_a21ab527d32fd3650394918edc1e8376e}{pair\_list}}.clear();\ \}}
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00103\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00104\ \ \ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<my\_pair<T\_key,\ T\_val>}}>\ \mbox{\hyperlink{classnetdem_1_1_mini_map_a21ab527d32fd3650394918edc1e8376e}{pair\_list}};}
+\DoxyCodeLine{00105\ \};}
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00107\ \}\ \textcolor{comment}{//\ namespace\ netdem}}
 
 \end{DoxyCode}

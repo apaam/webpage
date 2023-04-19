@@ -1,58 +1,58 @@
 \hypertarget{solver__sphere__triangle_8hpp_source}{}\doxysection{solver\+\_\+sphere\+\_\+triangle.\+hpp}
-\label{solver__sphere__triangle_8hpp_source}\index{/Users/lzhshou/Documents/Research/myProjects/apam/repo/netdem/src/dem/solver\_sphere\_triangle.hpp@{/Users/lzhshou/Documents/Research/myProjects/apam/repo/netdem/src/dem/solver\_sphere\_triangle.hpp}}
+\label{solver__sphere__triangle_8hpp_source}\index{/Users/lzhshou/Documents/Research/myProjects/apaam/repo/netdem/src/dem/solver\_sphere\_triangle.hpp@{/Users/lzhshou/Documents/Research/myProjects/apaam/repo/netdem/src/dem/solver\_sphere\_triangle.hpp}}
 \mbox{\hyperlink{solver__sphere__triangle_8hpp}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
-\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
-\DoxyCodeLine{2 }
-\DoxyCodeLine{3 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{collision__geometries_8hpp}{collision\_geometries.hpp}}"{}}}
-\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{collision__solver__pw_8hpp}{collision\_solver\_pw.hpp}}"{}}}
-\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{contact__forces_8hpp}{contact\_forces.hpp}}"{}}}
-\DoxyCodeLine{6 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{particle_8hpp}{particle.hpp}}"{}}}
-\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{shape_8hpp}{shape.hpp}}"{}}}
-\DoxyCodeLine{8 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{shape__sphere_8hpp}{shape\_sphere.hpp}}"{}}}
-\DoxyCodeLine{9 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{shape__triangle_8hpp}{shape\_triangle.hpp}}"{}}}
-\DoxyCodeLine{10 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{wall_8hpp}{wall.hpp}}"{}}}
-\DoxyCodeLine{11 }
-\DoxyCodeLine{12 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacenetdem}{netdem}} \{}
-\DoxyCodeLine{13 }
-\DoxyCodeLine{14 \textcolor{keyword}{class }\mbox{\hyperlink{classnetdem_1_1_solver_sphere_triangle}{SolverSphereTriangle}} : \textcolor{keyword}{public} \mbox{\hyperlink{classnetdem_1_1_collision_solver_p_w}{CollisionSolverPW}} \{}
-\DoxyCodeLine{15 \textcolor{keyword}{public}:}
-\DoxyCodeLine{16   \mbox{\hyperlink{classnetdem_1_1_solver_sphere_triangle_abac5d28f1bd7be7e45a824b6e6ad7a85}{SolverSphereTriangle}}();}
-\DoxyCodeLine{17   \mbox{\hyperlink{classnetdem_1_1_solver_sphere_triangle_abac5d28f1bd7be7e45a824b6e6ad7a85}{SolverSphereTriangle}}(\mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} *\textcolor{keyword}{const} p, \mbox{\hyperlink{classnetdem_1_1_wall}{Wall}} *\textcolor{keyword}{const} w);}
-\DoxyCodeLine{18 }
-\DoxyCodeLine{19   \mbox{\hyperlink{classnetdem_1_1_collision_solver_p_w}{CollisionSolverPW}} *\mbox{\hyperlink{classnetdem_1_1_solver_sphere_triangle_ab7d087eeaf47cc94703f2876ab1f4a48}{Clone}}() \textcolor{keyword}{const override};}
-\DoxyCodeLine{20 }
-\DoxyCodeLine{21   \textcolor{keywordtype}{void} \mbox{\hyperlink{classnetdem_1_1_solver_sphere_triangle_acdef08cd91b2663177ae7c829cef5a62}{Init}}(\mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} *\textcolor{keyword}{const} p, \mbox{\hyperlink{classnetdem_1_1_wall}{Wall}} *\textcolor{keyword}{const} w) \textcolor{keyword}{override};}
-\DoxyCodeLine{22 }
-\DoxyCodeLine{23   \textcolor{keywordtype}{bool} \mbox{\hyperlink{classnetdem_1_1_solver_sphere_triangle_a5cdc5b7bedf89aee88662aac4caca3f9}{Detect}}() \textcolor{keyword}{override};}
-\DoxyCodeLine{24 }
-\DoxyCodeLine{25   \textcolor{keywordtype}{void} \mbox{\hyperlink{classnetdem_1_1_solver_sphere_triangle_a2fe5e5d4ff50aaefc2eba2d791a24c15}{ResolveInit}}(\mbox{\hyperlink{classnetdem_1_1_contact_p_w}{ContactPW}} *\textcolor{keyword}{const} cnt, \textcolor{keywordtype}{double} timestep) \textcolor{keyword}{override};}
-\DoxyCodeLine{26   \textcolor{keywordtype}{void} \mbox{\hyperlink{classnetdem_1_1_solver_sphere_triangle_aa5af7e0af3fa0ab4340a7fbf35949667}{ResolveUpdate}}(\mbox{\hyperlink{classnetdem_1_1_contact_p_w}{ContactPW}} *\textcolor{keyword}{const} cnt, \textcolor{keywordtype}{double} timestep) \textcolor{keyword}{override};}
-\DoxyCodeLine{27 }
-\DoxyCodeLine{28   \textcolor{keywordtype}{void} \mbox{\hyperlink{classnetdem_1_1_solver_sphere_triangle_a2fe5e5d4ff50aaefc2eba2d791a24c15}{ResolveInit}}(\mbox{\hyperlink{classnetdem_1_1_collision_geometries}{CollisionGeometries}} *\textcolor{keyword}{const} cnt\_geoms, \textcolor{keywordtype}{double} timestep);}
-\DoxyCodeLine{29   \textcolor{keywordtype}{void} \mbox{\hyperlink{classnetdem_1_1_solver_sphere_triangle_aa5af7e0af3fa0ab4340a7fbf35949667}{ResolveUpdate}}(\mbox{\hyperlink{classnetdem_1_1_collision_geometries}{CollisionGeometries}} *\textcolor{keyword}{const} cnt\_geoms, \textcolor{keywordtype}{double} timestep);}
-\DoxyCodeLine{30 }
-\DoxyCodeLine{31 \textcolor{keyword}{private}:}
-\DoxyCodeLine{32   \textcolor{keywordtype}{double} \mbox{\hyperlink{classnetdem_1_1_solver_sphere_triangle_aa70ba2d86461d05cfffa89b892a9ef05}{radius\_1}};}
-\DoxyCodeLine{33   \textcolor{keywordtype}{double} \mbox{\hyperlink{classnetdem_1_1_solver_sphere_triangle_a96504a66d4f64d8832721118bee0a19e}{dist\_pc\_to\_tri}};}
-\DoxyCodeLine{34 }
-\DoxyCodeLine{35   \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \mbox{\hyperlink{classnetdem_1_1_solver_sphere_triangle_ae2fefb0d42bebf90ba251614ffb8e989}{cnt\_pos}}, \mbox{\hyperlink{classnetdem_1_1_solver_sphere_triangle_afe8d46fef9ca833e4cc6122e47aff991}{cnt\_dir\_n}};}
-\DoxyCodeLine{36   \textcolor{keywordtype}{double} \mbox{\hyperlink{classnetdem_1_1_solver_sphere_triangle_a2dda9f27bcc369cc5fd98235340953c9}{cnt\_len\_n}}, \mbox{\hyperlink{classnetdem_1_1_solver_sphere_triangle_a3c608b96317c70a10b593c9290db5c33}{cnt\_weight}};}
-\DoxyCodeLine{37 }
-\DoxyCodeLine{38   \mbox{\hyperlink{classnetdem_1_1_triangle}{Triangle}} \mbox{\hyperlink{classnetdem_1_1_solver_sphere_triangle_a6b664eb127912566c6c98ecb7b3508e7}{triangle}};}
-\DoxyCodeLine{39 }
-\DoxyCodeLine{40   \textcolor{keywordtype}{void} \mbox{\hyperlink{classnetdem_1_1_solver_sphere_triangle_a7a7a42c48a0e9378359b2ea44e342d71}{UpdateLocalTriangle}}();}
-\DoxyCodeLine{41   \textcolor{keywordtype}{void} \mbox{\hyperlink{classnetdem_1_1_solver_sphere_triangle_a0c8505e4b1dd2c63747e6e8c3f090d11}{ResolvePotentialContact}}();}
-\DoxyCodeLine{42 }
-\DoxyCodeLine{43   \textcolor{keyword}{inline} \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \mbox{\hyperlink{classnetdem_1_1_solver_sphere_triangle_abc6793b57252d9cf41aa039c6680cf97}{GetLineCircleIntersection}}(\textcolor{keywordtype}{double} cr, \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \textcolor{keyword}{const} \&cc,}
-\DoxyCodeLine{44                                          \textcolor{keywordtype}{double} dist\_to\_line,}
-\DoxyCodeLine{45                                          \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \textcolor{keyword}{const} \&dir\_n\_cross\_line,}
-\DoxyCodeLine{46                                          \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \textcolor{keyword}{const} \&v0, \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \textcolor{keyword}{const} \&v1);}
-\DoxyCodeLine{47   \textcolor{keyword}{inline} \textcolor{keywordtype}{double} \mbox{\hyperlink{classnetdem_1_1_solver_sphere_triangle_aebcb7011d1fdd0d35a685ae08c1de7fb}{GetTriangleArea}}(\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \textcolor{keyword}{const} \&v0, \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \textcolor{keyword}{const} \&v1,}
-\DoxyCodeLine{48                                 \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \textcolor{keyword}{const} \&v2);}
-\DoxyCodeLine{49   \textcolor{keyword}{inline} \textcolor{keywordtype}{double} \mbox{\hyperlink{classnetdem_1_1_solver_sphere_triangle_a0cb5c1e18985923b26cecd7cc7bd8dbe}{GetCircleSegmentArea}}(\textcolor{keywordtype}{double} cr, \textcolor{keywordtype}{double} signed\_d);}
-\DoxyCodeLine{50 \};}
-\DoxyCodeLine{51 }
-\DoxyCodeLine{52 \} \textcolor{comment}{// namespace netdem}}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{collision__geometries_8hpp}{collision\_geometries.hpp}}"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{collision__solver__pw_8hpp}{collision\_solver\_pw.hpp}}"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{contact__forces_8hpp}{contact\_forces.hpp}}"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{particle_8hpp}{particle.hpp}}"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{shape_8hpp}{shape.hpp}}"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{shape__sphere_8hpp}{shape\_sphere.hpp}}"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{shape__triangle_8hpp}{shape\_triangle.hpp}}"{}}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{wall_8hpp}{wall.hpp}}"{}}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacenetdem}{netdem}}\ \{}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classnetdem_1_1_solver_sphere_triangle}{SolverSphereTriangle}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classnetdem_1_1_collision_solver_p_w}{CollisionSolverPW}}\ \{}
+\DoxyCodeLine{00015\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00016\ \ \ \mbox{\hyperlink{classnetdem_1_1_solver_sphere_triangle_abac5d28f1bd7be7e45a824b6e6ad7a85}{SolverSphereTriangle}}();}
+\DoxyCodeLine{00017\ \ \ \mbox{\hyperlink{classnetdem_1_1_solver_sphere_triangle_abac5d28f1bd7be7e45a824b6e6ad7a85}{SolverSphereTriangle}}(\mbox{\hyperlink{classnetdem_1_1_particle}{Particle}}\ *\textcolor{keyword}{const}\ p,\ \mbox{\hyperlink{classnetdem_1_1_wall}{Wall}}\ *\textcolor{keyword}{const}\ w);}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \ \ \mbox{\hyperlink{classnetdem_1_1_collision_solver_p_w}{CollisionSolverPW}}\ *\mbox{\hyperlink{classnetdem_1_1_solver_sphere_triangle_ab7d087eeaf47cc94703f2876ab1f4a48}{Clone}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_solver_sphere_triangle_acdef08cd91b2663177ae7c829cef5a62}{Init}}(\mbox{\hyperlink{classnetdem_1_1_particle}{Particle}}\ *\textcolor{keyword}{const}\ p,\ \mbox{\hyperlink{classnetdem_1_1_wall}{Wall}}\ *\textcolor{keyword}{const}\ w)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classnetdem_1_1_solver_sphere_triangle_a5cdc5b7bedf89aee88662aac4caca3f9}{Detect}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_solver_sphere_triangle_a2fe5e5d4ff50aaefc2eba2d791a24c15}{ResolveInit}}(\mbox{\hyperlink{classnetdem_1_1_contact_p_w}{ContactPW}}\ *\textcolor{keyword}{const}\ cnt,\ \textcolor{keywordtype}{double}\ timestep)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00026\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_solver_sphere_triangle_aa5af7e0af3fa0ab4340a7fbf35949667}{ResolveUpdate}}(\mbox{\hyperlink{classnetdem_1_1_contact_p_w}{ContactPW}}\ *\textcolor{keyword}{const}\ cnt,\ \textcolor{keywordtype}{double}\ timestep)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_solver_sphere_triangle_a2fe5e5d4ff50aaefc2eba2d791a24c15}{ResolveInit}}(\mbox{\hyperlink{classnetdem_1_1_collision_geometries}{CollisionGeometries}}\ *\textcolor{keyword}{const}\ cnt\_geoms,\ \textcolor{keywordtype}{double}\ timestep);}
+\DoxyCodeLine{00029\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_solver_sphere_triangle_aa5af7e0af3fa0ab4340a7fbf35949667}{ResolveUpdate}}(\mbox{\hyperlink{classnetdem_1_1_collision_geometries}{CollisionGeometries}}\ *\textcolor{keyword}{const}\ cnt\_geoms,\ \textcolor{keywordtype}{double}\ timestep);}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00032\ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classnetdem_1_1_solver_sphere_triangle_aa70ba2d86461d05cfffa89b892a9ef05}{radius\_1}};}
+\DoxyCodeLine{00033\ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classnetdem_1_1_solver_sphere_triangle_a96504a66d4f64d8832721118bee0a19e}{dist\_pc\_to\_tri}};}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \ \ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ \mbox{\hyperlink{classnetdem_1_1_solver_sphere_triangle_ae2fefb0d42bebf90ba251614ffb8e989}{cnt\_pos}},\ \mbox{\hyperlink{classnetdem_1_1_solver_sphere_triangle_afe8d46fef9ca833e4cc6122e47aff991}{cnt\_dir\_n}};}
+\DoxyCodeLine{00036\ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classnetdem_1_1_solver_sphere_triangle_a2dda9f27bcc369cc5fd98235340953c9}{cnt\_len\_n}},\ \mbox{\hyperlink{classnetdem_1_1_solver_sphere_triangle_a3c608b96317c70a10b593c9290db5c33}{cnt\_weight}};}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \ \ \mbox{\hyperlink{classnetdem_1_1_triangle}{Triangle}}\ \mbox{\hyperlink{classnetdem_1_1_solver_sphere_triangle_a6b664eb127912566c6c98ecb7b3508e7}{triangle}};}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_solver_sphere_triangle_a7a7a42c48a0e9378359b2ea44e342d71}{UpdateLocalTriangle}}();}
+\DoxyCodeLine{00041\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_solver_sphere_triangle_a0c8505e4b1dd2c63747e6e8c3f090d11}{ResolvePotentialContact}}();}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ \mbox{\hyperlink{classnetdem_1_1_solver_sphere_triangle_abc6793b57252d9cf41aa039c6680cf97}{GetLineCircleIntersection}}(\textcolor{keywordtype}{double}\ cr,\ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ \textcolor{keyword}{const}\ \&cc,}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ dist\_to\_line,}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ \textcolor{keyword}{const}\ \&dir\_n\_cross\_line,}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ \textcolor{keyword}{const}\ \&v0,\ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ \textcolor{keyword}{const}\ \&v1);}
+\DoxyCodeLine{00047\ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classnetdem_1_1_solver_sphere_triangle_aebcb7011d1fdd0d35a685ae08c1de7fb}{GetTriangleArea}}(\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ \textcolor{keyword}{const}\ \&v0,\ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ \textcolor{keyword}{const}\ \&v1,}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ \textcolor{keyword}{const}\ \&v2);}
+\DoxyCodeLine{00049\ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classnetdem_1_1_solver_sphere_triangle_a0cb5c1e18985923b26cecd7cc7bd8dbe}{GetCircleSegmentArea}}(\textcolor{keywordtype}{double}\ cr,\ \textcolor{keywordtype}{double}\ signed\_d);}
+\DoxyCodeLine{00050\ \};}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \}\ \textcolor{comment}{//\ namespace\ netdem}}
 
 \end{DoxyCode}

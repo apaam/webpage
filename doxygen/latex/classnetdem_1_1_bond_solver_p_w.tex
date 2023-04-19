@@ -2,6 +2,11 @@
 \label{classnetdem_1_1_bond_solver_p_w}\index{netdem::BondSolverPW@{netdem::BondSolverPW}}
 
 
+A class for solving point-\/wall bonds between a particle and a wall.  
+
+
+
+
 {\ttfamily \#include $<$bond\+\_\+solver\+\_\+pw.\+hpp$>$}
 
 \doxysubsection*{Public Member Functions}
@@ -11,8 +16,6 @@
 \item 
 \mbox{\hyperlink{classnetdem_1_1_bond_solver_p_w_a1f66977fe017073ad5977fdcbb5454b9}{Bond\+Solver\+PW}} (\mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} $\ast$const p, \mbox{\hyperlink{classnetdem_1_1_wall}{Wall}} $\ast$const w)
 \item 
-void \mbox{\hyperlink{classnetdem_1_1_bond_solver_p_w_a3ac39d2d448b8062898d76b221ef6e25}{Init}} (\mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} $\ast$const p, \mbox{\hyperlink{classnetdem_1_1_wall}{Wall}} $\ast$const w)
-\item 
 void \mbox{\hyperlink{classnetdem_1_1_bond_solver_p_w_a47f61e15ba121d2d15bcb394a199c480}{Resolve\+Init}} (\mbox{\hyperlink{classnetdem_1_1_contact_p_w}{Contact\+PW}} $\ast$const cnt, double timestep)
 \item 
 void \mbox{\hyperlink{classnetdem_1_1_bond_solver_p_w_a04f647e9ca74d1ef264e2f601ff9f8d9}{Resolve\+Update}} (\mbox{\hyperlink{classnetdem_1_1_contact_p_w}{Contact\+PW}} $\ast$const cnt, double timestep)
@@ -20,6 +23,8 @@ void \mbox{\hyperlink{classnetdem_1_1_bond_solver_p_w_a04f647e9ca74d1ef264e2f601
 void \mbox{\hyperlink{classnetdem_1_1_bond_solver_p_w_af4c65b27b2153fadabfa019cee38e48d}{Resolve\+Init}} (\mbox{\hyperlink{classnetdem_1_1_bond_geometries}{Bond\+Geometries}} $\ast$const cnt\+\_\+geoms, \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&bond\+\_\+pos, \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&bond\+\_\+dir\+\_\+n, double bound\+\_\+radius)
 \item 
 void \mbox{\hyperlink{classnetdem_1_1_bond_solver_p_w_a5e7b94de03cdb017ee7b0182d70c8b3f}{Resolve\+Update}} (\mbox{\hyperlink{classnetdem_1_1_bond_geometries}{Bond\+Geometries}} $\ast$const cnt\+\_\+geoms, double timestep)
+\item 
+void \mbox{\hyperlink{classnetdem_1_1_bond_solver_p_w_a3ac39d2d448b8062898d76b221ef6e25}{Init}} (\mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} $\ast$const p, \mbox{\hyperlink{classnetdem_1_1_wall}{Wall}} $\ast$const w)
 \end{DoxyCompactItemize}
 \doxysubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
@@ -30,6 +35,11 @@ void \mbox{\hyperlink{classnetdem_1_1_bond_solver_p_w_a5e7b94de03cdb017ee7b0182d
 \end{DoxyCompactItemize}
 
 
+\doxysubsection{Detailed Description}
+A class for solving point-\/wall bonds between a particle and a wall. 
+
+This class performs initialization and updates for point-\/wall contacts associated with a particle connected to a wall by a bond. It can also perform initialization and updates for bonds that are not associated with a contact. 
+
 \doxysubsection{Constructor \& Destructor Documentation}
 \mbox{\Hypertarget{classnetdem_1_1_bond_solver_p_w_a82d308534b0cddd5f9139faf2123d842}\label{classnetdem_1_1_bond_solver_p_w_a82d308534b0cddd5f9139faf2123d842}} 
 \index{netdem::BondSolverPW@{netdem::BondSolverPW}!BondSolverPW@{BondSolverPW}}
@@ -37,12 +47,21 @@ void \mbox{\hyperlink{classnetdem_1_1_bond_solver_p_w_a5e7b94de03cdb017ee7b0182d
 \doxysubsubsection{\texorpdfstring{BondSolverPW()}{BondSolverPW()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily Bond\+Solver\+PW\+::\+Bond\+Solver\+PW (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-\mbox{\Hypertarget{classnetdem_1_1_bond_solver_p_w_a1f66977fe017073ad5977fdcbb5454b9}\label{classnetdem_1_1_bond_solver_p_w_a1f66977fe017073ad5977fdcbb5454b9}} 
+Default constructor for the {\ttfamily \mbox{\hyperlink{classnetdem_1_1_bond_solver_p_w}{Bond\+Solver\+PW}}} class. \mbox{\Hypertarget{classnetdem_1_1_bond_solver_p_w_a1f66977fe017073ad5977fdcbb5454b9}\label{classnetdem_1_1_bond_solver_p_w_a1f66977fe017073ad5977fdcbb5454b9}} 
 \index{netdem::BondSolverPW@{netdem::BondSolverPW}!BondSolverPW@{BondSolverPW}}
 \index{BondSolverPW@{BondSolverPW}!netdem::BondSolverPW@{netdem::BondSolverPW}}
 \doxysubsubsection{\texorpdfstring{BondSolverPW()}{BondSolverPW()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
 {\footnotesize\ttfamily Bond\+Solver\+PW\+::\+Bond\+Solver\+PW (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} $\ast$const}]{p,  }\item[{\mbox{\hyperlink{classnetdem_1_1_wall}{Wall}} $\ast$const}]{w }\end{DoxyParamCaption})}
 
+Constructor for the {\ttfamily \mbox{\hyperlink{classnetdem_1_1_bond_solver_p_w}{Bond\+Solver\+PW}}} class that initializes particles and walls.
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & A pointer to the particle. \\
+\hline
+{\em w} & A pointer to the wall. \\
+\hline
+\end{DoxyParams}
 
 
 \doxysubsection{Member Function Documentation}
@@ -52,30 +71,79 @@ void \mbox{\hyperlink{classnetdem_1_1_bond_solver_p_w_a5e7b94de03cdb017ee7b0182d
 \doxysubsubsection{\texorpdfstring{Init()}{Init()}}
 {\footnotesize\ttfamily void Bond\+Solver\+PW\+::\+Init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} $\ast$const}]{p,  }\item[{\mbox{\hyperlink{classnetdem_1_1_wall}{Wall}} $\ast$const}]{w }\end{DoxyParamCaption})}
 
+Initializes the particle and wall associated with this bond.
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & A pointer to the particle. \\
+\hline
+{\em w} & A pointer to the wall. \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{classnetdem_1_1_bond_solver_p_w_af4c65b27b2153fadabfa019cee38e48d}\label{classnetdem_1_1_bond_solver_p_w_af4c65b27b2153fadabfa019cee38e48d}} 
 \index{netdem::BondSolverPW@{netdem::BondSolverPW}!ResolveInit@{ResolveInit}}
 \index{ResolveInit@{ResolveInit}!netdem::BondSolverPW@{netdem::BondSolverPW}}
 \doxysubsubsection{\texorpdfstring{ResolveInit()}{ResolveInit()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily void Bond\+Solver\+PW\+::\+Resolve\+Init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_bond_geometries}{Bond\+Geometries}} $\ast$const}]{cnt\+\_\+geoms,  }\item[{\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&}]{bond\+\_\+pos,  }\item[{\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&}]{bond\+\_\+dir\+\_\+n,  }\item[{double}]{bound\+\_\+radius }\end{DoxyParamCaption})}
 
+Initializes the solver for a bond that is not associated with a contact.
+
+
+\begin{DoxyParams}{Parameters}
+{\em cnt\+\_\+geoms} & A pointer to the bond geometries. \\
+\hline
+{\em bond\+\_\+pos} & The position of the bond. \\
+\hline
+{\em bond\+\_\+dir\+\_\+n} & The normal direction of the bond. \\
+\hline
+{\em bound\+\_\+radius} & The radius of the bond. \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{classnetdem_1_1_bond_solver_p_w_a47f61e15ba121d2d15bcb394a199c480}\label{classnetdem_1_1_bond_solver_p_w_a47f61e15ba121d2d15bcb394a199c480}} 
 \index{netdem::BondSolverPW@{netdem::BondSolverPW}!ResolveInit@{ResolveInit}}
 \index{ResolveInit@{ResolveInit}!netdem::BondSolverPW@{netdem::BondSolverPW}}
 \doxysubsubsection{\texorpdfstring{ResolveInit()}{ResolveInit()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
 {\footnotesize\ttfamily void Bond\+Solver\+PW\+::\+Resolve\+Init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_contact_p_w}{Contact\+PW}} $\ast$const}]{cnt,  }\item[{double}]{timestep }\end{DoxyParamCaption})}
 
+Initializes the solver for a given point-\/wall contact.
+
+
+\begin{DoxyParams}{Parameters}
+{\em cnt} & A pointer to the point-\/wall contact. \\
+\hline
+{\em timestep} & The simulation time step. \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{classnetdem_1_1_bond_solver_p_w_a5e7b94de03cdb017ee7b0182d70c8b3f}\label{classnetdem_1_1_bond_solver_p_w_a5e7b94de03cdb017ee7b0182d70c8b3f}} 
 \index{netdem::BondSolverPW@{netdem::BondSolverPW}!ResolveUpdate@{ResolveUpdate}}
 \index{ResolveUpdate@{ResolveUpdate}!netdem::BondSolverPW@{netdem::BondSolverPW}}
 \doxysubsubsection{\texorpdfstring{ResolveUpdate()}{ResolveUpdate()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily void Bond\+Solver\+PW\+::\+Resolve\+Update (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_bond_geometries}{Bond\+Geometries}} $\ast$const}]{cnt\+\_\+geoms,  }\item[{double}]{timestep }\end{DoxyParamCaption})}
 
+Updates the solver for a bond that is not associated with a contact.
+
+
+\begin{DoxyParams}{Parameters}
+{\em cnt\+\_\+geoms} & A pointer to the bond geometries. \\
+\hline
+{\em timestep} & The simulation time step. \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{classnetdem_1_1_bond_solver_p_w_a04f647e9ca74d1ef264e2f601ff9f8d9}\label{classnetdem_1_1_bond_solver_p_w_a04f647e9ca74d1ef264e2f601ff9f8d9}} 
 \index{netdem::BondSolverPW@{netdem::BondSolverPW}!ResolveUpdate@{ResolveUpdate}}
 \index{ResolveUpdate@{ResolveUpdate}!netdem::BondSolverPW@{netdem::BondSolverPW}}
 \doxysubsubsection{\texorpdfstring{ResolveUpdate()}{ResolveUpdate()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
 {\footnotesize\ttfamily void Bond\+Solver\+PW\+::\+Resolve\+Update (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_contact_p_w}{Contact\+PW}} $\ast$const}]{cnt,  }\item[{double}]{timestep }\end{DoxyParamCaption})}
 
+Updates the solver for a given point-\/wall contact.
+
+
+\begin{DoxyParams}{Parameters}
+{\em cnt} & A pointer to the point-\/wall contact. \\
+\hline
+{\em timestep} & The simulation time step. \\
+\hline
+\end{DoxyParams}
 
 
 \doxysubsection{Member Data Documentation}
@@ -85,15 +153,15 @@ void \mbox{\hyperlink{classnetdem_1_1_bond_solver_p_w_a5e7b94de03cdb017ee7b0182d
 \doxysubsubsection{\texorpdfstring{particle}{particle}}
 {\footnotesize\ttfamily \mbox{\hyperlink{classnetdem_1_1_particle}{Particle}}$\ast$ netdem\+::\+Bond\+Solver\+PW\+::particle \{nullptr\}}
 
-\mbox{\Hypertarget{classnetdem_1_1_bond_solver_p_w_ad81d3ce700746bb5f43fcf3e0def2d8f}\label{classnetdem_1_1_bond_solver_p_w_ad81d3ce700746bb5f43fcf3e0def2d8f}} 
+A pointer to the particle associated with this bond. \mbox{\Hypertarget{classnetdem_1_1_bond_solver_p_w_ad81d3ce700746bb5f43fcf3e0def2d8f}\label{classnetdem_1_1_bond_solver_p_w_ad81d3ce700746bb5f43fcf3e0def2d8f}} 
 \index{netdem::BondSolverPW@{netdem::BondSolverPW}!wall@{wall}}
 \index{wall@{wall}!netdem::BondSolverPW@{netdem::BondSolverPW}}
 \doxysubsubsection{\texorpdfstring{wall}{wall}}
 {\footnotesize\ttfamily \mbox{\hyperlink{classnetdem_1_1_wall}{Wall}}$\ast$ netdem\+::\+Bond\+Solver\+PW\+::wall \{nullptr\}}
 
-
+A pointer to the wall associated with this bond. 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-/\+Users/lzhshou/\+Documents/\+Research/my\+Projects/apam/repo/netdem/src/dem/\mbox{\hyperlink{bond__solver__pw_8hpp}{bond\+\_\+solver\+\_\+pw.\+hpp}}\item 
-/\+Users/lzhshou/\+Documents/\+Research/my\+Projects/apam/repo/netdem/src/dem/\mbox{\hyperlink{bond__solver__pw_8cpp}{bond\+\_\+solver\+\_\+pw.\+cpp}}\end{DoxyCompactItemize}
+/\+Users/lzhshou/\+Documents/\+Research/my\+Projects/apaam/repo/netdem/src/dem/\mbox{\hyperlink{bond__solver__pw_8hpp}{bond\+\_\+solver\+\_\+pw.\+hpp}}\item 
+/\+Users/lzhshou/\+Documents/\+Research/my\+Projects/apaam/repo/netdem/src/dem/\mbox{\hyperlink{bond__solver__pw_8cpp}{bond\+\_\+solver\+\_\+pw.\+cpp}}\end{DoxyCompactItemize}

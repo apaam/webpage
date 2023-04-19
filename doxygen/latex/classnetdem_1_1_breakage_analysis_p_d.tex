@@ -17,7 +17,9 @@ Inheritance diagram for netdem\+::Breakage\+Analysis\+PD\+:\begin{figure}[H]
 \item 
 void \mbox{\hyperlink{classnetdem_1_1_breakage_analysis_p_d_acd6d68ace0fcb57246c22779cd360f34}{Set\+Root\+Path}} (std\+::string const \&\mbox{\hyperlink{classnetdem_1_1_breakage_analysis_p_d_aca35f51160b37dba1a39f97e64323bbc}{root\+\_\+path}})
 \item 
-void \mbox{\hyperlink{classnetdem_1_1_breakage_analysis_p_d_af1c5429bbd8e4f9d93f3b3e2192adcf3}{Set\+Frequency}} (bool save\+\_\+by\+\_\+cycles, double interval)
+void \mbox{\hyperlink{classnetdem_1_1_breakage_analysis_p_d_adffe4c5118ccdff62542d3e600bec88f}{Set\+Execute\+By\+Time}} (double interval)
+\item 
+void \mbox{\hyperlink{classnetdem_1_1_breakage_analysis_p_d_a12d8037ac209db77ec38ec9725117d5b}{Set\+Execute\+By\+Cycles}} (double interval)
 \item 
 void \mbox{\hyperlink{classnetdem_1_1_breakage_analysis_p_d_a250c96505ecd034d27120ae0f04cb8bc}{Set\+Particles\+From\+Scene}} ()
 \item 
@@ -31,7 +33,26 @@ void \mbox{\hyperlink{classnetdem_1_1_breakage_analysis_p_d_ac15f60308a15d2b2c37
 \item 
 void \mbox{\hyperlink{classnetdem_1_1_breakage_analysis_p_d_ad051c4c0c2d537fdc0aaa434f6cfd8b2}{Execute}} () override
 \item 
-void \mbox{\hyperlink{classnetdem_1_1_breakage_analysis_p_d_abe5516074f980f668d925a53220941bb}{Update}} ()
+void \mbox{\hyperlink{classnetdem_1_1_breakage_analysis_p_d_a68bd9f26797230a15d37187468978908}{Update}} () override
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions inherited from \mbox{\hyperlink{classnetdem_1_1_modifier}{netdem\+::\+Modifier}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classnetdem_1_1_modifier_a00ecd168ce3ca5e2f3d4d741d7a56bbd}{Modifier}} ()
+\item 
+virtual \mbox{\hyperlink{classnetdem_1_1_modifier}{Modifier}} $\ast$ \mbox{\hyperlink{classnetdem_1_1_modifier_a0c808763e3e8052cbd446cb7d910f843}{Clone}} () const
+\item 
+virtual void \mbox{\hyperlink{classnetdem_1_1_modifier_ad340b35e3d4a44cbb708a522b89eec91}{Init}} (\mbox{\hyperlink{classnetdem_1_1_simulation}{Simulation}} $\ast$\mbox{\hyperlink{classnetdem_1_1_modifier_a2af15a41cb6d01349b0597d2f1828763}{sim}})
+\item 
+virtual void \mbox{\hyperlink{classnetdem_1_1_modifier_af24eb11dda7460744ff568ce299bee6f}{Enable}} ()
+\item 
+virtual void \mbox{\hyperlink{classnetdem_1_1_modifier_aba99c2f91ecd22eb1c88c45b1890aa38}{Disable}} ()
+\item 
+virtual void \mbox{\hyperlink{classnetdem_1_1_modifier_a8ffc62d61052f129a3301278b7cffb2c}{Execute}} ()
+\item 
+virtual void \mbox{\hyperlink{classnetdem_1_1_modifier_adb2442a93cd18bc810156aa7275a46b8}{Update}} ()
+\item 
+virtual \mbox{\hyperlink{classnetdem_1_1_modifier_a370a42d8715caec46e4d4d241667d053}{$\sim$\+Modifier}} ()
 \end{DoxyCompactItemize}
 \doxysubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
@@ -43,6 +64,21 @@ void \mbox{\hyperlink{classnetdem_1_1_breakage_analysis_p_d_abe5516074f980f668d9
 bool \mbox{\hyperlink{classnetdem_1_1_breakage_analysis_p_d_a17f836423e31e7a3eb65e3c7db4411a2}{use\+\_\+particles\+\_\+in\+\_\+scene}} \{false\}
 \item 
 \mbox{\hyperlink{classnetdem_1_1_peri_digm_d_e_m_coupler}{Peri\+Digm\+DEMCoupler}} \mbox{\hyperlink{classnetdem_1_1_breakage_analysis_p_d_a14aadf9906ef430553cf00a6c16fe0b0}{pd\+\_\+dem\+\_\+coupler}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes inherited from \mbox{\hyperlink{classnetdem_1_1_modifier}{netdem\+::\+Modifier}}}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string \mbox{\hyperlink{classnetdem_1_1_modifier_a9ca96d4276e4cb637b0220ab6fbbbbee}{label}} \{\char`\"{}default\char`\"{}\}
+\item 
+\mbox{\hyperlink{classnetdem_1_1_d_e_m_solver_a7b625d897bb69cd28838602603b8b0c4}{DEMSolver\+::\+Cycle\+Point}} \mbox{\hyperlink{classnetdem_1_1_modifier_ac97b78c11b6264901e6ea5ee9324fe14}{cycle\+\_\+point}} \{\mbox{\hyperlink{classnetdem_1_1_d_e_m_solver_a7b625d897bb69cd28838602603b8b0c4a03e21037ee2bb4ffa60b59913aafc1ae}{DEMSolver\+::\+Cycle\+Point\+::pre}}\}
+\item 
+\mbox{\hyperlink{classnetdem_1_1_simulation}{Simulation}} $\ast$ \mbox{\hyperlink{classnetdem_1_1_modifier_a2af15a41cb6d01349b0597d2f1828763}{sim}} \{nullptr\}
+\item 
+\mbox{\hyperlink{classnetdem_1_1_scene}{Scene}} $\ast$ \mbox{\hyperlink{classnetdem_1_1_modifier_a8a325cf86217e207d54672249c23eb95}{scene}} \{nullptr\}
+\item 
+bool \mbox{\hyperlink{classnetdem_1_1_modifier_a2258d80ff48346506d430f6f14ee486e}{update\+\_\+with\+\_\+scene}} \{false\}
+\item 
+bool \mbox{\hyperlink{classnetdem_1_1_modifier_a86866b7b68088778ba6062cf88126302}{enable\+\_\+logging}} \{true\}
 \end{DoxyCompactItemize}
 \doxysubsection*{Private Member Functions}
 \begin{DoxyCompactItemize}
@@ -112,11 +148,17 @@ Reimplemented from \mbox{\hyperlink{classnetdem_1_1_modifier_a8ffc62d61052f129a3
 
 Reimplemented from \mbox{\hyperlink{classnetdem_1_1_modifier_ad340b35e3d4a44cbb708a522b89eec91}{netdem\+::\+Modifier}}.
 
-\mbox{\Hypertarget{classnetdem_1_1_breakage_analysis_p_d_af1c5429bbd8e4f9d93f3b3e2192adcf3}\label{classnetdem_1_1_breakage_analysis_p_d_af1c5429bbd8e4f9d93f3b3e2192adcf3}} 
-\index{netdem::BreakageAnalysisPD@{netdem::BreakageAnalysisPD}!SetFrequency@{SetFrequency}}
-\index{SetFrequency@{SetFrequency}!netdem::BreakageAnalysisPD@{netdem::BreakageAnalysisPD}}
-\doxysubsubsection{\texorpdfstring{SetFrequency()}{SetFrequency()}}
-{\footnotesize\ttfamily void netdem\+::\+Breakage\+Analysis\+PD\+::\+Set\+Frequency (\begin{DoxyParamCaption}\item[{bool}]{save\+\_\+by\+\_\+cycles,  }\item[{double}]{interval }\end{DoxyParamCaption})}
+\mbox{\Hypertarget{classnetdem_1_1_breakage_analysis_p_d_a12d8037ac209db77ec38ec9725117d5b}\label{classnetdem_1_1_breakage_analysis_p_d_a12d8037ac209db77ec38ec9725117d5b}} 
+\index{netdem::BreakageAnalysisPD@{netdem::BreakageAnalysisPD}!SetExecuteByCycles@{SetExecuteByCycles}}
+\index{SetExecuteByCycles@{SetExecuteByCycles}!netdem::BreakageAnalysisPD@{netdem::BreakageAnalysisPD}}
+\doxysubsubsection{\texorpdfstring{SetExecuteByCycles()}{SetExecuteByCycles()}}
+{\footnotesize\ttfamily void netdem\+::\+Breakage\+Analysis\+PD\+::\+Set\+Execute\+By\+Cycles (\begin{DoxyParamCaption}\item[{double}]{interval }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classnetdem_1_1_breakage_analysis_p_d_adffe4c5118ccdff62542d3e600bec88f}\label{classnetdem_1_1_breakage_analysis_p_d_adffe4c5118ccdff62542d3e600bec88f}} 
+\index{netdem::BreakageAnalysisPD@{netdem::BreakageAnalysisPD}!SetExecuteByTime@{SetExecuteByTime}}
+\index{SetExecuteByTime@{SetExecuteByTime}!netdem::BreakageAnalysisPD@{netdem::BreakageAnalysisPD}}
+\doxysubsubsection{\texorpdfstring{SetExecuteByTime()}{SetExecuteByTime()}}
+{\footnotesize\ttfamily void netdem\+::\+Breakage\+Analysis\+PD\+::\+Set\+Execute\+By\+Time (\begin{DoxyParamCaption}\item[{double}]{interval }\end{DoxyParamCaption})}
 
 \mbox{\Hypertarget{classnetdem_1_1_breakage_analysis_p_d_ad745b86e50210c5dae909569473f101b}\label{classnetdem_1_1_breakage_analysis_p_d_ad745b86e50210c5dae909569473f101b}} 
 \index{netdem::BreakageAnalysisPD@{netdem::BreakageAnalysisPD}!SetParticles@{SetParticles}}
@@ -142,11 +184,11 @@ Reimplemented from \mbox{\hyperlink{classnetdem_1_1_modifier_ad340b35e3d4a44cbb7
 \doxysubsubsection{\texorpdfstring{SetRootPath()}{SetRootPath()}}
 {\footnotesize\ttfamily void netdem\+::\+Breakage\+Analysis\+PD\+::\+Set\+Root\+Path (\begin{DoxyParamCaption}\item[{std\+::string const \&}]{root\+\_\+path }\end{DoxyParamCaption})}
 
-\mbox{\Hypertarget{classnetdem_1_1_breakage_analysis_p_d_abe5516074f980f668d925a53220941bb}\label{classnetdem_1_1_breakage_analysis_p_d_abe5516074f980f668d925a53220941bb}} 
+\mbox{\Hypertarget{classnetdem_1_1_breakage_analysis_p_d_a68bd9f26797230a15d37187468978908}\label{classnetdem_1_1_breakage_analysis_p_d_a68bd9f26797230a15d37187468978908}} 
 \index{netdem::BreakageAnalysisPD@{netdem::BreakageAnalysisPD}!Update@{Update}}
 \index{Update@{Update}!netdem::BreakageAnalysisPD@{netdem::BreakageAnalysisPD}}
 \doxysubsubsection{\texorpdfstring{Update()}{Update()}}
-{\footnotesize\ttfamily void netdem\+::\+Breakage\+Analysis\+PD\+::\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+{\footnotesize\ttfamily void netdem\+::\+Breakage\+Analysis\+PD\+::\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
@@ -219,5 +261,5 @@ Reimplemented from \mbox{\hyperlink{classnetdem_1_1_modifier_adb2442a93cd18bc810
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-/\+Users/lzhshou/\+Documents/\+Research/my\+Projects/apam/repo/netdem/src/modifier/\mbox{\hyperlink{breakage__analysis__pd_8hpp}{breakage\+\_\+analysis\+\_\+pd.\+hpp}}\item 
-/\+Users/lzhshou/\+Documents/\+Research/my\+Projects/apam/repo/netdem/src/modifier/\mbox{\hyperlink{breakage__analysis__pd_8cpp}{breakage\+\_\+analysis\+\_\+pd.\+cpp}}\end{DoxyCompactItemize}
+/\+Users/lzhshou/\+Documents/\+Research/my\+Projects/apaam/repo/netdem/src/modifier/\mbox{\hyperlink{breakage__analysis__pd_8hpp}{breakage\+\_\+analysis\+\_\+pd.\+hpp}}\item 
+/\+Users/lzhshou/\+Documents/\+Research/my\+Projects/apaam/repo/netdem/src/modifier/\mbox{\hyperlink{breakage__analysis__pd_8cpp}{breakage\+\_\+analysis\+\_\+pd.\+cpp}}\end{DoxyCompactItemize}

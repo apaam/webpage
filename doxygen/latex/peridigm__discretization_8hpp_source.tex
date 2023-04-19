@@ -1,53 +1,53 @@
 \hypertarget{peridigm__discretization_8hpp_source}{}\doxysection{peridigm\+\_\+discretization.\+hpp}
-\label{peridigm__discretization_8hpp_source}\index{/Users/lzhshou/Documents/Research/myProjects/apam/repo/netdem/src/peridigm/peridigm\_discretization.hpp@{/Users/lzhshou/Documents/Research/myProjects/apam/repo/netdem/src/peridigm/peridigm\_discretization.hpp}}
+\label{peridigm__discretization_8hpp_source}\index{/Users/lzhshou/Documents/Research/myProjects/apaam/repo/netdem/src/peridigm/peridigm\_discretization.hpp@{/Users/lzhshou/Documents/Research/myProjects/apaam/repo/netdem/src/peridigm/peridigm\_discretization.hpp}}
 \mbox{\hyperlink{peridigm__discretization_8hpp}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
-\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
-\DoxyCodeLine{2 }
-\DoxyCodeLine{3 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{level__set__splittor_8hpp}{level\_set\_splittor.hpp}}"{}}}
-\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{tetmesh__splittor_8hpp}{tetmesh\_splittor.hpp}}"{}}}
-\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <fstream>}}
-\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <sstream>}}
-\DoxyCodeLine{7 \textcolor{preprocessor}{\#include <string>}}
-\DoxyCodeLine{8 }
-\DoxyCodeLine{9 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacenetdem}{netdem}} \{}
-\DoxyCodeLine{10 }
-\DoxyCodeLine{11 \textcolor{keyword}{class }\mbox{\hyperlink{classnetdem_1_1_peri_digm_discretization}{PeriDigmDiscretization}} \{}
-\DoxyCodeLine{12 \textcolor{keyword}{public}:}
-\DoxyCodeLine{13   \textcolor{keyword}{enum} \mbox{\hyperlink{classnetdem_1_1_peri_digm_discretization_a0a471907c177bf5e13817c4d56cdc9b1}{Type}} \{ \mbox{\hyperlink{classnetdem_1_1_peri_digm_discretization_a0a471907c177bf5e13817c4d56cdc9b1ab9aae7466c655b3a20cb5cce8e8df627}{level\_set}}, \mbox{\hyperlink{classnetdem_1_1_peri_digm_discretization_a0a471907c177bf5e13817c4d56cdc9b1ac336fe00561e85baa8dbc810aeb71487}{tetmesh}} \};}
-\DoxyCodeLine{14   \mbox{\hyperlink{classnetdem_1_1_peri_digm_discretization_a0a471907c177bf5e13817c4d56cdc9b1}{Type}} \mbox{\hyperlink{classnetdem_1_1_peri_digm_discretization_a865c73f0a32196682323b0acb86ddb62}{type}}\{Type::level\_set\};}
-\DoxyCodeLine{15 }
-\DoxyCodeLine{16   \mbox{\hyperlink{classnetdem_1_1_domain_splittor}{DomainSplittor}} *\mbox{\hyperlink{classnetdem_1_1_peri_digm_discretization_a5d0d6bb72e958514a62daf98e89f06cb}{domain\_splittor}}\{\textcolor{keyword}{nullptr}\};}
-\DoxyCodeLine{17 }
-\DoxyCodeLine{18   \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<Vec3d>}} \mbox{\hyperlink{classnetdem_1_1_peri_digm_discretization_a4564f99d7f195d7673518869564470a4}{nodes}};}
-\DoxyCodeLine{19   \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<int>}} \mbox{\hyperlink{classnetdem_1_1_peri_digm_discretization_aa9a2cb5b92406f152e4e8a2fa782a649}{node\_block\_indices}};}
-\DoxyCodeLine{20   \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<double>}} \mbox{\hyperlink{classnetdem_1_1_peri_digm_discretization_a7f4f0c1309aec240f293006a5a7d7e27}{node\_vols}};}
-\DoxyCodeLine{21 }
-\DoxyCodeLine{22   \mbox{\hyperlink{classnetdem_1_1_peri_digm_discretization_afeab5b1eb61cbd7226255056de2c2531}{PeriDigmDiscretization}}();}
-\DoxyCodeLine{23 }
-\DoxyCodeLine{24   \textcolor{keywordtype}{void} \mbox{\hyperlink{classnetdem_1_1_peri_digm_discretization_ade016e7553a91fbe6bd3eb7cbad8a53f}{InitFromSTL}}(std::string \textcolor{keyword}{const} \&stl\_file, \textcolor{keywordtype}{int} res);}
-\DoxyCodeLine{25 }
-\DoxyCodeLine{26   \textcolor{keywordtype}{void} \mbox{\hyperlink{classnetdem_1_1_peri_digm_discretization_ade016e7553a91fbe6bd3eb7cbad8a53f}{InitFromSTL}}(\mbox{\hyperlink{classnetdem_1_1_s_t_l_model}{STLModel}} \textcolor{keyword}{const} \&stl\_model, \textcolor{keywordtype}{int} res);}
-\DoxyCodeLine{27 }
-\DoxyCodeLine{28   \textcolor{comment}{// data format: corner\_x, corner\_y, corner\_z, spacing, dim\_x, dim\_y, dim\_z,}}
-\DoxyCodeLine{29   \textcolor{comment}{// dist[i][j][k]}}
-\DoxyCodeLine{30   \textcolor{keywordtype}{void} \mbox{\hyperlink{classnetdem_1_1_peri_digm_discretization_a0ee03a178267cc1507b57805165e233a}{InitFromDistanceMap}}(std::string \textcolor{keyword}{const} \&txt\_file);}
-\DoxyCodeLine{31 }
-\DoxyCodeLine{32   \textcolor{keywordtype}{void} \mbox{\hyperlink{classnetdem_1_1_peri_digm_discretization_a86560a3ecb9cd9857a3ac058e02ceb61}{InitFromGrid}}(\textcolor{keywordtype}{double} corner\_x, \textcolor{keywordtype}{double} corner\_y, \textcolor{keywordtype}{double} corner\_z,}
-\DoxyCodeLine{33                     \textcolor{keywordtype}{double} len\_x, \textcolor{keywordtype}{double} len\_y, \textcolor{keywordtype}{double} len\_z, \textcolor{keywordtype}{int} res);}
-\DoxyCodeLine{34 }
-\DoxyCodeLine{35   \textcolor{keywordtype}{void} \mbox{\hyperlink{classnetdem_1_1_peri_digm_discretization_a43651241c9ca0f032ab4c4100f7ce8ba}{MakePorosity}}(\textcolor{keywordtype}{double} porosity);}
-\DoxyCodeLine{36 }
-\DoxyCodeLine{37   \textcolor{keywordtype}{void} \mbox{\hyperlink{classnetdem_1_1_peri_digm_discretization_a0d70974225b60cb16bf2d5d98b1ff5e9}{WriteNodeFile}}(std::string \textcolor{keyword}{const} \&result\_dir);}
-\DoxyCodeLine{38 }
-\DoxyCodeLine{39   \textcolor{keywordtype}{double} \mbox{\hyperlink{classnetdem_1_1_peri_digm_discretization_a8ac9115cc0019b85c6bb093e812c3910}{GetNodeSize}}();}
-\DoxyCodeLine{40 }
-\DoxyCodeLine{41   \mbox{\hyperlink{classnetdem_1_1_peri_digm_discretization_ad3e8445b24ce0dcbe0aa47c159f69a9f}{\string~PeriDigmDiscretization}}();}
-\DoxyCodeLine{42 }
-\DoxyCodeLine{43 \textcolor{keyword}{private}:}
-\DoxyCodeLine{44   \textcolor{keywordtype}{void} \mbox{\hyperlink{classnetdem_1_1_peri_digm_discretization_a41aec4af8560a0040953f27d9eaa87e3}{InitDefaultBlockIndices}}();}
-\DoxyCodeLine{45 \};}
-\DoxyCodeLine{46 }
-\DoxyCodeLine{47 \} \textcolor{comment}{// namespace netdem}}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{level__set__splittor_8hpp}{level\_set\_splittor.hpp}}"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{tetmesh__splittor_8hpp}{tetmesh\_splittor.hpp}}"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <fstream>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <sstream>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacenetdem}{netdem}}\ \{}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classnetdem_1_1_peri_digm_discretization}{PeriDigmDiscretization}}\ \{}
+\DoxyCodeLine{00012\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00013\ \ \ \textcolor{keyword}{enum}\ \mbox{\hyperlink{classnetdem_1_1_peri_digm_discretization_a0a471907c177bf5e13817c4d56cdc9b1}{Type}}\ \{\ \mbox{\hyperlink{classnetdem_1_1_peri_digm_discretization_a0a471907c177bf5e13817c4d56cdc9b1ab9aae7466c655b3a20cb5cce8e8df627}{level\_set}},\ \mbox{\hyperlink{classnetdem_1_1_peri_digm_discretization_a0a471907c177bf5e13817c4d56cdc9b1ac336fe00561e85baa8dbc810aeb71487}{tetmesh}}\ \};}
+\DoxyCodeLine{00014\ \ \ \mbox{\hyperlink{classnetdem_1_1_peri_digm_discretization_a0a471907c177bf5e13817c4d56cdc9b1}{Type}}\ \mbox{\hyperlink{classnetdem_1_1_peri_digm_discretization_a865c73f0a32196682323b0acb86ddb62}{type}}\{\mbox{\hyperlink{classnetdem_1_1_peri_digm_discretization_a0a471907c177bf5e13817c4d56cdc9b1ab9aae7466c655b3a20cb5cce8e8df627}{Type::level\_set}}\};}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \ \ \mbox{\hyperlink{classnetdem_1_1_domain_splittor}{DomainSplittor}}\ *\mbox{\hyperlink{classnetdem_1_1_peri_digm_discretization_a5d0d6bb72e958514a62daf98e89f06cb}{domain\_splittor}}\{\textcolor{keyword}{nullptr}\};}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \ \ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<Vec3d>}}\ \mbox{\hyperlink{classnetdem_1_1_peri_digm_discretization_a4564f99d7f195d7673518869564470a4}{nodes}};}
+\DoxyCodeLine{00019\ \ \ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<int>}}\ \mbox{\hyperlink{classnetdem_1_1_peri_digm_discretization_aa9a2cb5b92406f152e4e8a2fa782a649}{node\_block\_indices}};}
+\DoxyCodeLine{00020\ \ \ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<double>}}\ \mbox{\hyperlink{classnetdem_1_1_peri_digm_discretization_a7f4f0c1309aec240f293006a5a7d7e27}{node\_vols}};}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \ \ \mbox{\hyperlink{classnetdem_1_1_peri_digm_discretization_afeab5b1eb61cbd7226255056de2c2531}{PeriDigmDiscretization}}();}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_peri_digm_discretization_afda2f3d6e77fc4dcfbd07a56cb2644e3}{InitFromSTL}}(std::string\ \textcolor{keyword}{const}\ \&stl\_file,\ \textcolor{keywordtype}{int}\ num\_ele\_each);}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_peri_digm_discretization_afda2f3d6e77fc4dcfbd07a56cb2644e3}{InitFromSTL}}(\mbox{\hyperlink{classnetdem_1_1_s_t_l_model}{STLModel}}\ \textcolor{keyword}{const}\ \&stl\_model,\ \textcolor{keywordtype}{int}\ num\_ele\_each);}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \ \ \textcolor{comment}{//\ data\ format:\ corner\_x,\ corner\_y,\ corner\_z,\ spacing,\ dim\_x,\ dim\_y,\ dim\_z,}}
+\DoxyCodeLine{00029\ \ \ \textcolor{comment}{//\ dist[i][j][k]}}
+\DoxyCodeLine{00030\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_peri_digm_discretization_a0ee03a178267cc1507b57805165e233a}{InitFromDistanceMap}}(std::string\ \textcolor{keyword}{const}\ \&txt\_file);}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_peri_digm_discretization_a8984979fa9687e1e02e1e0c1d81680c3}{InitFromGrid}}(\textcolor{keywordtype}{double}\ corner\_x,\ \textcolor{keywordtype}{double}\ corner\_y,\ \textcolor{keywordtype}{double}\ corner\_z,}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ len\_x,\ \textcolor{keywordtype}{double}\ len\_y,\ \textcolor{keywordtype}{double}\ len\_z,\ \textcolor{keywordtype}{int}\ num\_ele\_each);}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_peri_digm_discretization_a43651241c9ca0f032ab4c4100f7ce8ba}{MakePorosity}}(\textcolor{keywordtype}{double}\ porosity);}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_peri_digm_discretization_a0d70974225b60cb16bf2d5d98b1ff5e9}{WriteNodeFile}}(std::string\ \textcolor{keyword}{const}\ \&result\_dir);}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classnetdem_1_1_peri_digm_discretization_a8ac9115cc0019b85c6bb093e812c3910}{GetNodeSize}}();}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \ \ \mbox{\hyperlink{classnetdem_1_1_peri_digm_discretization_ad3e8445b24ce0dcbe0aa47c159f69a9f}{\string~PeriDigmDiscretization}}();}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00044\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_peri_digm_discretization_a41aec4af8560a0040953f27d9eaa87e3}{InitDefaultBlockIndices}}();}
+\DoxyCodeLine{00045\ \};}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \}\ \textcolor{comment}{//\ namespace\ netdem}}
 
 \end{DoxyCode}
