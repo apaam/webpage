@@ -19,9 +19,9 @@ Inheritance diagram for netdem\+::Sphere\+:\begin{figure}[H]
 \item 
 \mbox{\hyperlink{classnetdem_1_1_shape}{Shape}} $\ast$ \mbox{\hyperlink{classnetdem_1_1_sphere_a6e7f0678c3128e686b3b9df16db9a871}{Clone}} () const override
 \item 
-\mbox{\hyperlink{mpi__manager_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{nlohmann\+::json}} \mbox{\hyperlink{classnetdem_1_1_sphere_ac3350cf29e6e0f9202be8c3dd10ffd0b}{Pack\+Json}} () override
+nlohmann\+::json \mbox{\hyperlink{classnetdem_1_1_sphere_ac3350cf29e6e0f9202be8c3dd10ffd0b}{Pack\+Json}} () override
 \item 
-void \mbox{\hyperlink{classnetdem_1_1_sphere_a69ba6acfe549a2fc3ee3343a5641ea76}{Init\+From\+Json}} (\mbox{\hyperlink{mpi__manager_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{nlohmann\+::json}} const \&js) override
+void \mbox{\hyperlink{classnetdem_1_1_sphere_a69ba6acfe549a2fc3ee3343a5641ea76}{Init\+From\+Json}} (nlohmann\+::json const \&js) override
 \item 
 void \mbox{\hyperlink{classnetdem_1_1_sphere_a8a5dc7f51e1b61323666bf8873fd017b}{Init}} ()
 \item 
@@ -35,13 +35,122 @@ void \mbox{\hyperlink{classnetdem_1_1_sphere_a27169255540359b24819c50ce3e11771}{
 \item 
 \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $>$ \mbox{\hyperlink{classnetdem_1_1_sphere_a9707a061f81187b0a99bf9096b93ce90}{Support\+Points}} (\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&dir) override
 \item 
-double \mbox{\hyperlink{classnetdem_1_1_sphere_a30139b806fce198e1a4bfa777b2008c2}{Signed\+Distance}} (\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&pos) override
+double \mbox{\hyperlink{classnetdem_1_1_sphere_a88f19870b4b3117d74680a92b61a2530}{Signed\+Distance}} (\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&pos) const override
 \item 
 \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \mbox{\hyperlink{classnetdem_1_1_sphere_a8e52d6c77c06cb6f1f194006e707ce50}{Surface\+Point}} (\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&pos) override
 \item 
 void \mbox{\hyperlink{classnetdem_1_1_sphere_aed495d66be0eaa292026589a1f7ae664}{Print}} () override
 \end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions inherited from \mbox{\hyperlink{classnetdem_1_1_shape}{netdem\+::\+Shape}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual nlohmann\+::json \mbox{\hyperlink{classnetdem_1_1_shape_aaceb6d02ba07578916c4723eb14c1365}{Pack\+Json}} ()
+\item 
+virtual void \mbox{\hyperlink{classnetdem_1_1_shape_a01bdee57a765ce5432d16d9ef001c948}{Init\+From\+Json}} (nlohmann\+::json const \&js)
+\item 
+virtual void \mbox{\hyperlink{classnetdem_1_1_shape_aec28148f9a8810c845121cdfbbe9e95d}{Init\+From\+Json\+File}} (std\+::string const \&js\+\_\+file)
+\item 
+virtual void \mbox{\hyperlink{classnetdem_1_1_shape_a4891a52d4fc96c738c3ab208e4d884dd}{Translate}} (\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&pos)
+\item 
+virtual void \mbox{\hyperlink{classnetdem_1_1_shape_a9f11fadd05e55890a9f90c676d0d1ae8}{Update\+Nodes}} ()
+\item 
+virtual void \mbox{\hyperlink{classnetdem_1_1_shape_a4286b79ebde34db279b1c13d167901ed}{Update\+Shape\+Properties}} ()
+\item 
+virtual void \mbox{\hyperlink{classnetdem_1_1_shape_a83a4e08bc55fde5d3f99b5041efa6beb}{Set\+Size}} (double d)
+\item 
+virtual \mbox{\hyperlink{classnetdem_1_1_shape}{Shape}} $\ast$ \mbox{\hyperlink{classnetdem_1_1_shape_aa2f0bb26f5aa8f637a6bb3d5e735f45a}{Clone}} () const
+\item 
+virtual \mbox{\hyperlink{classnetdem_1_1_s_t_l_model}{STLModel}} \mbox{\hyperlink{classnetdem_1_1_shape_ab3a616a53e637b4654fedf7ffd498f94}{Get\+STLModel}} (int num\+\_\+facets=400)
+\item 
+virtual void \mbox{\hyperlink{classnetdem_1_1_shape_a99ea5818f0b368e2d3c20bc9dcc51429}{Save\+As\+VTK}} (std\+::string const \&filename)
+\item 
+virtual void \mbox{\hyperlink{classnetdem_1_1_shape_a2eaa2d4c2021a7963cbfcc65d0f6cd41}{Save\+As\+STL}} (std\+::string const \&filename)
+\item 
+virtual std\+::tuple$<$ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}, \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $>$ \mbox{\hyperlink{classnetdem_1_1_shape_af06ef75dd2d9528a4206173902f868e9}{Get\+Bound\+AABB}} (\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&pos, \mbox{\hyperlink{namespacenetdem_a13d5371f99b252a70fd5a5081b910370}{Vec4d}} const \&quat)
+\item 
+virtual \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \mbox{\hyperlink{classnetdem_1_1_shape_a0cf9b4a6d035810b85aa24e118b81d1a}{Support\+Point}} (\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&dir)
+\item 
+virtual \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $>$ \mbox{\hyperlink{classnetdem_1_1_shape_a15152dc02a9d8dfcae6a412e6f2131bd}{Support\+Points}} (\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&dir)
+\item 
+virtual double \mbox{\hyperlink{classnetdem_1_1_shape_aa27f20eb627e2e983ed530102eb91cdc}{Signed\+Distance}} (\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&pos) const
+\item 
+virtual \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \mbox{\hyperlink{classnetdem_1_1_shape_a8528b3f4a6e03c5e83821c9842f596ac}{Surface\+Point}} (\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&pos)
+\item 
+virtual bool \mbox{\hyperlink{classnetdem_1_1_shape_a31b9d4d6a5847de62aadc17a672b556f}{Enclose}} (\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&pos)
+\item 
+virtual void \mbox{\hyperlink{classnetdem_1_1_shape_a5e11d9bc46005ddf54d7bff51024c2bb}{Print}} ()
+\item 
+virtual \mbox{\hyperlink{classnetdem_1_1_shape_a935afc9e576015f967d90de56977167d}{$\sim$\+Shape}} ()
+\item 
+\mbox{\hyperlink{namespacenetdem_aa1535a5d1ed2f90088a89de1f7670952}{Mat\+Nd}}$<$ 8, 3 $>$ \mbox{\hyperlink{classnetdem_1_1_shape_a91aa2921c75ed9fb0ec38ccacc4e6c13}{Get\+Bound\+AABBVertices}} ()
+\end{DoxyCompactItemize}
 \doxysubsection*{Additional Inherited Members}
+\doxysubsubsection*{Public Types inherited from \mbox{\hyperlink{classnetdem_1_1_shape}{netdem\+::\+Shape}}}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{classnetdem_1_1_shape_aa97bccd1fe4043614c4b84a3f254a158}{Type}} \{ \newline
+\mbox{\hyperlink{classnetdem_1_1_shape_aa97bccd1fe4043614c4b84a3f254a158aff276b34067b006ebf753785c1f5a709}{none}}
+, \mbox{\hyperlink{classnetdem_1_1_shape_aa97bccd1fe4043614c4b84a3f254a158a77b0f103a30d9e17cdc77343e718d4b7}{point\+\_\+sphere}}
+, \mbox{\hyperlink{classnetdem_1_1_shape_aa97bccd1fe4043614c4b84a3f254a158a170d861e8a6889d3e8803738cc63f286}{sphere}}
+, \mbox{\hyperlink{classnetdem_1_1_shape_aa97bccd1fe4043614c4b84a3f254a158a6934ff15963cfa85e954f7176902cf21}{spherical\+\_\+harmonics}}
+, \newline
+\mbox{\hyperlink{classnetdem_1_1_shape_aa97bccd1fe4043614c4b84a3f254a158a5187b4655382cea01566700a063c4948}{trimesh}}
+, \mbox{\hyperlink{classnetdem_1_1_shape_aa97bccd1fe4043614c4b84a3f254a158a6ffdab954c3926efa3d221df723bea05}{trimesh\+\_\+convex}}
+, \mbox{\hyperlink{classnetdem_1_1_shape_aa97bccd1fe4043614c4b84a3f254a158a9f582803c73a356d2507138d144f8dfe}{ellipsoid}}
+, \mbox{\hyperlink{classnetdem_1_1_shape_aa97bccd1fe4043614c4b84a3f254a158af792e524a73ec96220ba33edadc02487}{polybezier}}
+, \newline
+\mbox{\hyperlink{classnetdem_1_1_shape_aa97bccd1fe4043614c4b84a3f254a158a23fbfbc640dc1eb353b213cbac48229d}{triangle}}
+, \mbox{\hyperlink{classnetdem_1_1_shape_aa97bccd1fe4043614c4b84a3f254a158a162daf2708fbaa4e4ab24bdbbb80efd2}{plane}}
+, \mbox{\hyperlink{classnetdem_1_1_shape_aa97bccd1fe4043614c4b84a3f254a158aa14147e0bd93b09d0cfba0f07e8f4d3f}{cylinder}}
+, \mbox{\hyperlink{classnetdem_1_1_shape_aa97bccd1fe4043614c4b84a3f254a158af7738891289ef3772255987733afd2ae}{poly\+\_\+super\+\_\+ellipsoid}}
+, \newline
+\mbox{\hyperlink{classnetdem_1_1_shape_aa97bccd1fe4043614c4b84a3f254a158a1c21bccb7feac60da9dafdc7af8a6055}{poly\+\_\+super\+\_\+quadrics}}
+, \mbox{\hyperlink{classnetdem_1_1_shape_aa97bccd1fe4043614c4b84a3f254a158a8a3b7ba36603ac8d0dbed1288d0eb35d}{level\+\_\+set}}
+, \mbox{\hyperlink{classnetdem_1_1_shape_aa97bccd1fe4043614c4b84a3f254a158a901c7bdd78c055966e71fc4ef5bc4a3c}{netsdf}}
+, \mbox{\hyperlink{classnetdem_1_1_shape_aa97bccd1fe4043614c4b84a3f254a158a0b86f6658887e22102a419b8a15852b6}{coded\+\_\+netsdf}}
+, \newline
+\mbox{\hyperlink{classnetdem_1_1_shape_aa97bccd1fe4043614c4b84a3f254a158a15cffbd4779c9d52d6babf8426d07eb1}{num\+\_\+shapes}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes inherited from \mbox{\hyperlink{classnetdem_1_1_shape}{netdem\+::\+Shape}}}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{classnetdem_1_1_shape_a1b039a89b8be0177106617ba10c00484}{id}} \{0\}
+\item 
+std\+::string \mbox{\hyperlink{classnetdem_1_1_shape_a4146ba9bcef64e03cf15d1efae7c7c31}{label}} \{\char`\"{}default\char`\"{}\}
+\item 
+int \mbox{\hyperlink{classnetdem_1_1_shape_adafc3591f0c28b1bcc977294c9cd8748}{shape\+\_\+type}} \{0\}
+\item 
+std\+::string \mbox{\hyperlink{classnetdem_1_1_shape_a15f899d2a390b2bdf73f0f5e310b6b34}{shape\+\_\+name}} \{\char`\"{}shape\char`\"{}\}
+\item 
+double \mbox{\hyperlink{classnetdem_1_1_shape_afd08386decfb825ba190c7a2d4e0aac6}{size}} \{1.\+0\}
+\item 
+double \mbox{\hyperlink{classnetdem_1_1_shape_a1812859ebfa70a57c31626dbc0552ae6}{volume}} \{0.\+5236\}
+\item 
+\mbox{\hyperlink{namespacenetdem_ae589ca87f7a16ea70807ee6b1c3bc1c8}{Mat3d}} \mbox{\hyperlink{classnetdem_1_1_shape_ac2e16aec8f9607d572c012ef9f2917d1}{inertia}} \{\{\{0.\+05236, 0, 0\}, \{0, 0.\+05236, 0\}, \{0, 0, 0.\+05236\}\}\}
+\item 
+double \mbox{\hyperlink{classnetdem_1_1_shape_aa2544899cc79d4ae84fc700f490a37dc}{bound\+\_\+sphere\+\_\+radius}} \{1.\+0\}
+\item 
+double \mbox{\hyperlink{classnetdem_1_1_shape_ac864f3e9a93cf92fcaea59c567d30301}{skin}} \{0.\+05\}
+\item 
+double \mbox{\hyperlink{classnetdem_1_1_shape_a68e3c0cd726bedd1406faceb9dc5130d}{skin\+\_\+factor}} \{0.\+05\}
+\item 
+\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \mbox{\hyperlink{classnetdem_1_1_shape_ae4c913e572cfb7fdb70d37d81b7037de}{bound\+\_\+aabb\+\_\+min}} \{-\/0.\+5, -\/0.\+5, -\/0.\+5\}
+\item 
+\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \mbox{\hyperlink{classnetdem_1_1_shape_a2abbd207dea9e86d154131624e217b96}{bound\+\_\+aabb\+\_\+max}} \{0.\+5, 0.\+5, 0.\+5\}
+\item 
+bool \mbox{\hyperlink{classnetdem_1_1_shape_a05a8aa2b95d47cca08bb1e246ddd2d43}{use\+\_\+node}} \{false\}
+\item 
+int \mbox{\hyperlink{classnetdem_1_1_shape_a4f5ba046585284a39cb93c6bd83746f7}{node\+\_\+num}} \{1000\}
+\item 
+double \mbox{\hyperlink{classnetdem_1_1_shape_ad3d356f624bb4602bdd50b32cacdee8c}{node\+\_\+spacing}} \{std\+::sqrt(\mbox{\hyperlink{namespacenetdem_1_1_math_a902d4826f3f4fb5e5b105a223e1aed6e}{Math\+::\+PI}} / 1000.\+0)\}
+\item 
+\mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $>$ \mbox{\hyperlink{classnetdem_1_1_shape_aca813b26eea63d56642829360c7f5a3b}{nodes}}
+\item 
+bool \mbox{\hyperlink{classnetdem_1_1_shape_a43558fbf3d8318948292aaf7c65f6c70}{is\+\_\+convex}} \{true\}
+\item 
+bool \mbox{\hyperlink{classnetdem_1_1_shape_a731518cf0917f5af9e02b12adcb3d54a}{use\+\_\+customized\+\_\+solver}} \{false\}
+\begin{DoxyCompactList}\small\item\em use customized contact solver \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Constructor \& Destructor Documentation}
@@ -90,7 +199,7 @@ Reimplemented from \mbox{\hyperlink{classnetdem_1_1_shape_ab3a616a53e637b4654fed
 \index{netdem::Sphere@{netdem::Sphere}!InitFromJson@{InitFromJson}}
 \index{InitFromJson@{InitFromJson}!netdem::Sphere@{netdem::Sphere}}
 \doxysubsubsection{\texorpdfstring{InitFromJson()}{InitFromJson()}}
-{\footnotesize\ttfamily void Sphere\+::\+Init\+From\+Json (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{mpi__manager_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{nlohmann\+::json}} const \&}]{js }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+{\footnotesize\ttfamily void Sphere\+::\+Init\+From\+Json (\begin{DoxyParamCaption}\item[{nlohmann\+::json const \&}]{js }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
@@ -100,7 +209,7 @@ Reimplemented from \mbox{\hyperlink{classnetdem_1_1_shape_a01bdee57a765ce5432d16
 \index{netdem::Sphere@{netdem::Sphere}!PackJson@{PackJson}}
 \index{PackJson@{PackJson}!netdem::Sphere@{netdem::Sphere}}
 \doxysubsubsection{\texorpdfstring{PackJson()}{PackJson()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{mpi__manager_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{nlohmann\+::json}} Sphere\+::\+Pack\+Json (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+{\footnotesize\ttfamily nlohmann\+::json Sphere\+::\+Pack\+Json (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
@@ -116,15 +225,15 @@ Reimplemented from \mbox{\hyperlink{classnetdem_1_1_shape_aaceb6d02ba07578916c47
 
 Reimplemented from \mbox{\hyperlink{classnetdem_1_1_shape_a5e11d9bc46005ddf54d7bff51024c2bb}{netdem\+::\+Shape}}.
 
-\mbox{\Hypertarget{classnetdem_1_1_sphere_a30139b806fce198e1a4bfa777b2008c2}\label{classnetdem_1_1_sphere_a30139b806fce198e1a4bfa777b2008c2}} 
+\mbox{\Hypertarget{classnetdem_1_1_sphere_a88f19870b4b3117d74680a92b61a2530}\label{classnetdem_1_1_sphere_a88f19870b4b3117d74680a92b61a2530}} 
 \index{netdem::Sphere@{netdem::Sphere}!SignedDistance@{SignedDistance}}
 \index{SignedDistance@{SignedDistance}!netdem::Sphere@{netdem::Sphere}}
 \doxysubsubsection{\texorpdfstring{SignedDistance()}{SignedDistance()}}
-{\footnotesize\ttfamily double Sphere\+::\+Signed\+Distance (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&}]{pos }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+{\footnotesize\ttfamily double Sphere\+::\+Signed\+Distance (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&}]{pos }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
-Reimplemented from \mbox{\hyperlink{classnetdem_1_1_shape_af2f21939e3b0f408bdfc1b8d58205e90}{netdem\+::\+Shape}}.
+Reimplemented from \mbox{\hyperlink{classnetdem_1_1_shape_aa27f20eb627e2e983ed530102eb91cdc}{netdem\+::\+Shape}}.
 
 \mbox{\Hypertarget{classnetdem_1_1_sphere_a4db0f007595825e1a6092b29e035139b}\label{classnetdem_1_1_sphere_a4db0f007595825e1a6092b29e035139b}} 
 \index{netdem::Sphere@{netdem::Sphere}!SupportPoint@{SupportPoint}}
@@ -180,5 +289,5 @@ Reimplemented from \mbox{\hyperlink{classnetdem_1_1_shape_a4286b79ebde34db279b1c
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-/\+Users/lzhshou/\+Documents/\+Research/my\+Projects/apam/repo/netdem/src/shape/\mbox{\hyperlink{shape__sphere_8hpp}{shape\+\_\+sphere.\+hpp}}\item 
-/\+Users/lzhshou/\+Documents/\+Research/my\+Projects/apam/repo/netdem/src/shape/\mbox{\hyperlink{shape__sphere_8cpp}{shape\+\_\+sphere.\+cpp}}\end{DoxyCompactItemize}
+/\+Users/lzhshou/\+Documents/\+Research/my\+Projects/apaam/repo/netdem/src/shape/\mbox{\hyperlink{shape__sphere_8hpp}{shape\+\_\+sphere.\+hpp}}\item 
+/\+Users/lzhshou/\+Documents/\+Research/my\+Projects/apaam/repo/netdem/src/shape/\mbox{\hyperlink{shape__sphere_8cpp}{shape\+\_\+sphere.\+cpp}}\end{DoxyCompactItemize}

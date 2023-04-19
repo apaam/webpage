@@ -31,6 +31,27 @@ void \mbox{\hyperlink{classnetdem_1_1_solver_sphere_plane_a31d76e1ced28d4dedbd6b
 \item 
 void \mbox{\hyperlink{classnetdem_1_1_solver_sphere_plane_ab37c6f709accc6819810044c518e96b0}{Resolve\+Update}} (\mbox{\hyperlink{classnetdem_1_1_collision_geometries}{Collision\+Geometries}} $\ast$const cnt\+\_\+geoms, double timestep)
 \end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions inherited from \mbox{\hyperlink{classnetdem_1_1_collision_solver_p_w}{netdem\+::\+Collision\+Solver\+PW}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classnetdem_1_1_collision_solver_p_w_a139ea00ec1a6e50754d4e514efd23865}{Collision\+Solver\+PW}} ()
+\item 
+\mbox{\hyperlink{classnetdem_1_1_collision_solver_p_w_a9689e292d6b91c8b098fb2f6b16671bc}{Collision\+Solver\+PW}} (\mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} $\ast$const p, \mbox{\hyperlink{classnetdem_1_1_wall}{Wall}} $\ast$const w)
+\item 
+virtual \mbox{\hyperlink{classnetdem_1_1_collision_solver_p_w}{Collision\+Solver\+PW}} $\ast$ \mbox{\hyperlink{classnetdem_1_1_collision_solver_p_w_a9a373faf193910562f49bc0ac15050e9}{Clone}} () const =0
+\item 
+virtual void \mbox{\hyperlink{classnetdem_1_1_collision_solver_p_w_a23b3075924f949dfed8a681dbebedc03}{Init}} (\mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} $\ast$const p, \mbox{\hyperlink{classnetdem_1_1_wall}{Wall}} $\ast$const w)
+\item 
+virtual bool \mbox{\hyperlink{classnetdem_1_1_collision_solver_p_w_a662b4b47765dd9816e1cb46262e8ad32}{Detect}} ()=0
+\item 
+virtual bool \mbox{\hyperlink{classnetdem_1_1_collision_solver_p_w_af1988c5af79008cebb6c7c6ad54178f7}{Detect}} (\mbox{\hyperlink{classnetdem_1_1_contact_p_w}{Contact\+PW}} $\ast$const cnt)
+\item 
+virtual void \mbox{\hyperlink{classnetdem_1_1_collision_solver_p_w_a1a4559783964fdb3f7eea71950d88c93}{Resolve\+Init}} (\mbox{\hyperlink{classnetdem_1_1_contact_p_w}{Contact\+PW}} $\ast$const cnt, double timestep)=0
+\item 
+virtual void \mbox{\hyperlink{classnetdem_1_1_collision_solver_p_w_a1fa6dc4af91346ec8ec28db0c2bdd08e}{Resolve\+Update}} (\mbox{\hyperlink{classnetdem_1_1_contact_p_w}{Contact\+PW}} $\ast$const cnt, double timestep)=0
+\item 
+virtual \mbox{\hyperlink{classnetdem_1_1_collision_solver_p_w_aed072d2954a6f834d5445a1d11699923}{$\sim$\+Collision\+Solver\+PW}} ()
+\end{DoxyCompactItemize}
 \doxysubsection*{Private Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -47,6 +68,20 @@ double \mbox{\hyperlink{classnetdem_1_1_solver_sphere_plane_afd331d2d6e844777060
 \mbox{\hyperlink{classnetdem_1_1_plane}{Plane}} $\ast$ \mbox{\hyperlink{classnetdem_1_1_solver_sphere_plane_a5c59246dc9d61c5c89ec63d4040d19db}{plane}}
 \end{DoxyCompactItemize}
 \doxysubsection*{Additional Inherited Members}
+\doxysubsubsection*{Public Attributes inherited from \mbox{\hyperlink{classnetdem_1_1_collision_solver_p_w}{netdem\+::\+Collision\+Solver\+PW}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} $\ast$ \mbox{\hyperlink{classnetdem_1_1_collision_solver_p_w_a8276a32532c49390da32f3b774b00af9}{particle}} \{nullptr\}
+\item 
+\mbox{\hyperlink{classnetdem_1_1_wall}{Wall}} $\ast$ \mbox{\hyperlink{classnetdem_1_1_collision_solver_p_w_af277573368172045c160c12a3caa232b}{wall}} \{nullptr\}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Member Functions inherited from \mbox{\hyperlink{classnetdem_1_1_collision_solver_p_w}{netdem\+::\+Collision\+Solver\+PW}}}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classnetdem_1_1_collision_solver_p_w_ac71fefe3b9e08712eedae9d5e5bfe336}{Init\+Basic\+Geoms}} (\mbox{\hyperlink{classnetdem_1_1_collision_geometries}{Collision\+Geometries}} $\ast$const cnt\+\_\+geoms, double timestep)
+\item 
+void \mbox{\hyperlink{classnetdem_1_1_collision_solver_p_w_a75563d0f485ce14cca7eef636099b546}{Update\+Basic\+Geoms}} (\mbox{\hyperlink{classnetdem_1_1_collision_geometries}{Collision\+Geometries}} $\ast$const cnt\+\_\+geoms, double timestep, \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&dir\+\_\+n\+\_\+old)
+\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
@@ -78,7 +113,7 @@ concrete geometric solver for sphere and plane contacts.
 \doxysubsubsection{\texorpdfstring{Clone()}{Clone()}}
 {\footnotesize\ttfamily \mbox{\hyperlink{classnetdem_1_1_collision_solver_p_w}{Collision\+Solver\+PW}} $\ast$ netdem\+::\+Solver\+Sphere\+Plane\+::\+Clone (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
-
+Clone this collision solver. 
 
 Implements \mbox{\hyperlink{classnetdem_1_1_collision_solver_p_w_a9a373faf193910562f49bc0ac15050e9}{netdem\+::\+Collision\+Solver\+PW}}.
 
@@ -88,6 +123,11 @@ Implements \mbox{\hyperlink{classnetdem_1_1_collision_solver_p_w_a9a373faf193910
 \doxysubsubsection{\texorpdfstring{Detect()}{Detect()}}
 {\footnotesize\ttfamily bool netdem\+::\+Solver\+Sphere\+Plane\+::\+Detect (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
+Detect whether a collision has occurred between the particle and the wall.
+
+\begin{DoxyReturn}{Returns}
+{\ttfamily true} if a collision has occurred, {\ttfamily false} otherwise. 
+\end{DoxyReturn}
 
 
 Implements \mbox{\hyperlink{classnetdem_1_1_collision_solver_p_w_a662b4b47765dd9816e1cb46262e8ad32}{netdem\+::\+Collision\+Solver\+PW}}.
@@ -98,6 +138,15 @@ Implements \mbox{\hyperlink{classnetdem_1_1_collision_solver_p_w_a662b4b47765dd9
 \doxysubsubsection{\texorpdfstring{Init()}{Init()}}
 {\footnotesize\ttfamily void netdem\+::\+Solver\+Sphere\+Plane\+::\+Init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} $\ast$const}]{p,  }\item[{\mbox{\hyperlink{classnetdem_1_1_wall}{Wall}} $\ast$const}]{w }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
+Initialize the particle and wall involved in the collision.
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & The particle involved in the collision. \\
+\hline
+{\em w} & The wall involved in the collision. \\
+\hline
+\end{DoxyParams}
 
 
 Reimplemented from \mbox{\hyperlink{classnetdem_1_1_collision_solver_p_w_a23b3075924f949dfed8a681dbebedc03}{netdem\+::\+Collision\+Solver\+PW}}.
@@ -114,6 +163,15 @@ Reimplemented from \mbox{\hyperlink{classnetdem_1_1_collision_solver_p_w_a23b307
 \doxysubsubsection{\texorpdfstring{ResolveInit()}{ResolveInit()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
 {\footnotesize\ttfamily void netdem\+::\+Solver\+Sphere\+Plane\+::\+Resolve\+Init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_contact_p_w}{Contact\+PW}} $\ast$const}]{cnt,  }\item[{double}]{timestep }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
+Prepare for resolving the collision by initializing the {\ttfamily \mbox{\hyperlink{classnetdem_1_1_contact_p_w}{Contact\+PW}}} object.
+
+
+\begin{DoxyParams}{Parameters}
+{\em cnt} & A pointer to a {\ttfamily \mbox{\hyperlink{classnetdem_1_1_contact_p_w}{Contact\+PW}}} object storing details of the collision. \\
+\hline
+{\em timestep} & The timestep length used in the simulation. \\
+\hline
+\end{DoxyParams}
 
 
 Implements \mbox{\hyperlink{classnetdem_1_1_collision_solver_p_w_a1a4559783964fdb3f7eea71950d88c93}{netdem\+::\+Collision\+Solver\+PW}}.
@@ -130,6 +188,15 @@ Implements \mbox{\hyperlink{classnetdem_1_1_collision_solver_p_w_a1a4559783964fd
 \doxysubsubsection{\texorpdfstring{ResolveUpdate()}{ResolveUpdate()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
 {\footnotesize\ttfamily void netdem\+::\+Solver\+Sphere\+Plane\+::\+Resolve\+Update (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_contact_p_w}{Contact\+PW}} $\ast$const}]{cnt,  }\item[{double}]{timestep }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
+Update the particle and wall involved in the collision based on the current state of the simulation.
+
+
+\begin{DoxyParams}{Parameters}
+{\em cnt} & A pointer to a {\ttfamily \mbox{\hyperlink{classnetdem_1_1_contact_p_w}{Contact\+PW}}} object storing details of the collision. \\
+\hline
+{\em timestep} & The timestep length used in the simulation. \\
+\hline
+\end{DoxyParams}
 
 
 Implements \mbox{\hyperlink{classnetdem_1_1_collision_solver_p_w_a1fa6dc4af91346ec8ec28db0c2bdd08e}{netdem\+::\+Collision\+Solver\+PW}}.
@@ -177,5 +244,5 @@ Implements \mbox{\hyperlink{classnetdem_1_1_collision_solver_p_w_a1fa6dc4af91346
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-/\+Users/lzhshou/\+Documents/\+Research/my\+Projects/apam/repo/netdem/src/dem/\mbox{\hyperlink{solver__sphere__plane_8hpp}{solver\+\_\+sphere\+\_\+plane.\+hpp}}\item 
-/\+Users/lzhshou/\+Documents/\+Research/my\+Projects/apam/repo/netdem/src/dem/\mbox{\hyperlink{solver__sphere__plane_8cpp}{solver\+\_\+sphere\+\_\+plane.\+cpp}}\end{DoxyCompactItemize}
+/\+Users/lzhshou/\+Documents/\+Research/my\+Projects/apaam/repo/netdem/src/dem/\mbox{\hyperlink{solver__sphere__plane_8hpp}{solver\+\_\+sphere\+\_\+plane.\+hpp}}\item 
+/\+Users/lzhshou/\+Documents/\+Research/my\+Projects/apaam/repo/netdem/src/dem/\mbox{\hyperlink{solver__sphere__plane_8cpp}{solver\+\_\+sphere\+\_\+plane.\+cpp}}\end{DoxyCompactItemize}

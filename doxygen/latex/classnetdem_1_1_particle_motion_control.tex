@@ -1,0 +1,223 @@
+\hypertarget{classnetdem_1_1_particle_motion_control}{}\doxysection{netdem\+::Particle\+Motion\+Control Class Reference}
+\label{classnetdem_1_1_particle_motion_control}\index{netdem::ParticleMotionControl@{netdem::ParticleMotionControl}}
+
+
+{\ttfamily \#include $<$particle\+\_\+motion\+\_\+control.\+hpp$>$}
+
+Inheritance diagram for netdem\+::Particle\+Motion\+Control\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classnetdem_1_1_particle_motion_control}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{classnetdem_1_1_particle_motion_control_adc91a346241575c9571d7d8bf22500ef}{Type}} \{ \mbox{\hyperlink{classnetdem_1_1_particle_motion_control_adc91a346241575c9571d7d8bf22500efa015ee1eb3653f00fa9de6c41418ccc73}{fixed}}
+, \mbox{\hyperlink{classnetdem_1_1_particle_motion_control_adc91a346241575c9571d7d8bf22500efa79b8120ea752f01fddc258552904a807}{linear\+\_\+vel}}
+, \mbox{\hyperlink{classnetdem_1_1_particle_motion_control_adc91a346241575c9571d7d8bf22500efa4d9e2a1bbff16accaca4de3dc533f34b}{sin\+\_\+vel}}
+, \mbox{\hyperlink{classnetdem_1_1_particle_motion_control_adc91a346241575c9571d7d8bf22500efab0a8245359b1e53396fc77a5da86902e}{num\+\_\+motions}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classnetdem_1_1_particle_motion_control_a3a5739aad56aa000b4e7a5430200c63e}{Particle\+Motion\+Control}} ()
+\item 
+void \mbox{\hyperlink{classnetdem_1_1_particle_motion_control_a015927193f997e76db803cc1feaf7c22}{Set\+Fixed}} (int id)
+\item 
+void \mbox{\hyperlink{classnetdem_1_1_particle_motion_control_ac68ff2d7066fe9cb7b71b513e2caab6b}{Set\+Linear\+Velocity}} (int id, double xa, double xb, double ya, double yb, double za, double zb)
+\item 
+void \mbox{\hyperlink{classnetdem_1_1_particle_motion_control_ad27a5a5e0beaf005dfc7cb0bf167a9a4}{Set\+Sin\+Velocity}} (int id, double x\+\_\+amplit, double x\+\_\+freq, double x\+\_\+phase, double y\+\_\+amplit, double y\+\_\+freq, double y\+\_\+phase, double z\+\_\+amplit, double z\+\_\+freq, double z\+\_\+phase)
+\item 
+void \mbox{\hyperlink{classnetdem_1_1_particle_motion_control_a793dbab4d5e873da43891d81d59f6070}{Sync\+To\+All\+Processors}} ()
+\item 
+void \mbox{\hyperlink{classnetdem_1_1_particle_motion_control_a24317c7bb4b97a907ce6e4a01e187dd0}{Clear}} ()
+\item 
+\mbox{\hyperlink{classnetdem_1_1_modifier}{Modifier}} $\ast$ \mbox{\hyperlink{classnetdem_1_1_particle_motion_control_a6f74d472a22f82eb110146a47c87ba07}{Clone}} () const override
+\item 
+void \mbox{\hyperlink{classnetdem_1_1_particle_motion_control_abef790484d18d9d4ebb8dfaeb6bc384f}{Execute}} () override
+\item 
+void \mbox{\hyperlink{classnetdem_1_1_particle_motion_control_a926d7fa3a1bc31b04bb3e2115917e322}{Update}} () override
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions inherited from \mbox{\hyperlink{classnetdem_1_1_modifier}{netdem\+::\+Modifier}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classnetdem_1_1_modifier_a00ecd168ce3ca5e2f3d4d741d7a56bbd}{Modifier}} ()
+\item 
+virtual \mbox{\hyperlink{classnetdem_1_1_modifier}{Modifier}} $\ast$ \mbox{\hyperlink{classnetdem_1_1_modifier_a0c808763e3e8052cbd446cb7d910f843}{Clone}} () const
+\item 
+virtual void \mbox{\hyperlink{classnetdem_1_1_modifier_ad340b35e3d4a44cbb708a522b89eec91}{Init}} (\mbox{\hyperlink{classnetdem_1_1_simulation}{Simulation}} $\ast$\mbox{\hyperlink{classnetdem_1_1_modifier_a2af15a41cb6d01349b0597d2f1828763}{sim}})
+\item 
+virtual void \mbox{\hyperlink{classnetdem_1_1_modifier_af24eb11dda7460744ff568ce299bee6f}{Enable}} ()
+\item 
+virtual void \mbox{\hyperlink{classnetdem_1_1_modifier_aba99c2f91ecd22eb1c88c45b1890aa38}{Disable}} ()
+\item 
+virtual void \mbox{\hyperlink{classnetdem_1_1_modifier_a8ffc62d61052f129a3301278b7cffb2c}{Execute}} ()
+\item 
+virtual void \mbox{\hyperlink{classnetdem_1_1_modifier_adb2442a93cd18bc810156aa7275a46b8}{Update}} ()
+\item 
+virtual \mbox{\hyperlink{classnetdem_1_1_modifier_a370a42d8715caec46e4d4d241667d053}{$\sim$\+Modifier}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::unordered\+\_\+map$<$ int, \mbox{\hyperlink{namespacenetdem_a7f7fb4ff80ab7bbf27f4bbf23df91e12}{Vec\+Nd}}$<$ 10 $>$ $>$ \mbox{\hyperlink{classnetdem_1_1_particle_motion_control_a2ba8ec67eb653b4cc1b0216a25df00d9}{id\+\_\+params\+\_\+map}}
+\item 
+\mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} $\ast$ $>$ \mbox{\hyperlink{classnetdem_1_1_particle_motion_control_afb03734d1970d3d9a912bdfe3b95a3cb}{particle\+\_\+list}}
+\item 
+\mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{classnetdem_1_1_particle_motion_control_adc91a346241575c9571d7d8bf22500ef}{Type}} $>$ \mbox{\hyperlink{classnetdem_1_1_particle_motion_control_a685a66c978ec05f332a808d48bc24e39}{motion\+\_\+type\+\_\+list}}
+\item 
+\mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_a7f7fb4ff80ab7bbf27f4bbf23df91e12}{Vec\+Nd}}$<$ 9 $>$ $>$ \mbox{\hyperlink{classnetdem_1_1_particle_motion_control_a2d576d4a4e44d90b91608cc3aa69fe92}{params\+\_\+list}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+\doxysubsubsection*{Public Attributes inherited from \mbox{\hyperlink{classnetdem_1_1_modifier}{netdem\+::\+Modifier}}}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string \mbox{\hyperlink{classnetdem_1_1_modifier_a9ca96d4276e4cb637b0220ab6fbbbbee}{label}} \{\char`\"{}default\char`\"{}\}
+\item 
+\mbox{\hyperlink{classnetdem_1_1_d_e_m_solver_a7b625d897bb69cd28838602603b8b0c4}{DEMSolver\+::\+Cycle\+Point}} \mbox{\hyperlink{classnetdem_1_1_modifier_ac97b78c11b6264901e6ea5ee9324fe14}{cycle\+\_\+point}} \{\mbox{\hyperlink{classnetdem_1_1_d_e_m_solver_a7b625d897bb69cd28838602603b8b0c4a03e21037ee2bb4ffa60b59913aafc1ae}{DEMSolver\+::\+Cycle\+Point\+::pre}}\}
+\item 
+\mbox{\hyperlink{classnetdem_1_1_simulation}{Simulation}} $\ast$ \mbox{\hyperlink{classnetdem_1_1_modifier_a2af15a41cb6d01349b0597d2f1828763}{sim}} \{nullptr\}
+\item 
+\mbox{\hyperlink{classnetdem_1_1_scene}{Scene}} $\ast$ \mbox{\hyperlink{classnetdem_1_1_modifier_a8a325cf86217e207d54672249c23eb95}{scene}} \{nullptr\}
+\item 
+bool \mbox{\hyperlink{classnetdem_1_1_modifier_a2258d80ff48346506d430f6f14ee486e}{update\+\_\+with\+\_\+scene}} \{false\}
+\item 
+bool \mbox{\hyperlink{classnetdem_1_1_modifier_a86866b7b68088778ba6062cf88126302}{enable\+\_\+logging}} \{true\}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+To add body force to the partilces. This is a pre-\/modifier, which will be excuted at the begining of a DEM cycle. 
+
+\doxysubsection{Member Enumeration Documentation}
+\mbox{\Hypertarget{classnetdem_1_1_particle_motion_control_adc91a346241575c9571d7d8bf22500ef}\label{classnetdem_1_1_particle_motion_control_adc91a346241575c9571d7d8bf22500ef}} 
+\index{netdem::ParticleMotionControl@{netdem::ParticleMotionControl}!Type@{Type}}
+\index{Type@{Type}!netdem::ParticleMotionControl@{netdem::ParticleMotionControl}}
+\doxysubsubsection{\texorpdfstring{Type}{Type}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{classnetdem_1_1_particle_motion_control_adc91a346241575c9571d7d8bf22500ef}{netdem\+::\+Particle\+Motion\+Control\+::\+Type}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{fixed@{fixed}!netdem::ParticleMotionControl@{netdem::ParticleMotionControl}}\index{netdem::ParticleMotionControl@{netdem::ParticleMotionControl}!fixed@{fixed}}}\mbox{\Hypertarget{classnetdem_1_1_particle_motion_control_adc91a346241575c9571d7d8bf22500efa015ee1eb3653f00fa9de6c41418ccc73}\label{classnetdem_1_1_particle_motion_control_adc91a346241575c9571d7d8bf22500efa015ee1eb3653f00fa9de6c41418ccc73}} 
+fixed&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{linear\_vel@{linear\_vel}!netdem::ParticleMotionControl@{netdem::ParticleMotionControl}}\index{netdem::ParticleMotionControl@{netdem::ParticleMotionControl}!linear\_vel@{linear\_vel}}}\mbox{\Hypertarget{classnetdem_1_1_particle_motion_control_adc91a346241575c9571d7d8bf22500efa79b8120ea752f01fddc258552904a807}\label{classnetdem_1_1_particle_motion_control_adc91a346241575c9571d7d8bf22500efa79b8120ea752f01fddc258552904a807}} 
+linear\+\_\+vel&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{sin\_vel@{sin\_vel}!netdem::ParticleMotionControl@{netdem::ParticleMotionControl}}\index{netdem::ParticleMotionControl@{netdem::ParticleMotionControl}!sin\_vel@{sin\_vel}}}\mbox{\Hypertarget{classnetdem_1_1_particle_motion_control_adc91a346241575c9571d7d8bf22500efa4d9e2a1bbff16accaca4de3dc533f34b}\label{classnetdem_1_1_particle_motion_control_adc91a346241575c9571d7d8bf22500efa4d9e2a1bbff16accaca4de3dc533f34b}} 
+sin\+\_\+vel&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{num\_motions@{num\_motions}!netdem::ParticleMotionControl@{netdem::ParticleMotionControl}}\index{netdem::ParticleMotionControl@{netdem::ParticleMotionControl}!num\_motions@{num\_motions}}}\mbox{\Hypertarget{classnetdem_1_1_particle_motion_control_adc91a346241575c9571d7d8bf22500efab0a8245359b1e53396fc77a5da86902e}\label{classnetdem_1_1_particle_motion_control_adc91a346241575c9571d7d8bf22500efab0a8245359b1e53396fc77a5da86902e}} 
+num\+\_\+motions&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classnetdem_1_1_particle_motion_control_a3a5739aad56aa000b4e7a5430200c63e}\label{classnetdem_1_1_particle_motion_control_a3a5739aad56aa000b4e7a5430200c63e}} 
+\index{netdem::ParticleMotionControl@{netdem::ParticleMotionControl}!ParticleMotionControl@{ParticleMotionControl}}
+\index{ParticleMotionControl@{ParticleMotionControl}!netdem::ParticleMotionControl@{netdem::ParticleMotionControl}}
+\doxysubsubsection{\texorpdfstring{ParticleMotionControl()}{ParticleMotionControl()}}
+{\footnotesize\ttfamily netdem\+::\+Particle\+Motion\+Control\+::\+Particle\+Motion\+Control (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classnetdem_1_1_particle_motion_control_a24317c7bb4b97a907ce6e4a01e187dd0}\label{classnetdem_1_1_particle_motion_control_a24317c7bb4b97a907ce6e4a01e187dd0}} 
+\index{netdem::ParticleMotionControl@{netdem::ParticleMotionControl}!Clear@{Clear}}
+\index{Clear@{Clear}!netdem::ParticleMotionControl@{netdem::ParticleMotionControl}}
+\doxysubsubsection{\texorpdfstring{Clear()}{Clear()}}
+{\footnotesize\ttfamily void netdem\+::\+Particle\+Motion\+Control\+::\+Clear (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classnetdem_1_1_particle_motion_control_a6f74d472a22f82eb110146a47c87ba07}\label{classnetdem_1_1_particle_motion_control_a6f74d472a22f82eb110146a47c87ba07}} 
+\index{netdem::ParticleMotionControl@{netdem::ParticleMotionControl}!Clone@{Clone}}
+\index{Clone@{Clone}!netdem::ParticleMotionControl@{netdem::ParticleMotionControl}}
+\doxysubsubsection{\texorpdfstring{Clone()}{Clone()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classnetdem_1_1_modifier}{Modifier}} $\ast$ netdem\+::\+Particle\+Motion\+Control\+::\+Clone (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{classnetdem_1_1_modifier_a0c808763e3e8052cbd446cb7d910f843}{netdem\+::\+Modifier}}.
+
+\mbox{\Hypertarget{classnetdem_1_1_particle_motion_control_abef790484d18d9d4ebb8dfaeb6bc384f}\label{classnetdem_1_1_particle_motion_control_abef790484d18d9d4ebb8dfaeb6bc384f}} 
+\index{netdem::ParticleMotionControl@{netdem::ParticleMotionControl}!Execute@{Execute}}
+\index{Execute@{Execute}!netdem::ParticleMotionControl@{netdem::ParticleMotionControl}}
+\doxysubsubsection{\texorpdfstring{Execute()}{Execute()}}
+{\footnotesize\ttfamily void netdem\+::\+Particle\+Motion\+Control\+::\+Execute (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{classnetdem_1_1_modifier_a8ffc62d61052f129a3301278b7cffb2c}{netdem\+::\+Modifier}}.
+
+\mbox{\Hypertarget{classnetdem_1_1_particle_motion_control_a015927193f997e76db803cc1feaf7c22}\label{classnetdem_1_1_particle_motion_control_a015927193f997e76db803cc1feaf7c22}} 
+\index{netdem::ParticleMotionControl@{netdem::ParticleMotionControl}!SetFixed@{SetFixed}}
+\index{SetFixed@{SetFixed}!netdem::ParticleMotionControl@{netdem::ParticleMotionControl}}
+\doxysubsubsection{\texorpdfstring{SetFixed()}{SetFixed()}}
+{\footnotesize\ttfamily void netdem\+::\+Particle\+Motion\+Control\+::\+Set\+Fixed (\begin{DoxyParamCaption}\item[{int}]{id }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classnetdem_1_1_particle_motion_control_ac68ff2d7066fe9cb7b71b513e2caab6b}\label{classnetdem_1_1_particle_motion_control_ac68ff2d7066fe9cb7b71b513e2caab6b}} 
+\index{netdem::ParticleMotionControl@{netdem::ParticleMotionControl}!SetLinearVelocity@{SetLinearVelocity}}
+\index{SetLinearVelocity@{SetLinearVelocity}!netdem::ParticleMotionControl@{netdem::ParticleMotionControl}}
+\doxysubsubsection{\texorpdfstring{SetLinearVelocity()}{SetLinearVelocity()}}
+{\footnotesize\ttfamily void netdem\+::\+Particle\+Motion\+Control\+::\+Set\+Linear\+Velocity (\begin{DoxyParamCaption}\item[{int}]{id,  }\item[{double}]{xa,  }\item[{double}]{xb,  }\item[{double}]{ya,  }\item[{double}]{yb,  }\item[{double}]{za,  }\item[{double}]{zb }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classnetdem_1_1_particle_motion_control_ad27a5a5e0beaf005dfc7cb0bf167a9a4}\label{classnetdem_1_1_particle_motion_control_ad27a5a5e0beaf005dfc7cb0bf167a9a4}} 
+\index{netdem::ParticleMotionControl@{netdem::ParticleMotionControl}!SetSinVelocity@{SetSinVelocity}}
+\index{SetSinVelocity@{SetSinVelocity}!netdem::ParticleMotionControl@{netdem::ParticleMotionControl}}
+\doxysubsubsection{\texorpdfstring{SetSinVelocity()}{SetSinVelocity()}}
+{\footnotesize\ttfamily void netdem\+::\+Particle\+Motion\+Control\+::\+Set\+Sin\+Velocity (\begin{DoxyParamCaption}\item[{int}]{id,  }\item[{double}]{x\+\_\+amplit,  }\item[{double}]{x\+\_\+freq,  }\item[{double}]{x\+\_\+phase,  }\item[{double}]{y\+\_\+amplit,  }\item[{double}]{y\+\_\+freq,  }\item[{double}]{y\+\_\+phase,  }\item[{double}]{z\+\_\+amplit,  }\item[{double}]{z\+\_\+freq,  }\item[{double}]{z\+\_\+phase }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classnetdem_1_1_particle_motion_control_a793dbab4d5e873da43891d81d59f6070}\label{classnetdem_1_1_particle_motion_control_a793dbab4d5e873da43891d81d59f6070}} 
+\index{netdem::ParticleMotionControl@{netdem::ParticleMotionControl}!SyncToAllProcessors@{SyncToAllProcessors}}
+\index{SyncToAllProcessors@{SyncToAllProcessors}!netdem::ParticleMotionControl@{netdem::ParticleMotionControl}}
+\doxysubsubsection{\texorpdfstring{SyncToAllProcessors()}{SyncToAllProcessors()}}
+{\footnotesize\ttfamily void netdem\+::\+Particle\+Motion\+Control\+::\+Sync\+To\+All\+Processors (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classnetdem_1_1_particle_motion_control_a926d7fa3a1bc31b04bb3e2115917e322}\label{classnetdem_1_1_particle_motion_control_a926d7fa3a1bc31b04bb3e2115917e322}} 
+\index{netdem::ParticleMotionControl@{netdem::ParticleMotionControl}!Update@{Update}}
+\index{Update@{Update}!netdem::ParticleMotionControl@{netdem::ParticleMotionControl}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void netdem\+::\+Particle\+Motion\+Control\+::\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{classnetdem_1_1_modifier_adb2442a93cd18bc810156aa7275a46b8}{netdem\+::\+Modifier}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classnetdem_1_1_particle_motion_control_a2ba8ec67eb653b4cc1b0216a25df00d9}\label{classnetdem_1_1_particle_motion_control_a2ba8ec67eb653b4cc1b0216a25df00d9}} 
+\index{netdem::ParticleMotionControl@{netdem::ParticleMotionControl}!id\_params\_map@{id\_params\_map}}
+\index{id\_params\_map@{id\_params\_map}!netdem::ParticleMotionControl@{netdem::ParticleMotionControl}}
+\doxysubsubsection{\texorpdfstring{id\_params\_map}{id\_params\_map}}
+{\footnotesize\ttfamily std\+::unordered\+\_\+map$<$int, \mbox{\hyperlink{namespacenetdem_a7f7fb4ff80ab7bbf27f4bbf23df91e12}{Vec\+Nd}}$<$10$>$ $>$ netdem\+::\+Particle\+Motion\+Control\+::id\+\_\+params\+\_\+map\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classnetdem_1_1_particle_motion_control_a685a66c978ec05f332a808d48bc24e39}\label{classnetdem_1_1_particle_motion_control_a685a66c978ec05f332a808d48bc24e39}} 
+\index{netdem::ParticleMotionControl@{netdem::ParticleMotionControl}!motion\_type\_list@{motion\_type\_list}}
+\index{motion\_type\_list@{motion\_type\_list}!netdem::ParticleMotionControl@{netdem::ParticleMotionControl}}
+\doxysubsubsection{\texorpdfstring{motion\_type\_list}{motion\_type\_list}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$\mbox{\hyperlink{classnetdem_1_1_particle_motion_control_adc91a346241575c9571d7d8bf22500ef}{Type}}$>$ netdem\+::\+Particle\+Motion\+Control\+::motion\+\_\+type\+\_\+list\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classnetdem_1_1_particle_motion_control_a2d576d4a4e44d90b91608cc3aa69fe92}\label{classnetdem_1_1_particle_motion_control_a2d576d4a4e44d90b91608cc3aa69fe92}} 
+\index{netdem::ParticleMotionControl@{netdem::ParticleMotionControl}!params\_list@{params\_list}}
+\index{params\_list@{params\_list}!netdem::ParticleMotionControl@{netdem::ParticleMotionControl}}
+\doxysubsubsection{\texorpdfstring{params\_list}{params\_list}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$\mbox{\hyperlink{namespacenetdem_a7f7fb4ff80ab7bbf27f4bbf23df91e12}{Vec\+Nd}}$<$9$>$ $>$ netdem\+::\+Particle\+Motion\+Control\+::params\+\_\+list\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classnetdem_1_1_particle_motion_control_afb03734d1970d3d9a912bdfe3b95a3cb}\label{classnetdem_1_1_particle_motion_control_afb03734d1970d3d9a912bdfe3b95a3cb}} 
+\index{netdem::ParticleMotionControl@{netdem::ParticleMotionControl}!particle\_list@{particle\_list}}
+\index{particle\_list@{particle\_list}!netdem::ParticleMotionControl@{netdem::ParticleMotionControl}}
+\doxysubsubsection{\texorpdfstring{particle\_list}{particle\_list}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$\mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} $\ast$$>$ netdem\+::\+Particle\+Motion\+Control\+::particle\+\_\+list\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/lzhshou/\+Documents/\+Research/my\+Projects/apaam/repo/netdem/src/modifier/\mbox{\hyperlink{particle__motion__control_8hpp}{particle\+\_\+motion\+\_\+control.\+hpp}}\item 
+/\+Users/lzhshou/\+Documents/\+Research/my\+Projects/apaam/repo/netdem/src/modifier/\mbox{\hyperlink{particle__motion__control_8cpp}{particle\+\_\+motion\+\_\+control.\+cpp}}\end{DoxyCompactItemize}

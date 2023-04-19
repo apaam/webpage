@@ -1,74 +1,89 @@
 \hypertarget{contact__solver__factory_8hpp_source}{}\doxysection{contact\+\_\+solver\+\_\+factory.\+hpp}
-\label{contact__solver__factory_8hpp_source}\index{/Users/lzhshou/Documents/Research/myProjects/apam/repo/netdem/src/dem/contact\_solver\_factory.hpp@{/Users/lzhshou/Documents/Research/myProjects/apam/repo/netdem/src/dem/contact\_solver\_factory.hpp}}
+\label{contact__solver__factory_8hpp_source}\index{/Users/lzhshou/Documents/Research/myProjects/apaam/repo/netdem/src/dem/contact\_solver\_factory.hpp@{/Users/lzhshou/Documents/Research/myProjects/apaam/repo/netdem/src/dem/contact\_solver\_factory.hpp}}
 \mbox{\hyperlink{contact__solver__factory_8hpp}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
-\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
-\DoxyCodeLine{2 }
-\DoxyCodeLine{3 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{bond__solver__pp_8hpp}{bond\_solver\_pp.hpp}}"{}}}
-\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{bond__solver__pw_8hpp}{bond\_solver\_pw.hpp}}"{}}}
-\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{collision__solver__pp_8hpp}{collision\_solver\_pp.hpp}}"{}}}
-\DoxyCodeLine{6 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{collision__solver__pw_8hpp}{collision\_solver\_pw.hpp}}"{}}}
-\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{utils__math_8hpp}{utils\_math.hpp}}"{}}}
-\DoxyCodeLine{8 \textcolor{preprocessor}{\#include <memory>}}
-\DoxyCodeLine{9 \textcolor{preprocessor}{\#include <unordered\_map>}}
-\DoxyCodeLine{10 }
-\DoxyCodeLine{11 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacenetdem}{netdem}} \{}
-\DoxyCodeLine{12 }
-\DoxyCodeLine{13 \textcolor{keyword}{class }\mbox{\hyperlink{classnetdem_1_1_contact_solver_settings}{ContactSolverSettings}} \{}
-\DoxyCodeLine{14 \textcolor{keyword}{public}:}
-\DoxyCodeLine{15   \textcolor{keyword}{enum} \mbox{\hyperlink{classnetdem_1_1_contact_solver_settings_adff2184170befa136fdaedd56a048170}{SolverType}} \{ \mbox{\hyperlink{classnetdem_1_1_contact_solver_settings_adff2184170befa136fdaedd56a048170a2f8746d2fc0843bbc69e87754c22d9d6}{gjk}}, \mbox{\hyperlink{classnetdem_1_1_contact_solver_settings_adff2184170befa136fdaedd56a048170a1a2d570fdca7b5d65dc50565f2c1baac}{sdf}}, \mbox{\hyperlink{classnetdem_1_1_contact_solver_settings_adff2184170befa136fdaedd56a048170aa29705e887c1874c038c3820d9471e57}{automatic}} \};}
-\DoxyCodeLine{16 }
-\DoxyCodeLine{17   \mbox{\hyperlink{classnetdem_1_1_contact_solver_settings_adff2184170befa136fdaedd56a048170}{SolverType}} \mbox{\hyperlink{classnetdem_1_1_contact_solver_settings_a3385a311115950587f496c976a3fa67f}{solver\_type}}\{SolverType::automatic\};}
-\DoxyCodeLine{18 }
-\DoxyCodeLine{19   \textcolor{keywordtype}{bool} \mbox{\hyperlink{classnetdem_1_1_contact_solver_settings_aaf0f4c17f2bd4443c11323b45cc8f752}{gjk\_use\_erosion}}\{\textcolor{keyword}{false}\};}
-\DoxyCodeLine{20   \textcolor{keywordtype}{double} \mbox{\hyperlink{classnetdem_1_1_contact_solver_settings_a5781fecd068e4501163dacfad26ec62f}{gjk\_erosion\_ratio\_initial}}\{0.01\}, \mbox{\hyperlink{classnetdem_1_1_contact_solver_settings_a472be3fc22285336d27e46e3c2bbad6b}{gjk\_erosion\_ratio\_increment}}\{0.01\};}
-\DoxyCodeLine{21 }
-\DoxyCodeLine{22   \textcolor{keywordtype}{int} \mbox{\hyperlink{classnetdem_1_1_contact_solver_settings_a42078a4cfb9c398ee7d3283dc13a1496}{sdf\_potential\_type}}\{0\};}
-\DoxyCodeLine{23   \textcolor{keywordtype}{bool} \mbox{\hyperlink{classnetdem_1_1_contact_solver_settings_a07f7f35543fb182dcbe7b0039a401ea1}{sdf\_solve\_two\_sides}}\{\textcolor{keyword}{false}\};}
-\DoxyCodeLine{24 \};}
-\DoxyCodeLine{25 }
-\DoxyCodeLine{36 \textcolor{keyword}{class }\mbox{\hyperlink{classnetdem_1_1_contact_solver_factory}{ContactSolverFactory}} \{}
-\DoxyCodeLine{37 \textcolor{keyword}{public}:}
-\DoxyCodeLine{38   \mbox{\hyperlink{classnetdem_1_1_contact_solver_settings}{ContactSolverSettings}} \mbox{\hyperlink{classnetdem_1_1_contact_solver_factory_ad85c98c349f2a40ad26e63e23605a3dc}{settings}};}
-\DoxyCodeLine{39 }
-\DoxyCodeLine{40   \textcolor{comment}{// bond solvers}}
-\DoxyCodeLine{41   \mbox{\hyperlink{classnetdem_1_1_bond_solver_p_p}{BondSolverPP}} \mbox{\hyperlink{classnetdem_1_1_contact_solver_factory_a118ca58bdb3719be72b059cb69d4c09e}{bond\_solver\_pp}};}
-\DoxyCodeLine{42   \mbox{\hyperlink{classnetdem_1_1_bond_solver_p_w}{BondSolverPW}} \mbox{\hyperlink{classnetdem_1_1_contact_solver_factory_ad1f6fd100d003b22b1c4ae667f01ec66}{bond\_solver\_pw}};}
-\DoxyCodeLine{43 }
-\DoxyCodeLine{46   \mbox{\hyperlink{namespacenetdem_a4c6a34e4b9bc01901ac527bb8ea83909}{VecNT<VecNT<int, Shape::Type::num\_shapes>}}, Shape::Type::num\_shapes>}
-\DoxyCodeLine{47       \mbox{\hyperlink{classnetdem_1_1_contact_solver_factory_a2b6950767f18a4cc81701705ad82dd0b}{solver\_id\_pp\_list}}, \mbox{\hyperlink{classnetdem_1_1_contact_solver_factory_aad7eb6efc822f948e8e5c604ab4dbd9c}{solver\_id\_pw\_list}};}
-\DoxyCodeLine{48 }
-\DoxyCodeLine{49   std::unordered\_map<std::pair<int, int>, int, \mbox{\hyperlink{structnetdem_1_1pair__hash}{pair\_hash}}> \mbox{\hyperlink{classnetdem_1_1_contact_solver_factory_a49fa43e2c3a1f15a37e9e440629e90a0}{solver\_id\_customized}};}
-\DoxyCodeLine{50 }
-\DoxyCodeLine{51   \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<CollisionSolverPP *>}} \mbox{\hyperlink{classnetdem_1_1_contact_solver_factory_abe2c4feab4c610bc7670fc8f563ecb25}{solver\_pp\_pool}};}
-\DoxyCodeLine{52   \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<CollisionSolverPW *>}} \mbox{\hyperlink{classnetdem_1_1_contact_solver_factory_a999d5eec2cf7d3c18e8803da04d0d244}{solver\_pw\_pool}};}
-\DoxyCodeLine{53 }
-\DoxyCodeLine{54   \mbox{\hyperlink{classnetdem_1_1_contact_solver_factory_ac253d213f568e7a8bacbf00fc2c093c8}{ContactSolverFactory}}();}
-\DoxyCodeLine{55 }
-\DoxyCodeLine{56   \mbox{\hyperlink{classnetdem_1_1_contact_solver_factory_ac253d213f568e7a8bacbf00fc2c093c8}{ContactSolverFactory}}(\mbox{\hyperlink{classnetdem_1_1_contact_solver_factory}{ContactSolverFactory}} \&tmp\_factory);}
-\DoxyCodeLine{57   \mbox{\hyperlink{classnetdem_1_1_contact_solver_factory_ac253d213f568e7a8bacbf00fc2c093c8}{ContactSolverFactory}}(\mbox{\hyperlink{classnetdem_1_1_contact_solver_factory}{ContactSolverFactory}} \&\&tmp\_factory);}
-\DoxyCodeLine{58   \mbox{\hyperlink{classnetdem_1_1_contact_solver_factory}{ContactSolverFactory}} \&\mbox{\hyperlink{classnetdem_1_1_contact_solver_factory_abb8fa7bf503a9372831c1efc81a184b7}{operator=}}(\mbox{\hyperlink{classnetdem_1_1_contact_solver_factory}{ContactSolverFactory}} \&tmp\_factory);}
-\DoxyCodeLine{59   \mbox{\hyperlink{classnetdem_1_1_contact_solver_factory}{ContactSolverFactory}} \&\mbox{\hyperlink{classnetdem_1_1_contact_solver_factory_abb8fa7bf503a9372831c1efc81a184b7}{operator=}}(\mbox{\hyperlink{classnetdem_1_1_contact_solver_factory}{ContactSolverFactory}} \&\&tmp\_factory);}
-\DoxyCodeLine{60 }
-\DoxyCodeLine{61   \mbox{\hyperlink{classnetdem_1_1_bond_solver_p_p}{BondSolverPP}} *\mbox{\hyperlink{classnetdem_1_1_contact_solver_factory_a807405bd119b1db9b4ab782a43c59e44}{GetBondSolver}}(\mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} *\textcolor{keyword}{const} p1, \mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} *\textcolor{keyword}{const} p2);}
-\DoxyCodeLine{62   \mbox{\hyperlink{classnetdem_1_1_bond_solver_p_w}{BondSolverPW}} *\mbox{\hyperlink{classnetdem_1_1_contact_solver_factory_a807405bd119b1db9b4ab782a43c59e44}{GetBondSolver}}(\mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} *\textcolor{keyword}{const} p, \mbox{\hyperlink{classnetdem_1_1_wall}{Wall}} *\textcolor{keyword}{const} w);}
-\DoxyCodeLine{63 }
-\DoxyCodeLine{64   \mbox{\hyperlink{classnetdem_1_1_collision_solver_p_p}{CollisionSolverPP}} *\mbox{\hyperlink{classnetdem_1_1_contact_solver_factory_a15e570ab7f64822dde2621e35c6271c2}{GetCollisionSolver}}(\mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} *\textcolor{keyword}{const} p1, \mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} *\textcolor{keyword}{const} p2);}
-\DoxyCodeLine{65   \mbox{\hyperlink{classnetdem_1_1_collision_solver_p_w}{CollisionSolverPW}} *\mbox{\hyperlink{classnetdem_1_1_contact_solver_factory_a15e570ab7f64822dde2621e35c6271c2}{GetCollisionSolver}}(\mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} *\textcolor{keyword}{const} p, \mbox{\hyperlink{classnetdem_1_1_wall}{Wall}} *\textcolor{keyword}{const} w);}
-\DoxyCodeLine{66 }
-\DoxyCodeLine{67   \textcolor{keywordtype}{int} \mbox{\hyperlink{classnetdem_1_1_contact_solver_factory_adeb85dccb91c1f48b8216f9d2e8e6d0a}{InsertSolver}}(\mbox{\hyperlink{classnetdem_1_1_collision_solver_p_p}{CollisionSolverPP}} *\textcolor{keyword}{const} cnt\_solver);}
-\DoxyCodeLine{68   \textcolor{keywordtype}{int} \mbox{\hyperlink{classnetdem_1_1_contact_solver_factory_adeb85dccb91c1f48b8216f9d2e8e6d0a}{InsertSolver}}(\mbox{\hyperlink{classnetdem_1_1_collision_solver_p_w}{CollisionSolverPW}} *\textcolor{keyword}{const} cnt\_solver);}
-\DoxyCodeLine{69 }
-\DoxyCodeLine{70   \textcolor{keywordtype}{void} \mbox{\hyperlink{classnetdem_1_1_contact_solver_factory_a37ae1bf05354d8e558f688da65d9cc50}{CustomizeSolverPP}}(\textcolor{keywordtype}{int} shape\_id1, \textcolor{keywordtype}{int} shape\_id2, \textcolor{keywordtype}{int} solver\_id);}
-\DoxyCodeLine{71   \textcolor{keywordtype}{void} \mbox{\hyperlink{classnetdem_1_1_contact_solver_factory_a85da5e9b33fbd462ee519a42d3d34638}{CustomizeSolverPW}}(\textcolor{keywordtype}{int} shape\_id1, \textcolor{keywordtype}{int} shape\_id2, \textcolor{keywordtype}{int} solver\_id);}
-\DoxyCodeLine{72 }
-\DoxyCodeLine{73   \mbox{\hyperlink{classnetdem_1_1_contact_solver_factory_a5c06bbe5a7cdff0c556a4c17be2166a6}{\string~ContactSolverFactory}}();}
-\DoxyCodeLine{74 }
-\DoxyCodeLine{75 \textcolor{keyword}{private}:}
-\DoxyCodeLine{76   \mbox{\hyperlink{classnetdem_1_1_collision_solver_p_p}{CollisionSolverPP}} *\mbox{\hyperlink{classnetdem_1_1_contact_solver_factory_ae81a4c3ae65b4c03b586fd35b879f37a}{NewCollisionSolver}}(\mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} *\textcolor{keyword}{const} p1, \mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} *\textcolor{keyword}{const} p2);}
-\DoxyCodeLine{77   \mbox{\hyperlink{classnetdem_1_1_collision_solver_p_w}{CollisionSolverPW}} *\mbox{\hyperlink{classnetdem_1_1_contact_solver_factory_ae81a4c3ae65b4c03b586fd35b879f37a}{NewCollisionSolver}}(\mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} *\textcolor{keyword}{const} p, \mbox{\hyperlink{classnetdem_1_1_wall}{Wall}} *\textcolor{keyword}{const} w);}
-\DoxyCodeLine{78 \};}
-\DoxyCodeLine{79 }
-\DoxyCodeLine{80 \} \textcolor{comment}{// namespace netdem}}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{bond__solver__pp_8hpp}{bond\_solver\_pp.hpp}}"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{bond__solver__pw_8hpp}{bond\_solver\_pw.hpp}}"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{collision__solver__pp_8hpp}{collision\_solver\_pp.hpp}}"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{collision__solver__pw_8hpp}{collision\_solver\_pw.hpp}}"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{utils__math_8hpp}{utils\_math.hpp}}"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <unordered\_map>}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacenetdem}{netdem}}\ \{}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00021\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classnetdem_1_1_contact_solver_settings}{ContactSolverSettings}}\ \{}
+\DoxyCodeLine{00022\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00024\ \ \ \textcolor{keyword}{enum}\ \mbox{\hyperlink{classnetdem_1_1_contact_solver_settings_adff2184170befa136fdaedd56a048170}{SolverType}}\ \{\ \mbox{\hyperlink{classnetdem_1_1_contact_solver_settings_adff2184170befa136fdaedd56a048170a2f8746d2fc0843bbc69e87754c22d9d6}{gjk}},\ \mbox{\hyperlink{classnetdem_1_1_contact_solver_settings_adff2184170befa136fdaedd56a048170a1a2d570fdca7b5d65dc50565f2c1baac}{sdf}},\ \mbox{\hyperlink{classnetdem_1_1_contact_solver_settings_adff2184170befa136fdaedd56a048170aa29705e887c1874c038c3820d9471e57}{automatic}}\ \};}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00027\ \ \ \mbox{\hyperlink{classnetdem_1_1_contact_solver_settings_adff2184170befa136fdaedd56a048170}{SolverType}}\ \mbox{\hyperlink{classnetdem_1_1_contact_solver_settings_a3385a311115950587f496c976a3fa67f}{solver\_type}}\{\mbox{\hyperlink{classnetdem_1_1_contact_solver_settings_adff2184170befa136fdaedd56a048170aa29705e887c1874c038c3820d9471e57}{SolverType::automatic}}\};}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00030\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classnetdem_1_1_contact_solver_settings_aaf0f4c17f2bd4443c11323b45cc8f752}{gjk\_use\_erosion}}\{\textcolor{keyword}{false}\};}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00033\ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classnetdem_1_1_contact_solver_settings_a5781fecd068e4501163dacfad26ec62f}{gjk\_erosion\_ratio\_initial}}\{0.01\};}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00037\ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classnetdem_1_1_contact_solver_settings_a472be3fc22285336d27e46e3c2bbad6b}{gjk\_erosion\_ratio\_increment}}\{0.01\};}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00040\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classnetdem_1_1_contact_solver_settings_aecd75902a1919f84023e8fe6fc488072}{gjk\_enable\_logging}}\{\textcolor{keyword}{false}\};}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00043\ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classnetdem_1_1_contact_solver_settings_a42078a4cfb9c398ee7d3283dc13a1496}{sdf\_potential\_type}}\{0\};}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00046\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classnetdem_1_1_contact_solver_settings_a07f7f35543fb182dcbe7b0039a401ea1}{sdf\_solve\_two\_sides}}\{\textcolor{keyword}{false}\};}
+\DoxyCodeLine{00047\ \};}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00057\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classnetdem_1_1_contact_solver_factory}{ContactSolverFactory}}\ \{}
+\DoxyCodeLine{00058\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00060\ \ \ \mbox{\hyperlink{classnetdem_1_1_contact_solver_settings}{ContactSolverSettings}}\ \mbox{\hyperlink{classnetdem_1_1_contact_solver_factory_ad85c98c349f2a40ad26e63e23605a3dc}{settings}};}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00063\ \ \ \mbox{\hyperlink{classnetdem_1_1_bond_solver_p_p}{BondSolverPP}}\ \mbox{\hyperlink{classnetdem_1_1_contact_solver_factory_a118ca58bdb3719be72b059cb69d4c09e}{bond\_solver\_pp}};}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00066\ \ \ \mbox{\hyperlink{classnetdem_1_1_bond_solver_p_w}{BondSolverPW}}\ \mbox{\hyperlink{classnetdem_1_1_contact_solver_factory_ad1f6fd100d003b22b1c4ae667f01ec66}{bond\_solver\_pw}};}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00070\ \ \ \mbox{\hyperlink{namespacenetdem_a4c6a34e4b9bc01901ac527bb8ea83909}{VecNT<VecNT<int,\ Shape::Type::num\_shapes>}},\ \mbox{\hyperlink{classnetdem_1_1_shape_aa97bccd1fe4043614c4b84a3f254a158a15cffbd4779c9d52d6babf8426d07eb1}{Shape::Type::num\_shapes}}>}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \mbox{\hyperlink{classnetdem_1_1_contact_solver_factory_a2b6950767f18a4cc81701705ad82dd0b}{solver\_id\_pp\_list}},\ \mbox{\hyperlink{classnetdem_1_1_contact_solver_factory_aad7eb6efc822f948e8e5c604ab4dbd9c}{solver\_id\_pw\_list}};}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00075\ \ \ std::unordered\_map<std::pair<int,\ int>,\ int,\ \mbox{\hyperlink{structnetdem_1_1pair__hash}{pair\_hash}}>\ \mbox{\hyperlink{classnetdem_1_1_contact_solver_factory_a49fa43e2c3a1f15a37e9e440629e90a0}{solver\_id\_customized}};}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00078\ \ \ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<CollisionSolverPP\ *>}}\ \mbox{\hyperlink{classnetdem_1_1_contact_solver_factory_abe2c4feab4c610bc7670fc8f563ecb25}{solver\_pp\_pool}};}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00081\ \ \ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<CollisionSolverPW\ *>}}\ \mbox{\hyperlink{classnetdem_1_1_contact_solver_factory_a999d5eec2cf7d3c18e8803da04d0d244}{solver\_pw\_pool}};}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00084\ \ \ \mbox{\hyperlink{classnetdem_1_1_contact_solver_factory_ac253d213f568e7a8bacbf00fc2c093c8}{ContactSolverFactory}}();}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00087\ \ \ \mbox{\hyperlink{classnetdem_1_1_contact_solver_factory_ac253d213f568e7a8bacbf00fc2c093c8}{ContactSolverFactory}}(\mbox{\hyperlink{classnetdem_1_1_contact_solver_factory}{ContactSolverFactory}}\ \&tmp\_factory);}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00090\ \ \ \mbox{\hyperlink{classnetdem_1_1_contact_solver_factory_ac253d213f568e7a8bacbf00fc2c093c8}{ContactSolverFactory}}(\mbox{\hyperlink{classnetdem_1_1_contact_solver_factory}{ContactSolverFactory}}\ \&\&tmp\_factory);}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00093\ \ \ \mbox{\hyperlink{classnetdem_1_1_contact_solver_factory}{ContactSolverFactory}}\ \&\mbox{\hyperlink{classnetdem_1_1_contact_solver_factory_abb8fa7bf503a9372831c1efc81a184b7}{operator=}}(\mbox{\hyperlink{classnetdem_1_1_contact_solver_factory}{ContactSolverFactory}}\ \&tmp\_factory);}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00096\ \ \ \mbox{\hyperlink{classnetdem_1_1_contact_solver_factory}{ContactSolverFactory}}\ \&\mbox{\hyperlink{classnetdem_1_1_contact_solver_factory_abb8fa7bf503a9372831c1efc81a184b7}{operator=}}(\mbox{\hyperlink{classnetdem_1_1_contact_solver_factory}{ContactSolverFactory}}\ \&\&tmp\_factory);}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00110\ \ \ \mbox{\hyperlink{classnetdem_1_1_bond_solver_p_p}{BondSolverPP}}\ *\mbox{\hyperlink{classnetdem_1_1_contact_solver_factory_a807405bd119b1db9b4ab782a43c59e44}{GetBondSolver}}(\mbox{\hyperlink{classnetdem_1_1_particle}{Particle}}\ *\textcolor{keyword}{const}\ p1,\ \mbox{\hyperlink{classnetdem_1_1_particle}{Particle}}\ *\textcolor{keyword}{const}\ p2);}
+\DoxyCodeLine{00111\ }
+\DoxyCodeLine{00124\ \ \ \mbox{\hyperlink{classnetdem_1_1_bond_solver_p_w}{BondSolverPW}}\ *\mbox{\hyperlink{classnetdem_1_1_contact_solver_factory_a807405bd119b1db9b4ab782a43c59e44}{GetBondSolver}}(\mbox{\hyperlink{classnetdem_1_1_particle}{Particle}}\ *\textcolor{keyword}{const}\ p,\ \mbox{\hyperlink{classnetdem_1_1_wall}{Wall}}\ *\textcolor{keyword}{const}\ w);}
+\DoxyCodeLine{00125\ }
+\DoxyCodeLine{00141\ \ \ \mbox{\hyperlink{classnetdem_1_1_collision_solver_p_p}{CollisionSolverPP}}\ *\mbox{\hyperlink{classnetdem_1_1_contact_solver_factory_a15e570ab7f64822dde2621e35c6271c2}{GetCollisionSolver}}(\mbox{\hyperlink{classnetdem_1_1_particle}{Particle}}\ *\textcolor{keyword}{const}\ p1,\ \mbox{\hyperlink{classnetdem_1_1_particle}{Particle}}\ *\textcolor{keyword}{const}\ p2);}
+\DoxyCodeLine{00142\ }
+\DoxyCodeLine{00158\ \ \ \mbox{\hyperlink{classnetdem_1_1_collision_solver_p_w}{CollisionSolverPW}}\ *\mbox{\hyperlink{classnetdem_1_1_contact_solver_factory_a15e570ab7f64822dde2621e35c6271c2}{GetCollisionSolver}}(\mbox{\hyperlink{classnetdem_1_1_particle}{Particle}}\ *\textcolor{keyword}{const}\ p,\ \mbox{\hyperlink{classnetdem_1_1_wall}{Wall}}\ *\textcolor{keyword}{const}\ w);}
+\DoxyCodeLine{00159\ }
+\DoxyCodeLine{00171\ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classnetdem_1_1_contact_solver_factory_adeb85dccb91c1f48b8216f9d2e8e6d0a}{InsertSolver}}(\mbox{\hyperlink{classnetdem_1_1_collision_solver_p_p}{CollisionSolverPP}}\ *\textcolor{keyword}{const}\ cnt\_solver);}
+\DoxyCodeLine{00172\ }
+\DoxyCodeLine{00185\ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classnetdem_1_1_contact_solver_factory_adeb85dccb91c1f48b8216f9d2e8e6d0a}{InsertSolver}}(\mbox{\hyperlink{classnetdem_1_1_collision_solver_p_w}{CollisionSolverPW}}\ *\textcolor{keyword}{const}\ cnt\_solver);}
+\DoxyCodeLine{00186\ }
+\DoxyCodeLine{00201\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_contact_solver_factory_a37ae1bf05354d8e558f688da65d9cc50}{CustomizeSolverPP}}(\textcolor{keywordtype}{int}\ shape\_id1,\ \textcolor{keywordtype}{int}\ shape\_id2,\ \textcolor{keywordtype}{int}\ solver\_id);}
+\DoxyCodeLine{00202\ }
+\DoxyCodeLine{00218\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_contact_solver_factory_a85da5e9b33fbd462ee519a42d3d34638}{CustomizeSolverPW}}(\textcolor{keywordtype}{int}\ shape\_id1,\ \textcolor{keywordtype}{int}\ shape\_id2,\ \textcolor{keywordtype}{int}\ solver\_id);}
+\DoxyCodeLine{00219\ }
+\DoxyCodeLine{00221\ \ \ \mbox{\hyperlink{classnetdem_1_1_contact_solver_factory_a5c06bbe5a7cdff0c556a4c17be2166a6}{\string~ContactSolverFactory}}();}
+\DoxyCodeLine{00222\ }
+\DoxyCodeLine{00223\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00236\ \ \ \mbox{\hyperlink{classnetdem_1_1_collision_solver_p_p}{CollisionSolverPP}}\ *\mbox{\hyperlink{classnetdem_1_1_contact_solver_factory_ae81a4c3ae65b4c03b586fd35b879f37a}{NewCollisionSolver}}(\mbox{\hyperlink{classnetdem_1_1_particle}{Particle}}\ *\textcolor{keyword}{const}\ p1,\ \mbox{\hyperlink{classnetdem_1_1_particle}{Particle}}\ *\textcolor{keyword}{const}\ p2);}
+\DoxyCodeLine{00237\ }
+\DoxyCodeLine{00250\ \ \ \mbox{\hyperlink{classnetdem_1_1_collision_solver_p_w}{CollisionSolverPW}}\ *\mbox{\hyperlink{classnetdem_1_1_contact_solver_factory_ae81a4c3ae65b4c03b586fd35b879f37a}{NewCollisionSolver}}(\mbox{\hyperlink{classnetdem_1_1_particle}{Particle}}\ *\textcolor{keyword}{const}\ p,\ \mbox{\hyperlink{classnetdem_1_1_wall}{Wall}}\ *\textcolor{keyword}{const}\ w);}
+\DoxyCodeLine{00251\ \};}
+\DoxyCodeLine{00252\ }
+\DoxyCodeLine{00253\ \}\ \textcolor{comment}{//\ namespace\ netdem}}
 
 \end{DoxyCode}

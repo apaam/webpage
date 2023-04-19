@@ -1,90 +1,100 @@
 \hypertarget{contact__model_8hpp_source}{}\doxysection{contact\+\_\+model.\+hpp}
-\label{contact__model_8hpp_source}\index{/Users/lzhshou/Documents/Research/myProjects/apam/repo/netdem/src/dem/contact\_model.hpp@{/Users/lzhshou/Documents/Research/myProjects/apam/repo/netdem/src/dem/contact\_model.hpp}}
+\label{contact__model_8hpp_source}\index{/Users/lzhshou/Documents/Research/myProjects/apaam/repo/netdem/src/dem/contact\_model.hpp@{/Users/lzhshou/Documents/Research/myProjects/apaam/repo/netdem/src/dem/contact\_model.hpp}}
 \mbox{\hyperlink{contact__model_8hpp}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
-\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
-\DoxyCodeLine{2 }
-\DoxyCodeLine{3 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{bond__geometries_8hpp}{bond\_geometries.hpp}}"{}}}
-\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{collision__geometries_8hpp}{collision\_geometries.hpp}}"{}}}
-\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{contact__forces_8hpp}{contact\_forces.hpp}}"{}}}
-\DoxyCodeLine{6 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{utils__io_8hpp}{utils\_io.hpp}}"{}}}
-\DoxyCodeLine{7 \textcolor{preprocessor}{\#include <iostream>}}
-\DoxyCodeLine{8 \textcolor{preprocessor}{\#include <nlohmann/json.hpp>}}
-\DoxyCodeLine{9 \textcolor{preprocessor}{\#include <string>}}
-\DoxyCodeLine{10 }
-\DoxyCodeLine{11 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacenetdem}{netdem}} \{}
-\DoxyCodeLine{12 }
-\DoxyCodeLine{13 \textcolor{keyword}{class }ContactPP;}
-\DoxyCodeLine{14 \textcolor{keyword}{class }ContactPW;}
-\DoxyCodeLine{15 }
-\DoxyCodeLine{20 \textcolor{keyword}{class }\mbox{\hyperlink{classnetdem_1_1_contact_model}{ContactModel}} \{}
-\DoxyCodeLine{21 \textcolor{keyword}{public}:}
-\DoxyCodeLine{22   \textcolor{keyword}{enum} \mbox{\hyperlink{classnetdem_1_1_contact_model_a86b4462f72dd85e2e8a55dd6844f6b51}{Type}} \{ \mbox{\hyperlink{classnetdem_1_1_contact_model_a86b4462f72dd85e2e8a55dd6844f6b51a283fafdd11e8dcf34397cefffa6e6f23}{none}}, \mbox{\hyperlink{classnetdem_1_1_contact_model_a86b4462f72dd85e2e8a55dd6844f6b51adb0a6e319bcfe5f0df23e62b48ab0955}{linear\_spring}}, \mbox{\hyperlink{classnetdem_1_1_contact_model_a86b4462f72dd85e2e8a55dd6844f6b51ae2bd1b0fede33e38b83f9de6f8f3cfb1}{hertz\_mindlin}}, \mbox{\hyperlink{classnetdem_1_1_contact_model_a86b4462f72dd85e2e8a55dd6844f6b51afaaae10cad49f37d1574642e13ef751e}{volume\_based}}, \mbox{\hyperlink{classnetdem_1_1_contact_model_a86b4462f72dd85e2e8a55dd6844f6b51ac929ea908a2c3feaab83c52917856cd6}{parallel\_bond}} \};}
-\DoxyCodeLine{23 }
-\DoxyCodeLine{24   \textcolor{keywordtype}{int} \textcolor{keywordtype}{id}\{0\};}
-\DoxyCodeLine{25   std::string \mbox{\hyperlink{classnetdem_1_1_contact_model_ac452f37ee577eb8e2cefa4156d9c62ab}{label}}\{\textcolor{stringliteral}{"{}default"{}}\};}
-\DoxyCodeLine{26 }
-\DoxyCodeLine{27   \textcolor{keywordtype}{int} \mbox{\hyperlink{classnetdem_1_1_contact_model_a79bc2c3ed2881b0e3640ceeba80308dc}{model\_type}}\{0\};}
-\DoxyCodeLine{28   std::string \mbox{\hyperlink{classnetdem_1_1_contact_model_af4af438894db0d3a88e6ed66e397cc2b}{model\_name}}\{\textcolor{stringliteral}{"{}contact\_model"{}}\};}
-\DoxyCodeLine{29 }
-\DoxyCodeLine{30   \textcolor{keyword}{virtual} \mbox{\hyperlink{input__processor_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{nlohmann::json}} \mbox{\hyperlink{classnetdem_1_1_contact_model_a191a737b001313dd8a39d5f1dc1d6a78}{PackJson}}() \{}
-\DoxyCodeLine{31     \mbox{\hyperlink{namespacenetdem_a3748e2668906146e09654e01103c118f}{PrintWarning}}(\textcolor{stringliteral}{"{}in ContactModel::PackJson, method not implemented for: "{}} +}
-\DoxyCodeLine{32                  \mbox{\hyperlink{classnetdem_1_1_contact_model_af4af438894db0d3a88e6ed66e397cc2b}{model\_name}});}
-\DoxyCodeLine{33     \textcolor{keywordflow}{return} \mbox{\hyperlink{input__processor_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{nlohmann::json}}();}
-\DoxyCodeLine{34   \}}
-\DoxyCodeLine{35 }
-\DoxyCodeLine{36   \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{classnetdem_1_1_contact_model_ad857f6a66c0ac793e12d5d66e69e679e}{InitFromJson}}(\mbox{\hyperlink{input__processor_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{nlohmann::json}} \textcolor{keyword}{const} \&js) \{}
-\DoxyCodeLine{37     \mbox{\hyperlink{namespacenetdem_a3748e2668906146e09654e01103c118f}{PrintWarning}}(\textcolor{stringliteral}{"{}in ContactModel::InitFromJson, method not implemented for: "{}} +}
-\DoxyCodeLine{38                  \mbox{\hyperlink{classnetdem_1_1_contact_model_af4af438894db0d3a88e6ed66e397cc2b}{model\_name}});}
-\DoxyCodeLine{39   \}}
-\DoxyCodeLine{40 }
-\DoxyCodeLine{41   \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{classnetdem_1_1_contact_model_a03526d9c5e43b4bdde8f392975533666}{SetProperty}}(\mbox{\hyperlink{input__processor_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{nlohmann::json}} \textcolor{keyword}{const} \&js) \{}
-\DoxyCodeLine{42     \mbox{\hyperlink{namespacenetdem_a3748e2668906146e09654e01103c118f}{PrintWarning}}(\textcolor{stringliteral}{"{}in ContactModel::SetProperty, method not implemented for: "{}} +}
-\DoxyCodeLine{43                  \mbox{\hyperlink{classnetdem_1_1_contact_model_af4af438894db0d3a88e6ed66e397cc2b}{model\_name}});}
-\DoxyCodeLine{44   \}}
-\DoxyCodeLine{45 }
-\DoxyCodeLine{46   \textcolor{keyword}{virtual} \mbox{\hyperlink{classnetdem_1_1_contact_model}{ContactModel}} *\mbox{\hyperlink{classnetdem_1_1_contact_model_a697207b7395fdc6cface026d9df65678}{Clone}}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} \textcolor{keyword}{new} \mbox{\hyperlink{classnetdem_1_1_contact_model}{ContactModel}}(*\textcolor{keyword}{this}); \}}
-\DoxyCodeLine{47 }
-\DoxyCodeLine{48   \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{classnetdem_1_1_contact_model_aa518a60578e61a60c3a0ba50ee99ec4d}{EvaluateForceMoment}}(\mbox{\hyperlink{classnetdem_1_1_contact_forces}{ContactForces}} *\textcolor{keyword}{const} cnt\_forces,}
-\DoxyCodeLine{49                                    \mbox{\hyperlink{classnetdem_1_1_collision_geometries}{CollisionGeometries}} \&cnt\_geoms,}
-\DoxyCodeLine{50                                    \mbox{\hyperlink{classnetdem_1_1_contact_p_p}{ContactPP}} *\textcolor{keyword}{const} cnt, \textcolor{keywordtype}{double} dt)\textcolor{keyword}{ const }\{}
-\DoxyCodeLine{51     \mbox{\hyperlink{namespacenetdem_a3748e2668906146e09654e01103c118f}{PrintWarning}}(}
-\DoxyCodeLine{52         \textcolor{stringliteral}{"{}in ContactModel::EvaluateForceMoment, method not implemented for: "{}} +}
-\DoxyCodeLine{53         \mbox{\hyperlink{classnetdem_1_1_contact_model_af4af438894db0d3a88e6ed66e397cc2b}{model\_name}});}
-\DoxyCodeLine{54   \}}
-\DoxyCodeLine{55 }
-\DoxyCodeLine{56   \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{classnetdem_1_1_contact_model_ad21d8123a17a71ee430fb475b864d6a0}{EvaluateForceMoment}}(\mbox{\hyperlink{classnetdem_1_1_contact_forces}{ContactForces}} *\textcolor{keyword}{const} cnt\_forces,}
-\DoxyCodeLine{57                                    \mbox{\hyperlink{classnetdem_1_1_bond_geometries}{BondGeometries}} \&cnt\_geoms,}
-\DoxyCodeLine{58                                    \mbox{\hyperlink{classnetdem_1_1_contact_p_p}{ContactPP}} *\textcolor{keyword}{const} cnt, \textcolor{keywordtype}{double} dt)\textcolor{keyword}{ const }\{}
-\DoxyCodeLine{59     \mbox{\hyperlink{namespacenetdem_a3748e2668906146e09654e01103c118f}{PrintWarning}}(}
-\DoxyCodeLine{60         \textcolor{stringliteral}{"{}in ContactModel::EvaluateForceMoment, method not implemented for: "{}} +}
-\DoxyCodeLine{61         \mbox{\hyperlink{classnetdem_1_1_contact_model_af4af438894db0d3a88e6ed66e397cc2b}{model\_name}});}
-\DoxyCodeLine{62   \}}
-\DoxyCodeLine{63 }
-\DoxyCodeLine{64   \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{classnetdem_1_1_contact_model_a75d0d3da3432937dd69648f3146d9c1a}{EvaluateForceMoment}}(\mbox{\hyperlink{classnetdem_1_1_contact_forces}{ContactForces}} *\textcolor{keyword}{const} cnt\_forces,}
-\DoxyCodeLine{65                                    \mbox{\hyperlink{classnetdem_1_1_collision_geometries}{CollisionGeometries}} \&cnt\_geoms,}
-\DoxyCodeLine{66                                    \mbox{\hyperlink{classnetdem_1_1_contact_p_w}{ContactPW}} *\textcolor{keyword}{const} cnt, \textcolor{keywordtype}{double} dt)\textcolor{keyword}{ const }\{}
-\DoxyCodeLine{67     \mbox{\hyperlink{namespacenetdem_a3748e2668906146e09654e01103c118f}{PrintWarning}}(}
-\DoxyCodeLine{68         \textcolor{stringliteral}{"{}in ContactModel::EvaluateForceMoment, method not implemented for: "{}} +}
-\DoxyCodeLine{69         \mbox{\hyperlink{classnetdem_1_1_contact_model_af4af438894db0d3a88e6ed66e397cc2b}{model\_name}});}
-\DoxyCodeLine{70   \}}
-\DoxyCodeLine{71 }
-\DoxyCodeLine{72   \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{classnetdem_1_1_contact_model_aa7b8c2408fc61dd91fea4d7c56819235}{EvaluateForceMoment}}(\mbox{\hyperlink{classnetdem_1_1_contact_forces}{ContactForces}} *\textcolor{keyword}{const} cnt\_forces,}
-\DoxyCodeLine{73                                    \mbox{\hyperlink{classnetdem_1_1_bond_geometries}{BondGeometries}} \&cnt\_geoms,}
-\DoxyCodeLine{74                                    \mbox{\hyperlink{classnetdem_1_1_contact_p_w}{ContactPW}} *\textcolor{keyword}{const} cnt, \textcolor{keywordtype}{double} dt)\textcolor{keyword}{ const }\{}
-\DoxyCodeLine{75     \mbox{\hyperlink{namespacenetdem_a3748e2668906146e09654e01103c118f}{PrintWarning}}(}
-\DoxyCodeLine{76         \textcolor{stringliteral}{"{}in ContactModel::EvaluateForceMoment, method not implemented for: "{}} +}
-\DoxyCodeLine{77         \mbox{\hyperlink{classnetdem_1_1_contact_model_af4af438894db0d3a88e6ed66e397cc2b}{model\_name}});}
-\DoxyCodeLine{78   \}}
-\DoxyCodeLine{79 }
-\DoxyCodeLine{80   \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{classnetdem_1_1_contact_model_a541fc910e1d85b1fc2bb75d73e50e984}{Print}}()\textcolor{keyword}{ const }\{}
-\DoxyCodeLine{81     \mbox{\hyperlink{namespacenetdem_a3748e2668906146e09654e01103c118f}{PrintWarning}}(\textcolor{stringliteral}{"{}in ContactModel::Print, method not implemented for: "{}} +}
-\DoxyCodeLine{82                  \mbox{\hyperlink{classnetdem_1_1_contact_model_af4af438894db0d3a88e6ed66e397cc2b}{model\_name}});}
-\DoxyCodeLine{83   \}}
-\DoxyCodeLine{84 }
-\DoxyCodeLine{85   \textcolor{keyword}{virtual} \mbox{\hyperlink{classnetdem_1_1_contact_model_a8cc9483a6ac756f0c3d6832550232540}{\string~ContactModel}}() \{\}}
-\DoxyCodeLine{86 \};}
-\DoxyCodeLine{87 }
-\DoxyCodeLine{88 \} \textcolor{comment}{// namespace netdem}}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{bond__geometries_8hpp}{bond\_geometries.hpp}}"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{collision__geometries_8hpp}{collision\_geometries.hpp}}"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{contact__forces_8hpp}{contact\_forces.hpp}}"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{utils__io_8hpp}{utils\_io.hpp}}"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <nlohmann/json.hpp>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacenetdem}{netdem}}\ \{}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{keyword}{class\ }ContactPP;}
+\DoxyCodeLine{00014\ \textcolor{keyword}{class\ }ContactPW;}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00025\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classnetdem_1_1_contact_model}{ContactModel}}\ \{}
+\DoxyCodeLine{00026\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00028\ \ \ \textcolor{keyword}{enum}\ \mbox{\hyperlink{classnetdem_1_1_contact_model_a86b4462f72dd85e2e8a55dd6844f6b51}{Type}}\ \{\ \mbox{\hyperlink{classnetdem_1_1_contact_model_a86b4462f72dd85e2e8a55dd6844f6b51a283fafdd11e8dcf34397cefffa6e6f23}{none}},\ \mbox{\hyperlink{classnetdem_1_1_contact_model_a86b4462f72dd85e2e8a55dd6844f6b51adb0a6e319bcfe5f0df23e62b48ab0955}{linear\_spring}},\ \mbox{\hyperlink{classnetdem_1_1_contact_model_a86b4462f72dd85e2e8a55dd6844f6b51ae2bd1b0fede33e38b83f9de6f8f3cfb1}{hertz\_mindlin}},\ \mbox{\hyperlink{classnetdem_1_1_contact_model_a86b4462f72dd85e2e8a55dd6844f6b51afaaae10cad49f37d1574642e13ef751e}{volume\_based}},\ \mbox{\hyperlink{classnetdem_1_1_contact_model_a86b4462f72dd85e2e8a55dd6844f6b51ac929ea908a2c3feaab83c52917856cd6}{parallel\_bond}}\ \};}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00031\ \ \ \textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id}\{0\};}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00034\ \ \ std::string\ \mbox{\hyperlink{classnetdem_1_1_contact_model_ac452f37ee577eb8e2cefa4156d9c62ab}{label}}\{\textcolor{stringliteral}{"{}default"{}}\};}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00038\ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classnetdem_1_1_contact_model_a79bc2c3ed2881b0e3640ceeba80308dc}{model\_type}}\{0\};}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00042\ \ \ std::string\ \mbox{\hyperlink{classnetdem_1_1_contact_model_af4af438894db0d3a88e6ed66e397cc2b}{model\_name}}\{\textcolor{stringliteral}{"{}contact\_model"{}}\};}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00052\ \ \ \textcolor{keyword}{virtual}\ nlohmann::json\ \mbox{\hyperlink{classnetdem_1_1_contact_model_a191a737b001313dd8a39d5f1dc1d6a78}{PackJson}}()\ \{}
+\DoxyCodeLine{00053\ \ \ \ \ \mbox{\hyperlink{namespacenetdem_1_1_i_o_a38fb9b1cd29d872e970fcbf173d4ee05}{IO::PrintWarning}}(\textcolor{stringliteral}{"{}in\ ContactModel::PackJson,\ method\ not\ implemented\ for:\ "{}}\ +}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classnetdem_1_1_contact_model_af4af438894db0d3a88e6ed66e397cc2b}{model\_name}});}
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keywordflow}{return}\ nlohmann::json();}
+\DoxyCodeLine{00056\ \ \ \}}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00069\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_contact_model_ad857f6a66c0ac793e12d5d66e69e679e}{InitFromJson}}(nlohmann::json\ \textcolor{keyword}{const}\ \&js)\ \{}
+\DoxyCodeLine{00070\ \ \ \ \ \mbox{\hyperlink{namespacenetdem_1_1_i_o_a38fb9b1cd29d872e970fcbf173d4ee05}{IO::PrintWarning}}(}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}in\ ContactModel::InitFromJson,\ method\ not\ implemented\ for:\ "{}}\ +}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classnetdem_1_1_contact_model_af4af438894db0d3a88e6ed66e397cc2b}{model\_name}});}
+\DoxyCodeLine{00073\ \ \ \}}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00086\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_contact_model_a03526d9c5e43b4bdde8f392975533666}{SetProperty}}(nlohmann::json\ \textcolor{keyword}{const}\ \&js)\ \{}
+\DoxyCodeLine{00087\ \ \ \ \ \mbox{\hyperlink{namespacenetdem_1_1_i_o_a38fb9b1cd29d872e970fcbf173d4ee05}{IO::PrintWarning}}(}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}in\ ContactModel::SetProperty,\ method\ not\ implemented\ for:\ "{}}\ +}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classnetdem_1_1_contact_model_af4af438894db0d3a88e6ed66e397cc2b}{model\_name}});}
+\DoxyCodeLine{00090\ \ \ \}}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00103\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_contact_model_a44804e500c1e234486125e9be7e5c9b5}{SetProperty}}(std::string\ \textcolor{keyword}{const}\ \&name,\ \textcolor{keywordtype}{double}\ value)\ \{}
+\DoxyCodeLine{00104\ \ \ \ \ \mbox{\hyperlink{namespacenetdem_1_1_i_o_a38fb9b1cd29d872e970fcbf173d4ee05}{IO::PrintWarning}}(}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}in\ ContactModel::SetProperty,\ method\ not\ implemented\ for:\ "{}}\ +}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classnetdem_1_1_contact_model_af4af438894db0d3a88e6ed66e397cc2b}{model\_name}});}
+\DoxyCodeLine{00107\ \ \ \}}
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00118\ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classnetdem_1_1_contact_model}{ContactModel}}\ *\mbox{\hyperlink{classnetdem_1_1_contact_model_a697207b7395fdc6cface026d9df65678}{Clone}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}\ \mbox{\hyperlink{classnetdem_1_1_contact_model}{ContactModel}}(*\textcolor{keyword}{this});\ \}}
+\DoxyCodeLine{00119\ }
+\DoxyCodeLine{00137\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_contact_model_aa518a60578e61a60c3a0ba50ee99ec4d}{EvaluateForceMoment}}(\mbox{\hyperlink{classnetdem_1_1_contact_forces}{ContactForces}}\ *\textcolor{keyword}{const}\ cnt\_forces,}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classnetdem_1_1_collision_geometries}{CollisionGeometries}}\ \&cnt\_geoms,}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classnetdem_1_1_contact_p_p}{ContactPP}}\ *\textcolor{keyword}{const}\ cnt,\ \textcolor{keywordtype}{double}\ dt)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00140\ \ \ \ \ \mbox{\hyperlink{namespacenetdem_1_1_i_o_a38fb9b1cd29d872e970fcbf173d4ee05}{IO::PrintWarning}}(}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}in\ ContactModel::EvaluateForceMoment,\ method\ not\ implemented\ for:\ "{}}\ +}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classnetdem_1_1_contact_model_af4af438894db0d3a88e6ed66e397cc2b}{model\_name}});}
+\DoxyCodeLine{00143\ \ \ \}}
+\DoxyCodeLine{00144\ }
+\DoxyCodeLine{00160\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_contact_model_ad21d8123a17a71ee430fb475b864d6a0}{EvaluateForceMoment}}(\mbox{\hyperlink{classnetdem_1_1_contact_forces}{ContactForces}}\ *\textcolor{keyword}{const}\ cnt\_forces,}
+\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classnetdem_1_1_bond_geometries}{BondGeometries}}\ \&cnt\_geoms,}
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classnetdem_1_1_contact_p_p}{ContactPP}}\ *\textcolor{keyword}{const}\ cnt,\ \textcolor{keywordtype}{double}\ dt)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00163\ \ \ \ \ \mbox{\hyperlink{namespacenetdem_1_1_i_o_a38fb9b1cd29d872e970fcbf173d4ee05}{IO::PrintWarning}}(}
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}in\ ContactModel::EvaluateForceMoment,\ method\ not\ implemented\ for:\ "{}}\ +}
+\DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classnetdem_1_1_contact_model_af4af438894db0d3a88e6ed66e397cc2b}{model\_name}});}
+\DoxyCodeLine{00166\ \ \ \}}
+\DoxyCodeLine{00167\ }
+\DoxyCodeLine{00184\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_contact_model_a75d0d3da3432937dd69648f3146d9c1a}{EvaluateForceMoment}}(\mbox{\hyperlink{classnetdem_1_1_contact_forces}{ContactForces}}\ *\textcolor{keyword}{const}\ cnt\_forces,}
+\DoxyCodeLine{00185\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classnetdem_1_1_collision_geometries}{CollisionGeometries}}\ \&cnt\_geoms,}
+\DoxyCodeLine{00186\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classnetdem_1_1_contact_p_w}{ContactPW}}\ *\textcolor{keyword}{const}\ cnt,\ \textcolor{keywordtype}{double}\ dt)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00187\ \ \ \ \ \mbox{\hyperlink{namespacenetdem_1_1_i_o_a38fb9b1cd29d872e970fcbf173d4ee05}{IO::PrintWarning}}(}
+\DoxyCodeLine{00188\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}in\ ContactModel::EvaluateForceMoment,\ method\ not\ implemented\ for:\ "{}}\ +}
+\DoxyCodeLine{00189\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classnetdem_1_1_contact_model_af4af438894db0d3a88e6ed66e397cc2b}{model\_name}});}
+\DoxyCodeLine{00190\ \ \ \}}
+\DoxyCodeLine{00191\ }
+\DoxyCodeLine{00207\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_contact_model_aa7b8c2408fc61dd91fea4d7c56819235}{EvaluateForceMoment}}(\mbox{\hyperlink{classnetdem_1_1_contact_forces}{ContactForces}}\ *\textcolor{keyword}{const}\ cnt\_forces,}
+\DoxyCodeLine{00208\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classnetdem_1_1_bond_geometries}{BondGeometries}}\ \&cnt\_geoms,}
+\DoxyCodeLine{00209\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classnetdem_1_1_contact_p_w}{ContactPW}}\ *\textcolor{keyword}{const}\ cnt,\ \textcolor{keywordtype}{double}\ dt)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00210\ \ \ \ \ \mbox{\hyperlink{namespacenetdem_1_1_i_o_a38fb9b1cd29d872e970fcbf173d4ee05}{IO::PrintWarning}}(}
+\DoxyCodeLine{00211\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}in\ ContactModel::EvaluateForceMoment,\ method\ not\ implemented\ for:\ "{}}\ +}
+\DoxyCodeLine{00212\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classnetdem_1_1_contact_model_af4af438894db0d3a88e6ed66e397cc2b}{model\_name}});}
+\DoxyCodeLine{00213\ \ \ \}}
+\DoxyCodeLine{00214\ }
+\DoxyCodeLine{00222\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_contact_model_a541fc910e1d85b1fc2bb75d73e50e984}{Print}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00223\ \ \ \ \ \mbox{\hyperlink{namespacenetdem_1_1_i_o_a38fb9b1cd29d872e970fcbf173d4ee05}{IO::PrintWarning}}(\textcolor{stringliteral}{"{}in\ ContactModel::Print,\ method\ not\ implemented\ for:\ "{}}\ +}
+\DoxyCodeLine{00224\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classnetdem_1_1_contact_model_af4af438894db0d3a88e6ed66e397cc2b}{model\_name}});}
+\DoxyCodeLine{00225\ \ \ \}}
+\DoxyCodeLine{00226\ }
+\DoxyCodeLine{00228\ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classnetdem_1_1_contact_model_a8cc9483a6ac756f0c3d6832550232540}{\string~ContactModel}}()\ \{\}}
+\DoxyCodeLine{00229\ \};}
+\DoxyCodeLine{00230\ }
+\DoxyCodeLine{00231\ \}\ \textcolor{comment}{//\ namespace\ netdem}}
 
 \end{DoxyCode}
