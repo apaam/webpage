@@ -13,7 +13,7 @@ Inheritance diagram for netdem\+::Wall\+Servo\+Control\+:\begin{figure}[H]
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{classnetdem_1_1_wall_servo_control_a6309da14d3a3beecb3d6bf6bee40acf4}{Wall\+Servo\+Control}} (double \mbox{\hyperlink{classnetdem_1_1_wall_servo_control_a3d60b4733d577294c503f99838563be8}{kn}})
+\mbox{\hyperlink{classnetdem_1_1_wall_servo_control_ac9cea6d6abf269570bda7b1fed9f2426}{Wall\+Servo\+Control}} (double \mbox{\hyperlink{classnetdem_1_1_wall_servo_control_a3d60b4733d577294c503f99838563be8}{kn}}, double \mbox{\hyperlink{classnetdem_1_1_wall_servo_control_ac33b38946b8687db2e10455fc283b6f7}{area}})
 \item 
 void \mbox{\hyperlink{classnetdem_1_1_wall_servo_control_a2b3aedd4c1cdd9342a2b2b3836c20419}{Set\+Walls}} (const \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ int $>$ \&id\+\_\+list)
 \item 
@@ -27,6 +27,25 @@ void \mbox{\hyperlink{classnetdem_1_1_wall_servo_control_a4218c3526acf63e40d9eaf
 \item 
 void \mbox{\hyperlink{classnetdem_1_1_wall_servo_control_a62fc743dd763bf0136c00726acd740fc}{Update}} () override
 \end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions inherited from \mbox{\hyperlink{classnetdem_1_1_modifier}{netdem\+::\+Modifier}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classnetdem_1_1_modifier_a00ecd168ce3ca5e2f3d4d741d7a56bbd}{Modifier}} ()
+\item 
+virtual \mbox{\hyperlink{classnetdem_1_1_modifier}{Modifier}} $\ast$ \mbox{\hyperlink{classnetdem_1_1_modifier_a0c808763e3e8052cbd446cb7d910f843}{Clone}} () const
+\item 
+virtual void \mbox{\hyperlink{classnetdem_1_1_modifier_ad340b35e3d4a44cbb708a522b89eec91}{Init}} (\mbox{\hyperlink{classnetdem_1_1_simulation}{Simulation}} $\ast$\mbox{\hyperlink{classnetdem_1_1_modifier_a2af15a41cb6d01349b0597d2f1828763}{sim}})
+\item 
+virtual void \mbox{\hyperlink{classnetdem_1_1_modifier_af24eb11dda7460744ff568ce299bee6f}{Enable}} ()
+\item 
+virtual void \mbox{\hyperlink{classnetdem_1_1_modifier_aba99c2f91ecd22eb1c88c45b1890aa38}{Disable}} ()
+\item 
+virtual void \mbox{\hyperlink{classnetdem_1_1_modifier_a8ffc62d61052f129a3301278b7cffb2c}{Execute}} ()
+\item 
+virtual void \mbox{\hyperlink{classnetdem_1_1_modifier_adb2442a93cd18bc810156aa7275a46b8}{Update}} ()
+\item 
+virtual \mbox{\hyperlink{classnetdem_1_1_modifier_a370a42d8715caec46e4d4d241667d053}{$\sim$\+Modifier}} ()
+\end{DoxyCompactItemize}
 \doxysubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -37,6 +56,8 @@ void \mbox{\hyperlink{classnetdem_1_1_wall_servo_control_a62fc743dd763bf0136c007
 \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ double $>$ \mbox{\hyperlink{classnetdem_1_1_wall_servo_control_a0f82e2a75a4afe2c5574bf1e44991762}{pressure\+\_\+list}}
 \item 
 double \mbox{\hyperlink{classnetdem_1_1_wall_servo_control_a3d60b4733d577294c503f99838563be8}{kn}} \{1.\+0e5\}
+\item 
+double \mbox{\hyperlink{classnetdem_1_1_wall_servo_control_ac33b38946b8687db2e10455fc283b6f7}{area}} \{0.\+1\}
 \item 
 double \mbox{\hyperlink{classnetdem_1_1_wall_servo_control_a32b386998006c5274bdef26cf8acab8f}{target\+\_\+pressure}} \{0.\+0\}
 \item 
@@ -49,15 +70,32 @@ double \mbox{\hyperlink{classnetdem_1_1_wall_servo_control_ad8e63e46098327cc5d3c
 bool \mbox{\hyperlink{classnetdem_1_1_wall_servo_control_a9c83d524ef3a2e34e0a8fa8313df8845}{achieved}} \{true\}
 \item 
 bool \mbox{\hyperlink{classnetdem_1_1_wall_servo_control_a183135d45df70fa7bf08e98d2b87bbe6}{enable\+\_\+warning}} \{false\}
+\item 
+bool \mbox{\hyperlink{classnetdem_1_1_wall_servo_control_a9a393e312ef90fb7bd43f163e092411d}{enable\+\_\+auto\+\_\+area}} \{false\}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes inherited from \mbox{\hyperlink{classnetdem_1_1_modifier}{netdem\+::\+Modifier}}}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string \mbox{\hyperlink{classnetdem_1_1_modifier_a9ca96d4276e4cb637b0220ab6fbbbbee}{label}} \{\char`\"{}default\char`\"{}\}
+\item 
+\mbox{\hyperlink{classnetdem_1_1_d_e_m_solver_a7b625d897bb69cd28838602603b8b0c4}{DEMSolver\+::\+Cycle\+Point}} \mbox{\hyperlink{classnetdem_1_1_modifier_ac97b78c11b6264901e6ea5ee9324fe14}{cycle\+\_\+point}} \{\mbox{\hyperlink{classnetdem_1_1_d_e_m_solver_a7b625d897bb69cd28838602603b8b0c4a03e21037ee2bb4ffa60b59913aafc1ae}{DEMSolver\+::\+Cycle\+Point\+::pre}}\}
+\item 
+\mbox{\hyperlink{classnetdem_1_1_simulation}{Simulation}} $\ast$ \mbox{\hyperlink{classnetdem_1_1_modifier_a2af15a41cb6d01349b0597d2f1828763}{sim}} \{nullptr\}
+\item 
+\mbox{\hyperlink{classnetdem_1_1_scene}{Scene}} $\ast$ \mbox{\hyperlink{classnetdem_1_1_modifier_a8a325cf86217e207d54672249c23eb95}{scene}} \{nullptr\}
+\item 
+bool \mbox{\hyperlink{classnetdem_1_1_modifier_a2258d80ff48346506d430f6f14ee486e}{update\+\_\+with\+\_\+scene}} \{false\}
+\item 
+bool \mbox{\hyperlink{classnetdem_1_1_modifier_a86866b7b68088778ba6062cf88126302}{enable\+\_\+logging}} \{true\}
 \end{DoxyCompactItemize}
 
 
 \doxysubsection{Constructor \& Destructor Documentation}
-\mbox{\Hypertarget{classnetdem_1_1_wall_servo_control_a6309da14d3a3beecb3d6bf6bee40acf4}\label{classnetdem_1_1_wall_servo_control_a6309da14d3a3beecb3d6bf6bee40acf4}} 
+\mbox{\Hypertarget{classnetdem_1_1_wall_servo_control_ac9cea6d6abf269570bda7b1fed9f2426}\label{classnetdem_1_1_wall_servo_control_ac9cea6d6abf269570bda7b1fed9f2426}} 
 \index{netdem::WallServoControl@{netdem::WallServoControl}!WallServoControl@{WallServoControl}}
 \index{WallServoControl@{WallServoControl}!netdem::WallServoControl@{netdem::WallServoControl}}
 \doxysubsubsection{\texorpdfstring{WallServoControl()}{WallServoControl()}}
-{\footnotesize\ttfamily netdem\+::\+Wall\+Servo\+Control\+::\+Wall\+Servo\+Control (\begin{DoxyParamCaption}\item[{double}]{kn }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily netdem\+::\+Wall\+Servo\+Control\+::\+Wall\+Servo\+Control (\begin{DoxyParamCaption}\item[{double}]{kn,  }\item[{double}]{area }\end{DoxyParamCaption})}
 
 
 
@@ -119,6 +157,18 @@ Reimplemented from \mbox{\hyperlink{classnetdem_1_1_modifier_adb2442a93cd18bc810
 \doxysubsubsection{\texorpdfstring{achieved}{achieved}}
 {\footnotesize\ttfamily bool netdem\+::\+Wall\+Servo\+Control\+::achieved \{true\}}
 
+\mbox{\Hypertarget{classnetdem_1_1_wall_servo_control_ac33b38946b8687db2e10455fc283b6f7}\label{classnetdem_1_1_wall_servo_control_ac33b38946b8687db2e10455fc283b6f7}} 
+\index{netdem::WallServoControl@{netdem::WallServoControl}!area@{area}}
+\index{area@{area}!netdem::WallServoControl@{netdem::WallServoControl}}
+\doxysubsubsection{\texorpdfstring{area}{area}}
+{\footnotesize\ttfamily double netdem\+::\+Wall\+Servo\+Control\+::area \{0.\+1\}}
+
+\mbox{\Hypertarget{classnetdem_1_1_wall_servo_control_a9a393e312ef90fb7bd43f163e092411d}\label{classnetdem_1_1_wall_servo_control_a9a393e312ef90fb7bd43f163e092411d}} 
+\index{netdem::WallServoControl@{netdem::WallServoControl}!enable\_auto\_area@{enable\_auto\_area}}
+\index{enable\_auto\_area@{enable\_auto\_area}!netdem::WallServoControl@{netdem::WallServoControl}}
+\doxysubsubsection{\texorpdfstring{enable\_auto\_area}{enable\_auto\_area}}
+{\footnotesize\ttfamily bool netdem\+::\+Wall\+Servo\+Control\+::enable\+\_\+auto\+\_\+area \{false\}}
+
 \mbox{\Hypertarget{classnetdem_1_1_wall_servo_control_a183135d45df70fa7bf08e98d2b87bbe6}\label{classnetdem_1_1_wall_servo_control_a183135d45df70fa7bf08e98d2b87bbe6}} 
 \index{netdem::WallServoControl@{netdem::WallServoControl}!enable\_warning@{enable\_warning}}
 \index{enable\_warning@{enable\_warning}!netdem::WallServoControl@{netdem::WallServoControl}}
@@ -177,5 +227,5 @@ Reimplemented from \mbox{\hyperlink{classnetdem_1_1_modifier_adb2442a93cd18bc810
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-/\+Users/lzhshou/\+Documents/\+Research/my\+Projects/apam/repo/netdem/src/modifier/\mbox{\hyperlink{wall__servo__control_8hpp}{wall\+\_\+servo\+\_\+control.\+hpp}}\item 
-/\+Users/lzhshou/\+Documents/\+Research/my\+Projects/apam/repo/netdem/src/modifier/\mbox{\hyperlink{wall__servo__control_8cpp}{wall\+\_\+servo\+\_\+control.\+cpp}}\end{DoxyCompactItemize}
+/\+Users/lzhshou/\+Documents/\+Research/my\+Projects/apaam/repo/netdem/src/modifier/\mbox{\hyperlink{wall__servo__control_8hpp}{wall\+\_\+servo\+\_\+control.\+hpp}}\item 
+/\+Users/lzhshou/\+Documents/\+Research/my\+Projects/apaam/repo/netdem/src/modifier/\mbox{\hyperlink{wall__servo__control_8cpp}{wall\+\_\+servo\+\_\+control.\+cpp}}\end{DoxyCompactItemize}

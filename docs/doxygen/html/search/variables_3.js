@@ -46,8 +46,10 @@ var searchData=
   ['dtheta_5ft_43',['dtheta_t',['../classnetdem_1_1_collision_geometries.html#a030872ed2cbfa460662ae5f50718a076',1,'netdem::CollisionGeometries']]],
   ['dump_5fcontact_5finfo_44',['dump_contact_info',['../classnetdem_1_1_data_dumper.html#a800da85dfebff37c9cedfd69b3771533',1,'netdem::DataDumper']]],
   ['dump_5finfo_45',['dump_info',['../classnetdem_1_1_membrane_wall.html#aca076ba6ac1fe9466e8d1cfa222c4608',1,'netdem::MembraneWall']]],
-  ['dump_5fparticle_5finfo_46',['dump_particle_info',['../classnetdem_1_1_data_dumper.html#a4702c077bcdf083dc5b8861a7c01e9eb',1,'netdem::DataDumper']]],
-  ['dump_5fshape_5finfo_47',['dump_shape_info',['../classnetdem_1_1_data_dumper.html#a25b1cd6a1f55fb41ae1b94f9e3794a58',1,'netdem::DataDumper']]],
-  ['dump_5fwall_5finfo_48',['dump_wall_info',['../classnetdem_1_1_data_dumper.html#a5293b933c8d6a5576b613e681dab4102',1,'netdem::DataDumper']]],
-  ['dynamic_5fproperties_49',['dynamic_properties',['../classnetdem_1_1_contact_p_p.html#a1eae54102bc8cdadac5c7161e911320f',1,'netdem::ContactPP::dynamic_properties()'],['../classnetdem_1_1_contact_p_w.html#a43ba812e2a67133dbb9efebf2726e147',1,'netdem::ContactPW::dynamic_properties()'],['../classnetdem_1_1_particle.html#a10a19879967ad580f7e72f96ed290cd5',1,'netdem::Particle::dynamic_properties()'],['../classnetdem_1_1_wall.html#a5190135de316f8921d455e6eb7c63f38',1,'netdem::Wall::dynamic_properties()']]]
+  ['dump_5fmesh_46',['dump_mesh',['../classnetdem_1_1_data_dumper.html#ab5736a2fbd2ac4977af39b6323bc8aea',1,'netdem::DataDumper']]],
+  ['dump_5fparticle_5finfo_47',['dump_particle_info',['../classnetdem_1_1_data_dumper.html#a4702c077bcdf083dc5b8861a7c01e9eb',1,'netdem::DataDumper']]],
+  ['dump_5freconstructed_48',['dump_reconstructed',['../classnetdem_1_1_data_dumper.html#aa9ea059ae46936e22a898ecce851f8d6',1,'netdem::DataDumper']]],
+  ['dump_5fshape_5finfo_49',['dump_shape_info',['../classnetdem_1_1_data_dumper.html#a25b1cd6a1f55fb41ae1b94f9e3794a58',1,'netdem::DataDumper']]],
+  ['dump_5fwall_5finfo_50',['dump_wall_info',['../classnetdem_1_1_data_dumper.html#a5293b933c8d6a5576b613e681dab4102',1,'netdem::DataDumper']]],
+  ['dynamic_5fproperties_51',['dynamic_properties',['../classnetdem_1_1_contact_p_p.html#a1eae54102bc8cdadac5c7161e911320f',1,'netdem::ContactPP::dynamic_properties()'],['../classnetdem_1_1_contact_p_w.html#a43ba812e2a67133dbb9efebf2726e147',1,'netdem::ContactPW::dynamic_properties()'],['../classnetdem_1_1_particle.html#a10a19879967ad580f7e72f96ed290cd5',1,'netdem::Particle::dynamic_properties()'],['../classnetdem_1_1_wall.html#a5190135de316f8921d455e6eb7c63f38',1,'netdem::Wall::dynamic_properties()']]]
 ];

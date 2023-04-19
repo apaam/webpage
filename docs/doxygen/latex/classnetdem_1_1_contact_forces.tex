@@ -2,6 +2,11 @@
 \label{classnetdem_1_1_contact_forces}\index{netdem::ContactForces@{netdem::ContactForces}}
 
 
+A class representing the contact forces and moments arising from a contact interaction.  
+
+
+
+
 {\ttfamily \#include $<$contact\+\_\+forces.\+hpp$>$}
 
 \doxysubsection*{Public Member Functions}
@@ -51,12 +56,9 @@ double \mbox{\hyperlink{classnetdem_1_1_contact_forces_a96cc51c868203cf5dde75ac5
 
 
 \doxysubsection{Detailed Description}
+A class representing the contact forces and moments arising from a contact interaction. 
 
-\begin{DoxyItemize}
-\item fc\+\_\+n, fc\+\_\+s, fc\+\_\+t\+: contact forces in the contact normal and tangential directions, respectively.
-\item mc\+\_\+n, mc\+\_\+s, mc\+\_\+t\+: contact moments in the contact normal and tangential directions, respectively.
-\item force, moment\+: contact forces and moments converted to the global coordinate system. 
-\end{DoxyItemize}
+This class stores both local and global representations of the contact forces and moments, as well as separate components along the normal and tangential directions. The local representation includes the contact force and moment components computed at each point of contact, while the global representation includes the summed contact forces and moments acting on all points of contact. 
 
 \doxysubsection{Member Function Documentation}
 \mbox{\Hypertarget{classnetdem_1_1_contact_forces_a094c39e767182a08f5602d0cb2a94170}\label{classnetdem_1_1_contact_forces_a094c39e767182a08f5602d0cb2a94170}} 
@@ -65,7 +67,7 @@ double \mbox{\hyperlink{classnetdem_1_1_contact_forces_a96cc51c868203cf5dde75ac5
 \doxysubsubsection{\texorpdfstring{Clear()}{Clear()}}
 {\footnotesize\ttfamily void netdem\+::\+Contact\+Forces\+::\+Clear (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
-
+Set all force and moment components to zero. 
 
 \doxysubsection{Member Data Documentation}
 \mbox{\Hypertarget{classnetdem_1_1_contact_forces_a06756751e83cb7e96d100e248eda21ad}\label{classnetdem_1_1_contact_forces_a06756751e83cb7e96d100e248eda21ad}} 
@@ -74,7 +76,7 @@ double \mbox{\hyperlink{classnetdem_1_1_contact_forces_a96cc51c868203cf5dde75ac5
 \doxysubsubsection{\texorpdfstring{fc\_n}{fc\_n}}
 {\footnotesize\ttfamily double netdem\+::\+Contact\+Forces\+::fc\+\_\+n \{0\}}
 
-\mbox{\Hypertarget{classnetdem_1_1_contact_forces_aa2c2ae8bb9713ab901bd2f39dd5081ed}\label{classnetdem_1_1_contact_forces_aa2c2ae8bb9713ab901bd2f39dd5081ed}} 
+Normal, tangential, and shear force components acting at each point of contact. \mbox{\Hypertarget{classnetdem_1_1_contact_forces_aa2c2ae8bb9713ab901bd2f39dd5081ed}\label{classnetdem_1_1_contact_forces_aa2c2ae8bb9713ab901bd2f39dd5081ed}} 
 \index{netdem::ContactForces@{netdem::ContactForces}!fc\_s@{fc\_s}}
 \index{fc\_s@{fc\_s}!netdem::ContactForces@{netdem::ContactForces}}
 \doxysubsubsection{\texorpdfstring{fc\_s}{fc\_s}}
@@ -92,7 +94,7 @@ double \mbox{\hyperlink{classnetdem_1_1_contact_forces_a96cc51c868203cf5dde75ac5
 \doxysubsubsection{\texorpdfstring{fd\_n}{fd\_n}}
 {\footnotesize\ttfamily double netdem\+::\+Contact\+Forces\+::fd\+\_\+n \{0\}}
 
-\mbox{\Hypertarget{classnetdem_1_1_contact_forces_a169a5b4ddd163b084ee7b0aeb7a46f25}\label{classnetdem_1_1_contact_forces_a169a5b4ddd163b084ee7b0aeb7a46f25}} 
+Normal, tangential, and shear damping force components acting at each point of contact. \mbox{\Hypertarget{classnetdem_1_1_contact_forces_a169a5b4ddd163b084ee7b0aeb7a46f25}\label{classnetdem_1_1_contact_forces_a169a5b4ddd163b084ee7b0aeb7a46f25}} 
 \index{netdem::ContactForces@{netdem::ContactForces}!fd\_s@{fd\_s}}
 \index{fd\_s@{fd\_s}!netdem::ContactForces@{netdem::ContactForces}}
 \doxysubsubsection{\texorpdfstring{fd\_s}{fd\_s}}
@@ -110,25 +112,25 @@ double \mbox{\hyperlink{classnetdem_1_1_contact_forces_a96cc51c868203cf5dde75ac5
 \doxysubsubsection{\texorpdfstring{force}{force}}
 {\footnotesize\ttfamily \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} netdem\+::\+Contact\+Forces\+::force \{0, 0, 0\}}
 
-\mbox{\Hypertarget{classnetdem_1_1_contact_forces_a46f538665a9aa27282a5ee40f2b14472}\label{classnetdem_1_1_contact_forces_a46f538665a9aa27282a5ee40f2b14472}} 
+Total force vector acting on the object due to all points of contact. \mbox{\Hypertarget{classnetdem_1_1_contact_forces_a46f538665a9aa27282a5ee40f2b14472}\label{classnetdem_1_1_contact_forces_a46f538665a9aa27282a5ee40f2b14472}} 
 \index{netdem::ContactForces@{netdem::ContactForces}!force\_n@{force\_n}}
 \index{force\_n@{force\_n}!netdem::ContactForces@{netdem::ContactForces}}
 \doxysubsubsection{\texorpdfstring{force\_n}{force\_n}}
 {\footnotesize\ttfamily \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} netdem\+::\+Contact\+Forces\+::force\+\_\+n \{0, 0, 0\}}
 
-\mbox{\Hypertarget{classnetdem_1_1_contact_forces_a90281b8f530986a2cd1797af844f720b}\label{classnetdem_1_1_contact_forces_a90281b8f530986a2cd1797af844f720b}} 
+Force components acting along the normal direction. \mbox{\Hypertarget{classnetdem_1_1_contact_forces_a90281b8f530986a2cd1797af844f720b}\label{classnetdem_1_1_contact_forces_a90281b8f530986a2cd1797af844f720b}} 
 \index{netdem::ContactForces@{netdem::ContactForces}!force\_t@{force\_t}}
 \index{force\_t@{force\_t}!netdem::ContactForces@{netdem::ContactForces}}
 \doxysubsubsection{\texorpdfstring{force\_t}{force\_t}}
 {\footnotesize\ttfamily \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} netdem\+::\+Contact\+Forces\+::force\+\_\+t \{0, 0, 0\}}
 
-\mbox{\Hypertarget{classnetdem_1_1_contact_forces_a5e36c0921fa749bf3dcc78628f341a73}\label{classnetdem_1_1_contact_forces_a5e36c0921fa749bf3dcc78628f341a73}} 
+Force components acting along the tangential direction. \mbox{\Hypertarget{classnetdem_1_1_contact_forces_a5e36c0921fa749bf3dcc78628f341a73}\label{classnetdem_1_1_contact_forces_a5e36c0921fa749bf3dcc78628f341a73}} 
 \index{netdem::ContactForces@{netdem::ContactForces}!mc\_n@{mc\_n}}
 \index{mc\_n@{mc\_n}!netdem::ContactForces@{netdem::ContactForces}}
 \doxysubsubsection{\texorpdfstring{mc\_n}{mc\_n}}
 {\footnotesize\ttfamily double netdem\+::\+Contact\+Forces\+::mc\+\_\+n \{0\}}
 
-\mbox{\Hypertarget{classnetdem_1_1_contact_forces_a496e14eb9e359f9f48197fd1f3552e54}\label{classnetdem_1_1_contact_forces_a496e14eb9e359f9f48197fd1f3552e54}} 
+Normal, tangential, and shear moment components acting at each point of contact. \mbox{\Hypertarget{classnetdem_1_1_contact_forces_a496e14eb9e359f9f48197fd1f3552e54}\label{classnetdem_1_1_contact_forces_a496e14eb9e359f9f48197fd1f3552e54}} 
 \index{netdem::ContactForces@{netdem::ContactForces}!mc\_s@{mc\_s}}
 \index{mc\_s@{mc\_s}!netdem::ContactForces@{netdem::ContactForces}}
 \doxysubsubsection{\texorpdfstring{mc\_s}{mc\_s}}
@@ -146,7 +148,7 @@ double \mbox{\hyperlink{classnetdem_1_1_contact_forces_a96cc51c868203cf5dde75ac5
 \doxysubsubsection{\texorpdfstring{md\_n}{md\_n}}
 {\footnotesize\ttfamily double netdem\+::\+Contact\+Forces\+::md\+\_\+n \{0\}}
 
-\mbox{\Hypertarget{classnetdem_1_1_contact_forces_a24899192c61e288c05e1b417c3bcbbe1}\label{classnetdem_1_1_contact_forces_a24899192c61e288c05e1b417c3bcbbe1}} 
+Normal, tangential, and shear damping moment components acting at each point of contact. \mbox{\Hypertarget{classnetdem_1_1_contact_forces_a24899192c61e288c05e1b417c3bcbbe1}\label{classnetdem_1_1_contact_forces_a24899192c61e288c05e1b417c3bcbbe1}} 
 \index{netdem::ContactForces@{netdem::ContactForces}!md\_s@{md\_s}}
 \index{md\_s@{md\_s}!netdem::ContactForces@{netdem::ContactForces}}
 \doxysubsubsection{\texorpdfstring{md\_s}{md\_s}}
@@ -164,20 +166,20 @@ double \mbox{\hyperlink{classnetdem_1_1_contact_forces_a96cc51c868203cf5dde75ac5
 \doxysubsubsection{\texorpdfstring{moment}{moment}}
 {\footnotesize\ttfamily \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} netdem\+::\+Contact\+Forces\+::moment \{0, 0, 0\}}
 
-\mbox{\Hypertarget{classnetdem_1_1_contact_forces_aeddceeca40506f67622dab31b3fb0bb3}\label{classnetdem_1_1_contact_forces_aeddceeca40506f67622dab31b3fb0bb3}} 
+Total moment vector acting on the object due to all points of contact. \mbox{\Hypertarget{classnetdem_1_1_contact_forces_aeddceeca40506f67622dab31b3fb0bb3}\label{classnetdem_1_1_contact_forces_aeddceeca40506f67622dab31b3fb0bb3}} 
 \index{netdem::ContactForces@{netdem::ContactForces}!moment\_n@{moment\_n}}
 \index{moment\_n@{moment\_n}!netdem::ContactForces@{netdem::ContactForces}}
 \doxysubsubsection{\texorpdfstring{moment\_n}{moment\_n}}
 {\footnotesize\ttfamily \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} netdem\+::\+Contact\+Forces\+::moment\+\_\+n \{0, 0, 0\}}
 
-\mbox{\Hypertarget{classnetdem_1_1_contact_forces_ad0a31ae2b6e9fd0abfc7852130ae8863}\label{classnetdem_1_1_contact_forces_ad0a31ae2b6e9fd0abfc7852130ae8863}} 
+Moment components acting along the normal direction. \mbox{\Hypertarget{classnetdem_1_1_contact_forces_ad0a31ae2b6e9fd0abfc7852130ae8863}\label{classnetdem_1_1_contact_forces_ad0a31ae2b6e9fd0abfc7852130ae8863}} 
 \index{netdem::ContactForces@{netdem::ContactForces}!moment\_t@{moment\_t}}
 \index{moment\_t@{moment\_t}!netdem::ContactForces@{netdem::ContactForces}}
 \doxysubsubsection{\texorpdfstring{moment\_t}{moment\_t}}
 {\footnotesize\ttfamily \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} netdem\+::\+Contact\+Forces\+::moment\+\_\+t \{0, 0, 0\}}
 
-
+Moment components acting along the tangential direction. 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-/\+Users/lzhshou/\+Documents/\+Research/my\+Projects/apam/repo/netdem/src/dem/\mbox{\hyperlink{contact__forces_8hpp}{contact\+\_\+forces.\+hpp}}\end{DoxyCompactItemize}
+/\+Users/lzhshou/\+Documents/\+Research/my\+Projects/apaam/repo/netdem/src/dem/\mbox{\hyperlink{contact__forces_8hpp}{contact\+\_\+forces.\+hpp}}\end{DoxyCompactItemize}

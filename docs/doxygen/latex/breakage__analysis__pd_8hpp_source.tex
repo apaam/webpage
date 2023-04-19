@@ -1,50 +1,52 @@
 \hypertarget{breakage__analysis__pd_8hpp_source}{}\doxysection{breakage\+\_\+analysis\+\_\+pd.\+hpp}
-\label{breakage__analysis__pd_8hpp_source}\index{/Users/lzhshou/Documents/Research/myProjects/apam/repo/netdem/src/modifier/breakage\_analysis\_pd.hpp@{/Users/lzhshou/Documents/Research/myProjects/apam/repo/netdem/src/modifier/breakage\_analysis\_pd.hpp}}
+\label{breakage__analysis__pd_8hpp_source}\index{/Users/lzhshou/Documents/Research/myProjects/apaam/repo/netdem/src/modifier/breakage\_analysis\_pd.hpp@{/Users/lzhshou/Documents/Research/myProjects/apaam/repo/netdem/src/modifier/breakage\_analysis\_pd.hpp}}
 \mbox{\hyperlink{breakage__analysis__pd_8hpp}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
-\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
-\DoxyCodeLine{2 }
-\DoxyCodeLine{3 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{modifier_8hpp}{modifier.hpp}}"{}}}
-\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{peridigm__dem__coupler_8hpp}{peridigm\_dem\_coupler.hpp}}"{}}}
-\DoxyCodeLine{5 }
-\DoxyCodeLine{6 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacenetdem}{netdem}} \{}
-\DoxyCodeLine{7 }
-\DoxyCodeLine{8 \textcolor{keyword}{class }\mbox{\hyperlink{classnetdem_1_1_breakage_analysis_p_d}{BreakageAnalysisPD}} : \textcolor{keyword}{public} \mbox{\hyperlink{classnetdem_1_1_modifier}{Modifier}} \{}
-\DoxyCodeLine{9 \textcolor{keyword}{public}:}
-\DoxyCodeLine{10   \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<int>}} \mbox{\hyperlink{classnetdem_1_1_breakage_analysis_p_d_a878d589a36fc9ad1423ac9734c196ba4}{particle\_id\_list}};}
-\DoxyCodeLine{11   \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<Particle *>}} \mbox{\hyperlink{classnetdem_1_1_breakage_analysis_p_d_af78e7977617e8f0239215fde7f52fb3a}{particle\_list}};}
-\DoxyCodeLine{12 }
-\DoxyCodeLine{13   \textcolor{keywordtype}{bool} \mbox{\hyperlink{classnetdem_1_1_breakage_analysis_p_d_a17f836423e31e7a3eb65e3c7db4411a2}{use\_particles\_in\_scene}}\{\textcolor{keyword}{false}\};}
-\DoxyCodeLine{14 }
-\DoxyCodeLine{15   \mbox{\hyperlink{classnetdem_1_1_peri_digm_d_e_m_coupler}{PeriDigmDEMCoupler}} \mbox{\hyperlink{classnetdem_1_1_breakage_analysis_p_d_a14aadf9906ef430553cf00a6c16fe0b0}{pd\_dem\_coupler}};}
-\DoxyCodeLine{16 }
-\DoxyCodeLine{17   \mbox{\hyperlink{classnetdem_1_1_breakage_analysis_p_d_a686cac24d8c3d86c6d03d738d6fd7578}{BreakageAnalysisPD}}();}
-\DoxyCodeLine{18 }
-\DoxyCodeLine{19   \textcolor{keywordtype}{void} \mbox{\hyperlink{classnetdem_1_1_breakage_analysis_p_d_acd6d68ace0fcb57246c22779cd360f34}{SetRootPath}}(std::string \textcolor{keyword}{const} \&\mbox{\hyperlink{classnetdem_1_1_breakage_analysis_p_d_aca35f51160b37dba1a39f97e64323bbc}{root\_path}});}
-\DoxyCodeLine{20   \textcolor{keywordtype}{void} \mbox{\hyperlink{classnetdem_1_1_breakage_analysis_p_d_af1c5429bbd8e4f9d93f3b3e2192adcf3}{SetFrequency}}(\textcolor{keywordtype}{bool} save\_by\_cycles, \textcolor{keywordtype}{double} interval);}
-\DoxyCodeLine{21 }
-\DoxyCodeLine{22   \textcolor{keywordtype}{void} \mbox{\hyperlink{classnetdem_1_1_breakage_analysis_p_d_a250c96505ecd034d27120ae0f04cb8bc}{SetParticlesFromScene}}();}
-\DoxyCodeLine{23 }
-\DoxyCodeLine{24   \textcolor{keywordtype}{void} \mbox{\hyperlink{classnetdem_1_1_breakage_analysis_p_d_a09429194186bf83bb14029849aeee380}{SetParticles}}(\textcolor{keyword}{const} \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<int>}} \&id\_list);}
-\DoxyCodeLine{25   \textcolor{keywordtype}{void} \mbox{\hyperlink{classnetdem_1_1_breakage_analysis_p_d_ad745b86e50210c5dae909569473f101b}{SetParticles}}(\textcolor{keyword}{const} std::initializer\_list<int> \&id\_list);}
-\DoxyCodeLine{26 }
-\DoxyCodeLine{27   \mbox{\hyperlink{classnetdem_1_1_modifier}{Modifier}} *\mbox{\hyperlink{classnetdem_1_1_breakage_analysis_p_d_a57aff74de171b5fe5e72df69f6fb0605}{Clone}}() \textcolor{keyword}{const override};}
-\DoxyCodeLine{28 }
-\DoxyCodeLine{29   \textcolor{keywordtype}{void} \mbox{\hyperlink{classnetdem_1_1_breakage_analysis_p_d_ac15f60308a15d2b2c371a683c4200c2d}{Init}}(\mbox{\hyperlink{classnetdem_1_1_simulation}{Simulation}} *\mbox{\hyperlink{classnetdem_1_1_modifier_a2af15a41cb6d01349b0597d2f1828763}{sim}}) \textcolor{keyword}{override};}
-\DoxyCodeLine{30 }
-\DoxyCodeLine{31   \textcolor{keywordtype}{void} \mbox{\hyperlink{classnetdem_1_1_breakage_analysis_p_d_ad051c4c0c2d537fdc0aaa434f6cfd8b2}{Execute}}() \textcolor{keyword}{override};}
-\DoxyCodeLine{32 }
-\DoxyCodeLine{33   \textcolor{keywordtype}{void} \mbox{\hyperlink{classnetdem_1_1_breakage_analysis_p_d_abe5516074f980f668d925a53220941bb}{Update}}();}
-\DoxyCodeLine{34 }
-\DoxyCodeLine{35 \textcolor{keyword}{private}:}
-\DoxyCodeLine{36   std::string \mbox{\hyperlink{classnetdem_1_1_breakage_analysis_p_d_aca35f51160b37dba1a39f97e64323bbc}{root\_path}}\{\textcolor{stringliteral}{"{}tmp/out/"{}}\};}
-\DoxyCodeLine{37   \textcolor{keywordtype}{bool} \mbox{\hyperlink{classnetdem_1_1_breakage_analysis_p_d_a7331625dc5d47c37d7863ebd5d1c2bf4}{excute\_by\_cycles}}\{\textcolor{keyword}{true}\};}
-\DoxyCodeLine{38   \textcolor{keywordtype}{int} \mbox{\hyperlink{classnetdem_1_1_breakage_analysis_p_d_abec407d68da2e033316e235d7e91b4be}{cycle\_interval}}\{0\}, \mbox{\hyperlink{classnetdem_1_1_breakage_analysis_p_d_a3ec5214dd541f51b6c57f9e23f8faed6}{cycle\_previous}}\{0\};}
-\DoxyCodeLine{39   \textcolor{keywordtype}{double} \mbox{\hyperlink{classnetdem_1_1_breakage_analysis_p_d_a0c90b6900a6626bd5048999c9099c167}{time\_interval}}\{0\}, \mbox{\hyperlink{classnetdem_1_1_breakage_analysis_p_d_af5e3eac9ae86c0ed771e671e269a4552}{time\_previous}}\{0\};}
-\DoxyCodeLine{40 }
-\DoxyCodeLine{41   \textcolor{keywordtype}{bool} \mbox{\hyperlink{classnetdem_1_1_breakage_analysis_p_d_a5b4f42ba7e6663803597c922d0ecd494}{CheckIfToExecute}}();}
-\DoxyCodeLine{42 \};}
-\DoxyCodeLine{43 }
-\DoxyCodeLine{44 \} \textcolor{comment}{// namespace netdem}}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{modifier_8hpp}{modifier.hpp}}"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{peridigm__dem__coupler_8hpp}{peridigm\_dem\_coupler.hpp}}"{}}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacenetdem}{netdem}}\ \{}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classnetdem_1_1_breakage_analysis_p_d}{BreakageAnalysisPD}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classnetdem_1_1_modifier}{Modifier}}\ \{}
+\DoxyCodeLine{00009\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00010\ \ \ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<int>}}\ \mbox{\hyperlink{classnetdem_1_1_breakage_analysis_p_d_a878d589a36fc9ad1423ac9734c196ba4}{particle\_id\_list}};}
+\DoxyCodeLine{00011\ \ \ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<Particle\ *>}}\ \mbox{\hyperlink{classnetdem_1_1_breakage_analysis_p_d_af78e7977617e8f0239215fde7f52fb3a}{particle\_list}};}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classnetdem_1_1_breakage_analysis_p_d_a17f836423e31e7a3eb65e3c7db4411a2}{use\_particles\_in\_scene}}\{\textcolor{keyword}{false}\};}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \ \ \mbox{\hyperlink{classnetdem_1_1_peri_digm_d_e_m_coupler}{PeriDigmDEMCoupler}}\ \mbox{\hyperlink{classnetdem_1_1_breakage_analysis_p_d_a14aadf9906ef430553cf00a6c16fe0b0}{pd\_dem\_coupler}};}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \ \ \mbox{\hyperlink{classnetdem_1_1_breakage_analysis_p_d_a686cac24d8c3d86c6d03d738d6fd7578}{BreakageAnalysisPD}}();}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_breakage_analysis_p_d_acd6d68ace0fcb57246c22779cd360f34}{SetRootPath}}(std::string\ \textcolor{keyword}{const}\ \&\mbox{\hyperlink{classnetdem_1_1_breakage_analysis_p_d_aca35f51160b37dba1a39f97e64323bbc}{root\_path}});}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_breakage_analysis_p_d_adffe4c5118ccdff62542d3e600bec88f}{SetExecuteByTime}}(\textcolor{keywordtype}{double}\ interval);}
+\DoxyCodeLine{00022\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_breakage_analysis_p_d_a12d8037ac209db77ec38ec9725117d5b}{SetExecuteByCycles}}(\textcolor{keywordtype}{double}\ interval);}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_breakage_analysis_p_d_a250c96505ecd034d27120ae0f04cb8bc}{SetParticlesFromScene}}();}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_breakage_analysis_p_d_a09429194186bf83bb14029849aeee380}{SetParticles}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<int>}}\ \&id\_list);}
+\DoxyCodeLine{00027\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_breakage_analysis_p_d_ad745b86e50210c5dae909569473f101b}{SetParticles}}(\textcolor{keyword}{const}\ std::initializer\_list<int>\ \&id\_list);}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \ \ \mbox{\hyperlink{classnetdem_1_1_modifier}{Modifier}}\ *\mbox{\hyperlink{classnetdem_1_1_breakage_analysis_p_d_a57aff74de171b5fe5e72df69f6fb0605}{Clone}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_breakage_analysis_p_d_ac15f60308a15d2b2c371a683c4200c2d}{Init}}(\mbox{\hyperlink{classnetdem_1_1_simulation}{Simulation}}\ *\mbox{\hyperlink{classnetdem_1_1_modifier_a2af15a41cb6d01349b0597d2f1828763}{sim}})\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_breakage_analysis_p_d_ad051c4c0c2d537fdc0aaa434f6cfd8b2}{Execute}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_breakage_analysis_p_d_a68bd9f26797230a15d37187468978908}{Update}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00038\ \ \ std::string\ \mbox{\hyperlink{classnetdem_1_1_breakage_analysis_p_d_aca35f51160b37dba1a39f97e64323bbc}{root\_path}}\{\textcolor{stringliteral}{"{}tmp/out/"{}}\};}
+\DoxyCodeLine{00039\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classnetdem_1_1_breakage_analysis_p_d_a7331625dc5d47c37d7863ebd5d1c2bf4}{excute\_by\_cycles}}\{\textcolor{keyword}{true}\};}
+\DoxyCodeLine{00040\ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classnetdem_1_1_breakage_analysis_p_d_abec407d68da2e033316e235d7e91b4be}{cycle\_interval}}\{0\},\ \mbox{\hyperlink{classnetdem_1_1_breakage_analysis_p_d_a3ec5214dd541f51b6c57f9e23f8faed6}{cycle\_previous}}\{0\};}
+\DoxyCodeLine{00041\ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classnetdem_1_1_breakage_analysis_p_d_a0c90b6900a6626bd5048999c9099c167}{time\_interval}}\{0\},\ \mbox{\hyperlink{classnetdem_1_1_breakage_analysis_p_d_af5e3eac9ae86c0ed771e671e269a4552}{time\_previous}}\{0\};}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classnetdem_1_1_breakage_analysis_p_d_a5b4f42ba7e6663803597c922d0ecd494}{CheckIfToExecute}}();}
+\DoxyCodeLine{00044\ \};}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \}\ \textcolor{comment}{//\ namespace\ netdem}}
 
 \end{DoxyCode}

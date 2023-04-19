@@ -4,6 +4,8 @@ var searchData=
   ['wallboxplane_1',['WallBoxPlane',['../classnetdem_1_1_wall_box_plane.html',1,'netdem']]],
   ['wallboxplate_2',['WallBoxPlate',['../classnetdem_1_1_wall_box_plate.html',1,'netdem']]],
   ['walldispcontrol_3',['WallDispControl',['../classnetdem_1_1_wall_disp_control.html',1,'netdem']]],
-  ['wallservocontrol_4',['WallServoControl',['../classnetdem_1_1_wall_servo_control.html',1,'netdem']]],
-  ['wscvtsampler_5',['WSCVTSampler',['../classnetdem_1_1_w_s_c_v_t_sampler.html',1,'netdem']]]
+  ['wallgroup_4',['WallGroup',['../classnetdem_1_1_wall_group.html',1,'netdem']]],
+  ['wallmotionintegrator_5',['WallMotionIntegrator',['../classnetdem_1_1_wall_motion_integrator.html',1,'netdem']]],
+  ['wallservocontrol_6',['WallServoControl',['../classnetdem_1_1_wall_servo_control.html',1,'netdem']]],
+  ['wscvtsampler_7',['WSCVTSampler',['../classnetdem_1_1_w_s_c_v_t_sampler.html',1,'netdem']]]
 ];

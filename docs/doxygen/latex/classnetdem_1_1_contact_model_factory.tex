@@ -2,13 +2,18 @@
 \label{classnetdem_1_1_contact_model_factory}\index{netdem::ContactModelFactory@{netdem::ContactModelFactory}}
 
 
+A factory class for creating contact models.  
+
+
+
+
 {\ttfamily \#include $<$contact\+\_\+model\+\_\+factory.\+hpp$>$}
 
 \doxysubsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-static \mbox{\hyperlink{classnetdem_1_1_contact_model}{Contact\+Model}} $\ast$ \mbox{\hyperlink{classnetdem_1_1_contact_model_factory_af21365c7c1689be0639b5c6c475cbf61}{New\+Contact\+Model}} (std\+::string const \&model\+\_\+name, \mbox{\hyperlink{mpi__manager_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{nlohmann\+::json}} const \&js)
-\end{DoxyCompactItemize}
+static \mbox{\hyperlink{classnetdem_1_1_contact_model}{Contact\+Model}} $\ast$ \mbox{\hyperlink{classnetdem_1_1_contact_model_factory_af21365c7c1689be0639b5c6c475cbf61}{New\+Contact\+Model}} (std\+::string const \&model\+\_\+name, nlohmann\+::json const \&js)
+\begin{DoxyCompactList}\small\item\em Create a new instance of a contact model by name and configuration data. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Static Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -16,13 +21,34 @@ static std\+::unordered\+\_\+map$<$ std\+::string, \mbox{\hyperlink{classnetdem_
 \end{DoxyCompactItemize}
 
 
+\doxysubsection{Detailed Description}
+A factory class for creating contact models. 
+
+This class provides a set of static methods for creating new instances of contact models, based on a specified name and configuration data in JSON format. The mapping between model names and their corresponding {\ttfamily \mbox{\hyperlink{classnetdem_1_1_contact_model_a86b4462f72dd85e2e8a55dd6844f6b51}{Contact\+Model\+::\+Type}}} enumeration values is stored in a static unordered map. 
+
 \doxysubsection{Member Function Documentation}
 \mbox{\Hypertarget{classnetdem_1_1_contact_model_factory_af21365c7c1689be0639b5c6c475cbf61}\label{classnetdem_1_1_contact_model_factory_af21365c7c1689be0639b5c6c475cbf61}} 
 \index{netdem::ContactModelFactory@{netdem::ContactModelFactory}!NewContactModel@{NewContactModel}}
 \index{NewContactModel@{NewContactModel}!netdem::ContactModelFactory@{netdem::ContactModelFactory}}
 \doxysubsubsection{\texorpdfstring{NewContactModel()}{NewContactModel()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classnetdem_1_1_contact_model}{Contact\+Model}} $\ast$ Contact\+Model\+Factory\+::\+New\+Contact\+Model (\begin{DoxyParamCaption}\item[{std\+::string const \&}]{model\+\_\+name,  }\item[{\mbox{\hyperlink{mpi__manager_8cpp_ab701e3ac61a85b337ec5c1abaad6742d}{nlohmann\+::json}} const \&}]{js }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classnetdem_1_1_contact_model}{Contact\+Model}} $\ast$ Contact\+Model\+Factory\+::\+New\+Contact\+Model (\begin{DoxyParamCaption}\item[{std\+::string const \&}]{model\+\_\+name,  }\item[{nlohmann\+::json const \&}]{js }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
+
+
+Create a new instance of a contact model by name and configuration data. 
+
+Given a string specifying the name of a contact model and a JSON object containing configuration data for the model, this function creates a new instance of the appropriate {\ttfamily \mbox{\hyperlink{classnetdem_1_1_contact_model}{Contact\+Model}}} subclass and returns a pointer to it.
+
+
+\begin{DoxyParams}{Parameters}
+{\em model\+\_\+name} & The name of the contact model to create. \\
+\hline
+{\em js} & A JSON object containing configuration data for the contact model. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to a new instance of the requested contact model. 
+\end{DoxyReturn}
 
 
 \doxysubsection{Member Data Documentation}
@@ -34,16 +60,16 @@ static std\+::unordered\+\_\+map$<$ std\+::string, \mbox{\hyperlink{classnetdem_
 
 {\bfseries Initial value\+:}
 \begin{DoxyCode}{0}
-\DoxyCodeLine{= \{}
-\DoxyCodeLine{    \{\textcolor{stringliteral}{"{}linear\_spring"{}}, ContactModel::Type::linear\_spring\},}
-\DoxyCodeLine{    \{\textcolor{stringliteral}{"{}hertz\_mindlin"{}}, ContactModel::Type::hertz\_mindlin\},}
-\DoxyCodeLine{    \{\textcolor{stringliteral}{"{}volume\_based"{}}, ContactModel::Type::volume\_based\},}
-\DoxyCodeLine{    \{\textcolor{stringliteral}{"{}parallel\_bond"{}}, ContactModel::Type::parallel\_bond\}\}}
+\DoxyCodeLine{=\ \{}
+\DoxyCodeLine{\ \ \ \ \{\textcolor{stringliteral}{"{}linear\_spring"{}},\ \mbox{\hyperlink{classnetdem_1_1_contact_model_a86b4462f72dd85e2e8a55dd6844f6b51adb0a6e319bcfe5f0df23e62b48ab0955}{ContactModel::Type::linear\_spring}}\},}
+\DoxyCodeLine{\ \ \ \ \{\textcolor{stringliteral}{"{}hertz\_mindlin"{}},\ \mbox{\hyperlink{classnetdem_1_1_contact_model_a86b4462f72dd85e2e8a55dd6844f6b51ae2bd1b0fede33e38b83f9de6f8f3cfb1}{ContactModel::Type::hertz\_mindlin}}\},}
+\DoxyCodeLine{\ \ \ \ \{\textcolor{stringliteral}{"{}volume\_based"{}},\ \mbox{\hyperlink{classnetdem_1_1_contact_model_a86b4462f72dd85e2e8a55dd6844f6b51afaaae10cad49f37d1574642e13ef751e}{ContactModel::Type::volume\_based}}\},}
+\DoxyCodeLine{\ \ \ \ \{\textcolor{stringliteral}{"{}parallel\_bond"{}},\ \mbox{\hyperlink{classnetdem_1_1_contact_model_a86b4462f72dd85e2e8a55dd6844f6b51ac929ea908a2c3feaab83c52917856cd6}{ContactModel::Type::parallel\_bond}}\}\}}
 
 \end{DoxyCode}
-
+A mapping between contact model names and their corresponding {\ttfamily \mbox{\hyperlink{classnetdem_1_1_contact_model_a86b4462f72dd85e2e8a55dd6844f6b51}{Contact\+Model\+::\+Type}}} enumeration values. 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-/\+Users/lzhshou/\+Documents/\+Research/my\+Projects/apam/repo/netdem/src/dem/\mbox{\hyperlink{contact__model__factory_8hpp}{contact\+\_\+model\+\_\+factory.\+hpp}}\item 
-/\+Users/lzhshou/\+Documents/\+Research/my\+Projects/apam/repo/netdem/src/dem/\mbox{\hyperlink{contact__model__factory_8cpp}{contact\+\_\+model\+\_\+factory.\+cpp}}\end{DoxyCompactItemize}
+/\+Users/lzhshou/\+Documents/\+Research/my\+Projects/apaam/repo/netdem/src/dem/\mbox{\hyperlink{contact__model__factory_8hpp}{contact\+\_\+model\+\_\+factory.\+hpp}}\item 
+/\+Users/lzhshou/\+Documents/\+Research/my\+Projects/apaam/repo/netdem/src/dem/\mbox{\hyperlink{contact__model__factory_8cpp}{contact\+\_\+model\+\_\+factory.\+cpp}}\end{DoxyCompactItemize}

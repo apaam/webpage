@@ -1,62 +1,62 @@
 \hypertarget{bonded__spheres_8hpp_source}{}\doxysection{bonded\+\_\+spheres.\+hpp}
-\label{bonded__spheres_8hpp_source}\index{/Users/lzhshou/Documents/Research/myProjects/apam/repo/netdem/src/scene/bonded\_spheres.hpp@{/Users/lzhshou/Documents/Research/myProjects/apam/repo/netdem/src/scene/bonded\_spheres.hpp}}
+\label{bonded__spheres_8hpp_source}\index{/Users/lzhshou/Documents/Research/myProjects/apaam/repo/netdem/src/scene/bonded\_spheres.hpp@{/Users/lzhshou/Documents/Research/myProjects/apaam/repo/netdem/src/scene/bonded\_spheres.hpp}}
 \mbox{\hyperlink{bonded__spheres_8hpp}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
-\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
-\DoxyCodeLine{2 }
-\DoxyCodeLine{3 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{bond__solver__pp_8hpp}{bond\_solver\_pp.hpp}}"{}}}
-\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{contact__model_8hpp}{contact\_model.hpp}}"{}}}
-\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{contact__pp_8hpp}{contact\_pp.hpp}}"{}}}
-\DoxyCodeLine{6 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{particle_8hpp}{particle.hpp}}"{}}}
-\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{shape__sphere_8hpp}{shape\_sphere.hpp}}"{}}}
-\DoxyCodeLine{8 \textcolor{preprocessor}{\#include <string>}}
-\DoxyCodeLine{9 }
-\DoxyCodeLine{10 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacenetdem}{netdem}} \{}
-\DoxyCodeLine{11 }
-\DoxyCodeLine{12 \textcolor{keyword}{class }Scene;}
-\DoxyCodeLine{13 }
-\DoxyCodeLine{14 \textcolor{keyword}{class }\mbox{\hyperlink{classnetdem_1_1_bonded_spheres}{BondedSpheres}} \{}
-\DoxyCodeLine{15 \textcolor{keyword}{public}:}
-\DoxyCodeLine{16   \mbox{\hyperlink{classnetdem_1_1_sphere}{Sphere}} \mbox{\hyperlink{classnetdem_1_1_bonded_spheres_a1597ecd32f7f43fea26b371414af9b24}{sphere}};}
-\DoxyCodeLine{17 }
-\DoxyCodeLine{18   \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<Particle>}} \mbox{\hyperlink{classnetdem_1_1_bonded_spheres_ada76c116bef350b11364d69a30ccdec2}{particle\_list}};}
-\DoxyCodeLine{19   \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<ContactPP>}} \mbox{\hyperlink{classnetdem_1_1_bonded_spheres_afd65d1ba41033093b3429354e3060d1a}{contact\_list}};}
-\DoxyCodeLine{20   \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<Vec2i>}} \mbox{\hyperlink{classnetdem_1_1_bonded_spheres_a55549f908f6496231f5f752c7f448d4b}{bond\_pair\_list}};}
-\DoxyCodeLine{21 }
-\DoxyCodeLine{22   \mbox{\hyperlink{classnetdem_1_1_contact_model}{ContactModel}} *\mbox{\hyperlink{classnetdem_1_1_bonded_spheres_a32e1c1b2b10454da582431535282b857}{bond\_model}}\{\textcolor{keyword}{nullptr}\};}
-\DoxyCodeLine{23 }
-\DoxyCodeLine{24   \mbox{\hyperlink{classnetdem_1_1_bonded_spheres_a576f802b0d9dc0909b21ddad1faf8016}{BondedSpheres}}();}
-\DoxyCodeLine{25 }
-\DoxyCodeLine{26   \mbox{\hyperlink{classnetdem_1_1_bonded_spheres_a576f802b0d9dc0909b21ddad1faf8016}{BondedSpheres}}(\mbox{\hyperlink{classnetdem_1_1_bonded_spheres}{BondedSpheres}} \textcolor{keyword}{const} \&bp);}
-\DoxyCodeLine{27   \mbox{\hyperlink{classnetdem_1_1_bonded_spheres_a576f802b0d9dc0909b21ddad1faf8016}{BondedSpheres}}(\mbox{\hyperlink{classnetdem_1_1_bonded_spheres}{BondedSpheres}} \textcolor{keyword}{const} \&\&bp);}
-\DoxyCodeLine{28   \mbox{\hyperlink{classnetdem_1_1_bonded_spheres}{BondedSpheres}} \&\mbox{\hyperlink{classnetdem_1_1_bonded_spheres_a38135f6922763f52d0dc39f0125b9bbe}{operator=}}(\mbox{\hyperlink{classnetdem_1_1_bonded_spheres}{BondedSpheres}} \textcolor{keyword}{const} \&bp);}
-\DoxyCodeLine{29   \mbox{\hyperlink{classnetdem_1_1_bonded_spheres}{BondedSpheres}} \&\mbox{\hyperlink{classnetdem_1_1_bonded_spheres_a38135f6922763f52d0dc39f0125b9bbe}{operator=}}(\mbox{\hyperlink{classnetdem_1_1_bonded_spheres}{BondedSpheres}} \textcolor{keyword}{const} \&\&bp);}
-\DoxyCodeLine{30 }
-\DoxyCodeLine{31   \textcolor{keywordtype}{void} \mbox{\hyperlink{classnetdem_1_1_bonded_spheres_af5e2a48cb8282271acb8bbb13aa8af02}{SetBondModel}}(\mbox{\hyperlink{classnetdem_1_1_contact_model}{ContactModel}} *cnt\_model);}
-\DoxyCodeLine{32 }
-\DoxyCodeLine{33   \textcolor{keywordtype}{void} \mbox{\hyperlink{classnetdem_1_1_bonded_spheres_a3ffc7e1c274b93cd67a49cbb0ab28ff8}{Translate}}(\textcolor{keywordtype}{double} pos\_x, \textcolor{keywordtype}{double} pos\_y, \textcolor{keywordtype}{double} pos\_z);}
-\DoxyCodeLine{34   \textcolor{keywordtype}{void} \mbox{\hyperlink{classnetdem_1_1_bonded_spheres_a9841edd63f2fc769ac407df34c4aac54}{RotateByRodrigues}}(\textcolor{keywordtype}{double} rot\_angle, \textcolor{keywordtype}{double} rot\_axis\_x, \textcolor{keywordtype}{double} rot\_axis\_y,}
-\DoxyCodeLine{35                          \textcolor{keywordtype}{double} rot\_axis\_z);}
-\DoxyCodeLine{36 }
-\DoxyCodeLine{37   \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \mbox{\hyperlink{classnetdem_1_1_bonded_spheres_aa08b213a18011397fe2b791edae8587a}{GetCentroid}}();}
-\DoxyCodeLine{38 }
-\DoxyCodeLine{39   \textcolor{keywordtype}{void} \mbox{\hyperlink{classnetdem_1_1_bonded_spheres_a8d303a63473a682686070bbe5a6ff9b1}{InitFromSTL}}(std::string \textcolor{keyword}{const} \&filename, \textcolor{keywordtype}{double} sphere\_size);}
-\DoxyCodeLine{40   \textcolor{keywordtype}{void} \mbox{\hyperlink{classnetdem_1_1_bonded_spheres_a8d303a63473a682686070bbe5a6ff9b1}{InitFromSTL}}(\mbox{\hyperlink{classnetdem_1_1_s_t_l_model}{STLModel}} \textcolor{keyword}{const} \&stl\_model, \textcolor{keywordtype}{double} sphere\_size);}
-\DoxyCodeLine{41 }
-\DoxyCodeLine{42   \textcolor{keywordtype}{void} \mbox{\hyperlink{classnetdem_1_1_bonded_spheres_ac1ce8abc71f2e3df0c5372d4112dd825}{InitFromGrid}}(\textcolor{keywordtype}{double} corner\_x, \textcolor{keywordtype}{double} corner\_y, \textcolor{keywordtype}{double} corner\_z,}
-\DoxyCodeLine{43                     \textcolor{keywordtype}{double} len\_x, \textcolor{keywordtype}{double} len\_y, \textcolor{keywordtype}{double} len\_z,}
-\DoxyCodeLine{44                     \textcolor{keywordtype}{double} sphere\_size);}
-\DoxyCodeLine{45 }
-\DoxyCodeLine{46   \textcolor{keywordtype}{void} \mbox{\hyperlink{classnetdem_1_1_bonded_spheres_a911a7d9dc7d81353eed973ee130333d4}{MakePorosity}}(\textcolor{keywordtype}{double} porosity);}
-\DoxyCodeLine{47 }
-\DoxyCodeLine{48   \textcolor{keywordtype}{void} \mbox{\hyperlink{classnetdem_1_1_bonded_spheres_aa81da32dfbf6c931958a26269555d582}{InitBonds}}();}
-\DoxyCodeLine{49 }
-\DoxyCodeLine{50   \textcolor{keywordtype}{void} \mbox{\hyperlink{classnetdem_1_1_bonded_spheres_aa3021c420e43d6d1c30305418589f9b1}{ImportToScene}}(\mbox{\hyperlink{classnetdem_1_1_scene}{Scene}} *\textcolor{keyword}{const} scene) \textcolor{keyword}{const};}
-\DoxyCodeLine{51 }
-\DoxyCodeLine{52 \textcolor{keyword}{private}:}
-\DoxyCodeLine{53   \textcolor{keywordtype}{void} \mbox{\hyperlink{classnetdem_1_1_bonded_spheres_a48b49c9e02272f3057280d911b5f73af}{RefreshPointers}}();}
-\DoxyCodeLine{54 \};}
-\DoxyCodeLine{55 }
-\DoxyCodeLine{56 \} \textcolor{comment}{// namespace netdem}}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{bond__solver__pp_8hpp}{bond\_solver\_pp.hpp}}"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{contact__model_8hpp}{contact\_model.hpp}}"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{contact__pp_8hpp}{contact\_pp.hpp}}"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{particle_8hpp}{particle.hpp}}"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{shape__sphere_8hpp}{shape\_sphere.hpp}}"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacenetdem}{netdem}}\ \{}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{keyword}{class\ }Scene;}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classnetdem_1_1_bonded_spheres}{BondedSpheres}}\ \{}
+\DoxyCodeLine{00015\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00016\ \ \ \mbox{\hyperlink{classnetdem_1_1_sphere}{Sphere}}\ \mbox{\hyperlink{classnetdem_1_1_bonded_spheres_a1597ecd32f7f43fea26b371414af9b24}{sphere}};}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \ \ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<Particle>}}\ \mbox{\hyperlink{classnetdem_1_1_bonded_spheres_ada76c116bef350b11364d69a30ccdec2}{particle\_list}};}
+\DoxyCodeLine{00019\ \ \ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<ContactPP>}}\ \mbox{\hyperlink{classnetdem_1_1_bonded_spheres_afd65d1ba41033093b3429354e3060d1a}{contact\_list}};}
+\DoxyCodeLine{00020\ \ \ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<Vec2i>}}\ \mbox{\hyperlink{classnetdem_1_1_bonded_spheres_a55549f908f6496231f5f752c7f448d4b}{bond\_pair\_list}};}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \ \ \mbox{\hyperlink{classnetdem_1_1_contact_model}{ContactModel}}\ *\mbox{\hyperlink{classnetdem_1_1_bonded_spheres_a32e1c1b2b10454da582431535282b857}{bond\_model}}\{\textcolor{keyword}{nullptr}\};}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \ \ \mbox{\hyperlink{classnetdem_1_1_bonded_spheres_a576f802b0d9dc0909b21ddad1faf8016}{BondedSpheres}}();}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \ \ \mbox{\hyperlink{classnetdem_1_1_bonded_spheres_a576f802b0d9dc0909b21ddad1faf8016}{BondedSpheres}}(\mbox{\hyperlink{classnetdem_1_1_bonded_spheres}{BondedSpheres}}\ \textcolor{keyword}{const}\ \&bp);}
+\DoxyCodeLine{00027\ \ \ \mbox{\hyperlink{classnetdem_1_1_bonded_spheres_a576f802b0d9dc0909b21ddad1faf8016}{BondedSpheres}}(\mbox{\hyperlink{classnetdem_1_1_bonded_spheres}{BondedSpheres}}\ \textcolor{keyword}{const}\ \&\&bp);}
+\DoxyCodeLine{00028\ \ \ \mbox{\hyperlink{classnetdem_1_1_bonded_spheres}{BondedSpheres}}\ \&\mbox{\hyperlink{classnetdem_1_1_bonded_spheres_a38135f6922763f52d0dc39f0125b9bbe}{operator=}}(\mbox{\hyperlink{classnetdem_1_1_bonded_spheres}{BondedSpheres}}\ \textcolor{keyword}{const}\ \&bp);}
+\DoxyCodeLine{00029\ \ \ \mbox{\hyperlink{classnetdem_1_1_bonded_spheres}{BondedSpheres}}\ \&\mbox{\hyperlink{classnetdem_1_1_bonded_spheres_a38135f6922763f52d0dc39f0125b9bbe}{operator=}}(\mbox{\hyperlink{classnetdem_1_1_bonded_spheres}{BondedSpheres}}\ \textcolor{keyword}{const}\ \&\&bp);}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_bonded_spheres_af5e2a48cb8282271acb8bbb13aa8af02}{SetBondModel}}(\mbox{\hyperlink{classnetdem_1_1_contact_model}{ContactModel}}\ *cnt\_model);}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_bonded_spheres_a3ffc7e1c274b93cd67a49cbb0ab28ff8}{Translate}}(\textcolor{keywordtype}{double}\ pos\_x,\ \textcolor{keywordtype}{double}\ pos\_y,\ \textcolor{keywordtype}{double}\ pos\_z);}
+\DoxyCodeLine{00034\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_bonded_spheres_a9841edd63f2fc769ac407df34c4aac54}{RotateByRodrigues}}(\textcolor{keywordtype}{double}\ rot\_angle,\ \textcolor{keywordtype}{double}\ rot\_axis\_x,\ \textcolor{keywordtype}{double}\ rot\_axis\_y,}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ rot\_axis\_z);}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \ \ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ \mbox{\hyperlink{classnetdem_1_1_bonded_spheres_aa08b213a18011397fe2b791edae8587a}{GetCentroid}}();}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_bonded_spheres_a8d303a63473a682686070bbe5a6ff9b1}{InitFromSTL}}(std::string\ \textcolor{keyword}{const}\ \&filename,\ \textcolor{keywordtype}{double}\ sphere\_size);}
+\DoxyCodeLine{00040\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_bonded_spheres_a8d303a63473a682686070bbe5a6ff9b1}{InitFromSTL}}(\mbox{\hyperlink{classnetdem_1_1_s_t_l_model}{STLModel}}\ \textcolor{keyword}{const}\ \&stl\_model,\ \textcolor{keywordtype}{double}\ sphere\_size);}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_bonded_spheres_ac1ce8abc71f2e3df0c5372d4112dd825}{InitFromGrid}}(\textcolor{keywordtype}{double}\ corner\_x,\ \textcolor{keywordtype}{double}\ corner\_y,\ \textcolor{keywordtype}{double}\ corner\_z,}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ len\_x,\ \textcolor{keywordtype}{double}\ len\_y,\ \textcolor{keywordtype}{double}\ len\_z,}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ sphere\_size);}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_bonded_spheres_a911a7d9dc7d81353eed973ee130333d4}{MakePorosity}}(\textcolor{keywordtype}{double}\ porosity);}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_bonded_spheres_aa81da32dfbf6c931958a26269555d582}{InitBonds}}();}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_bonded_spheres_aa3021c420e43d6d1c30305418589f9b1}{ImportToScene}}(\mbox{\hyperlink{classnetdem_1_1_scene}{Scene}}\ *\textcolor{keyword}{const}\ scene)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00053\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_bonded_spheres_a48b49c9e02272f3057280d911b5f73af}{RefreshPointers}}();}
+\DoxyCodeLine{00054\ \};}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \}\ \textcolor{comment}{//\ namespace\ netdem}}
 
 \end{DoxyCode}

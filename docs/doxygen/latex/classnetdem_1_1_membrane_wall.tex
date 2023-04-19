@@ -25,7 +25,9 @@ void \mbox{\hyperlink{classnetdem_1_1_membrane_wall_ae57d694d275c6cd17815d9f0b5d
 \item 
 void \mbox{\hyperlink{classnetdem_1_1_membrane_wall_a3ce7688b1601591023cd67e83ff4cf49}{Set\+Data\+Type}} (std\+::string const \&\mbox{\hyperlink{classnetdem_1_1_membrane_wall_aa7b9c1d014730e2bce5fb3f30db76620}{data\+\_\+type}})
 \item 
-void \mbox{\hyperlink{classnetdem_1_1_membrane_wall_ae25dd9d90bd6c72e589bc9cf2015494a}{Set\+Frequency}} (bool \mbox{\hyperlink{classnetdem_1_1_membrane_wall_a8d56f770a21ebd716d6c681857ad43d2}{save\+\_\+by\+\_\+cycles}}, double interval)
+void \mbox{\hyperlink{classnetdem_1_1_membrane_wall_aa7548db94af095dc9ad3b0f6aae4ce5f}{Set\+Save\+By\+Time}} (double interval)
+\item 
+void \mbox{\hyperlink{classnetdem_1_1_membrane_wall_a7e84c6e002108946840729ee157cc47a}{Set\+Save\+By\+Cycles}} (double interval)
 \item 
 void \mbox{\hyperlink{classnetdem_1_1_membrane_wall_a603536eb3c0d8a5fdccfb7960a99a0a9}{Set\+Dimensions}} (double r, double h)
 \item 
@@ -37,6 +39,46 @@ void \mbox{\hyperlink{classnetdem_1_1_membrane_wall_adc55a613604f7cb4bc0fd33a473
 \item 
 void \mbox{\hyperlink{classnetdem_1_1_membrane_wall_a471ed5293d813605984163a459439a01}{Execute}} () override
 \end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions inherited from \mbox{\hyperlink{classnetdem_1_1_modifier}{netdem\+::\+Modifier}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classnetdem_1_1_modifier_a00ecd168ce3ca5e2f3d4d741d7a56bbd}{Modifier}} ()
+\item 
+virtual \mbox{\hyperlink{classnetdem_1_1_modifier}{Modifier}} $\ast$ \mbox{\hyperlink{classnetdem_1_1_modifier_a0c808763e3e8052cbd446cb7d910f843}{Clone}} () const
+\item 
+virtual void \mbox{\hyperlink{classnetdem_1_1_modifier_ad340b35e3d4a44cbb708a522b89eec91}{Init}} (\mbox{\hyperlink{classnetdem_1_1_simulation}{Simulation}} $\ast$\mbox{\hyperlink{classnetdem_1_1_modifier_a2af15a41cb6d01349b0597d2f1828763}{sim}})
+\item 
+virtual void \mbox{\hyperlink{classnetdem_1_1_modifier_af24eb11dda7460744ff568ce299bee6f}{Enable}} ()
+\item 
+virtual void \mbox{\hyperlink{classnetdem_1_1_modifier_aba99c2f91ecd22eb1c88c45b1890aa38}{Disable}} ()
+\item 
+virtual void \mbox{\hyperlink{classnetdem_1_1_modifier_a8ffc62d61052f129a3301278b7cffb2c}{Execute}} ()
+\item 
+virtual void \mbox{\hyperlink{classnetdem_1_1_modifier_adb2442a93cd18bc810156aa7275a46b8}{Update}} ()
+\item 
+virtual \mbox{\hyperlink{classnetdem_1_1_modifier_a370a42d8715caec46e4d4d241667d053}{$\sim$\+Modifier}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions inherited from \mbox{\hyperlink{classnetdem_1_1_membrane}{netdem\+::\+Membrane}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classnetdem_1_1_membrane_a8a60248acefc13c01a2225c02747c5f2}{Membrane}} (double \mbox{\hyperlink{classnetdem_1_1_membrane_a014b92179c66331ff939cdb39417dc8b}{radius}}, double \mbox{\hyperlink{classnetdem_1_1_membrane_a92f387e7749a9d6661c999c028a966b3}{height}})
+\item 
+\mbox{\hyperlink{classnetdem_1_1_membrane_a5313c2890cfa68e2225235c1154e72e7}{Membrane}} (double \mbox{\hyperlink{classnetdem_1_1_membrane_a014b92179c66331ff939cdb39417dc8b}{radius}}, double \mbox{\hyperlink{classnetdem_1_1_membrane_a92f387e7749a9d6661c999c028a966b3}{height}}, double \mbox{\hyperlink{classnetdem_1_1_membrane_a5aa8c46249345a940620cd529976de33}{mesh\+\_\+size}})
+\item 
+\mbox{\hyperlink{classnetdem_1_1_membrane_a534e49b384a8da4dcaa74cd625e8a049}{Membrane}} (double \mbox{\hyperlink{classnetdem_1_1_membrane_a014b92179c66331ff939cdb39417dc8b}{radius}}, double \mbox{\hyperlink{classnetdem_1_1_membrane_a92f387e7749a9d6661c999c028a966b3}{height}}, double \mbox{\hyperlink{classnetdem_1_1_membrane_a5aa8c46249345a940620cd529976de33}{mesh\+\_\+size}}, double center\+\_\+x, double center\+\_\+y, double center\+\_\+z)
+\item 
+void \mbox{\hyperlink{classnetdem_1_1_membrane_a2048b6c05517fd1280226cce75f27f29}{Remesh}} (double ele\+\_\+size)
+\item 
+void \mbox{\hyperlink{classnetdem_1_1_membrane_aacd292a34423b5afe51434ca5cec2193}{Init}} ()
+\item 
+void \mbox{\hyperlink{classnetdem_1_1_membrane_acca4ccb9b7d0a1a29230a9e504914835}{Set\+BCNodal\+Velocity}} (int nid, double vx, double vy, double vz, bool use\+\_\+prescribed\+\_\+vx, bool use\+\_\+prescribed\+\_\+vy, bool use\+\_\+prescribed\+\_\+vz)
+\item 
+void \mbox{\hyperlink{classnetdem_1_1_membrane_a31a37f1aa56486a4c955c65af4603712}{Solve}} (double dt)
+\item 
+void \mbox{\hyperlink{classnetdem_1_1_membrane_afaf10e968f78e962b35309fb750bbcad}{Save\+As\+VTK}} (std\+::string const \&file\+\_\+name)
+\item 
+\mbox{\hyperlink{classnetdem_1_1_membrane_a02c0b5ee50e9c00555d21de3843e2ad7}{$\sim$\+Membrane}} ()
+\end{DoxyCompactItemize}
 \doxysubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -47,6 +89,60 @@ bool \mbox{\hyperlink{classnetdem_1_1_membrane_wall_aca076ba6ac1fe9466e8d1cfa222
 bool \mbox{\hyperlink{classnetdem_1_1_membrane_wall_adeb5caad61ad22a22133b897d540bc59}{facing\+\_\+outside}} \{true\}
 \item 
 \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{classnetdem_1_1_wall}{Wall}} $\ast$ $>$ \mbox{\hyperlink{classnetdem_1_1_membrane_wall_a2c38d8812eb8fc46e3ac10487d02272b}{wall\+\_\+list}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes inherited from \mbox{\hyperlink{classnetdem_1_1_modifier}{netdem\+::\+Modifier}}}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string \mbox{\hyperlink{classnetdem_1_1_modifier_a9ca96d4276e4cb637b0220ab6fbbbbee}{label}} \{\char`\"{}default\char`\"{}\}
+\item 
+\mbox{\hyperlink{classnetdem_1_1_d_e_m_solver_a7b625d897bb69cd28838602603b8b0c4}{DEMSolver\+::\+Cycle\+Point}} \mbox{\hyperlink{classnetdem_1_1_modifier_ac97b78c11b6264901e6ea5ee9324fe14}{cycle\+\_\+point}} \{\mbox{\hyperlink{classnetdem_1_1_d_e_m_solver_a7b625d897bb69cd28838602603b8b0c4a03e21037ee2bb4ffa60b59913aafc1ae}{DEMSolver\+::\+Cycle\+Point\+::pre}}\}
+\item 
+\mbox{\hyperlink{classnetdem_1_1_simulation}{Simulation}} $\ast$ \mbox{\hyperlink{classnetdem_1_1_modifier_a2af15a41cb6d01349b0597d2f1828763}{sim}} \{nullptr\}
+\item 
+\mbox{\hyperlink{classnetdem_1_1_scene}{Scene}} $\ast$ \mbox{\hyperlink{classnetdem_1_1_modifier_a8a325cf86217e207d54672249c23eb95}{scene}} \{nullptr\}
+\item 
+bool \mbox{\hyperlink{classnetdem_1_1_modifier_a2258d80ff48346506d430f6f14ee486e}{update\+\_\+with\+\_\+scene}} \{false\}
+\item 
+bool \mbox{\hyperlink{classnetdem_1_1_modifier_a86866b7b68088778ba6062cf88126302}{enable\+\_\+logging}} \{true\}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes inherited from \mbox{\hyperlink{classnetdem_1_1_membrane}{netdem\+::\+Membrane}}}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{classnetdem_1_1_membrane_a014b92179c66331ff939cdb39417dc8b}{radius}} \{0.\+25\}
+\item 
+double \mbox{\hyperlink{classnetdem_1_1_membrane_a92f387e7749a9d6661c999c028a966b3}{height}} \{1.\+0\}
+\item 
+double \mbox{\hyperlink{classnetdem_1_1_membrane_a5aa8c46249345a940620cd529976de33}{mesh\+\_\+size}} \{0.\+1\}
+\item 
+\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \mbox{\hyperlink{classnetdem_1_1_membrane_abf0179a0c97f60069bc0b935d812a50f}{center}} \{0, 0, 0\}
+\item 
+double \mbox{\hyperlink{classnetdem_1_1_membrane_ab9c63af52dbfd3d06ad493996a57e5fb}{neo\+\_\+k}} \{6.\+94e5\}
+\item 
+double \mbox{\hyperlink{classnetdem_1_1_membrane_a5a374bde0a8881183aad942464d79fbb}{neo\+\_\+mu}} \{5.\+21e5\}
+\item 
+double \mbox{\hyperlink{classnetdem_1_1_membrane_a03635c5fa6a0aba5c14c1350d61a73c6}{density}} \{500.\+0\}
+\item 
+double \mbox{\hyperlink{classnetdem_1_1_membrane_abd4916216d8759b1bce6d572cfe60411}{thickness}} \{0.\+3e-\/3\}
+\item 
+double \mbox{\hyperlink{classnetdem_1_1_membrane_a425f6006797bd1cade2678bcb10789e9}{damp\+\_\+coef}} \{0.\+7\}
+\item 
+double \mbox{\hyperlink{classnetdem_1_1_membrane_a74d1b0aac20c846f97c0b62a6387948d}{timestep}} \{1.\+0e-\/4\}
+\item 
+\mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $>$ \mbox{\hyperlink{classnetdem_1_1_membrane_a53dbcfb8fed5335f6cad97a56299f910}{nodes}}
+\item 
+\mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_a28e1404c8ce46c48bc78f553bd555980}{Vec3i}} $>$ \mbox{\hyperlink{classnetdem_1_1_membrane_a9b746e959a88fddad2fd95d91dae1b9d}{elements}}
+\item 
+\mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $>$ \mbox{\hyperlink{classnetdem_1_1_membrane_a970cf4e3c26c6dcc97d74f8f5a932c35}{elemental\+\_\+stress}}
+\item 
+\mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ double $>$ \mbox{\hyperlink{classnetdem_1_1_membrane_a68ef7dfdded2938b15ad808f2be5a821}{nodal\+\_\+vols}}
+\item 
+\mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $>$ \mbox{\hyperlink{classnetdem_1_1_membrane_a2675bdcba40c6f40dc32b82e19628391}{nodal\+\_\+vels}}
+\item 
+\mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ double $>$ \mbox{\hyperlink{classnetdem_1_1_membrane_aedc4d8df189c0afe8f485d70cad49bf4}{bc\+\_\+facet\+\_\+pressure}}
+\item 
+\mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $>$ \mbox{\hyperlink{classnetdem_1_1_membrane_a6d6772b8c440a8d46fe0e7b7caa84e65}{bc\+\_\+facet\+\_\+forces}}
+\item 
+\mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_a4c6a34e4b9bc01901ac527bb8ea83909}{Vec\+NT}}$<$ double, 6 $>$ $>$ \mbox{\hyperlink{classnetdem_1_1_membrane_a4890392a26d26675aedd4c03c795f3a4}{bc\+\_\+nodal\+\_\+vels}}
 \end{DoxyCompactItemize}
 \doxysubsection*{Private Member Functions}
 \begin{DoxyCompactItemize}
@@ -75,6 +171,34 @@ double \mbox{\hyperlink{classnetdem_1_1_membrane_wall_a8d081b326f98ce2dad44ba212
 double \mbox{\hyperlink{classnetdem_1_1_membrane_wall_ab709491cbf565bd6b304edece918ba12}{time\+\_\+previous}} \{0\}
 \end{DoxyCompactItemize}
 \doxysubsection*{Additional Inherited Members}
+\doxysubsubsection*{Protected Member Functions inherited from \mbox{\hyperlink{classnetdem_1_1_membrane}{netdem\+::\+Membrane}}}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classnetdem_1_1_membrane_a3e1524839893e8931701cc5eb3383c26}{Advance}} (double dt)
+\item 
+void \mbox{\hyperlink{classnetdem_1_1_membrane_a18acb009b400c59e7b7db92d75d37b84}{Init\+Mesh}} ()
+\item 
+void \mbox{\hyperlink{classnetdem_1_1_membrane_a46b961cafea10b87795f066f6291394d}{Init\+Initial\+Condition}} ()
+\item 
+\mbox{\hyperlink{namespacenetdem_ab579cc2b45db8875b851b66758941908}{Mat2d}} \mbox{\hyperlink{classnetdem_1_1_membrane_acf2e96e20fcb4cf6a0f39165f78fdb30}{Get\+Deformation\+Gradient}} (\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&v0, \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&v1, \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&v2)
+\item 
+\mbox{\hyperlink{namespacenetdem_ab579cc2b45db8875b851b66758941908}{Mat2d}} \mbox{\hyperlink{classnetdem_1_1_membrane_ae5708c76a9a8f826875bb72569c2bd12}{Get\+Cauchy\+Stress}} (\mbox{\hyperlink{namespacenetdem_ab579cc2b45db8875b851b66758941908}{Mat2d}} const \&def\+\_\+grad)
+\item 
+std\+::tuple$<$ \mbox{\hyperlink{namespacenetdem_ae589ca87f7a16ea70807ee6b1c3bc1c8}{Mat3d}}, \mbox{\hyperlink{namespacenetdem_ae589ca87f7a16ea70807ee6b1c3bc1c8}{Mat3d}} $>$ \mbox{\hyperlink{classnetdem_1_1_membrane_af94eac0867faec0f4bc9502adf3eeb39}{Get\+Global\+Forces}} (\mbox{\hyperlink{namespacenetdem_ab579cc2b45db8875b851b66758941908}{Mat2d}} const \&cauchy\+\_\+stress, double pressure, \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&v0, \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&v1, \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&v2)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes inherited from \mbox{\hyperlink{classnetdem_1_1_membrane}{netdem\+::\+Membrane}}}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{classnetdem_1_1_membrane_abe48dc5e53a269666710afc3414a3bc2}{ref\+\_\+ele\+\_\+width}} \{0.\+1\}
+\item 
+double \mbox{\hyperlink{classnetdem_1_1_membrane_ace61a68d26be69e024a29eef88788fc8}{ref\+\_\+ele\+\_\+height}} \{0.\+1\}
+\item 
+double \mbox{\hyperlink{classnetdem_1_1_membrane_a7757cbb69ddcc82d4b2f2b15d69f622d}{ref\+\_\+ele\+\_\+area}} \{0.\+05\}
+\item 
+\mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $>$ \mbox{\hyperlink{classnetdem_1_1_membrane_ad5a782f17dd03f187c5a36e5d9876998}{nodal\+\_\+forces\+\_\+int}}
+\item 
+\mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $>$ \mbox{\hyperlink{classnetdem_1_1_membrane_ab4e822d5cd89935e6d155d04ef2104a1}{nodal\+\_\+forces\+\_\+ext}}
+\end{DoxyCompactItemize}
 
 
 \doxysubsection{Constructor \& Destructor Documentation}
@@ -159,12 +283,6 @@ Reimplemented from \mbox{\hyperlink{classnetdem_1_1_modifier_ad340b35e3d4a44cbb7
 \doxysubsubsection{\texorpdfstring{SetDimensions()}{SetDimensions()}}
 {\footnotesize\ttfamily void Membrane\+Wall\+::\+Set\+Dimensions (\begin{DoxyParamCaption}\item[{double}]{r,  }\item[{double}]{h }\end{DoxyParamCaption})}
 
-\mbox{\Hypertarget{classnetdem_1_1_membrane_wall_ae25dd9d90bd6c72e589bc9cf2015494a}\label{classnetdem_1_1_membrane_wall_ae25dd9d90bd6c72e589bc9cf2015494a}} 
-\index{netdem::MembraneWall@{netdem::MembraneWall}!SetFrequency@{SetFrequency}}
-\index{SetFrequency@{SetFrequency}!netdem::MembraneWall@{netdem::MembraneWall}}
-\doxysubsubsection{\texorpdfstring{SetFrequency()}{SetFrequency()}}
-{\footnotesize\ttfamily void Membrane\+Wall\+::\+Set\+Frequency (\begin{DoxyParamCaption}\item[{bool}]{save\+\_\+by\+\_\+cycles,  }\item[{double}]{interval }\end{DoxyParamCaption})}
-
 \mbox{\Hypertarget{classnetdem_1_1_membrane_wall_adc55a613604f7cb4bc0fd33a4736777d}\label{classnetdem_1_1_membrane_wall_adc55a613604f7cb4bc0fd33a4736777d}} 
 \index{netdem::MembraneWall@{netdem::MembraneWall}!SetPressure@{SetPressure}}
 \index{SetPressure@{SetPressure}!netdem::MembraneWall@{netdem::MembraneWall}}
@@ -176,6 +294,18 @@ Reimplemented from \mbox{\hyperlink{classnetdem_1_1_modifier_ad340b35e3d4a44cbb7
 \index{SetRootPath@{SetRootPath}!netdem::MembraneWall@{netdem::MembraneWall}}
 \doxysubsubsection{\texorpdfstring{SetRootPath()}{SetRootPath()}}
 {\footnotesize\ttfamily void Membrane\+Wall\+::\+Set\+Root\+Path (\begin{DoxyParamCaption}\item[{std\+::string const \&}]{root\+\_\+path }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classnetdem_1_1_membrane_wall_a7e84c6e002108946840729ee157cc47a}\label{classnetdem_1_1_membrane_wall_a7e84c6e002108946840729ee157cc47a}} 
+\index{netdem::MembraneWall@{netdem::MembraneWall}!SetSaveByCycles@{SetSaveByCycles}}
+\index{SetSaveByCycles@{SetSaveByCycles}!netdem::MembraneWall@{netdem::MembraneWall}}
+\doxysubsubsection{\texorpdfstring{SetSaveByCycles()}{SetSaveByCycles()}}
+{\footnotesize\ttfamily void Membrane\+Wall\+::\+Set\+Save\+By\+Cycles (\begin{DoxyParamCaption}\item[{double}]{interval }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classnetdem_1_1_membrane_wall_aa7548db94af095dc9ad3b0f6aae4ce5f}\label{classnetdem_1_1_membrane_wall_aa7548db94af095dc9ad3b0f6aae4ce5f}} 
+\index{netdem::MembraneWall@{netdem::MembraneWall}!SetSaveByTime@{SetSaveByTime}}
+\index{SetSaveByTime@{SetSaveByTime}!netdem::MembraneWall@{netdem::MembraneWall}}
+\doxysubsubsection{\texorpdfstring{SetSaveByTime()}{SetSaveByTime()}}
+{\footnotesize\ttfamily void Membrane\+Wall\+::\+Set\+Save\+By\+Time (\begin{DoxyParamCaption}\item[{double}]{interval }\end{DoxyParamCaption})}
 
 \mbox{\Hypertarget{classnetdem_1_1_membrane_wall_a724a2954d88ed76fdf9b8c76f99f9402}\label{classnetdem_1_1_membrane_wall_a724a2954d88ed76fdf9b8c76f99f9402}} 
 \index{netdem::MembraneWall@{netdem::MembraneWall}!UpdateBCForceFromDEM@{UpdateBCForceFromDEM}}
@@ -256,5 +386,5 @@ Reimplemented from \mbox{\hyperlink{classnetdem_1_1_modifier_ad340b35e3d4a44cbb7
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-/\+Users/lzhshou/\+Documents/\+Research/my\+Projects/apam/repo/netdem/src/modifier/\mbox{\hyperlink{membrane__wall_8hpp}{membrane\+\_\+wall.\+hpp}}\item 
-/\+Users/lzhshou/\+Documents/\+Research/my\+Projects/apam/repo/netdem/src/modifier/\mbox{\hyperlink{membrane__wall_8cpp}{membrane\+\_\+wall.\+cpp}}\end{DoxyCompactItemize}
+/\+Users/lzhshou/\+Documents/\+Research/my\+Projects/apaam/repo/netdem/src/modifier/\mbox{\hyperlink{membrane__wall_8hpp}{membrane\+\_\+wall.\+hpp}}\item 
+/\+Users/lzhshou/\+Documents/\+Research/my\+Projects/apaam/repo/netdem/src/modifier/\mbox{\hyperlink{membrane__wall_8cpp}{membrane\+\_\+wall.\+cpp}}\end{DoxyCompactItemize}

@@ -1,65 +1,64 @@
 \hypertarget{peridigm__simulator_8hpp_source}{}\doxysection{peridigm\+\_\+simulator.\+hpp}
-\label{peridigm__simulator_8hpp_source}\index{/Users/lzhshou/Documents/Research/myProjects/apam/repo/netdem/src/peridigm/peridigm\_simulator.hpp@{/Users/lzhshou/Documents/Research/myProjects/apam/repo/netdem/src/peridigm/peridigm\_simulator.hpp}}
+\label{peridigm__simulator_8hpp_source}\index{/Users/lzhshou/Documents/Research/myProjects/apaam/repo/netdem/src/peridigm/peridigm\_simulator.hpp@{/Users/lzhshou/Documents/Research/myProjects/apaam/repo/netdem/src/peridigm/peridigm\_simulator.hpp}}
 \mbox{\hyperlink{peridigm__simulator_8hpp}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
-\DoxyCodeLine{1 \textcolor{comment}{// Originates from Fan Zhu. Modified by Zhengshou Lai to be coupled with NetDEM}}
-\DoxyCodeLine{2 \textcolor{comment}{// by Sep 12, 2021}}
-\DoxyCodeLine{3 }
-\DoxyCodeLine{4 \textcolor{preprocessor}{\#pragma once}}
-\DoxyCodeLine{5 }
-\DoxyCodeLine{6 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{peridigm__block_8hpp}{peridigm\_block.hpp}}"{}}}
-\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{peridigm__boundary__condition_8hpp}{peridigm\_boundary\_condition.hpp}}"{}}}
-\DoxyCodeLine{8 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{peridigm__damage__model_8hpp}{peridigm\_damage\_model.hpp}}"{}}}
-\DoxyCodeLine{9 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{peridigm__discretization_8hpp}{peridigm\_discretization.hpp}}"{}}}
-\DoxyCodeLine{10 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{peridigm__material_8hpp}{peridigm\_material.hpp}}"{}}}
-\DoxyCodeLine{11 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{peridigm__settings_8hpp}{peridigm\_settings.hpp}}"{}}}
-\DoxyCodeLine{12 \textcolor{preprocessor}{\#include <string>}}
-\DoxyCodeLine{13 }
-\DoxyCodeLine{14 }
-\DoxyCodeLine{15 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacenetdem}{netdem}} \{}
-\DoxyCodeLine{16 }
-\DoxyCodeLine{17 \textcolor{keyword}{class }\mbox{\hyperlink{classnetdem_1_1_peri_digm_simulator}{PeriDigmSimulator}} \{}
-\DoxyCodeLine{18 \textcolor{keyword}{public}:}
-\DoxyCodeLine{19   \mbox{\hyperlink{classnetdem_1_1_peri_digm_discretization}{PeriDigmDiscretization}} \mbox{\hyperlink{classnetdem_1_1_peri_digm_simulator_ab035db66b61dc4930472d8314b38a3e7}{discretization}};}
-\DoxyCodeLine{20 }
-\DoxyCodeLine{21   \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<PeriDigmMaterial>}} \mbox{\hyperlink{classnetdem_1_1_peri_digm_simulator_a56d8f0f0128190feca549784f62bb3f7}{materials}};}
-\DoxyCodeLine{22 }
-\DoxyCodeLine{23   \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<PeriDigmDamageModel>}} \mbox{\hyperlink{classnetdem_1_1_peri_digm_simulator_af335233bb9e0d0e6b66244bb82bb9231}{damage\_models}};}
-\DoxyCodeLine{24 }
-\DoxyCodeLine{25   \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<PeriDigmBlock>}} \mbox{\hyperlink{classnetdem_1_1_peri_digm_simulator_a83a16b4feb413975e9f5774f09c54e6d}{blocks}};}
-\DoxyCodeLine{26 }
-\DoxyCodeLine{27   \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<PeriDigmBoundaryCondition>}} \mbox{\hyperlink{classnetdem_1_1_peri_digm_simulator_aa3a0cf55725ce3cd5fb87dde5f9ff2fe}{boundary\_conditions}};}
-\DoxyCodeLine{28 }
-\DoxyCodeLine{29   \mbox{\hyperlink{classnetdem_1_1_peri_digm_settings}{PeriDigmSettings}} \mbox{\hyperlink{classnetdem_1_1_peri_digm_simulator_a96467343a8eff2956d09dea1e362fbe1}{settings}};}
-\DoxyCodeLine{30 }
-\DoxyCodeLine{31 \textcolor{keyword}{public}:}
-\DoxyCodeLine{32   \mbox{\hyperlink{classnetdem_1_1_peri_digm_simulator_a781fa33dc4a56a10f2f50a204827a70b}{PeriDigmSimulator}}();}
-\DoxyCodeLine{33 }
-\DoxyCodeLine{34   \mbox{\hyperlink{classnetdem_1_1_peri_digm_material}{PeriDigmMaterial}} *\mbox{\hyperlink{classnetdem_1_1_peri_digm_simulator_a1a8761c654a7eaedce4cf4ee79a1904e}{InsertMaterial}}();}
-\DoxyCodeLine{35   \mbox{\hyperlink{classnetdem_1_1_peri_digm_damage_model}{PeriDigmDamageModel}} *\mbox{\hyperlink{classnetdem_1_1_peri_digm_simulator_a9a4ce26a53c23278d796e1d4d63c5ce4}{InsertDamageModel}}();}
-\DoxyCodeLine{36   \mbox{\hyperlink{classnetdem_1_1_peri_digm_block}{PeriDigmBlock}} *\mbox{\hyperlink{classnetdem_1_1_peri_digm_simulator_a947a689863242e889b11abf08d6a01ae}{InsertBlock}}();}
-\DoxyCodeLine{37   \mbox{\hyperlink{classnetdem_1_1_peri_digm_boundary_condition}{PeriDigmBoundaryCondition}} *\mbox{\hyperlink{classnetdem_1_1_peri_digm_simulator_a26d03daac0f253b501ed281dc2353291}{InsertBoundaryCondition}}();}
-\DoxyCodeLine{38 }
-\DoxyCodeLine{39   \textcolor{keywordtype}{void} \mbox{\hyperlink{classnetdem_1_1_peri_digm_simulator_aabd62ede5cfc57d6b5a48cbcbfb2d622}{Clear}}();}
-\DoxyCodeLine{40 }
-\DoxyCodeLine{41   \textcolor{comment}{// init default setup based on discretization and using default material and}}
-\DoxyCodeLine{42   \textcolor{comment}{// damage model}}
-\DoxyCodeLine{43   \textcolor{keywordtype}{void} \mbox{\hyperlink{classnetdem_1_1_peri_digm_simulator_a3b709a5c6fbb1242f0933d2b2e22d001}{InitDefaultSetup}}();}
-\DoxyCodeLine{44 }
-\DoxyCodeLine{45   \textcolor{keywordtype}{void} \mbox{\hyperlink{classnetdem_1_1_peri_digm_simulator_ac8bba1125afa31df6d9dab0a90bd3ee9}{InitAutoTimestep}}();}
-\DoxyCodeLine{46 }
-\DoxyCodeLine{47   \textcolor{keywordtype}{void} \mbox{\hyperlink{classnetdem_1_1_peri_digm_simulator_ad5026ff38ed29212f2b069749e0a9008}{WriteNodeFile}}();}
-\DoxyCodeLine{48 }
-\DoxyCodeLine{49   \textcolor{keywordtype}{void} \mbox{\hyperlink{classnetdem_1_1_peri_digm_simulator_aeedbe82e9e72e832c49957517710dae4}{WriteNodeSetFile}}();}
-\DoxyCodeLine{50 }
-\DoxyCodeLine{51   \textcolor{keywordtype}{void} \mbox{\hyperlink{classnetdem_1_1_peri_digm_simulator_a4af67c7987edf7d153e0e9d6461ae3e4}{WriteInputFile}}();}
-\DoxyCodeLine{52 }
-\DoxyCodeLine{53   \textcolor{keywordtype}{void} \mbox{\hyperlink{classnetdem_1_1_peri_digm_simulator_ab82edc5823a57bc171c5676a30036900}{Solve}}(\textcolor{keywordtype}{double} mech\_time);}
-\DoxyCodeLine{54 }
-\DoxyCodeLine{55   \textcolor{keywordtype}{void} \mbox{\hyperlink{classnetdem_1_1_peri_digm_simulator_a6cc60d9c4a6e1a8b5302a98d5e040fcc}{SetUpResultDirectory}}();}
-\DoxyCodeLine{56   \textcolor{keywordtype}{void} \mbox{\hyperlink{classnetdem_1_1_peri_digm_simulator_ac5475ca58f171b16b322a10f821c0748}{CleanUpResultDirectory}}();}
-\DoxyCodeLine{57 \};}
-\DoxyCodeLine{58 }
-\DoxyCodeLine{59 \} \textcolor{comment}{// namespace netdem}}
+\DoxyCodeLine{00001\ \textcolor{comment}{//\ Originates\ from\ Fan\ Zhu.\ Modified\ by\ Zhengshou\ Lai\ to\ be\ coupled\ with\ NetDEM}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ by\ Sep\ 12,\ 2021}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{peridigm__block_8hpp}{peridigm\_block.hpp}}"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{peridigm__boundary__condition_8hpp}{peridigm\_boundary\_condition.hpp}}"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{peridigm__damage__model_8hpp}{peridigm\_damage\_model.hpp}}"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{peridigm__discretization_8hpp}{peridigm\_discretization.hpp}}"{}}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{peridigm__material_8hpp}{peridigm\_material.hpp}}"{}}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{peridigm__settings_8hpp}{peridigm\_settings.hpp}}"{}}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacenetdem}{netdem}}\ \{}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classnetdem_1_1_peri_digm_simulator}{PeriDigmSimulator}}\ \{}
+\DoxyCodeLine{00017\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00018\ \ \ \mbox{\hyperlink{classnetdem_1_1_peri_digm_discretization}{PeriDigmDiscretization}}\ \mbox{\hyperlink{classnetdem_1_1_peri_digm_simulator_ab035db66b61dc4930472d8314b38a3e7}{discretization}};}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \ \ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<PeriDigmMaterial>}}\ \mbox{\hyperlink{classnetdem_1_1_peri_digm_simulator_a56d8f0f0128190feca549784f62bb3f7}{materials}};}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \ \ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<PeriDigmDamageModel>}}\ \mbox{\hyperlink{classnetdem_1_1_peri_digm_simulator_af335233bb9e0d0e6b66244bb82bb9231}{damage\_models}};}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \ \ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<PeriDigmBlock>}}\ \mbox{\hyperlink{classnetdem_1_1_peri_digm_simulator_a83a16b4feb413975e9f5774f09c54e6d}{blocks}};}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \ \ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<PeriDigmBoundaryCondition>}}\ \mbox{\hyperlink{classnetdem_1_1_peri_digm_simulator_aa3a0cf55725ce3cd5fb87dde5f9ff2fe}{boundary\_conditions}};}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \ \ \mbox{\hyperlink{classnetdem_1_1_peri_digm_settings}{PeriDigmSettings}}\ \mbox{\hyperlink{classnetdem_1_1_peri_digm_simulator_a96467343a8eff2956d09dea1e362fbe1}{settings}};}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00031\ \ \ \mbox{\hyperlink{classnetdem_1_1_peri_digm_simulator_a781fa33dc4a56a10f2f50a204827a70b}{PeriDigmSimulator}}();}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \ \ \mbox{\hyperlink{classnetdem_1_1_peri_digm_material}{PeriDigmMaterial}}\ *\mbox{\hyperlink{classnetdem_1_1_peri_digm_simulator_a1a8761c654a7eaedce4cf4ee79a1904e}{InsertMaterial}}();}
+\DoxyCodeLine{00034\ \ \ \mbox{\hyperlink{classnetdem_1_1_peri_digm_damage_model}{PeriDigmDamageModel}}\ *\mbox{\hyperlink{classnetdem_1_1_peri_digm_simulator_a9a4ce26a53c23278d796e1d4d63c5ce4}{InsertDamageModel}}();}
+\DoxyCodeLine{00035\ \ \ \mbox{\hyperlink{classnetdem_1_1_peri_digm_block}{PeriDigmBlock}}\ *\mbox{\hyperlink{classnetdem_1_1_peri_digm_simulator_a947a689863242e889b11abf08d6a01ae}{InsertBlock}}();}
+\DoxyCodeLine{00036\ \ \ \mbox{\hyperlink{classnetdem_1_1_peri_digm_boundary_condition}{PeriDigmBoundaryCondition}}\ *\mbox{\hyperlink{classnetdem_1_1_peri_digm_simulator_a26d03daac0f253b501ed281dc2353291}{InsertBoundaryCondition}}();}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_peri_digm_simulator_aabd62ede5cfc57d6b5a48cbcbfb2d622}{Clear}}();}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \ \ \textcolor{comment}{//\ init\ default\ setup\ based\ on\ discretization\ and\ using\ default\ material\ and}}
+\DoxyCodeLine{00041\ \ \ \textcolor{comment}{//\ damage\ model}}
+\DoxyCodeLine{00042\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_peri_digm_simulator_a3b709a5c6fbb1242f0933d2b2e22d001}{InitDefaultSetup}}();}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_peri_digm_simulator_ac8bba1125afa31df6d9dab0a90bd3ee9}{InitAutoTimestep}}();}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_peri_digm_simulator_ad5026ff38ed29212f2b069749e0a9008}{WriteNodeFile}}();}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_peri_digm_simulator_aeedbe82e9e72e832c49957517710dae4}{WriteNodeSetFile}}();}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_peri_digm_simulator_a4af67c7987edf7d153e0e9d6461ae3e4}{WriteInputFile}}();}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_peri_digm_simulator_ab82edc5823a57bc171c5676a30036900}{Solve}}(\textcolor{keywordtype}{double}\ mech\_time);}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_peri_digm_simulator_a6cc60d9c4a6e1a8b5302a98d5e040fcc}{SetUpResultDirectory}}();}
+\DoxyCodeLine{00055\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_peri_digm_simulator_ac5475ca58f171b16b322a10f821c0748}{CleanUpResultDirectory}}();}
+\DoxyCodeLine{00056\ \};}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \}\ \textcolor{comment}{//\ namespace\ netdem}}
 
 \end{DoxyCode}

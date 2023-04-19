@@ -1,47 +1,48 @@
 \hypertarget{peridigm__material_8hpp_source}{}\doxysection{peridigm\+\_\+material.\+hpp}
-\label{peridigm__material_8hpp_source}\index{/Users/lzhshou/Documents/Research/myProjects/apam/repo/netdem/src/peridigm/peridigm\_material.hpp@{/Users/lzhshou/Documents/Research/myProjects/apam/repo/netdem/src/peridigm/peridigm\_material.hpp}}
+\label{peridigm__material_8hpp_source}\index{/Users/lzhshou/Documents/Research/myProjects/apaam/repo/netdem/src/peridigm/peridigm\_material.hpp@{/Users/lzhshou/Documents/Research/myProjects/apaam/repo/netdem/src/peridigm/peridigm\_material.hpp}}
 \mbox{\hyperlink{peridigm__material_8hpp}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
-\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
-\DoxyCodeLine{2 }
-\DoxyCodeLine{3 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{utils__io_8hpp}{utils\_io.hpp}}"{}}}
-\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <cmath>}}
-\DoxyCodeLine{5 }
-\DoxyCodeLine{6 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacenetdem}{netdem}} \{}
-\DoxyCodeLine{7 }
-\DoxyCodeLine{8 \textcolor{keyword}{class }\mbox{\hyperlink{classnetdem_1_1_peri_digm_material}{PeriDigmMaterial}} \{}
-\DoxyCodeLine{9 \textcolor{keyword}{public}:}
-\DoxyCodeLine{10   \textcolor{keyword}{enum} \mbox{\hyperlink{classnetdem_1_1_peri_digm_material_af84a9833d460b55e6dd0415ca65d19e1}{Type}} \{ \mbox{\hyperlink{classnetdem_1_1_peri_digm_material_af84a9833d460b55e6dd0415ca65d19e1af1c23eb067332e07e81c31cdad513101}{Elastic}} \};}
-\DoxyCodeLine{11 }
-\DoxyCodeLine{12   \mbox{\hyperlink{classnetdem_1_1_peri_digm_material_af84a9833d460b55e6dd0415ca65d19e1}{Type}} \mbox{\hyperlink{classnetdem_1_1_peri_digm_material_a00dd07484fd4de87da54bfead91ac6ab}{type}}\{Type::Elastic\};}
-\DoxyCodeLine{13 }
-\DoxyCodeLine{14   \textcolor{comment}{// density of sand}}
-\DoxyCodeLine{15   \textcolor{keywordtype}{double} \mbox{\hyperlink{classnetdem_1_1_peri_digm_material_ac670d6ba97d9de6ea0a031b952dcfaab}{density}} = 2650.0;}
-\DoxyCodeLine{16 }
-\DoxyCodeLine{17   \textcolor{comment}{// Peridigm parameters}}
-\DoxyCodeLine{18   \textcolor{keywordtype}{double} \mbox{\hyperlink{classnetdem_1_1_peri_digm_material_a563683537747a6383015b5aa5754a56b}{youngs\_modulus}} = 70.0e9;}
-\DoxyCodeLine{19   \textcolor{keywordtype}{double} \mbox{\hyperlink{classnetdem_1_1_peri_digm_material_a1b8cd989a1445c6439719f191147c73d}{poissons\_ratio}} = 0.15;}
-\DoxyCodeLine{20 }
-\DoxyCodeLine{21   \textcolor{keywordtype}{void} \mbox{\hyperlink{classnetdem_1_1_peri_digm_material_ab58c372cf0bf106be0087bddecd08319}{WriteInputFile}}(std::ostream \&os, \textcolor{keywordtype}{int} material\_id) \{}
-\DoxyCodeLine{22     os << \textcolor{stringliteral}{"{}    My Material "{}} + std::to\_string(material\_id + 1) + \textcolor{stringliteral}{"{}: "{}}}
-\DoxyCodeLine{23        << std::endl;}
-\DoxyCodeLine{24     \textcolor{keywordflow}{switch} (\mbox{\hyperlink{classnetdem_1_1_peri_digm_material_a00dd07484fd4de87da54bfead91ac6ab}{type}}) \{}
-\DoxyCodeLine{25     \textcolor{keywordflow}{case} Type::Elastic:}
-\DoxyCodeLine{26       os << \textcolor{stringliteral}{"{}      Material Model : \(\backslash\)"{}Elastic\(\backslash\)"{}"{}} << std::endl;}
-\DoxyCodeLine{27       os << \textcolor{stringliteral}{"{}      Density: "{}} + \mbox{\hyperlink{namespacenetdem_a36163f6d1b2423305f3c293ca0477c26}{my\_to\_string}}(\mbox{\hyperlink{classnetdem_1_1_peri_digm_material_ac670d6ba97d9de6ea0a031b952dcfaab}{density}}) << std::endl;}
-\DoxyCodeLine{28       os << \textcolor{stringliteral}{"{}      Young's Modulus: "{}} + \mbox{\hyperlink{namespacenetdem_a36163f6d1b2423305f3c293ca0477c26}{my\_to\_string}}(\mbox{\hyperlink{classnetdem_1_1_peri_digm_material_a563683537747a6383015b5aa5754a56b}{youngs\_modulus}})}
-\DoxyCodeLine{29          << std::endl;}
-\DoxyCodeLine{30       os << \textcolor{stringliteral}{"{}      Poisson's Ratio: "{}} + \mbox{\hyperlink{namespacenetdem_a36163f6d1b2423305f3c293ca0477c26}{my\_to\_string}}(\mbox{\hyperlink{classnetdem_1_1_peri_digm_material_a1b8cd989a1445c6439719f191147c73d}{poissons\_ratio}})}
-\DoxyCodeLine{31          << std::endl;}
-\DoxyCodeLine{32       \textcolor{keywordflow}{break};}
-\DoxyCodeLine{33 }
-\DoxyCodeLine{34     \textcolor{keywordflow}{default}:}
-\DoxyCodeLine{35       \mbox{\hyperlink{namespacenetdem_a9cc6e69a72a52a154aa434f1e91ba6a6}{PrintError}}(\textcolor{stringliteral}{"{}in PeriDigmMaterial::WriteToFile, material type not defined"{}});}
-\DoxyCodeLine{36       \textcolor{keywordflow}{break};}
-\DoxyCodeLine{37     \}}
-\DoxyCodeLine{38   \}}
-\DoxyCodeLine{39 \};}
-\DoxyCodeLine{40 }
-\DoxyCodeLine{41 \} \textcolor{comment}{// namespace netdem}}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{utils__io_8hpp}{utils\_io.hpp}}"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <cmath>}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacenetdem}{netdem}}\ \{}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classnetdem_1_1_peri_digm_material}{PeriDigmMaterial}}\ \{}
+\DoxyCodeLine{00009\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00010\ \ \ \textcolor{keyword}{enum}\ \mbox{\hyperlink{classnetdem_1_1_peri_digm_material_af84a9833d460b55e6dd0415ca65d19e1}{Type}}\ \{\ \mbox{\hyperlink{classnetdem_1_1_peri_digm_material_af84a9833d460b55e6dd0415ca65d19e1af1c23eb067332e07e81c31cdad513101}{Elastic}}\ \};}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \ \ \mbox{\hyperlink{classnetdem_1_1_peri_digm_material_af84a9833d460b55e6dd0415ca65d19e1}{Type}}\ \mbox{\hyperlink{classnetdem_1_1_peri_digm_material_a00dd07484fd4de87da54bfead91ac6ab}{type}}\{\mbox{\hyperlink{classnetdem_1_1_peri_digm_material_af84a9833d460b55e6dd0415ca65d19e1af1c23eb067332e07e81c31cdad513101}{Type::Elastic}}\};}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \ \ \textcolor{comment}{//\ density\ of\ sand}}
+\DoxyCodeLine{00015\ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classnetdem_1_1_peri_digm_material_ac670d6ba97d9de6ea0a031b952dcfaab}{density}}\ =\ 2650.0;}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \ \ \textcolor{comment}{//\ Peridigm\ parameters}}
+\DoxyCodeLine{00018\ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classnetdem_1_1_peri_digm_material_a563683537747a6383015b5aa5754a56b}{youngs\_modulus}}\ =\ 70.0e9;}
+\DoxyCodeLine{00019\ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classnetdem_1_1_peri_digm_material_a1b8cd989a1445c6439719f191147c73d}{poissons\_ratio}}\ =\ 0.15;}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_peri_digm_material_ab58c372cf0bf106be0087bddecd08319}{WriteInputFile}}(std::ostream\ \&os,\ \textcolor{keywordtype}{int}\ material\_id)\ \{}
+\DoxyCodeLine{00022\ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\ \ \ \ My\ Material\ "{}}\ +\ std::to\_string(material\_id\ +\ 1)\ +\ \textcolor{stringliteral}{"{}:\ "{}}}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ <<\ std::endl;}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordflow}{switch}\ (\mbox{\hyperlink{classnetdem_1_1_peri_digm_material_a00dd07484fd4de87da54bfead91ac6ab}{type}})\ \{}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{classnetdem_1_1_peri_digm_material_af84a9833d460b55e6dd0415ca65d19e1af1c23eb067332e07e81c31cdad513101}{Type::Elastic}}:}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\ \ \ \ \ \ Material\ Model\ :\ \(\backslash\)"{}Elastic\(\backslash\)"{}"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\ \ \ \ \ \ Density:\ "{}}\ +\ \mbox{\hyperlink{namespacenetdem_1_1_i_o_aeffcbe77e69d20f81ab94571742c44d2}{IO::to\_string}}(\mbox{\hyperlink{classnetdem_1_1_peri_digm_material_ac670d6ba97d9de6ea0a031b952dcfaab}{density}})\ <<\ std::endl;}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\ \ \ \ \ \ Young's\ Modulus:\ "{}}\ +\ \mbox{\hyperlink{namespacenetdem_1_1_i_o_aeffcbe77e69d20f81ab94571742c44d2}{IO::to\_string}}(\mbox{\hyperlink{classnetdem_1_1_peri_digm_material_a563683537747a6383015b5aa5754a56b}{youngs\_modulus}})}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \ <<\ std::endl;}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\ \ \ \ \ \ Poisson's\ Ratio:\ "{}}\ +\ \mbox{\hyperlink{namespacenetdem_1_1_i_o_aeffcbe77e69d20f81ab94571742c44d2}{IO::to\_string}}(\mbox{\hyperlink{classnetdem_1_1_peri_digm_material_a1b8cd989a1445c6439719f191147c73d}{poissons\_ratio}})}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \ <<\ std::endl;}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \mbox{\hyperlink{namespacenetdem_1_1_i_o_a015fb6e06d3b796b6b5fd1f33f61e08e}{IO::PrintError}}(}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}in\ PeriDigmMaterial::WriteToFile,\ material\ type\ not\ defined"{}});}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00038\ \ \ \ \ \}}
+\DoxyCodeLine{00039\ \ \ \}}
+\DoxyCodeLine{00040\ \};}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \}\ \textcolor{comment}{//\ namespace\ netdem}}
 
 \end{DoxyCode}

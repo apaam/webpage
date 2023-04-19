@@ -1,42 +1,42 @@
 \hypertarget{level__set__function_8hpp_source}{}\doxysection{level\+\_\+set\+\_\+function.\+hpp}
-\label{level__set__function_8hpp_source}\index{/Users/lzhshou/Documents/Research/myProjects/apam/repo/netdem/src/utils/level\_set\_function.hpp@{/Users/lzhshou/Documents/Research/myProjects/apam/repo/netdem/src/utils/level\_set\_function.hpp}}
+\label{level__set__function_8hpp_source}\index{/Users/lzhshou/Documents/Research/myProjects/apaam/repo/netdem/src/utils/level\_set\_function.hpp@{/Users/lzhshou/Documents/Research/myProjects/apaam/repo/netdem/src/utils/level\_set\_function.hpp}}
 \mbox{\hyperlink{level__set__function_8hpp}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
-\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
-\DoxyCodeLine{2 }
-\DoxyCodeLine{3 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{igl__wrapper_8hpp}{igl\_wrapper.hpp}}"{}}}
-\DoxyCodeLine{4 }
-\DoxyCodeLine{5 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespacenetdem}{netdem}} \{}
-\DoxyCodeLine{6 }
-\DoxyCodeLine{7 \textcolor{keyword}{class }\mbox{\hyperlink{classnetdem_1_1_level_set_function}{LevelSetFunction}} \{}
-\DoxyCodeLine{8 \textcolor{keyword}{public}:}
-\DoxyCodeLine{9   \textcolor{comment}{// assuming same spacing in each dimension}}
-\DoxyCodeLine{10   \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \mbox{\hyperlink{classnetdem_1_1_level_set_function_acfb778a8a5ea6b51e26ca3970397a188}{corner}}\{-\/0.5, -\/0.5, -\/0.5\};}
-\DoxyCodeLine{11   \textcolor{keywordtype}{double} \mbox{\hyperlink{classnetdem_1_1_level_set_function_abeaa5ab15f7d74ab088e141c13c6a942}{spacing}}\{0.05\};}
-\DoxyCodeLine{12   \mbox{\hyperlink{namespacenetdem_a28e1404c8ce46c48bc78f553bd555980}{Vec3i}} \mbox{\hyperlink{classnetdem_1_1_level_set_function_a4b0a119cdd781659cfefb5eac62771d3}{dim}}\{21, 21, 21\};}
-\DoxyCodeLine{13 }
-\DoxyCodeLine{14   \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<VecXT<VecXT<double>}}>> \mbox{\hyperlink{classnetdem_1_1_level_set_function_ad3480650de5417e72b73213f2965eabc}{signed\_distance\_table}};}
-\DoxyCodeLine{15 }
-\DoxyCodeLine{16   \mbox{\hyperlink{classnetdem_1_1_level_set_function_ab8fc41dd619285db35e31143a2f2fec9}{LevelSetFunction}}();}
-\DoxyCodeLine{17 }
-\DoxyCodeLine{18   \textcolor{keywordtype}{void} \mbox{\hyperlink{classnetdem_1_1_level_set_function_a969f2e4e9bcf95783c2e539f9f711997}{SetCorner}}(\textcolor{keywordtype}{double} corner\_x, \textcolor{keywordtype}{double} corner\_y, \textcolor{keywordtype}{double} corner\_z);}
-\DoxyCodeLine{19   \textcolor{keywordtype}{void} \mbox{\hyperlink{classnetdem_1_1_level_set_function_a7e42b7c324079551fa139636a1102354}{SetSpacing}}(\textcolor{keywordtype}{double} sp);}
-\DoxyCodeLine{20   \textcolor{keywordtype}{void} \mbox{\hyperlink{classnetdem_1_1_level_set_function_a7a525211c0403b5af9e8beca4d4113ed}{SetDimension}}(\textcolor{keywordtype}{double} dim\_x, \textcolor{keywordtype}{double} dim\_y, \textcolor{keywordtype}{double} dim\_z);}
-\DoxyCodeLine{21 }
-\DoxyCodeLine{22   \textcolor{keywordtype}{void} \mbox{\hyperlink{classnetdem_1_1_level_set_function_adfbd8c1021b826d7b7999c1cb00549ee}{InitFromSDFCalculator}}(\textcolor{keyword}{const} \mbox{\hyperlink{classnetdem_1_1_s_d_f_calculator}{SDFCalculator}} \&sdf\_calculator);}
-\DoxyCodeLine{23 }
-\DoxyCodeLine{24   \textcolor{keywordtype}{double} \mbox{\hyperlink{classnetdem_1_1_level_set_function_ad71658ed8d16ab86e71c366edec57031}{SignedDistance}}(\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \textcolor{keyword}{const} \&pos);}
-\DoxyCodeLine{25 }
-\DoxyCodeLine{26   \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \mbox{\hyperlink{classnetdem_1_1_level_set_function_aa49aefb3ba2957ac85829b721e678a50}{GradientInterpolate}}(\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \textcolor{keyword}{const} \&pos);}
-\DoxyCodeLine{27 }
-\DoxyCodeLine{28   \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \mbox{\hyperlink{classnetdem_1_1_level_set_function_a5cc6ca90e74f22ec85606f169e080be5}{GradientMinus}}(\textcolor{keywordtype}{int} i, \textcolor{keywordtype}{int} j, \textcolor{keywordtype}{int} k);}
-\DoxyCodeLine{29   \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \mbox{\hyperlink{classnetdem_1_1_level_set_function_a3bb94ab6373461afc05a4689d5ef32f8}{GradientPlus}}(\textcolor{keywordtype}{int} i, \textcolor{keywordtype}{int} j, \textcolor{keywordtype}{int} k);}
-\DoxyCodeLine{30 }
-\DoxyCodeLine{31   \textcolor{keywordtype}{void} \mbox{\hyperlink{classnetdem_1_1_level_set_function_a06ac63b63cb63bfa7110cdb75ff80268}{Reinitialization}}(\textcolor{keywordtype}{int} iter, \textcolor{keywordtype}{double} dt);}
-\DoxyCodeLine{32 }
-\DoxyCodeLine{33   \textcolor{keywordtype}{void} \mbox{\hyperlink{classnetdem_1_1_level_set_function_a06ac63b63cb63bfa7110cdb75ff80268}{Reinitialization}}();}
-\DoxyCodeLine{34 \};}
-\DoxyCodeLine{35 }
-\DoxyCodeLine{36 \} \textcolor{comment}{// namespace netdem}}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{igl__wrapper_8hpp}{igl\_wrapper.hpp}}"{}}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacenetdem}{netdem}}\ \{}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classnetdem_1_1_level_set_function}{LevelSetFunction}}\ \{}
+\DoxyCodeLine{00008\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00009\ \ \ \textcolor{comment}{//\ assuming\ same\ spacing\ in\ each\ dimension}}
+\DoxyCodeLine{00010\ \ \ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ \mbox{\hyperlink{classnetdem_1_1_level_set_function_acfb778a8a5ea6b51e26ca3970397a188}{corner}}\{-\/0.5,\ -\/0.5,\ -\/0.5\};}
+\DoxyCodeLine{00011\ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classnetdem_1_1_level_set_function_abeaa5ab15f7d74ab088e141c13c6a942}{spacing}}\{0.05\};}
+\DoxyCodeLine{00012\ \ \ \mbox{\hyperlink{namespacenetdem_a28e1404c8ce46c48bc78f553bd555980}{Vec3i}}\ \mbox{\hyperlink{classnetdem_1_1_level_set_function_a4b0a119cdd781659cfefb5eac62771d3}{dim}}\{21,\ 21,\ 21\};}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \ \ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<VecXT<VecXT<double>}}>>\ \mbox{\hyperlink{classnetdem_1_1_level_set_function_ad3480650de5417e72b73213f2965eabc}{signed\_distance\_table}};}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \ \ \mbox{\hyperlink{classnetdem_1_1_level_set_function_ab8fc41dd619285db35e31143a2f2fec9}{LevelSetFunction}}();}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_level_set_function_a969f2e4e9bcf95783c2e539f9f711997}{SetCorner}}(\textcolor{keywordtype}{double}\ corner\_x,\ \textcolor{keywordtype}{double}\ corner\_y,\ \textcolor{keywordtype}{double}\ corner\_z);}
+\DoxyCodeLine{00019\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_level_set_function_a7e42b7c324079551fa139636a1102354}{SetSpacing}}(\textcolor{keywordtype}{double}\ sp);}
+\DoxyCodeLine{00020\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_level_set_function_a7a525211c0403b5af9e8beca4d4113ed}{SetDimension}}(\textcolor{keywordtype}{double}\ dim\_x,\ \textcolor{keywordtype}{double}\ dim\_y,\ \textcolor{keywordtype}{double}\ dim\_z);}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_level_set_function_adfbd8c1021b826d7b7999c1cb00549ee}{InitFromSDFCalculator}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classnetdem_1_1_s_d_f_calculator}{SDFCalculator}}\ \&sdf\_calculator);}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classnetdem_1_1_level_set_function_ad31814e2774d57718f3a694057689f73}{SignedDistance}}(\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ \textcolor{keyword}{const}\ \&pos)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \ \ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ \mbox{\hyperlink{classnetdem_1_1_level_set_function_aa49aefb3ba2957ac85829b721e678a50}{GradientInterpolate}}(\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ \textcolor{keyword}{const}\ \&pos);}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \ \ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ \mbox{\hyperlink{classnetdem_1_1_level_set_function_a5cc6ca90e74f22ec85606f169e080be5}{GradientMinus}}(\textcolor{keywordtype}{int}\ i,\ \textcolor{keywordtype}{int}\ j,\ \textcolor{keywordtype}{int}\ k);}
+\DoxyCodeLine{00029\ \ \ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ \mbox{\hyperlink{classnetdem_1_1_level_set_function_a3bb94ab6373461afc05a4689d5ef32f8}{GradientPlus}}(\textcolor{keywordtype}{int}\ i,\ \textcolor{keywordtype}{int}\ j,\ \textcolor{keywordtype}{int}\ k);}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_level_set_function_a06ac63b63cb63bfa7110cdb75ff80268}{Reinitialization}}(\textcolor{keywordtype}{int}\ iter,\ \textcolor{keywordtype}{double}\ dt);}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_level_set_function_a06ac63b63cb63bfa7110cdb75ff80268}{Reinitialization}}();}
+\DoxyCodeLine{00034\ \};}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \}\ \textcolor{comment}{//\ namespace\ netdem}}
 
 \end{DoxyCode}
