@@ -67,13 +67,13 @@
             
             
             
-                <li class="dropdown active">
+                <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Documentation <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                     
                         
-                            <li class="active">
-                                 <a href="./">User manual</a>
+                            <li >
+                                 <a href="../user_manual/">User manual</a>
                             </li>
                         
                     
@@ -201,10 +201,22 @@
         <li class="main active"><a href="#_1"></a></li>
         
     
-        <li class="main "><a href="#user-manual">User manual</a></li>
+        <li class="main "><a href="#tetmesh">TetMesh</a></li>
+        
+            <li><a href="#constructor"> &#9731; Constructor</a></li>
+        
+            <li><a href="#attribution"> &#9731; Attribution</a></li>
+        
+            <li><a href="#methods"> &#9731; Methods</a></li>
         
     
-        <li class="main "><a href="#class-reference">Class reference</a></li>
+        <li class="main "><a href="#membrane">Membrane</a></li>
+        
+            <li><a href="#constructor_1"> &#9731; Constructor</a></li>
+        
+            <li><a href="#attributes"> &#9731; Attributes</a></li>
+        
+            <li><a href="#methods_1"> &#9731; Methods</a></li>
         
     
     </ul>
@@ -215,10 +227,22 @@
         <li class="main active"><a href="#_1"></a></li>
         
     
-        <li class="main "><a href="#user-manual">User manual</a></li>
+        <li class="main "><a href="#tetmesh">TetMesh</a></li>
+        
+            <li><a href="#constructor"> &#9731; Constructor</a></li>
+        
+            <li><a href="#attribution"> &#9731; Attribution</a></li>
+        
+            <li><a href="#methods"> &#9731; Methods</a></li>
         
     
-        <li class="main "><a href="#class-reference">Class reference</a></li>
+        <li class="main "><a href="#membrane">Membrane</a></li>
+        
+            <li><a href="#constructor_1"> &#9731; Constructor</a></li>
+        
+            <li><a href="#attributes"> &#9731; Attributes</a></li>
+        
+            <li><a href="#methods_1"> &#9731; Methods</a></li>
         
     
     </ul>
@@ -226,24 +250,122 @@
             <div class="col-md-9" role="main">
 
 <h3 id="_1"></h3>
-<h3 id="user-manual">User manual</h3>
-<p><a href="../installation/">Installation</a>: installation, test, and dependencies, etc.</p>
-<p><a href="../basic_usage/">Basic usage</a>: running simulation, particle shape reconstruction, post-processing, etc.</p>
-<p><a href="../paraview_rendering/">Paraview rendering</a>: hints and procedures in paraview visualization.</p>
-<p><a href="../blender_rendering/">Blender rendering</a>: hints and procedures in blender visualization.</p>
-<p><a href="../cfddem_simulation/">CFD-DEM simulation</a>: coupled CFD-DEM simulation using OpenFOAM NetDEM.</p>
-<h3 id="class-reference">Class reference</h3>
-<p><a href="../ref_dem/">dem</a>: defines the basic classes for dem calculations, including contact model, contact solver, etc.</p>
-<p><a href="../ref_domain/">domain</a>:</p>
-<p><a href="../ref_fem/">fem</a>:</p>
-<p><a href="../ref_modifier/">modifier</a>: </p>
-<p><a href="../ref_mpi/">mpi</a>: </p>
-<p><a href="../ref_netdem/">netdem</a>: </p>
-<p><a href="../ref_peridigm/">peridigm</a>: </p>
-<p><a href="../ref_scene/">scene</a>: defines the basic classes for DEM units, including Scene, Particle, Wall, ContactPP, etc.</p>
-<p><a href="../ref_shape/">shape</a>: defines the basic classes for DEM different shapes, including Sphere, Ellipsoid, TriMesh, etc. </p>
-<p><a href="../ref_simulation/">simulation</a>: declares the basic simulation classes for the simulation, incluidng domain_manager, mpi_manager, modifier_manager, scene, dem_solver, mech_time, mech_cycles, enable_logging.</p>
-<p><a href="../ref_utils/">utils</a>: defines the basic classes for calculation, including Math, STLReader, STLModel, etc.</p></div>
+<p><a href="../user_manual/">User manual</a>
+┊ <a href="../ref_dem/">Previous</a>
+┊ <a href="../ref_domain/">Next</a></p>
+<hr />
+<h3 id="tetmesh">TetMesh</h3>
+<p>This class represents a tetrahedral mesh.</p>
+<h4 id="constructor">Constructor</h4>
+<h5 id="tetmesh_1"><code>TetMesh()</code></h5>
+<p>Creates a new instance of the TetMesh class.</p>
+<h5 id="tetmeshnodes-elements-scale"><code>TetMesh(nodes, elements, scale)</code></h5>
+<p>Creates a new instance of the TetMesh class from the given nodes and elements, with the specified scale.</p>
+<ul>
+<li><code>nodes</code> (list of Vec3d): The list of nodes.</li>
+<li><code>elements</code> (list of Vec3i): The list of elements.</li>
+<li><code>scale</code> (float): The scaling factor.</li>
+</ul>
+<h4 id="attribution">Attribution</h4>
+<h5 id="nodes"><code>nodes</code></h5>
+<p>The list of nodes.</p>
+<h5 id="elements"><code>elements</code></h5>
+<p>The list of elements.</p>
+<h5 id="bound_facets"><code>bound_facets</code></h5>
+<p>The list of boundary facets.</p>
+<h5 id="bound_edges"><code>bound_edges</code></h5>
+<p>The list of boundary edges.</p>
+<h5 id="bound_nodes">bound_nodes`</h5>
+<p>The list of boundary nodes.</p>
+<h5 id="surface_nodes"><code>surface_nodes</code></h5>
+<p>The list of surface nodes.</p>
+<h5 id="surface_facets"><code>surface_facets</code></h5>
+<p>The list of surface facets.</p>
+<h5 id="surface_node_linked_boundaries"><code>surface_node_linked_boundaries</code></h5>
+<p>The list of surface node linked boundaries.</p>
+<h4 id="methods">Methods</h4>
+<h5 id="getsurfacestl"><code>GetSurfaceSTL()</code></h5>
+<p>Returns the surface mesh in STL format.</p>
+<h5 id="saveasvtkfilename"><code>SaveAsVTK(filename)</code></h5>
+<p>Saves the mesh in VTK format to the specified file.</p>
+<ul>
+<li><code>filename</code> (str): The name of the file to save to.</li>
+</ul>
+<h5 id="init"><code>Init()</code></h5>
+<p>Initializes the mesh.</p>
+<hr />
+<h3 id="membrane">Membrane</h3>
+<p>This class represents a membrane in a simulation.</p>
+<h4 id="constructor_1">Constructor</h4>
+<h5 id="__init__radius-height"><code>__init__(radius, height)</code></h5>
+<p>Creates a new instance of the PyMembrane class.</p>
+<ul>
+<li><code>radius</code> (float): The radius of the membrane.</li>
+<li><code>height</code> (float): The height of the membrane.</li>
+</ul>
+<h5 id="__init__radius-height-mesh_size"><code>__init__(radius, height, mesh_size)</code></h5>
+<p>Creates a new instance of the PyMembrane class.</p>
+<ul>
+<li><code>radius</code> (float): The radius of the membrane.</li>
+<li><code>height</code> (float): The height of the membrane.</li>
+<li><code>mesh_size</code> (float): The size of the mesh.</li>
+</ul>
+<h5 id="__init__radius-height-mesh_size-neo_k-neo_mu-density"><code>__init__(radius, height, mesh_size, neo_k, neo_mu, density)</code></h5>
+<p>Creates a new instance of the PyMembrane class.</p>
+<ul>
+<li><code>radius</code> (float): The radius of the membrane.</li>
+<li><code>height</code> (float): The height of the membrane.</li>
+<li><code>mesh_size</code> (float): The size of the mesh.</li>
+<li><code>neo_k</code> (float): The Neo-Hookean constant of the membrane.</li>
+<li><code>neo_mu</code> (float): The Neo-Hookean coefficient of the membrane.</li>
+<li><code>density</code> (float): The density of the membrane.</li>
+</ul>
+<h4 id="attributes">Attributes</h4>
+<p>radius (float): </p>
+<p>The radius of the membrane.</p>
+<p>height (float): </p>
+<p>The height of the membrane.</p>
+<p>mesh_size (float): </p>
+<p>The size of the mesh.</p>
+<p>center (tuple of floats): </p>
+<p>The center coordinates of the membrane.
+neo_k (float): The Neo-Hookean constant of the membrane.
+neo_mu (float): The Neo-Hookean coefficient of the membrane.
+density (float): The density of the membrane.
+thickness (float): The thickness of the membrane.
+damp_coef (float): The damping coefficient of the membrane.
+timestep (float): The timestep of the membrane.</p>
+<p>nodes (list of tuples of floats): The coordinates of the nodes in the membrane.
+elements (list of tuples of ints): The connectivity of the elements in the membrane.
+elemental_stress (list of tuples of floats): The elemental stress of the membrane.
+nodal_vols (list of floats): The nodal volumes of the membrane.
+nodal_vels (list of tuples of floats): The nodal velocities of the membrane.
+bc_facet_pressure (list of floats): The boundary condition pressure of the membrane.
+bc_facet_forces (list of tuples of floats): The boundary condition forces of the membrane.
+bc_nodal_vels 
+(list of tuples of floats): </p>
+<p>The boundary condition nodal velocities of the membrane.</p>
+<h4 id="methods_1">Methods</h4>
+<h5 id="remesh"><code>Remesh()</code></h5>
+<p>Remeshes the membrane.</p>
+<h5 id="setbcnodalvelocitynodal_vels"><code>SetBCNodalVelocity(nodal_vels)</code></h5>
+<p>Sets the boundary condition nodal velocities of the membrane.</p>
+<ul>
+<li><code>nodal_vels</code> (list of tuples of floats): The boundary condition nodal velocities of the membrane.</li>
+</ul>
+<h5 id="init_1"><code>Init()</code></h5>
+<p>Initializes the membrane.</p>
+<h5 id="solve"><code>Solve()</code></h5>
+<p>Solves the membrane.</p>
+<h5 id="saveasvtkfilename-str"><code>SaveAsVTK(filename: str)</code></h5>
+<p>Saves the membrane as a VTK file.</p>
+<ul>
+<li><code>filename</code> (str): The filename of the VTK file.</li>
+</ul>
+<hr />
+<p><a href="../user_manual/">User manual</a>
+┊ <a href="../ref_dem/">Previous</a>
+┊ <a href="../ref_domain/">Next</a></p></div>
             <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">

@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="https://apaam.github.io/netdem_docs/img/favicon.ico">
+        <meta name="keywords" content="Finite Element Library,Finite Element Code,Finite Element Method Library,Finite Element Method Code,Finite Element C++,Finite Element Method C++,Finite Element Library C++,Finite Element Code C++,FEM Code,FEM Library,FEM C++">
+        <meta name="google-site-verification" content="45K56TawSdzbgy-uDtfJdYwp7zaVdL3fIAGYt869wwU" />
+<!--	<title></title>  -->
+        <title>NetDEM - Neural Network Enabled Discret Element Method</title>
+
+        <link href="../../css/bootstrap-netdem.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome-4.0.3.css" rel="stylesheet">
+        <link href="../../css/highlight.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+        
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <!-- Main title -->
+            <a class="navbar-brand" href="https://apaam.github.io/netdem_docs/">NetDEM</a>
+        </div>
+
+        <script>var base_url = '../..';</script>
+        <!-- <script data-main="../../mkdocs/js/search.js" src="../../mkdocs/js/require.js"></script> -->
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            <!-- Main navigation -->
+            <ul class="nav navbar-nav">
+            
+            
+            
+            
+            
+                <li >
+                    <!-- Replace "nav_item.url|url" with "nav_item.url" for older mkdocs (before 1.0) -->
+                    <a href="../../examples/">Examples</a>
+                </li>
+            
+            
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Documentation <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+                            <li >
+                                 <a href="../user_manual/">User manual</a>
+                            </li>
+                        
+                    
+                        
+                            <li >
+                                 <a href="../developer_manual/">Developer manual</a>
+                            </li>
+                        
+                    
+                        
+                            <li >
+                                 <a href="../dem_wiki/">DEM wiki</a>
+                            </li>
+                        
+                    
+                        
+                            <li >
+                                 <a href="../../doxygen/html/">Code doxygen</a>
+                            </li>
+                        
+                    
+                    </ul>
+                </li>
+            
+            
+            
+            
+            
+                <li >
+                    <!-- Replace "nav_item.url|url" with "nav_item.url" for older mkdocs (before 1.0) -->
+                    <a href="../../download/">Download</a>
+                </li>
+            
+            
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Gallery <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+                            <li >
+                                 <a href="../../gallery/snapshots/">Snapshots</a>
+                            </li>
+                        
+                    
+                        
+                            <li >
+                                 <a href="../../gallery/animations/">Animations</a>
+                            </li>
+                        
+                    
+                    </ul>
+                </li>
+            
+            
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">About <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+                            <li >
+                                 <a href="../../about/news_%26_updates/">News & Updates</a>
+                            </li>
+                        
+                    
+                        
+                            <li >
+                                 <a href="../../about/help_%26_support/">Help & Support</a>
+                            </li>
+                        
+                    
+                        
+                            <li >
+                                 <a href="../../about/publications/">Publications</a>
+                            </li>
+                        
+                    
+                        
+                            <li >
+                                 <a href="../../about/acknowledgement/">Acknowledgements</a>
+                            </li>
+                        
+                    
+                    </ul>
+                </li>
+            
+            
+            
+            </ul>
+
+            <!-- Search, Navigation and Repo links -->
+            <ul class="nav navbar-nav navbar-right">
+                <li class="nav-item">
+                    <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                        <i class="fa fa-search"></i> Search
+                    </a>
+                </li>
+                
+                
+                <li>
+                    <a href="https://github.com/apaam/netdem_docs/">
+                        
+                            <i class="fa fa-github-square"></i>
+                        
+                        GitHub
+                    </a>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+
+        
+        <div class="container">
+            
+            <div class="col-md-3 visible-xs visible-sm"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+    
+        <li class="main active"><a href="#_1"></a></li>
+        
+    
+        <li class="main "><a href="#modifiermanager">ModifierManager</a></li>
+        
+            <li><a href="#constructor"> &#9731; Constructor</a></li>
+        
+            <li><a href="#methods"> &#9731; Methods</a></li>
+        
+    
+        <li class="main "><a href="#modifier">Modifier</a></li>
+        
+            <li><a href="#constructor_1"> &#9731; Constructor</a></li>
+        
+            <li><a href="#attributes"> &#9731; Attributes</a></li>
+        
+            <li><a href="#methods_1"> &#9731; Methods</a></li>
+        
+    
+        <li class="main "><a href="#breakageanalysispd">BreakageAnalysisPD</a></li>
+        
+            <li><a href="#constructor_2"> &#9731; Constructor</a></li>
+        
+            <li><a href="#attributes_1"> &#9731; Attributes</a></li>
+        
+            <li><a href="#methods_2"> &#9731; Methods</a></li>
+        
+    
+        <li class="main "><a href="#datadumper">DataDumper</a></li>
+        
+            <li><a href="#constructor_3"> &#9731; Constructor</a></li>
+        
+            <li><a href="#attributes_2"> &#9731; Attributes</a></li>
+        
+            <li><a href="#methods_3"> &#9731; Methods</a></li>
+        
+    
+        <li class="main "><a href="#membranewall">MembraneWall</a></li>
+        
+            <li><a href="#constructor_4"> &#9731; Constructor</a></li>
+        
+            <li><a href="#attributes_3"> &#9731; Attributes</a></li>
+        
+            <li><a href="#methods_4"> &#9731; Methods</a></li>
+        
+    
+        <li class="main "><a href="#particlegroup">ParticleGroup</a></li>
+        
+            <li><a href="#constructor_5"> &#9731; Constructor</a></li>
+        
+            <li><a href="#attributes_4"> &#9731; Attributes</a></li>
+        
+            <li><a href="#methods_5"> &#9731; Methods</a></li>
+        
+    
+        <li class="main "><a href="#particlemotioncontrol">ParticleMotionControl</a></li>
+        
+            <li><a href="#constructor_6"> &#9731; Constructor</a></li>
+        
+            <li><a href="#methods_6"> &#9731; Methods</a></li>
+        
+            <li><a href="#inheritance"> &#9731; Inheritance</a></li>
+        
+    
+        <li class="main "><a href="#wallgroup">WallGroup</a></li>
+        
+            <li><a href="#inheritance_1"> &#9731; Inheritance</a></li>
+        
+            <li><a href="#constructor_7"> &#9731; Constructor</a></li>
+        
+            <li><a href="#attributes_5"> &#9731; Attributes</a></li>
+        
+            <li><a href="#methods_7"> &#9731; Methods</a></li>
+        
+    
+        <li class="main "><a href="#walldispcontrol">WallDispControl</a></li>
+        
+            <li><a href="#constructor_8"> &#9731; Constructor</a></li>
+        
+            <li><a href="#attributes_6"> &#9731; Attributes</a></li>
+        
+            <li><a href="#methods_8"> &#9731; Methods</a></li>
+        
+    
+        <li class="main "><a href="#wallmotionintegrator">WallMotionIntegrator</a></li>
+        
+            <li><a href="#constructor_9"> &#9731; Constructor</a></li>
+        
+            <li><a href="#attributes_7"> &#9731; Attributes</a></li>
+        
+            <li><a href="#methods_9"> &#9731; Methods</a></li>
+        
+    
+        <li class="main "><a href="#wallservocontrol">WallServoControl</a></li>
+        
+            <li><a href="#constructor_10"> &#9731; Constructor</a></li>
+        
+            <li><a href="#attributes_8"> &#9731; Attributes</a></li>
+        
+            <li><a href="#methods_10"> &#9731; Methods</a></li>
+        
+    
+    </ul>
+</div></div> <!-- toc on top on mobile -->
+            <div class="col-md-3 hidden-xs hidden-sm"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+    
+        <li class="main active"><a href="#_1"></a></li>
+        
+    
+        <li class="main "><a href="#modifiermanager">ModifierManager</a></li>
+        
+            <li><a href="#constructor"> &#9731; Constructor</a></li>
+        
+            <li><a href="#methods"> &#9731; Methods</a></li>
+        
+    
+        <li class="main "><a href="#modifier">Modifier</a></li>
+        
+            <li><a href="#constructor_1"> &#9731; Constructor</a></li>
+        
+            <li><a href="#attributes"> &#9731; Attributes</a></li>
+        
+            <li><a href="#methods_1"> &#9731; Methods</a></li>
+        
+    
+        <li class="main "><a href="#breakageanalysispd">BreakageAnalysisPD</a></li>
+        
+            <li><a href="#constructor_2"> &#9731; Constructor</a></li>
+        
+            <li><a href="#attributes_1"> &#9731; Attributes</a></li>
+        
+            <li><a href="#methods_2"> &#9731; Methods</a></li>
+        
+    
+        <li class="main "><a href="#datadumper">DataDumper</a></li>
+        
+            <li><a href="#constructor_3"> &#9731; Constructor</a></li>
+        
+            <li><a href="#attributes_2"> &#9731; Attributes</a></li>
+        
+            <li><a href="#methods_3"> &#9731; Methods</a></li>
+        
+    
+        <li class="main "><a href="#membranewall">MembraneWall</a></li>
+        
+            <li><a href="#constructor_4"> &#9731; Constructor</a></li>
+        
+            <li><a href="#attributes_3"> &#9731; Attributes</a></li>
+        
+            <li><a href="#methods_4"> &#9731; Methods</a></li>
+        
+    
+        <li class="main "><a href="#particlegroup">ParticleGroup</a></li>
+        
+            <li><a href="#constructor_5"> &#9731; Constructor</a></li>
+        
+            <li><a href="#attributes_4"> &#9731; Attributes</a></li>
+        
+            <li><a href="#methods_5"> &#9731; Methods</a></li>
+        
+    
+        <li class="main "><a href="#particlemotioncontrol">ParticleMotionControl</a></li>
+        
+            <li><a href="#constructor_6"> &#9731; Constructor</a></li>
+        
+            <li><a href="#methods_6"> &#9731; Methods</a></li>
+        
+            <li><a href="#inheritance"> &#9731; Inheritance</a></li>
+        
+    
+        <li class="main "><a href="#wallgroup">WallGroup</a></li>
+        
+            <li><a href="#inheritance_1"> &#9731; Inheritance</a></li>
+        
+            <li><a href="#constructor_7"> &#9731; Constructor</a></li>
+        
+            <li><a href="#attributes_5"> &#9731; Attributes</a></li>
+        
+            <li><a href="#methods_7"> &#9731; Methods</a></li>
+        
+    
+        <li class="main "><a href="#walldispcontrol">WallDispControl</a></li>
+        
+            <li><a href="#constructor_8"> &#9731; Constructor</a></li>
+        
+            <li><a href="#attributes_6"> &#9731; Attributes</a></li>
+        
+            <li><a href="#methods_8"> &#9731; Methods</a></li>
+        
+    
+        <li class="main "><a href="#wallmotionintegrator">WallMotionIntegrator</a></li>
+        
+            <li><a href="#constructor_9"> &#9731; Constructor</a></li>
+        
+            <li><a href="#attributes_7"> &#9731; Attributes</a></li>
+        
+            <li><a href="#methods_9"> &#9731; Methods</a></li>
+        
+    
+        <li class="main "><a href="#wallservocontrol">WallServoControl</a></li>
+        
+            <li><a href="#constructor_10"> &#9731; Constructor</a></li>
+        
+            <li><a href="#attributes_8"> &#9731; Attributes</a></li>
+        
+            <li><a href="#methods_10"> &#9731; Methods</a></li>
+        
+    
+    </ul>
+</div></div>
+            <div class="col-md-9" role="main">
+
+<h3 id="_1"></h3>
+<p><a href="../user_manual/">User manual</a>
+┊ <a href="../ref_dem/">Previous</a>
+┊ <a href="../ref_domain/">Next</a></p>
+<hr />
+<h3 id="modifiermanager">ModifierManager</h3>
+<p>This class manages a collection of modifiers that can be enabled or disabled.</p>
+<h4 id="constructor">Constructor</h4>
+<h5 id="modifiermanager_1"><code>ModifierManager()</code></h5>
+<p>Creates a new instance of the ModifierManager class.</p>
+<h4 id="methods">Methods</h4>
+<h5 id="insertmodifier"><code>Insert(modifier)</code></h5>
+<p>Inserts a modifier into the manager.</p>
+<ul>
+<li><code>modifier</code> (Modifier): The modifier to insert.</li>
+</ul>
+<h5 id="enablemodifier"><code>Enable(modifier)</code></h5>
+<p>Enables a modifier.</p>
+<ul>
+<li><code>modifier</code> (Modifier): The modifier to enable.</li>
+</ul>
+<h5 id="enablename"><code>Enable(name)</code></h5>
+<p>Enables a modifier by name.</p>
+<ul>
+<li><code>name</code> (string): The name of the modifier to enable.</li>
+</ul>
+<h5 id="disablemodifier"><code>Disable(modifier)</code></h5>
+<p>Disables a modifier.</p>
+<ul>
+<li><code>modifier</code> (Modifier): The modifier to disable.</li>
+</ul>
+<h5 id="disablename"><code>Disable(name)</code></h5>
+<p>Disables a modifier by name.</p>
+<ul>
+<li><code>name</code> (string): The name of the modifier to disable.</li>
+</ul>
+<hr />
+<h3 id="modifier">Modifier</h3>
+<p>This class represents a modifier.</p>
+<h4 id="constructor_1">Constructor</h4>
+<h5 id="modifier_1"><code>Modifier()</code></h5>
+<p>Creates a new instance of the Modifier class.</p>
+<h4 id="attributes">Attributes</h4>
+<h5 id="label"><code>label</code></h5>
+<p>A string label for the modifier.</p>
+<h5 id="cycle_point"><code>cycle_point</code></h5>
+<p>An integer representing the cycle point at which the modifier will be executed.</p>
+<h5 id="sim"><code>sim</code></h5>
+<p>A pointer to the simulation object associated with the modifier.</p>
+<h5 id="scene"><code>scene</code></h5>
+<p>A pointer to the scene object associated with the modifier.</p>
+<h5 id="update_with_scene"><code>update_with_scene</code></h5>
+<p>A boolean indicating whether the modifier should update with the scene.</p>
+<h5 id="enable_logging"><code>enable_logging</code></h5>
+<p>A boolean indicating whether logging should be enabled for the modifier.</p>
+<h4 id="methods_1">Methods</h4>
+<h5 id="clone"><code>Clone()</code></h5>
+<p>Creates a new instance of the modifier.</p>
+<h5 id="init"><code>Init()</code></h5>
+<p>Initializes the modifier.</p>
+<h5 id="enable"><code>Enable()</code></h5>
+<p>Enables the modifier.</p>
+<h5 id="disable"><code>Disable()</code></h5>
+<p>Disables the modifier.</p>
+<h5 id="execute"><code>Execute()</code></h5>
+<p>Executes the modifier.</p>
+<h5 id="update"><code>Update()</code></h5>
+<p>Updates the modifier.</p>
+<hr />
+<h3 id="breakageanalysispd">BreakageAnalysisPD</h3>
+<p>This class represents a breakage analysis for particles in a DEM simulation.</p>
+<h4 id="constructor_2">Constructor</h4>
+<h5 id="breakageanalysispd_1"><code>BreakageAnalysisPD()</code></h5>
+<p>Creates a new instance of the BreakageAnalysisPD class.</p>
+<h4 id="attributes_1">Attributes</h4>
+<h5 id="particle_id_list"><code>particle_id_list</code></h5>
+<p>A list of particle IDs to include in the breakage analysis.</p>
+<h5 id="use_particles_in_scene"><code>use_particles_in_scene</code></h5>
+<p>A boolean indicating whether to use all particles in the scene or only the particles in the particle_id_list.</p>
+<h5 id="pd_dem_coupler"><code>pd_dem_coupler</code></h5>
+<p>An instance of the PdDemCoupler class used to couple the breakage analysis with the DEM simulation.</p>
+<h4 id="methods_2">Methods</h4>
+<h5 id="setrootpathroot_path"><code>SetRootPath(root_path)</code></h5>
+<p>Sets the root path for the breakage analysis output files.</p>
+<ul>
+<li><code>root_path</code> (string): The path to the root directory for the output files.</li>
+</ul>
+<h5 id="setexecutebytimestart_time-end_time-time_step"><code>SetExecuteByTime(start_time, end_time, time_step)</code></h5>
+<p>Sets the time range and time step for the breakage analysis execution.</p>
+<ul>
+<li><code>start_time</code> (float): The start time for the breakage analysis.</li>
+<li><code>end_time</code> (float): The end time for the breakage analysis.</li>
+<li><code>time_step</code> (float): The time step for the breakage analysis.</li>
+</ul>
+<h5 id="setexecutebycyclesstart_cycle-end_cycle-cycle_step"><code>SetExecuteByCycles(start_cycle, end_cycle, cycle_step)</code></h5>
+<p>Sets the cycle range and cycle step for the breakage analysis execution.</p>
+<ul>
+<li><code>start_cycle</code> (int): The start cycle for the breakage analysis.</li>
+<li><code>end_cycle</code> (int): The end cycle for the breakage analysis.</li>
+<li><code>cycle_step</code> (int): The cycle step for the breakage analysis.</li>
+</ul>
+<h5 id="setparticlesfromscene"><code>SetParticlesFromScene()</code></h5>
+<p>Sets the particles to include in the breakage analysis based on the particles in the current DEM simulation scene.</p>
+<h5 id="setparticlesparticles"><code>SetParticles(particles)</code></h5>
+<p>Sets the particles to include in the breakage analysis.</p>
+<ul>
+<li><code>particles</code> (list of ints or initializer list of ints): The list of particle IDs to include in the breakage analysis.</li>
+</ul>
+<h5 id="cast"><code>Cast()</code></h5>
+<p>Returns a reference to the current instance of the BreakageAnalysisPD class as a Modifier object.</p>
+<hr />
+<h3 id="datadumper">DataDumper</h3>
+<p>This class is responsible for dumping data from the simulation to file.</p>
+<h4 id="constructor_3">Constructor</h4>
+<h5 id="datadumper_1"><code>DataDumper()</code></h5>
+<p>Creates a new instance of the DataDumper class.</p>
+<h4 id="attributes_2">Attributes</h4>
+<h5 id="dump_particle_info"><code>dump_particle_info</code></h5>
+<p>A boolean flag indicating whether particle information should be dumped.</p>
+<h5 id="dump_wall_info"><code>dump_wall_info</code></h5>
+<p>A boolean flag indicating whether wall information should be dumped.</p>
+<h5 id="dump_contact_info"><code>dump_contact_info</code></h5>
+<p>A boolean flag indicating whether contact information should be dumped.</p>
+<h5 id="dump_shape_info"><code>dump_shape_info</code></h5>
+<p>A boolean flag indicating whether shape information should be dumped.</p>
+<h5 id="dump_mesh"><code>dump_mesh</code></h5>
+<p>A boolean flag indicating whether mesh information should be dumped.</p>
+<h5 id="dump_reconstructed"><code>dump_reconstructed</code></h5>
+<p>A boolean flag indicating whether reconstructed information should be dumped.</p>
+<h5 id="time_stamp_adjustable"><code>time_stamp_adjustable</code></h5>
+<p>A boolean flag indicating whether the time stamp is adjustable.</p>
+<h4 id="methods_3">Methods</h4>
+<h5 id="setrootpathroot_path_1"><code>SetRootPath(root_path)</code></h5>
+<p>Sets the root path where the data will be dumped.</p>
+<ul>
+<li><code>root_path</code> (string): The root path where the data will be dumped.</li>
+</ul>
+<h5 id="setsavebytimesave_by_time-time_interval"><code>SetSaveByTime(save_by_time, time_interval)</code></h5>
+<p>Sets whether the data should be saved based on a time interval.</p>
+<ul>
+<li><code>save_by_time</code> (bool): A boolean flag indicating whether the data should be saved based on a time interval.</li>
+<li><code>time_interval</code> (float): The time interval for saving the data.</li>
+</ul>
+<h5 id="setsavebycyclessave_by_cycles-cycle_interval"><code>SetSaveByCycles(save_by_cycles, cycle_interval)</code></h5>
+<p>Sets whether the data should be saved based on a cycle interval.</p>
+<ul>
+<li><code>save_by_cycles</code> (bool): A boolean flag indicating whether the data should be saved based on a cycle interval.</li>
+<li><code>cycle_interval</code> (int): The cycle interval for saving the data.</li>
+</ul>
+<h5 id="clearhistories"><code>ClearHistories()</code></h5>
+<p>Clears the history of data.</p>
+<h5 id="saveparticleinfoasvtkparticles-file_name"><code>SaveParticleInfoAsVTK(particles, file_name)</code></h5>
+<p>Saves the particle information as a VTK file.</p>
+<ul>
+<li><code>particles</code> (list): A list of particles.</li>
+<li><code>file_name</code> (string): The name of the file to save.</li>
+</ul>
+<h5 id="saveparticlemeshasvtkparticles-file_name"><code>SaveParticleMeshAsVTK(particles, file_name)</code></h5>
+<p>Saves the particle mesh information as a VTK file.</p>
+<ul>
+<li><code>particles</code> (list): A list of particles.</li>
+<li><code>file_name</code> (string): The name of the file to save.</li>
+</ul>
+<h5 id="saveshapeinfoasstl"><code>SaveShapeInfoAsSTL()</code></h5>
+<p>Saves the shape information as an STL file.</p>
+<h5 id="saveshapeinfoasjson"><code>SaveShapeInfoAsJson()</code></h5>
+<p>Saves the shape information as a JSON file.</p>
+<h5 id="print"><code>Print()</code></h5>
+<p>Prints the current configuration of the data dumper.</p>
+<h5 id="cast_1"><code>Cast()</code></h5>
+<p>Casts the Modifier instance to a DataDumper instance.</p>
+<hr />
+<h3 id="membranewall">MembraneWall</h3>
+<p>This class represents a wall in a membrane system.</p>
+<h4 id="constructor_4">Constructor</h4>
+<p>The MembraneWall class has multiple constructors to create a new instance of the class. Each constructor takes a different set of parameters.</p>
+<h5 id="membranewall_1"><code>MembraneWall()</code></h5>
+<p>Default constructor with no arguments.</p>
+<h5 id="membranewalldouble"><code>MembraneWall(double)</code></h5>
+<p>Constructor with a single argument, the thickness of the wall.</p>
+<h5 id="membranewalldouble-double"><code>MembraneWall(double, double)</code></h5>
+<p>Constructor with two arguments, the thickness and the bending modulus of the wall.</p>
+<h5 id="membranewalldouble-double-double"><code>MembraneWall(double, double, double)</code></h5>
+<p>Constructor with three arguments, the thickness, the bending modulus, and the stretching modulus of the wall.</p>
+<h5 id="membranewalldouble-double-double-double-double-double"><code>MembraneWall(double, double, double, double, double, double)</code></h5>
+<p>Constructor with six arguments, the thickness, the bending modulus, the stretching modulus, the repulsion strength, the friction coefficient, and the adhesion energy of the wall.</p>
+<h4 id="attributes_3">Attributes</h4>
+<h5 id="enable_deformation"><code>enable_deformation</code></h5>
+<p>A boolean flag indicating whether the wall is deformable or not.</p>
+<h5 id="dump_info"><code>dump_info</code></h5>
+<p>A boolean flag indicating whether to dump information about the wall.</p>
+<h5 id="facing_outside"><code>facing_outside</code></h5>
+<p>A boolean flag indicating whether the wall is facing outward or inward.</p>
+<h5 id="wall_list"><code>wall_list</code></h5>
+<p>A list of walls.</p>
+<h4 id="methods_4">Methods</h4>
+<h5 id="setrootpathpath"><code>SetRootPath(path)</code></h5>
+<p>Set the root path for the wall.</p>
+<h5 id="setsavebytimeinterval"><code>SetSaveByTime(interval)</code></h5>
+<p>Set the time interval for saving the wall.</p>
+<h5 id="setsavebycyclesnum"><code>SetSaveByCycles(num)</code></h5>
+<p>Set the number of cycles between saving the wall.</p>
+<h5 id="init_1"><code>Init()</code></h5>
+<p>Initialize the wall.</p>
+<h5 id="setdimensionsnx-ny-nz"><code>SetDimensions(nx, ny, nz)</code></h5>
+<p>Set the dimensions of the wall.</p>
+<h5 id="setpressurepressure"><code>SetPressure(pressure)</code></h5>
+<p>Set the pressure on the wall.</p>
+<h5 id="cast_2"><code>Cast()</code></h5>
+<p>Cast the wall as a MembraneWall object.</p>
+<hr />
+<h3 id="particlegroup">ParticleGroup</h3>
+<p>This class represents a group of particles.</p>
+<h4 id="constructor_5">Constructor</h4>
+<h5 id="particlegroup_1"><code>ParticleGroup()</code></h5>
+<p>Creates a new instance of the ParticleGroup class.</p>
+<h4 id="attributes_4">Attributes</h4>
+<h5 id="particle_list"><code>particle_list</code></h5>
+<p>A reference to the list of particles in the group.</p>
+<h4 id="methods_5">Methods</h4>
+<h5 id="addid"><code>Add(id)</code></h5>
+<p>Adds a particle to the group.</p>
+<ul>
+<li><code>id</code> (int): The ID of the particle to add.</li>
+</ul>
+<h5 id="removeid"><code>Remove(id)</code></h5>
+<p>Removes a particle from the group.</p>
+<ul>
+<li><code>id</code> (int): The ID of the particle to remove.</li>
+</ul>
+<h5 id="addid_list"><code>Add(id_list)</code></h5>
+<p>Adds multiple particles to the group.</p>
+<ul>
+<li><code>id_list</code> (list of int): A list of particle IDs to add.</li>
+</ul>
+<h5 id="removeid_list"><code>Remove(id_list)</code></h5>
+<p>Removes multiple particles from the group.</p>
+<ul>
+<li><code>id_list</code> (list of int): A list of particle IDs to remove.</li>
+</ul>
+<h5 id="setvelocityv"><code>SetVelocity(v)</code></h5>
+<p>Sets the velocity of all particles in the group.</p>
+<ul>
+<li><code>v</code> (Vec3d): The velocity vector to set.</li>
+</ul>
+<h5 id="setspinw"><code>SetSpin(w)</code></h5>
+<p>Sets the spin of all particles in the group.</p>
+<ul>
+<li><code>w</code> (Vec3d): The spin vector to set.</li>
+</ul>
+<h5 id="clear"><code>Clear()</code></h5>
+<p>Removes all particles from the group.</p>
+<h5 id="cast_3"><code>Cast()</code></h5>
+<p>Casts the Modifier object to a ParticleGroup object.</p>
+<hr />
+<h3 id="particlemotioncontrol">ParticleMotionControl</h3>
+<p>This class represents a modifier that controls the motion of particles.</p>
+<h4 id="constructor_6">Constructor</h4>
+<h5 id="particlemotioncontrol_1"><code>ParticleMotionControl()</code></h5>
+<p>Creates a new instance of the ParticleMotionControl class.</p>
+<h4 id="methods_6">Methods</h4>
+<h5 id="setfixedfixed"><code>SetFixed(fixed)</code></h5>
+<p>Set the particle to be fixed.</p>
+<ul>
+<li><code>fixed</code> (bool): A boolean value indicating whether the particle should be fixed or not.</li>
+</ul>
+<h5 id="setlinearvelocityvelocity"><code>SetLinearVelocity(velocity)</code></h5>
+<p>Set the linear velocity of the particle.</p>
+<ul>
+<li><code>velocity</code> (Vec3d): A 3D vector representing the linear velocity of the particle.</li>
+</ul>
+<h5 id="setsinvelocityvelocity-frequency"><code>SetSinVelocity(velocity, frequency)</code></h5>
+<p>Set the sinusoidal velocity of the particle.</p>
+<ul>
+<li><code>velocity</code> (Vec3d): A 3D vector representing the amplitude of the sinusoidal velocity of the particle.</li>
+<li><code>frequency</code> (float): The frequency of the sinusoidal velocity.</li>
+</ul>
+<h5 id="synctoallprocessors"><code>SyncToAllProcessors()</code></h5>
+<p>Synchronize the state of the particle with all processors.</p>
+<h5 id="clear_1"><code>Clear()</code></h5>
+<p>Clear the state of the particle.</p>
+<h4 id="inheritance">Inheritance</h4>
+<p>This class inherits from the Modifier class.</p>
+<hr />
+<h3 id="wallgroup">WallGroup</h3>
+<p>This class represents a group of walls in the simulation.</p>
+<h4 id="inheritance_1">Inheritance</h4>
+<p>WallGroup inherits from the Modifier class.</p>
+<h4 id="constructor_7">Constructor</h4>
+<h5 id="wallgroup_1"><code>WallGroup()</code></h5>
+<p>Creates a new instance of the WallGroup class.</p>
+<h4 id="attributes_5">Attributes</h4>
+<h5 id="wall_list_1"><code>wall_list</code></h5>
+<p>A reference to the list of walls in the group.</p>
+<h4 id="methods_7">Methods</h4>
+<h5 id="addwall_id"><code>Add(wall_id)</code></h5>
+<p>Add a wall to the group by ID.</p>
+<ul>
+<li><code>wall_id</code> (int): The ID of the wall to add.</li>
+</ul>
+<h5 id="removewall_id"><code>Remove(wall_id)</code></h5>
+<p>Remove a wall from the group by ID.</p>
+<ul>
+<li><code>wall_id</code> (int): The ID of the wall to remove.</li>
+</ul>
+<h5 id="addwall_ids"><code>Add(wall_ids)</code></h5>
+<p>Add a list of walls to the group by their IDs.</p>
+<ul>
+<li><code>wall_ids</code> (list of int): The IDs of the walls to add.</li>
+</ul>
+<h5 id="removewall_ids"><code>Remove(wall_ids)</code></h5>
+<p>Remove a list of walls from the group by their IDs.</p>
+<ul>
+<li><code>wall_ids</code> (list of int): The IDs of the walls to remove.</li>
+</ul>
+<h5 id="setvelocityvel"><code>SetVelocity(vel)</code></h5>
+<p>Set the velocity of all walls in the group.</p>
+<ul>
+<li><code>vel</code> (Vec3d): The velocity to set.</li>
+</ul>
+<h5 id="setspinspin"><code>SetSpin(spin)</code></h5>
+<p>Set the spin of all walls in the group.</p>
+<ul>
+<li><code>spin</code> (Vec3d): The spin to set.</li>
+</ul>
+<h5 id="clear_2"><code>Clear()</code></h5>
+<p>Remove all walls from the group.</p>
+<h5 id="cast_4"><code>Cast()</code></h5>
+<p>Cast the WallGroup object to a Modifier object.</p>
+<hr />
+<h3 id="walldispcontrol">WallDispControl</h3>
+<p>This class represents a modifier that controls the displacement of walls.</p>
+<h4 id="constructor_8">Constructor</h4>
+<h5 id="walldispcontrol_1"><code>WallDispControl()</code></h5>
+<p>Creates a new instance of the WallDispControl class.</p>
+<h4 id="attributes_6">Attributes</h4>
+<h5 id="vel"><code>vel</code></h5>
+<p>The velocity of the walls.</p>
+<h5 id="spin"><code>spin</code></h5>
+<p>The spin of the walls.</p>
+<h4 id="methods_8">Methods</h4>
+<h5 id="setvelocityvel_1"><code>SetVelocity(vel)</code></h5>
+<p>Sets the velocity of the walls.</p>
+<ul>
+<li><code>vel</code> (Vec3d): The velocity to set.</li>
+</ul>
+<h5 id="setspinspin_1"><code>SetSpin(spin)</code></h5>
+<p>Sets the spin of the walls.</p>
+<ul>
+<li><code>spin</code> (Vec3d): The spin to set.</li>
+</ul>
+<h5 id="setwallswall_ids"><code>SetWalls(wall_ids)</code></h5>
+<p>Sets the walls that this modifier will act on.</p>
+<h5 id="wall_ids-vecxt-or-list-of-int-the-ids-of-the-walls-to-act-on"><code>wall_ids</code> (VecXT<int> or list of int): The IDs of the walls to act on.</h5>
+<h5 id="cast_5"><code>Cast()</code></h5>
+<p>Casts the Modifier base class to a WallDispControl object.</p>
+<h5 id="__init__"><code>__init__()</code></h5>
+<p>The Python constructor for the WallDispControl class.</p>
+<hr />
+<h3 id="wallmotionintegrator">WallMotionIntegrator</h3>
+<p>This class represents a wall motion integrator.</p>
+<h4 id="constructor_9">Constructor</h4>
+<h5 id="wallmotionintegrator_1"><code>WallMotionIntegrator()</code></h5>
+<p>Creates a new instance of the WallMotionIntegrator class.</p>
+<h4 id="attributes_7">Attributes</h4>
+<h5 id="mass"><code>mass</code></h5>
+<p>The mass of the wall.</p>
+<h5 id="moi_principal"><code>moi_principal</code></h5>
+<p>The principal moments of inertia of the wall.</p>
+<h5 id="enable_translation"><code>enable_translation</code></h5>
+<p>A boolean indicating whether or not translation of the wall is enabled.</p>
+<h5 id="enable_rotation"><code>enable_rotation</code></h5>
+<p>A boolean indicating whether or not rotation of the wall is enabled.</p>
+<h4 id="methods_9">Methods</h4>
+<h5 id="cast_6"><code>Cast()</code></h5>
+<p>Returns a pointer to the WallMotionIntegrator object.</p>
+<h5 id="setmassmass"><code>SetMass(mass)</code></h5>
+<p>Sets the mass of the wall.</p>
+<ul>
+<li><code>mass</code> (float): The mass to set for the wall.</li>
+</ul>
+<h5 id="setmomentofinertiaprincipal_moments"><code>SetMomentOfInertia(principal_moments)</code></h5>
+<p>Sets the principal moments of inertia of the wall.</p>
+<ul>
+<li><code>principal_moments</code> (Vec3d): A 3D vector containing the principal moments of inertia.</li>
+</ul>
+<h5 id="settranslationenabledenabled"><code>SetTranslationEnabled(enabled)</code></h5>
+<p>Sets whether or not translation of the wall is enabled.</p>
+<ul>
+<li><code>enabled</code> (bool): Whether or not translation of the wall is enabled.</li>
+</ul>
+<h5 id="setrotationenabledenabled"><code>SetRotationEnabled(enabled)</code></h5>
+<p>Sets whether or not rotation of the wall is enabled.</p>
+<ul>
+<li><code>enabled</code> (bool): Whether or not rotation of the wall is enabled.</li>
+</ul>
+<hr />
+<h3 id="wallservocontrol">WallServoControl</h3>
+<p>This class represents a wall servo control.</p>
+<h4 id="constructor_10">Constructor</h4>
+<h5 id="wallservocontrolkn-area"><code>WallServoControl(kn, area)</code></h5>
+<p>Creates a new instance of the WallServoControl class.</p>
+<ul>
+<li><code>kn</code> (float): The spring constant.</li>
+<li><code>area</code> (float): The area of the wall.</li>
+</ul>
+<h4 id="attributes_8">Attributes</h4>
+<h5 id="kn"><code>kn</code></h5>
+<p>The spring constant of the wall servo control.</p>
+<h5 id="area"><code>area</code></h5>
+<p>The area of the wall servo control.</p>
+<h5 id="target_pressure"><code>target_pressure</code></h5>
+<p>The target pressure of the wall servo control.</p>
+<h5 id="vel_max"><code>vel_max</code></h5>
+<p>The maximum velocity of the wall servo control.</p>
+<h5 id="study_rate"><code>study_rate</code></h5>
+<p>The study rate of the wall servo control.</p>
+<h5 id="tol"><code>tol</code></h5>
+<p>The tolerance of the wall servo control.</p>
+<h5 id="enable_warning"><code>enable_warning</code></h5>
+<p>The flag to enable warnings of the wall servo control.</p>
+<h5 id="enable_auto_area"><code>enable_auto_area</code></h5>
+<p>The flag to enable automatic area of the wall servo control.</p>
+<h5 id="achieved"><code>achieved</code></h5>
+<p>The achieved flag of the wall servo control.</p>
+<h4 id="methods_10">Methods</h4>
+<h5 id="setwallswalls"><code>SetWalls(walls)</code></h5>
+<p>Sets the walls for the wall servo control.</p>
+<ul>
+<li><code>walls</code> (list or array of integers): The walls to set.</li>
+</ul>
+<h5 id="addwallwall"><code>AddWall(wall)</code></h5>
+<p>Adds a wall to the wall servo control.</p>
+<ul>
+<li><code>wall</code> (integer): The wall to add.</li>
+</ul>
+<h5 id="cast_7"><code>Cast()</code></h5>
+<p>Casts the modifier to a WallServoControl object.</p>
+<hr />
+<p><a href="../user_manual/">User manual</a>
+┊ <a href="../ref_dem/">Previous</a>
+┊ <a href="../ref_domain/">Next</a></p></div>
+            <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>Enter your search keywords below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+            
+        </div>
+        
+
+        <footer class="footer">
+           <div class="container">
+              <p class="text-muted alignleft">
+                  <span id="busuanzi_container_site_uv" style='display:none'>Vistors: <span id="busuanzi_value_site_uv"></span>. </span>
+              </p>
+              <p class="text-muted alignright">
+                &copy; <a href="https://apaam.github.io/netdem_docs/about/acknowledgement/">NetDEM Team</a>. SYSU, HKUST.
+              </p>
+           </div>
+        </footer>
+
+        <script src="../../js/jquery-1.10.2.min.js"></script>
+        <script src="../../js/bootstrap-3.0.3.min.js"></script>
+        <script src="../../js/highlight.pack.js"></script>
+        <script src="../../js/base.js"></script>
+        <script src="../../js/retina.min.js"></script>
+        <!-- <script data-main="../../mkdocs/js/search.js" src="../../mkdocs/js/require.js"></script> -->
+        <script src="../../mathjax-config.js"></script>
+        <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+        <script src="../../search/main.js"></script>
+    </body>
+</html>
