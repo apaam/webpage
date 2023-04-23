@@ -1,0 +1,1078 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="https://apaam.github.io/netdem_docs/img/favicon.ico">
+        <meta name="keywords" content="Finite Element Library,Finite Element Code,Finite Element Method Library,Finite Element Method Code,Finite Element C++,Finite Element Method C++,Finite Element Library C++,Finite Element Code C++,FEM Code,FEM Library,FEM C++">
+        <meta name="google-site-verification" content="45K56TawSdzbgy-uDtfJdYwp7zaVdL3fIAGYt869wwU" />
+<!--	<title></title>  -->
+        <title>NetDEM - Neural Network Enabled Discret Element Method</title>
+
+        <link href="../../css/bootstrap-netdem.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome-4.0.3.css" rel="stylesheet">
+        <link href="../../css/highlight.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+        
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <!-- Main title -->
+            <a class="navbar-brand" href="https://apaam.github.io/netdem_docs/">NetDEM</a>
+        </div>
+
+        <script>var base_url = '../..';</script>
+        <!-- <script data-main="../../mkdocs/js/search.js" src="../../mkdocs/js/require.js"></script> -->
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            <!-- Main navigation -->
+            <ul class="nav navbar-nav">
+            
+            
+            
+            
+            
+                <li >
+                    <!-- Replace "nav_item.url|url" with "nav_item.url" for older mkdocs (before 1.0) -->
+                    <a href="../../examples/">Examples</a>
+                </li>
+            
+            
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Documentation <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+                            <li >
+                                 <a href="../user_manual/">User manual</a>
+                            </li>
+                        
+                    
+                        
+                            <li >
+                                 <a href="../developer_manual/">Developer manual</a>
+                            </li>
+                        
+                    
+                        
+                            <li >
+                                 <a href="../dem_wiki/">DEM wiki</a>
+                            </li>
+                        
+                    
+                        
+                            <li >
+                                 <a href="../../doxygen/html/">Code doxygen</a>
+                            </li>
+                        
+                    
+                    </ul>
+                </li>
+            
+            
+            
+            
+            
+                <li >
+                    <!-- Replace "nav_item.url|url" with "nav_item.url" for older mkdocs (before 1.0) -->
+                    <a href="../../download/">Download</a>
+                </li>
+            
+            
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Gallery <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+                            <li >
+                                 <a href="../../gallery/snapshots/">Snapshots</a>
+                            </li>
+                        
+                    
+                        
+                            <li >
+                                 <a href="../../gallery/animations/">Animations</a>
+                            </li>
+                        
+                    
+                    </ul>
+                </li>
+            
+            
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">About <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+                            <li >
+                                 <a href="../../about/news_%26_updates/">News & Updates</a>
+                            </li>
+                        
+                    
+                        
+                            <li >
+                                 <a href="../../about/help_%26_support/">Help & Support</a>
+                            </li>
+                        
+                    
+                        
+                            <li >
+                                 <a href="../../about/publications/">Publications</a>
+                            </li>
+                        
+                    
+                        
+                            <li >
+                                 <a href="../../about/acknowledgement/">Acknowledgements</a>
+                            </li>
+                        
+                    
+                    </ul>
+                </li>
+            
+            
+            
+            </ul>
+
+            <!-- Search, Navigation and Repo links -->
+            <ul class="nav navbar-nav navbar-right">
+                <li class="nav-item">
+                    <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                        <i class="fa fa-search"></i> Search
+                    </a>
+                </li>
+                
+                
+                <li>
+                    <a href="https://github.com/apaam/netdem_docs/">
+                        
+                            <i class="fa fa-github-square"></i>
+                        
+                        GitHub
+                    </a>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+
+        
+        <div class="container">
+            
+            <div class="col-md-3 visible-xs visible-sm"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+    
+        <li class="main active"><a href="#_1"></a></li>
+        
+    
+        <li class="main "><a href="#peridigm">Peridigm</a></li>
+        
+    
+        <li class="main "><a href="#domainsplittor">DomainSplittor</a></li>
+        
+            <li><a href="#constructor"> &#9731; Constructor</a></li>
+        
+            <li><a href="#methods"> &#9731; Methods</a></li>
+        
+    
+        <li class="main "><a href="#levelsetsplittor">LevelSetSplittor</a></li>
+        
+            <li><a href="#constructor_1"> &#9731; Constructor</a></li>
+        
+            <li><a href="#methods_1"> &#9731; Methods</a></li>
+        
+    
+        <li class="main "><a href="#tetmeshsplittor">TetMeshSplittor</a></li>
+        
+            <li><a href="#constructor_2"> &#9731; Constructor</a></li>
+        
+            <li><a href="#methods_2"> &#9731; Methods</a></li>
+        
+    
+        <li class="main "><a href="#peridigmdiscretization">PeriDigmDiscretization</a></li>
+        
+            <li><a href="#constructor_3"> &#9731; Constructor</a></li>
+        
+            <li><a href="#attributes"> &#9731; Attributes</a></li>
+        
+            <li><a href="#methods_3"> &#9731; Methods</a></li>
+        
+    
+        <li class="main "><a href="#peridigmdiscretization_2">PeriDigmDiscretization</a></li>
+        
+            <li><a href="#constructor_4"> &#9731; Constructor</a></li>
+        
+            <li><a href="#enum"> &#9731; Enum</a></li>
+        
+            <li><a href="#attributes_1"> &#9731; Attributes</a></li>
+        
+            <li><a href="#methods_4"> &#9731; Methods</a></li>
+        
+    
+        <li class="main "><a href="#peridigmmaterial">PeriDigmMaterial</a></li>
+        
+            <li><a href="#constructor_5"> &#9731; Constructor</a></li>
+        
+            <li><a href="#attributes_2"> &#9731; Attributes</a></li>
+        
+            <li><a href="#methods_5"> &#9731; Methods</a></li>
+        
+    
+        <li class="main "><a href="#peridigmdamagemodel">PeriDigmDamageModel</a></li>
+        
+            <li><a href="#constructor_6"> &#9731; Constructor</a></li>
+        
+            <li><a href="#attributes_3"> &#9731; Attributes</a></li>
+        
+            <li><a href="#methods_6"> &#9731; Methods</a></li>
+        
+    
+        <li class="main "><a href="#peridigmblock">PeriDigmBlock</a></li>
+        
+            <li><a href="#constructor_7"> &#9731; Constructor</a></li>
+        
+            <li><a href="#attributes_4"> &#9731; Attributes</a></li>
+        
+            <li><a href="#methods_7"> &#9731; Methods</a></li>
+        
+    
+        <li class="main "><a href="#peridigmboundarycondition">PeriDigmBoundaryCondition</a></li>
+        
+            <li><a href="#constructor_8"> &#9731; Constructor</a></li>
+        
+            <li><a href="#attributes_5"> &#9731; Attributes</a></li>
+        
+            <li><a href="#methods_8"> &#9731; Methods</a></li>
+        
+    
+        <li class="main "><a href="#peridigmsettings">PeriDigmSettings</a></li>
+        
+            <li><a href="#constructor_9"> &#9731; Constructor</a></li>
+        
+            <li><a href="#attributes_6"> &#9731; Attributes</a></li>
+        
+            <li><a href="#methods_9"> &#9731; Methods</a></li>
+        
+    
+        <li class="main "><a href="#demfragment">DEMFragment</a></li>
+        
+            <li><a href="#constructor_10"> &#9731; Constructor</a></li>
+        
+            <li><a href="#attributes_7"> &#9731; Attributes</a></li>
+        
+            <li><a href="#methods_10"> &#9731; Methods</a></li>
+        
+    
+        <li class="main "><a href="#particlestrengthparameters">ParticleStrengthParameters</a></li>
+        
+            <li><a href="#constructor_11"> &#9731; Constructor</a></li>
+        
+            <li><a href="#attributes_8"> &#9731; Attributes</a></li>
+        
+            <li><a href="#methods_11"> &#9731; Methods</a></li>
+        
+    
+        <li class="main "><a href="#peridigmsimulator">PeriDigmSimulator</a></li>
+        
+            <li><a href="#constructor_12"> &#9731; Constructor</a></li>
+        
+            <li><a href="#attributes_9"> &#9731; Attributes</a></li>
+        
+            <li><a href="#methods_12"> &#9731; Methods</a></li>
+        
+    
+        <li class="main "><a href="#peridigmdemcoupler">PeriDigmDEMCoupler</a></li>
+        
+            <li><a href="#constructor_13"> &#9731; Constructor</a></li>
+        
+            <li><a href="#attributes_10"> &#9731; Attributes</a></li>
+        
+            <li><a href="#methods_13"> &#9731; Methods</a></li>
+        
+    
+    </ul>
+</div></div> <!-- toc on top on mobile -->
+            <div class="col-md-3 hidden-xs hidden-sm"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+    
+        <li class="main active"><a href="#_1"></a></li>
+        
+    
+        <li class="main "><a href="#peridigm">Peridigm</a></li>
+        
+    
+        <li class="main "><a href="#domainsplittor">DomainSplittor</a></li>
+        
+            <li><a href="#constructor"> &#9731; Constructor</a></li>
+        
+            <li><a href="#methods"> &#9731; Methods</a></li>
+        
+    
+        <li class="main "><a href="#levelsetsplittor">LevelSetSplittor</a></li>
+        
+            <li><a href="#constructor_1"> &#9731; Constructor</a></li>
+        
+            <li><a href="#methods_1"> &#9731; Methods</a></li>
+        
+    
+        <li class="main "><a href="#tetmeshsplittor">TetMeshSplittor</a></li>
+        
+            <li><a href="#constructor_2"> &#9731; Constructor</a></li>
+        
+            <li><a href="#methods_2"> &#9731; Methods</a></li>
+        
+    
+        <li class="main "><a href="#peridigmdiscretization">PeriDigmDiscretization</a></li>
+        
+            <li><a href="#constructor_3"> &#9731; Constructor</a></li>
+        
+            <li><a href="#attributes"> &#9731; Attributes</a></li>
+        
+            <li><a href="#methods_3"> &#9731; Methods</a></li>
+        
+    
+        <li class="main "><a href="#peridigmdiscretization_2">PeriDigmDiscretization</a></li>
+        
+            <li><a href="#constructor_4"> &#9731; Constructor</a></li>
+        
+            <li><a href="#enum"> &#9731; Enum</a></li>
+        
+            <li><a href="#attributes_1"> &#9731; Attributes</a></li>
+        
+            <li><a href="#methods_4"> &#9731; Methods</a></li>
+        
+    
+        <li class="main "><a href="#peridigmmaterial">PeriDigmMaterial</a></li>
+        
+            <li><a href="#constructor_5"> &#9731; Constructor</a></li>
+        
+            <li><a href="#attributes_2"> &#9731; Attributes</a></li>
+        
+            <li><a href="#methods_5"> &#9731; Methods</a></li>
+        
+    
+        <li class="main "><a href="#peridigmdamagemodel">PeriDigmDamageModel</a></li>
+        
+            <li><a href="#constructor_6"> &#9731; Constructor</a></li>
+        
+            <li><a href="#attributes_3"> &#9731; Attributes</a></li>
+        
+            <li><a href="#methods_6"> &#9731; Methods</a></li>
+        
+    
+        <li class="main "><a href="#peridigmblock">PeriDigmBlock</a></li>
+        
+            <li><a href="#constructor_7"> &#9731; Constructor</a></li>
+        
+            <li><a href="#attributes_4"> &#9731; Attributes</a></li>
+        
+            <li><a href="#methods_7"> &#9731; Methods</a></li>
+        
+    
+        <li class="main "><a href="#peridigmboundarycondition">PeriDigmBoundaryCondition</a></li>
+        
+            <li><a href="#constructor_8"> &#9731; Constructor</a></li>
+        
+            <li><a href="#attributes_5"> &#9731; Attributes</a></li>
+        
+            <li><a href="#methods_8"> &#9731; Methods</a></li>
+        
+    
+        <li class="main "><a href="#peridigmsettings">PeriDigmSettings</a></li>
+        
+            <li><a href="#constructor_9"> &#9731; Constructor</a></li>
+        
+            <li><a href="#attributes_6"> &#9731; Attributes</a></li>
+        
+            <li><a href="#methods_9"> &#9731; Methods</a></li>
+        
+    
+        <li class="main "><a href="#demfragment">DEMFragment</a></li>
+        
+            <li><a href="#constructor_10"> &#9731; Constructor</a></li>
+        
+            <li><a href="#attributes_7"> &#9731; Attributes</a></li>
+        
+            <li><a href="#methods_10"> &#9731; Methods</a></li>
+        
+    
+        <li class="main "><a href="#particlestrengthparameters">ParticleStrengthParameters</a></li>
+        
+            <li><a href="#constructor_11"> &#9731; Constructor</a></li>
+        
+            <li><a href="#attributes_8"> &#9731; Attributes</a></li>
+        
+            <li><a href="#methods_11"> &#9731; Methods</a></li>
+        
+    
+        <li class="main "><a href="#peridigmsimulator">PeriDigmSimulator</a></li>
+        
+            <li><a href="#constructor_12"> &#9731; Constructor</a></li>
+        
+            <li><a href="#attributes_9"> &#9731; Attributes</a></li>
+        
+            <li><a href="#methods_12"> &#9731; Methods</a></li>
+        
+    
+        <li class="main "><a href="#peridigmdemcoupler">PeriDigmDEMCoupler</a></li>
+        
+            <li><a href="#constructor_13"> &#9731; Constructor</a></li>
+        
+            <li><a href="#attributes_10"> &#9731; Attributes</a></li>
+        
+            <li><a href="#methods_13"> &#9731; Methods</a></li>
+        
+    
+    </ul>
+</div></div>
+            <div class="col-md-9" role="main">
+
+<h3 id="_1"></h3>
+<p><a href="../user_manual/">User manual</a>
+┊ <a href="../ref_dem/">Previous</a>
+┊ <a href="../ref_domain/">Next</a></p>
+<hr />
+<h3 id="peridigm">Peridigm</h3>
+<h3 id="domainsplittor">DomainSplittor</h3>
+<p>This class represents a domain splittor.</p>
+<h4 id="constructor">Constructor</h4>
+<h5 id="domainsplittor_1"><code>DomainSplittor()</code></h5>
+<p>Creates a new instance of the DomainSplittor class.</p>
+<h4 id="methods">Methods</h4>
+<h5 id="initfromstlfilename-num_parts"><code>InitFromSTL(filename, num_parts)</code></h5>
+<p>Initializes the domain splittor from an STL file.</p>
+<ul>
+<li><code>filename</code> (string): The name of the STL file to read.</li>
+<li><code>num_parts</code> (int): The number of parts to split the domain into.</li>
+</ul>
+<hr />
+<h3 id="levelsetsplittor">LevelSetSplittor</h3>
+<p>This class represents a level set splittor, which is a type of domain splittor.</p>
+<h4 id="constructor_1">Constructor</h4>
+<h5 id="levelsetsplittor_1"><code>LevelSetSplittor()</code></h5>
+<p>Creates a new instance of the LevelSetSplittor class.</p>
+<h4 id="methods_1">Methods</h4>
+<h5 id="initfromdistancemapfilename"><code>InitFromDistanceMap(filename)</code></h5>
+<p>Initializes the level set splittor from a distance map file.</p>
+<ul>
+<li><code>filename</code> (string): The name of the distance map file to read.</li>
+</ul>
+<h5 id="initfromdistancemap-x_min-x_max-y_min-y_max-z_min-z_max-num_parts-distance_map"><code>InitFromDistanceMap (x_min, x_max, y_min, y_max, z_min, z_max, num_parts, distance_map)</code></h5>
+<p>Initializes the level set splittor from a distance map.</p>
+<ul>
+<li><code>x_min</code> (double): The minimum x coordinate of the domain.</li>
+<li><code>x_max</code> (double): The maximum x coordinate of the domain.</li>
+<li><code>y_min</code> (double): The minimum y coordinate of the domain.</li>
+<li><code>y_max</code> (double): The maximum y coordinate of the domain.</li>
+<li><code>z_min</code> (double): The minimum z coordinate of the domain.</li>
+<li><code>z_max</code> (double): The maximum z coordinate of the domain.</li>
+<li><code>num_parts</code> (int): The number of parts to split the domain into.</li>
+<li><code>distance_map</code> (VecXT<double>): A vector containing the distance map data.</li>
+</ul>
+<h5 id="initfromstlstl_model-num_parts"><code>InitFromSTL(stl_model, num_parts)</code></h5>
+<p>Initializes the level set splittor from an STL model.</p>
+<ul>
+<li><code>stl_model</code> (STLModel): The STL model to initialize from.</li>
+<li><code>num_parts</code> (int): The number of parts to split the domain into.</li>
+</ul>
+<h5 id="getperidigmnodes"><code>GetPeriDigmNodes()</code></h5>
+<p>Returns the Peridigm node data for the domain.</p>
+<h5 id="makeporosityradius"><code>MakePorosity(radius)</code></h5>
+<p>Adds porosity to the domain.</p>
+<ul>
+<li><code>radius</code> (double): The radius of the porosity.</li>
+</ul>
+<h5 id="getstlmodel"><code>GetSTLModel()</code></h5>
+<p>Returns the STL model for the domain.</p>
+<h5 id="getstlmodelpart_ids"><code>GetSTLModel(part_ids)</code></h5>
+<p>Returns the STL model for a specific set of domain parts.</p>
+<ul>
+<li><code>part_ids</code> (VecXT<int>): A vector containing the IDs of the domain parts to include in the model.</li>
+</ul>
+<hr />
+<h3 id="tetmeshsplittor">TetMeshSplittor</h3>
+<p>This class represents a tetrahedral mesh splittor.</p>
+<h4 id="constructor_2">Constructor</h4>
+<h5 id="tetmeshsplittor_1"><code>TetMeshSplittor()</code></h5>
+<p>Creates a new instance of the TetMeshSplittor class.</p>
+<h4 id="methods_2">Methods</h4>
+<h5 id="initfromstlstl_model-num_partitions"><code>InitFromSTL(stl_model, num_partitions)</code></h5>
+<p>Initialize the tetrahedral mesh splittor from an STL model.</p>
+<ul>
+<li><code>stl_model</code> (STLModel): The STL model to use for initialization.</li>
+<li><code>num_partitions</code> (int): The number of partitions to split the mesh into.</li>
+</ul>
+<h5 id="getperidigmnodes_1"><code>GetPeriDigmNodes()</code></h5>
+<p>Get the Peridigm nodes.</p>
+<h5 id="makeporosity"><code>MakePorosity()</code></h5>
+<p>Make porosity in the mesh.</p>
+<h5 id="getstlmodel_1"><code>GetSTLModel()</code></h5>
+<p>Get the STL model.</p>
+<p>Returns a VecXT<int> object representing the STL model.</p>
+<h5 id="getstlmodelnode_id">`GetSTLModel(node_id)</h5>
+<p>Get the STL model.</p>
+<ul>
+<li><code>node_id</code> (VecXT<int>): The node ID to get the STL model for.</li>
+</ul>
+<p>Returns a VecXT<int> object representing the STL model for the specified node ID.</p>
+<hr />
+<h3 id="peridigmdiscretization">PeriDigmDiscretization</h3>
+<p>This class represents a discretization of a PeriDigm model.</p>
+<h4 id="constructor_3">Constructor</h4>
+<h5 id="peridigmdiscretization_1"><code>PeriDigmDiscretization()</code></h5>
+<p>Creates a new instance of the PeriDigmDiscretization class.</p>
+<h4 id="attributes">Attributes</h4>
+<h5 id="type"><code>type</code></h5>
+<p>An enumeration that specifies the type of the discretization. Possible values are:</p>
+<h5 id="level_set"><code>level_set</code></h5>
+<p>a level set discretization</p>
+<h5 id="tetmesh"><code>tetmesh</code></h5>
+<p>a tetrahedral mesh discretization</p>
+<h5 id="domain_splittor"><code>domain_splittor</code></h5>
+<p>The domain splittor used to split the domain into blocks.</p>
+<h5 id="nodes"><code>nodes</code></h5>
+<p>The nodes of the discretization.</p>
+<h5 id="node_block_indices"><code>node_block_indices</code></h5>
+<p>The block indices of the nodes.</p>
+<h5 id="node_vols"><code>node_vols</code></h5>
+<p>The volumes of the nodes.</p>
+<h4 id="methods_3">Methods</h4>
+<h5 id="initfromstlstl_file_path-num_partitions"><code>InitFromSTL(stl_file_path, num_partitions)</code></h5>
+<p>Initialize the discretization from an STL file.</p>
+<ul>
+<li><code>stl_file_path</code> (string): The path to the STL file.</li>
+<li><code>num_partitions</code> (int): The number of partitions to split the domain into.</li>
+</ul>
+<h5 id="initfromstlstl_model-num_partitions_1"><code>InitFromSTL(stl_model, num_partitions)</code></h5>
+<p>Initialize the discretization from an STL model.</p>
+<ul>
+<li><code>stl_model</code> (STLModel): The STL model to use.</li>
+<li><code>num_partitions</code> (int): The number of partitions to split the domain into.</li>
+</ul>
+<h5 id="initfromdistancemapdistance_map_file_path-num_partitions"><code>InitFromDistanceMap(distance_map_file_path, num_partitions)</code></h5>
+<p>Initialize the discretization from a distance map file.</p>
+<ul>
+<li><code>distance_map_file_path</code> (string): The path to the distance map file.</li>
+<li><code>num_partitions</code> (int): The number of partitions to split the domain into.</li>
+</ul>
+<h5 id="initfromgridgrid_file_path-num_partitions"><code>InitFromGrid(grid_file_path, num_partitions)</code></h5>
+<p>Initialize the discretization from a grid file.</p>
+<ul>
+<li><code>grid_file_path</code> (string): The path to the grid file.</li>
+<li><code>num_partitions</code> (int): The number of partitions to split the domain into.</li>
+</ul>
+<h5 id="makeporosityporosity"><code>MakePorosity(porosity)</code></h5>
+<p>Add porosity to the discretization.</p>
+<ul>
+<li><code>porosity</code> (float): The porosity to add.</li>
+</ul>
+<h5 id="writeinputfilenode_file_path"><code>WriteInputFile(node_file_path)</code></h5>
+<p>Write the input file of the discretization.</p>
+<ul>
+<li><code>node_file_path</code> (string): The path to write the node file.</li>
+</ul>
+<h5 id="getnodesize"><code>GetNodeSize()</code></h5>
+<p>Get the size of the nodes in the discretization.</p>
+<hr />
+<h3 id="peridigmdiscretization_2">PeriDigmDiscretization</h3>
+<p>This class represents a PeriDigm discretization.</p>
+<h4 id="constructor_4">Constructor</h4>
+<h5 id="peridigmdiscretization_3"><code>PeriDigmDiscretization()</code></h5>
+<p>Creates a new instance of the PeriDigmDiscretization class.</p>
+<h4 id="enum">Enum</h4>
+<h5 id="type_1"><code>Type</code></h5>
+<p>An enum class for different types of PeriDigm discretization. 
+The available values are:</p>
+<ul>
+<li><code>level_set</code></li>
+<li><code>tetmesh</code></li>
+</ul>
+<h4 id="attributes_1">Attributes</h4>
+<h5 id="type_2"><code>type</code></h5>
+<p>A Type value representing the type of PeriDigm discretization.</p>
+<h5 id="domain_splittor_1"><code>domain_splittor</code></h5>
+<p>The domain splitter for the PeriDigm discretization.</p>
+<h5 id="nodes_1"><code>nodes</code></h5>
+<p>A vector of Node objects representing the nodes of the PeriDigm discretization.</p>
+<h5 id="node_block_indices_1"><code>node_block_indices</code></h5>
+<p>A vector of int values representing the block indices of the nodes.</p>
+<h5 id="node_vols_1"><code>node_vols</code></h5>
+<p>A vector of double values representing the volumes of the nodes.</p>
+<h4 id="methods_4">Methods</h4>
+<h5 id="initfromstlfilename-numblocks"><code>InitFromSTL(filename, numBlocks)</code></h5>
+<p>Initialize the PeriDigm discretization from an STL file.</p>
+<ul>
+<li><code>filename</code> (string): The filename of the STL file to load.</li>
+<li><code>numBlocks</code> (int): The number of blocks to create.</li>
+</ul>
+<h5 id="initfromstlstl_model-numblocks"><code>InitFromSTL(stl_model, numBlocks)</code></h5>
+<p>Initialize the PeriDigm discretization from an STL model.</p>
+<ul>
+<li><code>stl_model</code> (STLModel): The STL model to use for initialization.</li>
+<li><code>numBlocks</code> (int): The number of blocks to create.</li>
+</ul>
+<h5 id="initfromdistancemapdistancemap-numblocks"><code>InitFromDistanceMap(distanceMap, numBlocks)</code></h5>
+<p>Initialize the PeriDigm discretization from a distance map.</p>
+<ul>
+<li><code>distanceMap</code> (DistanceMap): The distance map to use for initialization.</li>
+<li><code>numBlocks</code> (int): The number of blocks to create.</li>
+</ul>
+<h5 id="initfromgridgrid-numblocks"><code>InitFromGrid(grid, numBlocks)</code></h5>
+<p>Initialize the PeriDigm discretization from a grid.</p>
+<ul>
+<li><code>grid</code> (Grid): The grid to use for initialization.</li>
+<li><code>numBlocks</code> (int): The number of blocks to create.</li>
+</ul>
+<h5 id="makeporosityporosity_1"><code>MakePorosity(porosity)</code></h5>
+<p>Set the porosity of the PeriDigm discretization.</p>
+<ul>
+<li><code>porosity</code> (double): The porosity to set.</li>
+</ul>
+<h5 id="writeinputfilefilename"><code>WriteInputFile(filename)</code></h5>
+<p>Write the PeriDigm discretization to a file.</p>
+<ul>
+<li><code>filename</code> (string): The filename to write to.</li>
+</ul>
+<h5 id="getnodesize_1"><code>GetNodeSize()</code></h5>
+<p>Return the size of the nodes in the PeriDigm discretization.</p>
+<hr />
+<h3 id="peridigmmaterial">PeriDigmMaterial</h3>
+<p>This class represents a material model in PeriDigm.</p>
+<h4 id="constructor_5">Constructor</h4>
+<h5 id="peridigmmaterial_1"><code>PeriDigmMaterial()</code></h5>
+<p>Creates a new instance of the PeriDigmMaterial class.</p>
+<h4 id="attributes_2">Attributes</h4>
+<h5 id="type_3"><code>type</code></h5>
+<p>An enum value that represents the type of material. The possible values are:</p>
+<ul>
+<li><code>Elastic</code></li>
+</ul>
+<h5 id="density"><code>density</code></h5>
+<p>The density of the material.</p>
+<h5 id="youngs_modulus"><code>youngs_modulus</code></h5>
+<p>The Young's modulus of the material.</p>
+<h5 id="poissons_ratio"><code>poissons_ratio</code></h5>
+<p>The Poisson's ratio of the material.</p>
+<h4 id="methods_5">Methods</h4>
+<h5 id="writeinputfilefilename_1"><code>WriteInputFile(filename)</code></h5>
+<p>Writes the material properties to an input file.</p>
+<ul>
+<li><code>filename</code> (string): The name of the file to write to.</li>
+</ul>
+<hr />
+<h3 id="peridigmdamagemodel">PeriDigmDamageModel</h3>
+<p>This class represents a damage model in the PeriDigm library.</p>
+<h4 id="constructor_6">Constructor</h4>
+<h5 id="peridigmdamagemodel_1"><code>PeriDigmDamageModel()</code></h5>
+<p>Creates a new instance of the PeriDigmDamageModel class.</p>
+<h4 id="attributes_3">Attributes</h4>
+<h5 id="type_4"><code>type</code></h5>
+<p>A string representing the type of the damage model.</p>
+<h5 id="critical_stretch"><code>critical_stretch</code></h5>
+<p>A double representing the critical stretch for the damage model.</p>
+<h4 id="methods_6">Methods</h4>
+<h5 id="initfromenergyreleaserateenergy_release_rate"><code>InitFromEnergyReleaseRate(energy_release_rate)</code></h5>
+<p>Initializes the damage model based on the energy release rate.</p>
+<ul>
+<li><code>energy_release_rate</code> (double): The energy release rate.</li>
+</ul>
+<h5 id="getstretchfromenergyreleaserateenergy_release_rate"><code>GetStretchFromEnergyReleaseRate(energy_release_rate)</code></h5>
+<p>Returns the stretch based on the energy release rate.</p>
+<ul>
+<li><code>energy_release_rate</code> (double): The energy release rate.</li>
+</ul>
+<h5 id="writeinputfilefile_name"><code>WriteInputFile(file_name)</code></h5>
+<p>Writes the input file for the damage model.</p>
+<ul>
+<li><code>file_name</code> (string): The name of the input file to write.</li>
+</ul>
+<hr />
+<h3 id="peridigmblock">PeriDigmBlock</h3>
+<p>This class represents a block in a PeriDigm simulation.</p>
+<h4 id="constructor_7">Constructor</h4>
+<h5 id="peridigmblock_1"><code>PeriDigmBlock()</code></h5>
+<p>Creates a new instance of the PeriDigmBlock class.</p>
+<h4 id="attributes_4">Attributes</h4>
+<h5 id="node_indices"><code>node_indices</code></h5>
+<p>A list of the node indices that make up the block.</p>
+<h5 id="material_id"><code>material_id</code></h5>
+<p>An integer ID for the material that the block is composed of.</p>
+<h5 id="damage_model_id"><code>damage_model_id</code></h5>
+<p>An integer ID for the damage model used to simulate damage in the block.</p>
+<h5 id="horizon"><code>horizon</code></h5>
+<p>The horizon used in the simulation.</p>
+<h4 id="methods_7">Methods</h4>
+<h5 id="writeinputfilefile_name_1"><code>WriteInputFile(file_name)</code></h5>
+<p>Writes the block information to an input file.</p>
+<ul>
+<li><code>file_name</code> (string): The name of the file to write to.</li>
+</ul>
+<hr />
+<h3 id="peridigmboundarycondition">PeriDigmBoundaryCondition</h3>
+<p>This class represents a boundary condition in the PeriDigm code.</p>
+<h4 id="constructor_8">Constructor</h4>
+<h5 id="peridigmboundarycondition_1"><code>PeriDigmBoundaryCondition()</code></h5>
+<p>Creates a new instance of the PeriDigmBoundaryCondition class.</p>
+<h4 id="attributes_5">Attributes</h4>
+<h5 id="type_5"><code>type</code></h5>
+<p>An enum that specifies the type of boundary condition. The possible values are:</p>
+<h5 id="prescribed_displacement"><code>Prescribed_Displacement</code></h5>
+<p>The boundary condition is specified by a prescribed displacement.</p>
+<h5 id="body_force"><code>Body_Force</code></h5>
+<p>The boundary condition is specified by a body force.</p>
+<h5 id="node_indices_1"><code>node_indices</code></h5>
+<p>A list of integers that specify the indices of the nodes that the boundary condition applies to.</p>
+<h5 id="dim_activated"><code>dim_activated</code></h5>
+<p>A list of integers that specify the dimensions that the boundary condition is activated in. The possible values are 0, 1, and 2, which correspond to the x, y, and z directions, respectively.</p>
+<h5 id="disp_rate"><code>disp_rate</code></h5>
+<p>A float that specifies the rate of displacement for the boundary condition.</p>
+<h5 id="loading_rate"><code>loading_rate</code></h5>
+<p>A float that specifies the rate of loading for the boundary condition.</p>
+<h5 id="disp"><code>disp</code></h5>
+<p>A float that specifies the displacement for the boundary condition.</p>
+<h5 id="loading"><code>loading</code></h5>
+<p>A float that specifies the loading for the boundary condition.</p>
+<h5 id="mech_time"><code>mech_time</code></h5>
+<p>A float that specifies the mechanical time for the boundary condition.</p>
+<h4 id="methods_8">Methods</h4>
+<h5 id="insertnodenode_index"><code>InsertNode(node_index)</code></h5>
+<p>Insert a node into the list of nodes that the boundary condition applies to.</p>
+<ul>
+<li><code>node_index</code> (int): The index of the node to insert.</li>
+</ul>
+<h5 id="setactivateddimensionsdimensions"><code>SetActivatedDimensions(dimensions)</code></h5>
+<p>Set the dimensions that the boundary condition is activated in.</p>
+<ul>
+<li><code>dimensions</code> (list of int): A list of integers that specify the dimensions that the boundary condition is activated in.</li>
+</ul>
+<h5 id="setbydisplacementraterate"><code>SetByDisplacementRate(rate)</code></h5>
+<p>Set the boundary condition by a prescribed displacement rate.</p>
+<ul>
+<li><code>rate</code> (float): The rate of displacement to use.</li>
+</ul>
+<h5 id="setbyloadingraterate"><code>SetByLoadingRate(rate)</code></h5>
+<p>Set the boundary condition by a prescribed loading rate.</p>
+<ul>
+<li><code>rate</code> (float): The rate of loading to use.</li>
+</ul>
+<h5 id="setbyultimatedisplacementdisplacement"><code>SetByUltimateDisplacement(displacement)</code></h5>
+<p>Set the boundary condition by a prescribed ultimate displacement.</p>
+<ul>
+<li><code>displacement</code> (float): The ultimate displacement to use.</li>
+</ul>
+<h5 id="setbyultimateloadingloading"><code>SetByUltimateLoading(loading)</code></h5>
+<p>Set the boundary condition by a prescribed ultimate loading.</p>
+<ul>
+<li><code>loading</code> (float): The ultimate loading to use.</li>
+</ul>
+<h5 id="writeinputfilefilename_2"><code>WriteInputFile(filename)</code></h5>
+<p>Write the boundary condition to an input file.</p>
+<ul>
+<li><code>filename</code> (string): The name of the file to write to.</li>
+</ul>
+<hr />
+<h3 id="peridigmsettings">PeriDigmSettings</h3>
+<p>This class represents the settings for the PeriDigm code.</p>
+<h4 id="constructor_9">Constructor</h4>
+<h5 id="peridigmsettings_1"><code>PeriDigmSettings()</code></h5>
+<p>Creates a new instance of the PeriDigmSettings class.</p>
+<h4 id="attributes_6">Attributes</h4>
+<h5 id="result_dir"><code>result_dir</code></h5>
+<p>A string representing the directory where the simulation results are stored.</p>
+<h5 id="peridigm_exe"><code>peridigm_exe</code></h5>
+<p>A string representing the path to the PeriDigm executable.</p>
+<h5 id="horizon_factor"><code>horizon_factor</code></h5>
+<p>A float representing the factor used to determine the horizon for each particle.</p>
+<h5 id="use_auto_timestep"><code>use_auto_timestep</code></h5>
+<p>A boolean indicating whether to use an automatic time step or not.</p>
+<h5 id="timestep"><code>timestep</code></h5>
+<p>A float representing the time step size to be used.</p>
+<h5 id="timestep_factor"><code>timestep_factor</code></h5>
+<p>A float representing the factor used to determine the time step size for each particle.</p>
+<h5 id="mech_time_1"><code>mech_time</code></h5>
+<p>A float representing the total mechanical time of the simulation.</p>
+<h5 id="loading_radius_factor"><code>loading_radius_factor</code></h5>
+<p>A float representing the factor used to determine the loading radius for each particle.</p>
+<h5 id="constrain_radius_factor"><code>constrain_radius_factor</code></h5>
+<p>A float representing the factor used to determine the constrain radius for each particle.</p>
+<h5 id="output_freqency"><code>output_freqency</code></h5>
+<p>An integer representing the frequency of output data.</p>
+<h4 id="methods_9">Methods</h4>
+<h5 id="writeinputfileinput_file_path"><code>WriteInputFile(input_file_path)</code></h5>
+<p>Writes the input file for the PeriDigm code.</p>
+<ul>
+<li><code>input_file_path</code> (string): The path to the input file to write.</li>
+</ul>
+<hr />
+<h3 id="demfragment">DEMFragment</h3>
+<p>This class represents a discrete element method (DEM) fragment.</p>
+<h4 id="constructor_10">Constructor</h4>
+<h5 id="demfragment_1"><code>DEMFragment()</code></h5>
+<p>Creates a new instance of the DEMFragment class.</p>
+<h4 id="attributes_7">Attributes</h4>
+<h5 id="shape_type"><code>shape_type</code></h5>
+<p>An integer that represents the shape type of the fragment.</p>
+<h5 id="sphere_size"><code>sphere_size</code></h5>
+<p>A float that represents the sphere size of the fragment.</p>
+<h5 id="stl_model"><code>stl_model</code></h5>
+<p>A STLModel object that represents the STL model of the fragment.</p>
+<h5 id="vel"><code>vel</code></h5>
+<p>A Vec3d object that represents the velocity of the fragment.</p>
+<h5 id="spin"><code>spin</code></h5>
+<p>A Vec3d object that represents the spin of the fragment.</p>
+<h4 id="methods_10">Methods</h4>
+<p>InitLevelSet(level_set)</p>
+<p>Applies a boundary force to the fragment based on the given level set.</p>
+<ul>
+<li><code>level_set</code> (LevelSet): A level set that represents the boundary.</li>
+</ul>
+<h5 id="resolveroverlapother_frag"><code>ResolverOverlap(other_frag)</code></h5>
+<p>Resolves the overlap between this fragment and another fragment.</p>
+<ul>
+<li><code>other_frag</code> (DEMFragment): The other fragment to resolve the overlap with.</li>
+</ul>
+<h5 id="reinitstlmodel"><code>ReInitSTLModel()</code></h5>
+<p>Re-initializes the STL model of the fragment.</p>
+<hr />
+<h3 id="particlestrengthparameters">ParticleStrengthParameters</h3>
+<p>This class represents the strength parameters of a particle.</p>
+<h4 id="constructor_11">Constructor</h4>
+<h5 id="particlestrengthparameters_1"><code>ParticleStrengthParameters()</code></h5>
+<p>Creates a new instance of the ParticleStrengthParameters class.</p>
+<h4 id="attributes_8">Attributes</h4>
+<h5 id="ref_size"><code>ref_size</code></h5>
+<p>The reference size of the particle.</p>
+<h5 id="ref_energy_release_rate"><code>ref_energy_release_rate</code></h5>
+<p>The reference energy release rate of the particle.</p>
+<h5 id="weibull_modulus"><code>weibull_modulus</code></h5>
+<p>The Weibull modulus of the particle.</p>
+<h5 id="weibull_coef_a"><code>weibull_coef_a</code></h5>
+<p>The Weibull coefficient A of the particle.</p>
+<h5 id="weibull_coef_b"><code>weibull_coef_b</code></h5>
+<p>The Weibull coefficient B of the particle.</p>
+<h5 id="min_breakable_size"><code>min_breakable_size</code></h5>
+<p>The minimum breakable size of the particle.</p>
+<h4 id="methods_11">Methods</h4>
+<h5 id="getenergyreleaseratesize"><code>GetEnergyReleaseRate(size)</code></h5>
+<p>Calculates the energy release rate of the particle for a given size.</p>
+<ul>
+<li><code>size</code> (float): The size of the particle.</li>
+</ul>
+<h5 id="getenergyreleaseratesize-strength"><code>GetEnergyReleaseRate(size, strength)</code></h5>
+<p>Calculates the energy release rate of the particle for a given size and strength.</p>
+<ul>
+<li><code>size</code> (float): The size of the particle.</li>
+<li><code>strength</code> (float): The strength of the particle.</li>
+</ul>
+<hr />
+<h3 id="peridigmsimulator">PeriDigmSimulator</h3>
+<p>This class represents a PeriDigm simulator.</p>
+<h4 id="constructor_12">Constructor</h4>
+<h5 id="peridigmsimulator_1"><code>PeriDigmSimulator()</code></h5>
+<p>Creates a new instance of the PeriDigmSimulator class.</p>
+<h4 id="attributes_9">Attributes</h4>
+<h5 id="discretization"><code>discretization</code></h5>
+<p>The discretization used in the simulation.</p>
+<h5 id="materials"><code>materials</code></h5>
+<p>The materials used in the simulation.</p>
+<h5 id="damage_models"><code>damage_models</code></h5>
+<p>The damage models used in the simulation.</p>
+<h5 id="blocks"><code>blocks</code></h5>
+<p>The blocks used in the simulation.</p>
+<h5 id="boundary_conditions"><code>boundary_conditions</code></h5>
+<p>The boundary conditions used in the simulation.</p>
+<h5 id="settings"><code>settings</code></h5>
+<p>The settings used in the simulation.</p>
+<h4 id="methods_12">Methods</h4>
+<h5 id="clear"><code>Clear()</code></h5>
+<p>Clears all data associated with the simulator.</p>
+<h5 id="insertmaterialmaterial"><code>InsertMaterial(material)</code></h5>
+<p>Inserts a material into the simulator.</p>
+<ul>
+<li><code>material</code> (Material): The material to insert.</li>
+</ul>
+<h5 id="insertdamagemodeldamage_model"><code>InsertDamageModel(damage_model)</code></h5>
+<p>Inserts a damage model into the simulator.</p>
+<ul>
+<li><code>damage_model</code> (DamageModel): The damage model to insert.</li>
+</ul>
+<h5 id="insertblockblock"><code>InsertBlock(block)</code></h5>
+<p>Inserts a block into the simulator.</p>
+<ul>
+<li><code>block</code> (Block): The block to insert.</li>
+</ul>
+<h5 id="insertboundaryconditionboundary_condition"><code>InsertBoundaryCondition(boundary_condition)</code></h5>
+<p>Inserts a boundary condition into the simulator.</p>
+<ul>
+<li><code>boundary_condition</code> (BoundaryCondition): The boundary condition to insert.</li>
+</ul>
+<h5 id="initdefaultsetup"><code>InitDefaultSetup()</code></h5>
+<p>Initializes the simulator with default settings.</p>
+<h5 id="initautotimestep"><code>InitAutoTimestep()</code></h5>
+<p>Initializes the simulator with automatic timestep settings.</p>
+<h5 id="writenodefile"><code>WriteNodeFile()</code></h5>
+<p>Writes the node file for the simulator.</p>
+<h5 id="writenodesetfile"><code>WriteNodeSetFile()</code></h5>
+<p>Writes the node set file for the simulator.</p>
+<h5 id="writeinputfile"><code>WriteInputFile()</code></h5>
+<p>Writes the input file for the simulator.</p>
+<h5 id="solve"><code>Solve()</code></h5>
+<p>Runs the simulation.</p>
+<h5 id="setupresultdirectory"><code>SetUpResultDirectory()</code></h5>
+<p>Sets up the result directory for the simulation.</p>
+<h5 id="cleanupresultdirectory"><code>CleanUpResultDirectory()</code></h5>
+<p>Cleans up the result directory for the simulation.</p>
+<hr />
+<h3 id="peridigmdemcoupler">PeriDigmDEMCoupler</h3>
+<p>This class represents a coupler between the Peridynamics and DEM models.</p>
+<h4 id="constructor_13">Constructor</h4>
+<h5 id="peridigmdemcoupler_1"><code>PeriDigmDEMCoupler()</code></h5>
+<p>Creates a new instance of the PeriDigmDEMCoupler class.</p>
+<h4 id="attributes_10">Attributes</h4>
+<h5 id="particle"><code>particle</code></h5>
+<p>The Peridynamics particle system.</p>
+<h5 id="pd_sim"><code>pd_sim</code></h5>
+<p>The Peridynamics simulation.</p>
+<h5 id="base_dir"><code>base_dir</code></h5>
+<p>The base directory for output files.</p>
+<h5 id="sub_dir_index"><code>sub_dir_index</code></h5>
+<p>The sub-directory index for output files.</p>
+<h5 id="mesh_res"><code>mesh_res</code></h5>
+<p>The resolution of the DEM mesh.</p>
+<h5 id="node_size_ave"><code>node_size_ave</code></h5>
+<p>The average size of the DEM mesh nodes.</p>
+<h5 id="mech_time_2"><code>mech_time</code></h5>
+<p>The mechanical time step size.</p>
+<h5 id="surface_stl"><code>surface_stl</code></h5>
+<p>The path to the STL file representing the surface of the simulation domain.</p>
+<h5 id="boundary_force_nodes"><code>boundary_force_nodes</code></h5>
+<p>The nodes on the boundary where forces are applied.</p>
+<h5 id="boundary_force_node_vols"><code>boundary_force_node_vols</code></h5>
+<p>The volumes associated with the boundary force nodes.</p>
+<h5 id="boundary_force_values"><code>boundary_force_values</code></h5>
+<p>The values of the boundary forces.</p>
+<h5 id="unbalanced_force_nodes"><code>unbalanced_force_nodes</code></h5>
+<p>The nodes where unbalanced forces are applied.</p>
+<h5 id="unbalanced_force_values"><code>unbalanced_force_values</code></h5>
+<p>The values of the unbalanced forces.</p>
+<h5 id="use_customized_loading_rate"><code>use_customized_loading_rate</code></h5>
+<p>A flag indicating whether to use a customized loading rate.</p>
+<h5 id="loading_rate_1"><code>loading_rate</code></h5>
+<p>The loading rate.</p>
+<h5 id="loading_steps"><code>loading_steps</code></h5>
+<p>The number of loading steps.</p>
+<h5 id="is_broken"><code>is_broken</code></h5>
+<p>A flag indicating whether the material is broken.</p>
+<h5 id="damage_fraction_limit"><code>damage_fraction_limit</code></h5>
+<p>The damage fraction limit.</p>
+<h5 id="fragment_vol_limit"><code>fragment_vol_limit</code></h5>
+<p>The fragment volume limit.</p>
+<h5 id="ignore_fines"><code>ignore_fines</code></h5>
+<p>A flag indicating whether to ignore fines.</p>
+<h5 id="use_alpha_shape"><code>use_alpha_shape</code></h5>
+<p>A flag indicating whether to use alpha shape.</p>
+<h5 id="fragment_alpha"><code>fragment_alpha</code></h5>
+<p>The alpha value for fragmenting.</p>
+<h5 id="strength_params"><code>strength_params</code></h5>
+<p>The strength parameters.</p>
+<h5 id="material_params"><code>material_params</code></h5>
+<p>The material parameters.</p>
+<h4 id="methods_13">Methods</h4>
+<h5 id="init"><code>Init()</code></h5>
+<p>Initializes the DEM coupler.</p>
+<h5 id="applyboundaryforce"><code>ApplyBoundaryForce()</code></h5>
+<p>Applies the boundary forces.</p>
+<h5 id="solve_1"><code>Solve()</code></h5>
+<p>Solves the DEM coupler.</p>
+<h5 id="checkbreakage"><code>CheckBreakage()</code></h5>
+<p>Checks for breakage.</p>
+<h5 id="getfragments"><code>GetFragments()</code></h5>
+<p>Gets the fragments.</p>
+<hr />
+<p><a href="../user_manual/">User manual</a>
+┊ <a href="../ref_dem/">Previous</a>
+┊ <a href="../ref_domain/">Next</a></p></div>
+            <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>Enter your search keywords below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+            
+        </div>
+        
+
+        <footer class="footer">
+           <div class="container">
+              <p class="text-muted alignleft">
+                  <span id="busuanzi_container_site_uv" style='display:none'>Vistors: <span id="busuanzi_value_site_uv"></span>. </span>
+              </p>
+              <p class="text-muted alignright">
+                &copy; <a href="https://apaam.github.io/netdem_docs/about/acknowledgement/">NetDEM Team</a>. SYSU, HKUST.
+              </p>
+           </div>
+        </footer>
+
+        <script src="../../js/jquery-1.10.2.min.js"></script>
+        <script src="../../js/bootstrap-3.0.3.min.js"></script>
+        <script src="../../js/highlight.pack.js"></script>
+        <script src="../../js/base.js"></script>
+        <script src="../../js/retina.min.js"></script>
+        <!-- <script data-main="../../mkdocs/js/search.js" src="../../mkdocs/js/require.js"></script> -->
+        <script src="../../mathjax-config.js"></script>
+        <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+        <script src="../../search/main.js"></script>
+    </body>
+</html>

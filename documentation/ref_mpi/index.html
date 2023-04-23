@@ -67,13 +67,13 @@
             
             
             
-                <li class="dropdown active">
+                <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Documentation <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                     
                         
-                            <li class="active">
-                                 <a href="./">User manual</a>
+                            <li >
+                                 <a href="../user_manual/">User manual</a>
                             </li>
                         
                     
@@ -201,10 +201,11 @@
         <li class="main active"><a href="#_1"></a></li>
         
     
-        <li class="main "><a href="#user-manual">User manual</a></li>
+        <li class="main "><a href="#mpimanager">MPIManager</a></li>
         
-    
-        <li class="main "><a href="#class-reference">Class reference</a></li>
+            <li><a href="#constructor"> &#9731; Constructor</a></li>
+        
+            <li><a href="#methods"> &#9731; Methods</a></li>
         
     
     </ul>
@@ -215,10 +216,11 @@
         <li class="main active"><a href="#_1"></a></li>
         
     
-        <li class="main "><a href="#user-manual">User manual</a></li>
+        <li class="main "><a href="#mpimanager">MPIManager</a></li>
         
-    
-        <li class="main "><a href="#class-reference">Class reference</a></li>
+            <li><a href="#constructor"> &#9731; Constructor</a></li>
+        
+            <li><a href="#methods"> &#9731; Methods</a></li>
         
     
     </ul>
@@ -226,24 +228,35 @@
             <div class="col-md-9" role="main">
 
 <h3 id="_1"></h3>
-<h3 id="user-manual">User manual</h3>
-<p><a href="../installation/">Installation</a>: installation, test, and dependencies, etc.</p>
-<p><a href="../basic_usage/">Basic usage</a>: running simulation, particle shape reconstruction, post-processing, etc.</p>
-<p><a href="../paraview_rendering/">Paraview rendering</a>: hints and procedures in paraview visualization.</p>
-<p><a href="../blender_rendering/">Blender rendering</a>: hints and procedures in blender visualization.</p>
-<p><a href="../cfddem_simulation/">CFD-DEM simulation</a>: coupled CFD-DEM simulation using OpenFOAM NetDEM.</p>
-<h3 id="class-reference">Class reference</h3>
-<p><a href="../ref_dem/">dem</a>: defines the basic classes for dem calculations, including contact model, contact solver, etc.</p>
-<p><a href="../ref_domain/">domain</a>:</p>
-<p><a href="../ref_fem/">fem</a>:</p>
-<p><a href="../ref_modifier/">modifier</a>: </p>
-<p><a href="../ref_mpi/">mpi</a>: </p>
-<p><a href="../ref_netdem/">netdem</a>: </p>
-<p><a href="../ref_peridigm/">peridigm</a>: </p>
-<p><a href="../ref_scene/">scene</a>: defines the basic classes for DEM units, including Scene, Particle, Wall, ContactPP, etc.</p>
-<p><a href="../ref_shape/">shape</a>: defines the basic classes for DEM different shapes, including Sphere, Ellipsoid, TriMesh, etc. </p>
-<p><a href="../ref_simulation/">simulation</a>: declares the basic simulation classes for the simulation, incluidng domain_manager, mpi_manager, modifier_manager, scene, dem_solver, mech_time, mech_cycles, enable_logging.</p>
-<p><a href="../ref_utils/">utils</a>: defines the basic classes for calculation, including Math, STLReader, STLModel, etc.</p></div>
+<p><a href="../user_manual/">User manual</a>
+┊ <a href="../ref_modifier/">Previous</a>
+┊ <a href="../ref_netdem/">Next</a></p>
+<hr />
+<h3 id="mpimanager">MPIManager</h3>
+<p>This class provides an interface for MPI-based parallelism.</p>
+<h4 id="constructor">Constructor</h4>
+<h5 id="mpimanager_1"><code>MPIManager()</code></h5>
+<p>Creates a new instance of the MPIManager class.</p>
+<h4 id="methods">Methods</h4>
+<h5 id="getselfrank"><code>GetSelfRank()</code></h5>
+<p>Returns the rank of the current process.</p>
+<h5 id="gettotalrank"><code>GetTotalRank()</code></h5>
+<p>Returns the total number of processes.</p>
+<h5 id="syncshapetoallprocessorsshape"><code>SyncShapeToAllProcessors(shape)</code></h5>
+<p>Synchronizes the shape of an array among all the processes.</p>
+<ul>
+<li><code>shape</code> (numpy array): A numpy array that represents the shape to synchronize.</li>
+</ul>
+<h5 id="syncdataamongprocessorsdata"><code>SyncDataAmongProcessors(data)</code></h5>
+<p>Synchronizes the data of an array among all the processes.</p>
+<ul>
+<li><code>data</code> (numpy array): A numpy array that represents the data to synchronize.</li>
+</ul>
+<p>Note: This method can be called with either an array of integers or an array of doubles.</p>
+<hr />
+<p><a href="../user_manual/">User manual</a>
+┊ <a href="../ref_modifier/">Previous</a>
+┊ <a href="../ref_netdem/">Next</a></p></div>
             <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">

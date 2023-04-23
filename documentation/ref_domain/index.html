@@ -201,13 +201,27 @@
         <li class="main active"><a href="#_1"></a></li>
         
     
+        <li class="main "><a href="#cellmanager">CellManager</a></li>
+        
+            <li><a href="#constructor"> &#9731; Constructor</a></li>
+        
+            <li><a href="#methods"> &#9731; Methods</a></li>
+        
+    
+        <li class="main "><a href="#domain">Domain</a></li>
+        
+            <li><a href="#constructor_1"> &#9731; Constructor</a></li>
+        
+            <li><a href="#attributes"> &#9731; Attributes</a></li>
+        
+            <li><a href="#methods_1"> &#9731; Methods</a></li>
+        
+    
         <li class="main "><a href="#domainmanager">DomainManager</a></li>
         
-    
-        <li class="main "><a href="#create-a-new-instance-of-the-cellmanager-class">Create a new instance of the CellManager class</a></li>
+            <li><a href="#constructor_2"> &#9731; Constructor</a></li>
         
-    
-        <li class="main "><a href="#set-the-spacing">Set the spacing</a></li>
+            <li><a href="#methods_2"> &#9731; Methods</a></li>
         
     
     </ul>
@@ -218,13 +232,27 @@
         <li class="main active"><a href="#_1"></a></li>
         
     
+        <li class="main "><a href="#cellmanager">CellManager</a></li>
+        
+            <li><a href="#constructor"> &#9731; Constructor</a></li>
+        
+            <li><a href="#methods"> &#9731; Methods</a></li>
+        
+    
+        <li class="main "><a href="#domain">Domain</a></li>
+        
+            <li><a href="#constructor_1"> &#9731; Constructor</a></li>
+        
+            <li><a href="#attributes"> &#9731; Attributes</a></li>
+        
+            <li><a href="#methods_1"> &#9731; Methods</a></li>
+        
+    
         <li class="main "><a href="#domainmanager">DomainManager</a></li>
         
-    
-        <li class="main "><a href="#create-a-new-instance-of-the-cellmanager-class">Create a new instance of the CellManager class</a></li>
+            <li><a href="#constructor_2"> &#9731; Constructor</a></li>
         
-    
-        <li class="main "><a href="#set-the-spacing">Set the spacing</a></li>
+            <li><a href="#methods_2"> &#9731; Methods</a></li>
         
     
     </ul>
@@ -234,116 +262,103 @@
 <h3 id="_1"></h3>
 <p><a href="../user_manual/">User manual</a>
 ┊ <a href="../ref_dem/">Previous</a>
-┊ <a href="./">Next</a></p>
+┊ <a href="../ref_fem/">Next</a></p>
+<hr />
+<h3 id="cellmanager">CellManager</h3>
+<p>This class represents a cell manager.</p>
+<h4 id="constructor">Constructor</h4>
+<h5 id="cellmanager_1"><code>CellManager()</code></h5>
+<p>Creates a new instance of the CellManager class.</p>
+<h4 id="methods">Methods</h4>
+<h5 id="setspacingspacing"><code>SetSpacing(spacing)</code></h5>
+<p>Set the spacing of the cell manager.</p>
+<ul>
+<li><code>spacing</code> (float): The value of the spacing to set.</li>
+</ul>
+<hr />
+<h3 id="domain">Domain</h3>
+<p>This class represents a computational domain.</p>
+<h4 id="constructor_1">Constructor</h4>
+<h5 id="domain_1"><code>Domain()</code></h5>
+<p>Creates a new instance of the Domain class.</p>
+<h4 id="attributes">Attributes</h4>
+<h5 id="cell_manager"><code>cell_manager</code></h5>
+<p>An instance of the CellManager class.</p>
+<h5 id="self_rank"><code>self_rank</code></h5>
+<p>The rank of the current process.</p>
+<h5 id="total_rank"><code>total_rank</code></h5>
+<p>The total number of processes.</p>
+<h5 id="bound_min"><code>bound_min</code></h5>
+<p>The minimum bound of the domain.</p>
+<h5 id="bound_max"><code>bound_max</code></h5>
+<p>The maximum bound of the domain.</p>
+<h4 id="methods_1">Methods</h4>
+<h5 id="setboundbound_min-bound_max"><code>SetBound(bound_min, bound_max)</code></h5>
+<p>Set the bounds of the domain.</p>
+<ul>
+<li><code>bound_min</code> (Vec3): The minimum bound of the domain.</li>
+<li><code>bound_max</code> (Vec3): The maximum bound of the domain.</li>
+</ul>
+<h5 id="setcellspacingspacing"><code>SetCellSpacing(spacing)</code></h5>
+<p>Set the spacing between cells.</p>
+<ul>
+<li><code>spacing</code> (Vec3): The spacing between cells.</li>
+</ul>
+<h5 id="isjudgedomainparticle1-particle2"><code>IsJudgeDomain(particle1, particle2)</code></h5>
+<p>Check if two particles belong to the same domain.</p>
+<ul>
+<li><code>particle1</code> (Particle): The first particle.</li>
+<li><code>particle2</code> (Particle): The second particle.</li>
+</ul>
+<h5 id="isjudgedomainparticle-wall"><code>IsJudgeDomain(particle, wall)</code></h5>
+<p>Check if a particle and a wall belong to the same domain.</p>
+<ul>
+<li><code>particle</code> (Particle): The particle.</li>
+<li><code>wall</code> (Wall): The wall.</li>
+</ul>
+<h5 id="isbelongtodomainparticle"><code>IsBelongToDomain(particle)</code></h5>
+<p>Check if a particle belongs to the domain.</p>
+<ul>
+<li><code>particle</code> (Particle): The particle.</li>
+</ul>
+<h5 id="isbelongtodomainparticle_data"><code>IsBelongToDomain(particle_data)</code></h5>
+<p>Check if a particle data belongs to the domain.</p>
+<ul>
+<li><code>particle_data</code> (ParticleData): The particle data. </li>
+</ul>
 <hr />
 <h3 id="domainmanager">DomainManager</h3>
-<p>CellManager
-This class represents a cell manager.</p>
-<p>Constructor
-CellManager()
-Creates a new instance of the CellManager class.</p>
-<p>Methods
-SetSpacing(spacing)
-Set the spacing of the cell manager.</p>
-<p>spacing (float): The value of the spacing to set.
-Python Interface
-Here is an example of how to use the CellManager class in Python:</p>
-<p>python
-Copy code
-import pynetdem</p>
-<h1 id="create-a-new-instance-of-the-cellmanager-class">Create a new instance of the CellManager class</h1>
-<p>cell_manager = pynetdem.CellManager()</p>
-<h1 id="set-the-spacing">Set the spacing</h1>
-<p>cell_manager.SetSpacing(0.1)</p>
-<hr />
-<p>Domain
-This class represents a computational domain.</p>
-<p>Constructor
-Domain()
-Creates a new instance of the Domain class.</p>
-<p>Attributes
-cell_manager
-An instance of the CellManager class.</p>
-<p>self_rank
-The rank of the current process.</p>
-<p>total_rank
-The total number of processes.</p>
-<p>bound_min
-The minimum bound of the domain.</p>
-<p>bound_max
-The maximum bound of the domain.</p>
-<p>Methods
-SetBound(bound_min, bound_max)
-Set the bounds of the domain.</p>
-<p>bound_min (Vec3): The minimum bound of the domain.
-bound_max (Vec3): The maximum bound of the domain.
-SetCellSpacing(spacing)
-Set the spacing between cells.</p>
-<p>spacing (Vec3): The spacing between cells.
-IsJudgeDomain(particle1, particle2)
-Check if two particles belong to the same domain.</p>
-<p>particle1 (Particle): The first particle.
-particle2 (Particle): The second particle.
-IsJudgeDomain(particle, wall)
-Check if a particle and a wall belong to the same domain.</p>
-<p>particle (Particle): The particle.
-wall (Wall): The wall.
-IsBelongToDomain(particle)
-Check if a particle belongs to the domain.</p>
-<p>particle (Particle): The particle.
-IsBelongToDomain(particle_data)
-Check if a particle data belongs to the domain.</p>
-<p>particle_data (ParticleData): The particle data. </p>
-<hr />
-<p>DomainManager
-This class manages the domains in a distributed computing environment.</p>
-<p>Constructor
-DomainManager()
-Creates a new instance of the DomainManager class.</p>
-<p>Methods
-SetBound(bound_min, bound_max)
-Sets the bounding box of the domains.</p>
-<p>bound_min (tuple of floats): The minimum coordinates of the bounding box.
-bound_max (tuple of floats): The maximum coordinates of the bounding box.
-SetDecomposition(num_subdomains)
-Sets the number of subdomains for decomposition.</p>
-<p>num_subdomains (int): The number of subdomains to decompose the domain into.
-SetCellSpacing(spacing)
-Sets the cell spacing for the subdomains.</p>
-<p>spacing (float): The cell spacing for the subdomains.
-GetGhostSubDomains() -&gt; list of Domain
-Returns a list of ghost subdomains.</p>
-<p>GetSelfGhostSubDomain() -&gt; Domain
-Returns the ghost subdomain for the current process.</p>
-<p>GetSelfSubDomain() -&gt; Domain
-Returns the subdomain for the current process.</p>
-<hr />
-<p>DomainManager
-This class manages the domains in a distributed computing environment.</p>
-<p>Constructor
-DomainManager()
-Creates a new instance of the DomainManager class.</p>
-<p>Methods
-SetBound(bound_min, bound_max)
-Sets the bounding box of the domains.</p>
-<p>bound_min (tuple of floats): The minimum coordinates of the bounding box.
-bound_max (tuple of floats): The maximum coordinates of the bounding box.
-SetDecomposition(num_subdomains)
-Sets the number of subdomains for decomposition.</p>
-<p>num_subdomains (int): The number of subdomains to decompose the domain into.
-SetCellSpacing(spacing)
-Sets the cell spacing for the subdomains.</p>
-<p>spacing (float): The cell spacing for the subdomains.
-GetGhostSubDomains() -&gt; list of Domain
-Returns a list of ghost subdomains.</p>
-<p>GetSelfGhostSubDomain() -&gt; Domain
-Returns the ghost subdomain for the current process.</p>
-<p>GetSelfSubDomain() -&gt; Domain
-Returns the subdomain for the current process.</p>
+<p>This class manages the domains in a distributed computing environment.</p>
+<h4 id="constructor_2">Constructor</h4>
+<h5 id="domainmanager_1"><code>DomainManager()</code></h5>
+<p>Creates a new instance of the DomainManager class.</p>
+<h4 id="methods_2">Methods</h4>
+<h5 id="setboundbound_min-bound_max_1"><code>SetBound(bound_min, bound_max)</code></h5>
+<p>Sets the bounding box of the domains.</p>
+<ul>
+<li><code>bound_min</code> (tuple of floats): The minimum coordinates of the bounding box.</li>
+<li><code>bound_max</code> (tuple of floats): The maximum coordinates of the bounding box.</li>
+</ul>
+<h5 id="setdecompositionnum_subdomains"><code>SetDecomposition(num_subdomains)</code></h5>
+<p>Sets the number of subdomains for decomposition.</p>
+<ul>
+<li><code>num_subdomains</code> (int): The number of subdomains to decompose the domain into.</li>
+</ul>
+<h5 id="setcellspacingspacing_1"><code>SetCellSpacing(spacing)</code></h5>
+<p>Sets the cell spacing for the subdomains.</p>
+<ul>
+<li><code>spacing</code> (float): The cell spacing for the subdomains.</li>
+</ul>
+<h5 id="getghostsubdomains"><code>GetGhostSubDomains()</code></h5>
+<p>Returns a list of ghost subdomains.</p>
+<h5 id="getselfghostsubdomain"><code>GetSelfGhostSubDomain()</code></h5>
+<p>Returns the ghost subdomain for the current process.</p>
+<h5 id="getselfsubdomain"><code>GetSelfSubDomain()</code></h5>
+<p>Returns the subdomain for the current process.</p>
 <hr />
 <p><a href="../user_manual/">User manual</a>
 ┊ <a href="../ref_dem/">Previous</a>
-┊ <a href="./">Next</a></p></div>
+┊ <a href="../ref_fem/">Next</a></p></div>
             <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">

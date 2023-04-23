@@ -222,11 +222,27 @@
             <li><a href="#inheritance"> &#9731; Inheritance</a></li>
         
     
+        <li class="main "><a href="#contactsolversettings-class">ContactSolverSettings Class</a></li>
+        
+            <li><a href="#attributes_1"> &#9731; Attributes</a></li>
+        
+            <li><a href="#solvertype-enumeration"> &#9731; SolverType Enumeration</a></li>
+        
+    
+        <li class="main "><a href="#contactsolverfactory">ContactSolverFactory</a></li>
+        
+            <li><a href="#attributes_2"> &#9731; Attributes</a></li>
+        
+            <li><a href="#methods_1"> &#9731; Methods</a></li>
+        
+    
         <li class="main "><a href="#demsolver">DEMSolver</a></li>
         
             <li><a href="#constructor_3"> &#9731; Constructor</a></li>
         
-            <li><a href="#attributes_1"> &#9731; Attributes</a></li>
+            <li><a href="#attributes_3"> &#9731; Attributes</a></li>
+        
+            <li><a href="#enums"> &#9731; Enums</a></li>
         
     
     </ul>
@@ -258,11 +274,27 @@
             <li><a href="#inheritance"> &#9731; Inheritance</a></li>
         
     
+        <li class="main "><a href="#contactsolversettings-class">ContactSolverSettings Class</a></li>
+        
+            <li><a href="#attributes_1"> &#9731; Attributes</a></li>
+        
+            <li><a href="#solvertype-enumeration"> &#9731; SolverType Enumeration</a></li>
+        
+    
+        <li class="main "><a href="#contactsolverfactory">ContactSolverFactory</a></li>
+        
+            <li><a href="#attributes_2"> &#9731; Attributes</a></li>
+        
+            <li><a href="#methods_1"> &#9731; Methods</a></li>
+        
+    
         <li class="main "><a href="#demsolver">DEMSolver</a></li>
         
             <li><a href="#constructor_3"> &#9731; Constructor</a></li>
         
-            <li><a href="#attributes_1"> &#9731; Attributes</a></li>
+            <li><a href="#attributes_3"> &#9731; Attributes</a></li>
+        
+            <li><a href="#enums"> &#9731; Enums</a></li>
         
     
     </ul>
@@ -303,69 +335,81 @@
 <h4 id="constructor_1">Constructor</h4>
 <h5 id="linearspring_1"><code>LinearSpring()</code></h5>
 <p>Creates a new instance of the LinearSpring class.</p>
-<p>LinearSpring(stiffness, damping, rest_length, contact_radius)
-Creates a new instance of the LinearSpring class with specific parameters.</p>
-<p>stiffness (float): The spring stiffness.
-damping (float): The spring damping.
-rest_length (float): The rest length of the spring.
-contact_radius (float): The contact radius of the spring.</p>
+<h5 id="linearspringstiffness-damping-rest_length-contact_radius"><code>LinearSpring(stiffness, damping, rest_length, contact_radius)</code></h5>
+<p>Creates a new instance of the LinearSpring class with specific parameters.</p>
+<ul>
+<li><code>stiffness</code> (float): The spring stiffness.</li>
+<li><code>damping</code> (float): The spring damping.</li>
+<li><code>rest_length</code> (float): The rest length of the spring.</li>
+<li><code>contact_radius</code> (float): The contact radius of the spring.</li>
+</ul>
 <hr />
 <h3 id="parallelbond">ParallelBond</h3>
 <p>This class represents a parallel bond contact model.</p>
 <h4 id="constructor_2">Constructor</h4>
-<p>ParallelBond()
-Creates a new instance of the ParallelBond class.</p>
-<p>ParallelBond(kn, kt, gamma, t0)
-Creates a new instance of the ParallelBond class with specified parameters.</p>
-<p>kn (float): Normal contact stiffness.
-kt (float): Tangential contact stiffness.
-gamma (float): Viscoelastic parameter.
-t0 (float): Yield strength.</p>
+<h5 id="parallelbond_1"><code>ParallelBond()</code></h5>
+<p>Creates a new instance of the ParallelBond class.</p>
+<h5 id="parallelbondkn-kt-gamma-t0"><code>ParallelBond(kn, kt, gamma, t0)</code></h5>
+<p>Creates a new instance of the ParallelBond class with specified parameters.</p>
+<ul>
+<li><code>kn</code> (float): Normal contact stiffness.</li>
+<li><code>kt</code> (float): Tangential contact stiffness.</li>
+<li><code>gamma</code> (float): Viscoelastic parameter.</li>
+<li><code>t0</code> (float): Yield strength.</li>
+</ul>
 <h4 id="inheritance">Inheritance</h4>
-<p><code>ParallelBond</code> inherits from 'ContactModel'</p>
+<p><code>ParallelBond</code> inherits from <code>ContactModel</code></p>
 <hr />
-<p>ContactSolverSettings Class
-This class represents settings for the contact solver.</p>
-<p>Attributes
-solver_type (SolverType): The type of contact solver to use. Default is SolverType.automatic.
-gjk_use_erosion (bool): Whether to use erosion for the GJK contact solver. Default is False.
-gjk_erosion_ratio_initial (float): The initial erosion ratio for the GJK contact solver. Default is 0.1.
-gjk_erosion_ratio_increment (float): The increment of erosion ratio for the GJK contact solver. Default is 0.05.
-sdf_potential_type (int): The type of potential function to use for the SDF contact solver. Default is 0.
-SolverType Enumeration
-This enumeration represents the type of contact solver.</p>
-<p>SolverType.gjk: The GJK contact solver.
-SolverType.sdf: The SDF contact solver.
-SolverType.automatic: The automatic contact solver.
-ContactSolverFactory Class
-This class is responsible for creating instances of contact solvers based on settings.</p>
-<p>Attributes
-settings (ContactSolverSettings): The settings for the contact solver.
-Methods
-<strong>init</strong>(): Constructs a new instance of the ContactSolverFactory class with default settings.
-<strong>init</strong>(factory: ContactSolverFactory): Constructs a new instance of the ContactSolverFactory class with settings copied from factory.
-<strong>copy</strong>(): Copies the settings of the contact solver factory to a new instance of the ContactSolverFactory class.</p>
+<h3 id="contactsolversettings-class">ContactSolverSettings Class</h3>
+<p>This class represents settings for the contact solver.</p>
+<h4 id="attributes_1">Attributes</h4>
+<h5 id="solver_type-solvertype"><code>solver_type</code> (SolverType)</h5>
+<p>The type of contact solver to use. Default is SolverType.</p>
+<h5 id="gjk_use_erosion-bool"><code>gjk_use_erosion</code> (bool)</h5>
+<p>Whether to use erosion for the GJK contact solver. </p>
+<h5 id="gjk_erosion_ratio_initial-float"><code>gjk_erosion_ratio_initial</code> (float)</h5>
+<p>The initial erosion ratio for the GJK contact solver.</p>
+<h5 id="gjk_erosion_ratio_increment-float"><code>gjk_erosion_ratio_increment</code> (float)</h5>
+<p>The increment of erosion ratio for the GJK contact solver.</p>
+<h5 id="sdf_potential_type-int"><code>sdf_potential_type</code> (int)</h5>
+<p>The type of potential function to use for the SDF contact solver.</p>
+<h4 id="solvertype-enumeration">SolverType Enumeration</h4>
+<p>This enumeration represents the type of contact solver.</p>
+<h5 id="solvertypegjk-the-gjk-contact-solver"><code>SolverType.gjk</code>: The GJK contact solver.</h5>
+<h5 id="solvertypesdf-the-sdf-contact-solver"><code>SolverType.sdf</code>: The SDF contact solver.</h5>
+<h5 id="solvertypeautomatic-the-automatic-contact-solver"><code>SolverType.automatic</code>: The automatic contact solver.</h5>
+<hr />
+<h3 id="contactsolverfactory">ContactSolverFactory</h3>
+<p>This class is responsible for creating instances of contact solvers based on settings.</p>
+<h4 id="attributes_2">Attributes</h4>
+<p>settings (ContactSolverSettings): The settings for the contact solver.</p>
+<h4 id="methods_1">Methods</h4>
+<p><strong>init</strong>(): Constructs a new instance of the ContactSolverFactory class with default settings.</p>
+<p><strong>init</strong>(factory: ContactSolverFactory): Constructs a new instance of the ContactSolverFactory class with settings copied from factory.</p>
+<p><strong>copy</strong>(): Copies the settings of the contact solver factory to a new instance of the ContactSolverFactory class.</p>
 <hr />
 <h3 id="demsolver">DEMSolver</h3>
 <p>This class represents a discrete element method (DEM) solver.</p>
 <h4 id="constructor_3">Constructor</h4>
 <h5 id="demsolver_1"><code>DEMSolver()</code></h5>
 <p>Creates a new instance of the <code>DEMSolver</code> class.</p>
-<h4 id="attributes_1">Attributes</h4>
+<h4 id="attributes_3">Attributes</h4>
 <h5 id="timestep"><code>timestep</code></h5>
 <p>The timestep used for the simulation.</p>
 <h5 id="contact_solver_factory"><code>contact_solver_factory</code></h5>
 <p>The contact solver factory used to create contact solvers for the simulation.</p>
-<p>Enums</p>
-<p>CyclePoint</p>
+<h4 id="enums">Enums</h4>
+<h5 id="cyclepoint"><code>CyclePoint</code></h5>
 <p>An enumeration representing the different cycle points in the simulation.</p>
-<p>pre: The pre-collision cycle point.
-- <code>mid_0</code>: The first mid-collision cycle point.
-- <code>mid_1</code>: The second mid-collision cycle point.
-- <code>mid_2</code>: The third mid-collision cycle point.
-- <code>mid_3</code>: The fourth mid-collision cycle point.
-- <code>mid_4</code>: The fifth mid-collision cycle point.
-post: The post-collision cycle point.</p>
+<ul>
+<li><code>pre</code>: The pre-collision cycle point.</li>
+<li><code>mid_0</code>: The first mid-collision cycle point.</li>
+<li><code>mid_1</code>: The second mid-collision cycle point.</li>
+<li><code>mid_2</code>: The third mid-collision cycle point.</li>
+<li><code>mid_3</code>: The fourth mid-collision cycle point.</li>
+<li><code>mid_4</code>: The fifth mid-collision cycle point.</li>
+<li><code>post</code>: The post-collision cycle point.</li>
+</ul>
 <hr />
 <p><a href="../user_manual/">User manual</a>
 ┊ <a href="../cfddem_simulation/">Previous</a>
