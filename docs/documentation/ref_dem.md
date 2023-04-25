@@ -1,7 +1,6 @@
 ###
 
 [User manual](user_manual.md)
-┊ [Previous](cfddem_simulation.md)
 ┊ [Next](ref_domain.md)
 
 -------
@@ -180,5 +179,4 @@ An enumeration representing the different cycle points in the simulation.
 
 -----
 [User manual](user_manual.md)
-┊ [Previous](cfddem_simulation.md)
 ┊ [Next](ref_domain.md)
