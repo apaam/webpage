@@ -16,23 +16,23 @@
 
 [dem](ref_dem.md): defines the basic classes for dem calculations, including contact model, contact solver, etc.
 
-[domain](ref_domain.md):defines the basic classes for domain manager, including CellManager, Domain, DomainManager.
+[domain](ref_domain.md):defines classes for domain management, including CellManager, Domain, DomainManager, etc.
 
-[fem](ref_fem.md): defines the basic classes for FEM calculations, including TetMesh and Membrane.
+[fem](ref_fem.md): for FEM calculations, including TetMesh and Membrane, etc.
 
-[modifier](ref_modifier.md): defines the bas
+[modifier](ref_modifier.md): defines the classes for modify DEM calculations, such as adding gravity, dumping simulation data, prescribing particle velocities, etc.
 
-[mpi](ref_mpi.md): defines a class `MPIManager` for the MPI parallel. 
+[mpi](ref_mpi.md): for exchanging particle information through MPI parallel computing. 
 
-[netdem](ref_netdem.md): defines all the basic classes for NetDEM modelling, including utils, fem, dem, domain, peridigm, shape, scene, modifier, mpi, simulation.
+[netdem](ref_netdem.md): defines all the basic classes for NetDEM modelling, including utils, fem, dem, domain, peridigm, shape, scene, modifier, mpi, simulation, etc.
 
-[peridigm](ref_peridigm.md): defines the basic classes for DEM Peridigms, including Simulatior, DEMCoupler, etc.
+[peridigm](ref_peridigm.md): interface to couple with peridigm for modeling particle breakage.
 
 [scene](ref_scene.md): defines the basic classes for DEM units, including Scene, Particle, Wall, ContactPP, etc.
 
-[shape](ref_shape.md): defines the basic classes for DEM different shapes, including Sphere, Ellipsoid, TriMesh, etc. 
+[shape](ref_shape.md): defines a variety of shapes, including Sphere, Ellipsoid, TriMesh, etc. 
 
-[simulation](ref_simulation.md): declares the basic simulation classes for the simulation, incluidng domain_manager, mpi_manager, modifier_manager, scene, dem_solver, mech_time, mech_cycles, enable_logging.
+[simulation](ref_simulation.md): a class for handling all the resources of a DEM simulation, incluidng domain_manager, mpi_manager, modifier_manager, scene, dem_solver, mech_time, mech_cycles, enable_logging, etc.
 
-[utils](ref_utils.md): defines the basic classes for calculation, including Math, STLReader, STLModel, etc.
+[utils](ref_utils.md): other ultility classes and functions, including Math, STLReader, STLModel, etc.
 
