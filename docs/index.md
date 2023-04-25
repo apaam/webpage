@@ -63,12 +63,15 @@ The supported particle shapes include sphere, cylinder, poly-super-ellipsoid, po
 
 ## News
 
-Date         | Message
------------- | -----------------------------------------------------------------
-Dec 01, 2021 | Added pybind11 environment and python examples, exposed most APIs to python.
-Sep 10, 2021 | Poly-super-ellipsoid, poly-super-quadric, spherical harmonics, level set, polyhedron and etc.
-Aug 15, 2021 | Generlized two types of contact solvers, namely GJK and SDF.
-Mar 15, 2021 | Integrated the [mlpack](https://github.com/mlpack/mlpack.git) as the machine learning environment.
+Date     | Message
+-------- | -----------------------------------------------------------------
+Apr 2023 | Intelligent NetDEM code searching using chatGPT and embedding.
+Dec 2022 | Fully resolved CFD-DEM, with unresolved, semi-resolved, resovled and hybrid solvers.
+Jun 2022 | Integrated with OpenFOAM for a resolved CFD-DEM.
+Dec 2021 | Exposed most APIs to python via pybind11, added python examples.
+Sep 2021 | Poly-super-ellipsoid, poly-super-quadric, spherical harmonics, level set, polyhedron and etc.
+<!-- Aug 2021 | Generlized two types of contact solvers, namely GJK and SDF.
+Mar 2021 | Integrated the [mlpack](https://github.com/mlpack/mlpack.git) as the machine learning environment. -->
 
 <!-- ## Latest Release -->
 
