@@ -567,17 +567,6 @@ Whether the particle's STL model needs to be updated.
 
 The STL model of the particle.
 
-
-
-
-
-
-
-
-
-
-
-
 -------
 
 ### Wall
@@ -977,7 +966,8 @@ A list of bonded particle pairs.
 
 A reference to the BondModel object used to calculate bonds.
 
-Methods
+#### Methods
+
 ##### `init()`
 
 The default constructor.

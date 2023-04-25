@@ -16,17 +16,17 @@
 
 [dem](ref_dem.md): defines the basic classes for dem calculations, including contact model, contact solver, etc.
 
-[domain](ref_domain.md):
+[domain](ref_domain.md):defines the basic classes for domain manager, including CellManager, Domain, DomainManager.
 
-[fem](ref_fem.md):
+[fem](ref_fem.md): defines the basic classes for FEM calculations, including TetMesh and Membrane.
 
-[modifier](ref_modifier.md): 
+[modifier](ref_modifier.md): defines the bas
 
-[mpi](ref_mpi.md): 
+[mpi](ref_mpi.md): defines a class `MPIManager` for the MPI parallel. 
 
-[netdem](ref_netdem.md): 
+[netdem](ref_netdem.md): defines all the basic classes for NetDEM modelling, including utils, fem, dem, domain, peridigm, shape, scene, modifier, mpi, simulation.
 
-[peridigm](ref_peridigm.md): 
+[peridigm](ref_peridigm.md): defines the basic classes for DEM Peridigms, including Simulatior, DEMCoupler, etc.
 
 [scene](ref_scene.md): defines the basic classes for DEM units, including Scene, Particle, Wall, ContactPP, etc.
 

@@ -1,8 +1,8 @@
 ###
 
 [User manual](user_manual.md)
-┊ [Previous](ref_dem.md)
-┊ [Next](ref_domain.md)
+┊ [Previous](ref_netdem.md)
+┊ [Next](ref_scene.md)
 
 -------
 
@@ -928,5 +928,5 @@ Gets the fragments.
 --------
 
 [User manual](user_manual.md)
-┊ [Previous](ref_dem.md)
-┊ [Next](ref_domain.md)
+┊ [Previous](ref_netdem.md)
+┊ [Next](ref_scene.md)
