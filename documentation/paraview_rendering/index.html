@@ -201,7 +201,19 @@
         <li class="main active"><a href="#_1"></a></li>
         
     
-        <li class="main "><a href="#clientserver">Client/Server</a></li>
+        <li class="main "><a href="#rendering-in-paraview">Rendering in paraview</a></li>
+        
+            <li><a href="#spherical-particles"> &#9731; Spherical particles</a></li>
+        
+            <li><a href="#general-particles-and-walls"> &#9731; General particles and walls</a></li>
+        
+            <li><a href="#contact-force-chain"> &#9731; Contact force chain</a></li>
+        
+            <li><a href="#ray-tracing"> &#9731; Ray tracing</a></li>
+        
+            <li><a href="#create-animation"> &#9731; Create animation</a></li>
+        
+            <li><a href="#clientserver"> &#9731; Client/Server</a></li>
         
     
     </ul>
@@ -212,7 +224,19 @@
         <li class="main active"><a href="#_1"></a></li>
         
     
-        <li class="main "><a href="#clientserver">Client/Server</a></li>
+        <li class="main "><a href="#rendering-in-paraview">Rendering in paraview</a></li>
+        
+            <li><a href="#spherical-particles"> &#9731; Spherical particles</a></li>
+        
+            <li><a href="#general-particles-and-walls"> &#9731; General particles and walls</a></li>
+        
+            <li><a href="#contact-force-chain"> &#9731; Contact force chain</a></li>
+        
+            <li><a href="#ray-tracing"> &#9731; Ray tracing</a></li>
+        
+            <li><a href="#create-animation"> &#9731; Create animation</a></li>
+        
+            <li><a href="#clientserver"> &#9731; Client/Server</a></li>
         
     
     </ul>
@@ -224,7 +248,47 @@
 ┊ <a href="../basic_usage/">Previous</a>
 ┊ <a href="../blender_rendering/">Next</a></p>
 <hr />
-<h3 id="clientserver">Client/Server</h3>
+<h3 id="rendering-in-paraview">Rendering in paraview</h3>
+<p>Results can be dumped as VTK files, which can be visualized in <a href="https://www.paraview.org/">paraview</a>.</p>
+<h4 id="spherical-particles">Spherical particles</h4>
+<ul>
+<li>Import particle info into paraview;</li>
+<li>Set <code>Representation</code> to <code>Point Gaussian</code>, and adjust the radius;</li>
+<li>In case particles are of various sizes, enable <code>Toggle advanced properties</code>, enable <code>Use Scale Array</code>, select the proper <code>Scale Array Component</code>, and adjust the <code>Range</code>.</li>
+</ul>
+<h4 id="general-particles-and-walls">General particles and walls</h4>
+<ul>
+<li><a href="#recon_mesh_ref">Reconstruc the mesh of particles and walls</a>;</li>
+<li>Import to praview;</li>
+</ul>
+<h4 id="contact-force-chain">Contact force chain</h4>
+<ul>
+<li>Enable dump contact force by set: <code>data_dump.dump_contact_info = true</code>;</li>
+<li>Import contact info into paraview;</li>
+<li>Add a <code>tube</code> filter to the contact force data in paraview, and adjust the radius of the contact tubes.</li>
+</ul>
+<h4 id="ray-tracing">Ray tracing</h4>
+<ul>
+<li><code>Enable Ray Tracing</code> at the end of Properties section;</li>
+<li>Change the <code>Back end</code> to <code>OsPRay pathtracer</code>;</li>
+<li>Increase the <code>Samples Per Pixel</code>, which gives fair results with a value 5 in reasonble rendering time;</li>
+<li>Set the <code>Background mode</code> to <code>Backplase</code>, which is while as suggested.</li>
+<li>One can play with the <code>Material</code> options in the middle-while of the Properties section.</li>
+</ul>
+<h4 id="create-animation">Create animation</h4>
+<ul>
+<li>In paraview, go <code>File</code> &rarr; <code>Save Animation</code>;</li>
+<li>Select the <code>avi</code> option and specify the name;</li>
+<li>Suggest to set the image resolution with <code>1920 x 1080</code>, i.e., 1080p, and Set the Frame Rate to <code>24</code> (a minimal value to give fluent animation);</li>
+<li>Compress the avi animation with third-party tools, such as <code>ffmpeg</code> or <code>Tencent Cloud</code>;<ul>
+<li>For <code>Tencent Cloud</code>, suggested procedures (in Chinese):</li>
+<li>选择云产品<code>云点播</code>，在<code>媒资管理</code> &rarr; <code>音视频管理</code>中，上传视频;</li>
+<li>上传视频后，选择待处理的视频，进行<code>视频处理</code>，建议选择<code>TESHD-H264-MP4-720P</code>转码模板;</li>
+<li>点击右侧的<code>管理</code>，可查看视频封面和视频播放地址等链接，可用于网页制作.</li>
+</ul>
+</li>
+</ul>
+<h4 id="clientserver">Client/Server</h4>
 <ul>
 <li>
 <p>Establish tunneling using:</p>
