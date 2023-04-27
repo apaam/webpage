@@ -1,6 +1,6 @@
 local:
 	mkdocs serve
-publish:
+deploy:
 	mkdocs gh-deploy
 doxygen: 
 	doxygen Doxyfile
