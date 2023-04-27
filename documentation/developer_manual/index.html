@@ -263,9 +263,9 @@
 </div></div>
             <div class="col-md-9" role="main">
 
-<h2 id="_1"></h2>
-<h2 id="code-design">Code design</h2>
-<h3 id="general-framework">General framework</h3>
+<h3 id="_1"></h3>
+<h3 id="code-design">Code design</h3>
+<h4 id="general-framework">General framework</h4>
 <p>The program currently contains 7 basic moduli:</p>
 <ul>
 <li>dem: ingradients of DEM, including DEM solver, contact solver, contact models, and etc.</li>
@@ -291,7 +291,7 @@
 <li>peridigm: wrapper of peridigm for particle breakage analysis</li>
 <li>pybind: for python interfaces</li>
 </ul>
-<h3 id="basic-elements">Basic elements</h3>
+<h4 id="basic-elements">Basic elements</h4>
 <ul>
 <li>
 <p>Particles:</p>
@@ -317,7 +317,7 @@
 </ul>
 </li>
 </ul>
-<h3 id="calculation-procedures">Calculation procedures</h3>
+<h4 id="calculation-procedures">Calculation procedures</h4>
 <p>The basic calculation process of discrete element (DEMSolver calculation process):</p>
 <ul>
 <li>Traverse all the "particles" in this calculation domain, and clear the force and torque to zero.</li>
@@ -388,16 +388,16 @@
 </li>
 <li>Perform post_modifier, such as data output and other functions.</li>
 </ul>
-<h2 id="coding-style">Coding style</h2>
+<h3 id="coding-style">Coding style</h3>
 <p>We generally follow <a href="https://google.github.io/styleguide/cppguide.html">Google C++ Style Guide</a>.</p>
-<h3 id="naming">Naming</h3>
+<h4 id="naming">Naming</h4>
 <ul>
 <li>Filenames: lowercase words connected by underscores, e.g. <code>particle.hpp</code>, <code>contact_pp.cpp</code>.</li>
 <li>Variable names: lowercase words connected by underscores, e.g. <code>dir_n</code>.</li>
 <li>Class and struct names: words with first letters capitalized, e.g. <code>DataDumper</code>. Word following abbreviations shoudl be capitalized accordingly, e.g., GJKsolver, DEMgjk, GJKdemGJK, etc.</li>
 <li>Macros: should be capital, such as <code>PI</code>.</li>
 </ul>
-<h3 id="comment">Comment</h3>
+<h4 id="comment">Comment</h4>
 <ul>
 <li>Comment is not a requisite, but please add it if an attribute or method is not self-explainary or is ambigious.</li>
 <li>
@@ -417,11 +417,11 @@
 </ul>
 </li>
 </ul>
-<h3 id="formatting">Formatting</h3>
+<h4 id="formatting">Formatting</h4>
 <ul>
 <li>Use <a href="https://clang.llvm.org/docs/ClangFormat.html">clang-format</a>.</li>
 </ul>
-<h3 id="programing-rules">Programing rules</h3>
+<h4 id="programing-rules">Programing rules</h4>
 <ul>
 <li>Use <code>auto</code> for local variables when appropriate.</li>
 <li>Mark <code>const</code> when appropriate.</li>
@@ -436,8 +436,8 @@
 <li><strong>Avoid</strong> using smart pointers, such as <code>std::unique_ptr</code>, <code>std::shared_ptr</code>.</li>
 <li><strong>Never</strong> ever use "using" (e.g., <code>using namespace std</code>) in <strong>headers</strong>.</li>
 </ul>
-<h2 id="performance-evaluation">Performance evaluation</h2>
-<h3 id="procedures">Procedures</h3>
+<h3 id="performance-evaluation">Performance evaluation</h3>
+<h4 id="procedures">Procedures</h4>
 <ul>
 <li>
 <p>Tool: linux perf</p>
