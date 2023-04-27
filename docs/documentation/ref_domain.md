@@ -7,6 +7,7 @@
 -------
 
 ### CellManager
+
 This class represents a cell manager.
 
 #### Constructor

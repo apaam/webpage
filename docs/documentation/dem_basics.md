@@ -14,7 +14,7 @@ element method (DEM). The intention is to introduce the main components
 and basic computational workflow of a DEM model, providing necessary
 background information to the research presented in this dissertation.
 
-### Overview
+### Overview of DEM
 
 DEM is a particle-based numerical model that is particularly suitable
 for describing the mechanical behavior of bulk granular materials. It

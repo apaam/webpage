@@ -4,7 +4,9 @@
 
 -------
 
-### Installation
+### User manual for CFD-DEM simulation
+
+#### Installation
 
 - Install prerequisites: the compilation requires ``gcc``, ``autoconf``, ``automake``, ``cmake``, ``mpi``, ``boost``, which can be obtained using
 
@@ -53,7 +55,7 @@
         export PATH=$PATH:$path_apaam/cfddem/build/bin
         export PYTHONPATH=$path_apaam/netdem/build/lib
 
-### Examples & tutorials
+#### Examples & tutorials
 
 Some preliminary examples are located under directory ``examples/``, which can be run with, e.g., (in the example directory)
 
@@ -63,7 +65,7 @@ Some preliminary examples are located under directory ``examples/``, which can b
 Note if the ``pynetdem`` package cannot be imported into python, one might need to exiplictly add the path (e.g., ``sys.path.append("/Users/lzhshou/Documents/Research/myProjects/apaam/repo/netdem/build/lib/")``) of the ``netdem`` python library in ``createDEM.py``.
 
 
-### Run water entry example
+#### Run water entry example
 
  - Copy the example folder to a local directory
 
@@ -79,7 +81,7 @@ Note if the ``pynetdem`` package cannot be imported into python, one might need 
 
  - In case the run fails, please check the lib path has been correctly set in ``createDEM.py``, where the path is the directory of netdem libs.
 
-### Paraview Rendering
+#### Paraview Rendering
 
  - Render CFD results
   
@@ -96,7 +98,7 @@ Note if the ``pynetdem`` package cannot be imported into python, one might need 
      - Optional: add a ``Caculator`` filter after the ``Group Datesets`` filter, set ``Result Array Name`` to ``U``, and input formulation ``vel``. This will add a ``U`` field to the particles, wihch can be linked with the CFD field ``U``
      - Optional: for probing the evolution of a property value with time, one can add a ``Plot Data Over Time`` filter to the ``Group Datesets``, and change the ``Field Associates`` to ``Cells``. Then, one can play with the property to show in the newly opened ``Line Chart View``
 
-### Modify the water entry parameters
+#### Modify the water entry parameters
 
  - Fuild properties such as viscosity and density is specified in file ``constant/transportProperties``. 
      - Please note that fuilds being used are speficied in ``phases``.

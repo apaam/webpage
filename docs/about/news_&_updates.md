@@ -1,6 +1,8 @@
-## News
+###
 
-### 2021
+### News
+
+#### 2021
 
 Date   | Message
 ------ | -----------------------------------------------------------------
@@ -10,11 +12,11 @@ Sep 10 | Poly-super-ellipsoid, poly-super-quadric, spherical harmonics, level se
 Aug 15 | Generlized two types of contact solvers, namely GJK and SDF.
 Mar 15 | Integrated the MLPACK as the machine learning environment.
 
-## Revision notes 
+### Revision notes 
 
 (As from Dec 11, 2021)
 
-### v0.0
+#### v0.0
 
 - Implement light-weight FEM to model deformable particle
 - Change raw array to std::vector, etc.
