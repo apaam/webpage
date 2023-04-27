@@ -357,11 +357,11 @@ Computes the difference between two triangle meshes.
 
 -----
 
-#### OpenMP
+### OpenMP
 
 This module provides bindings for `OpenMP`, a specification for parallel programming in C++.
 
-##### Functions
+#### Functions
 
 `omp_get_max_threads() -> int`
 
@@ -370,7 +370,6 @@ Returns the maximum number of threads that can be used in parallel sections.
 `omp_set_num_threads(num_threads: int) -> None`
 
 Sets the number of threads to be used in parallel sections.
-
 
 - `num_threads (int)`: The number of threads to be used.
 

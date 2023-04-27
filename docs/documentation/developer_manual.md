@@ -1,8 +1,8 @@
-##
+###
 
-## Code design
+### Code design
 
-### General framework
+#### General framework
 
 The program currently contains 7 basic moduli:
 
@@ -27,7 +27,7 @@ Other moduli (as of Dec. 26, 2021):
 - peridigm: wrapper of peridigm for particle breakage analysis
 - pybind: for python interfaces
 
-### Basic elements
+#### Basic elements
 
 - Particles:
     - Particles have variables or attributes such as shape, position, speed, and force
@@ -44,7 +44,7 @@ Other moduli (as of Dec. 26, 2021):
     - with contact geometric characteristics, contact force and other attributes
     - The contact model describes the relationship between contact force and contact geometric characteristics
 
-### Calculation procedures
+#### Calculation procedures
 
 The basic calculation process of discrete element (DEMSolver calculation process):
 
@@ -90,21 +90,21 @@ The basic calculation process of discrete element (DEMSolver calculation process
     - If it is not in contact with any particles or boundaries, delete the "particle phantom"
 - Perform post_modifier, such as data output and other functions.
 
-## Coding style
+### Coding style
 
 We generally follow [Google C++ Style Guide](https://google.github.io/styleguide/cppguide.html).
 
-### Naming
+#### Naming
 
-  - Filenames: lowercase words connected by underscores, e.g. ``particle.hpp``, ``contact_pp.cpp``.
-  - Variable names: lowercase words connected by underscores, e.g. ``dir_n``.
-  - Class and struct names: words with first letters capitalized, e.g. ``DataDumper``. Word following abbreviations shoudl be capitalized accordingly, e.g., GJKsolver, DEMgjk, GJKdemGJK, etc.
-  - Macros: should be capital, such as ``PI``.
+- Filenames: lowercase words connected by underscores, e.g. ``particle.hpp``, ``contact_pp.cpp``.
+- Variable names: lowercase words connected by underscores, e.g. ``dir_n``.
+- Class and struct names: words with first letters capitalized, e.g. ``DataDumper``. Word following abbreviations shoudl be capitalized accordingly, e.g., GJKsolver, DEMgjk, GJKdemGJK, etc.
+- Macros: should be capital, such as ``PI``.
 
-### Comment
+#### Comment
 
-  - Comment is not a requisite, but please add it if an attribute or method is not self-explainary or is ambigious.
-  - We use [doxygen](https://www.doxygen.nl/index.html) to generate the code documentation. We suggest the following comment format.
+- Comment is not a requisite, but please add it if an attribute or method is not self-explainary or is ambigious.
+- We use [doxygen](https://www.doxygen.nl/index.html) to generate the code documentation. We suggest the following comment format.
     - Block documentation (e.g., for class description): 
   
           ```
@@ -119,26 +119,27 @@ We generally follow [Google C++ Style Guide](https://google.github.io/styleguide
 
     - Other commands if approperiate: @warning {warning message}, @todo {things to be done}, @bug , @brief, @var、@enum、@struct、@class、
 
-### Formatting
-  - Use [clang-format](https://clang.llvm.org/docs/ClangFormat.html).
+#### Formatting
+  
+- Use [clang-format](https://clang.llvm.org/docs/ClangFormat.html).
 
-### Programing rules
+#### Programing rules
 
-  - Use ``auto`` for local variables when appropriate.
-  - Mark ``const`` when appropriate.
-  - Reference vs. pointer:
+- Use ``auto`` for local variables when appropriate.
+- Mark ``const`` when appropriate.
+- Reference vs. pointer:
     - If a variable will not be altered after calling the function, use reference with ``const`` mark, e.g., ``const double &[variable]``.
     - If a variable will be altered, use pointer. For int or double, as well as lists of int or double, mark with ``const`` (e.g., ``double *const [variable]``) to aboid mistakenly modifying the pointer.
     - If a variable will not be altered but its value will be passed and stored the calling instance, use pointer.
-  - Following the previous item, if you are going to modify a variable, please declare it or passing it as an argument with with ``&``.
-  - Prefer use c++ std library rather than c library, e.g., use ``<cmath>`` rather than ``<math.h>``.
-  - **Avoid** using smart pointers, such as ``std::unique_ptr``, ``std::shared_ptr``.
-  - **Never** ever use "using" (e.g., ``using namespace std``) in **headers**.
+- Following the previous item, if you are going to modify a variable, please declare it or passing it as an argument with with ``&``.
+- Prefer use c++ std library rather than c library, e.g., use ``<cmath>`` rather than ``<math.h>``.
+- **Avoid** using smart pointers, such as ``std::unique_ptr``, ``std::shared_ptr``.
+- **Never** ever use "using" (e.g., ``using namespace std``) in **headers**.
 
 
-## Performance evaluation
+### Performance evaluation
 
-### Procedures
+#### Procedures
 
 - Tool: linux perf
 

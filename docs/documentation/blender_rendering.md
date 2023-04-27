@@ -5,7 +5,9 @@
 
 ------
 
-### Install blender and add-ons
+### Rendering in blender
+
+#### Install blender and add-ons
 
 - Install blender, which can be obtained from [https://www.blender.org](https://www.blender.org).
 
@@ -17,7 +19,7 @@
 
     Hint: to install add-on in blender: go to ``Edit`` &rarr; ``Preferences`` &rarr; ``add-on``, and ``install`` the add-on by selecting the zip file downloaded from the github main/master branch.
 
-### Rendering
+#### Rendering
 
 - Switch to the ``BVTK Node Tree`` editor, and new a node tree similar to the following figure.
 

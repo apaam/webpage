@@ -152,6 +152,7 @@ The boundary condition nodal velocities of the membrane.
 Remeshes the membrane.
 
 ##### `SetBCNodalVelocity(nodal_vels)`
+
 Sets the boundary condition nodal velocities of the membrane.
 
 - `nodal_vels` (list of tuples of floats): The boundary condition nodal velocities of the membrane.
