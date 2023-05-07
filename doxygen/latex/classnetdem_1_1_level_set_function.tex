@@ -2,6 +2,11 @@
 \label{classnetdem_1_1_level_set_function}\index{netdem::LevelSetFunction@{netdem::LevelSetFunction}}
 
 
+The \mbox{\hyperlink{classnetdem_1_1_level_set_function}{Level\+Set\+Function}} class represents a level set function.  
+
+
+
+
 {\ttfamily \#include $<$level\+\_\+set\+\_\+function.\+hpp$>$}
 
 Inheritance diagram for netdem\+::Level\+Set\+Function\+:\begin{figure}[H]
@@ -14,39 +19,42 @@ Inheritance diagram for netdem\+::Level\+Set\+Function\+:\begin{figure}[H]
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{classnetdem_1_1_level_set_function_ab8fc41dd619285db35e31143a2f2fec9}{Level\+Set\+Function}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Default constructor. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classnetdem_1_1_level_set_function_a969f2e4e9bcf95783c2e539f9f711997}{Set\+Corner}} (double corner\+\_\+x, double corner\+\_\+y, double corner\+\_\+z)
-\item 
+\begin{DoxyCompactList}\small\item\em Set the position of the corner of the bounding box. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classnetdem_1_1_level_set_function_a7e42b7c324079551fa139636a1102354}{Set\+Spacing}} (double sp)
-\item 
+\begin{DoxyCompactList}\small\item\em Set the spacing between grid points in each dimension. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classnetdem_1_1_level_set_function_a7a525211c0403b5af9e8beca4d4113ed}{Set\+Dimension}} (double dim\+\_\+x, double dim\+\_\+y, double dim\+\_\+z)
-\item 
+\begin{DoxyCompactList}\small\item\em Set the number of grid points in each dimension. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classnetdem_1_1_level_set_function_adfbd8c1021b826d7b7999c1cb00549ee}{Init\+From\+SDFCalculator}} (const \mbox{\hyperlink{classnetdem_1_1_s_d_f_calculator}{SDFCalculator}} \&sdf\+\_\+calculator)
-\item 
+\begin{DoxyCompactList}\small\item\em Initialize the level set function from an \mbox{\hyperlink{classnetdem_1_1_s_d_f_calculator}{SDFCalculator}} object. \end{DoxyCompactList}\item 
 double \mbox{\hyperlink{classnetdem_1_1_level_set_function_ad31814e2774d57718f3a694057689f73}{Signed\+Distance}} (\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&pos) const
-\item 
+\begin{DoxyCompactList}\small\item\em Calculate the signed distance value at a given position. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \mbox{\hyperlink{classnetdem_1_1_level_set_function_aa49aefb3ba2957ac85829b721e678a50}{Gradient\+Interpolate}} (\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&pos)
-\item 
+\begin{DoxyCompactList}\small\item\em Interpolate the gradient vector at a given position using trilinear interpolation. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \mbox{\hyperlink{classnetdem_1_1_level_set_function_a5cc6ca90e74f22ec85606f169e080be5}{Gradient\+Minus}} (int i, int j, int k)
-\item 
+\begin{DoxyCompactList}\small\item\em Calculate the difference gradient vector at a given grid location. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \mbox{\hyperlink{classnetdem_1_1_level_set_function_a3bb94ab6373461afc05a4689d5ef32f8}{Gradient\+Plus}} (int i, int j, int k)
-\item 
+\begin{DoxyCompactList}\small\item\em Calculate the sum gradient vector at a given grid location. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classnetdem_1_1_level_set_function_a1a18c922b818a677eb566dbc6f935504}{Reinitialization}} (int iter, double dt)
-\item 
+\begin{DoxyCompactList}\small\item\em Perform reinitialization of the level set function using the fast marching method. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classnetdem_1_1_level_set_function_a06ac63b63cb63bfa7110cdb75ff80268}{Reinitialization}} ()
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Perform reinitialization of the level set function using default settings. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \mbox{\hyperlink{classnetdem_1_1_level_set_function_acfb778a8a5ea6b51e26ca3970397a188}{corner}} \{-\/0.\+5, -\/0.\+5, -\/0.\+5\}
-\item 
+\begin{DoxyCompactList}\small\item\em Position of the corner of the bounding box. \end{DoxyCompactList}\item 
 double \mbox{\hyperlink{classnetdem_1_1_level_set_function_abeaa5ab15f7d74ab088e141c13c6a942}{spacing}} \{0.\+05\}
-\item 
+\begin{DoxyCompactList}\small\item\em Spacing between grid points in each dimension. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{namespacenetdem_a28e1404c8ce46c48bc78f553bd555980}{Vec3i}} \mbox{\hyperlink{classnetdem_1_1_level_set_function_a4b0a119cdd781659cfefb5eac62771d3}{dim}} \{21, 21, 21\}
-\item 
+\begin{DoxyCompactList}\small\item\em Number of grid points in each dimension. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ double $>$ $>$ $>$ \mbox{\hyperlink{classnetdem_1_1_level_set_function_ad3480650de5417e72b73213f2965eabc}{signed\+\_\+distance\+\_\+table}}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Table storing the signed distance values at each grid point. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
+
+\doxysubsection{Detailed Description}
+The \mbox{\hyperlink{classnetdem_1_1_level_set_function}{Level\+Set\+Function}} class represents a level set function. 
 
 \doxysubsection{Constructor \& Destructor Documentation}
 \mbox{\Hypertarget{classnetdem_1_1_level_set_function_ab8fc41dd619285db35e31143a2f2fec9}\label{classnetdem_1_1_level_set_function_ab8fc41dd619285db35e31143a2f2fec9}} 
@@ -57,6 +65,10 @@ double \mbox{\hyperlink{classnetdem_1_1_level_set_function_abeaa5ab15f7d74ab088e
 
 
 
+Default constructor. 
+
+
+
 \doxysubsection{Member Function Documentation}
 \mbox{\Hypertarget{classnetdem_1_1_level_set_function_aa49aefb3ba2957ac85829b721e678a50}\label{classnetdem_1_1_level_set_function_aa49aefb3ba2957ac85829b721e678a50}} 
 \index{netdem::LevelSetFunction@{netdem::LevelSetFunction}!GradientInterpolate@{GradientInterpolate}}
@@ -64,29 +76,86 @@ double \mbox{\hyperlink{classnetdem_1_1_level_set_function_abeaa5ab15f7d74ab088e
 \doxysubsubsection{\texorpdfstring{GradientInterpolate()}{GradientInterpolate()}}
 {\footnotesize\ttfamily \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} Level\+Set\+Function\+::\+Gradient\+Interpolate (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&}]{pos }\end{DoxyParamCaption})}
 
+
+
+Interpolate the gradient vector at a given position using trilinear interpolation. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em pos} & Position at which to interpolate gradient \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Gradient vector at the input position 
+\end{DoxyReturn}
 \mbox{\Hypertarget{classnetdem_1_1_level_set_function_a5cc6ca90e74f22ec85606f169e080be5}\label{classnetdem_1_1_level_set_function_a5cc6ca90e74f22ec85606f169e080be5}} 
 \index{netdem::LevelSetFunction@{netdem::LevelSetFunction}!GradientMinus@{GradientMinus}}
 \index{GradientMinus@{GradientMinus}!netdem::LevelSetFunction@{netdem::LevelSetFunction}}
 \doxysubsubsection{\texorpdfstring{GradientMinus()}{GradientMinus()}}
 {\footnotesize\ttfamily \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} Level\+Set\+Function\+::\+Gradient\+Minus (\begin{DoxyParamCaption}\item[{int}]{i,  }\item[{int}]{j,  }\item[{int}]{k }\end{DoxyParamCaption})}
 
+
+
+Calculate the difference gradient vector at a given grid location. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em i} & X-\/index of grid location \\
+\hline
+\mbox{\texttt{ in}}  & {\em j} & Y-\/index of grid location \\
+\hline
+\mbox{\texttt{ in}}  & {\em k} & Z-\/index of grid location \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Difference gradient vector at the input grid location 
+\end{DoxyReturn}
 \mbox{\Hypertarget{classnetdem_1_1_level_set_function_a3bb94ab6373461afc05a4689d5ef32f8}\label{classnetdem_1_1_level_set_function_a3bb94ab6373461afc05a4689d5ef32f8}} 
 \index{netdem::LevelSetFunction@{netdem::LevelSetFunction}!GradientPlus@{GradientPlus}}
 \index{GradientPlus@{GradientPlus}!netdem::LevelSetFunction@{netdem::LevelSetFunction}}
 \doxysubsubsection{\texorpdfstring{GradientPlus()}{GradientPlus()}}
 {\footnotesize\ttfamily \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} Level\+Set\+Function\+::\+Gradient\+Plus (\begin{DoxyParamCaption}\item[{int}]{i,  }\item[{int}]{j,  }\item[{int}]{k }\end{DoxyParamCaption})}
 
+
+
+Calculate the sum gradient vector at a given grid location. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em i} & X-\/index of grid location \\
+\hline
+\mbox{\texttt{ in}}  & {\em j} & Y-\/index of grid location \\
+\hline
+\mbox{\texttt{ in}}  & {\em k} & Z-\/index of grid location \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Sum gradient vector at the input grid location 
+\end{DoxyReturn}
 \mbox{\Hypertarget{classnetdem_1_1_level_set_function_adfbd8c1021b826d7b7999c1cb00549ee}\label{classnetdem_1_1_level_set_function_adfbd8c1021b826d7b7999c1cb00549ee}} 
 \index{netdem::LevelSetFunction@{netdem::LevelSetFunction}!InitFromSDFCalculator@{InitFromSDFCalculator}}
 \index{InitFromSDFCalculator@{InitFromSDFCalculator}!netdem::LevelSetFunction@{netdem::LevelSetFunction}}
 \doxysubsubsection{\texorpdfstring{InitFromSDFCalculator()}{InitFromSDFCalculator()}}
 {\footnotesize\ttfamily void Level\+Set\+Function\+::\+Init\+From\+SDFCalculator (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classnetdem_1_1_s_d_f_calculator}{SDFCalculator}} \&}]{sdf\+\_\+calculator }\end{DoxyParamCaption})}
 
+
+
+Initialize the level set function from an \mbox{\hyperlink{classnetdem_1_1_s_d_f_calculator}{SDFCalculator}} object. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em sdf\+\_\+calculator} & Object used to calculate signed distance values \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{classnetdem_1_1_level_set_function_a06ac63b63cb63bfa7110cdb75ff80268}\label{classnetdem_1_1_level_set_function_a06ac63b63cb63bfa7110cdb75ff80268}} 
 \index{netdem::LevelSetFunction@{netdem::LevelSetFunction}!Reinitialization@{Reinitialization}}
 \index{Reinitialization@{Reinitialization}!netdem::LevelSetFunction@{netdem::LevelSetFunction}}
 \doxysubsubsection{\texorpdfstring{Reinitialization()}{Reinitialization()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily void Level\+Set\+Function\+::\+Reinitialization (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Perform reinitialization of the level set function using default settings. 
 
 \mbox{\Hypertarget{classnetdem_1_1_level_set_function_a1a18c922b818a677eb566dbc6f935504}\label{classnetdem_1_1_level_set_function_a1a18c922b818a677eb566dbc6f935504}} 
 \index{netdem::LevelSetFunction@{netdem::LevelSetFunction}!Reinitialization@{Reinitialization}}
@@ -94,30 +163,88 @@ double \mbox{\hyperlink{classnetdem_1_1_level_set_function_abeaa5ab15f7d74ab088e
 \doxysubsubsection{\texorpdfstring{Reinitialization()}{Reinitialization()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
 {\footnotesize\ttfamily void Level\+Set\+Function\+::\+Reinitialization (\begin{DoxyParamCaption}\item[{int}]{iter,  }\item[{double}]{dt }\end{DoxyParamCaption})}
 
+
+
+Perform reinitialization of the level set function using the fast marching method. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em iter} & Number of iterations to perform \\
+\hline
+\mbox{\texttt{ in}}  & {\em dt} & Time step size for each iteration \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{classnetdem_1_1_level_set_function_a969f2e4e9bcf95783c2e539f9f711997}\label{classnetdem_1_1_level_set_function_a969f2e4e9bcf95783c2e539f9f711997}} 
 \index{netdem::LevelSetFunction@{netdem::LevelSetFunction}!SetCorner@{SetCorner}}
 \index{SetCorner@{SetCorner}!netdem::LevelSetFunction@{netdem::LevelSetFunction}}
 \doxysubsubsection{\texorpdfstring{SetCorner()}{SetCorner()}}
 {\footnotesize\ttfamily void Level\+Set\+Function\+::\+Set\+Corner (\begin{DoxyParamCaption}\item[{double}]{corner\+\_\+x,  }\item[{double}]{corner\+\_\+y,  }\item[{double}]{corner\+\_\+z }\end{DoxyParamCaption})}
 
+
+
+Set the position of the corner of the bounding box. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em corner\+\_\+x} & X-\/coordinate of the corner \\
+\hline
+\mbox{\texttt{ in}}  & {\em corner\+\_\+y} & Y-\/coordinate of the corner \\
+\hline
+\mbox{\texttt{ in}}  & {\em corner\+\_\+z} & Z-\/coordinate of the corner \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{classnetdem_1_1_level_set_function_a7a525211c0403b5af9e8beca4d4113ed}\label{classnetdem_1_1_level_set_function_a7a525211c0403b5af9e8beca4d4113ed}} 
 \index{netdem::LevelSetFunction@{netdem::LevelSetFunction}!SetDimension@{SetDimension}}
 \index{SetDimension@{SetDimension}!netdem::LevelSetFunction@{netdem::LevelSetFunction}}
 \doxysubsubsection{\texorpdfstring{SetDimension()}{SetDimension()}}
 {\footnotesize\ttfamily void Level\+Set\+Function\+::\+Set\+Dimension (\begin{DoxyParamCaption}\item[{double}]{dim\+\_\+x,  }\item[{double}]{dim\+\_\+y,  }\item[{double}]{dim\+\_\+z }\end{DoxyParamCaption})}
 
+
+
+Set the number of grid points in each dimension. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em dim\+\_\+x} & Number of grid points along x-\/axis \\
+\hline
+\mbox{\texttt{ in}}  & {\em dim\+\_\+y} & Number of grid points along y-\/axis \\
+\hline
+\mbox{\texttt{ in}}  & {\em dim\+\_\+z} & Number of grid points along z-\/axis \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{classnetdem_1_1_level_set_function_a7e42b7c324079551fa139636a1102354}\label{classnetdem_1_1_level_set_function_a7e42b7c324079551fa139636a1102354}} 
 \index{netdem::LevelSetFunction@{netdem::LevelSetFunction}!SetSpacing@{SetSpacing}}
 \index{SetSpacing@{SetSpacing}!netdem::LevelSetFunction@{netdem::LevelSetFunction}}
 \doxysubsubsection{\texorpdfstring{SetSpacing()}{SetSpacing()}}
 {\footnotesize\ttfamily void Level\+Set\+Function\+::\+Set\+Spacing (\begin{DoxyParamCaption}\item[{double}]{sp }\end{DoxyParamCaption})}
 
+
+
+Set the spacing between grid points in each dimension. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em sp} & Spacing between grid points \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{classnetdem_1_1_level_set_function_ad31814e2774d57718f3a694057689f73}\label{classnetdem_1_1_level_set_function_ad31814e2774d57718f3a694057689f73}} 
 \index{netdem::LevelSetFunction@{netdem::LevelSetFunction}!SignedDistance@{SignedDistance}}
 \index{SignedDistance@{SignedDistance}!netdem::LevelSetFunction@{netdem::LevelSetFunction}}
 \doxysubsubsection{\texorpdfstring{SignedDistance()}{SignedDistance()}}
 {\footnotesize\ttfamily double Level\+Set\+Function\+::\+Signed\+Distance (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&}]{pos }\end{DoxyParamCaption}) const}
 
+
+
+Calculate the signed distance value at a given position. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em pos} & Position at which to compute signed distance \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Signed distance value at the input position 
+\end{DoxyReturn}
 
 
 \doxysubsection{Member Data Documentation}
@@ -127,11 +254,19 @@ double \mbox{\hyperlink{classnetdem_1_1_level_set_function_abeaa5ab15f7d74ab088e
 \doxysubsubsection{\texorpdfstring{corner}{corner}}
 {\footnotesize\ttfamily \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} netdem\+::\+Level\+Set\+Function\+::corner \{-\/0.\+5, -\/0.\+5, -\/0.\+5\}}
 
+
+
+Position of the corner of the bounding box. 
+
 \mbox{\Hypertarget{classnetdem_1_1_level_set_function_a4b0a119cdd781659cfefb5eac62771d3}\label{classnetdem_1_1_level_set_function_a4b0a119cdd781659cfefb5eac62771d3}} 
 \index{netdem::LevelSetFunction@{netdem::LevelSetFunction}!dim@{dim}}
 \index{dim@{dim}!netdem::LevelSetFunction@{netdem::LevelSetFunction}}
 \doxysubsubsection{\texorpdfstring{dim}{dim}}
 {\footnotesize\ttfamily \mbox{\hyperlink{namespacenetdem_a28e1404c8ce46c48bc78f553bd555980}{Vec3i}} netdem\+::\+Level\+Set\+Function\+::dim \{21, 21, 21\}}
+
+
+
+Number of grid points in each dimension. 
 
 \mbox{\Hypertarget{classnetdem_1_1_level_set_function_ad3480650de5417e72b73213f2965eabc}\label{classnetdem_1_1_level_set_function_ad3480650de5417e72b73213f2965eabc}} 
 \index{netdem::LevelSetFunction@{netdem::LevelSetFunction}!signed\_distance\_table@{signed\_distance\_table}}
@@ -139,11 +274,19 @@ double \mbox{\hyperlink{classnetdem_1_1_level_set_function_abeaa5ab15f7d74ab088e
 \doxysubsubsection{\texorpdfstring{signed\_distance\_table}{signed\_distance\_table}}
 {\footnotesize\ttfamily \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$\mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$\mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$double$>$ $>$ $>$ netdem\+::\+Level\+Set\+Function\+::signed\+\_\+distance\+\_\+table}
 
+
+
+Table storing the signed distance values at each grid point. 
+
 \mbox{\Hypertarget{classnetdem_1_1_level_set_function_abeaa5ab15f7d74ab088e141c13c6a942}\label{classnetdem_1_1_level_set_function_abeaa5ab15f7d74ab088e141c13c6a942}} 
 \index{netdem::LevelSetFunction@{netdem::LevelSetFunction}!spacing@{spacing}}
 \index{spacing@{spacing}!netdem::LevelSetFunction@{netdem::LevelSetFunction}}
 \doxysubsubsection{\texorpdfstring{spacing}{spacing}}
 {\footnotesize\ttfamily double netdem\+::\+Level\+Set\+Function\+::spacing \{0.\+05\}}
+
+
+
+Spacing between grid points in each dimension. 
 
 
 
