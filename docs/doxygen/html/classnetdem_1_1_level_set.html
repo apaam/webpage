@@ -9,6 +9,10 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -46,6 +50,23 @@ $(function() {
 /* @license-end */
 </script>
 <div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('classnetdem_1_1_level_set.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -67,11 +88,6 @@ $(function() {
 </div>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="namespacenetdem.html">netdem</a></li><li class="navelem"><a class="el" href="classnetdem_1_1_level_set.html">LevelSet</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
@@ -87,7 +103,7 @@ Inheritance diagram for netdem::LevelSet:</div>
  <div class="center">
   <img src="classnetdem_1_1_level_set.png" usemap="#netdem::LevelSet_map" alt=""/>
   <map id="netdem::LevelSet_map" name="netdem::LevelSet_map">
-<area href="classnetdem_1_1_level_set_function.html" alt="netdem::LevelSetFunction" shape="rect" coords="0,0,156,24"/>
+<area href="classnetdem_1_1_level_set_function.html" title="The LevelSetFunction class represents a level set function." alt="netdem::LevelSetFunction" shape="rect" coords="0,0,156,24"/>
 <area href="classnetdem_1_1_shape.html" alt="netdem::Shape" shape="rect" coords="166,0,322,24"/>
   </map>
 </div></div>
@@ -128,26 +144,37 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:afe6d8d9de73d27e70f29f05bab3c434b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classnetdem_1_1_level_set_function"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classnetdem_1_1_level_set_function')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classnetdem_1_1_level_set_function.html">netdem::LevelSetFunction</a></td></tr>
 <tr class="memitem:ab8fc41dd619285db35e31143a2f2fec9 inherit pub_methods_classnetdem_1_1_level_set_function"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnetdem_1_1_level_set_function.html#ab8fc41dd619285db35e31143a2f2fec9">LevelSetFunction</a> ()</td></tr>
+<tr class="memdesc:ab8fc41dd619285db35e31143a2f2fec9 inherit pub_methods_classnetdem_1_1_level_set_function"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor.  <br /></td></tr>
 <tr class="separator:ab8fc41dd619285db35e31143a2f2fec9 inherit pub_methods_classnetdem_1_1_level_set_function"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a969f2e4e9bcf95783c2e539f9f711997 inherit pub_methods_classnetdem_1_1_level_set_function"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnetdem_1_1_level_set_function.html#a969f2e4e9bcf95783c2e539f9f711997">SetCorner</a> (double corner_x, double corner_y, double corner_z)</td></tr>
+<tr class="memdesc:a969f2e4e9bcf95783c2e539f9f711997 inherit pub_methods_classnetdem_1_1_level_set_function"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the position of the corner of the bounding box.  <br /></td></tr>
 <tr class="separator:a969f2e4e9bcf95783c2e539f9f711997 inherit pub_methods_classnetdem_1_1_level_set_function"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7e42b7c324079551fa139636a1102354 inherit pub_methods_classnetdem_1_1_level_set_function"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnetdem_1_1_level_set_function.html#a7e42b7c324079551fa139636a1102354">SetSpacing</a> (double sp)</td></tr>
+<tr class="memdesc:a7e42b7c324079551fa139636a1102354 inherit pub_methods_classnetdem_1_1_level_set_function"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the spacing between grid points in each dimension.  <br /></td></tr>
 <tr class="separator:a7e42b7c324079551fa139636a1102354 inherit pub_methods_classnetdem_1_1_level_set_function"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7a525211c0403b5af9e8beca4d4113ed inherit pub_methods_classnetdem_1_1_level_set_function"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnetdem_1_1_level_set_function.html#a7a525211c0403b5af9e8beca4d4113ed">SetDimension</a> (double dim_x, double dim_y, double dim_z)</td></tr>
+<tr class="memdesc:a7a525211c0403b5af9e8beca4d4113ed inherit pub_methods_classnetdem_1_1_level_set_function"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the number of grid points in each dimension.  <br /></td></tr>
 <tr class="separator:a7a525211c0403b5af9e8beca4d4113ed inherit pub_methods_classnetdem_1_1_level_set_function"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adfbd8c1021b826d7b7999c1cb00549ee inherit pub_methods_classnetdem_1_1_level_set_function"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnetdem_1_1_level_set_function.html#adfbd8c1021b826d7b7999c1cb00549ee">InitFromSDFCalculator</a> (const <a class="el" href="classnetdem_1_1_s_d_f_calculator.html">SDFCalculator</a> &amp;sdf_calculator)</td></tr>
+<tr class="memdesc:adfbd8c1021b826d7b7999c1cb00549ee inherit pub_methods_classnetdem_1_1_level_set_function"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize the level set function from an <a class="el" href="classnetdem_1_1_s_d_f_calculator.html">SDFCalculator</a> object.  <br /></td></tr>
 <tr class="separator:adfbd8c1021b826d7b7999c1cb00549ee inherit pub_methods_classnetdem_1_1_level_set_function"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad31814e2774d57718f3a694057689f73 inherit pub_methods_classnetdem_1_1_level_set_function"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnetdem_1_1_level_set_function.html#ad31814e2774d57718f3a694057689f73">SignedDistance</a> (<a class="el" href="namespacenetdem.html#aa1676e16ca66301040ee8d50376c72b9">Vec3d</a> const &amp;pos) const</td></tr>
+<tr class="memdesc:ad31814e2774d57718f3a694057689f73 inherit pub_methods_classnetdem_1_1_level_set_function"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate the signed distance value at a given position.  <br /></td></tr>
 <tr class="separator:ad31814e2774d57718f3a694057689f73 inherit pub_methods_classnetdem_1_1_level_set_function"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa49aefb3ba2957ac85829b721e678a50 inherit pub_methods_classnetdem_1_1_level_set_function"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacenetdem.html#aa1676e16ca66301040ee8d50376c72b9">Vec3d</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnetdem_1_1_level_set_function.html#aa49aefb3ba2957ac85829b721e678a50">GradientInterpolate</a> (<a class="el" href="namespacenetdem.html#aa1676e16ca66301040ee8d50376c72b9">Vec3d</a> const &amp;pos)</td></tr>
+<tr class="memdesc:aa49aefb3ba2957ac85829b721e678a50 inherit pub_methods_classnetdem_1_1_level_set_function"><td class="mdescLeft">&#160;</td><td class="mdescRight">Interpolate the gradient vector at a given position using trilinear interpolation.  <br /></td></tr>
 <tr class="separator:aa49aefb3ba2957ac85829b721e678a50 inherit pub_methods_classnetdem_1_1_level_set_function"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5cc6ca90e74f22ec85606f169e080be5 inherit pub_methods_classnetdem_1_1_level_set_function"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacenetdem.html#aa1676e16ca66301040ee8d50376c72b9">Vec3d</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnetdem_1_1_level_set_function.html#a5cc6ca90e74f22ec85606f169e080be5">GradientMinus</a> (int i, int j, int k)</td></tr>
+<tr class="memdesc:a5cc6ca90e74f22ec85606f169e080be5 inherit pub_methods_classnetdem_1_1_level_set_function"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate the difference gradient vector at a given grid location.  <br /></td></tr>
 <tr class="separator:a5cc6ca90e74f22ec85606f169e080be5 inherit pub_methods_classnetdem_1_1_level_set_function"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3bb94ab6373461afc05a4689d5ef32f8 inherit pub_methods_classnetdem_1_1_level_set_function"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacenetdem.html#aa1676e16ca66301040ee8d50376c72b9">Vec3d</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnetdem_1_1_level_set_function.html#a3bb94ab6373461afc05a4689d5ef32f8">GradientPlus</a> (int i, int j, int k)</td></tr>
+<tr class="memdesc:a3bb94ab6373461afc05a4689d5ef32f8 inherit pub_methods_classnetdem_1_1_level_set_function"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate the sum gradient vector at a given grid location.  <br /></td></tr>
 <tr class="separator:a3bb94ab6373461afc05a4689d5ef32f8 inherit pub_methods_classnetdem_1_1_level_set_function"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1a18c922b818a677eb566dbc6f935504 inherit pub_methods_classnetdem_1_1_level_set_function"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnetdem_1_1_level_set_function.html#a1a18c922b818a677eb566dbc6f935504">Reinitialization</a> (int iter, double dt)</td></tr>
+<tr class="memdesc:a1a18c922b818a677eb566dbc6f935504 inherit pub_methods_classnetdem_1_1_level_set_function"><td class="mdescLeft">&#160;</td><td class="mdescRight">Perform reinitialization of the level set function using the fast marching method.  <br /></td></tr>
 <tr class="separator:a1a18c922b818a677eb566dbc6f935504 inherit pub_methods_classnetdem_1_1_level_set_function"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a06ac63b63cb63bfa7110cdb75ff80268 inherit pub_methods_classnetdem_1_1_level_set_function"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnetdem_1_1_level_set_function.html#a06ac63b63cb63bfa7110cdb75ff80268">Reinitialization</a> ()</td></tr>
+<tr class="memdesc:a06ac63b63cb63bfa7110cdb75ff80268 inherit pub_methods_classnetdem_1_1_level_set_function"><td class="mdescLeft">&#160;</td><td class="mdescRight">Perform reinitialization of the level set function using default settings.  <br /></td></tr>
 <tr class="separator:a06ac63b63cb63bfa7110cdb75ff80268 inherit pub_methods_classnetdem_1_1_level_set_function"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classnetdem_1_1_shape"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classnetdem_1_1_shape')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classnetdem_1_1_shape.html">netdem::Shape</a></td></tr>
 <tr class="memitem:aaceb6d02ba07578916c4723eb14c1365 inherit pub_methods_classnetdem_1_1_shape"><td class="memItemLeft" align="right" valign="top">virtual nlohmann::json&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnetdem_1_1_shape.html#aaceb6d02ba07578916c4723eb14c1365">PackJson</a> ()</td></tr>
@@ -221,12 +248,16 @@ Additional Inherited Members</h2></td></tr>
 <tr class="separator:aa97bccd1fe4043614c4b84a3f254a158 inherit pub_types_classnetdem_1_1_shape"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_attribs_classnetdem_1_1_level_set_function"><td colspan="2" onclick="javascript:toggleInherit('pub_attribs_classnetdem_1_1_level_set_function')"><img src="closed.png" alt="-"/>&#160;Public Attributes inherited from <a class="el" href="classnetdem_1_1_level_set_function.html">netdem::LevelSetFunction</a></td></tr>
 <tr class="memitem:acfb778a8a5ea6b51e26ca3970397a188 inherit pub_attribs_classnetdem_1_1_level_set_function"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacenetdem.html#aa1676e16ca66301040ee8d50376c72b9">Vec3d</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnetdem_1_1_level_set_function.html#acfb778a8a5ea6b51e26ca3970397a188">corner</a> {-0.5, -0.5, -0.5}</td></tr>
+<tr class="memdesc:acfb778a8a5ea6b51e26ca3970397a188 inherit pub_attribs_classnetdem_1_1_level_set_function"><td class="mdescLeft">&#160;</td><td class="mdescRight">Position of the corner of the bounding box.  <br /></td></tr>
 <tr class="separator:acfb778a8a5ea6b51e26ca3970397a188 inherit pub_attribs_classnetdem_1_1_level_set_function"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abeaa5ab15f7d74ab088e141c13c6a942 inherit pub_attribs_classnetdem_1_1_level_set_function"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnetdem_1_1_level_set_function.html#abeaa5ab15f7d74ab088e141c13c6a942">spacing</a> {0.05}</td></tr>
+<tr class="memdesc:abeaa5ab15f7d74ab088e141c13c6a942 inherit pub_attribs_classnetdem_1_1_level_set_function"><td class="mdescLeft">&#160;</td><td class="mdescRight">Spacing between grid points in each dimension.  <br /></td></tr>
 <tr class="separator:abeaa5ab15f7d74ab088e141c13c6a942 inherit pub_attribs_classnetdem_1_1_level_set_function"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4b0a119cdd781659cfefb5eac62771d3 inherit pub_attribs_classnetdem_1_1_level_set_function"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacenetdem.html#a28e1404c8ce46c48bc78f553bd555980">Vec3i</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnetdem_1_1_level_set_function.html#a4b0a119cdd781659cfefb5eac62771d3">dim</a> {21, 21, 21}</td></tr>
+<tr class="memdesc:a4b0a119cdd781659cfefb5eac62771d3 inherit pub_attribs_classnetdem_1_1_level_set_function"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of grid points in each dimension.  <br /></td></tr>
 <tr class="separator:a4b0a119cdd781659cfefb5eac62771d3 inherit pub_attribs_classnetdem_1_1_level_set_function"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad3480650de5417e72b73213f2965eabc inherit pub_attribs_classnetdem_1_1_level_set_function"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacenetdem.html#a088168eeea9e6ce8d0500cdfd7ef9c87">VecXT</a>&lt; <a class="el" href="namespacenetdem.html#a088168eeea9e6ce8d0500cdfd7ef9c87">VecXT</a>&lt; <a class="el" href="namespacenetdem.html#a088168eeea9e6ce8d0500cdfd7ef9c87">VecXT</a>&lt; double &gt; &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnetdem_1_1_level_set_function.html#ad3480650de5417e72b73213f2965eabc">signed_distance_table</a></td></tr>
+<tr class="memdesc:ad3480650de5417e72b73213f2965eabc inherit pub_attribs_classnetdem_1_1_level_set_function"><td class="mdescLeft">&#160;</td><td class="mdescRight">Table storing the signed distance values at each grid point.  <br /></td></tr>
 <tr class="separator:ad3480650de5417e72b73213f2965eabc inherit pub_attribs_classnetdem_1_1_level_set_function"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_attribs_classnetdem_1_1_shape"><td colspan="2" onclick="javascript:toggleInherit('pub_attribs_classnetdem_1_1_shape')"><img src="closed.png" alt="-"/>&#160;Public Attributes inherited from <a class="el" href="classnetdem_1_1_shape.html">netdem::Shape</a></td></tr>
 <tr class="memitem:a1b039a89b8be0177106617ba10c00484 inherit pub_attribs_classnetdem_1_1_shape"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnetdem_1_1_shape.html#a1b039a89b8be0177106617ba10c00484">id</a> {0}</td></tr>
@@ -703,9 +734,13 @@ Additional Inherited Members</h2></td></tr>
 <li>/Users/lzhshou/Documents/Research/myProjects/apaam/repo/netdem/src/shape/<a class="el" href="shape__level__set_8cpp.html">shape_level_set.cpp</a></li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.6
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespacenetdem.html">netdem</a></li><li class="navelem"><a class="el" href="classnetdem_1_1_level_set.html">LevelSet</a></li>
+    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.6 </li>
+  </ul>
+</div>
 </body>
 </html>
