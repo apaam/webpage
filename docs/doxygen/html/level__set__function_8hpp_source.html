@@ -9,6 +9,10 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -46,6 +50,23 @@ $(function() {
 /* @license-end */
 </script>
 <div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('level__set__function_8hpp_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -67,11 +88,6 @@ $(function() {
 </div>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="dir_1f2a9fe58f9a6358aa24a6d1516340da.html">netdem</a></li><li class="navelem"><a class="el" href="dir_04176275722661bc84c11bcbe74288bf.html">src</a></li><li class="navelem"><a class="el" href="dir_b957ce71d4cec3aa1e6b9f7647e1edd6.html">utils</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="headertitle"><div class="title">level_set_function.hpp</div></div>
 </div><!--header-->
@@ -82,51 +98,55 @@ $(function() {
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacenetdem.html">netdem</a> {</div>
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno"><a class="line" href="classnetdem_1_1_level_set_function.html">    7</a></span><span class="keyword">class </span><a class="code hl_class" href="classnetdem_1_1_level_set_function.html">LevelSetFunction</a> {</div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>  <span class="comment">// assuming same spacing in each dimension</span></div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno"><a class="line" href="classnetdem_1_1_level_set_function.html#acfb778a8a5ea6b51e26ca3970397a188">   10</a></span>  <a class="code hl_typedef" href="namespacenetdem.html#aa1676e16ca66301040ee8d50376c72b9">Vec3d</a> <a class="code hl_variable" href="classnetdem_1_1_level_set_function.html#acfb778a8a5ea6b51e26ca3970397a188">corner</a>{-0.5, -0.5, -0.5};</div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno"><a class="line" href="classnetdem_1_1_level_set_function.html#abeaa5ab15f7d74ab088e141c13c6a942">   11</a></span>  <span class="keywordtype">double</span> <a class="code hl_variable" href="classnetdem_1_1_level_set_function.html#abeaa5ab15f7d74ab088e141c13c6a942">spacing</a>{0.05};</div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno"><a class="line" href="classnetdem_1_1_level_set_function.html#a4b0a119cdd781659cfefb5eac62771d3">   12</a></span>  <a class="code hl_typedef" href="namespacenetdem.html#a28e1404c8ce46c48bc78f553bd555980">Vec3i</a> <a class="code hl_variable" href="classnetdem_1_1_level_set_function.html#a4b0a119cdd781659cfefb5eac62771d3">dim</a>{21, 21, 21};</div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="classnetdem_1_1_level_set_function.html#ad3480650de5417e72b73213f2965eabc">   14</a></span>  <a class="code hl_typedef" href="namespacenetdem.html#a088168eeea9e6ce8d0500cdfd7ef9c87">VecXT&lt;VecXT&lt;VecXT&lt;double&gt;</a>&gt;&gt; <a class="code hl_variable" href="classnetdem_1_1_level_set_function.html#ad3480650de5417e72b73213f2965eabc">signed_distance_table</a>;</div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>  <a class="code hl_function" href="classnetdem_1_1_level_set_function.html#ab8fc41dd619285db35e31143a2f2fec9">LevelSetFunction</a>();</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>  <span class="keywordtype">void</span> <a class="code hl_function" href="classnetdem_1_1_level_set_function.html#a969f2e4e9bcf95783c2e539f9f711997">SetCorner</a>(<span class="keywordtype">double</span> corner_x, <span class="keywordtype">double</span> corner_y, <span class="keywordtype">double</span> corner_z);</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>  <span class="keywordtype">void</span> <a class="code hl_function" href="classnetdem_1_1_level_set_function.html#a7e42b7c324079551fa139636a1102354">SetSpacing</a>(<span class="keywordtype">double</span> sp);</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>  <span class="keywordtype">void</span> <a class="code hl_function" href="classnetdem_1_1_level_set_function.html#a7a525211c0403b5af9e8beca4d4113ed">SetDimension</a>(<span class="keywordtype">double</span> dim_x, <span class="keywordtype">double</span> dim_y, <span class="keywordtype">double</span> dim_z);</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno"><a class="line" href="classnetdem_1_1_level_set_function.html">   10</a></span><span class="keyword">class </span><a class="code hl_class" href="classnetdem_1_1_level_set_function.html">LevelSetFunction</a> {</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="classnetdem_1_1_level_set_function.html#acfb778a8a5ea6b51e26ca3970397a188">   15</a></span>  <a class="code hl_typedef" href="namespacenetdem.html#aa1676e16ca66301040ee8d50376c72b9">Vec3d</a> <a class="code hl_variable" href="classnetdem_1_1_level_set_function.html#acfb778a8a5ea6b51e26ca3970397a188">corner</a>{-0.5, -0.5, -0.5};</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="classnetdem_1_1_level_set_function.html#abeaa5ab15f7d74ab088e141c13c6a942">   20</a></span>  <span class="keywordtype">double</span> <a class="code hl_variable" href="classnetdem_1_1_level_set_function.html#abeaa5ab15f7d74ab088e141c13c6a942">spacing</a>{0.05};</div>
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>  <span class="keywordtype">void</span> <a class="code hl_function" href="classnetdem_1_1_level_set_function.html#adfbd8c1021b826d7b7999c1cb00549ee">InitFromSDFCalculator</a>(<span class="keyword">const</span> <a class="code hl_class" href="classnetdem_1_1_s_d_f_calculator.html">SDFCalculator</a> &amp;sdf_calculator);</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>  <span class="keywordtype">double</span> <a class="code hl_function" href="classnetdem_1_1_level_set_function.html#ad31814e2774d57718f3a694057689f73">SignedDistance</a>(<a class="code hl_typedef" href="namespacenetdem.html#aa1676e16ca66301040ee8d50376c72b9">Vec3d</a> <span class="keyword">const</span> &amp;pos) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>  <a class="code hl_typedef" href="namespacenetdem.html#aa1676e16ca66301040ee8d50376c72b9">Vec3d</a> <a class="code hl_function" href="classnetdem_1_1_level_set_function.html#aa49aefb3ba2957ac85829b721e678a50">GradientInterpolate</a>(<a class="code hl_typedef" href="namespacenetdem.html#aa1676e16ca66301040ee8d50376c72b9">Vec3d</a> <span class="keyword">const</span> &amp;pos);</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>  <a class="code hl_typedef" href="namespacenetdem.html#aa1676e16ca66301040ee8d50376c72b9">Vec3d</a> <a class="code hl_function" href="classnetdem_1_1_level_set_function.html#a5cc6ca90e74f22ec85606f169e080be5">GradientMinus</a>(<span class="keywordtype">int</span> i, <span class="keywordtype">int</span> j, <span class="keywordtype">int</span> k);</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>  <a class="code hl_typedef" href="namespacenetdem.html#aa1676e16ca66301040ee8d50376c72b9">Vec3d</a> <a class="code hl_function" href="classnetdem_1_1_level_set_function.html#a3bb94ab6373461afc05a4689d5ef32f8">GradientPlus</a>(<span class="keywordtype">int</span> i, <span class="keywordtype">int</span> j, <span class="keywordtype">int</span> k);</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>  <span class="keywordtype">void</span> <a class="code hl_function" href="classnetdem_1_1_level_set_function.html#a06ac63b63cb63bfa7110cdb75ff80268">Reinitialization</a>(<span class="keywordtype">int</span> iter, <span class="keywordtype">double</span> dt);</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>  <span class="keywordtype">void</span> <a class="code hl_function" href="classnetdem_1_1_level_set_function.html#a06ac63b63cb63bfa7110cdb75ff80268">Reinitialization</a>();</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>};</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>} <span class="comment">// namespace netdem</span></div>
-<div class="ttc" id="aclassnetdem_1_1_level_set_function_html"><div class="ttname"><a href="classnetdem_1_1_level_set_function.html">netdem::LevelSetFunction</a></div><div class="ttdef"><b>Definition:</b> level_set_function.hpp:7</div></div>
-<div class="ttc" id="aclassnetdem_1_1_level_set_function_html_a06ac63b63cb63bfa7110cdb75ff80268"><div class="ttname"><a href="classnetdem_1_1_level_set_function.html#a06ac63b63cb63bfa7110cdb75ff80268">netdem::LevelSetFunction::Reinitialization</a></div><div class="ttdeci">void Reinitialization()</div><div class="ttdef"><b>Definition:</b> level_set_function.cpp:267</div></div>
-<div class="ttc" id="aclassnetdem_1_1_level_set_function_html_a3bb94ab6373461afc05a4689d5ef32f8"><div class="ttname"><a href="classnetdem_1_1_level_set_function.html#a3bb94ab6373461afc05a4689d5ef32f8">netdem::LevelSetFunction::GradientPlus</a></div><div class="ttdeci">Vec3d GradientPlus(int i, int j, int k)</div><div class="ttdef"><b>Definition:</b> level_set_function.cpp:149</div></div>
-<div class="ttc" id="aclassnetdem_1_1_level_set_function_html_a4b0a119cdd781659cfefb5eac62771d3"><div class="ttname"><a href="classnetdem_1_1_level_set_function.html#a4b0a119cdd781659cfefb5eac62771d3">netdem::LevelSetFunction::dim</a></div><div class="ttdeci">Vec3i dim</div><div class="ttdef"><b>Definition:</b> level_set_function.hpp:12</div></div>
-<div class="ttc" id="aclassnetdem_1_1_level_set_function_html_a5cc6ca90e74f22ec85606f169e080be5"><div class="ttname"><a href="classnetdem_1_1_level_set_function.html#a5cc6ca90e74f22ec85606f169e080be5">netdem::LevelSetFunction::GradientMinus</a></div><div class="ttdeci">Vec3d GradientMinus(int i, int j, int k)</div><div class="ttdef"><b>Definition:</b> level_set_function.cpp:131</div></div>
-<div class="ttc" id="aclassnetdem_1_1_level_set_function_html_a7a525211c0403b5af9e8beca4d4113ed"><div class="ttname"><a href="classnetdem_1_1_level_set_function.html#a7a525211c0403b5af9e8beca4d4113ed">netdem::LevelSetFunction::SetDimension</a></div><div class="ttdeci">void SetDimension(double dim_x, double dim_y, double dim_z)</div><div class="ttdef"><b>Definition:</b> level_set_function.cpp:19</div></div>
-<div class="ttc" id="aclassnetdem_1_1_level_set_function_html_a7e42b7c324079551fa139636a1102354"><div class="ttname"><a href="classnetdem_1_1_level_set_function.html#a7e42b7c324079551fa139636a1102354">netdem::LevelSetFunction::SetSpacing</a></div><div class="ttdeci">void SetSpacing(double sp)</div><div class="ttdef"><b>Definition:</b> level_set_function.cpp:17</div></div>
-<div class="ttc" id="aclassnetdem_1_1_level_set_function_html_a969f2e4e9bcf95783c2e539f9f711997"><div class="ttname"><a href="classnetdem_1_1_level_set_function.html#a969f2e4e9bcf95783c2e539f9f711997">netdem::LevelSetFunction::SetCorner</a></div><div class="ttdeci">void SetCorner(double corner_x, double corner_y, double corner_z)</div><div class="ttdef"><b>Definition:</b> level_set_function.cpp:10</div></div>
-<div class="ttc" id="aclassnetdem_1_1_level_set_function_html_aa49aefb3ba2957ac85829b721e678a50"><div class="ttname"><a href="classnetdem_1_1_level_set_function.html#aa49aefb3ba2957ac85829b721e678a50">netdem::LevelSetFunction::GradientInterpolate</a></div><div class="ttdeci">Vec3d GradientInterpolate(Vec3d const &amp;pos)</div><div class="ttdef"><b>Definition:</b> level_set_function.cpp:81</div></div>
-<div class="ttc" id="aclassnetdem_1_1_level_set_function_html_ab8fc41dd619285db35e31143a2f2fec9"><div class="ttname"><a href="classnetdem_1_1_level_set_function.html#ab8fc41dd619285db35e31143a2f2fec9">netdem::LevelSetFunction::LevelSetFunction</a></div><div class="ttdeci">LevelSetFunction()</div><div class="ttdef"><b>Definition:</b> level_set_function.cpp:8</div></div>
-<div class="ttc" id="aclassnetdem_1_1_level_set_function_html_abeaa5ab15f7d74ab088e141c13c6a942"><div class="ttname"><a href="classnetdem_1_1_level_set_function.html#abeaa5ab15f7d74ab088e141c13c6a942">netdem::LevelSetFunction::spacing</a></div><div class="ttdeci">double spacing</div><div class="ttdef"><b>Definition:</b> level_set_function.hpp:11</div></div>
-<div class="ttc" id="aclassnetdem_1_1_level_set_function_html_acfb778a8a5ea6b51e26ca3970397a188"><div class="ttname"><a href="classnetdem_1_1_level_set_function.html#acfb778a8a5ea6b51e26ca3970397a188">netdem::LevelSetFunction::corner</a></div><div class="ttdeci">Vec3d corner</div><div class="ttdef"><b>Definition:</b> level_set_function.hpp:10</div></div>
-<div class="ttc" id="aclassnetdem_1_1_level_set_function_html_ad31814e2774d57718f3a694057689f73"><div class="ttname"><a href="classnetdem_1_1_level_set_function.html#ad31814e2774d57718f3a694057689f73">netdem::LevelSetFunction::SignedDistance</a></div><div class="ttdeci">double SignedDistance(Vec3d const &amp;pos) const</div><div class="ttdef"><b>Definition:</b> level_set_function.cpp:49</div></div>
-<div class="ttc" id="aclassnetdem_1_1_level_set_function_html_ad3480650de5417e72b73213f2965eabc"><div class="ttname"><a href="classnetdem_1_1_level_set_function.html#ad3480650de5417e72b73213f2965eabc">netdem::LevelSetFunction::signed_distance_table</a></div><div class="ttdeci">VecXT&lt; VecXT&lt; VecXT&lt; double &gt; &gt; &gt; signed_distance_table</div><div class="ttdef"><b>Definition:</b> level_set_function.hpp:14</div></div>
-<div class="ttc" id="aclassnetdem_1_1_level_set_function_html_adfbd8c1021b826d7b7999c1cb00549ee"><div class="ttname"><a href="classnetdem_1_1_level_set_function.html#adfbd8c1021b826d7b7999c1cb00549ee">netdem::LevelSetFunction::InitFromSDFCalculator</a></div><div class="ttdeci">void InitFromSDFCalculator(const SDFCalculator &amp;sdf_calculator)</div><div class="ttdef"><b>Definition:</b> level_set_function.cpp:34</div></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="classnetdem_1_1_level_set_function.html#a4b0a119cdd781659cfefb5eac62771d3">   25</a></span>  <a class="code hl_typedef" href="namespacenetdem.html#a28e1404c8ce46c48bc78f553bd555980">Vec3i</a> <a class="code hl_variable" href="classnetdem_1_1_level_set_function.html#a4b0a119cdd781659cfefb5eac62771d3">dim</a>{21, 21, 21};</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="classnetdem_1_1_level_set_function.html#ad3480650de5417e72b73213f2965eabc">   30</a></span>  <a class="code hl_typedef" href="namespacenetdem.html#a088168eeea9e6ce8d0500cdfd7ef9c87">VecXT&lt;VecXT&lt;VecXT&lt;double&gt;</a>&gt;&gt; <a class="code hl_variable" href="classnetdem_1_1_level_set_function.html#ad3480650de5417e72b73213f2965eabc">signed_distance_table</a>;</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>  <a class="code hl_function" href="classnetdem_1_1_level_set_function.html#ab8fc41dd619285db35e31143a2f2fec9">LevelSetFunction</a>();</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>  <span class="keywordtype">void</span> <a class="code hl_function" href="classnetdem_1_1_level_set_function.html#a969f2e4e9bcf95783c2e539f9f711997">SetCorner</a>(<span class="keywordtype">double</span> corner_x, <span class="keywordtype">double</span> corner_y, <span class="keywordtype">double</span> corner_z);</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>  <span class="keywordtype">void</span> <a class="code hl_function" href="classnetdem_1_1_level_set_function.html#a7e42b7c324079551fa139636a1102354">SetSpacing</a>(<span class="keywordtype">double</span> sp);</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>  <span class="keywordtype">void</span> <a class="code hl_function" href="classnetdem_1_1_level_set_function.html#a7a525211c0403b5af9e8beca4d4113ed">SetDimension</a>(<span class="keywordtype">double</span> dim_x, <span class="keywordtype">double</span> dim_y, <span class="keywordtype">double</span> dim_z);</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>  <span class="keywordtype">void</span> <a class="code hl_function" href="classnetdem_1_1_level_set_function.html#adfbd8c1021b826d7b7999c1cb00549ee">InitFromSDFCalculator</a>(<span class="keyword">const</span> <a class="code hl_class" href="classnetdem_1_1_s_d_f_calculator.html">SDFCalculator</a> &amp;sdf_calculator);</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>  <span class="keywordtype">double</span> <a class="code hl_function" href="classnetdem_1_1_level_set_function.html#ad31814e2774d57718f3a694057689f73">SignedDistance</a>(<a class="code hl_typedef" href="namespacenetdem.html#aa1676e16ca66301040ee8d50376c72b9">Vec3d</a> <span class="keyword">const</span> &amp;pos) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>  <a class="code hl_typedef" href="namespacenetdem.html#aa1676e16ca66301040ee8d50376c72b9">Vec3d</a> <a class="code hl_function" href="classnetdem_1_1_level_set_function.html#aa49aefb3ba2957ac85829b721e678a50">GradientInterpolate</a>(<a class="code hl_typedef" href="namespacenetdem.html#aa1676e16ca66301040ee8d50376c72b9">Vec3d</a> <span class="keyword">const</span> &amp;pos);</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span> </div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>  <a class="code hl_typedef" href="namespacenetdem.html#aa1676e16ca66301040ee8d50376c72b9">Vec3d</a> <a class="code hl_function" href="classnetdem_1_1_level_set_function.html#a5cc6ca90e74f22ec85606f169e080be5">GradientMinus</a>(<span class="keywordtype">int</span> i, <span class="keywordtype">int</span> j, <span class="keywordtype">int</span> k);</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span> </div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>  <a class="code hl_typedef" href="namespacenetdem.html#aa1676e16ca66301040ee8d50376c72b9">Vec3d</a> <a class="code hl_function" href="classnetdem_1_1_level_set_function.html#a3bb94ab6373461afc05a4689d5ef32f8">GradientPlus</a>(<span class="keywordtype">int</span> i, <span class="keywordtype">int</span> j, <span class="keywordtype">int</span> k);</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span> </div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>  <span class="keywordtype">void</span> <a class="code hl_function" href="classnetdem_1_1_level_set_function.html#a06ac63b63cb63bfa7110cdb75ff80268">Reinitialization</a>(<span class="keywordtype">int</span> iter, <span class="keywordtype">double</span> dt);</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span> </div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>  <span class="keywordtype">void</span> <a class="code hl_function" href="classnetdem_1_1_level_set_function.html#a06ac63b63cb63bfa7110cdb75ff80268">Reinitialization</a>();</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>};</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span> </div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>} <span class="comment">// namespace netdem</span></div>
+<div class="ttc" id="aclassnetdem_1_1_level_set_function_html"><div class="ttname"><a href="classnetdem_1_1_level_set_function.html">netdem::LevelSetFunction</a></div><div class="ttdoc">The LevelSetFunction class represents a level set function.</div><div class="ttdef"><b>Definition:</b> level_set_function.hpp:10</div></div>
+<div class="ttc" id="aclassnetdem_1_1_level_set_function_html_a06ac63b63cb63bfa7110cdb75ff80268"><div class="ttname"><a href="classnetdem_1_1_level_set_function.html#a06ac63b63cb63bfa7110cdb75ff80268">netdem::LevelSetFunction::Reinitialization</a></div><div class="ttdeci">void Reinitialization()</div><div class="ttdoc">Perform reinitialization of the level set function using default settings.</div><div class="ttdef"><b>Definition:</b> level_set_function.cpp:267</div></div>
+<div class="ttc" id="aclassnetdem_1_1_level_set_function_html_a3bb94ab6373461afc05a4689d5ef32f8"><div class="ttname"><a href="classnetdem_1_1_level_set_function.html#a3bb94ab6373461afc05a4689d5ef32f8">netdem::LevelSetFunction::GradientPlus</a></div><div class="ttdeci">Vec3d GradientPlus(int i, int j, int k)</div><div class="ttdoc">Calculate the sum gradient vector at a given grid location.</div><div class="ttdef"><b>Definition:</b> level_set_function.cpp:149</div></div>
+<div class="ttc" id="aclassnetdem_1_1_level_set_function_html_a4b0a119cdd781659cfefb5eac62771d3"><div class="ttname"><a href="classnetdem_1_1_level_set_function.html#a4b0a119cdd781659cfefb5eac62771d3">netdem::LevelSetFunction::dim</a></div><div class="ttdeci">Vec3i dim</div><div class="ttdoc">Number of grid points in each dimension.</div><div class="ttdef"><b>Definition:</b> level_set_function.hpp:25</div></div>
+<div class="ttc" id="aclassnetdem_1_1_level_set_function_html_a5cc6ca90e74f22ec85606f169e080be5"><div class="ttname"><a href="classnetdem_1_1_level_set_function.html#a5cc6ca90e74f22ec85606f169e080be5">netdem::LevelSetFunction::GradientMinus</a></div><div class="ttdeci">Vec3d GradientMinus(int i, int j, int k)</div><div class="ttdoc">Calculate the difference gradient vector at a given grid location.</div><div class="ttdef"><b>Definition:</b> level_set_function.cpp:131</div></div>
+<div class="ttc" id="aclassnetdem_1_1_level_set_function_html_a7a525211c0403b5af9e8beca4d4113ed"><div class="ttname"><a href="classnetdem_1_1_level_set_function.html#a7a525211c0403b5af9e8beca4d4113ed">netdem::LevelSetFunction::SetDimension</a></div><div class="ttdeci">void SetDimension(double dim_x, double dim_y, double dim_z)</div><div class="ttdoc">Set the number of grid points in each dimension.</div><div class="ttdef"><b>Definition:</b> level_set_function.cpp:19</div></div>
+<div class="ttc" id="aclassnetdem_1_1_level_set_function_html_a7e42b7c324079551fa139636a1102354"><div class="ttname"><a href="classnetdem_1_1_level_set_function.html#a7e42b7c324079551fa139636a1102354">netdem::LevelSetFunction::SetSpacing</a></div><div class="ttdeci">void SetSpacing(double sp)</div><div class="ttdoc">Set the spacing between grid points in each dimension.</div><div class="ttdef"><b>Definition:</b> level_set_function.cpp:17</div></div>
+<div class="ttc" id="aclassnetdem_1_1_level_set_function_html_a969f2e4e9bcf95783c2e539f9f711997"><div class="ttname"><a href="classnetdem_1_1_level_set_function.html#a969f2e4e9bcf95783c2e539f9f711997">netdem::LevelSetFunction::SetCorner</a></div><div class="ttdeci">void SetCorner(double corner_x, double corner_y, double corner_z)</div><div class="ttdoc">Set the position of the corner of the bounding box.</div><div class="ttdef"><b>Definition:</b> level_set_function.cpp:10</div></div>
+<div class="ttc" id="aclassnetdem_1_1_level_set_function_html_aa49aefb3ba2957ac85829b721e678a50"><div class="ttname"><a href="classnetdem_1_1_level_set_function.html#aa49aefb3ba2957ac85829b721e678a50">netdem::LevelSetFunction::GradientInterpolate</a></div><div class="ttdeci">Vec3d GradientInterpolate(Vec3d const &amp;pos)</div><div class="ttdoc">Interpolate the gradient vector at a given position using trilinear interpolation.</div><div class="ttdef"><b>Definition:</b> level_set_function.cpp:81</div></div>
+<div class="ttc" id="aclassnetdem_1_1_level_set_function_html_ab8fc41dd619285db35e31143a2f2fec9"><div class="ttname"><a href="classnetdem_1_1_level_set_function.html#ab8fc41dd619285db35e31143a2f2fec9">netdem::LevelSetFunction::LevelSetFunction</a></div><div class="ttdeci">LevelSetFunction()</div><div class="ttdoc">Default constructor.</div><div class="ttdef"><b>Definition:</b> level_set_function.cpp:8</div></div>
+<div class="ttc" id="aclassnetdem_1_1_level_set_function_html_abeaa5ab15f7d74ab088e141c13c6a942"><div class="ttname"><a href="classnetdem_1_1_level_set_function.html#abeaa5ab15f7d74ab088e141c13c6a942">netdem::LevelSetFunction::spacing</a></div><div class="ttdeci">double spacing</div><div class="ttdoc">Spacing between grid points in each dimension.</div><div class="ttdef"><b>Definition:</b> level_set_function.hpp:20</div></div>
+<div class="ttc" id="aclassnetdem_1_1_level_set_function_html_acfb778a8a5ea6b51e26ca3970397a188"><div class="ttname"><a href="classnetdem_1_1_level_set_function.html#acfb778a8a5ea6b51e26ca3970397a188">netdem::LevelSetFunction::corner</a></div><div class="ttdeci">Vec3d corner</div><div class="ttdoc">Position of the corner of the bounding box.</div><div class="ttdef"><b>Definition:</b> level_set_function.hpp:15</div></div>
+<div class="ttc" id="aclassnetdem_1_1_level_set_function_html_ad31814e2774d57718f3a694057689f73"><div class="ttname"><a href="classnetdem_1_1_level_set_function.html#ad31814e2774d57718f3a694057689f73">netdem::LevelSetFunction::SignedDistance</a></div><div class="ttdeci">double SignedDistance(Vec3d const &amp;pos) const</div><div class="ttdoc">Calculate the signed distance value at a given position.</div><div class="ttdef"><b>Definition:</b> level_set_function.cpp:49</div></div>
+<div class="ttc" id="aclassnetdem_1_1_level_set_function_html_ad3480650de5417e72b73213f2965eabc"><div class="ttname"><a href="classnetdem_1_1_level_set_function.html#ad3480650de5417e72b73213f2965eabc">netdem::LevelSetFunction::signed_distance_table</a></div><div class="ttdeci">VecXT&lt; VecXT&lt; VecXT&lt; double &gt; &gt; &gt; signed_distance_table</div><div class="ttdoc">Table storing the signed distance values at each grid point.</div><div class="ttdef"><b>Definition:</b> level_set_function.hpp:30</div></div>
+<div class="ttc" id="aclassnetdem_1_1_level_set_function_html_adfbd8c1021b826d7b7999c1cb00549ee"><div class="ttname"><a href="classnetdem_1_1_level_set_function.html#adfbd8c1021b826d7b7999c1cb00549ee">netdem::LevelSetFunction::InitFromSDFCalculator</a></div><div class="ttdeci">void InitFromSDFCalculator(const SDFCalculator &amp;sdf_calculator)</div><div class="ttdoc">Initialize the level set function from an SDFCalculator object.</div><div class="ttdef"><b>Definition:</b> level_set_function.cpp:34</div></div>
 <div class="ttc" id="aclassnetdem_1_1_s_d_f_calculator_html"><div class="ttname"><a href="classnetdem_1_1_s_d_f_calculator.html">netdem::SDFCalculator</a></div><div class="ttdef"><b>Definition:</b> igl_wrapper.hpp:72</div></div>
 <div class="ttc" id="aigl__wrapper_8hpp_html"><div class="ttname"><a href="igl__wrapper_8hpp.html">igl_wrapper.hpp</a></div></div>
 <div class="ttc" id="anamespacenetdem_html"><div class="ttname"><a href="namespacenetdem.html">netdem</a></div><div class="ttdef"><b>Definition:</b> bond_entry.hpp:7</div></div>
@@ -134,9 +154,13 @@ $(function() {
 <div class="ttc" id="anamespacenetdem_html_a28e1404c8ce46c48bc78f553bd555980"><div class="ttname"><a href="namespacenetdem.html#a28e1404c8ce46c48bc78f553bd555980">netdem::Vec3i</a></div><div class="ttdeci">std::array&lt; int, 3 &gt; Vec3i</div><div class="ttdef"><b>Definition:</b> utils_macros.hpp:13</div></div>
 <div class="ttc" id="anamespacenetdem_html_aa1676e16ca66301040ee8d50376c72b9"><div class="ttname"><a href="namespacenetdem.html#aa1676e16ca66301040ee8d50376c72b9">netdem::Vec3d</a></div><div class="ttdeci">std::array&lt; double, 3 &gt; Vec3d</div><div class="ttdef"><b>Definition:</b> utils_macros.hpp:17</div></div>
 </div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.6
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_1f2a9fe58f9a6358aa24a6d1516340da.html">netdem</a></li><li class="navelem"><a class="el" href="dir_04176275722661bc84c11bcbe74288bf.html">src</a></li><li class="navelem"><a class="el" href="dir_b957ce71d4cec3aa1e6b9f7647e1edd6.html">utils</a></li><li class="navelem"><a class="el" href="level__set__function_8hpp.html">level_set_function.hpp</a></li>
+    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.6 </li>
+  </ul>
+</div>
 </body>
 </html>
