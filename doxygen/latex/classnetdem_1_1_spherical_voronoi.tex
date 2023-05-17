@@ -2,41 +2,51 @@
 \label{classnetdem_1_1_spherical_voronoi}\index{netdem::SphericalVoronoi@{netdem::SphericalVoronoi}}
 
 
+Class for computing \mbox{\hyperlink{classnetdem_1_1_voronoi}{Voronoi}} diagrams on a sphere.  
+
+
+
+
 {\ttfamily \#include $<$spherical\+\_\+voronoi.\+hpp$>$}
 
 \doxysubsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 static std\+::tuple$<$ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $>$, \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ int $>$ $>$ $>$ \mbox{\hyperlink{classnetdem_1_1_spherical_voronoi_abc37eca6d8ad5e64b8bfc93ec9473645}{Solve}} (\mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $>$ const \&vt\+\_\+seeds)
-\begin{DoxyCompactList}\small\item\em basic vorono. return\+: vt\+\_\+nodes, vt\+\_\+cells \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Compute the \mbox{\hyperlink{classnetdem_1_1_voronoi}{Voronoi}} diagram for a set of seeds with uniform weights. \end{DoxyCompactList}\item 
 static std\+::tuple$<$ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $>$, \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ int $>$ $>$ $>$ \mbox{\hyperlink{classnetdem_1_1_spherical_voronoi_a6cc7feecfe679baf1fe271893e1c04fe}{Solve}} (\mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $>$ const \&vt\+\_\+seeds, \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ double $>$ const \&vt\+\_\+weights)
-\begin{DoxyCompactList}\small\item\em weighted voronoi. return\+: vt\+\_\+nodes, vt\+\_\+cells \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Compute the \mbox{\hyperlink{classnetdem_1_1_voronoi}{Voronoi}} diagram for a set of seeds with arbitrary weights. \end{DoxyCompactList}\item 
 static \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $>$ \mbox{\hyperlink{classnetdem_1_1_spherical_voronoi_a341ddb2d3cff7c709e40e46d0956db11}{Solve}} (int num\+\_\+seeds, int max\+\_\+iter=10000, double tol=1.\+0e-\/4)
-\begin{DoxyCompactList}\small\item\em centroidal voronoi. return\+: vt\+\_\+seeds \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Compute a centroidal \mbox{\hyperlink{classnetdem_1_1_voronoi}{Voronoi}} tessellation. \end{DoxyCompactList}\item 
 static \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $>$ \mbox{\hyperlink{classnetdem_1_1_spherical_voronoi_aedb47b0c210ccc9059c9c0c45dbf05aa}{Solve}} (int num\+\_\+seeds, \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ double $>$ const \&weights\+\_\+sh\+\_\+coff, int max\+\_\+iter, double tol)
-\begin{DoxyCompactList}\small\item\em assuming the weights are interplated from a spheircal harmonics function \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Compute a spherical harmonic weighted centroidal \mbox{\hyperlink{classnetdem_1_1_voronoi}{Voronoi}} tessellation. \end{DoxyCompactList}\item 
 static void \mbox{\hyperlink{classnetdem_1_1_spherical_voronoi_ac45f1ba02bd1bebb0c021789562d1939}{Save\+As\+VTK}} (std\+::string const \&file, \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $>$ const \&vt\+\_\+nodes, \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ int $>$ $>$ const \&vt\+\_\+cells, \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $>$ const \&vt\+\_\+seeds)
-\begin{DoxyCompactList}\small\item\em save voronoi as mesh for paraview visualization \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Save the \mbox{\hyperlink{classnetdem_1_1_voronoi}{Voronoi}} diagram as a VTK file. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Static Private Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 static int \mbox{\hyperlink{classnetdem_1_1_spherical_voronoi_a5859c45211f6113558580c6ed87a982e}{Find}} (\mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ int $>$ const \&ids, int id)
-\item 
+\begin{DoxyCompactList}\small\item\em Find the index of an element in an array. \end{DoxyCompactList}\item 
 static int \mbox{\hyperlink{classnetdem_1_1_spherical_voronoi_aa7aea6249e569611c38744c198ff62f1}{Find}} (\mbox{\hyperlink{namespacenetdem_a28e1404c8ce46c48bc78f553bd555980}{Vec3i}} const \&ids, int id)
-\item 
+\begin{DoxyCompactList}\small\item\em Find the index of an element in a Vec3i object. \end{DoxyCompactList}\item 
 static bool \mbox{\hyperlink{classnetdem_1_1_spherical_voronoi_a82219591a01dc87da6be985e1fce1ad8}{Is\+Sharing\+Edge}} (\mbox{\hyperlink{namespacenetdem_a28e1404c8ce46c48bc78f553bd555980}{Vec3i}} const \&facet\+\_\+i, \mbox{\hyperlink{namespacenetdem_a28e1404c8ce46c48bc78f553bd555980}{Vec3i}} const \&facet\+\_\+j)
-\item 
+\begin{DoxyCompactList}\small\item\em Check if two facets share an edge. \end{DoxyCompactList}\item 
 static \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ int $>$ \mbox{\hyperlink{classnetdem_1_1_spherical_voronoi_a1695c535d485d4a3c4b585fa20dbe9ff}{Facets\+Contain\+Vertex}} (\mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_a28e1404c8ce46c48bc78f553bd555980}{Vec3i}} $>$ const \&facets, int vid)
-\item 
+\begin{DoxyCompactList}\small\item\em Find all facets that contain a given vertex. \end{DoxyCompactList}\item 
 static \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \mbox{\hyperlink{classnetdem_1_1_spherical_voronoi_ab3b8969fcafd4972929e27fae8241c7d}{Weighted\+Middle}} (\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&v1, \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&v2, double w1, double w2)
-\item 
+\begin{DoxyCompactList}\small\item\em Compute the weighted midpoint of two points. \end{DoxyCompactList}\item 
 static \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \mbox{\hyperlink{classnetdem_1_1_spherical_voronoi_a333f0cf4f45e234bf38296785c448914}{Line\+Intersection}} (\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&v1, \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&n1, \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&v2, \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&n2)
-\item 
+\begin{DoxyCompactList}\small\item\em Compute the intersection of two lines. \end{DoxyCompactList}\item 
 static \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \mbox{\hyperlink{classnetdem_1_1_spherical_voronoi_a5e08d74c05d91052c63f471cb1365a42}{Weighted\+Centroid}} (\mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $>$ const \&vertices, \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ double $>$ const \&weights, \mbox{\hyperlink{namespacenetdem_a28e1404c8ce46c48bc78f553bd555980}{Vec3i}} const \&facet)
-\item 
+\begin{DoxyCompactList}\small\item\em Compute the weighted centroid of a facet. \end{DoxyCompactList}\item 
 static \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \mbox{\hyperlink{classnetdem_1_1_spherical_voronoi_acbaab9f8b2a58b9f340976c35116a04b}{Poly\+Centroid}} (\mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $>$ const \&verts, \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ int $>$ const \&facet)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Compute the centroid of a polygonal face. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
+
+\doxysubsection{Detailed Description}
+Class for computing \mbox{\hyperlink{classnetdem_1_1_voronoi}{Voronoi}} diagrams on a sphere. 
+
+This class provides methods for computing \mbox{\hyperlink{classnetdem_1_1_voronoi}{Voronoi}} diagrams on the surface of a sphere. It can solve basic, weighted, and centroidal \mbox{\hyperlink{classnetdem_1_1_voronoi}{Voronoi}} problems, and provides methods for saving the resulting \mbox{\hyperlink{classnetdem_1_1_voronoi}{Voronoi}} mesh as a VTK file for visualization. 
 
 \doxysubsection{Member Function Documentation}
 \mbox{\Hypertarget{classnetdem_1_1_spherical_voronoi_a1695c535d485d4a3c4b585fa20dbe9ff}\label{classnetdem_1_1_spherical_voronoi_a1695c535d485d4a3c4b585fa20dbe9ff}} 
@@ -45,36 +55,136 @@ static \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d
 \doxysubsubsection{\texorpdfstring{FacetsContainVertex()}{FacetsContainVertex()}}
 {\footnotesize\ttfamily \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ int $>$ Spherical\+Voronoi\+::\+Facets\+Contain\+Vertex (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_a28e1404c8ce46c48bc78f553bd555980}{Vec3i}} $>$ const \&}]{facets,  }\item[{int}]{vid }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
 
+
+
+Find all facets that contain a given vertex. 
+
+This method finds all facets in a \mbox{\hyperlink{classnetdem_1_1_voronoi}{Voronoi}} diagram that contain a given vertex.
+
+
+\begin{DoxyParams}{Parameters}
+{\em facets} & The array of facets in the \mbox{\hyperlink{classnetdem_1_1_voronoi}{Voronoi}} diagram. \\
+\hline
+{\em vid} & The index of the vertex to search for. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An array containing the indices of the facets that contain the specified vertex. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{classnetdem_1_1_spherical_voronoi_aa7aea6249e569611c38744c198ff62f1}\label{classnetdem_1_1_spherical_voronoi_aa7aea6249e569611c38744c198ff62f1}} 
 \index{netdem::SphericalVoronoi@{netdem::SphericalVoronoi}!Find@{Find}}
 \index{Find@{Find}!netdem::SphericalVoronoi@{netdem::SphericalVoronoi}}
 \doxysubsubsection{\texorpdfstring{Find()}{Find()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily int Spherical\+Voronoi\+::\+Find (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacenetdem_a28e1404c8ce46c48bc78f553bd555980}{Vec3i}} const \&}]{ids,  }\item[{int}]{id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
 
+
+
+Find the index of an element in a Vec3i object. 
+
+This method finds the index of an element with the specified value in a Vec3i object.
+
+
+\begin{DoxyParams}{Parameters}
+{\em ids} & The input Vec3i object. \\
+\hline
+{\em id} & The value to search for. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The index of the element with the specified value. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{classnetdem_1_1_spherical_voronoi_a5859c45211f6113558580c6ed87a982e}\label{classnetdem_1_1_spherical_voronoi_a5859c45211f6113558580c6ed87a982e}} 
 \index{netdem::SphericalVoronoi@{netdem::SphericalVoronoi}!Find@{Find}}
 \index{Find@{Find}!netdem::SphericalVoronoi@{netdem::SphericalVoronoi}}
 \doxysubsubsection{\texorpdfstring{Find()}{Find()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
 {\footnotesize\ttfamily int Spherical\+Voronoi\+::\+Find (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ int $>$ const \&}]{ids,  }\item[{int}]{id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
 
+
+
+Find the index of an element in an array. 
+
+This method finds the index of an element with the specified value in an array of integers.
+
+
+\begin{DoxyParams}{Parameters}
+{\em ids} & The input array of integers. \\
+\hline
+{\em id} & The value to search for. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The index of the element with the specified value. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{classnetdem_1_1_spherical_voronoi_a82219591a01dc87da6be985e1fce1ad8}\label{classnetdem_1_1_spherical_voronoi_a82219591a01dc87da6be985e1fce1ad8}} 
 \index{netdem::SphericalVoronoi@{netdem::SphericalVoronoi}!IsSharingEdge@{IsSharingEdge}}
 \index{IsSharingEdge@{IsSharingEdge}!netdem::SphericalVoronoi@{netdem::SphericalVoronoi}}
 \doxysubsubsection{\texorpdfstring{IsSharingEdge()}{IsSharingEdge()}}
 {\footnotesize\ttfamily bool Spherical\+Voronoi\+::\+Is\+Sharing\+Edge (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacenetdem_a28e1404c8ce46c48bc78f553bd555980}{Vec3i}} const \&}]{facet\+\_\+i,  }\item[{\mbox{\hyperlink{namespacenetdem_a28e1404c8ce46c48bc78f553bd555980}{Vec3i}} const \&}]{facet\+\_\+j }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
 
+
+
+Check if two facets share an edge. 
+
+This method checks if two facets in a \mbox{\hyperlink{classnetdem_1_1_voronoi}{Voronoi}} diagram share an edge.
+
+
+\begin{DoxyParams}{Parameters}
+{\em facet\+\_\+i} & The first facet. \\
+\hline
+{\em facet\+\_\+j} & The second facet. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A boolean value indicating whether the two facets share an edge. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{classnetdem_1_1_spherical_voronoi_a333f0cf4f45e234bf38296785c448914}\label{classnetdem_1_1_spherical_voronoi_a333f0cf4f45e234bf38296785c448914}} 
 \index{netdem::SphericalVoronoi@{netdem::SphericalVoronoi}!LineIntersection@{LineIntersection}}
 \index{LineIntersection@{LineIntersection}!netdem::SphericalVoronoi@{netdem::SphericalVoronoi}}
 \doxysubsubsection{\texorpdfstring{LineIntersection()}{LineIntersection()}}
 {\footnotesize\ttfamily \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} Spherical\+Voronoi\+::\+Line\+Intersection (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&}]{v1,  }\item[{\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&}]{n1,  }\item[{\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&}]{v2,  }\item[{\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&}]{n2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
 
+
+
+Compute the intersection of two lines. 
+
+This method computes the intersection of two lines, given their direction vectors and a point on each line.
+
+
+\begin{DoxyParams}{Parameters}
+{\em v1} & A point on the first line. \\
+\hline
+{\em n1} & The direction vector of the first line. \\
+\hline
+{\em v2} & A point on the second line. \\
+\hline
+{\em n2} & The direction vector of the second line. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The intersection point of the two lines. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{classnetdem_1_1_spherical_voronoi_acbaab9f8b2a58b9f340976c35116a04b}\label{classnetdem_1_1_spherical_voronoi_acbaab9f8b2a58b9f340976c35116a04b}} 
 \index{netdem::SphericalVoronoi@{netdem::SphericalVoronoi}!PolyCentroid@{PolyCentroid}}
 \index{PolyCentroid@{PolyCentroid}!netdem::SphericalVoronoi@{netdem::SphericalVoronoi}}
 \doxysubsubsection{\texorpdfstring{PolyCentroid()}{PolyCentroid()}}
 {\footnotesize\ttfamily \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} Spherical\+Voronoi\+::\+Poly\+Centroid (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $>$ const \&}]{verts,  }\item[{\mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ int $>$ const \&}]{facet }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
 
+
+
+Compute the centroid of a polygonal face. 
+
+This method computes the centroid of a polygonal face in the \mbox{\hyperlink{classnetdem_1_1_voronoi}{Voronoi}} diagram.
+
+
+\begin{DoxyParams}{Parameters}
+{\em verts} & The array of \mbox{\hyperlink{classnetdem_1_1_voronoi}{Voronoi}} vertices. \\
+\hline
+{\em facet} & The indices of the vertices of the polygonal face. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The centroid of the polygonal face. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{classnetdem_1_1_spherical_voronoi_ac45f1ba02bd1bebb0c021789562d1939}\label{classnetdem_1_1_spherical_voronoi_ac45f1ba02bd1bebb0c021789562d1939}} 
 \index{netdem::SphericalVoronoi@{netdem::SphericalVoronoi}!SaveAsVTK@{SaveAsVTK}}
 \index{SaveAsVTK@{SaveAsVTK}!netdem::SphericalVoronoi@{netdem::SphericalVoronoi}}
@@ -83,8 +193,21 @@ static \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d
 
 
 
-save voronoi as mesh for paraview visualization 
+Save the \mbox{\hyperlink{classnetdem_1_1_voronoi}{Voronoi}} diagram as a VTK file. 
 
+This method saves the \mbox{\hyperlink{classnetdem_1_1_voronoi}{Voronoi}} diagram as a VTK file for visualization in Para\+View or another software package.
+
+
+\begin{DoxyParams}{Parameters}
+{\em file} & The name of the output file. \\
+\hline
+{\em vt\+\_\+nodes} & The \mbox{\hyperlink{classnetdem_1_1_voronoi}{Voronoi}} vertices. \\
+\hline
+{\em vt\+\_\+cells} & The \mbox{\hyperlink{classnetdem_1_1_voronoi}{Voronoi}} cells. \\
+\hline
+{\em vt\+\_\+seeds} & The input seed points. \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{classnetdem_1_1_spherical_voronoi_a341ddb2d3cff7c709e40e46d0956db11}\label{classnetdem_1_1_spherical_voronoi_a341ddb2d3cff7c709e40e46d0956db11}} 
 \index{netdem::SphericalVoronoi@{netdem::SphericalVoronoi}!Solve@{Solve}}
 \index{Solve@{Solve}!netdem::SphericalVoronoi@{netdem::SphericalVoronoi}}
@@ -93,8 +216,22 @@ save voronoi as mesh for paraview visualization
 
 
 
-centroidal voronoi. return\+: vt\+\_\+seeds 
+Compute a centroidal \mbox{\hyperlink{classnetdem_1_1_voronoi}{Voronoi}} tessellation. 
 
+This method computes a centroidal \mbox{\hyperlink{classnetdem_1_1_voronoi}{Voronoi}} tessellation (CVT) with the specified number of seed points. It returns the resulting seed points.
+
+
+\begin{DoxyParams}{Parameters}
+{\em num\+\_\+seeds} & The number of seed points to generate. \\
+\hline
+{\em max\+\_\+iter} & The maximum number of iterations to perform. \\
+\hline
+{\em tol} & The convergence tolerance for the CVT algorithm. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The resulting seed points. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{classnetdem_1_1_spherical_voronoi_aedb47b0c210ccc9059c9c0c45dbf05aa}\label{classnetdem_1_1_spherical_voronoi_aedb47b0c210ccc9059c9c0c45dbf05aa}} 
 \index{netdem::SphericalVoronoi@{netdem::SphericalVoronoi}!Solve@{Solve}}
 \index{Solve@{Solve}!netdem::SphericalVoronoi@{netdem::SphericalVoronoi}}
@@ -103,9 +240,27 @@ centroidal voronoi. return\+: vt\+\_\+seeds
 
 
 
-assuming the weights are interplated from a spheircal harmonics function 
+Compute a spherical harmonic weighted centroidal \mbox{\hyperlink{classnetdem_1_1_voronoi}{Voronoi}} tessellation. 
 
-assuming the weights are interplated from a spheircal harmonics function return\+: vt\+\_\+seeds \mbox{\Hypertarget{classnetdem_1_1_spherical_voronoi_abc37eca6d8ad5e64b8bfc93ec9473645}\label{classnetdem_1_1_spherical_voronoi_abc37eca6d8ad5e64b8bfc93ec9473645}} 
+assuming the weights are interplated from a spheircal harmonics function
+
+This method computes a spherical harmonic weighted centroidal \mbox{\hyperlink{classnetdem_1_1_voronoi}{Voronoi}} tessellation (SHCVT) with the specified number of seed points and spherical harmonic coefficients. It returns the resulting seed points.
+
+
+\begin{DoxyParams}{Parameters}
+{\em num\+\_\+seeds} & The number of seed points to generate. \\
+\hline
+{\em weights\+\_\+sh\+\_\+coff} & The spherical harmonic coefficients for the weights. \\
+\hline
+{\em max\+\_\+iter} & The maximum number of iterations to perform. \\
+\hline
+{\em tol} & The convergence tolerance for the SHCVT algorithm. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The resulting seed points. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classnetdem_1_1_spherical_voronoi_abc37eca6d8ad5e64b8bfc93ec9473645}\label{classnetdem_1_1_spherical_voronoi_abc37eca6d8ad5e64b8bfc93ec9473645}} 
 \index{netdem::SphericalVoronoi@{netdem::SphericalVoronoi}!Solve@{Solve}}
 \index{Solve@{Solve}!netdem::SphericalVoronoi@{netdem::SphericalVoronoi}}
 \doxysubsubsection{\texorpdfstring{Solve()}{Solve()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
@@ -113,8 +268,18 @@ assuming the weights are interplated from a spheircal harmonics function return\
 
 
 
-basic vorono. return\+: vt\+\_\+nodes, vt\+\_\+cells 
+Compute the \mbox{\hyperlink{classnetdem_1_1_voronoi}{Voronoi}} diagram for a set of seeds with uniform weights. 
 
+This method computes the \mbox{\hyperlink{classnetdem_1_1_voronoi}{Voronoi}} diagram for a set of seed points with uniform weights. It returns the \mbox{\hyperlink{classnetdem_1_1_voronoi}{Voronoi}} vertices and cells as two arrays.
+
+
+\begin{DoxyParams}{Parameters}
+{\em vt\+\_\+seeds} & The input seed points. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A tuple containing the \mbox{\hyperlink{classnetdem_1_1_voronoi}{Voronoi}} vertices and cells. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{classnetdem_1_1_spherical_voronoi_a6cc7feecfe679baf1fe271893e1c04fe}\label{classnetdem_1_1_spherical_voronoi_a6cc7feecfe679baf1fe271893e1c04fe}} 
 \index{netdem::SphericalVoronoi@{netdem::SphericalVoronoi}!Solve@{Solve}}
 \index{Solve@{Solve}!netdem::SphericalVoronoi@{netdem::SphericalVoronoi}}
@@ -123,20 +288,70 @@ basic vorono. return\+: vt\+\_\+nodes, vt\+\_\+cells
 
 
 
-weighted voronoi. return\+: vt\+\_\+nodes, vt\+\_\+cells 
+Compute the \mbox{\hyperlink{classnetdem_1_1_voronoi}{Voronoi}} diagram for a set of seeds with arbitrary weights. 
 
+This method computes the \mbox{\hyperlink{classnetdem_1_1_voronoi}{Voronoi}} diagram for a set of seed points with arbitrary weights. It returns the \mbox{\hyperlink{classnetdem_1_1_voronoi}{Voronoi}} vertices and cells as two arrays.
+
+
+\begin{DoxyParams}{Parameters}
+{\em vt\+\_\+seeds} & The input seed points. \\
+\hline
+{\em vt\+\_\+weights} & The input weights for each seed point. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A tuple containing the \mbox{\hyperlink{classnetdem_1_1_voronoi}{Voronoi}} vertices and cells. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{classnetdem_1_1_spherical_voronoi_a5e08d74c05d91052c63f471cb1365a42}\label{classnetdem_1_1_spherical_voronoi_a5e08d74c05d91052c63f471cb1365a42}} 
 \index{netdem::SphericalVoronoi@{netdem::SphericalVoronoi}!WeightedCentroid@{WeightedCentroid}}
 \index{WeightedCentroid@{WeightedCentroid}!netdem::SphericalVoronoi@{netdem::SphericalVoronoi}}
 \doxysubsubsection{\texorpdfstring{WeightedCentroid()}{WeightedCentroid()}}
 {\footnotesize\ttfamily \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} Spherical\+Voronoi\+::\+Weighted\+Centroid (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $>$ const \&}]{vertices,  }\item[{\mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ double $>$ const \&}]{weights,  }\item[{\mbox{\hyperlink{namespacenetdem_a28e1404c8ce46c48bc78f553bd555980}{Vec3i}} const \&}]{facet }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
 
+
+
+Compute the weighted centroid of a facet. 
+
+This method computes the weighted centroid of a facet in the \mbox{\hyperlink{classnetdem_1_1_voronoi}{Voronoi}} diagram. It assumes that the weights are given for each vertex of the facet.
+
+
+\begin{DoxyParams}{Parameters}
+{\em vertices} & The array of \mbox{\hyperlink{classnetdem_1_1_voronoi}{Voronoi}} vertices. \\
+\hline
+{\em weights} & The array of weights for each vertex of the facet. \\
+\hline
+{\em facet} & The indices of the vertices of the facet. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The weighted centroid of the facet. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{classnetdem_1_1_spherical_voronoi_ab3b8969fcafd4972929e27fae8241c7d}\label{classnetdem_1_1_spherical_voronoi_ab3b8969fcafd4972929e27fae8241c7d}} 
 \index{netdem::SphericalVoronoi@{netdem::SphericalVoronoi}!WeightedMiddle@{WeightedMiddle}}
 \index{WeightedMiddle@{WeightedMiddle}!netdem::SphericalVoronoi@{netdem::SphericalVoronoi}}
 \doxysubsubsection{\texorpdfstring{WeightedMiddle()}{WeightedMiddle()}}
 {\footnotesize\ttfamily \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} Spherical\+Voronoi\+::\+Weighted\+Middle (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&}]{v1,  }\item[{\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&}]{v2,  }\item[{double}]{w1,  }\item[{double}]{w2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
 
+
+
+Compute the weighted midpoint of two points. 
+
+This method computes the weighted midpoint of two points, given their weights.
+
+
+\begin{DoxyParams}{Parameters}
+{\em v1} & The first point. \\
+\hline
+{\em v2} & The second point. \\
+\hline
+{\em w1} & The weight of the first point. \\
+\hline
+{\em w2} & The weight of the second point. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The weighted midpoint of the two points. 
+\end{DoxyReturn}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

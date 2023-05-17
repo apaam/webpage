@@ -2,52 +2,62 @@
 \label{classnetdem_1_1_s_d_f_calculator}\index{netdem::SDFCalculator@{netdem::SDFCalculator}}
 
 
+Class for computing signed distance fields from triangle meshes.  
+
+
+
+
 {\ttfamily \#include $<$igl\+\_\+wrapper.\+hpp$>$}
 
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{classnetdem_1_1_s_d_f_calculator_aa8a0cab4d342177cb775edbf692a1b09}{SDFCalculator}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Default constructor. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classnetdem_1_1_s_d_f_calculator_abde55bf4a5f69649136cadc5ace8537a}{Init\+From\+STL}} (const \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $>$ \&vv, const \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_a28e1404c8ce46c48bc78f553bd555980}{Vec3i}} $>$ \&ff)
-\item 
+\begin{DoxyCompactList}\small\item\em Initialize from a set of vertices and faces. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classnetdem_1_1_s_d_f_calculator_ab41ef27da95b30a9e59ff067950bf64b}{Init\+From\+STL}} (\mbox{\hyperlink{classnetdem_1_1_s_t_l_model}{STLModel}} const \&stl\+\_\+model)
-\item 
+\begin{DoxyCompactList}\small\item\em Initialize from an STL model. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classnetdem_1_1_s_d_f_calculator_ad07355ccd1bb1b590dd258a2de9e3a9c}{Init}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Initialize the \mbox{\hyperlink{classnetdem_1_1_s_d_f_calculator}{SDFCalculator}}. \end{DoxyCompactList}\item 
 double \mbox{\hyperlink{classnetdem_1_1_s_d_f_calculator_ac6f6822eccf2696168ad4d376ce528e5}{Signed\+Distance}} (\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&pos) const
-\item 
+\begin{DoxyCompactList}\small\item\em Compute the signed distance at a point in space. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \mbox{\hyperlink{classnetdem_1_1_s_d_f_calculator_a1aa5ad48be7c50db1fd9df163494049b}{Surface\+Point}} (\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&pos) const
-\item 
+\begin{DoxyCompactList}\small\item\em Find the surface point on the mesh closest to a given point. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{classnetdem_1_1_s_d_f_calculator_a1ea283971e65103166b60cb2cedce31b}{Closest\+Facet}} (\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&pos) const
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Find the closest facet on the mesh to a given point. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
 double \mbox{\hyperlink{classnetdem_1_1_s_d_f_calculator_ae5110336b03e5804fa16efb00e43d8b2}{max\+\_\+distance}} \{0.\+0\}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Maximum distance from any point to the mesh. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Private Attributes}
 \begin{DoxyCompactItemize}
 \item 
 Eigen\+::\+Matrix\+Xd \mbox{\hyperlink{classnetdem_1_1_s_d_f_calculator_a12ffc01ade8397c7243bc225baf75783}{vertices}}
-\item 
+\begin{DoxyCompactList}\small\item\em Matrix containing the vertex positions. \end{DoxyCompactList}\item 
 Eigen\+::\+Matrix\+Xi \mbox{\hyperlink{classnetdem_1_1_s_d_f_calculator_aba766469a898ab663419901d42fd3bc6}{facets}}
-\item 
+\begin{DoxyCompactList}\small\item\em Matrix containing the indices of the mesh faces. \end{DoxyCompactList}\item 
 Eigen\+::\+Matrix\+Xi \mbox{\hyperlink{classnetdem_1_1_s_d_f_calculator_adcfdb7972eb8e7126390fd912c5ed078}{T}}
-\item 
+\begin{DoxyCompactList}\small\item\em Matrix containing AABB tree node information. \end{DoxyCompactList}\item 
 igl\+::\+AABB$<$ Eigen\+::\+Matrix\+Xd, 3 $>$ \mbox{\hyperlink{classnetdem_1_1_s_d_f_calculator_af00a0e39a11dde13a169d5e38249c729}{tree}}
-\item 
+\begin{DoxyCompactList}\small\item\em AABB tree used to accelerate signed distance computation. \end{DoxyCompactList}\item 
 Eigen\+::\+Matrix\+Xd \mbox{\hyperlink{classnetdem_1_1_s_d_f_calculator_a04cd0ea0be339eaccab7bddda163b666}{FN}}
 \item 
 Eigen\+::\+Matrix\+Xd \mbox{\hyperlink{classnetdem_1_1_s_d_f_calculator_a3756fa0f3613081d2633131718286a77}{VN}}
 \item 
 Eigen\+::\+Matrix\+Xd \mbox{\hyperlink{classnetdem_1_1_s_d_f_calculator_a4eabf380059cba715ff54d531e45dd25}{EN}}
-\item 
+\begin{DoxyCompactList}\small\item\em Matrices containing face normals, vertex normals, and edge normals. \end{DoxyCompactList}\item 
 Eigen\+::\+Matrix\+Xi \mbox{\hyperlink{classnetdem_1_1_s_d_f_calculator_a994d2b2530c6a6646bec5aa55d4b32f0}{E}}
-\item 
+\begin{DoxyCompactList}\small\item\em Matrix containing edge indices. \end{DoxyCompactList}\item 
 Eigen\+::\+Vector\+Xi \mbox{\hyperlink{classnetdem_1_1_s_d_f_calculator_a596a4825f3c1e5e7b3cc5db963b07ed0}{EMAP}}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Vector mapping edges to their index in E. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
+
+\doxysubsection{Detailed Description}
+Class for computing signed distance fields from triangle meshes. 
+
+This class provides methods for computing signed distance fields (SDFs) from triangle meshes. It can be initialized from a set of vertices and faces or from an \mbox{\hyperlink{classnetdem_1_1_s_t_l_model}{STLModel}} object, and can then be used to compute the signed distance at arbitrary points in space, find the closest facet to a point, and compute the surface point on the mesh closest to a given point. 
 
 \doxysubsection{Constructor \& Destructor Documentation}
 \mbox{\Hypertarget{classnetdem_1_1_s_d_f_calculator_aa8a0cab4d342177cb775edbf692a1b09}\label{classnetdem_1_1_s_d_f_calculator_aa8a0cab4d342177cb775edbf692a1b09}} 
@@ -58,6 +68,10 @@ Eigen\+::\+Vector\+Xi \mbox{\hyperlink{classnetdem_1_1_s_d_f_calculator_a596a482
 
 
 
+Default constructor. 
+
+This creates an empty \mbox{\hyperlink{classnetdem_1_1_s_d_f_calculator}{SDFCalculator}}; it must be initialized before it can be used to compute signed distances. 
+
 \doxysubsection{Member Function Documentation}
 \mbox{\Hypertarget{classnetdem_1_1_s_d_f_calculator_a1ea283971e65103166b60cb2cedce31b}\label{classnetdem_1_1_s_d_f_calculator_a1ea283971e65103166b60cb2cedce31b}} 
 \index{netdem::SDFCalculator@{netdem::SDFCalculator}!ClosestFacet@{ClosestFacet}}
@@ -65,36 +79,106 @@ Eigen\+::\+Vector\+Xi \mbox{\hyperlink{classnetdem_1_1_s_d_f_calculator_a596a482
 \doxysubsubsection{\texorpdfstring{ClosestFacet()}{ClosestFacet()}}
 {\footnotesize\ttfamily int netdem\+::\+SDFCalculator\+::\+Closest\+Facet (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&}]{pos }\end{DoxyParamCaption}) const}
 
+
+
+Find the closest facet on the mesh to a given point. 
+
+This method finds the closest facet on the mesh to a given point in space.
+
+
+\begin{DoxyParams}{Parameters}
+{\em pos} & The point for which to find the closest facet. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The index of the closest facet on the mesh. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{classnetdem_1_1_s_d_f_calculator_ad07355ccd1bb1b590dd258a2de9e3a9c}\label{classnetdem_1_1_s_d_f_calculator_ad07355ccd1bb1b590dd258a2de9e3a9c}} 
 \index{netdem::SDFCalculator@{netdem::SDFCalculator}!Init@{Init}}
 \index{Init@{Init}!netdem::SDFCalculator@{netdem::SDFCalculator}}
 \doxysubsubsection{\texorpdfstring{Init()}{Init()}}
 {\footnotesize\ttfamily void netdem\+::\+SDFCalculator\+::\+Init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-\mbox{\Hypertarget{classnetdem_1_1_s_d_f_calculator_abde55bf4a5f69649136cadc5ace8537a}\label{classnetdem_1_1_s_d_f_calculator_abde55bf4a5f69649136cadc5ace8537a}} 
+
+
+Initialize the \mbox{\hyperlink{classnetdem_1_1_s_d_f_calculator}{SDFCalculator}}. 
+
+This method initializes the \mbox{\hyperlink{classnetdem_1_1_s_d_f_calculator}{SDFCalculator}} with an empty mesh and sets the maximum distance to 0. It is called automatically by the default constructor and can also be called after calling {\ttfamily Init\+From\+STL} to reset the \mbox{\hyperlink{classnetdem_1_1_s_d_f_calculator}{SDFCalculator}} to an empty state. \mbox{\Hypertarget{classnetdem_1_1_s_d_f_calculator_abde55bf4a5f69649136cadc5ace8537a}\label{classnetdem_1_1_s_d_f_calculator_abde55bf4a5f69649136cadc5ace8537a}} 
 \index{netdem::SDFCalculator@{netdem::SDFCalculator}!InitFromSTL@{InitFromSTL}}
 \index{InitFromSTL@{InitFromSTL}!netdem::SDFCalculator@{netdem::SDFCalculator}}
 \doxysubsubsection{\texorpdfstring{InitFromSTL()}{InitFromSTL()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily void netdem\+::\+SDFCalculator\+::\+Init\+From\+STL (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $>$ \&}]{vv,  }\item[{const \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_a28e1404c8ce46c48bc78f553bd555980}{Vec3i}} $>$ \&}]{ff }\end{DoxyParamCaption})}
 
+
+
+Initialize from a set of vertices and faces. 
+
+This method initializes the \mbox{\hyperlink{classnetdem_1_1_s_d_f_calculator}{SDFCalculator}} from a set of vertices and faces. It builds the AABB tree used to accelerate the computation of signed distances.
+
+
+\begin{DoxyParams}{Parameters}
+{\em vv} & The vertices of the mesh. \\
+\hline
+{\em ff} & The faces of the mesh. \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{classnetdem_1_1_s_d_f_calculator_ab41ef27da95b30a9e59ff067950bf64b}\label{classnetdem_1_1_s_d_f_calculator_ab41ef27da95b30a9e59ff067950bf64b}} 
 \index{netdem::SDFCalculator@{netdem::SDFCalculator}!InitFromSTL@{InitFromSTL}}
 \index{InitFromSTL@{InitFromSTL}!netdem::SDFCalculator@{netdem::SDFCalculator}}
 \doxysubsubsection{\texorpdfstring{InitFromSTL()}{InitFromSTL()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
 {\footnotesize\ttfamily void netdem\+::\+SDFCalculator\+::\+Init\+From\+STL (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_s_t_l_model}{STLModel}} const \&}]{stl\+\_\+model }\end{DoxyParamCaption})}
 
+
+
+Initialize from an STL model. 
+
+This method initializes the \mbox{\hyperlink{classnetdem_1_1_s_d_f_calculator}{SDFCalculator}} from an STL model object. It builds the AABB tree used to accelerate the computation of signed distances.
+
+
+\begin{DoxyParams}{Parameters}
+{\em stl\+\_\+model} & The STL model object containing the mesh. \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{classnetdem_1_1_s_d_f_calculator_ac6f6822eccf2696168ad4d376ce528e5}\label{classnetdem_1_1_s_d_f_calculator_ac6f6822eccf2696168ad4d376ce528e5}} 
 \index{netdem::SDFCalculator@{netdem::SDFCalculator}!SignedDistance@{SignedDistance}}
 \index{SignedDistance@{SignedDistance}!netdem::SDFCalculator@{netdem::SDFCalculator}}
 \doxysubsubsection{\texorpdfstring{SignedDistance()}{SignedDistance()}}
 {\footnotesize\ttfamily double netdem\+::\+SDFCalculator\+::\+Signed\+Distance (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&}]{pos }\end{DoxyParamCaption}) const}
 
+
+
+Compute the signed distance at a point in space. 
+
+This method computes the signed distance at a given point in space using the AABB tree built from the mesh. The sign of the distance indicates whether the point is inside or outside the mesh.
+
+
+\begin{DoxyParams}{Parameters}
+{\em pos} & The point at which to compute the signed distance. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The signed distance between the point and the mesh. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{classnetdem_1_1_s_d_f_calculator_a1aa5ad48be7c50db1fd9df163494049b}\label{classnetdem_1_1_s_d_f_calculator_a1aa5ad48be7c50db1fd9df163494049b}} 
 \index{netdem::SDFCalculator@{netdem::SDFCalculator}!SurfacePoint@{SurfacePoint}}
 \index{SurfacePoint@{SurfacePoint}!netdem::SDFCalculator@{netdem::SDFCalculator}}
 \doxysubsubsection{\texorpdfstring{SurfacePoint()}{SurfacePoint()}}
 {\footnotesize\ttfamily \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} netdem\+::\+SDFCalculator\+::\+Surface\+Point (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&}]{pos }\end{DoxyParamCaption}) const}
 
+
+
+Find the surface point on the mesh closest to a given point. 
+
+This method finds the surface point on the mesh that is closest to a given point in space.
+
+
+\begin{DoxyParams}{Parameters}
+{\em pos} & The point for which to find the closest surface point. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The closest surface point on the mesh. 
+\end{DoxyReturn}
 
 
 \doxysubsection{Member Data Documentation}
@@ -104,11 +188,19 @@ Eigen\+::\+Vector\+Xi \mbox{\hyperlink{classnetdem_1_1_s_d_f_calculator_a596a482
 \doxysubsubsection{\texorpdfstring{E}{E}}
 {\footnotesize\ttfamily Eigen\+::\+Matrix\+Xi netdem\+::\+SDFCalculator\+::E\hspace{0.3cm}{\ttfamily [private]}}
 
+
+
+Matrix containing edge indices. 
+
 \mbox{\Hypertarget{classnetdem_1_1_s_d_f_calculator_a596a4825f3c1e5e7b3cc5db963b07ed0}\label{classnetdem_1_1_s_d_f_calculator_a596a4825f3c1e5e7b3cc5db963b07ed0}} 
 \index{netdem::SDFCalculator@{netdem::SDFCalculator}!EMAP@{EMAP}}
 \index{EMAP@{EMAP}!netdem::SDFCalculator@{netdem::SDFCalculator}}
 \doxysubsubsection{\texorpdfstring{EMAP}{EMAP}}
 {\footnotesize\ttfamily Eigen\+::\+Vector\+Xi netdem\+::\+SDFCalculator\+::\+EMAP\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Vector mapping edges to their index in E. 
 
 \mbox{\Hypertarget{classnetdem_1_1_s_d_f_calculator_a4eabf380059cba715ff54d531e45dd25}\label{classnetdem_1_1_s_d_f_calculator_a4eabf380059cba715ff54d531e45dd25}} 
 \index{netdem::SDFCalculator@{netdem::SDFCalculator}!EN@{EN}}
@@ -116,11 +208,19 @@ Eigen\+::\+Vector\+Xi \mbox{\hyperlink{classnetdem_1_1_s_d_f_calculator_a596a482
 \doxysubsubsection{\texorpdfstring{EN}{EN}}
 {\footnotesize\ttfamily Eigen\+::\+Matrix\+Xd netdem\+::\+SDFCalculator\+::\+EN\hspace{0.3cm}{\ttfamily [private]}}
 
+
+
+Matrices containing face normals, vertex normals, and edge normals. 
+
 \mbox{\Hypertarget{classnetdem_1_1_s_d_f_calculator_aba766469a898ab663419901d42fd3bc6}\label{classnetdem_1_1_s_d_f_calculator_aba766469a898ab663419901d42fd3bc6}} 
 \index{netdem::SDFCalculator@{netdem::SDFCalculator}!facets@{facets}}
 \index{facets@{facets}!netdem::SDFCalculator@{netdem::SDFCalculator}}
 \doxysubsubsection{\texorpdfstring{facets}{facets}}
 {\footnotesize\ttfamily Eigen\+::\+Matrix\+Xi netdem\+::\+SDFCalculator\+::facets\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Matrix containing the indices of the mesh faces. 
 
 \mbox{\Hypertarget{classnetdem_1_1_s_d_f_calculator_a04cd0ea0be339eaccab7bddda163b666}\label{classnetdem_1_1_s_d_f_calculator_a04cd0ea0be339eaccab7bddda163b666}} 
 \index{netdem::SDFCalculator@{netdem::SDFCalculator}!FN@{FN}}
@@ -134,11 +234,19 @@ Eigen\+::\+Vector\+Xi \mbox{\hyperlink{classnetdem_1_1_s_d_f_calculator_a596a482
 \doxysubsubsection{\texorpdfstring{max\_distance}{max\_distance}}
 {\footnotesize\ttfamily double netdem\+::\+SDFCalculator\+::max\+\_\+distance \{0.\+0\}}
 
+
+
+Maximum distance from any point to the mesh. 
+
 \mbox{\Hypertarget{classnetdem_1_1_s_d_f_calculator_adcfdb7972eb8e7126390fd912c5ed078}\label{classnetdem_1_1_s_d_f_calculator_adcfdb7972eb8e7126390fd912c5ed078}} 
 \index{netdem::SDFCalculator@{netdem::SDFCalculator}!T@{T}}
 \index{T@{T}!netdem::SDFCalculator@{netdem::SDFCalculator}}
 \doxysubsubsection{\texorpdfstring{T}{T}}
 {\footnotesize\ttfamily Eigen\+::\+Matrix\+Xi netdem\+::\+SDFCalculator\+::T\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Matrix containing AABB tree node information. 
 
 \mbox{\Hypertarget{classnetdem_1_1_s_d_f_calculator_af00a0e39a11dde13a169d5e38249c729}\label{classnetdem_1_1_s_d_f_calculator_af00a0e39a11dde13a169d5e38249c729}} 
 \index{netdem::SDFCalculator@{netdem::SDFCalculator}!tree@{tree}}
@@ -146,11 +254,19 @@ Eigen\+::\+Vector\+Xi \mbox{\hyperlink{classnetdem_1_1_s_d_f_calculator_a596a482
 \doxysubsubsection{\texorpdfstring{tree}{tree}}
 {\footnotesize\ttfamily igl\+::\+AABB$<$Eigen\+::\+Matrix\+Xd, 3$>$ netdem\+::\+SDFCalculator\+::tree\hspace{0.3cm}{\ttfamily [private]}}
 
+
+
+AABB tree used to accelerate signed distance computation. 
+
 \mbox{\Hypertarget{classnetdem_1_1_s_d_f_calculator_a12ffc01ade8397c7243bc225baf75783}\label{classnetdem_1_1_s_d_f_calculator_a12ffc01ade8397c7243bc225baf75783}} 
 \index{netdem::SDFCalculator@{netdem::SDFCalculator}!vertices@{vertices}}
 \index{vertices@{vertices}!netdem::SDFCalculator@{netdem::SDFCalculator}}
 \doxysubsubsection{\texorpdfstring{vertices}{vertices}}
 {\footnotesize\ttfamily Eigen\+::\+Matrix\+Xd netdem\+::\+SDFCalculator\+::vertices\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Matrix containing the vertex positions. 
 
 \mbox{\Hypertarget{classnetdem_1_1_s_d_f_calculator_a3756fa0f3613081d2633131718286a77}\label{classnetdem_1_1_s_d_f_calculator_a3756fa0f3613081d2633131718286a77}} 
 \index{netdem::SDFCalculator@{netdem::SDFCalculator}!VN@{VN}}

@@ -2,6 +2,11 @@
 \label{classnetdem_1_1_volume_based}\index{netdem::VolumeBased@{netdem::VolumeBased}}
 
 
+Contact model that evaluates forces and moments based on volume overlap and relative velocity.  
+
+
+
+
 {\ttfamily \#include $<$model\+\_\+volume\+\_\+based.\+hpp$>$}
 
 Inheritance diagram for netdem\+::Volume\+Based\+:\begin{figure}[H]
@@ -14,23 +19,23 @@ Inheritance diagram for netdem\+::Volume\+Based\+:\begin{figure}[H]
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{classnetdem_1_1_volume_based_aad6d9a79f65ba6a18d3eaeddfb741e94}{Volume\+Based}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Default constructor for \mbox{\hyperlink{classnetdem_1_1_volume_based}{Volume\+Based}}. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classnetdem_1_1_volume_based_a83ce840069b4ebf94e8eb12bb548809a}{Volume\+Based}} (double \mbox{\hyperlink{classnetdem_1_1_volume_based_ad57cca6f9d0fa0d1fb9c7d140a0c279d}{kn}}, double \mbox{\hyperlink{classnetdem_1_1_volume_based_a4345f916cbad906b2d6802c21b6e8eaf}{kt}}, double \mbox{\hyperlink{classnetdem_1_1_volume_based_a1118e688f9ac6bcf366e2f206aef0ef9}{beta}}, double \mbox{\hyperlink{classnetdem_1_1_volume_based_af63e965787f179a4325306200d464cc6}{mu}})
-\item 
+\begin{DoxyCompactList}\small\item\em Constructor for \mbox{\hyperlink{classnetdem_1_1_volume_based}{Volume\+Based}}. \end{DoxyCompactList}\item 
 nlohmann\+::json \mbox{\hyperlink{classnetdem_1_1_volume_based_ab1dc97e8c128773f8573f6bc7d845e2e}{Pack\+Json}} () override
-\begin{DoxyCompactList}\small\item\em Serialize this contact model to JSON format. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Packs the contact model properties into a JSON object. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classnetdem_1_1_volume_based_a5274fee66bc481cc4d0d4a4e4ac9fc3d}{Init\+From\+Json}} (nlohmann\+::json const \&js) override
-\begin{DoxyCompactList}\small\item\em Initialize this contact model from a JSON configuration object. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Initializes the contact model from a JSON object. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classnetdem_1_1_volume_based_a368ec23aafa3fb20e9cd2d178483c784}{Set\+Property}} (nlohmann\+::json const \&js) override
-\begin{DoxyCompactList}\small\item\em Set a property of this contact model from a JSON object. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Sets the contact model properties. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classnetdem_1_1_contact_model}{Contact\+Model}} $\ast$ \mbox{\hyperlink{classnetdem_1_1_volume_based_abec667a36ab01327a01b5722cba48c1b}{Clone}} () const override
-\begin{DoxyCompactList}\small\item\em Create a new instance of this contact model. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Creates a copy of this contact model. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classnetdem_1_1_volume_based_a41613b5f841fe7dcc1f262c5ada711aa}{Evaluate\+Force\+Moment}} (\mbox{\hyperlink{classnetdem_1_1_contact_forces}{Contact\+Forces}} $\ast$const cnt\+\_\+forces, \mbox{\hyperlink{classnetdem_1_1_collision_geometries}{Collision\+Geometries}} \&cnt\+\_\+geoms, \mbox{\hyperlink{classnetdem_1_1_contact_p_p}{Contact\+PP}} $\ast$const cnt, double dt) const override
-\begin{DoxyCompactList}\small\item\em Calculate the contact forces and moments due to this model. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Evaluates the forces and moments between two particles. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classnetdem_1_1_volume_based_ac69b7ecb791d653ca64c516824095537}{Evaluate\+Force\+Moment}} (\mbox{\hyperlink{classnetdem_1_1_contact_forces}{Contact\+Forces}} $\ast$const cnt\+\_\+forces, \mbox{\hyperlink{classnetdem_1_1_collision_geometries}{Collision\+Geometries}} \&cnt\+\_\+geoms, \mbox{\hyperlink{classnetdem_1_1_contact_p_w}{Contact\+PW}} $\ast$const cnt, double dt) const override
-\begin{DoxyCompactList}\small\item\em Calculate the contact forces and moments due to this model. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Evaluates the forces and moments between a particle and a wall. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classnetdem_1_1_volume_based_a6b7d45f2c9cafccc0dbba93722fd3994}{Print}} () const override
-\begin{DoxyCompactList}\small\item\em Print debugging information about this contact model. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Prints the contact model properties. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Public Member Functions inherited from \mbox{\hyperlink{classnetdem_1_1_contact_model}{netdem\+::\+Contact\+Model}}}
 \begin{DoxyCompactItemize}
 \item 
@@ -60,7 +65,7 @@ virtual \mbox{\hyperlink{classnetdem_1_1_contact_model_a8cc9483a6ac756f0c3d68325
 \begin{DoxyCompactItemize}
 \item 
 int \mbox{\hyperlink{classnetdem_1_1_volume_based_a6f4cb84127c426bc01d33d7dfad20584}{order}} \{2\}
-\item 
+\begin{DoxyCompactList}\small\item\em The order of the polynomial kernel function used to evaluate contact forces. \end{DoxyCompactList}\item 
 double \mbox{\hyperlink{classnetdem_1_1_volume_based_ad57cca6f9d0fa0d1fb9c7d140a0c279d}{kn}} \{2e6\}
 \item 
 double \mbox{\hyperlink{classnetdem_1_1_volume_based_a4345f916cbad906b2d6802c21b6e8eaf}{kt}} \{1e6\}
@@ -68,7 +73,7 @@ double \mbox{\hyperlink{classnetdem_1_1_volume_based_a4345f916cbad906b2d6802c21b
 double \mbox{\hyperlink{classnetdem_1_1_volume_based_a1118e688f9ac6bcf366e2f206aef0ef9}{beta}} \{0.\+7\}
 \item 
 double \mbox{\hyperlink{classnetdem_1_1_volume_based_af63e965787f179a4325306200d464cc6}{mu}} \{0.\+5\}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Parameters used to calculate contact forces. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Public Attributes inherited from \mbox{\hyperlink{classnetdem_1_1_contact_model}{netdem\+::\+Contact\+Model}}}
 \begin{DoxyCompactItemize}
 \item 
@@ -95,6 +100,9 @@ enum \mbox{\hyperlink{classnetdem_1_1_contact_model_a86b4462f72dd85e2e8a55dd6844
 \end{DoxyCompactItemize}
 
 
+\doxysubsection{Detailed Description}
+Contact model that evaluates forces and moments based on volume overlap and relative velocity. 
+
 \doxysubsection{Constructor \& Destructor Documentation}
 \mbox{\Hypertarget{classnetdem_1_1_volume_based_aad6d9a79f65ba6a18d3eaeddfb741e94}\label{classnetdem_1_1_volume_based_aad6d9a79f65ba6a18d3eaeddfb741e94}} 
 \index{netdem::VolumeBased@{netdem::VolumeBased}!VolumeBased@{VolumeBased}}
@@ -102,12 +110,31 @@ enum \mbox{\hyperlink{classnetdem_1_1_contact_model_a86b4462f72dd85e2e8a55dd6844
 \doxysubsubsection{\texorpdfstring{VolumeBased()}{VolumeBased()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily netdem\+::\+Volume\+Based\+::\+Volume\+Based (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
+
+
+Default constructor for \mbox{\hyperlink{classnetdem_1_1_volume_based}{Volume\+Based}}. 
+
 \mbox{\Hypertarget{classnetdem_1_1_volume_based_a83ce840069b4ebf94e8eb12bb548809a}\label{classnetdem_1_1_volume_based_a83ce840069b4ebf94e8eb12bb548809a}} 
 \index{netdem::VolumeBased@{netdem::VolumeBased}!VolumeBased@{VolumeBased}}
 \index{VolumeBased@{VolumeBased}!netdem::VolumeBased@{netdem::VolumeBased}}
 \doxysubsubsection{\texorpdfstring{VolumeBased()}{VolumeBased()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
 {\footnotesize\ttfamily netdem\+::\+Volume\+Based\+::\+Volume\+Based (\begin{DoxyParamCaption}\item[{double}]{kn,  }\item[{double}]{kt,  }\item[{double}]{beta,  }\item[{double}]{mu }\end{DoxyParamCaption})}
 
+
+
+Constructor for \mbox{\hyperlink{classnetdem_1_1_volume_based}{Volume\+Based}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em kn} & Normal stiffness parameter used to calculate contact forces. \\
+\hline
+{\em kt} & Tangential stiffness parameter used to calculate contact forces. \\
+\hline
+{\em beta} & Coefficient of restitution used to calculate contact forces. \\
+\hline
+{\em mu} & Coefficient of friction used to calculate contact forces. \\
+\hline
+\end{DoxyParams}
 
 
 \doxysubsection{Member Function Documentation}
@@ -119,12 +146,10 @@ enum \mbox{\hyperlink{classnetdem_1_1_contact_model_a86b4462f72dd85e2e8a55dd6844
 
 
 
-Create a new instance of this contact model. 
-
-This method creates a new instance of the current contact model and returns a pointer to it. This is a virtual method that can be overridden in any subclass of {\ttfamily \mbox{\hyperlink{classnetdem_1_1_contact_model}{Contact\+Model}}} that needs to customize the cloning behavior.
+Creates a copy of this contact model. 
 
 \begin{DoxyReturn}{Returns}
-A pointer to a new instance of this contact model. 
+A new instance of the contact model. 
 \end{DoxyReturn}
 
 
@@ -138,19 +163,17 @@ Reimplemented from \mbox{\hyperlink{classnetdem_1_1_contact_model_a697207b7395fd
 
 
 
-Calculate the contact forces and moments due to this model. 
-
-Given a set of collision or bond geometries representing the contact interaction, this method calculates the resulting contact forces and moments and stores them in the provided {\ttfamily \mbox{\hyperlink{classnetdem_1_1_contact_forces}{Contact\+Forces}}} object. This is a pure virtual method that must be implemented by any subclass of {\ttfamily \mbox{\hyperlink{classnetdem_1_1_contact_model}{Contact\+Model}}}.
+Evaluates the forces and moments between two particles. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em cnt\+\_\+forces} & A pointer to the {\ttfamily \mbox{\hyperlink{classnetdem_1_1_contact_forces}{Contact\+Forces}}} object to store the resulting forces and moments in. \\
+{\em cnt\+\_\+forces} & The contact forces data structure to store the results. \\
 \hline
-{\em cnt\+\_\+geoms} & The collision or bond geometries representing the contact interaction. \\
+{\em cnt\+\_\+geoms} & The collision geometries data structure containing the contact information. \\
 \hline
-{\em cnt} & A pointer to the {\ttfamily \mbox{\hyperlink{classnetdem_1_1_contact_p_p}{Contact\+PP}}} or {\ttfamily \mbox{\hyperlink{classnetdem_1_1_contact_p_w}{Contact\+PW}}} object representing the contact point(s). \\
+{\em cnt} & The contact point between the two particles. \\
 \hline
-{\em dt} & The time step size for the simulation. \\
+{\em dt} & The simulation timestep. \\
 \hline
 \end{DoxyParams}
 
@@ -165,19 +188,17 @@ Reimplemented from \mbox{\hyperlink{classnetdem_1_1_contact_model_aa518a60578e61
 
 
 
-Calculate the contact forces and moments due to this model. 
-
-Given a set of collision geometries representing the contact interaction, this method calculates the resulting contact forces and moments and stores them in the provided {\ttfamily \mbox{\hyperlink{classnetdem_1_1_contact_forces}{Contact\+Forces}}} object. This is a pure virtual method that must be implemented by any subclass of {\ttfamily \mbox{\hyperlink{classnetdem_1_1_contact_model}{Contact\+Model}}}.
+Evaluates the forces and moments between a particle and a wall. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em cnt\+\_\+forces} & A pointer to the {\ttfamily \mbox{\hyperlink{classnetdem_1_1_contact_forces}{Contact\+Forces}}} object to store the resulting forces and moments in. \\
+{\em cnt\+\_\+forces} & The contact forces data structure to store the results. \\
 \hline
-{\em cnt\+\_\+geoms} & The collision geometries representing the contact interaction. \\
+{\em cnt\+\_\+geoms} & The collision geometries data structure containing the contact information. \\
 \hline
-{\em cnt} & A pointer to the {\ttfamily \mbox{\hyperlink{classnetdem_1_1_contact_p_w}{Contact\+PW}}} object representing the contact point(s). \\
+{\em cnt} & The contact point between the particle and the wall. \\
 \hline
-{\em dt} & The time step size for the simulation. \\
+{\em dt} & The simulation timestep. \\
 \hline
 \end{DoxyParams}
 
@@ -192,13 +213,11 @@ Reimplemented from \mbox{\hyperlink{classnetdem_1_1_contact_model_a75d0d3da34329
 
 
 
-Initialize this contact model from a JSON configuration object. 
-
-Given a JSON object containing configuration data for this contact model, this method reads the data and updates the state of the object accordingly. This is a pure virtual method that must be implemented by any subclass of {\ttfamily \mbox{\hyperlink{classnetdem_1_1_contact_model}{Contact\+Model}}}.
+Initializes the contact model from a JSON object. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em js} & A JSON object containing configuration data for this contact model. \\
+{\em js} & A JSON object containing the contact model properties. \\
 \hline
 \end{DoxyParams}
 
@@ -213,12 +232,10 @@ Reimplemented from \mbox{\hyperlink{classnetdem_1_1_contact_model_ad857f6a66c0ac
 
 
 
-Serialize this contact model to JSON format. 
-
-This method converts the current state of the contact model to a JSON object and returns it as the result value.
+Packs the contact model properties into a JSON object. 
 
 \begin{DoxyReturn}{Returns}
-A JSON object containing serialization data for this contact model. 
+A JSON object containing the contact model properties. 
 \end{DoxyReturn}
 
 
@@ -232,9 +249,9 @@ Reimplemented from \mbox{\hyperlink{classnetdem_1_1_contact_model_a191a737b00131
 
 
 
-Print debugging information about this contact model. 
+Prints the contact model properties. 
 
-This method prints a summary of the current state of the contact model to the console or log file, including the values of all member variables and any other relevant information. 
+
 
 Reimplemented from \mbox{\hyperlink{classnetdem_1_1_contact_model_a541fc910e1d85b1fc2bb75d73e50e984}{netdem\+::\+Contact\+Model}}.
 
@@ -246,13 +263,11 @@ Reimplemented from \mbox{\hyperlink{classnetdem_1_1_contact_model_a541fc910e1d85
 
 
 
-Set a property of this contact model from a JSON object. 
-
-Given a JSON object representing a named property of this contact model, this method reads the value of the property and updates the state of the object accordingly. This is a pure virtual method that must be implemented by any subclass of {\ttfamily \mbox{\hyperlink{classnetdem_1_1_contact_model}{Contact\+Model}}}.
+Sets the contact model properties. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em js} & A JSON object representing a named property of this contact model. \\
+{\em js} & A JSON object containing the contact model properties. \\
 \hline
 \end{DoxyParams}
 
@@ -286,11 +301,19 @@ Reimplemented from \mbox{\hyperlink{classnetdem_1_1_contact_model_a03526d9c5e43b
 \doxysubsubsection{\texorpdfstring{mu}{mu}}
 {\footnotesize\ttfamily double netdem\+::\+Volume\+Based\+::mu \{0.\+5\}}
 
+
+
+Parameters used to calculate contact forces. 
+
 \mbox{\Hypertarget{classnetdem_1_1_volume_based_a6f4cb84127c426bc01d33d7dfad20584}\label{classnetdem_1_1_volume_based_a6f4cb84127c426bc01d33d7dfad20584}} 
 \index{netdem::VolumeBased@{netdem::VolumeBased}!order@{order}}
 \index{order@{order}!netdem::VolumeBased@{netdem::VolumeBased}}
 \doxysubsubsection{\texorpdfstring{order}{order}}
 {\footnotesize\ttfamily int netdem\+::\+Volume\+Based\+::order \{2\}}
+
+
+
+The order of the polynomial kernel function used to evaluate contact forces. 
 
 
 

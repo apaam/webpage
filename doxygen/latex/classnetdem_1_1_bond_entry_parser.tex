@@ -2,18 +2,28 @@
 \label{classnetdem_1_1_bond_entry_parser}\index{netdem::BondEntryParser@{netdem::BondEntryParser}}
 
 
+A class that provides functions to convert bond entry data between a class and a struct format.  
+
+
+
+
 {\ttfamily \#include $<$bond\+\_\+entry\+\_\+parser.\+hpp$>$}
 
 \doxysubsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 static void \mbox{\hyperlink{classnetdem_1_1_bond_entry_parser_a6fd6cad43f647f46dc3273541ff97fbf}{Class\+To\+Struct}} (const \mbox{\hyperlink{classnetdem_1_1_bond_entry}{Bond\+Entry}} $\ast$const entry\+\_\+class, \mbox{\hyperlink{structnetdem_1_1_bond_entry_data}{Bond\+Entry\+Data}} $\ast$const entry\+\_\+struct)
-\item 
+\begin{DoxyCompactList}\small\item\em Converts bond entry data from a class to a struct format. \end{DoxyCompactList}\item 
 static void \mbox{\hyperlink{classnetdem_1_1_bond_entry_parser_a106919d3a402b040c7730e5c14f1e762}{Struct\+To\+Class}} (\mbox{\hyperlink{classnetdem_1_1_bond_entry}{Bond\+Entry}} $\ast$const entry\+\_\+class, const \mbox{\hyperlink{structnetdem_1_1_bond_entry_data}{Bond\+Entry\+Data}} $\ast$const entry\+\_\+struct, const \mbox{\hyperlink{classnetdem_1_1_mini_map}{Mini\+Map}}$<$ int, \mbox{\hyperlink{classnetdem_1_1_contact_model}{Contact\+Model}} $\ast$ $>$ \&contact\+\_\+model\+\_\+map)
-\item 
+\begin{DoxyCompactList}\small\item\em Converts bond entry data from a struct to a class format. \end{DoxyCompactList}\item 
 static void \mbox{\hyperlink{classnetdem_1_1_bond_entry_parser_a4c664b3ed7231291f15fbf6ca219b659}{Define\+MPIData\+Type}} (MPI\+\_\+\+Datatype $\ast$const datatype)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Defines an MPI datatype for a {\ttfamily \mbox{\hyperlink{structnetdem_1_1_bond_entry_data}{Bond\+Entry\+Data}}} struct. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
+
+\doxysubsection{Detailed Description}
+A class that provides functions to convert bond entry data between a class and a struct format. 
+
+The {\ttfamily \mbox{\hyperlink{classnetdem_1_1_bond_entry_parser}{Bond\+Entry\+Parser}}} class is used to provide functionality for converting bond entry data between a class and a struct format. 
 
 \doxysubsection{Member Function Documentation}
 \mbox{\Hypertarget{classnetdem_1_1_bond_entry_parser_a6fd6cad43f647f46dc3273541ff97fbf}\label{classnetdem_1_1_bond_entry_parser_a6fd6cad43f647f46dc3273541ff97fbf}} 
@@ -22,18 +32,57 @@ static void \mbox{\hyperlink{classnetdem_1_1_bond_entry_parser_a4c664b3ed7231291
 \doxysubsubsection{\texorpdfstring{ClassToStruct()}{ClassToStruct()}}
 {\footnotesize\ttfamily void Bond\+Entry\+Parser\+::\+Class\+To\+Struct (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classnetdem_1_1_bond_entry}{Bond\+Entry}} $\ast$const}]{entry\+\_\+class,  }\item[{\mbox{\hyperlink{structnetdem_1_1_bond_entry_data}{Bond\+Entry\+Data}} $\ast$const}]{entry\+\_\+struct }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
+
+
+Converts bond entry data from a class to a struct format. 
+
+This function converts bond entry data from a {\ttfamily \mbox{\hyperlink{classnetdem_1_1_bond_entry}{Bond\+Entry}}} class format to a {\ttfamily \mbox{\hyperlink{structnetdem_1_1_bond_entry_data}{Bond\+Entry\+Data}}} struct format.
+
+
+\begin{DoxyParams}{Parameters}
+{\em entry\+\_\+class} & A pointer to the input {\ttfamily \mbox{\hyperlink{classnetdem_1_1_bond_entry}{Bond\+Entry}}} class instance. \\
+\hline
+{\em entry\+\_\+struct} & A pointer to the output {\ttfamily \mbox{\hyperlink{structnetdem_1_1_bond_entry_data}{Bond\+Entry\+Data}}} struct instance. \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{classnetdem_1_1_bond_entry_parser_a4c664b3ed7231291f15fbf6ca219b659}\label{classnetdem_1_1_bond_entry_parser_a4c664b3ed7231291f15fbf6ca219b659}} 
 \index{netdem::BondEntryParser@{netdem::BondEntryParser}!DefineMPIDataType@{DefineMPIDataType}}
 \index{DefineMPIDataType@{DefineMPIDataType}!netdem::BondEntryParser@{netdem::BondEntryParser}}
 \doxysubsubsection{\texorpdfstring{DefineMPIDataType()}{DefineMPIDataType()}}
 {\footnotesize\ttfamily void Bond\+Entry\+Parser\+::\+Define\+MPIData\+Type (\begin{DoxyParamCaption}\item[{MPI\+\_\+\+Datatype $\ast$const}]{datatype }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
+
+
+Defines an MPI datatype for a {\ttfamily \mbox{\hyperlink{structnetdem_1_1_bond_entry_data}{Bond\+Entry\+Data}}} struct. 
+
+This function defines an MPI datatype for a {\ttfamily \mbox{\hyperlink{structnetdem_1_1_bond_entry_data}{Bond\+Entry\+Data}}} struct to be used in MPI communications.
+
+
+\begin{DoxyParams}{Parameters}
+{\em datatype} & A pointer to the output datatype. \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{classnetdem_1_1_bond_entry_parser_a106919d3a402b040c7730e5c14f1e762}\label{classnetdem_1_1_bond_entry_parser_a106919d3a402b040c7730e5c14f1e762}} 
 \index{netdem::BondEntryParser@{netdem::BondEntryParser}!StructToClass@{StructToClass}}
 \index{StructToClass@{StructToClass}!netdem::BondEntryParser@{netdem::BondEntryParser}}
 \doxysubsubsection{\texorpdfstring{StructToClass()}{StructToClass()}}
 {\footnotesize\ttfamily void Bond\+Entry\+Parser\+::\+Struct\+To\+Class (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_bond_entry}{Bond\+Entry}} $\ast$const}]{entry\+\_\+class,  }\item[{const \mbox{\hyperlink{structnetdem_1_1_bond_entry_data}{Bond\+Entry\+Data}} $\ast$const}]{entry\+\_\+struct,  }\item[{const \mbox{\hyperlink{classnetdem_1_1_mini_map}{Mini\+Map}}$<$ int, \mbox{\hyperlink{classnetdem_1_1_contact_model}{Contact\+Model}} $\ast$ $>$ \&}]{contact\+\_\+model\+\_\+map }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
+
+
+Converts bond entry data from a struct to a class format. 
+
+This function converts bond entry data from a {\ttfamily \mbox{\hyperlink{structnetdem_1_1_bond_entry_data}{Bond\+Entry\+Data}}} struct format to a {\ttfamily \mbox{\hyperlink{classnetdem_1_1_bond_entry}{Bond\+Entry}}} class format.
+
+
+\begin{DoxyParams}{Parameters}
+{\em entry\+\_\+class} & A pointer to the output {\ttfamily \mbox{\hyperlink{classnetdem_1_1_bond_entry}{Bond\+Entry}}} class instance. \\
+\hline
+{\em entry\+\_\+struct} & A pointer to the input {\ttfamily \mbox{\hyperlink{structnetdem_1_1_bond_entry_data}{Bond\+Entry\+Data}}} struct instance. \\
+\hline
+{\em contact\+\_\+model\+\_\+map} & A map of ID-\/contact model pairs used for setting the correct contact model in the output {\ttfamily \mbox{\hyperlink{classnetdem_1_1_bond_entry}{Bond\+Entry}}} class instance. \\
+\hline
+\end{DoxyParams}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

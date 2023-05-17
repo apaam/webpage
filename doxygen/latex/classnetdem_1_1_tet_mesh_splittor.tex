@@ -2,6 +2,11 @@
 \label{classnetdem_1_1_tet_mesh_splittor}\index{netdem::TetMeshSplittor@{netdem::TetMeshSplittor}}
 
 
+A class representing a domain splitter for tetrahedral meshes.  
+
+
+
+
 {\ttfamily \#include $<$tetmesh\+\_\+splittor.\+hpp$>$}
 
 Inheritance diagram for netdem\+::Tet\+Mesh\+Splittor\+:\begin{figure}[H]
@@ -14,42 +19,47 @@ Inheritance diagram for netdem\+::Tet\+Mesh\+Splittor\+:\begin{figure}[H]
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{classnetdem_1_1_tet_mesh_splittor_a2ab195f1e7899132a277224dba96f946}{Tet\+Mesh\+Splittor}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Constructs a new \mbox{\hyperlink{classnetdem_1_1_tet_mesh_splittor}{Tet\+Mesh\+Splittor}} object. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classnetdem_1_1_tet_mesh_splittor_a9661af9fc5f1fdaed9bca228d9c7bcec}{Init\+From\+STL}} (\mbox{\hyperlink{classnetdem_1_1_s_t_l_model}{STLModel}} const \&stl\+\_\+model, int num\+\_\+ele\+\_\+each) override
-\item 
+\begin{DoxyCompactList}\small\item\em Initializes the splitter from an STL model and a requested number of elements per tetrahedron. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classnetdem_1_1_tet_mesh_splittor_aaf3440a521933126ad78129b9f47836d}{Get\+Peri\+Digm\+Nodes}} (\mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $>$ $\ast$const nodes, \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ double $>$ $\ast$const node\+\_\+vols) override
-\item 
+\begin{DoxyCompactList}\small\item\em Gets the nodes and node volumes for the Peridigm simulation. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classnetdem_1_1_tet_mesh_splittor_a2fac48673c239d924175d29361ef0500}{Make\+Porosity}} (double porosity) override
-\item 
+\begin{DoxyCompactList}\small\item\em Makes the mesh porous by removing a specified fraction of the tetrahedra. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classnetdem_1_1_s_t_l_model}{STLModel}} \mbox{\hyperlink{classnetdem_1_1_tet_mesh_splittor_a49bd332694655c2edb798f87866aed9e}{Get\+STLModel}} () override
-\item 
+\begin{DoxyCompactList}\small\item\em Gets the STL model for the splitter. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classnetdem_1_1_s_t_l_model}{STLModel}} \mbox{\hyperlink{classnetdem_1_1_tet_mesh_splittor_a94bbc8c858cd872a592902ce36e8c503}{Get\+STLModel}} (const \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ int $>$ \&tet\+\_\+indices) override
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Gets a subset of the STL model corresponding to a set of tetrahedral indices. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Public Member Functions inherited from \mbox{\hyperlink{classnetdem_1_1_domain_splittor}{netdem\+::\+Domain\+Splittor}}}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{classnetdem_1_1_domain_splittor_aa62991599f31729bd9ca0f4301d3a59d}{Domain\+Splittor}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Default constructor. \end{DoxyCompactList}\item 
 virtual void \mbox{\hyperlink{classnetdem_1_1_domain_splittor_aabaa026de081bf2d3343fa842c273bf1}{Init\+From\+STL}} (std\+::string const \&stl\+\_\+file, int num\+\_\+ele\+\_\+each)
-\item 
+\begin{DoxyCompactList}\small\item\em Initializes the domain splitter from an STL file. \end{DoxyCompactList}\item 
 virtual void \mbox{\hyperlink{classnetdem_1_1_domain_splittor_aa0bbe9fe7be68315852126760ef83b0a}{Init\+From\+STL}} (\mbox{\hyperlink{classnetdem_1_1_s_t_l_model}{STLModel}} const \&stl\+\_\+model, int num\+\_\+ele\+\_\+each)=0
-\item 
+\begin{DoxyCompactList}\small\item\em Initializes the domain splitter from an STL model. \end{DoxyCompactList}\item 
 virtual void \mbox{\hyperlink{classnetdem_1_1_domain_splittor_a86f4019d1788b69202c0b8568cf7193d}{Get\+Peri\+Digm\+Nodes}} (\mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $>$ $\ast$const nodes, \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ double $>$ $\ast$const node\+\_\+vols)=0
-\item 
+\begin{DoxyCompactList}\small\item\em Gets the nodes and volumes of the discretized domain. \end{DoxyCompactList}\item 
 virtual void \mbox{\hyperlink{classnetdem_1_1_domain_splittor_a4390d9703fe1a8dd4f6be50efd0a8bd3}{Make\+Porosity}} (double porosity)=0
-\item 
+\begin{DoxyCompactList}\small\item\em Modifies the domain by adding porosity. \end{DoxyCompactList}\item 
 virtual \mbox{\hyperlink{classnetdem_1_1_s_t_l_model}{STLModel}} \mbox{\hyperlink{classnetdem_1_1_domain_splittor_a0686970592def7648d9471778e3ede01}{Get\+STLModel}} ()=0
-\item 
+\begin{DoxyCompactList}\small\item\em Gets the STL model corresponding to the discretized domain. \end{DoxyCompactList}\item 
 virtual \mbox{\hyperlink{classnetdem_1_1_s_t_l_model}{STLModel}} \mbox{\hyperlink{classnetdem_1_1_domain_splittor_a66ac0e3e22e1625b32c4a2164e47d720}{Get\+STLModel}} (const \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ int $>$ \&indices)=0
-\item 
+\begin{DoxyCompactList}\small\item\em Gets the STL model corresponding to a subset of the discretized domain. \end{DoxyCompactList}\item 
 virtual \mbox{\hyperlink{classnetdem_1_1_domain_splittor_a08979bad05b0e41c54fe369e500c81d1}{$\sim$\+Domain\+Splittor}} ()
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Virtual destructor. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{classnetdem_1_1_tet_mesh}{Tet\+Mesh}} \mbox{\hyperlink{classnetdem_1_1_tet_mesh_splittor_aadcaf925603219062219b52462777ef6}{tetmesh}}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em The tetrahedral mesh used by the splitter. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
+
+\doxysubsection{Detailed Description}
+A class representing a domain splitter for tetrahedral meshes. 
+
+The \mbox{\hyperlink{classnetdem_1_1_tet_mesh_splittor}{Tet\+Mesh\+Splittor}} class represents a domain splitter for tetrahedral meshes. It derives from the \mbox{\hyperlink{classnetdem_1_1_domain_splittor}{Domain\+Splittor}} abstract base class and provides implementation for the methods required by that class. 
 
 \doxysubsection{Constructor \& Destructor Documentation}
 \mbox{\Hypertarget{classnetdem_1_1_tet_mesh_splittor_a2ab195f1e7899132a277224dba96f946}\label{classnetdem_1_1_tet_mesh_splittor_a2ab195f1e7899132a277224dba96f946}} 
@@ -57,6 +67,10 @@ virtual \mbox{\hyperlink{classnetdem_1_1_domain_splittor_a08979bad05b0e41c54fe36
 \index{TetMeshSplittor@{TetMeshSplittor}!netdem::TetMeshSplittor@{netdem::TetMeshSplittor}}
 \doxysubsubsection{\texorpdfstring{TetMeshSplittor()}{TetMeshSplittor()}}
 {\footnotesize\ttfamily netdem\+::\+Tet\+Mesh\+Splittor\+::\+Tet\+Mesh\+Splittor (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Constructs a new \mbox{\hyperlink{classnetdem_1_1_tet_mesh_splittor}{Tet\+Mesh\+Splittor}} object. 
 
 
 
@@ -69,6 +83,19 @@ virtual \mbox{\hyperlink{classnetdem_1_1_domain_splittor_a08979bad05b0e41c54fe36
 
 
 
+Gets the nodes and node volumes for the Peridigm simulation. 
+
+This method gets the nodes and node volumes for the Peridigm simulation from the tetrahedral mesh, storing them in the provided vectors.
+
+
+\begin{DoxyParams}{Parameters}
+{\em nodes} & The vector to store the nodes in. \\
+\hline
+{\em node\+\_\+vols} & The vector to store the node volumes in. \\
+\hline
+\end{DoxyParams}
+
+
 Implements \mbox{\hyperlink{classnetdem_1_1_domain_splittor_a86f4019d1788b69202c0b8568cf7193d}{netdem\+::\+Domain\+Splittor}}.
 
 \mbox{\Hypertarget{classnetdem_1_1_tet_mesh_splittor_a49bd332694655c2edb798f87866aed9e}\label{classnetdem_1_1_tet_mesh_splittor_a49bd332694655c2edb798f87866aed9e}} 
@@ -77,6 +104,15 @@ Implements \mbox{\hyperlink{classnetdem_1_1_domain_splittor_a86f4019d1788b69202c
 \doxysubsubsection{\texorpdfstring{GetSTLModel()}{GetSTLModel()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily \mbox{\hyperlink{classnetdem_1_1_s_t_l_model}{STLModel}} netdem\+::\+Tet\+Mesh\+Splittor\+::\+Get\+STLModel (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
+
+
+Gets the STL model for the splitter. 
+
+This method gets the original STL model used to initialize the splitter.
+
+\begin{DoxyReturn}{Returns}
+The STL model used to initialize the splitter. 
+\end{DoxyReturn}
 
 
 Implements \mbox{\hyperlink{classnetdem_1_1_domain_splittor_a0686970592def7648d9471778e3ede01}{netdem\+::\+Domain\+Splittor}}.
@@ -89,6 +125,20 @@ Implements \mbox{\hyperlink{classnetdem_1_1_domain_splittor_a0686970592def7648d9
 
 
 
+Gets a subset of the STL model corresponding to a set of tetrahedral indices. 
+
+This method gets a subset of the original STL model used to initialize the splitter, corresponding to a set of tetrahedral indices.
+
+
+\begin{DoxyParams}{Parameters}
+{\em tet\+\_\+indices} & The set of tetrahedral indices to get the corresponding STL subset for. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The subset of the STL model corresponding to the provided tetrahedral indices. 
+\end{DoxyReturn}
+
+
 Implements \mbox{\hyperlink{classnetdem_1_1_domain_splittor_a66ac0e3e22e1625b32c4a2164e47d720}{netdem\+::\+Domain\+Splittor}}.
 
 \mbox{\Hypertarget{classnetdem_1_1_tet_mesh_splittor_a9661af9fc5f1fdaed9bca228d9c7bcec}\label{classnetdem_1_1_tet_mesh_splittor_a9661af9fc5f1fdaed9bca228d9c7bcec}} 
@@ -97,6 +147,19 @@ Implements \mbox{\hyperlink{classnetdem_1_1_domain_splittor_a66ac0e3e22e1625b32c
 \doxysubsubsection{\texorpdfstring{InitFromSTL()}{InitFromSTL()}}
 {\footnotesize\ttfamily void netdem\+::\+Tet\+Mesh\+Splittor\+::\+Init\+From\+STL (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_s_t_l_model}{STLModel}} const \&}]{stl\+\_\+model,  }\item[{int}]{num\+\_\+ele\+\_\+each }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
+
+
+Initializes the splitter from an STL model and a requested number of elements per tetrahedron. 
+
+This method initializes the splitter from an STL model and a requested number of elements per tetrahedron, breaking down the mesh into smaller elements as necessary.
+
+
+\begin{DoxyParams}{Parameters}
+{\em stl\+\_\+model} & The STL model to use for initialization. \\
+\hline
+{\em num\+\_\+ele\+\_\+each} & The requested number of elements to use per tetrahedron. \\
+\hline
+\end{DoxyParams}
 
 
 Implements \mbox{\hyperlink{classnetdem_1_1_domain_splittor_aa0bbe9fe7be68315852126760ef83b0a}{netdem\+::\+Domain\+Splittor}}.
@@ -109,6 +172,17 @@ Implements \mbox{\hyperlink{classnetdem_1_1_domain_splittor_aa0bbe9fe7be68315852
 
 
 
+Makes the mesh porous by removing a specified fraction of the tetrahedra. 
+
+This method makes the mesh porous by randomly removing a specified fraction of the tetrahedra from the mesh.
+
+
+\begin{DoxyParams}{Parameters}
+{\em porosity} & The desired porosity fraction. \\
+\hline
+\end{DoxyParams}
+
+
 Implements \mbox{\hyperlink{classnetdem_1_1_domain_splittor_a4390d9703fe1a8dd4f6be50efd0a8bd3}{netdem\+::\+Domain\+Splittor}}.
 
 
@@ -119,6 +193,10 @@ Implements \mbox{\hyperlink{classnetdem_1_1_domain_splittor_a4390d9703fe1a8dd4f6
 \index{tetmesh@{tetmesh}!netdem::TetMeshSplittor@{netdem::TetMeshSplittor}}
 \doxysubsubsection{\texorpdfstring{tetmesh}{tetmesh}}
 {\footnotesize\ttfamily \mbox{\hyperlink{classnetdem_1_1_tet_mesh}{Tet\+Mesh}} netdem\+::\+Tet\+Mesh\+Splittor\+::tetmesh}
+
+
+
+The tetrahedral mesh used by the splitter. 
 
 
 

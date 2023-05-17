@@ -2,45 +2,53 @@
 \label{classnetdem_1_1_simulation}\index{netdem::Simulation@{netdem::Simulation}}
 
 
+Class for managing a DEM simulation.  
+
+
+
+
 {\ttfamily \#include $<$simulation.\+hpp$>$}
 
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{classnetdem_1_1_simulation_a5b224cc5b36bcc8eb29689aff223de41}{Simulation}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Constructor for the \mbox{\hyperlink{classnetdem_1_1_simulation}{Simulation}} class. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classnetdem_1_1_simulation_a096ddc0ac2a273c662c77cc1ace957d3}{Init}} ()
-\begin{DoxyCompactList}\small\item\em initialize with default settings \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Initializes the simulation with default settings. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classnetdem_1_1_simulation_a7bc026e30080fdeae1e6a6e28e9d8a30}{Auto\+Read\+Restart}} (std\+::string const \&path, int mech\+\_\+cyc, int shape\+\_\+info\+\_\+case=0)
-\begin{DoxyCompactList}\small\item\em restart the simulation using output files \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Restarts the simulation using output files. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classnetdem_1_1_simulation_abdfe25e46e1c962ad8dd6372e26ecece}{Set\+Time\+And\+Cycles}} (double t, int cycs)
-\begin{DoxyCompactList}\small\item\em set the current time and cycles \mbox{[}usually invoked after Auto\+Read\+Restart\mbox{]} \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Sets the current time and cycles (usually invoked after Auto\+Read\+Restart). \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classnetdem_1_1_simulation_a358efcc8d6d906b11ef8fce7a2624943}{Run}} (double time)
-\begin{DoxyCompactList}\small\item\em Run the simulaiton for a preiod. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Runs the simulation for a specified period of time. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classnetdem_1_1_simulation_a80fad3f57dfaf195a36f7bc49bc88279}{$\sim$\+Simulation}} ()
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Destructor for the \mbox{\hyperlink{classnetdem_1_1_simulation}{Simulation}} class. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{classnetdem_1_1_input_processor}{Input\+Processor}} \mbox{\hyperlink{classnetdem_1_1_simulation_ab956f37272397c5c8cbd85b95cdb85b8}{input\+\_\+processor}}
-\begin{DoxyCompactList}\small\item\em create or modify a DEM simulation based on commands defined by json file \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Object for processing input commands defined in a JSON file. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classnetdem_1_1_domain_manager}{Domain\+Manager}} \mbox{\hyperlink{classnetdem_1_1_simulation_a59b3aaba47a3a50145306b90ce26d049}{domain\+\_\+manager}}
-\begin{DoxyCompactList}\small\item\em manages the calculations involving domain and sub-\/domains \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Manager for domain and sub-\/domain calculations. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classnetdem_1_1_m_p_i_manager}{MPIManager}} \mbox{\hyperlink{classnetdem_1_1_simulation_a34e43d0d1d6ebc37fbef50c4a0b4a255}{mpi\+\_\+manager}}
-\begin{DoxyCompactList}\small\item\em manages the calculations involving data exchange between sub-\/domains \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Manages data exchange between sub-\/domains. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classnetdem_1_1_scene}{Scene}} \mbox{\hyperlink{classnetdem_1_1_simulation_add17bfcd927bd2b7f14f05855c20bea3}{scene}}
-\item 
+\begin{DoxyCompactList}\small\item\em Contains and manages basic DEM objects (e.\+g., shapes, particles, walls) for a DEM simulation. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classnetdem_1_1_d_e_m_solver}{DEMSolver}} \mbox{\hyperlink{classnetdem_1_1_simulation_a072310a2f5600bccce29d2d4157b8c61}{dem\+\_\+solver}}
-\begin{DoxyCompactList}\small\item\em implments DEM algorithms and using DEM to solve the scene \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Implements DEM algorithms to solve the scene. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classnetdem_1_1_modifier_manager}{Modifier\+Manager}} \mbox{\hyperlink{classnetdem_1_1_simulation_a918a87f02a78aed6a311bf90d1061e72}{modifier\+\_\+manager}}
-\item 
+\begin{DoxyCompactList}\small\item\em Manages add-\/on features (i.\+e., customized evaluations not hard-\/coded in the DEM calculation cycle). \end{DoxyCompactList}\item 
 double \mbox{\hyperlink{classnetdem_1_1_simulation_ab626640936fbfd5309d5e5d2a9bb709b}{mech\+\_\+time}} \{0\}
-\begin{DoxyCompactList}\small\item\em the mechanical time in the simulation world \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em The mechanical time in the simulation world. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{classnetdem_1_1_simulation_ab71819d5c10074f0aed8895b15110ccd}{mech\+\_\+cycles}} \{0\}
-\item 
+\begin{DoxyCompactList}\small\item\em The mechanical cycles. Each cycle accounts for a \mbox{[}timestep\mbox{]} time increment of the simulation mechanical time. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{classnetdem_1_1_simulation_ad61481c1aa9cc663002322ddd308547d}{enable\+\_\+logging}} \{true\}
-\begin{DoxyCompactList}\small\item\em if output the log information onto screen \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em If true, output log information onto screen. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
+
+\doxysubsection{Detailed Description}
+Class for managing a DEM simulation. 
 
 \doxysubsection{Constructor \& Destructor Documentation}
 \mbox{\Hypertarget{classnetdem_1_1_simulation_a5b224cc5b36bcc8eb29689aff223de41}\label{classnetdem_1_1_simulation_a5b224cc5b36bcc8eb29689aff223de41}} 
@@ -49,11 +57,19 @@ bool \mbox{\hyperlink{classnetdem_1_1_simulation_ad61481c1aa9cc663002322ddd30854
 \doxysubsubsection{\texorpdfstring{Simulation()}{Simulation()}}
 {\footnotesize\ttfamily Simulation\+::\+Simulation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
+
+
+Constructor for the \mbox{\hyperlink{classnetdem_1_1_simulation}{Simulation}} class. 
+
 \mbox{\Hypertarget{classnetdem_1_1_simulation_a80fad3f57dfaf195a36f7bc49bc88279}\label{classnetdem_1_1_simulation_a80fad3f57dfaf195a36f7bc49bc88279}} 
 \index{netdem::Simulation@{netdem::Simulation}!````~Simulation@{$\sim$Simulation}}
 \index{````~Simulation@{$\sim$Simulation}!netdem::Simulation@{netdem::Simulation}}
 \doxysubsubsection{\texorpdfstring{$\sim$Simulation()}{~Simulation()}}
 {\footnotesize\ttfamily Simulation\+::$\sim$\+Simulation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Destructor for the \mbox{\hyperlink{classnetdem_1_1_simulation}{Simulation}} class. 
 
 
 
@@ -66,8 +82,17 @@ bool \mbox{\hyperlink{classnetdem_1_1_simulation_ad61481c1aa9cc663002322ddd30854
 
 
 
-restart the simulation using output files 
+Restarts the simulation using output files. 
 
+
+\begin{DoxyParams}{Parameters}
+{\em path} & Path to the output files. \\
+\hline
+{\em mech\+\_\+cyc} & Number of mechanical cycles. \\
+\hline
+{\em shape\+\_\+info\+\_\+case} & \mbox{\hyperlink{classnetdem_1_1_shape}{Shape}} information case. 0\+: 0-\/step json, 2\+: time-\/specific json. \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{classnetdem_1_1_simulation_a096ddc0ac2a273c662c77cc1ace957d3}\label{classnetdem_1_1_simulation_a096ddc0ac2a273c662c77cc1ace957d3}} 
 \index{netdem::Simulation@{netdem::Simulation}!Init@{Init}}
 \index{Init@{Init}!netdem::Simulation@{netdem::Simulation}}
@@ -76,7 +101,7 @@ restart the simulation using output files
 
 
 
-initialize with default settings 
+Initializes the simulation with default settings. 
 
 \mbox{\Hypertarget{classnetdem_1_1_simulation_a358efcc8d6d906b11ef8fce7a2624943}\label{classnetdem_1_1_simulation_a358efcc8d6d906b11ef8fce7a2624943}} 
 \index{netdem::Simulation@{netdem::Simulation}!Run@{Run}}
@@ -86,8 +111,13 @@ initialize with default settings
 
 
 
-Run the simulaiton for a preiod. 
+Runs the simulation for a specified period of time. 
 
+
+\begin{DoxyParams}{Parameters}
+{\em time} & Amount of time to run the simulation for. \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{classnetdem_1_1_simulation_abdfe25e46e1c962ad8dd6372e26ecece}\label{classnetdem_1_1_simulation_abdfe25e46e1c962ad8dd6372e26ecece}} 
 \index{netdem::Simulation@{netdem::Simulation}!SetTimeAndCycles@{SetTimeAndCycles}}
 \index{SetTimeAndCycles@{SetTimeAndCycles}!netdem::Simulation@{netdem::Simulation}}
@@ -96,8 +126,15 @@ Run the simulaiton for a preiod.
 
 
 
-set the current time and cycles \mbox{[}usually invoked after Auto\+Read\+Restart\mbox{]} 
+Sets the current time and cycles (usually invoked after Auto\+Read\+Restart). 
 
+
+\begin{DoxyParams}{Parameters}
+{\em t} & Time for the simulation. \\
+\hline
+{\em cycs} & Number of cycles for the simulation. \\
+\hline
+\end{DoxyParams}
 
 
 \doxysubsection{Member Data Documentation}
@@ -109,7 +146,7 @@ set the current time and cycles \mbox{[}usually invoked after Auto\+Read\+Restar
 
 
 
-implments DEM algorithms and using DEM to solve the scene 
+Implements DEM algorithms to solve the scene. 
 
 \mbox{\Hypertarget{classnetdem_1_1_simulation_a59b3aaba47a3a50145306b90ce26d049}\label{classnetdem_1_1_simulation_a59b3aaba47a3a50145306b90ce26d049}} 
 \index{netdem::Simulation@{netdem::Simulation}!domain\_manager@{domain\_manager}}
@@ -119,7 +156,7 @@ implments DEM algorithms and using DEM to solve the scene
 
 
 
-manages the calculations involving domain and sub-\/domains 
+Manager for domain and sub-\/domain calculations. 
 
 \mbox{\Hypertarget{classnetdem_1_1_simulation_ad61481c1aa9cc663002322ddd308547d}\label{classnetdem_1_1_simulation_ad61481c1aa9cc663002322ddd308547d}} 
 \index{netdem::Simulation@{netdem::Simulation}!enable\_logging@{enable\_logging}}
@@ -129,7 +166,7 @@ manages the calculations involving domain and sub-\/domains
 
 
 
-if output the log information onto screen 
+If true, output log information onto screen. 
 
 \mbox{\Hypertarget{classnetdem_1_1_simulation_ab956f37272397c5c8cbd85b95cdb85b8}\label{classnetdem_1_1_simulation_ab956f37272397c5c8cbd85b95cdb85b8}} 
 \index{netdem::Simulation@{netdem::Simulation}!input\_processor@{input\_processor}}
@@ -139,7 +176,7 @@ if output the log information onto screen
 
 
 
-create or modify a DEM simulation based on commands defined by json file 
+Object for processing input commands defined in a JSON file. 
 
 \mbox{\Hypertarget{classnetdem_1_1_simulation_ab71819d5c10074f0aed8895b15110ccd}\label{classnetdem_1_1_simulation_ab71819d5c10074f0aed8895b15110ccd}} 
 \index{netdem::Simulation@{netdem::Simulation}!mech\_cycles@{mech\_cycles}}
@@ -147,7 +184,11 @@ create or modify a DEM simulation based on commands defined by json file
 \doxysubsubsection{\texorpdfstring{mech\_cycles}{mech\_cycles}}
 {\footnotesize\ttfamily int netdem\+::\+Simulation\+::mech\+\_\+cycles \{0\}}
 
-the mechanical cycles. Each cycle accouts for a \mbox{[}timestep\mbox{]} time incretement of the simulation mechanical time. \mbox{\Hypertarget{classnetdem_1_1_simulation_ab626640936fbfd5309d5e5d2a9bb709b}\label{classnetdem_1_1_simulation_ab626640936fbfd5309d5e5d2a9bb709b}} 
+
+
+The mechanical cycles. Each cycle accounts for a \mbox{[}timestep\mbox{]} time increment of the simulation mechanical time. 
+
+\mbox{\Hypertarget{classnetdem_1_1_simulation_ab626640936fbfd5309d5e5d2a9bb709b}\label{classnetdem_1_1_simulation_ab626640936fbfd5309d5e5d2a9bb709b}} 
 \index{netdem::Simulation@{netdem::Simulation}!mech\_time@{mech\_time}}
 \index{mech\_time@{mech\_time}!netdem::Simulation@{netdem::Simulation}}
 \doxysubsubsection{\texorpdfstring{mech\_time}{mech\_time}}
@@ -155,7 +196,7 @@ the mechanical cycles. Each cycle accouts for a \mbox{[}timestep\mbox{]} time in
 
 
 
-the mechanical time in the simulation world 
+The mechanical time in the simulation world. 
 
 \mbox{\Hypertarget{classnetdem_1_1_simulation_a918a87f02a78aed6a311bf90d1061e72}\label{classnetdem_1_1_simulation_a918a87f02a78aed6a311bf90d1061e72}} 
 \index{netdem::Simulation@{netdem::Simulation}!modifier\_manager@{modifier\_manager}}
@@ -163,7 +204,11 @@ the mechanical time in the simulation world
 \doxysubsubsection{\texorpdfstring{modifier\_manager}{modifier\_manager}}
 {\footnotesize\ttfamily \mbox{\hyperlink{classnetdem_1_1_modifier_manager}{Modifier\+Manager}} netdem\+::\+Simulation\+::modifier\+\_\+manager}
 
-manage all the add-\/on features (i.\+e., those customized evaluations that are usually not hard coded in a DEM calculation cycle) for a DEM simulation \mbox{\Hypertarget{classnetdem_1_1_simulation_a34e43d0d1d6ebc37fbef50c4a0b4a255}\label{classnetdem_1_1_simulation_a34e43d0d1d6ebc37fbef50c4a0b4a255}} 
+
+
+Manages add-\/on features (i.\+e., customized evaluations not hard-\/coded in the DEM calculation cycle). 
+
+\mbox{\Hypertarget{classnetdem_1_1_simulation_a34e43d0d1d6ebc37fbef50c4a0b4a255}\label{classnetdem_1_1_simulation_a34e43d0d1d6ebc37fbef50c4a0b4a255}} 
 \index{netdem::Simulation@{netdem::Simulation}!mpi\_manager@{mpi\_manager}}
 \index{mpi\_manager@{mpi\_manager}!netdem::Simulation@{netdem::Simulation}}
 \doxysubsubsection{\texorpdfstring{mpi\_manager}{mpi\_manager}}
@@ -171,7 +216,7 @@ manage all the add-\/on features (i.\+e., those customized evaluations that are 
 
 
 
-manages the calculations involving data exchange between sub-\/domains 
+Manages data exchange between sub-\/domains. 
 
 \mbox{\Hypertarget{classnetdem_1_1_simulation_add17bfcd927bd2b7f14f05855c20bea3}\label{classnetdem_1_1_simulation_add17bfcd927bd2b7f14f05855c20bea3}} 
 \index{netdem::Simulation@{netdem::Simulation}!scene@{scene}}
@@ -179,7 +224,11 @@ manages the calculations involving data exchange between sub-\/domains
 \doxysubsubsection{\texorpdfstring{scene}{scene}}
 {\footnotesize\ttfamily \mbox{\hyperlink{classnetdem_1_1_scene}{Scene}} netdem\+::\+Simulation\+::scene}
 
-contains and manages the basic DEM objects (e.\+g., shapes, particle, and wall) for a DEM simulation 
+
+
+Contains and manages basic DEM objects (e.\+g., shapes, particles, walls) for a DEM simulation. 
+
+
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 

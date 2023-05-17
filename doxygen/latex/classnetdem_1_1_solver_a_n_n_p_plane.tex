@@ -2,6 +2,11 @@
 \label{classnetdem_1_1_solver_a_n_n_p_plane}\index{netdem::SolverANNPPlane@{netdem::SolverANNPPlane}}
 
 
+A class that represents a collision solver between a particle and a plane using artificial neural networks.  
+
+
+
+
 {\ttfamily \#include $<$solver\+\_\+ann\+\_\+pplane.\+hpp$>$}
 
 Inheritance diagram for netdem\+::Solver\+ANNPPlane\+:\begin{figure}[H]
@@ -14,17 +19,17 @@ Inheritance diagram for netdem\+::Solver\+ANNPPlane\+:\begin{figure}[H]
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{classnetdem_1_1_solver_a_n_n_p_plane_a5dae96674f3d3da9448374fa0b5dc617}{Solver\+ANNPPlane}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Default constructor for the {\ttfamily \mbox{\hyperlink{classnetdem_1_1_solver_a_n_n_p_plane}{Solver\+ANNPPlane}}} class. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classnetdem_1_1_solver_a_n_n_p_plane_a734a8672c8b9cca735ce4aaba6385dca}{Solver\+ANNPPlane}} (\mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} $\ast$const p, \mbox{\hyperlink{classnetdem_1_1_wall}{Wall}} $\ast$const w)
-\item 
+\begin{DoxyCompactList}\small\item\em Constructor for the {\ttfamily \mbox{\hyperlink{classnetdem_1_1_solver_a_n_n_p_plane}{Solver\+ANNPPlane}}} class. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classnetdem_1_1_collision_solver_p_w}{Collision\+Solver\+PW}} $\ast$ \mbox{\hyperlink{classnetdem_1_1_solver_a_n_n_p_plane_adad8d1e66ebf9c4186b21684d2b4a93f}{Clone}} () const override
 \item 
 void \mbox{\hyperlink{classnetdem_1_1_solver_a_n_n_p_plane_a48bd6a4a214fdbebb01d7ecfb7d3f4db}{Init}} (std\+::string const \&classifier\+\_\+file, std\+::string const \&regressor\+\_\+file)
-\item 
+\begin{DoxyCompactList}\small\item\em Initializes the collision solver with neural network models from disk. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classnetdem_1_1_solver_a_n_n_p_plane_ae10bd4dce3acde37a79ea4d058485a76}{Init}} (\mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} $\ast$const p, \mbox{\hyperlink{classnetdem_1_1_wall}{Wall}} $\ast$const w) override
-\item 
+\begin{DoxyCompactList}\small\item\em Initializes the collision solver with a particle and a wall. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{classnetdem_1_1_solver_a_n_n_p_plane_aee85637d5cef86b6aa078a9fa18ea2b3}{Detect}} () override
-\item 
+\begin{DoxyCompactList}\small\item\em Detects collisions between the particle and the wall. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classnetdem_1_1_solver_a_n_n_p_plane_ab99e9a5ca0c0e8a72a5629fbf71fab7e}{Resolve\+Init}} (\mbox{\hyperlink{classnetdem_1_1_contact_p_w}{Contact\+PW}} $\ast$const cnt, double timestep) override
 \item 
 void \mbox{\hyperlink{classnetdem_1_1_solver_a_n_n_p_plane_a5eef39330f0f066b3baa5c43d1b60579}{Resolve\+Update}} (\mbox{\hyperlink{classnetdem_1_1_contact_p_w}{Contact\+PW}} $\ast$const cnt, double timestep) override
@@ -34,17 +39,17 @@ void \mbox{\hyperlink{classnetdem_1_1_solver_a_n_n_p_plane_a381e6077da090a7f9071
 void \mbox{\hyperlink{classnetdem_1_1_solver_a_n_n_p_plane_a33b9c3f7b6ec1232102d93e33a821d74}{Resolve\+Update\+\_\+\+Linear\+Spring}} (\mbox{\hyperlink{classnetdem_1_1_collision_geometries}{Collision\+Geometries}} $\ast$const cnt\+\_\+geoms, double timestep)
 \item 
 void \mbox{\hyperlink{classnetdem_1_1_solver_a_n_n_p_plane_a540b8eb437dd7ba656d76de5cc14e9d4}{Resolve\+Init\+\_\+\+Volume\+Based}} (\mbox{\hyperlink{classnetdem_1_1_collision_geometries}{Collision\+Geometries}} $\ast$const cnt\+\_\+geoms, double timestep)
-\item 
+\begin{DoxyCompactList}\small\item\em Resolves the collision at initialization time. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classnetdem_1_1_solver_a_n_n_p_plane_a240c1076bd7a8ed817a2adfdf94b415b}{Resolve\+Update\+\_\+\+Volume\+Based}} (\mbox{\hyperlink{classnetdem_1_1_collision_geometries}{Collision\+Geometries}} $\ast$const cnt\+\_\+geoms, double timestep)
-\item 
+\begin{DoxyCompactList}\small\item\em Resolves the collision using a volume-\/based method during update time. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classnetdem_1_1_solver_a_n_n_p_plane_aa0cc3ab5251fcb650179d28d93c6b582}{Resolve\+Init\+\_\+\+Potential\+Based}} (\mbox{\hyperlink{classnetdem_1_1_collision_geometries}{Collision\+Geometries}} $\ast$const cnt\+\_\+geoms, double timestep)
-\item 
+\begin{DoxyCompactList}\small\item\em Resolves the collision using a potential-\/based method at initialization time. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classnetdem_1_1_solver_a_n_n_p_plane_a932b4c02cbdcda802997f23d8bbc2a5b}{Resolve\+Update\+\_\+\+Potential\+Based}} (\mbox{\hyperlink{classnetdem_1_1_collision_geometries}{Collision\+Geometries}} $\ast$const cnt\+\_\+geoms, double timestep)
-\item 
+\begin{DoxyCompactList}\small\item\em Resolves the collision using a potential-\/based method during update time. \end{DoxyCompactList}\item 
 std\+::tuple$<$ double, \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $>$ \mbox{\hyperlink{classnetdem_1_1_solver_a_n_n_p_plane_a88abe5394b1d53583fd55a459d1cc173}{Potential}} (double dist, \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&nn)
-\item 
+\begin{DoxyCompactList}\small\item\em Calculates the potential energy and contact position for the collision. \end{DoxyCompactList}\item 
 std\+::tuple$<$ double, \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}, \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $>$ \mbox{\hyperlink{classnetdem_1_1_solver_a_n_n_p_plane_a167ff6e8342b482d2a4ad358c47becaf}{Evaluate\+Contact\+Forces}} ()
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Evaluates the contact forces for the collision. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Public Member Functions inherited from \mbox{\hyperlink{classnetdem_1_1_collision_solver_p_w}{netdem\+::\+Collision\+Solver\+PW}}}
 \begin{DoxyCompactItemize}
 \item 
@@ -70,11 +75,11 @@ virtual \mbox{\hyperlink{classnetdem_1_1_collision_solver_p_w_aed072d2954a6f834d
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{classnetdem_1_1_general_net}{netdem\+::\+General\+Net}} \mbox{\hyperlink{classnetdem_1_1_solver_a_n_n_p_plane_a806abe63cdfaae4fd1ba962d25608942}{classifier}}
-\item 
+\begin{DoxyCompactList}\small\item\em The neural network model used for classification. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classnetdem_1_1_regression_net}{netdem\+::\+Regression\+Net}} \mbox{\hyperlink{classnetdem_1_1_solver_a_n_n_p_plane_a9778cfb69f9699397dbcab8ff68c4d09}{regressor}}
-\item 
+\begin{DoxyCompactList}\small\item\em The neural network model used for regression. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{classnetdem_1_1_solver_a_n_n_p_plane_a1d506e94767735cbe975d604f4d71838}{is\+\_\+initialized}} \{false\}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Whether or not the solver has been initialized. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Public Attributes inherited from \mbox{\hyperlink{classnetdem_1_1_collision_solver_p_w}{netdem\+::\+Collision\+Solver\+PW}}}
 \begin{DoxyCompactItemize}
 \item 
@@ -106,7 +111,11 @@ void \mbox{\hyperlink{classnetdem_1_1_collision_solver_p_w_a75563d0f485ce14cca7e
 
 
 \doxysubsection{Detailed Description}
+A class that represents a collision solver between a particle and a plane using artificial neural networks. 
+
 concrete geometric solver for sphere and sphere contacts. 
+
+The {\ttfamily \mbox{\hyperlink{classnetdem_1_1_solver_a_n_n_p_plane}{Solver\+ANNPPlane}}} class is a specific implementation of a collision solver between a particle and a plane using artificial neural networks. It provides functionality to detect and resolve collisions between a particle and a wall, as well as calculate potential energies and contact forces. 
 
 \doxysubsection{Constructor \& Destructor Documentation}
 \mbox{\Hypertarget{classnetdem_1_1_solver_a_n_n_p_plane_a5dae96674f3d3da9448374fa0b5dc617}\label{classnetdem_1_1_solver_a_n_n_p_plane_a5dae96674f3d3da9448374fa0b5dc617}} 
@@ -115,12 +124,29 @@ concrete geometric solver for sphere and sphere contacts.
 \doxysubsubsection{\texorpdfstring{SolverANNPPlane()}{SolverANNPPlane()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily netdem\+::\+Solver\+ANNPPlane\+::\+Solver\+ANNPPlane (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-\mbox{\Hypertarget{classnetdem_1_1_solver_a_n_n_p_plane_a734a8672c8b9cca735ce4aaba6385dca}\label{classnetdem_1_1_solver_a_n_n_p_plane_a734a8672c8b9cca735ce4aaba6385dca}} 
+
+
+Default constructor for the {\ttfamily \mbox{\hyperlink{classnetdem_1_1_solver_a_n_n_p_plane}{Solver\+ANNPPlane}}} class. 
+
+This function constructs a new {\ttfamily \mbox{\hyperlink{classnetdem_1_1_solver_a_n_n_p_plane}{Solver\+ANNPPlane}}} object with default values. \mbox{\Hypertarget{classnetdem_1_1_solver_a_n_n_p_plane_a734a8672c8b9cca735ce4aaba6385dca}\label{classnetdem_1_1_solver_a_n_n_p_plane_a734a8672c8b9cca735ce4aaba6385dca}} 
 \index{netdem::SolverANNPPlane@{netdem::SolverANNPPlane}!SolverANNPPlane@{SolverANNPPlane}}
 \index{SolverANNPPlane@{SolverANNPPlane}!netdem::SolverANNPPlane@{netdem::SolverANNPPlane}}
 \doxysubsubsection{\texorpdfstring{SolverANNPPlane()}{SolverANNPPlane()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
 {\footnotesize\ttfamily netdem\+::\+Solver\+ANNPPlane\+::\+Solver\+ANNPPlane (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} $\ast$const}]{p,  }\item[{\mbox{\hyperlink{classnetdem_1_1_wall}{Wall}} $\ast$const}]{w }\end{DoxyParamCaption})}
 
+
+
+Constructor for the {\ttfamily \mbox{\hyperlink{classnetdem_1_1_solver_a_n_n_p_plane}{Solver\+ANNPPlane}}} class. 
+
+This function constructs a new {\ttfamily \mbox{\hyperlink{classnetdem_1_1_solver_a_n_n_p_plane}{Solver\+ANNPPlane}}} object with the provided particle and wall.
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & The particle. \\
+\hline
+{\em w} & The wall. \\
+\hline
+\end{DoxyParams}
 
 
 \doxysubsection{Member Function Documentation}
@@ -140,10 +166,14 @@ Implements \mbox{\hyperlink{classnetdem_1_1_collision_solver_p_w_a9a373faf193910
 \doxysubsubsection{\texorpdfstring{Detect()}{Detect()}}
 {\footnotesize\ttfamily bool netdem\+::\+Solver\+ANNPPlane\+::\+Detect (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
-Detect whether a collision has occurred between the particle and the wall.
+
+
+Detects collisions between the particle and the wall. 
+
+This function detects collisions between the particle and the wall using the neural network classification model.
 
 \begin{DoxyReturn}{Returns}
-{\ttfamily true} if a collision has occurred, {\ttfamily false} otherwise. 
+Whether or not a collision was detected. 
 \end{DoxyReturn}
 
 
@@ -155,19 +185,32 @@ Implements \mbox{\hyperlink{classnetdem_1_1_collision_solver_p_w_a662b4b47765dd9
 \doxysubsubsection{\texorpdfstring{EvaluateContactForces()}{EvaluateContactForces()}}
 {\footnotesize\ttfamily std\+::tuple$<$ double, \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}, \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $>$ netdem\+::\+Solver\+ANNPPlane\+::\+Evaluate\+Contact\+Forces (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
+
+
+Evaluates the contact forces for the collision. 
+
+This function evaluates the contact forces for the collision and returns them as a tuple containing the force, moment, and position vectors.
+
+\begin{DoxyReturn}{Returns}
+A tuple containing the force, moment, and position vectors. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{classnetdem_1_1_solver_a_n_n_p_plane_ae10bd4dce3acde37a79ea4d058485a76}\label{classnetdem_1_1_solver_a_n_n_p_plane_ae10bd4dce3acde37a79ea4d058485a76}} 
 \index{netdem::SolverANNPPlane@{netdem::SolverANNPPlane}!Init@{Init}}
 \index{Init@{Init}!netdem::SolverANNPPlane@{netdem::SolverANNPPlane}}
 \doxysubsubsection{\texorpdfstring{Init()}{Init()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily void netdem\+::\+Solver\+ANNPPlane\+::\+Init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} $\ast$const}]{p,  }\item[{\mbox{\hyperlink{classnetdem_1_1_wall}{Wall}} $\ast$const}]{w }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
-Initialize the particle and wall involved in the collision.
+
+
+Initializes the collision solver with a particle and a wall. 
+
+This function initializes the collision solver with the provided particle and wall.
 
 
 \begin{DoxyParams}{Parameters}
-{\em p} & The particle involved in the collision. \\
+{\em p} & The particle. \\
 \hline
-{\em w} & The wall involved in the collision. \\
+{\em w} & The wall. \\
 \hline
 \end{DoxyParams}
 
@@ -180,12 +223,41 @@ Reimplemented from \mbox{\hyperlink{classnetdem_1_1_collision_solver_p_w_a23b307
 \doxysubsubsection{\texorpdfstring{Init()}{Init()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
 {\footnotesize\ttfamily void netdem\+::\+Solver\+ANNPPlane\+::\+Init (\begin{DoxyParamCaption}\item[{std\+::string const \&}]{classifier\+\_\+file,  }\item[{std\+::string const \&}]{regressor\+\_\+file }\end{DoxyParamCaption})}
 
+
+
+Initializes the collision solver with neural network models from disk. 
+
+This function initializes the collision solver with neural network models loaded from disk.
+
+
+\begin{DoxyParams}{Parameters}
+{\em classifier\+\_\+file} & The name of the file containing the classification model data. \\
+\hline
+{\em regressor\+\_\+file} & The name of the file containing the regression model data. \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{classnetdem_1_1_solver_a_n_n_p_plane_a88abe5394b1d53583fd55a459d1cc173}\label{classnetdem_1_1_solver_a_n_n_p_plane_a88abe5394b1d53583fd55a459d1cc173}} 
 \index{netdem::SolverANNPPlane@{netdem::SolverANNPPlane}!Potential@{Potential}}
 \index{Potential@{Potential}!netdem::SolverANNPPlane@{netdem::SolverANNPPlane}}
 \doxysubsubsection{\texorpdfstring{Potential()}{Potential()}}
 {\footnotesize\ttfamily std\+::tuple$<$ double, \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $>$ netdem\+::\+Solver\+ANNPPlane\+::\+Potential (\begin{DoxyParamCaption}\item[{double}]{dist,  }\item[{\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&}]{nn }\end{DoxyParamCaption})}
 
+
+
+Calculates the potential energy and contact position for the collision. 
+
+This function calculates the potential energy and contact position for the collision given the distance between the particle and the wall and the normal vector of the wall.
+
+
+\begin{DoxyParams}{Parameters}
+{\em dist} & The distance between the particle and the wall. \\
+\hline
+{\em nn} & The normal vector of the wall. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A tuple containing the potential energy and contact position. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{classnetdem_1_1_solver_a_n_n_p_plane_ab99e9a5ca0c0e8a72a5629fbf71fab7e}\label{classnetdem_1_1_solver_a_n_n_p_plane_ab99e9a5ca0c0e8a72a5629fbf71fab7e}} 
 \index{netdem::SolverANNPPlane@{netdem::SolverANNPPlane}!ResolveInit@{ResolveInit}}
 \index{ResolveInit@{ResolveInit}!netdem::SolverANNPPlane@{netdem::SolverANNPPlane}}
@@ -217,12 +289,34 @@ Implements \mbox{\hyperlink{classnetdem_1_1_collision_solver_p_w_a1a4559783964fd
 \doxysubsubsection{\texorpdfstring{ResolveInit\_PotentialBased()}{ResolveInit\_PotentialBased()}}
 {\footnotesize\ttfamily void netdem\+::\+Solver\+ANNPPlane\+::\+Resolve\+Init\+\_\+\+Potential\+Based (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_collision_geometries}{Collision\+Geometries}} $\ast$const}]{cnt\+\_\+geoms,  }\item[{double}]{timestep }\end{DoxyParamCaption})}
 
+
+
+Resolves the collision using a potential-\/based method at initialization time. 
+
+This function resolves the collision between the particle and the wall at initialization time using a potential-\/based method.
+
+
+\begin{DoxyParams}{Parameters}
+{\em cnt\+\_\+geoms} & The collision geometries used to resolve the collision. \\
+\hline
+{\em timestep} & The timestep used for the simulation. \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{classnetdem_1_1_solver_a_n_n_p_plane_a540b8eb437dd7ba656d76de5cc14e9d4}\label{classnetdem_1_1_solver_a_n_n_p_plane_a540b8eb437dd7ba656d76de5cc14e9d4}} 
 \index{netdem::SolverANNPPlane@{netdem::SolverANNPPlane}!ResolveInit\_VolumeBased@{ResolveInit\_VolumeBased}}
 \index{ResolveInit\_VolumeBased@{ResolveInit\_VolumeBased}!netdem::SolverANNPPlane@{netdem::SolverANNPPlane}}
 \doxysubsubsection{\texorpdfstring{ResolveInit\_VolumeBased()}{ResolveInit\_VolumeBased()}}
 {\footnotesize\ttfamily void netdem\+::\+Solver\+ANNPPlane\+::\+Resolve\+Init\+\_\+\+Volume\+Based (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_collision_geometries}{Collision\+Geometries}} $\ast$const}]{cnt\+\_\+geoms,  }\item[{double}]{timestep }\end{DoxyParamCaption})}
 
+
+
+Resolves the collision at initialization time. 
+
+This function resolves the collision between the particle and the wall at initialization time using one geometries used to resolve the collision. 
+\begin{DoxyParams}{Parameters}
+{\em timestep} & The timestep used for the simulation. \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{classnetdem_1_1_solver_a_n_n_p_plane_a5eef39330f0f066b3baa5c43d1b60579}\label{classnetdem_1_1_solver_a_n_n_p_plane_a5eef39330f0f066b3baa5c43d1b60579}} 
 \index{netdem::SolverANNPPlane@{netdem::SolverANNPPlane}!ResolveUpdate@{ResolveUpdate}}
 \index{ResolveUpdate@{ResolveUpdate}!netdem::SolverANNPPlane@{netdem::SolverANNPPlane}}
@@ -254,12 +348,38 @@ Implements \mbox{\hyperlink{classnetdem_1_1_collision_solver_p_w_a1fa6dc4af91346
 \doxysubsubsection{\texorpdfstring{ResolveUpdate\_PotentialBased()}{ResolveUpdate\_PotentialBased()}}
 {\footnotesize\ttfamily void netdem\+::\+Solver\+ANNPPlane\+::\+Resolve\+Update\+\_\+\+Potential\+Based (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_collision_geometries}{Collision\+Geometries}} $\ast$const}]{cnt\+\_\+geoms,  }\item[{double}]{timestep }\end{DoxyParamCaption})}
 
+
+
+Resolves the collision using a potential-\/based method during update time. 
+
+This function resolves the collision between the particle and the wall during update time using a potential-\/based method.
+
+
+\begin{DoxyParams}{Parameters}
+{\em cnt\+\_\+geoms} & The collision geometries used to resolve the collision. \\
+\hline
+{\em timestep} & The timestep used for the simulation. \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{classnetdem_1_1_solver_a_n_n_p_plane_a240c1076bd7a8ed817a2adfdf94b415b}\label{classnetdem_1_1_solver_a_n_n_p_plane_a240c1076bd7a8ed817a2adfdf94b415b}} 
 \index{netdem::SolverANNPPlane@{netdem::SolverANNPPlane}!ResolveUpdate\_VolumeBased@{ResolveUpdate\_VolumeBased}}
 \index{ResolveUpdate\_VolumeBased@{ResolveUpdate\_VolumeBased}!netdem::SolverANNPPlane@{netdem::SolverANNPPlane}}
 \doxysubsubsection{\texorpdfstring{ResolveUpdate\_VolumeBased()}{ResolveUpdate\_VolumeBased()}}
 {\footnotesize\ttfamily void netdem\+::\+Solver\+ANNPPlane\+::\+Resolve\+Update\+\_\+\+Volume\+Based (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_collision_geometries}{Collision\+Geometries}} $\ast$const}]{cnt\+\_\+geoms,  }\item[{double}]{timestep }\end{DoxyParamCaption})}
 
+
+
+Resolves the collision using a volume-\/based method during update time. 
+
+This function resolves the collision between the particle and the wall during update time using a volume-\/based method.
+
+
+\begin{DoxyParams}{Parameters}
+{\em cnt\+\_\+geoms} & The collision geometries used to resolve the collision. \\
+\hline
+{\em timestep} & The timestep used for the simulation. \\
+\hline
+\end{DoxyParams}
 
 
 \doxysubsection{Member Data Documentation}
@@ -274,6 +394,10 @@ Implements \mbox{\hyperlink{classnetdem_1_1_collision_solver_p_w_a1fa6dc4af91346
 \index{classifier@{classifier}!netdem::SolverANNPPlane@{netdem::SolverANNPPlane}}
 \doxysubsubsection{\texorpdfstring{classifier}{classifier}}
 {\footnotesize\ttfamily \mbox{\hyperlink{classnetdem_1_1_general_net}{netdem\+::\+General\+Net}} netdem\+::\+Solver\+ANNPPlane\+::classifier}
+
+
+
+The neural network model used for classification. 
 
 \mbox{\Hypertarget{classnetdem_1_1_solver_a_n_n_p_plane_a833da05e679fbf27170471d77d61d5dc}\label{classnetdem_1_1_solver_a_n_n_p_plane_a833da05e679fbf27170471d77d61d5dc}} 
 \index{netdem::SolverANNPPlane@{netdem::SolverANNPPlane}!dir\_n@{dir\_n}}
@@ -299,11 +423,19 @@ Implements \mbox{\hyperlink{classnetdem_1_1_collision_solver_p_w_a1fa6dc4af91346
 \doxysubsubsection{\texorpdfstring{is\_initialized}{is\_initialized}}
 {\footnotesize\ttfamily bool netdem\+::\+Solver\+ANNPPlane\+::is\+\_\+initialized \{false\}}
 
+
+
+Whether or not the solver has been initialized. 
+
 \mbox{\Hypertarget{classnetdem_1_1_solver_a_n_n_p_plane_a9778cfb69f9699397dbcab8ff68c4d09}\label{classnetdem_1_1_solver_a_n_n_p_plane_a9778cfb69f9699397dbcab8ff68c4d09}} 
 \index{netdem::SolverANNPPlane@{netdem::SolverANNPPlane}!regressor@{regressor}}
 \index{regressor@{regressor}!netdem::SolverANNPPlane@{netdem::SolverANNPPlane}}
 \doxysubsubsection{\texorpdfstring{regressor}{regressor}}
 {\footnotesize\ttfamily \mbox{\hyperlink{classnetdem_1_1_regression_net}{netdem\+::\+Regression\+Net}} netdem\+::\+Solver\+ANNPPlane\+::regressor}
+
+
+
+The neural network model used for regression. 
 
 \mbox{\Hypertarget{classnetdem_1_1_solver_a_n_n_p_plane_a218e4de081a9d390e3f8cfbb66b418a6}\label{classnetdem_1_1_solver_a_n_n_p_plane_a218e4de081a9d390e3f8cfbb66b418a6}} 
 \index{netdem::SolverANNPPlane@{netdem::SolverANNPPlane}!scale@{scale}}

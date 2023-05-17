@@ -10,87 +10,93 @@
 \DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <iostream>}}
 \DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <string>}}
 \DoxyCodeLine{00008\ }
-\DoxyCodeLine{00009\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacenetdem}{netdem}}\ \{}
-\DoxyCodeLine{00010\ }
-\DoxyCodeLine{00011\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classnetdem_1_1_polybezier}{Polybezier}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classnetdem_1_1_shape}{Shape}}\ \{}
-\DoxyCodeLine{00012\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00013\ \ \ \textcolor{comment}{//\ num\_patches\ have\ to\ be\ even}}
-\DoxyCodeLine{00014\ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classnetdem_1_1_polybezier_a9db7309122cf86a54a6b5d91e8b6954d}{num\_patches}}\{30\},\ \mbox{\hyperlink{classnetdem_1_1_polybezier_a1a2361798195770502dc4dbf84d8ed03}{order}}\{2\};\ \textcolor{comment}{//\ only\ second\ order\ implemented\ for\ now}}
-\DoxyCodeLine{00015\ }
-\DoxyCodeLine{00016\ \ \ \textcolor{comment}{//\ [num\ of\ faces]\ by\ num\ of\ knots\ (e.g.,\ 6\ for\ 2nd\ order)\ by\ 3}}
-\DoxyCodeLine{00017\ \ \ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<VecXT<Vec3d>}}>\ \mbox{\hyperlink{classnetdem_1_1_polybezier_aca8f31dddc2d7af147dec1c8ceddde26}{face\_patch\_knots\_list}};}
-\DoxyCodeLine{00018\ }
-\DoxyCodeLine{00019\ \ \ \textcolor{comment}{//\ [num\ of\ faces]\ by\ 3\ vertices\ by\ 3}}
-\DoxyCodeLine{00020\ \ \ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<VecXT<Vec3d>}}>\ \mbox{\hyperlink{classnetdem_1_1_polybezier_a5134e4d2db0021867d8c64d7f06bb7b9}{face\_patch\_normals\_list}};}
-\DoxyCodeLine{00021\ }
-\DoxyCodeLine{00022\ \ \ \textcolor{comment}{//\ [num\ of\ faces*3/2]\ by\ num\ of\ knots\ (e.g.,\ 6\ for\ 2nd\ order)\ by\ 3}}
-\DoxyCodeLine{00023\ \ \ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<VecXT<Vec3d>}}>\ \mbox{\hyperlink{classnetdem_1_1_polybezier_ac1218a57c9b3d1304b99d4ba729a02fb}{edge\_patch\_knots\_list}};}
-\DoxyCodeLine{00024\ }
-\DoxyCodeLine{00025\ \ \ \textcolor{comment}{//\ [num\ of\ faces]\ by\ 3,\ used\ to\ find\ the\ edge\ patches\ for\ a\ face\ patch}}
-\DoxyCodeLine{00026\ \ \ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<Vec3i>}}\ \mbox{\hyperlink{classnetdem_1_1_polybezier_ac10a187ae800aaf1521eed709db7d640}{linked\_edges\_list}};}
-\DoxyCodeLine{00027\ }
-\DoxyCodeLine{00028\ \ \ \textcolor{comment}{//\ [6*num\_cells\string^2]\ by\ [num\ of\ patches]}}
-\DoxyCodeLine{00029\ \ \ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<VecXT<int>}}>\ \mbox{\hyperlink{classnetdem_1_1_polybezier_a742b5cbbaaf0a113737f5e06fb060196}{linked\_patches\_list}};}
-\DoxyCodeLine{00030\ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classnetdem_1_1_polybezier_aea00adb3552548d2699c8ec53bcc9fe1}{num\_cells}}\{4\};}
+\DoxyCodeLine{00013\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacenetdem}{netdem}}\ \{}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00021\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classnetdem_1_1_polybezier}{Polybezier}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classnetdem_1_1_shape}{Shape}}\ \{}
+\DoxyCodeLine{00022\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00023\ \ \ \textcolor{comment}{//\ num\_patches\ have\ to\ be\ even}}
+\DoxyCodeLine{00024\ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classnetdem_1_1_polybezier_a9db7309122cf86a54a6b5d91e8b6954d}{num\_patches}}\{30\},\ \mbox{\hyperlink{classnetdem_1_1_polybezier_a1a2361798195770502dc4dbf84d8ed03}{order}}\{2\};\ \textcolor{comment}{//\ only\ second\ order\ implemented\ for\ now}}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \ \ \textcolor{comment}{//\ [num\ of\ faces]\ by\ num\ of\ knots\ (e.g.,\ 6\ for\ 2nd\ order)\ by\ 3}}
+\DoxyCodeLine{00027\ \ \ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<VecXT<Vec3d>}}>\ \mbox{\hyperlink{classnetdem_1_1_polybezier_aca8f31dddc2d7af147dec1c8ceddde26}{face\_patch\_knots\_list}};}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \ \ \textcolor{comment}{//\ [num\ of\ faces]\ by\ 3\ vertices\ by\ 3}}
+\DoxyCodeLine{00030\ \ \ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<VecXT<Vec3d>}}>\ \mbox{\hyperlink{classnetdem_1_1_polybezier_a5134e4d2db0021867d8c64d7f06bb7b9}{face\_patch\_normals\_list}};}
 \DoxyCodeLine{00031\ }
-\DoxyCodeLine{00032\ \ \ \mbox{\hyperlink{classnetdem_1_1_polybezier_a310db06214373de8588a02916ef8616c}{Polybezier}}();}
-\DoxyCodeLine{00033\ }
-\DoxyCodeLine{00034\ \ \ nlohmann::json\ \mbox{\hyperlink{classnetdem_1_1_polybezier_ae286a4defe8607e3bf2ffd771ebae261}{PackJson}}()\ \textcolor{keyword}{override};}
-\DoxyCodeLine{00035\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_polybezier_aa812d6b44f8fc2e6679b25009c659cad}{InitFromJson}}(nlohmann::json\ \textcolor{keyword}{const}\ \&js)\ \textcolor{keyword}{override};}
-\DoxyCodeLine{00036\ }
-\DoxyCodeLine{00037\ \ \ \mbox{\hyperlink{classnetdem_1_1_shape}{Shape}}\ *\mbox{\hyperlink{classnetdem_1_1_polybezier_a439a9125f96253fa67b83cb3fa126490}{Clone}}()\ \textcolor{keyword}{const\ override};}
-\DoxyCodeLine{00038\ }
-\DoxyCodeLine{00039\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_polybezier_afa6b26c41ac4b7d67605b5195d31cb94}{InitByRandom}}();}
-\DoxyCodeLine{00040\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_polybezier_ad6fb2162349c6483a61572326cc405a6}{InitFromKernelSTL}}(std::string\ \textcolor{keyword}{const}\ \&file);}
-\DoxyCodeLine{00041\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_polybezier_ad6fb2162349c6483a61572326cc405a6}{InitFromKernelSTL}}(\mbox{\hyperlink{classnetdem_1_1_s_t_l_model}{STLModel}}\ \textcolor{keyword}{const}\ \&stl\_model);}
-\DoxyCodeLine{00042\ }
-\DoxyCodeLine{00043\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_polybezier_a6d749ac649b147ad1f6cd540e3dbe080}{Init}}();}
-\DoxyCodeLine{00044\ }
-\DoxyCodeLine{00045\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_polybezier_a54241720500d2a90fb5652b8f750ea25}{UpdateShapeProperties}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00032\ \ \ \textcolor{comment}{//\ [num\ of\ faces*3/2]\ by\ num\ of\ knots\ (e.g.,\ 6\ for\ 2nd\ order)\ by\ 3}}
+\DoxyCodeLine{00033\ \ \ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<VecXT<Vec3d>}}>\ \mbox{\hyperlink{classnetdem_1_1_polybezier_ac1218a57c9b3d1304b99d4ba729a02fb}{edge\_patch\_knots\_list}};}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \ \ \textcolor{comment}{//\ [num\ of\ faces]\ by\ 3,\ used\ to\ find\ the\ edge\ patches\ for\ a\ face\ patch}}
+\DoxyCodeLine{00036\ \ \ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<Vec3i>}}\ \mbox{\hyperlink{classnetdem_1_1_polybezier_ac10a187ae800aaf1521eed709db7d640}{linked\_edges\_list}};}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \ \ \textcolor{comment}{//\ [6*num\_cells\string^2]\ by\ [num\ of\ patches]}}
+\DoxyCodeLine{00039\ \ \ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<VecXT<int>}}>\ \mbox{\hyperlink{classnetdem_1_1_polybezier_a742b5cbbaaf0a113737f5e06fb060196}{linked\_patches\_list}};}
+\DoxyCodeLine{00040\ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classnetdem_1_1_polybezier_aea00adb3552548d2699c8ec53bcc9fe1}{num\_cells}}\{4\};}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00045\ \ \ \mbox{\hyperlink{classnetdem_1_1_polybezier_a310db06214373de8588a02916ef8616c}{Polybezier}}();}
 \DoxyCodeLine{00046\ }
-\DoxyCodeLine{00047\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_polybezier_af384e6ec1edaa5375b86971601528080}{SetSize}}(\textcolor{keywordtype}{double}\ d)\ \textcolor{keyword}{override};}
-\DoxyCodeLine{00048\ }
-\DoxyCodeLine{00049\ \ \ \mbox{\hyperlink{classnetdem_1_1_s_t_l_model}{STLModel}}\ \mbox{\hyperlink{classnetdem_1_1_polybezier_a063a225810a381792101b8605365cb48}{GetSTLModel}}(\textcolor{keywordtype}{int}\ num\_facets\ =\ 400)\ \textcolor{keyword}{override};}
-\DoxyCodeLine{00050\ }
-\DoxyCodeLine{00051\ \ \ \mbox{\hyperlink{classnetdem_1_1_s_t_l_model}{STLModel}}\ \mbox{\hyperlink{classnetdem_1_1_polybezier_aceafc98349bcb17dc9cc766a0489d465}{GetSTLModel\_v2}}(\textcolor{keywordtype}{int}\ num\_facets\ =\ 400);}
-\DoxyCodeLine{00052\ }
-\DoxyCodeLine{00053\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_polybezier_a557097154fc91ec51a7de8a8c33a89e6}{SaveNormalPatchesSpherical}}(std::string\ \textcolor{keyword}{const}\ \&file);}
-\DoxyCodeLine{00054\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_polybezier_aa340e7dae1dc62af6f34e00cd4507d27}{SaveNormalPatchesCubic}}(std::string\ \textcolor{keyword}{const}\ \&file);}
+\DoxyCodeLine{00054\ \ \ nlohmann::json\ \mbox{\hyperlink{classnetdem_1_1_polybezier_ae286a4defe8607e3bf2ffd771ebae261}{PackJson}}()\ \textcolor{keyword}{override};}
 \DoxyCodeLine{00055\ }
-\DoxyCodeLine{00056\ \ \ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ \mbox{\hyperlink{classnetdem_1_1_polybezier_a622e64685d49416ca42732c5466a9b1a}{SupportPoint}}(\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ \textcolor{keyword}{const}\ \&dir)\ \textcolor{keyword}{override};}
-\DoxyCodeLine{00057\ \ \ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<Vec3d>}}\ \mbox{\hyperlink{classnetdem_1_1_polybezier_ac96d550cd6d9e4ef692fe5b882779d8d}{SupportPoints}}(\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ \textcolor{keyword}{const}\ \&dir)\ \textcolor{keyword}{override};}
-\DoxyCodeLine{00058\ }
-\DoxyCodeLine{00059\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_polybezier_ab0c76c3d8158f3a4fb764fdb407e9912}{Print}}()\ \textcolor{keyword}{override};}
-\DoxyCodeLine{00060\ }
-\DoxyCodeLine{00061\ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00062\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_polybezier_ac37917eef300d61d1b03b4b2d0022ab9}{AlignAxes}}();}
-\DoxyCodeLine{00063\ }
-\DoxyCodeLine{00064\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_polybezier_a4cac596cafff90f1f042597cd49c847e}{UpdateLinkedPatches}}();}
-\DoxyCodeLine{00065\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_polybezier_addb736c4de06bea2325c1d4779730f83}{UpdataMatDuDv}}();}
-\DoxyCodeLine{00066\ }
-\DoxyCodeLine{00067\ \ \ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<VecNT<Vec3d,\ 3>}}>\ \mbox{\hyperlink{classnetdem_1_1_polybezier_a46646e4585e2a687551464588c511b72}{mat\_du\_list}},\ \mbox{\hyperlink{classnetdem_1_1_polybezier_aa9f12be6f733b7aa8294b68b8dd77614}{mat\_dv\_list}};}
-\DoxyCodeLine{00068\ }
-\DoxyCodeLine{00069\ \ \ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ \mbox{\hyperlink{classnetdem_1_1_polybezier_a42f7ff3eacffe3dbe5a86e8626033a0d}{GetEdgeKnot}}(\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ \textcolor{keyword}{const}\ \&v0,\ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ \textcolor{keyword}{const}\ \&v1,\ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ \textcolor{keyword}{const}\ \&n01);}
-\DoxyCodeLine{00070\ }
-\DoxyCodeLine{00071\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_polybezier_a77bdfffbd741628fb3a69d3f5122e214}{GetUniqueEdges}}(\mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<Vec2i>}}\ *\textcolor{keyword}{const}\ edges,}
-\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<Vec3i>}}\ *\textcolor{keyword}{const}\ \mbox{\hyperlink{namespacenetdem_a3d1c9a57f81d32e05adbb87079c38501a9a735ec7821ddf983286f9983036013a}{linked\_list}},}
-\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classnetdem_1_1_s_t_l_model}{STLModel}}\ \textcolor{keyword}{const}\ \&stl\_model);}
-\DoxyCodeLine{00074\ }
-\DoxyCodeLine{00075\ \ \ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ \mbox{\hyperlink{classnetdem_1_1_polybezier_acde47579bdd056b569604569b81ef000}{GetPatchNormal}}(\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ \textcolor{keyword}{const}\ \&v0,\ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ \textcolor{keyword}{const}\ \&v1,\ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ \textcolor{keyword}{const}\ \&v2);}
-\DoxyCodeLine{00076\ }
-\DoxyCodeLine{00077\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_polybezier_adba0889fada0b0d20ec9fe7a7682d3c0}{SortNormalPatchVertices}}(\mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<Vec3d>}}\ *\textcolor{keyword}{const}\ normals);}
-\DoxyCodeLine{00078\ }
-\DoxyCodeLine{00079\ \ \ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<Vec3d>}}\ \mbox{\hyperlink{classnetdem_1_1_polybezier_a3ab4b99c6d1ae4f41d8c2c15eecbaca1}{GetCartesianProject}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<Vec3d>}}\ \&normals);}
+\DoxyCodeLine{00063\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_polybezier_aa812d6b44f8fc2e6679b25009c659cad}{InitFromJson}}(nlohmann::json\ \textcolor{keyword}{const}\ \&js)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00072\ \ \ \mbox{\hyperlink{classnetdem_1_1_shape}{Shape}}\ *\mbox{\hyperlink{classnetdem_1_1_polybezier_a439a9125f96253fa67b83cb3fa126490}{Clone}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00079\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_polybezier_afa6b26c41ac4b7d67605b5195d31cb94}{InitByRandom}}();}
 \DoxyCodeLine{00080\ }
-\DoxyCodeLine{00081\ \ \ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<Vec3d>}}\ \mbox{\hyperlink{classnetdem_1_1_polybezier_a3ab4b99c6d1ae4f41d8c2c15eecbaca1}{GetCartesianProject}}(\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ \textcolor{keyword}{const}\ \&v1,\ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ \textcolor{keyword}{const}\ \&v2);}
-\DoxyCodeLine{00082\ }
-\DoxyCodeLine{00083\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classnetdem_1_1_polybezier_aff7a0c108638e4e8e3c49eead1714c09}{ContainCorner}}(\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ \textcolor{keyword}{const}\ \&corner,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<Vec3d>}}\ \&normals);}
-\DoxyCodeLine{00084\ }
-\DoxyCodeLine{00085\ \ \ \mbox{\hyperlink{classnetdem_1_1_s_t_l_model}{STLModel}}\ \mbox{\hyperlink{classnetdem_1_1_polybezier_a063a225810a381792101b8605365cb48}{GetSTLModel}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<Vec3d>}}\ \&knots,\ \textcolor{keywordtype}{int}\ num\_facets\_each);}
-\DoxyCodeLine{00086\ }
-\DoxyCodeLine{00087\ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classnetdem_1_1_polybezier_acbf99d22498a667b5176ef4aed36e18c}{GetSupportPatchID}}(\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ \textcolor{keyword}{const}\ \&dir);}
-\DoxyCodeLine{00088\ \};}
+\DoxyCodeLine{00088\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_polybezier_ad6fb2162349c6483a61572326cc405a6}{InitFromKernelSTL}}(std::string\ \textcolor{keyword}{const}\ \&file);}
 \DoxyCodeLine{00089\ }
-\DoxyCodeLine{00090\ \}\ \textcolor{comment}{//\ namespace\ netdem}}
+\DoxyCodeLine{00097\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_polybezier_ad6fb2162349c6483a61572326cc405a6}{InitFromKernelSTL}}(\mbox{\hyperlink{classnetdem_1_1_s_t_l_model}{STLModel}}\ \textcolor{keyword}{const}\ \&stl\_model);}
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00104\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_polybezier_a6d749ac649b147ad1f6cd540e3dbe080}{Init}}();}
+\DoxyCodeLine{00105\ }
+\DoxyCodeLine{00111\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_polybezier_a54241720500d2a90fb5652b8f750ea25}{UpdateShapeProperties}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00112\ }
+\DoxyCodeLine{00120\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_polybezier_af384e6ec1edaa5375b86971601528080}{SetSize}}(\textcolor{keywordtype}{double}\ d)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00121\ }
+\DoxyCodeLine{00130\ \ \ \mbox{\hyperlink{classnetdem_1_1_s_t_l_model}{STLModel}}\ \mbox{\hyperlink{classnetdem_1_1_polybezier_a063a225810a381792101b8605365cb48}{GetSTLModel}}(\textcolor{keywordtype}{int}\ num\_facets\ =\ 400)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00131\ }
+\DoxyCodeLine{00140\ \ \ \mbox{\hyperlink{classnetdem_1_1_s_t_l_model}{STLModel}}\ \mbox{\hyperlink{classnetdem_1_1_polybezier_aceafc98349bcb17dc9cc766a0489d465}{GetSTLModel\_v2}}(\textcolor{keywordtype}{int}\ num\_facets\ =\ 400);}
+\DoxyCodeLine{00141\ }
+\DoxyCodeLine{00149\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_polybezier_a557097154fc91ec51a7de8a8c33a89e6}{SaveNormalPatchesSpherical}}(std::string\ \textcolor{keyword}{const}\ \&file);}
+\DoxyCodeLine{00150\ }
+\DoxyCodeLine{00158\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_polybezier_aa340e7dae1dc62af6f34e00cd4507d27}{SaveNormalPatchesCubic}}(std::string\ \textcolor{keyword}{const}\ \&file);}
+\DoxyCodeLine{00159\ }
+\DoxyCodeLine{00168\ \ \ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ \mbox{\hyperlink{classnetdem_1_1_polybezier_a622e64685d49416ca42732c5466a9b1a}{SupportPoint}}(\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ \textcolor{keyword}{const}\ \&dir)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00169\ }
+\DoxyCodeLine{00178\ \ \ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<Vec3d>}}\ \mbox{\hyperlink{classnetdem_1_1_polybezier_ac96d550cd6d9e4ef692fe5b882779d8d}{SupportPoints}}(\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ \textcolor{keyword}{const}\ \&dir)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00179\ }
+\DoxyCodeLine{00185\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_polybezier_ab0c76c3d8158f3a4fb764fdb407e9912}{Print}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00186\ }
+\DoxyCodeLine{00187\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00193\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_polybezier_ac37917eef300d61d1b03b4b2d0022ab9}{AlignAxes}}();}
+\DoxyCodeLine{00194\ }
+\DoxyCodeLine{00200\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_polybezier_a4cac596cafff90f1f042597cd49c847e}{UpdateLinkedPatches}}();}
+\DoxyCodeLine{00201\ }
+\DoxyCodeLine{00202\ \ \ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<VecNT<Vec3d,\ 3>}}>\ \mbox{\hyperlink{classnetdem_1_1_polybezier_a46646e4585e2a687551464588c511b72}{mat\_du\_list}},\ \mbox{\hyperlink{classnetdem_1_1_polybezier_aa9f12be6f733b7aa8294b68b8dd77614}{mat\_dv\_list}};}
+\DoxyCodeLine{00203\ }
+\DoxyCodeLine{00209\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_polybezier_addb736c4de06bea2325c1d4779730f83}{UpdataMatDuDv}}();}
+\DoxyCodeLine{00210\ }
+\DoxyCodeLine{00221\ \ \ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ \mbox{\hyperlink{classnetdem_1_1_polybezier_a42f7ff3eacffe3dbe5a86e8626033a0d}{GetEdgeKnot}}(\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ \textcolor{keyword}{const}\ \&v0,\ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ \textcolor{keyword}{const}\ \&v1,\ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ \textcolor{keyword}{const}\ \&n01);}
+\DoxyCodeLine{00222\ }
+\DoxyCodeLine{00232\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_polybezier_a77bdfffbd741628fb3a69d3f5122e214}{GetUniqueEdges}}(\mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<Vec2i>}}\ *\textcolor{keyword}{const}\ edges,}
+\DoxyCodeLine{00233\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<Vec3i>}}\ *\textcolor{keyword}{const}\ \mbox{\hyperlink{namespacenetdem_a3d1c9a57f81d32e05adbb87079c38501a9a735ec7821ddf983286f9983036013a}{linked\_list}},}
+\DoxyCodeLine{00234\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classnetdem_1_1_s_t_l_model}{STLModel}}\ \textcolor{keyword}{const}\ \&stl\_model);}
+\DoxyCodeLine{00235\ }
+\DoxyCodeLine{00246\ \ \ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ \mbox{\hyperlink{classnetdem_1_1_polybezier_acde47579bdd056b569604569b81ef000}{GetPatchNormal}}(\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ \textcolor{keyword}{const}\ \&v0,\ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ \textcolor{keyword}{const}\ \&v1,\ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ \textcolor{keyword}{const}\ \&v2);}
+\DoxyCodeLine{00247\ }
+\DoxyCodeLine{00255\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_polybezier_adba0889fada0b0d20ec9fe7a7682d3c0}{SortNormalPatchVertices}}(\mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<Vec3d>}}\ *\textcolor{keyword}{const}\ normals);}
+\DoxyCodeLine{00256\ }
+\DoxyCodeLine{00265\ \ \ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<Vec3d>}}\ \mbox{\hyperlink{classnetdem_1_1_polybezier_a3ab4b99c6d1ae4f41d8c2c15eecbaca1}{GetCartesianProject}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<Vec3d>}}\ \&normals);}
+\DoxyCodeLine{00266\ }
+\DoxyCodeLine{00276\ \ \ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<Vec3d>}}\ \mbox{\hyperlink{classnetdem_1_1_polybezier_a3ab4b99c6d1ae4f41d8c2c15eecbaca1}{GetCartesianProject}}(\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ \textcolor{keyword}{const}\ \&v1,\ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ \textcolor{keyword}{const}\ \&v2);}
+\DoxyCodeLine{00277\ }
+\DoxyCodeLine{00287\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classnetdem_1_1_polybezier_aff7a0c108638e4e8e3c49eead1714c09}{ContainCorner}}(\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ \textcolor{keyword}{const}\ \&corner,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<Vec3d>}}\ \&normals);}
+\DoxyCodeLine{00288\ }
+\DoxyCodeLine{00298\ \ \ \mbox{\hyperlink{classnetdem_1_1_s_t_l_model}{STLModel}}\ \mbox{\hyperlink{classnetdem_1_1_polybezier_a063a225810a381792101b8605365cb48}{GetSTLModel}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<Vec3d>}}\ \&knots,\ \textcolor{keywordtype}{int}\ num\_facets\_each);}
+\DoxyCodeLine{00299\ }
+\DoxyCodeLine{00308\ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classnetdem_1_1_polybezier_acbf99d22498a667b5176ef4aed36e18c}{GetSupportPatchID}}(\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ \textcolor{keyword}{const}\ \&dir);}
+\DoxyCodeLine{00309\ \};}
+\DoxyCodeLine{00310\ }
+\DoxyCodeLine{00311\ \}\ \textcolor{comment}{//\ namespace\ netdem}}
 
 \end{DoxyCode}

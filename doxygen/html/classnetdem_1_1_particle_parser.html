@@ -96,19 +96,26 @@ $(document).ready(function(){initNavTree('classnetdem_1_1_particle_parser.html',
 </div><!--header-->
 <div class="contents">
 
+<p>A class for converting between <a class="el" href="classnetdem_1_1_particle.html">Particle</a> objects and <a class="el" href="structnetdem_1_1_particle_data.html" title="A struct defining the particle data for MPI communication.">ParticleData</a> structs.  
+ <a href="classnetdem_1_1_particle_parser.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="particle__parser_8hpp_source.html">particle_parser.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a6d867a6e3e041ab2eec0fe771593b157"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnetdem_1_1_particle_parser.html#a6d867a6e3e041ab2eec0fe771593b157">ClassToStruct</a> (const <a class="el" href="classnetdem_1_1_particle.html">Particle</a> *const p_class, <a class="el" href="structnetdem_1_1_particle_data.html">ParticleData</a> *const p_struct)</td></tr>
+<tr class="memdesc:a6d867a6e3e041ab2eec0fe771593b157"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a <a class="el" href="classnetdem_1_1_particle.html">Particle</a> object to a <a class="el" href="structnetdem_1_1_particle_data.html" title="A struct defining the particle data for MPI communication.">ParticleData</a> struct.  <br /></td></tr>
 <tr class="separator:a6d867a6e3e041ab2eec0fe771593b157"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2c7183113072e8282e341f01ede27e64"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnetdem_1_1_particle_parser.html#a2c7183113072e8282e341f01ede27e64">StructToClass</a> (<a class="el" href="classnetdem_1_1_particle.html">Particle</a> *const p_class, const <a class="el" href="structnetdem_1_1_particle_data.html">ParticleData</a> *const p_struct, const std::unordered_map&lt; int, <a class="el" href="classnetdem_1_1_shape.html">Shape</a> * &gt; &amp;shape_map)</td></tr>
+<tr class="memdesc:a2c7183113072e8282e341f01ede27e64"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a <a class="el" href="structnetdem_1_1_particle_data.html" title="A struct defining the particle data for MPI communication.">ParticleData</a> struct to a <a class="el" href="classnetdem_1_1_particle.html">Particle</a> object.  <br /></td></tr>
 <tr class="separator:a2c7183113072e8282e341f01ede27e64"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a93b2b42435a1f15347e4778198e2c062"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnetdem_1_1_particle_parser.html#a93b2b42435a1f15347e4778198e2c062">DefineMPIDataType</a> (MPI_Datatype *const datatype)</td></tr>
+<tr class="memdesc:a93b2b42435a1f15347e4778198e2c062"><td class="mdescLeft">&#160;</td><td class="mdescRight">Defines an MPI datatype for the <a class="el" href="structnetdem_1_1_particle_data.html" title="A struct defining the particle data for MPI communication.">ParticleData</a> struct.  <br /></td></tr>
 <tr class="separator:a93b2b42435a1f15347e4778198e2c062"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>convert particle class from/to particle data struct </p>
+<div class="textblock"><p>A class for converting between <a class="el" href="classnetdem_1_1_particle.html">Particle</a> objects and <a class="el" href="structnetdem_1_1_particle_data.html" title="A struct defining the particle data for MPI communication.">ParticleData</a> structs. </p>
+<p>The <a class="el" href="classnetdem_1_1_particle_parser.html" title="A class for converting between Particle objects and ParticleData structs.">ParticleParser</a> class provides methods for converting between <a class="el" href="classnetdem_1_1_particle.html">Particle</a> objects and <a class="el" href="structnetdem_1_1_particle_data.html" title="A struct defining the particle data for MPI communication.">ParticleData</a> structs, which are used for communication between MPI processes in the Peridigm code. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a6d867a6e3e041ab2eec0fe771593b157" name="a6d867a6e3e041ab2eec0fe771593b157"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a6d867a6e3e041ab2eec0fe771593b157">&#9670;&#160;</a></span>ClassToStruct()</h2>
@@ -144,6 +151,16 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Converts a <a class="el" href="classnetdem_1_1_particle.html">Particle</a> object to a <a class="el" href="structnetdem_1_1_particle_data.html" title="A struct defining the particle data for MPI communication.">ParticleData</a> struct. </p>
+<p>This static method converts a <a class="el" href="classnetdem_1_1_particle.html">Particle</a> object to a <a class="el" href="structnetdem_1_1_particle_data.html" title="A struct defining the particle data for MPI communication.">ParticleData</a> struct, which can be used for communication between MPI processes.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p_class</td><td>The <a class="el" href="classnetdem_1_1_particle.html">Particle</a> object to convert. </td></tr>
+    <tr><td class="paramname">p_struct</td><td>The <a class="el" href="structnetdem_1_1_particle_data.html" title="A struct defining the particle data for MPI communication.">ParticleData</a> struct to store the converted data in. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a93b2b42435a1f15347e4778198e2c062" name="a93b2b42435a1f15347e4778198e2c062"></a>
@@ -169,6 +186,15 @@ Static Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Defines an MPI datatype for the <a class="el" href="structnetdem_1_1_particle_data.html" title="A struct defining the particle data for MPI communication.">ParticleData</a> struct. </p>
+<p>This static method defines an MPI datatype for the <a class="el" href="structnetdem_1_1_particle_data.html" title="A struct defining the particle data for MPI communication.">ParticleData</a> struct, allowing it to be used in MPI communication between processes.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">datatype</td><td>The MPI_Datatype to define. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -211,6 +237,17 @@ Static Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Converts a <a class="el" href="structnetdem_1_1_particle_data.html" title="A struct defining the particle data for MPI communication.">ParticleData</a> struct to a <a class="el" href="classnetdem_1_1_particle.html">Particle</a> object. </p>
+<p>This static method converts a <a class="el" href="structnetdem_1_1_particle_data.html" title="A struct defining the particle data for MPI communication.">ParticleData</a> struct to a <a class="el" href="classnetdem_1_1_particle.html">Particle</a> object, using additional input data such as shape maps, etc.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p_class</td><td>The <a class="el" href="classnetdem_1_1_particle.html">Particle</a> object to store the converted data in. </td></tr>
+    <tr><td class="paramname">p_struct</td><td>The <a class="el" href="structnetdem_1_1_particle_data.html" title="A struct defining the particle data for MPI communication.">ParticleData</a> struct to convert. </td></tr>
+    <tr><td class="paramname">shape_map</td><td>The unordered_map&lt;int, Shape *&gt; containing shape information for the particles. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

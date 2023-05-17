@@ -14,21 +14,21 @@ Inheritance diagram for netdem\+::Domain\+Splittor\+:\begin{figure}[H]
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{classnetdem_1_1_domain_splittor_aa62991599f31729bd9ca0f4301d3a59d}{Domain\+Splittor}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Default constructor. \end{DoxyCompactList}\item 
 virtual void \mbox{\hyperlink{classnetdem_1_1_domain_splittor_aabaa026de081bf2d3343fa842c273bf1}{Init\+From\+STL}} (std\+::string const \&stl\+\_\+file, int num\+\_\+ele\+\_\+each)
-\item 
+\begin{DoxyCompactList}\small\item\em Initializes the domain splitter from an STL file. \end{DoxyCompactList}\item 
 virtual void \mbox{\hyperlink{classnetdem_1_1_domain_splittor_aa0bbe9fe7be68315852126760ef83b0a}{Init\+From\+STL}} (\mbox{\hyperlink{classnetdem_1_1_s_t_l_model}{STLModel}} const \&stl\+\_\+model, int num\+\_\+ele\+\_\+each)=0
-\item 
+\begin{DoxyCompactList}\small\item\em Initializes the domain splitter from an STL model. \end{DoxyCompactList}\item 
 virtual void \mbox{\hyperlink{classnetdem_1_1_domain_splittor_a86f4019d1788b69202c0b8568cf7193d}{Get\+Peri\+Digm\+Nodes}} (\mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $>$ $\ast$const nodes, \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ double $>$ $\ast$const node\+\_\+vols)=0
-\item 
+\begin{DoxyCompactList}\small\item\em Gets the nodes and volumes of the discretized domain. \end{DoxyCompactList}\item 
 virtual void \mbox{\hyperlink{classnetdem_1_1_domain_splittor_a4390d9703fe1a8dd4f6be50efd0a8bd3}{Make\+Porosity}} (double porosity)=0
-\item 
+\begin{DoxyCompactList}\small\item\em Modifies the domain by adding porosity. \end{DoxyCompactList}\item 
 virtual \mbox{\hyperlink{classnetdem_1_1_s_t_l_model}{STLModel}} \mbox{\hyperlink{classnetdem_1_1_domain_splittor_a0686970592def7648d9471778e3ede01}{Get\+STLModel}} ()=0
-\item 
+\begin{DoxyCompactList}\small\item\em Gets the STL model corresponding to the discretized domain. \end{DoxyCompactList}\item 
 virtual \mbox{\hyperlink{classnetdem_1_1_s_t_l_model}{STLModel}} \mbox{\hyperlink{classnetdem_1_1_domain_splittor_a66ac0e3e22e1625b32c4a2164e47d720}{Get\+STLModel}} (const \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ int $>$ \&indices)=0
-\item 
+\begin{DoxyCompactList}\small\item\em Gets the STL model corresponding to a subset of the discretized domain. \end{DoxyCompactList}\item 
 virtual \mbox{\hyperlink{classnetdem_1_1_domain_splittor_a08979bad05b0e41c54fe369e500c81d1}{$\sim$\+Domain\+Splittor}} ()
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Virtual destructor. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Constructor \& Destructor Documentation}
@@ -38,11 +38,19 @@ virtual \mbox{\hyperlink{classnetdem_1_1_domain_splittor_a08979bad05b0e41c54fe36
 \doxysubsubsection{\texorpdfstring{DomainSplittor()}{DomainSplittor()}}
 {\footnotesize\ttfamily netdem\+::\+Domain\+Splittor\+::\+Domain\+Splittor (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
+
+
+Default constructor. 
+
 \mbox{\Hypertarget{classnetdem_1_1_domain_splittor_a08979bad05b0e41c54fe369e500c81d1}\label{classnetdem_1_1_domain_splittor_a08979bad05b0e41c54fe369e500c81d1}} 
 \index{netdem::DomainSplittor@{netdem::DomainSplittor}!````~DomainSplittor@{$\sim$DomainSplittor}}
 \index{````~DomainSplittor@{$\sim$DomainSplittor}!netdem::DomainSplittor@{netdem::DomainSplittor}}
 \doxysubsubsection{\texorpdfstring{$\sim$DomainSplittor()}{~DomainSplittor()}}
 {\footnotesize\ttfamily virtual netdem\+::\+Domain\+Splittor\+::$\sim$\+Domain\+Splittor (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Virtual destructor. 
 
 
 
@@ -55,6 +63,19 @@ virtual \mbox{\hyperlink{classnetdem_1_1_domain_splittor_a08979bad05b0e41c54fe36
 
 
 
+Gets the nodes and volumes of the discretized domain. 
+
+This method populates the given arrays with the positions of the nodes and the volumes of the elements in the discretized domain.
+
+
+\begin{DoxyParams}{Parameters}
+{\em nodes} & A pointer to an array of Vec3d objects to fill with node positions. \\
+\hline
+{\em node\+\_\+vols} & A pointer to an array of doubles to fill with element volumes. \\
+\hline
+\end{DoxyParams}
+
+
 Implemented in \mbox{\hyperlink{classnetdem_1_1_level_set_splittor_a2e355868dc806a9879354ad291039549}{netdem\+::\+Level\+Set\+Splittor}}, and \mbox{\hyperlink{classnetdem_1_1_tet_mesh_splittor_aaf3440a521933126ad78129b9f47836d}{netdem\+::\+Tet\+Mesh\+Splittor}}.
 
 \mbox{\Hypertarget{classnetdem_1_1_domain_splittor_a0686970592def7648d9471778e3ede01}\label{classnetdem_1_1_domain_splittor_a0686970592def7648d9471778e3ede01}} 
@@ -63,6 +84,15 @@ Implemented in \mbox{\hyperlink{classnetdem_1_1_level_set_splittor_a2e355868dc80
 \doxysubsubsection{\texorpdfstring{GetSTLModel()}{GetSTLModel()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily virtual \mbox{\hyperlink{classnetdem_1_1_s_t_l_model}{STLModel}} netdem\+::\+Domain\+Splittor\+::\+Get\+STLModel (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
 
+
+
+Gets the STL model corresponding to the discretized domain. 
+
+This method returns an STL model representing the discretized domain.
+
+\begin{DoxyReturn}{Returns}
+An \mbox{\hyperlink{classnetdem_1_1_s_t_l_model}{STLModel}} object representing the discretized domain. 
+\end{DoxyReturn}
 
 
 Implemented in \mbox{\hyperlink{classnetdem_1_1_level_set_splittor_a1119c4b39c5b3705ccb98e8d9dfa4f8c}{netdem\+::\+Level\+Set\+Splittor}}, and \mbox{\hyperlink{classnetdem_1_1_tet_mesh_splittor_a49bd332694655c2edb798f87866aed9e}{netdem\+::\+Tet\+Mesh\+Splittor}}.
@@ -75,6 +105,20 @@ Implemented in \mbox{\hyperlink{classnetdem_1_1_level_set_splittor_a1119c4b39c5b
 
 
 
+Gets the STL model corresponding to a subset of the discretized domain. 
+
+This method returns an STL model representing a subset of the discretized domain defined by the given indices.
+
+
+\begin{DoxyParams}{Parameters}
+{\em indices} & A Vec\+XT$<$int$>$ object containing the indices of the subset of elements to include in the STL model. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An \mbox{\hyperlink{classnetdem_1_1_s_t_l_model}{STLModel}} object representing the subset of the discretized domain. 
+\end{DoxyReturn}
+
+
 Implemented in \mbox{\hyperlink{classnetdem_1_1_level_set_splittor_ae179a5867a849bc26e5164a150ca89ab}{netdem\+::\+Level\+Set\+Splittor}}, and \mbox{\hyperlink{classnetdem_1_1_tet_mesh_splittor_a94bbc8c858cd872a592902ce36e8c503}{netdem\+::\+Tet\+Mesh\+Splittor}}.
 
 \mbox{\Hypertarget{classnetdem_1_1_domain_splittor_aabaa026de081bf2d3343fa842c273bf1}\label{classnetdem_1_1_domain_splittor_aabaa026de081bf2d3343fa842c273bf1}} 
@@ -83,12 +127,38 @@ Implemented in \mbox{\hyperlink{classnetdem_1_1_level_set_splittor_ae179a5867a84
 \doxysubsubsection{\texorpdfstring{InitFromSTL()}{InitFromSTL()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily virtual void netdem\+::\+Domain\+Splittor\+::\+Init\+From\+STL (\begin{DoxyParamCaption}\item[{std\+::string const \&}]{stl\+\_\+file,  }\item[{int}]{num\+\_\+ele\+\_\+each }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
 
+
+
+Initializes the domain splitter from an STL file. 
+
+This method loads an STL file and initializes the domain splitter using the corresponding STL model.
+
+
+\begin{DoxyParams}{Parameters}
+{\em stl\+\_\+file} & The path to the STL file to load. \\
+\hline
+{\em num\+\_\+ele\+\_\+each} & The desired number of elements in each dimension of the split domain. \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{classnetdem_1_1_domain_splittor_aa0bbe9fe7be68315852126760ef83b0a}\label{classnetdem_1_1_domain_splittor_aa0bbe9fe7be68315852126760ef83b0a}} 
 \index{netdem::DomainSplittor@{netdem::DomainSplittor}!InitFromSTL@{InitFromSTL}}
 \index{InitFromSTL@{InitFromSTL}!netdem::DomainSplittor@{netdem::DomainSplittor}}
 \doxysubsubsection{\texorpdfstring{InitFromSTL()}{InitFromSTL()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
 {\footnotesize\ttfamily virtual void netdem\+::\+Domain\+Splittor\+::\+Init\+From\+STL (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_s_t_l_model}{STLModel}} const \&}]{stl\+\_\+model,  }\item[{int}]{num\+\_\+ele\+\_\+each }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
 
+
+
+Initializes the domain splitter from an STL model. 
+
+This method initializes the domain splitter using the given STL model.
+
+
+\begin{DoxyParams}{Parameters}
+{\em stl\+\_\+model} & The STL model to use as the domain. \\
+\hline
+{\em num\+\_\+ele\+\_\+each} & The desired number of elements in each dimension of the split domain. \\
+\hline
+\end{DoxyParams}
 
 
 Implemented in \mbox{\hyperlink{classnetdem_1_1_level_set_splittor_a42352e0d80cb9e16edd206b7dad32fcf}{netdem\+::\+Level\+Set\+Splittor}}, and \mbox{\hyperlink{classnetdem_1_1_tet_mesh_splittor_a9661af9fc5f1fdaed9bca228d9c7bcec}{netdem\+::\+Tet\+Mesh\+Splittor}}.
@@ -99,6 +169,17 @@ Implemented in \mbox{\hyperlink{classnetdem_1_1_level_set_splittor_a42352e0d80cb
 \doxysubsubsection{\texorpdfstring{MakePorosity()}{MakePorosity()}}
 {\footnotesize\ttfamily virtual void netdem\+::\+Domain\+Splittor\+::\+Make\+Porosity (\begin{DoxyParamCaption}\item[{double}]{porosity }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
 
+
+
+Modifies the domain by adding porosity. 
+
+This method modifies the discretized domain by randomly removing elements from it, according to the given porosity value.
+
+
+\begin{DoxyParams}{Parameters}
+{\em porosity} & The desired porosity of the modified domain. \\
+\hline
+\end{DoxyParams}
 
 
 Implemented in \mbox{\hyperlink{classnetdem_1_1_level_set_splittor_a3444ff62140ca1dbf9d4f6ed8fed9053}{netdem\+::\+Level\+Set\+Splittor}}, and \mbox{\hyperlink{classnetdem_1_1_tet_mesh_splittor_a2fac48673c239d924175d29361ef0500}{netdem\+::\+Tet\+Mesh\+Splittor}}.
