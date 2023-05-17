@@ -10,54 +10,59 @@
 \DoxyCodeLine{00006\ }
 \DoxyCodeLine{00007\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacenetdem}{netdem}}\ \{}
 \DoxyCodeLine{00008\ }
-\DoxyCodeLine{00009\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classnetdem_1_1_deformable_particle}{DeformableParticle}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classnetdem_1_1_particle}{Particle}}\ \{}
-\DoxyCodeLine{00010\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00011\ \ \ \textcolor{comment}{//\ shape}}
-\DoxyCodeLine{00012\ \ \ \mbox{\hyperlink{classnetdem_1_1_tri_mesh}{TriMesh}}\ *\mbox{\hyperlink{classnetdem_1_1_deformable_particle_a60bdd11588944a909ef3981b8936a450}{trimesh}}\{\textcolor{keyword}{nullptr}\};}
-\DoxyCodeLine{00013\ }
-\DoxyCodeLine{00014\ \ \ \textcolor{comment}{//\ fem}}
-\DoxyCodeLine{00015\ \ \ \mbox{\hyperlink{classnetdem_1_1_tet_mesh}{TetMesh}}\ \mbox{\hyperlink{classnetdem_1_1_deformable_particle_a68c59e4be9e4faa9eff41c177ccf9c03}{tetmesh}};}
-\DoxyCodeLine{00016\ \ \ \mbox{\hyperlink{classnetdem_1_1_f_e_m_simulator}{FEMSimulator}}\ \mbox{\hyperlink{classnetdem_1_1_deformable_particle_ad36ab5d51fbd4a0f3d39bf68a990d47c}{fem\_simulator}};}
-\DoxyCodeLine{00017\ }
-\DoxyCodeLine{00018\ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classnetdem_1_1_deformable_particle_a7566506d77cdf2a5af1445f6db652334}{mesh\_res}}\{20\};}
-\DoxyCodeLine{00019\ }
-\DoxyCodeLine{00020\ \ \ \textcolor{comment}{//\ constructor}}
-\DoxyCodeLine{00021\ \ \ \mbox{\hyperlink{classnetdem_1_1_deformable_particle_af40a945808dadd62c43f93078fe97e48}{DeformableParticle}}();}
-\DoxyCodeLine{00022\ }
-\DoxyCodeLine{00023\ \ \ \mbox{\hyperlink{classnetdem_1_1_particle}{Particle}}\ *\mbox{\hyperlink{classnetdem_1_1_deformable_particle_aa09b1a0027e1bc32338473236d2bed5f}{Clone}}()\ \textcolor{keyword}{const\ override};}
-\DoxyCodeLine{00024\ }
-\DoxyCodeLine{00025\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_deformable_particle_a5ee92016b8d861281eadaf84695a911d}{SetShape}}(\mbox{\hyperlink{classnetdem_1_1_shape}{Shape}}\ *s)\ \textcolor{keyword}{override};}
-\DoxyCodeLine{00026\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_deformable_particle_a7023f5af76ec009d53265bfc6952a77b}{SetDensity}}(\textcolor{keywordtype}{double}\ dens)\ \textcolor{keyword}{override};}
-\DoxyCodeLine{00027\ }
-\DoxyCodeLine{00028\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_deformable_particle_a38232575e125e7304d82e288734b6a23}{SetPosition}}(\textcolor{keywordtype}{double}\ x,\ \textcolor{keywordtype}{double}\ y,\ \textcolor{keywordtype}{double}\ z)\ \textcolor{keyword}{override};}
-\DoxyCodeLine{00029\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_deformable_particle_a3745ad3431a0ee912b055b9d66ae3f70}{SetRodrigues}}(\textcolor{keywordtype}{double}\ angle,\ \textcolor{keywordtype}{double}\ axis\_x,\ \textcolor{keywordtype}{double}\ axis\_y,}
-\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ axis\_z)\ \textcolor{keyword}{override};}
-\DoxyCodeLine{00031\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_deformable_particle_ae7e8179351846286c9462134be8caa46}{SetQuaternion}}(\textcolor{keywordtype}{double}\ q\_0,\ \textcolor{keywordtype}{double}\ q\_1,\ \textcolor{keywordtype}{double}\ q\_2,\ \textcolor{keywordtype}{double}\ q\_3)\ \textcolor{keyword}{override};}
-\DoxyCodeLine{00032\ }
-\DoxyCodeLine{00033\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_deformable_particle_a208f8160ae055cb97ce851b2ace9fefb}{SetVelocity}}(\textcolor{keywordtype}{double}\ v\_x,\ \textcolor{keywordtype}{double}\ v\_y,\ \textcolor{keywordtype}{double}\ v\_z)\ \textcolor{keyword}{override};}
-\DoxyCodeLine{00034\ }
-\DoxyCodeLine{00035\ \ \ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ \mbox{\hyperlink{classnetdem_1_1_deformable_particle_a56ea9463633d0d0cf858d134256ce304}{GetVelocity}}(\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ \textcolor{keyword}{const}\ \&\mbox{\hyperlink{classnetdem_1_1_particle_a99a725063b17af58b5abda99dc935dd9}{pos}})\ \textcolor{keyword}{override};}
-\DoxyCodeLine{00036\ }
-\DoxyCodeLine{00037\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_deformable_particle_ad119daee07ad91b901b7d41817189ed4}{AddForce}}(\textcolor{keywordtype}{int}\ node\_id,\ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ \textcolor{keyword}{const}\ \&f);}
-\DoxyCodeLine{00038\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_deformable_particle_a41df46b2a3ba9cf0e646206007072936}{ClearForce}}()\ \textcolor{keyword}{override};}
-\DoxyCodeLine{00039\ }
-\DoxyCodeLine{00040\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_deformable_particle_a46a937860e9d9e0ac8e25886c8d66053}{ApplyContactForce}}(\mbox{\hyperlink{classnetdem_1_1_contact_p_p}{ContactPP}}\ \textcolor{keyword}{const}\ *cnt)\ \textcolor{keyword}{override};}
-\DoxyCodeLine{00041\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_deformable_particle_a46a937860e9d9e0ac8e25886c8d66053}{ApplyContactForce}}(\mbox{\hyperlink{classnetdem_1_1_contact_p_w}{ContactPW}}\ \textcolor{keyword}{const}\ *cnt)\ \textcolor{keyword}{override};}
-\DoxyCodeLine{00042\ }
-\DoxyCodeLine{00043\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_deformable_particle_a4cd11ccb26fc06a51a1f0928252deaaf}{UpdateMotion}}(\textcolor{keywordtype}{double}\ dt)\ \textcolor{keyword}{override};}
-\DoxyCodeLine{00044\ }
-\DoxyCodeLine{00045\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_deformable_particle_af15278f7b1950663ac697fcc0232fd33}{UpdateShape}}();}
-\DoxyCodeLine{00046\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_deformable_particle_a9d1ce0d8506a15bd10de786aea53b584}{UpdateBound}}()\ \textcolor{keyword}{override};}
-\DoxyCodeLine{00047\ }
-\DoxyCodeLine{00048\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_deformable_particle_ac4d47fe1ba95931922cbbd2beb48fa26}{SaveSurfaceAsVTK}}(std::string\ \textcolor{keyword}{const}\ \&filename);}
-\DoxyCodeLine{00049\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_deformable_particle_aaa3fe30e53372abc97acfe2e97f3ed0b}{SaveAsVTK}}(std::string\ \textcolor{keyword}{const}\ \&filename)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00017\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classnetdem_1_1_deformable_particle}{DeformableParticle}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classnetdem_1_1_particle}{Particle}}\ \{}
+\DoxyCodeLine{00018\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00019\ \ \ \mbox{\hyperlink{classnetdem_1_1_tri_mesh}{TriMesh}}*\ \mbox{\hyperlink{classnetdem_1_1_deformable_particle_a60bdd11588944a909ef3981b8936a450}{trimesh}}\{\textcolor{keyword}{nullptr}\};\ }
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \ \ \mbox{\hyperlink{classnetdem_1_1_tet_mesh}{TetMesh}}\ \mbox{\hyperlink{classnetdem_1_1_deformable_particle_a68c59e4be9e4faa9eff41c177ccf9c03}{tetmesh}};\ }
+\DoxyCodeLine{00022\ \ \ \mbox{\hyperlink{classnetdem_1_1_f_e_m_simulator}{FEMSimulator}}\ \mbox{\hyperlink{classnetdem_1_1_deformable_particle_ad36ab5d51fbd4a0f3d39bf68a990d47c}{fem\_simulator}};\ }
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classnetdem_1_1_deformable_particle_a7566506d77cdf2a5af1445f6db652334}{mesh\_res}}\{20\};\ }
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00029\ \ \ \mbox{\hyperlink{classnetdem_1_1_deformable_particle_af40a945808dadd62c43f93078fe97e48}{DeformableParticle}}();}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00039\ \ \ \mbox{\hyperlink{classnetdem_1_1_particle}{Particle}}*\ \mbox{\hyperlink{classnetdem_1_1_deformable_particle_aa09b1a0027e1bc32338473236d2bed5f}{Clone}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00049\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_deformable_particle_a5ee92016b8d861281eadaf84695a911d}{SetShape}}(\mbox{\hyperlink{classnetdem_1_1_shape}{Shape}}*\ s)\ \textcolor{keyword}{override};}
 \DoxyCodeLine{00050\ }
-\DoxyCodeLine{00051\ \ \ \mbox{\hyperlink{classnetdem_1_1_deformable_particle_a862152a352c08319d7d0a16c48343be2}{\string~DeformableParticle}}()\ \textcolor{keyword}{override};}
-\DoxyCodeLine{00052\ }
-\DoxyCodeLine{00053\ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00054\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_deformable_particle_aed874fd9917626167596b85d0edfc7e7}{InitFEMSimulator}}();}
-\DoxyCodeLine{00055\ \};}
-\DoxyCodeLine{00056\ }
-\DoxyCodeLine{00057\ \}\ \textcolor{comment}{//\ namespace\ netdem}}
+\DoxyCodeLine{00059\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_deformable_particle_a7023f5af76ec009d53265bfc6952a77b}{SetDensity}}(\textcolor{keywordtype}{double}\ dens)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00071\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_deformable_particle_a38232575e125e7304d82e288734b6a23}{SetPosition}}(\textcolor{keywordtype}{double}\ x,\ \textcolor{keywordtype}{double}\ y,\ \textcolor{keywordtype}{double}\ z)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00084\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_deformable_particle_a3745ad3431a0ee912b055b9d66ae3f70}{SetRodrigues}}(\textcolor{keywordtype}{double}\ angle,\ \textcolor{keywordtype}{double}\ axis\_x,\ \textcolor{keywordtype}{double}\ axis\_y,}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ axis\_z)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00098\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_deformable_particle_ae7e8179351846286c9462134be8caa46}{SetQuaternion}}(\textcolor{keywordtype}{double}\ q\_0,\ \textcolor{keywordtype}{double}\ q\_1,\ \textcolor{keywordtype}{double}\ q\_2,\ \textcolor{keywordtype}{double}\ q\_3)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00110\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_deformable_particle_a208f8160ae055cb97ce851b2ace9fefb}{SetVelocity}}(\textcolor{keywordtype}{double}\ v\_x,\ \textcolor{keywordtype}{double}\ v\_y,\ \textcolor{keywordtype}{double}\ v\_z)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00111\ }
+\DoxyCodeLine{00121\ \ \ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ \mbox{\hyperlink{classnetdem_1_1_deformable_particle_a56ea9463633d0d0cf858d134256ce304}{GetVelocity}}(\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ \textcolor{keyword}{const}\&\ \mbox{\hyperlink{classnetdem_1_1_particle_a99a725063b17af58b5abda99dc935dd9}{pos}})\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00122\ }
+\DoxyCodeLine{00131\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_deformable_particle_ad119daee07ad91b901b7d41817189ed4}{AddForce}}(\textcolor{keywordtype}{int}\ node\_id,\ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ \textcolor{keyword}{const}\&\ f);}
+\DoxyCodeLine{00132\ }
+\DoxyCodeLine{00139\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_deformable_particle_a41df46b2a3ba9cf0e646206007072936}{ClearForce}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00140\ }
+\DoxyCodeLine{00149\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_deformable_particle_a46a937860e9d9e0ac8e25886c8d66053}{ApplyContactForce}}(\mbox{\hyperlink{classnetdem_1_1_contact_p_p}{ContactPP}}\ \textcolor{keyword}{const}*\ cnt)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00150\ }
+\DoxyCodeLine{00159\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_deformable_particle_a46a937860e9d9e0ac8e25886c8d66053}{ApplyContactForce}}(\mbox{\hyperlink{classnetdem_1_1_contact_p_w}{ContactPW}}\ \textcolor{keyword}{const}*\ cnt)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00160\ }
+\DoxyCodeLine{00169\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_deformable_particle_a4cd11ccb26fc06a51a1f0928252deaaf}{UpdateMotion}}(\textcolor{keywordtype}{double}\ dt)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00170\ }
+\DoxyCodeLine{00177\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_deformable_particle_af15278f7b1950663ac697fcc0232fd33}{UpdateShape}}();}
+\DoxyCodeLine{00178\ }
+\DoxyCodeLine{00185\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_deformable_particle_a9d1ce0d8506a15bd10de786aea53b584}{UpdateBound}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00186\ }
+\DoxyCodeLine{00194\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_deformable_particle_ac4d47fe1ba95931922cbbd2beb48fa26}{SaveSurfaceAsVTK}}(std::string\ \textcolor{keyword}{const}\&\ filename);}
+\DoxyCodeLine{00195\ }
+\DoxyCodeLine{00204\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_deformable_particle_aaa3fe30e53372abc97acfe2e97f3ed0b}{SaveAsVTK}}(std::string\ \textcolor{keyword}{const}\&\ filename)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00205\ }
+\DoxyCodeLine{00209\ \ \ \mbox{\hyperlink{classnetdem_1_1_deformable_particle_a862152a352c08319d7d0a16c48343be2}{\string~DeformableParticle}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00210\ }
+\DoxyCodeLine{00211\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00219\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_deformable_particle_aed874fd9917626167596b85d0edfc7e7}{InitFEMSimulator}}();}
+\DoxyCodeLine{00220\ \};}
+\DoxyCodeLine{00221\ }
+\DoxyCodeLine{00222\ \}\ \textcolor{comment}{//\ namespace\ netdem}}
 
 \end{DoxyCode}

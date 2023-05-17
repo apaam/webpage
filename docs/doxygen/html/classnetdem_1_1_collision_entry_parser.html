@@ -96,18 +96,27 @@ $(document).ready(function(){initNavTree('classnetdem_1_1_collision_entry_parser
 </div><!--header-->
 <div class="contents">
 
+<p>A class that provides functions to convert collision entry data between a class and a struct format.  
+ <a href="classnetdem_1_1_collision_entry_parser.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="collision__entry__parser_8hpp_source.html">collision_entry_parser.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a1f2c344eaa81605610b917c8124f3454"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnetdem_1_1_collision_entry_parser.html#a1f2c344eaa81605610b917c8124f3454">ClassToStruct</a> (const <a class="el" href="classnetdem_1_1_collision_entry.html">CollisionEntry</a> *const entry_class, <a class="el" href="structnetdem_1_1_collision_entry_data.html">CollisionEntryData</a> *const entry_struct)</td></tr>
+<tr class="memdesc:a1f2c344eaa81605610b917c8124f3454"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts collision entry data from a class to a struct format.  <br /></td></tr>
 <tr class="separator:a1f2c344eaa81605610b917c8124f3454"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a83c75dee9fd2fb4c33f3422f771969cc"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnetdem_1_1_collision_entry_parser.html#a83c75dee9fd2fb4c33f3422f771969cc">StructToClass</a> (<a class="el" href="classnetdem_1_1_collision_entry.html">CollisionEntry</a> *const entry_class, const <a class="el" href="structnetdem_1_1_collision_entry_data.html">CollisionEntryData</a> *const entry_struct, const <a class="el" href="classnetdem_1_1_mini_map.html">MiniMap</a>&lt; int, <a class="el" href="classnetdem_1_1_contact_model.html">ContactModel</a> * &gt; &amp;contact_model_map)</td></tr>
+<tr class="memdesc:a83c75dee9fd2fb4c33f3422f771969cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts collision entry data from a struct to a class format.  <br /></td></tr>
 <tr class="separator:a83c75dee9fd2fb4c33f3422f771969cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a51eeb73b8887b9bcf150e5f3794ea5cd"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnetdem_1_1_collision_entry_parser.html#a51eeb73b8887b9bcf150e5f3794ea5cd">DefineMPIDataType</a> (MPI_Datatype *const datatype)</td></tr>
+<tr class="memdesc:a51eeb73b8887b9bcf150e5f3794ea5cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Defines an MPI datatype for a <code><a class="el" href="structnetdem_1_1_collision_entry_data.html" title="A struct that represents data associated with a collision entry.">CollisionEntryData</a></code> struct.  <br /></td></tr>
 <tr class="separator:a51eeb73b8887b9bcf150e5f3794ea5cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>A class that provides functions to convert collision entry data between a class and a struct format. </p>
+<p>The <code><a class="el" href="classnetdem_1_1_collision_entry_parser.html" title="A class that provides functions to convert collision entry data between a class and a struct format.">CollisionEntryParser</a></code> class is used to provide functionality for converting collision entry data between a class and a struct format. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a1f2c344eaa81605610b917c8124f3454" name="a1f2c344eaa81605610b917c8124f3454"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a1f2c344eaa81605610b917c8124f3454">&#9670;&#160;</a></span>ClassToStruct()</h2>
 
@@ -142,6 +151,16 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Converts collision entry data from a class to a struct format. </p>
+<p>This function converts collision entry data from a <code><a class="el" href="classnetdem_1_1_collision_entry.html" title="A class representing a collision entry.">CollisionEntry</a></code> class format to a <code><a class="el" href="structnetdem_1_1_collision_entry_data.html" title="A struct that represents data associated with a collision entry.">CollisionEntryData</a></code> struct format.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">entry_class</td><td>A pointer to the input <code><a class="el" href="classnetdem_1_1_collision_entry.html" title="A class representing a collision entry.">CollisionEntry</a></code> class instance. </td></tr>
+    <tr><td class="paramname">entry_struct</td><td>A pointer to the output <code><a class="el" href="structnetdem_1_1_collision_entry_data.html" title="A struct that represents data associated with a collision entry.">CollisionEntryData</a></code> struct instance. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a51eeb73b8887b9bcf150e5f3794ea5cd" name="a51eeb73b8887b9bcf150e5f3794ea5cd"></a>
@@ -167,6 +186,15 @@ Static Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Defines an MPI datatype for a <code><a class="el" href="structnetdem_1_1_collision_entry_data.html" title="A struct that represents data associated with a collision entry.">CollisionEntryData</a></code> struct. </p>
+<p>This function defines an MPI datatype for a <code><a class="el" href="structnetdem_1_1_collision_entry_data.html" title="A struct that represents data associated with a collision entry.">CollisionEntryData</a></code> struct to be used in MPI communications.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">datatype</td><td>A pointer to the output datatype. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -209,6 +237,17 @@ Static Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Converts collision entry data from a struct to a class format. </p>
+<p>This function converts collision entry data from a <code><a class="el" href="structnetdem_1_1_collision_entry_data.html" title="A struct that represents data associated with a collision entry.">CollisionEntryData</a></code> struct format to a <code><a class="el" href="classnetdem_1_1_collision_entry.html" title="A class representing a collision entry.">CollisionEntry</a></code> class format.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">entry_class</td><td>A pointer to the output <code><a class="el" href="classnetdem_1_1_collision_entry.html" title="A class representing a collision entry.">CollisionEntry</a></code> class instance. </td></tr>
+    <tr><td class="paramname">entry_struct</td><td>A pointer to the input <code><a class="el" href="structnetdem_1_1_collision_entry_data.html" title="A struct that represents data associated with a collision entry.">CollisionEntryData</a></code> struct instance. </td></tr>
+    <tr><td class="paramname">contact_model_map</td><td>A map of ID-contact model pairs used for setting the correct contact model in the output <code><a class="el" href="classnetdem_1_1_collision_entry.html" title="A class representing a collision entry.">CollisionEntry</a></code> class instance. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

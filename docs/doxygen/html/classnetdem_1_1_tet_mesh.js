@@ -15,6 +15,6 @@ var classnetdem_1_1_tet_mesh =
     [ "elements", "classnetdem_1_1_tet_mesh.html#a5dd303e9bfa26bc42403dad241bb230c", null ],
     [ "nodes", "classnetdem_1_1_tet_mesh.html#a851cb634900ec65f4370559106970bfb", null ],
     [ "surface_facets", "classnetdem_1_1_tet_mesh.html#aa2baea46708bebdc706be0ad9bc20c95", null ],
-    [ "surface_node_linked_bounaries", "classnetdem_1_1_tet_mesh.html#aa962b613b3ff4b37bf2765a4e6cfae39", null ],
+    [ "surface_node_linked_boundaries", "classnetdem_1_1_tet_mesh.html#ab57de35e718c574f9eac9135205befee", null ],
     [ "surface_nodes", "classnetdem_1_1_tet_mesh.html#a5ac85d0c3b8592f598c59b4bbf1218be", null ]
 ];

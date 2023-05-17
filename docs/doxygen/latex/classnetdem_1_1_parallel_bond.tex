@@ -2,6 +2,11 @@
 \label{classnetdem_1_1_parallel_bond}\index{netdem::ParallelBond@{netdem::ParallelBond}}
 
 
+Contact model that evaluates forces and moments between two particles using parallel bond models.  
+
+
+
+
 {\ttfamily \#include $<$model\+\_\+parallel\+\_\+bond.\+hpp$>$}
 
 Inheritance diagram for netdem\+::Parallel\+Bond\+:\begin{figure}[H]
@@ -14,25 +19,25 @@ Inheritance diagram for netdem\+::Parallel\+Bond\+:\begin{figure}[H]
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{classnetdem_1_1_parallel_bond_a1081f6b8f94daa0cad8009b3f00cde97}{Parallel\+Bond}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Default constructor for \mbox{\hyperlink{classnetdem_1_1_parallel_bond}{Parallel\+Bond}}. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classnetdem_1_1_parallel_bond_a1be1c83cdc4195d0e950b44f69ef0a43}{Parallel\+Bond}} (double \mbox{\hyperlink{classnetdem_1_1_parallel_bond_ab4c058cc8545278e936311546d4c8b71}{kn}}, double \mbox{\hyperlink{classnetdem_1_1_parallel_bond_a4423055cd5983f2d661d2a0e1eba924b}{kt}}, double sig\+\_\+n, double sig\+\_\+t)
-\item 
+\begin{DoxyCompactList}\small\item\em Constructor for \mbox{\hyperlink{classnetdem_1_1_parallel_bond}{Parallel\+Bond}}. \end{DoxyCompactList}\item 
 nlohmann\+::json \mbox{\hyperlink{classnetdem_1_1_parallel_bond_a3e9d98d5d555d197f7d0160ddefdebe3}{Pack\+Json}} () override
-\begin{DoxyCompactList}\small\item\em Serialize this contact model to JSON format. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Packs the contact model properties into a JSON object. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classnetdem_1_1_parallel_bond_a5c9bb9cac18250da3645ba4df3d69af1}{Init\+From\+Json}} (nlohmann\+::json const \&js) override
-\begin{DoxyCompactList}\small\item\em Initialize this contact model from a JSON configuration object. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Initializes the contact model from a JSON object. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classnetdem_1_1_parallel_bond_afedeef8a214c03c7d89c45cb9f727297}{Set\+Property}} (nlohmann\+::json const \&js) override
-\begin{DoxyCompactList}\small\item\em Set a property of this contact model from a JSON object. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Sets the contact model properties. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classnetdem_1_1_contact_model}{Contact\+Model}} $\ast$ \mbox{\hyperlink{classnetdem_1_1_parallel_bond_a5a82aaff231747a0d2b36185b3f80834}{Clone}} () const override
-\begin{DoxyCompactList}\small\item\em Create a new instance of this contact model. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Creates a copy of this contact model. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classnetdem_1_1_parallel_bond_a9ecd8f257c99607cb7734dc9e9253498}{Set\+Radius}} (double r)
-\item 
+\begin{DoxyCompactList}\small\item\em Sets the radius for the bond geometries used by this contact model. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classnetdem_1_1_parallel_bond_a59a03213a076756dd7b357bfda18aed4}{Evaluate\+Force\+Moment}} (\mbox{\hyperlink{classnetdem_1_1_contact_forces}{Contact\+Forces}} $\ast$const cnt\+\_\+forces, \mbox{\hyperlink{classnetdem_1_1_bond_geometries}{Bond\+Geometries}} \&cnt\+\_\+geoms, \mbox{\hyperlink{classnetdem_1_1_contact_p_p}{Contact\+PP}} $\ast$const cnt, double dt) const override
-\begin{DoxyCompactList}\small\item\em Calculate the contact forces and moments due to this model. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Evaluates the forces and moments between two particles using parallel bond models. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classnetdem_1_1_parallel_bond_ad3a045c95142e5d924f1a33636ed8ba3}{Evaluate\+Force\+Moment}} (\mbox{\hyperlink{classnetdem_1_1_contact_forces}{Contact\+Forces}} $\ast$const cnt\+\_\+forces, \mbox{\hyperlink{classnetdem_1_1_bond_geometries}{Bond\+Geometries}} \&cnt\+\_\+geoms, \mbox{\hyperlink{classnetdem_1_1_contact_p_w}{Contact\+PW}} $\ast$const cnt, double dt) const override
-\begin{DoxyCompactList}\small\item\em Calculate the contact forces and moments due to this model. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Evaluates the forces and moments between a particle and a wall using parallel bond models. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classnetdem_1_1_parallel_bond_ab5c5d1dae772f5aab1e6353a01feb2c5}{Print}} () const override
-\begin{DoxyCompactList}\small\item\em Print debugging information about this contact model. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Prints the contact model properties. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Public Member Functions inherited from \mbox{\hyperlink{classnetdem_1_1_contact_model}{netdem\+::\+Contact\+Model}}}
 \begin{DoxyCompactItemize}
 \item 
@@ -64,11 +69,11 @@ virtual \mbox{\hyperlink{classnetdem_1_1_contact_model_a8cc9483a6ac756f0c3d68325
 double \mbox{\hyperlink{classnetdem_1_1_parallel_bond_ab4c058cc8545278e936311546d4c8b71}{kn}} \{2e6\}
 \item 
 double \mbox{\hyperlink{classnetdem_1_1_parallel_bond_a4423055cd5983f2d661d2a0e1eba924b}{kt}} \{1e6\}
-\item 
+\begin{DoxyCompactList}\small\item\em Stiffness parameters used to calculate contact forces. \end{DoxyCompactList}\item 
 double \mbox{\hyperlink{classnetdem_1_1_parallel_bond_ae6096390858f2fcd6cb9d01780463c6a}{max\+\_\+sig\+\_\+n}} \{1.\+0e6\}
 \item 
 double \mbox{\hyperlink{classnetdem_1_1_parallel_bond_ae8d0e1fb7ca7d71112ec5256be0b4bcd}{max\+\_\+sig\+\_\+t}} \{1.\+0e6\}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Maximum stress parameters used to calculate the maximum allowable force. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Public Attributes inherited from \mbox{\hyperlink{classnetdem_1_1_contact_model}{netdem\+::\+Contact\+Model}}}
 \begin{DoxyCompactItemize}
 \item 
@@ -95,6 +100,9 @@ enum \mbox{\hyperlink{classnetdem_1_1_contact_model_a86b4462f72dd85e2e8a55dd6844
 \end{DoxyCompactItemize}
 
 
+\doxysubsection{Detailed Description}
+Contact model that evaluates forces and moments between two particles using parallel bond models. 
+
 \doxysubsection{Constructor \& Destructor Documentation}
 \mbox{\Hypertarget{classnetdem_1_1_parallel_bond_a1081f6b8f94daa0cad8009b3f00cde97}\label{classnetdem_1_1_parallel_bond_a1081f6b8f94daa0cad8009b3f00cde97}} 
 \index{netdem::ParallelBond@{netdem::ParallelBond}!ParallelBond@{ParallelBond}}
@@ -102,12 +110,31 @@ enum \mbox{\hyperlink{classnetdem_1_1_contact_model_a86b4462f72dd85e2e8a55dd6844
 \doxysubsubsection{\texorpdfstring{ParallelBond()}{ParallelBond()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily netdem\+::\+Parallel\+Bond\+::\+Parallel\+Bond (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
+
+
+Default constructor for \mbox{\hyperlink{classnetdem_1_1_parallel_bond}{Parallel\+Bond}}. 
+
 \mbox{\Hypertarget{classnetdem_1_1_parallel_bond_a1be1c83cdc4195d0e950b44f69ef0a43}\label{classnetdem_1_1_parallel_bond_a1be1c83cdc4195d0e950b44f69ef0a43}} 
 \index{netdem::ParallelBond@{netdem::ParallelBond}!ParallelBond@{ParallelBond}}
 \index{ParallelBond@{ParallelBond}!netdem::ParallelBond@{netdem::ParallelBond}}
 \doxysubsubsection{\texorpdfstring{ParallelBond()}{ParallelBond()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
 {\footnotesize\ttfamily netdem\+::\+Parallel\+Bond\+::\+Parallel\+Bond (\begin{DoxyParamCaption}\item[{double}]{kn,  }\item[{double}]{kt,  }\item[{double}]{sig\+\_\+n,  }\item[{double}]{sig\+\_\+t }\end{DoxyParamCaption})}
 
+
+
+Constructor for \mbox{\hyperlink{classnetdem_1_1_parallel_bond}{Parallel\+Bond}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em kn} & Normal stiffness parameter used to calculate contact forces. \\
+\hline
+{\em kt} & Tangential stiffness parameter used to calculate contact forces. \\
+\hline
+{\em sig\+\_\+n} & Maximum normal stress used to calculate the maximum allowable force. \\
+\hline
+{\em sig\+\_\+t} & Maximum tangential stress used to calculate the maximum allowable force. \\
+\hline
+\end{DoxyParams}
 
 
 \doxysubsection{Member Function Documentation}
@@ -119,12 +146,10 @@ enum \mbox{\hyperlink{classnetdem_1_1_contact_model_a86b4462f72dd85e2e8a55dd6844
 
 
 
-Create a new instance of this contact model. 
-
-This method creates a new instance of the current contact model and returns a pointer to it. This is a virtual method that can be overridden in any subclass of {\ttfamily \mbox{\hyperlink{classnetdem_1_1_contact_model}{Contact\+Model}}} that needs to customize the cloning behavior.
+Creates a copy of this contact model. 
 
 \begin{DoxyReturn}{Returns}
-A pointer to a new instance of this contact model. 
+A new instance of the contact model. 
 \end{DoxyReturn}
 
 
@@ -138,19 +163,17 @@ Reimplemented from \mbox{\hyperlink{classnetdem_1_1_contact_model_a697207b7395fd
 
 
 
-Calculate the contact forces and moments due to this model. 
-
-Given a set of bond geometries representing the contact interaction, this method calculates the resulting contact forces and moments and stores them in the provided {\ttfamily \mbox{\hyperlink{classnetdem_1_1_contact_forces}{Contact\+Forces}}} object. This is a pure virtual method that must be implemented by any subclass of {\ttfamily \mbox{\hyperlink{classnetdem_1_1_contact_model}{Contact\+Model}}}.
+Evaluates the forces and moments between two particles using parallel bond models. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em cnt\+\_\+forces} & A pointer to the {\ttfamily \mbox{\hyperlink{classnetdem_1_1_contact_forces}{Contact\+Forces}}} object to store the resulting forces and moments in. \\
+{\em cnt\+\_\+forces} & The contact forces data structure to store the results. \\
 \hline
-{\em cnt\+\_\+geoms} & The bond geometries representing the contact interaction. \\
+{\em cnt\+\_\+geoms} & The bond geometries data structure containing the contact information. \\
 \hline
-{\em cnt} & A pointer to the {\ttfamily \mbox{\hyperlink{classnetdem_1_1_contact_p_p}{Contact\+PP}}} or {\ttfamily \mbox{\hyperlink{classnetdem_1_1_contact_p_w}{Contact\+PW}}} object representing the contact point(s). \\
+{\em cnt} & The contact point between the two particles. \\
 \hline
-{\em dt} & The time step size for the simulation. \\
+{\em dt} & The simulation timestep. \\
 \hline
 \end{DoxyParams}
 
@@ -165,19 +188,17 @@ Reimplemented from \mbox{\hyperlink{classnetdem_1_1_contact_model_ad21d8123a17a7
 
 
 
-Calculate the contact forces and moments due to this model. 
-
-Given a set of bond geometries representing the contact interaction, this method calculates the resulting contact forces and moments and stores them in the provided {\ttfamily \mbox{\hyperlink{classnetdem_1_1_contact_forces}{Contact\+Forces}}} object. This is a pure virtual method that must be implemented by any subclass of {\ttfamily \mbox{\hyperlink{classnetdem_1_1_contact_model}{Contact\+Model}}}.
+Evaluates the forces and moments between a particle and a wall using parallel bond models. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em cnt\+\_\+forces} & A pointer to the {\ttfamily \mbox{\hyperlink{classnetdem_1_1_contact_forces}{Contact\+Forces}}} object to store the resulting forces and moments in. \\
+{\em cnt\+\_\+forces} & The contact forces data structure to store the results. \\
 \hline
-{\em cnt\+\_\+geoms} & The bond geometries representing the contact interaction. \\
+{\em cnt\+\_\+geoms} & The bond geometries data structure containing the contact information. \\
 \hline
-{\em cnt} & A pointer to the {\ttfamily \mbox{\hyperlink{classnetdem_1_1_contact_p_w}{Contact\+PW}}} object representing the contact point(s). \\
+{\em cnt} & The contact point between the particle and the wall. \\
 \hline
-{\em dt} & The time step size for the simulation. \\
+{\em dt} & The simulation timestep. \\
 \hline
 \end{DoxyParams}
 
@@ -192,13 +213,11 @@ Reimplemented from \mbox{\hyperlink{classnetdem_1_1_contact_model_aa7b8c2408fc61
 
 
 
-Initialize this contact model from a JSON configuration object. 
-
-Given a JSON object containing configuration data for this contact model, this method reads the data and updates the state of the object accordingly. This is a pure virtual method that must be implemented by any subclass of {\ttfamily \mbox{\hyperlink{classnetdem_1_1_contact_model}{Contact\+Model}}}.
+Initializes the contact model from a JSON object. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em js} & A JSON object containing configuration data for this contact model. \\
+{\em js} & A JSON object containing the contact model properties. \\
 \hline
 \end{DoxyParams}
 
@@ -213,12 +232,10 @@ Reimplemented from \mbox{\hyperlink{classnetdem_1_1_contact_model_ad857f6a66c0ac
 
 
 
-Serialize this contact model to JSON format. 
-
-This method converts the current state of the contact model to a JSON object and returns it as the result value.
+Packs the contact model properties into a JSON object. 
 
 \begin{DoxyReturn}{Returns}
-A JSON object containing serialization data for this contact model. 
+A JSON object containing the contact model properties. 
 \end{DoxyReturn}
 
 
@@ -232,9 +249,9 @@ Reimplemented from \mbox{\hyperlink{classnetdem_1_1_contact_model_a191a737b00131
 
 
 
-Print debugging information about this contact model. 
+Prints the contact model properties. 
 
-This method prints a summary of the current state of the contact model to the console or log file, including the values of all member variables and any other relevant information. 
+
 
 Reimplemented from \mbox{\hyperlink{classnetdem_1_1_contact_model_a541fc910e1d85b1fc2bb75d73e50e984}{netdem\+::\+Contact\+Model}}.
 
@@ -246,13 +263,11 @@ Reimplemented from \mbox{\hyperlink{classnetdem_1_1_contact_model_a541fc910e1d85
 
 
 
-Set a property of this contact model from a JSON object. 
-
-Given a JSON object representing a named property of this contact model, this method reads the value of the property and updates the state of the object accordingly. This is a pure virtual method that must be implemented by any subclass of {\ttfamily \mbox{\hyperlink{classnetdem_1_1_contact_model}{Contact\+Model}}}.
+Sets the contact model properties. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em js} & A JSON object representing a named property of this contact model. \\
+{\em js} & A JSON object containing the contact model properties. \\
 \hline
 \end{DoxyParams}
 
@@ -265,6 +280,15 @@ Reimplemented from \mbox{\hyperlink{classnetdem_1_1_contact_model_a03526d9c5e43b
 \doxysubsubsection{\texorpdfstring{SetRadius()}{SetRadius()}}
 {\footnotesize\ttfamily void netdem\+::\+Parallel\+Bond\+::\+Set\+Radius (\begin{DoxyParamCaption}\item[{double}]{r }\end{DoxyParamCaption})}
 
+
+
+Sets the radius for the bond geometries used by this contact model. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em r} & The radius to set. \\
+\hline
+\end{DoxyParams}
 
 
 \doxysubsection{Member Data Documentation}
@@ -280,6 +304,10 @@ Reimplemented from \mbox{\hyperlink{classnetdem_1_1_contact_model_a03526d9c5e43b
 \doxysubsubsection{\texorpdfstring{kt}{kt}}
 {\footnotesize\ttfamily double netdem\+::\+Parallel\+Bond\+::kt \{1e6\}}
 
+
+
+Stiffness parameters used to calculate contact forces. 
+
 \mbox{\Hypertarget{classnetdem_1_1_parallel_bond_ae6096390858f2fcd6cb9d01780463c6a}\label{classnetdem_1_1_parallel_bond_ae6096390858f2fcd6cb9d01780463c6a}} 
 \index{netdem::ParallelBond@{netdem::ParallelBond}!max\_sig\_n@{max\_sig\_n}}
 \index{max\_sig\_n@{max\_sig\_n}!netdem::ParallelBond@{netdem::ParallelBond}}
@@ -291,6 +319,10 @@ Reimplemented from \mbox{\hyperlink{classnetdem_1_1_contact_model_a03526d9c5e43b
 \index{max\_sig\_t@{max\_sig\_t}!netdem::ParallelBond@{netdem::ParallelBond}}
 \doxysubsubsection{\texorpdfstring{max\_sig\_t}{max\_sig\_t}}
 {\footnotesize\ttfamily double netdem\+::\+Parallel\+Bond\+::max\+\_\+sig\+\_\+t \{1.\+0e6\}}
+
+
+
+Maximum stress parameters used to calculate the maximum allowable force. 
 
 
 

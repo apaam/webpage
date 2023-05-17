@@ -2,6 +2,11 @@
 \label{classnetdem_1_1_linear_spring}\index{netdem::LinearSpring@{netdem::LinearSpring}}
 
 
+Contact model that uses linear spring elements to evaluate contact forces and moments.  
+
+
+
+
 {\ttfamily \#include $<$model\+\_\+linear\+\_\+spring.\+hpp$>$}
 
 Inheritance diagram for netdem\+::Linear\+Spring\+:\begin{figure}[H]
@@ -14,25 +19,25 @@ Inheritance diagram for netdem\+::Linear\+Spring\+:\begin{figure}[H]
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{classnetdem_1_1_linear_spring_a92b4d742489e17e9db57213a877022d5}{Linear\+Spring}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Default constructor for \mbox{\hyperlink{classnetdem_1_1_linear_spring}{Linear\+Spring}}. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classnetdem_1_1_linear_spring_a8c1771a68d1fc40d23cf3e010e992025}{Linear\+Spring}} (double \mbox{\hyperlink{classnetdem_1_1_linear_spring_a2f1c34f217b708ddd2def45b0291936d}{kn}}, double \mbox{\hyperlink{classnetdem_1_1_linear_spring_a0b932bc41153a3b030334cba63367c30}{kt}}, double \mbox{\hyperlink{classnetdem_1_1_linear_spring_aa987d324343a1f5878f2bfd97bdb9cc3}{beta}}, double \mbox{\hyperlink{classnetdem_1_1_linear_spring_aa8edba335f67c91bef296243a6d7a449}{mu}})
-\item 
+\begin{DoxyCompactList}\small\item\em Constructor for \mbox{\hyperlink{classnetdem_1_1_linear_spring}{Linear\+Spring}}. \end{DoxyCompactList}\item 
 nlohmann\+::json \mbox{\hyperlink{classnetdem_1_1_linear_spring_a8e3f2351614ca70c5ae23532494a8e37}{Pack\+Json}} () override
-\begin{DoxyCompactList}\small\item\em Serialize this contact model to JSON format. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Packs the contact model properties into a JSON object. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classnetdem_1_1_linear_spring_ad3d3e87f1de14c836c484dd210a9ae76}{Init\+From\+Json}} (nlohmann\+::json const \&js) override
-\begin{DoxyCompactList}\small\item\em Initialize this contact model from a JSON configuration object. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Initializes the contact model from a JSON object. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classnetdem_1_1_linear_spring_a75c4ae4a723880f348870beda2ac2eab}{Set\+Property}} (nlohmann\+::json const \&js) override
-\begin{DoxyCompactList}\small\item\em Set a property of this contact model from a JSON object. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Sets the contact model properties. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classnetdem_1_1_linear_spring_a345c06c0d6855ff688f242c824bf13dc}{Set\+Property}} (std\+::string const \&name, double value) override
-\begin{DoxyCompactList}\small\item\em Set a property of this contact model by name and value. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Sets a specific contact model property. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classnetdem_1_1_contact_model}{Contact\+Model}} $\ast$ \mbox{\hyperlink{classnetdem_1_1_linear_spring_a7c6f7710b72c617ea6f7af3c0cdf0b16}{Clone}} () const override
-\begin{DoxyCompactList}\small\item\em Create a new instance of this contact model. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Creates a copy of this contact model. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classnetdem_1_1_linear_spring_afed81fe8d9220c7a8bcccf3dda63c4cd}{Evaluate\+Force\+Moment}} (\mbox{\hyperlink{classnetdem_1_1_contact_forces}{Contact\+Forces}} $\ast$const cnt\+\_\+forces, \mbox{\hyperlink{classnetdem_1_1_collision_geometries}{Collision\+Geometries}} \&cnt\+\_\+geoms, \mbox{\hyperlink{classnetdem_1_1_contact_p_p}{Contact\+PP}} $\ast$const cnt, double dt) const override
-\begin{DoxyCompactList}\small\item\em Calculate the contact forces and moments due to this model. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Evaluates the forces and moments between two particles using linear spring elements. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classnetdem_1_1_linear_spring_ab8237ceba530f6b9ac6918c1a2f7d879}{Evaluate\+Force\+Moment}} (\mbox{\hyperlink{classnetdem_1_1_contact_forces}{Contact\+Forces}} $\ast$const cnt\+\_\+forces, \mbox{\hyperlink{classnetdem_1_1_collision_geometries}{Collision\+Geometries}} \&cnt\+\_\+geoms, \mbox{\hyperlink{classnetdem_1_1_contact_p_w}{Contact\+PW}} $\ast$const cnt, double dt) const override
-\begin{DoxyCompactList}\small\item\em Calculate the contact forces and moments due to this model. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Evaluates the forces and moments between a particle and a wall using linear spring elements. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classnetdem_1_1_linear_spring_ac39b88c105fe0bd5e2a7fef4a69864f4}{Print}} () const override
-\begin{DoxyCompactList}\small\item\em Print debugging information about this contact model. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Prints the contact model properties. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Public Member Functions inherited from \mbox{\hyperlink{classnetdem_1_1_contact_model}{netdem\+::\+Contact\+Model}}}
 \begin{DoxyCompactItemize}
 \item 
@@ -68,9 +73,9 @@ double \mbox{\hyperlink{classnetdem_1_1_linear_spring_a0b932bc41153a3b030334cba6
 double \mbox{\hyperlink{classnetdem_1_1_linear_spring_aa987d324343a1f5878f2bfd97bdb9cc3}{beta}} \{0.\+7\}
 \item 
 double \mbox{\hyperlink{classnetdem_1_1_linear_spring_aa8edba335f67c91bef296243a6d7a449}{mu}} \{0.\+5\}
-\item 
+\begin{DoxyCompactList}\small\item\em Parameters used to calculate contact forces. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{classnetdem_1_1_linear_spring_a8bf10c9dff540a4b963040904eab64f5}{use\+\_\+viscous\+\_\+damping}} \{false\}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Flag indicating whether to use viscous damping. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Public Attributes inherited from \mbox{\hyperlink{classnetdem_1_1_contact_model}{netdem\+::\+Contact\+Model}}}
 \begin{DoxyCompactItemize}
 \item 
@@ -98,11 +103,9 @@ enum \mbox{\hyperlink{classnetdem_1_1_contact_model_a86b4462f72dd85e2e8a55dd6844
 
 
 \doxysubsection{Detailed Description}
+Contact model that uses linear spring elements to evaluate contact forces and moments. 
 
-\begin{DoxyItemize}
-\item kn, kt\+: normal and tangential contact stiffness. Generally, in the linear spring contact model, the contact force is the contact stiffness multiplied by the contact deformation.
-\item mu\+: friction coefficient, to incoorporate the Columnb\textquotesingle{}s friction law. According to this law, the tangential force should not exceed the normal force multiplied by the friction coefficient. 
-\end{DoxyItemize}
+The linear spring contact model calculates the contact force based on the contact deformation, which is proportional to the normal displacement between two particles. The tangential force is calculated based on the Coulomb\textquotesingle{}s friction law. 
 
 \doxysubsection{Constructor \& Destructor Documentation}
 \mbox{\Hypertarget{classnetdem_1_1_linear_spring_a92b4d742489e17e9db57213a877022d5}\label{classnetdem_1_1_linear_spring_a92b4d742489e17e9db57213a877022d5}} 
@@ -111,12 +114,31 @@ enum \mbox{\hyperlink{classnetdem_1_1_contact_model_a86b4462f72dd85e2e8a55dd6844
 \doxysubsubsection{\texorpdfstring{LinearSpring()}{LinearSpring()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily netdem\+::\+Linear\+Spring\+::\+Linear\+Spring (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
+
+
+Default constructor for \mbox{\hyperlink{classnetdem_1_1_linear_spring}{Linear\+Spring}}. 
+
 \mbox{\Hypertarget{classnetdem_1_1_linear_spring_a8c1771a68d1fc40d23cf3e010e992025}\label{classnetdem_1_1_linear_spring_a8c1771a68d1fc40d23cf3e010e992025}} 
 \index{netdem::LinearSpring@{netdem::LinearSpring}!LinearSpring@{LinearSpring}}
 \index{LinearSpring@{LinearSpring}!netdem::LinearSpring@{netdem::LinearSpring}}
 \doxysubsubsection{\texorpdfstring{LinearSpring()}{LinearSpring()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
 {\footnotesize\ttfamily netdem\+::\+Linear\+Spring\+::\+Linear\+Spring (\begin{DoxyParamCaption}\item[{double}]{kn,  }\item[{double}]{kt,  }\item[{double}]{beta,  }\item[{double}]{mu }\end{DoxyParamCaption})}
 
+
+
+Constructor for \mbox{\hyperlink{classnetdem_1_1_linear_spring}{Linear\+Spring}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em kn} & Normal stiffness parameter used to calculate contact forces. \\
+\hline
+{\em kt} & Tangential stiffness parameter used to calculate contact forces. \\
+\hline
+{\em beta} & Coefficient of restitution used to calculate contact forces. \\
+\hline
+{\em mu} & Coefficient of friction used to calculate contact forces. \\
+\hline
+\end{DoxyParams}
 
 
 \doxysubsection{Member Function Documentation}
@@ -128,12 +150,10 @@ enum \mbox{\hyperlink{classnetdem_1_1_contact_model_a86b4462f72dd85e2e8a55dd6844
 
 
 
-Create a new instance of this contact model. 
-
-This method creates a new instance of the current contact model and returns a pointer to it. This is a virtual method that can be overridden in any subclass of {\ttfamily \mbox{\hyperlink{classnetdem_1_1_contact_model}{Contact\+Model}}} that needs to customize the cloning behavior.
+Creates a copy of this contact model. 
 
 \begin{DoxyReturn}{Returns}
-A pointer to a new instance of this contact model. 
+A new instance of the contact model. 
 \end{DoxyReturn}
 
 
@@ -147,19 +167,17 @@ Reimplemented from \mbox{\hyperlink{classnetdem_1_1_contact_model_a697207b7395fd
 
 
 
-Calculate the contact forces and moments due to this model. 
-
-Given a set of collision or bond geometries representing the contact interaction, this method calculates the resulting contact forces and moments and stores them in the provided {\ttfamily \mbox{\hyperlink{classnetdem_1_1_contact_forces}{Contact\+Forces}}} object. This is a pure virtual method that must be implemented by any subclass of {\ttfamily \mbox{\hyperlink{classnetdem_1_1_contact_model}{Contact\+Model}}}.
+Evaluates the forces and moments between two particles using linear spring elements. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em cnt\+\_\+forces} & A pointer to the {\ttfamily \mbox{\hyperlink{classnetdem_1_1_contact_forces}{Contact\+Forces}}} object to store the resulting forces and moments in. \\
+{\em cnt\+\_\+forces} & The contact forces data structure to store the results. \\
 \hline
-{\em cnt\+\_\+geoms} & The collision or bond geometries representing the contact interaction. \\
+{\em cnt\+\_\+geoms} & The collision geometries data structure containing the contact information. \\
 \hline
-{\em cnt} & A pointer to the {\ttfamily \mbox{\hyperlink{classnetdem_1_1_contact_p_p}{Contact\+PP}}} or {\ttfamily \mbox{\hyperlink{classnetdem_1_1_contact_p_w}{Contact\+PW}}} object representing the contact point(s). \\
+{\em cnt} & The contact point between the two particles. \\
 \hline
-{\em dt} & The time step size for the simulation. \\
+{\em dt} & The simulation timestep. \\
 \hline
 \end{DoxyParams}
 
@@ -174,19 +192,17 @@ Reimplemented from \mbox{\hyperlink{classnetdem_1_1_contact_model_aa518a60578e61
 
 
 
-Calculate the contact forces and moments due to this model. 
-
-Given a set of collision geometries representing the contact interaction, this method calculates the resulting contact forces and moments and stores them in the provided {\ttfamily \mbox{\hyperlink{classnetdem_1_1_contact_forces}{Contact\+Forces}}} object. This is a pure virtual method that must be implemented by any subclass of {\ttfamily \mbox{\hyperlink{classnetdem_1_1_contact_model}{Contact\+Model}}}.
+Evaluates the forces and moments between a particle and a wall using linear spring elements. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em cnt\+\_\+forces} & A pointer to the {\ttfamily \mbox{\hyperlink{classnetdem_1_1_contact_forces}{Contact\+Forces}}} object to store the resulting forces and moments in. \\
+{\em cnt\+\_\+forces} & The contact forces data structure to store the results. \\
 \hline
-{\em cnt\+\_\+geoms} & The collision geometries representing the contact interaction. \\
+{\em cnt\+\_\+geoms} & The collision geometries data structure containing the contact information. \\
 \hline
-{\em cnt} & A pointer to the {\ttfamily \mbox{\hyperlink{classnetdem_1_1_contact_p_w}{Contact\+PW}}} object representing the contact point(s). \\
+{\em cnt} & The contact point between the particle and the wall. \\
 \hline
-{\em dt} & The time step size for the simulation. \\
+{\em dt} & The simulation timestep. \\
 \hline
 \end{DoxyParams}
 
@@ -201,13 +217,11 @@ Reimplemented from \mbox{\hyperlink{classnetdem_1_1_contact_model_a75d0d3da34329
 
 
 
-Initialize this contact model from a JSON configuration object. 
-
-Given a JSON object containing configuration data for this contact model, this method reads the data and updates the state of the object accordingly. This is a pure virtual method that must be implemented by any subclass of {\ttfamily \mbox{\hyperlink{classnetdem_1_1_contact_model}{Contact\+Model}}}.
+Initializes the contact model from a JSON object. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em js} & A JSON object containing configuration data for this contact model. \\
+{\em js} & A JSON object containing the contact model properties. \\
 \hline
 \end{DoxyParams}
 
@@ -222,12 +236,10 @@ Reimplemented from \mbox{\hyperlink{classnetdem_1_1_contact_model_ad857f6a66c0ac
 
 
 
-Serialize this contact model to JSON format. 
-
-This method converts the current state of the contact model to a JSON object and returns it as the result value.
+Packs the contact model properties into a JSON object. 
 
 \begin{DoxyReturn}{Returns}
-A JSON object containing serialization data for this contact model. 
+A JSON object containing the contact model properties. 
 \end{DoxyReturn}
 
 
@@ -241,9 +253,9 @@ Reimplemented from \mbox{\hyperlink{classnetdem_1_1_contact_model_a191a737b00131
 
 
 
-Print debugging information about this contact model. 
+Prints the contact model properties. 
 
-This method prints a summary of the current state of the contact model to the console or log file, including the values of all member variables and any other relevant information. 
+
 
 Reimplemented from \mbox{\hyperlink{classnetdem_1_1_contact_model_a541fc910e1d85b1fc2bb75d73e50e984}{netdem\+::\+Contact\+Model}}.
 
@@ -255,13 +267,11 @@ Reimplemented from \mbox{\hyperlink{classnetdem_1_1_contact_model_a541fc910e1d85
 
 
 
-Set a property of this contact model from a JSON object. 
-
-Given a JSON object representing a named property of this contact model, this method reads the value of the property and updates the state of the object accordingly. This is a pure virtual method that must be implemented by any subclass of {\ttfamily \mbox{\hyperlink{classnetdem_1_1_contact_model}{Contact\+Model}}}.
+Sets the contact model properties. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em js} & A JSON object representing a named property of this contact model. \\
+{\em js} & A JSON object containing the contact model properties. \\
 \hline
 \end{DoxyParams}
 
@@ -276,15 +286,13 @@ Reimplemented from \mbox{\hyperlink{classnetdem_1_1_contact_model_a03526d9c5e43b
 
 
 
-Set a property of this contact model by name and value. 
-
-Given a string representing the name of a property and a value to set it to, this method updates the state of the contact model accordingly. This is a pure virtual method that must be implemented by any subclass of {\ttfamily \mbox{\hyperlink{classnetdem_1_1_contact_model}{Contact\+Model}}}.
+Sets a specific contact model property. 
 
 
 \begin{DoxyParams}{Parameters}
 {\em name} & The name of the property to set. \\
 \hline
-{\em value} & The new value of the property. \\
+{\em value} & The value to set the property to. \\
 \hline
 \end{DoxyParams}
 
@@ -318,11 +326,19 @@ Reimplemented from \mbox{\hyperlink{classnetdem_1_1_contact_model_a44804e500c1e2
 \doxysubsubsection{\texorpdfstring{mu}{mu}}
 {\footnotesize\ttfamily double netdem\+::\+Linear\+Spring\+::mu \{0.\+5\}}
 
+
+
+Parameters used to calculate contact forces. 
+
 \mbox{\Hypertarget{classnetdem_1_1_linear_spring_a8bf10c9dff540a4b963040904eab64f5}\label{classnetdem_1_1_linear_spring_a8bf10c9dff540a4b963040904eab64f5}} 
 \index{netdem::LinearSpring@{netdem::LinearSpring}!use\_viscous\_damping@{use\_viscous\_damping}}
 \index{use\_viscous\_damping@{use\_viscous\_damping}!netdem::LinearSpring@{netdem::LinearSpring}}
 \doxysubsubsection{\texorpdfstring{use\_viscous\_damping}{use\_viscous\_damping}}
 {\footnotesize\ttfamily bool netdem\+::\+Linear\+Spring\+::use\+\_\+viscous\+\_\+damping \{false\}}
+
+
+
+Flag indicating whether to use viscous damping. 
 
 
 

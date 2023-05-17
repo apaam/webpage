@@ -9,92 +9,88 @@
 \DoxyCodeLine{00005\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacenetdem}{netdem}}\ \{}
 \DoxyCodeLine{00006\ }
 \DoxyCodeLine{00007\ \textcolor{comment}{//\ use\ tetradron\ element\ with\ 4\ nodes}}
-\DoxyCodeLine{00008\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classnetdem_1_1_f_e_m_simulator}{FEMSimulator}}\ \{}
-\DoxyCodeLine{00009\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00010\ \ \ \textcolor{comment}{//\ default\ as\ latex\ material.\ ref:\ Qu\ et\ al.\ CG,\ 2019.}}
-\DoxyCodeLine{00011\ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classnetdem_1_1_f_e_m_simulator_a291383735d6a869d3cd16c24d68b63e0}{neo\_k}}\{6.94e5\},\ \mbox{\hyperlink{classnetdem_1_1_f_e_m_simulator_a8b794c72c7c611d9a1fe5d16d2f616e2}{neo\_mu}}\{5.21e5\},\ \mbox{\hyperlink{classnetdem_1_1_f_e_m_simulator_afa699e8e627501767271f5be81a10f47}{density}}\{500.0\};}
-\DoxyCodeLine{00012\ }
-\DoxyCodeLine{00013\ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classnetdem_1_1_f_e_m_simulator_a573acfffc6ec0f7197b020ffd97cf6d7}{damp\_coef}}\{0.7\};}
-\DoxyCodeLine{00014\ \ \ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ \mbox{\hyperlink{classnetdem_1_1_f_e_m_simulator_a6690d61908a1e5db55b618b2e53484a2}{gravity\_coef}}\{0.0,\ 0.0,\ 0.0\};}
-\DoxyCodeLine{00015\ }
-\DoxyCodeLine{00016\ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classnetdem_1_1_f_e_m_simulator_a011ee17fdeb932f09541e6d8812eab46}{timestep}}\{1.0e-\/4\};}
-\DoxyCodeLine{00017\ }
-\DoxyCodeLine{00018\ \ \ \textcolor{comment}{//\ tet\ mesh}}
-\DoxyCodeLine{00019\ \ \ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<Vec3d>}}\ \mbox{\hyperlink{classnetdem_1_1_f_e_m_simulator_a2f9cc5f5d30f78838698670e13aa8985}{nodes}};}
-\DoxyCodeLine{00020\ \ \ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<Vec4i>}}\ \mbox{\hyperlink{classnetdem_1_1_f_e_m_simulator_afc150d6790e0f024b925380a4c67d52d}{elements}};}
+\DoxyCodeLine{00016\ \textcolor{comment}{}\textcolor{keyword}{class\ }\mbox{\hyperlink{classnetdem_1_1_f_e_m_simulator}{FEMSimulator}}\ \{}
+\DoxyCodeLine{00017\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00018\ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classnetdem_1_1_f_e_m_simulator_a291383735d6a869d3cd16c24d68b63e0}{neo\_k}}\{6.94e5\},\ }
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classnetdem_1_1_f_e_m_simulator_a8b794c72c7c611d9a1fe5d16d2f616e2}{neo\_mu}}\{5.21e5\},\ }
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classnetdem_1_1_f_e_m_simulator_afa699e8e627501767271f5be81a10f47}{density}}\{500.0\};\ }
 \DoxyCodeLine{00021\ }
-\DoxyCodeLine{00022\ \ \ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<Vec3d>}}\ \mbox{\hyperlink{classnetdem_1_1_f_e_m_simulator_a4af06416e2ed12a7fe330c1ff5813044}{nodes\_ref}};}
-\DoxyCodeLine{00023\ }
-\DoxyCodeLine{00024\ \ \ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<Vec3i>}}\ \mbox{\hyperlink{classnetdem_1_1_f_e_m_simulator_a855f336f07cca891d2557ba23a86abd9}{bound\_facets}};}
-\DoxyCodeLine{00025\ \ \ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<int>}}\ \mbox{\hyperlink{classnetdem_1_1_f_e_m_simulator_aa70e2622c5bc64a4746202c8f0e0dd5d}{bound\_nodes}};}
+\DoxyCodeLine{00022\ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classnetdem_1_1_f_e_m_simulator_a573acfffc6ec0f7197b020ffd97cf6d7}{damp\_coef}}\{0.7\};\ }
+\DoxyCodeLine{00023\ \ \ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ \mbox{\hyperlink{classnetdem_1_1_f_e_m_simulator_a6690d61908a1e5db55b618b2e53484a2}{gravity\_coef}}\{0.0,\ 0.0,\ 0.0\};\ }
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classnetdem_1_1_f_e_m_simulator_a011ee17fdeb932f09541e6d8812eab46}{timestep}}\{1.0e-\/4\};\ }
 \DoxyCodeLine{00026\ }
-\DoxyCodeLine{00027\ \ \ \textcolor{comment}{//\ elemental\ stress}}
-\DoxyCodeLine{00028\ \ \ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<double>}}\ \mbox{\hyperlink{classnetdem_1_1_f_e_m_simulator_a646a85b52103d37afe2a354de2137b89}{elemental\_vol}};}
-\DoxyCodeLine{00029\ \ \ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<VecNT<double,\ 6>}}>\ \mbox{\hyperlink{classnetdem_1_1_f_e_m_simulator_a009b1afa190b1fe0e7920ba61e9210f9}{elemental\_stress}};}
-\DoxyCodeLine{00030\ }
-\DoxyCodeLine{00031\ \ \ \textcolor{comment}{//\ use\ dynamic\ lumped\ mass\ to\ update\ node\ positions}}
-\DoxyCodeLine{00032\ \ \ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<double>}}\ \mbox{\hyperlink{classnetdem_1_1_f_e_m_simulator_a2fe368b9d5837c583e65ecdc45023e4c}{nodal\_vols}};}
-\DoxyCodeLine{00033\ \ \ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<Vec3d>}}\ \mbox{\hyperlink{classnetdem_1_1_f_e_m_simulator_a0984ca9bb0e3ded032331dbb896eee85}{nodal\_vels}};}
+\DoxyCodeLine{00027\ \ \ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<Vec3d>}}\ \mbox{\hyperlink{classnetdem_1_1_f_e_m_simulator_a2f9cc5f5d30f78838698670e13aa8985}{nodes}};\ }
+\DoxyCodeLine{00028\ \ \ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<Vec4i>}}\ \mbox{\hyperlink{classnetdem_1_1_f_e_m_simulator_afc150d6790e0f024b925380a4c67d52d}{elements}};\ }
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \ \ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<Vec3d>}}\ \mbox{\hyperlink{classnetdem_1_1_f_e_m_simulator_a4af06416e2ed12a7fe330c1ff5813044}{nodes\_ref}};\ }
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \ \ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<Vec3i>}}\ \mbox{\hyperlink{classnetdem_1_1_f_e_m_simulator_a855f336f07cca891d2557ba23a86abd9}{bound\_facets}};\ }
+\DoxyCodeLine{00033\ \ \ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<int>}}\ \mbox{\hyperlink{classnetdem_1_1_f_e_m_simulator_aa70e2622c5bc64a4746202c8f0e0dd5d}{bound\_nodes}};\ }
 \DoxyCodeLine{00034\ }
-\DoxyCodeLine{00035\ \ \ \textcolor{comment}{//\ element\ boundary\ conditions,\ prescribed\ forces}}
-\DoxyCodeLine{00036\ \ \ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<Vec3d>}}\ \mbox{\hyperlink{classnetdem_1_1_f_e_m_simulator_a891cccab543d3fe76aa93b1f2a373912}{bc\_facet\_forces}};}
+\DoxyCodeLine{00035\ \ \ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<double>}}\ \mbox{\hyperlink{classnetdem_1_1_f_e_m_simulator_a646a85b52103d37afe2a354de2137b89}{elemental\_vol}};\ }
+\DoxyCodeLine{00036\ \ \ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<VecNT<double,\ 6>}}>\ \mbox{\hyperlink{classnetdem_1_1_f_e_m_simulator_a009b1afa190b1fe0e7920ba61e9210f9}{elemental\_stress}};\ }
 \DoxyCodeLine{00037\ }
-\DoxyCodeLine{00038\ \ \ \textcolor{comment}{//\ node\ boundary\ conditions,\ prescribed\ velocities}}
-\DoxyCodeLine{00039\ \ \ \textcolor{comment}{//\ the\ vector\ is\ of\ the\ same\ length\ of\ the\ nodes\ VecXT}}
-\DoxyCodeLine{00040\ \ \ \textcolor{comment}{//\ the\ last\ three\ element\ indicate\ if\ uses\ prescribed\ velocities\ in\ this\ dim}}
-\DoxyCodeLine{00041\ \ \ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<VecNT<double,\ 6>}}>\ \mbox{\hyperlink{classnetdem_1_1_f_e_m_simulator_a1e6ac8fa6706dc8094a944a92d758f87}{bc\_nodal\_vels}};}
+\DoxyCodeLine{00038\ \ \ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<double>}}\ \mbox{\hyperlink{classnetdem_1_1_f_e_m_simulator_a2fe368b9d5837c583e65ecdc45023e4c}{nodal\_vols}};\ }
+\DoxyCodeLine{00039\ \ \ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<Vec3d>}}\ \mbox{\hyperlink{classnetdem_1_1_f_e_m_simulator_a0984ca9bb0e3ded032331dbb896eee85}{nodal\_vels}};\ }
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \ \ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<Vec3d>}}\ \mbox{\hyperlink{classnetdem_1_1_f_e_m_simulator_a891cccab543d3fe76aa93b1f2a373912}{bc\_facet\_forces}};\ }
 \DoxyCodeLine{00042\ }
-\DoxyCodeLine{00043\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00044\ \ \ \mbox{\hyperlink{classnetdem_1_1_f_e_m_simulator_a8103473aceb78ca3591a99ba7ea97b18}{FEMSimulator}}();}
-\DoxyCodeLine{00045\ }
-\DoxyCodeLine{00046\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_f_e_m_simulator_a374d6e30c0a679faae413dbb8d18d332}{SetMesh}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classnetdem_1_1_tet_mesh}{TetMesh}}\ \&tetmesh);}
-\DoxyCodeLine{00047\ }
-\DoxyCodeLine{00048\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_f_e_m_simulator_a5056c55e7908c8bf112c59f27310f5ca}{Init}}();}
-\DoxyCodeLine{00049\ }
-\DoxyCodeLine{00050\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_f_e_m_simulator_a2d535c125208b48c26ea7c4a08521027}{SetBCNodalVelocity}}(\textcolor{keywordtype}{int}\ nid,\ \textcolor{keywordtype}{double}\ vx,\ \textcolor{keywordtype}{double}\ vy,\ \textcolor{keywordtype}{double}\ vz,}
-\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ use\_prescribed\_vx,\ \textcolor{keywordtype}{bool}\ use\_prescribed\_vy,}
-\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ use\_prescribed\_vz);}
-\DoxyCodeLine{00053\ }
-\DoxyCodeLine{00054\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_f_e_m_simulator_af25440de2f4674571d2168a9e1440200}{AddBCFacetForce}}(\textcolor{keywordtype}{int}\ bc\_fid,\ \textcolor{keywordtype}{double}\ fx,\ \textcolor{keywordtype}{double}\ fy,\ \textcolor{keywordtype}{double}\ fz);}
-\DoxyCodeLine{00055\ }
-\DoxyCodeLine{00056\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_f_e_m_simulator_a0ea2d8ebd531818c53242ecb9d6193f3}{SetNodalVels}}(\textcolor{keywordtype}{double}\ v\_x,\ \textcolor{keywordtype}{double}\ v\_y,\ \textcolor{keywordtype}{double}\ v\_z);}
-\DoxyCodeLine{00057\ }
-\DoxyCodeLine{00058\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_f_e_m_simulator_a3da4a79d5e282d3f8f2ad8be5b50d138}{ClearBoundaryCondition}}();}
-\DoxyCodeLine{00059\ }
-\DoxyCodeLine{00060\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_f_e_m_simulator_aa9f3c738c27e83878c16abe224c559b6}{Solve}}(\textcolor{keywordtype}{double}\ dt);}
-\DoxyCodeLine{00061\ }
-\DoxyCodeLine{00062\ \ \ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<Vec3d>}}\ \mbox{\hyperlink{classnetdem_1_1_f_e_m_simulator_adcddf793dd1c1b75de485ecb593058a4}{GetNodalPositions}}(\mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<int>}}\ nids);}
-\DoxyCodeLine{00063\ \ \ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<Vec3d>}}\ \mbox{\hyperlink{classnetdem_1_1_f_e_m_simulator_a86f0aec7c74f936d65fa32f2de08a216}{GetNodalDisps}}(\mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<int>}}\ nids);}
-\DoxyCodeLine{00064\ \ \ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<Vec3d>}}\ \mbox{\hyperlink{classnetdem_1_1_f_e_m_simulator_aee51caae7991c0c14eca3d39416355ec}{GetNodalVels}}(\mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<int>}}\ nids);}
-\DoxyCodeLine{00065\ }
-\DoxyCodeLine{00066\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_f_e_m_simulator_acdd2db4c9d005fa4e0206838012a3644}{SaveAsVTK}}(std::string\ \textcolor{keyword}{const}\ \&file\_name);}
-\DoxyCodeLine{00067\ }
-\DoxyCodeLine{00068\ \textcolor{keyword}{protected}:}
-\DoxyCodeLine{00069\ \ \ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<Vec3d>}}\ \mbox{\hyperlink{classnetdem_1_1_f_e_m_simulator_a7c297abc302044a158953c0d92ce235f}{nodal\_forces\_int}};}
-\DoxyCodeLine{00070\ \ \ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<Vec3d>}}\ \mbox{\hyperlink{classnetdem_1_1_f_e_m_simulator_a8078bc8966d1bb86552edcf417cb859c}{nodal\_forces\_ext}};}
-\DoxyCodeLine{00071\ }
-\DoxyCodeLine{00072\ \ \ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<Vec3d>}}\ \mbox{\hyperlink{classnetdem_1_1_f_e_m_simulator_a32575cd147728fc4181ee2a6f946f49d}{nodal\_vels\_ave}};}
-\DoxyCodeLine{00073\ }
-\DoxyCodeLine{00074\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_f_e_m_simulator_ae1e5a5d8b98d281cc54fe855e218c05a}{Advance}}(\textcolor{keywordtype}{double}\ dt);}
-\DoxyCodeLine{00075\ }
-\DoxyCodeLine{00076\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_f_e_m_simulator_a91d84a69c270e94c0d76efb98dd10f31}{InitInitialCondition}}();}
-\DoxyCodeLine{00077\ }
-\DoxyCodeLine{00078\ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classnetdem_1_1_f_e_m_simulator_a73ab053cf7514299113246cc87ea4dbe}{GetElementVolume}}(\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ \textcolor{keyword}{const}\ \&v0,\ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ \textcolor{keyword}{const}\ \&v1,\ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ \textcolor{keyword}{const}\ \&v2,}
-\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ \textcolor{keyword}{const}\ \&v3);}
-\DoxyCodeLine{00080\ }
-\DoxyCodeLine{00081\ \ \ \mbox{\hyperlink{namespacenetdem_ae589ca87f7a16ea70807ee6b1c3bc1c8}{Mat3d}}\ \mbox{\hyperlink{classnetdem_1_1_f_e_m_simulator_a7289c226741c45fa96eaee7e2412a25c}{GetDeformationGradient}}(\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ \textcolor{keyword}{const}\ \&v0\_new,\ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ \textcolor{keyword}{const}\ \&v1\_new,}
-\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ \textcolor{keyword}{const}\ \&v2\_new,\ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ \textcolor{keyword}{const}\ \&v3\_new,}
-\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ \textcolor{keyword}{const}\ \&v0\_ref,\ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ \textcolor{keyword}{const}\ \&v1\_ref,}
-\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ \textcolor{keyword}{const}\ \&v2\_ref,\ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ \textcolor{keyword}{const}\ \&v3\_ref);}
-\DoxyCodeLine{00085\ }
-\DoxyCodeLine{00086\ \ \ \mbox{\hyperlink{namespacenetdem_ae589ca87f7a16ea70807ee6b1c3bc1c8}{Mat3d}}\ \mbox{\hyperlink{classnetdem_1_1_f_e_m_simulator_a34e2227e930103e389d83b7fc27d3bb6}{GetCauchyStress}}(\mbox{\hyperlink{namespacenetdem_ae589ca87f7a16ea70807ee6b1c3bc1c8}{Mat3d}}\ \textcolor{keyword}{const}\ \&def\_grad);}
+\DoxyCodeLine{00043\ \ \ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<VecNT<double,\ 6>}}>\ \mbox{\hyperlink{classnetdem_1_1_f_e_m_simulator_a1e6ac8fa6706dc8094a944a92d758f87}{bc\_nodal\_vels}};\ }
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00049\ \ \ \mbox{\hyperlink{classnetdem_1_1_f_e_m_simulator_a8103473aceb78ca3591a99ba7ea97b18}{FEMSimulator}}();}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00059\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_f_e_m_simulator_af443c53f4f5ec7e1fc7e3bbded2061cd}{SetMesh}}(\mbox{\hyperlink{classnetdem_1_1_tet_mesh}{TetMesh}}\ \textcolor{keyword}{const}\&\ tetmesh);}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00067\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_f_e_m_simulator_a5056c55e7908c8bf112c59f27310f5ca}{Init}}();}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00084\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_f_e_m_simulator_a2d535c125208b48c26ea7c4a08521027}{SetBCNodalVelocity}}(\textcolor{keywordtype}{int}\ nid,\ \textcolor{keywordtype}{double}\ vx,\ \textcolor{keywordtype}{double}\ vy,\ \textcolor{keywordtype}{double}\ vz,}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ use\_prescribed\_vx,\ \textcolor{keywordtype}{bool}\ use\_prescribed\_vy,}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ use\_prescribed\_vz);}
 \DoxyCodeLine{00087\ }
-\DoxyCodeLine{00088\ \ \ \textcolor{comment}{//\ return:\ internal\_force,\ 4\ nodes\ by\ 3\ dims}}
-\DoxyCodeLine{00089\ \ \ \mbox{\hyperlink{namespacenetdem_aa1535a5d1ed2f90088a89de1f7670952}{MatNd<4,\ 3>}}\ \mbox{\hyperlink{classnetdem_1_1_f_e_m_simulator_af8b9e96b01d415c7c767947598eaacf7}{GetInternalForces}}(\mbox{\hyperlink{namespacenetdem_ae589ca87f7a16ea70807ee6b1c3bc1c8}{Mat3d}}\ \textcolor{keyword}{const}\ \&cauchy\_stress,\ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ \textcolor{keyword}{const}\ \&v0,}
-\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ \textcolor{keyword}{const}\ \&v1,\ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ \textcolor{keyword}{const}\ \&v2,}
-\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ \textcolor{keyword}{const}\ \&v3);}
-\DoxyCodeLine{00092\ \};}
-\DoxyCodeLine{00093\ }
-\DoxyCodeLine{00094\ \}\ \textcolor{comment}{//\ namespace\ netdem}}
+\DoxyCodeLine{00099\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_f_e_m_simulator_af25440de2f4674571d2168a9e1440200}{AddBCFacetForce}}(\textcolor{keywordtype}{int}\ bc\_fid,\ \textcolor{keywordtype}{double}\ fx,\ \textcolor{keywordtype}{double}\ fy,\ \textcolor{keywordtype}{double}\ fz);}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00111\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_f_e_m_simulator_a0ea2d8ebd531818c53242ecb9d6193f3}{SetNodalVels}}(\textcolor{keywordtype}{double}\ v\_x,\ \textcolor{keywordtype}{double}\ v\_y,\ \textcolor{keywordtype}{double}\ v\_z);}
+\DoxyCodeLine{00112\ }
+\DoxyCodeLine{00119\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_f_e_m_simulator_a3da4a79d5e282d3f8f2ad8be5b50d138}{ClearBoundaryCondition}}();}
+\DoxyCodeLine{00120\ }
+\DoxyCodeLine{00130\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_f_e_m_simulator_aa9f3c738c27e83878c16abe224c559b6}{Solve}}(\textcolor{keywordtype}{double}\ dt);}
+\DoxyCodeLine{00131\ }
+\DoxyCodeLine{00142\ \ \ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<Vec3d>}}\ \mbox{\hyperlink{classnetdem_1_1_f_e_m_simulator_adcddf793dd1c1b75de485ecb593058a4}{GetNodalPositions}}(\mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<int>}}\ nids);}
+\DoxyCodeLine{00143\ }
+\DoxyCodeLine{00155\ \ \ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<Vec3d>}}\ \mbox{\hyperlink{classnetdem_1_1_f_e_m_simulator_a86f0aec7c74f936d65fa32f2de08a216}{GetNodalDisps}}(\mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<int>}}\ nids);}
+\DoxyCodeLine{00156\ }
+\DoxyCodeLine{00167\ \ \ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<Vec3d>}}\ \mbox{\hyperlink{classnetdem_1_1_f_e_m_simulator_aee51caae7991c0c14eca3d39416355ec}{GetNodalVels}}(\mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<int>}}\ nids);}
+\DoxyCodeLine{00168\ }
+\DoxyCodeLine{00176\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_f_e_m_simulator_acdd2db4c9d005fa4e0206838012a3644}{SaveAsVTK}}(std::string\ \textcolor{keyword}{const}\&\ file\_name);}
+\DoxyCodeLine{00177\ }
+\DoxyCodeLine{00178\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00179\ \ \ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<Vec3d>}}\ \mbox{\hyperlink{classnetdem_1_1_f_e_m_simulator_a7c297abc302044a158953c0d92ce235f}{nodal\_forces\_int}};\ }
+\DoxyCodeLine{00180\ \ \ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<Vec3d>}}\ \mbox{\hyperlink{classnetdem_1_1_f_e_m_simulator_a8078bc8966d1bb86552edcf417cb859c}{nodal\_forces\_ext}};\ }
+\DoxyCodeLine{00181\ }
+\DoxyCodeLine{00182\ \ \ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<Vec3d>}}\ \mbox{\hyperlink{classnetdem_1_1_f_e_m_simulator_a32575cd147728fc4181ee2a6f946f49d}{nodal\_vels\_ave}};\ }
+\DoxyCodeLine{00183\ }
+\DoxyCodeLine{00193\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_f_e_m_simulator_ae1e5a5d8b98d281cc54fe855e218c05a}{Advance}}(\textcolor{keywordtype}{double}\ dt);}
+\DoxyCodeLine{00194\ }
+\DoxyCodeLine{00201\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_f_e_m_simulator_a91d84a69c270e94c0d76efb98dd10f31}{InitInitialCondition}}();}
+\DoxyCodeLine{00202\ }
+\DoxyCodeLine{00214\ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classnetdem_1_1_f_e_m_simulator_a73ab053cf7514299113246cc87ea4dbe}{GetElementVolume}}(\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ \textcolor{keyword}{const}\&\ v0,\ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ \textcolor{keyword}{const}\&\ v1,\ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ \textcolor{keyword}{const}\&\ v2,}
+\DoxyCodeLine{00215\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ \textcolor{keyword}{const}\&\ v3);}
+\DoxyCodeLine{00216\ }
+\DoxyCodeLine{00233\ \ \ \mbox{\hyperlink{namespacenetdem_ae589ca87f7a16ea70807ee6b1c3bc1c8}{Mat3d}}\ \mbox{\hyperlink{classnetdem_1_1_f_e_m_simulator_a7289c226741c45fa96eaee7e2412a25c}{GetDeformationGradient}}(\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ \textcolor{keyword}{const}\&\ v0\_new,\ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ \textcolor{keyword}{const}\&\ v1\_new,}
+\DoxyCodeLine{00234\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ \textcolor{keyword}{const}\&\ v2\_new,\ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ \textcolor{keyword}{const}\&\ v3\_new,}
+\DoxyCodeLine{00235\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ \textcolor{keyword}{const}\&\ v0\_ref,\ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ \textcolor{keyword}{const}\&\ v1\_ref,}
+\DoxyCodeLine{00236\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ \textcolor{keyword}{const}\&\ v2\_ref,\ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ \textcolor{keyword}{const}\&\ v3\_ref);}
+\DoxyCodeLine{00237\ }
+\DoxyCodeLine{00247\ \ \ \mbox{\hyperlink{namespacenetdem_ae589ca87f7a16ea70807ee6b1c3bc1c8}{Mat3d}}\ \mbox{\hyperlink{classnetdem_1_1_f_e_m_simulator_a34e2227e930103e389d83b7fc27d3bb6}{GetCauchyStress}}(\mbox{\hyperlink{namespacenetdem_ae589ca87f7a16ea70807ee6b1c3bc1c8}{Mat3d}}\ \textcolor{keyword}{const}\&\ def\_grad);}
+\DoxyCodeLine{00248\ }
+\DoxyCodeLine{00259\ \ \ \mbox{\hyperlink{namespacenetdem_aa1535a5d1ed2f90088a89de1f7670952}{MatNd<4,\ 3>}}\ \mbox{\hyperlink{classnetdem_1_1_f_e_m_simulator_af8b9e96b01d415c7c767947598eaacf7}{GetInternalForces}}(\mbox{\hyperlink{namespacenetdem_ae589ca87f7a16ea70807ee6b1c3bc1c8}{Mat3d}}\ \textcolor{keyword}{const}\&\ cauchy\_stress,\ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ \textcolor{keyword}{const}\&\ v0,}
+\DoxyCodeLine{00260\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ \textcolor{keyword}{const}\&\ v1,\ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ \textcolor{keyword}{const}\&\ v2,}
+\DoxyCodeLine{00261\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ \textcolor{keyword}{const}\&\ v3);}
+\DoxyCodeLine{00262\ \};}
+\DoxyCodeLine{00263\ }
+\DoxyCodeLine{00264\ }
+\DoxyCodeLine{00265\ \}\ \textcolor{comment}{//\ namespace\ netdem}}
 
 \end{DoxyCode}

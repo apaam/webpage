@@ -2,28 +2,37 @@
 \label{classnetdem_1_1_input_processor}\index{netdem::InputProcessor@{netdem::InputProcessor}}
 
 
+A class that processes input JSON files to modify a simulation.  
+
+
+
+
 {\ttfamily \#include $<$input\+\_\+processor.\+hpp$>$}
 
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{classnetdem_1_1_input_processor_a66533c99a2ec1549a906fa86a3cc2802}{Input\+Processor}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Constructs a new {\ttfamily \mbox{\hyperlink{classnetdem_1_1_input_processor}{Input\+Processor}}} object. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classnetdem_1_1_input_processor_a4471952bce3c62c176ce35ffd7ea82cf}{Init}} (\mbox{\hyperlink{classnetdem_1_1_simulation}{Simulation}} $\ast$s)
-\item 
+\begin{DoxyCompactList}\small\item\em Initializes the {\ttfamily \mbox{\hyperlink{classnetdem_1_1_input_processor}{Input\+Processor}}} object with a simulation object. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classnetdem_1_1_input_processor_a1593c050e2980647c0c0ad39a04ac755}{Process\+Json\+File}} (std\+::string const \&filename)
-\item 
+\begin{DoxyCompactList}\small\item\em Processes a JSON file. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classnetdem_1_1_input_processor_ab0325353f9dcc7e5c2fe5bae8f3692b9}{Process\+Json}} (nlohmann\+::json const \&js)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Processes JSON data. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Private Attributes}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{classnetdem_1_1_simulation}{Simulation}} $\ast$ \mbox{\hyperlink{classnetdem_1_1_input_processor_a24b4663d66c8d42a0a94fc8fc32a23d8}{sim}} \{nullptr\}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em A pointer to the simulation object. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
+A class that processes input JSON files to modify a simulation. 
+
 Create or modify a simulation using json input file. 
+
+The {\ttfamily \mbox{\hyperlink{classnetdem_1_1_input_processor}{Input\+Processor}}} class is responsible for processing input JSON files and modifying a simulation accordingly. It provides functionality to initialize the class with a simulation object, process a JSON file, and process JSON data. 
 
 \doxysubsection{Constructor \& Destructor Documentation}
 \mbox{\Hypertarget{classnetdem_1_1_input_processor_a66533c99a2ec1549a906fa86a3cc2802}\label{classnetdem_1_1_input_processor_a66533c99a2ec1549a906fa86a3cc2802}} 
@@ -34,6 +43,10 @@ Create or modify a simulation using json input file.
 
 
 
+Constructs a new {\ttfamily \mbox{\hyperlink{classnetdem_1_1_input_processor}{Input\+Processor}}} object. 
+
+This constructor creates a new {\ttfamily \mbox{\hyperlink{classnetdem_1_1_input_processor}{Input\+Processor}}} object. 
+
 \doxysubsection{Member Function Documentation}
 \mbox{\Hypertarget{classnetdem_1_1_input_processor_a4471952bce3c62c176ce35ffd7ea82cf}\label{classnetdem_1_1_input_processor_a4471952bce3c62c176ce35ffd7ea82cf}} 
 \index{netdem::InputProcessor@{netdem::InputProcessor}!Init@{Init}}
@@ -41,12 +54,34 @@ Create or modify a simulation using json input file.
 \doxysubsubsection{\texorpdfstring{Init()}{Init()}}
 {\footnotesize\ttfamily void netdem\+::\+Input\+Processor\+::\+Init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_simulation}{Simulation}} $\ast$}]{s }\end{DoxyParamCaption})}
 
+
+
+Initializes the {\ttfamily \mbox{\hyperlink{classnetdem_1_1_input_processor}{Input\+Processor}}} object with a simulation object. 
+
+This function initializes the {\ttfamily \mbox{\hyperlink{classnetdem_1_1_input_processor}{Input\+Processor}}} object with a simulation object.
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & A pointer to the simulation object. \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{classnetdem_1_1_input_processor_ab0325353f9dcc7e5c2fe5bae8f3692b9}\label{classnetdem_1_1_input_processor_ab0325353f9dcc7e5c2fe5bae8f3692b9}} 
 \index{netdem::InputProcessor@{netdem::InputProcessor}!ProcessJson@{ProcessJson}}
 \index{ProcessJson@{ProcessJson}!netdem::InputProcessor@{netdem::InputProcessor}}
 \doxysubsubsection{\texorpdfstring{ProcessJson()}{ProcessJson()}}
 {\footnotesize\ttfamily void netdem\+::\+Input\+Processor\+::\+Process\+Json (\begin{DoxyParamCaption}\item[{nlohmann\+::json const \&}]{js }\end{DoxyParamCaption})}
 
+
+
+Processes JSON data. 
+
+This function processes JSON data and modifies the simulation object accordingly. The JSON data should be an array of objects that specify commands to be executed on the simulation object.
+
+
+\begin{DoxyParams}{Parameters}
+{\em js} & The JSON data to process. \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{classnetdem_1_1_input_processor_a1593c050e2980647c0c0ad39a04ac755}\label{classnetdem_1_1_input_processor_a1593c050e2980647c0c0ad39a04ac755}} 
 \index{netdem::InputProcessor@{netdem::InputProcessor}!ProcessJsonFile@{ProcessJsonFile}}
 \index{ProcessJsonFile@{ProcessJsonFile}!netdem::InputProcessor@{netdem::InputProcessor}}
@@ -55,12 +90,27 @@ Create or modify a simulation using json input file.
 
 
 
+Processes a JSON file. 
+
+This function processes a JSON file and modifies the simulation object accordingly. The JSON file should contain an array of objects that specify commands to be executed on the simulation object.
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & The name of the JSON file to process. \\
+\hline
+\end{DoxyParams}
+
+
 \doxysubsection{Member Data Documentation}
 \mbox{\Hypertarget{classnetdem_1_1_input_processor_a24b4663d66c8d42a0a94fc8fc32a23d8}\label{classnetdem_1_1_input_processor_a24b4663d66c8d42a0a94fc8fc32a23d8}} 
 \index{netdem::InputProcessor@{netdem::InputProcessor}!sim@{sim}}
 \index{sim@{sim}!netdem::InputProcessor@{netdem::InputProcessor}}
 \doxysubsubsection{\texorpdfstring{sim}{sim}}
 {\footnotesize\ttfamily \mbox{\hyperlink{classnetdem_1_1_simulation}{Simulation}}$\ast$ netdem\+::\+Input\+Processor\+::sim \{nullptr\}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+A pointer to the simulation object. 
 
 
 
