@@ -7,70 +7,74 @@
 \DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <cork.h>}}
 \DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <mesh.h>}}
 \DoxyCodeLine{00005\ }
-\DoxyCodeLine{00006\ \textcolor{comment}{//\ the\ following\ is\ copied\ from\ cork.cpp}}
-\DoxyCodeLine{00007\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_cork_triangle}{CorkTriangle}};}
-\DoxyCodeLine{00008\ }
-\DoxyCodeLine{00009\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_cork_vertex}{CorkVertex}}\ :\ \textcolor{keyword}{public}\ MinimalVertexData,}
-\DoxyCodeLine{00010\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ RemeshVertexData,}
-\DoxyCodeLine{00011\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ IsctVertexData,}
-\DoxyCodeLine{00012\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ BoolVertexData\ \{}
-\DoxyCodeLine{00013\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{struct_cork_vertex_af6ad67f7ae80db9b107b81b867104c43}{merge}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_cork_vertex}{CorkVertex}}\ \&v0,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{struct_cork_vertex}{CorkVertex}}\ \&v1)\ \{}
-\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keywordtype}{double}\ a0\ =\ 0.5;}
-\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keywordflow}{if}\ (v0.manifold\ \&\&\ !v1.manifold)}
-\DoxyCodeLine{00016\ \ \ \ \ \ \ a0\ =\ 0.0;}
-\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keywordflow}{if}\ (!v0.manifold\ \&\&\ v1.manifold)}
-\DoxyCodeLine{00018\ \ \ \ \ \ \ a0\ =\ 1.0;}
-\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordtype}{double}\ a1\ =\ 1.0\ -\/\ a0;}
-\DoxyCodeLine{00020\ }
-\DoxyCodeLine{00021\ \ \ \ \ pos\ =\ a0\ *\ v0.pos\ +\ a1\ *\ v1.pos;}
-\DoxyCodeLine{00022\ \ \ \}}
-\DoxyCodeLine{00023\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{struct_cork_vertex_a37aec33d8958655727bf71b1913e222f}{interpolate}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_cork_vertex}{CorkVertex}}\ \&v0,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{struct_cork_vertex}{CorkVertex}}\ \&v1)\ \{}
-\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordtype}{double}\ a0\ =\ 0.5;}
-\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordtype}{double}\ a1\ =\ 0.5;}
-\DoxyCodeLine{00026\ \ \ \ \ pos\ =\ a0\ *\ v0.pos\ +\ a1\ *\ v1.pos;}
-\DoxyCodeLine{00027\ \ \ \}}
-\DoxyCodeLine{00028\ }
-\DoxyCodeLine{00029\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{struct_cork_vertex_ade8f2b85f08f06c9dfafeeb8e3354629}{isct}}(IsctVertEdgeTriInput<CorkVertex,\ CorkTriangle>\ input)\ \{}
-\DoxyCodeLine{00030\ \ \ \ \ Vec2d\ a\_e\ =\ Vec2d(1,\ 1)\ /\ 2.0;}
-\DoxyCodeLine{00031\ \ \ \ \ Vec3d\ a\_t\ =\ Vec3d(1,\ 1,\ 1)\ /\ 3.0;}
-\DoxyCodeLine{00032\ \ \ \ \ a\_e\ /=\ 2.0;}
-\DoxyCodeLine{00033\ \ \ \ \ a\_t\ /=\ 2.0;}
-\DoxyCodeLine{00034\ \ \ \}}
-\DoxyCodeLine{00035\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{struct_cork_vertex_aa8405a0742e9f3753e8423736289975e}{isct}}(IsctVertTriTriTriInput<CorkVertex,\ CorkTriangle>\ input)\ \{}
-\DoxyCodeLine{00036\ \ \ \ \ Vec3d\ a[3];}
-\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordflow}{for}\ (uint\ k\ =\ 0;\ k\ <\ 3;\ k++)\ \{}
-\DoxyCodeLine{00038\ \ \ \ \ \ \ a[k]\ =\ Vec3d(1,\ 1,\ 1)\ /\ 3.0;}
-\DoxyCodeLine{00039\ \ \ \ \ \ \ a[k]\ /=\ 3.0;}
-\DoxyCodeLine{00040\ \ \ \ \ \}}
-\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keywordflow}{for}\ (uint\ i\ =\ 0;\ i\ <\ 3;\ i++)\ \{}
-\DoxyCodeLine{00042\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (uint\ j\ =\ 0;\ j\ <\ 3;\ j++)\ \{}
-\DoxyCodeLine{00043\ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00044\ \ \ \ \ \}}
-\DoxyCodeLine{00045\ \ \ \}}
-\DoxyCodeLine{00046\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{struct_cork_vertex_a6d741e4d599b5071a2ed2b078707e04b}{isctInterpolate}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_cork_vertex}{CorkVertex}}\ \&v0,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{struct_cork_vertex}{CorkVertex}}\ \&v1)\ \{}
-\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keywordtype}{double}\ a0\ =\ len(v1.pos\ -\/\ pos);}
-\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keywordtype}{double}\ a1\ =\ len(v0.pos\ -\/\ pos);}
-\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keywordflow}{if}\ (a0\ +\ a1\ ==\ 0.0)}
-\DoxyCodeLine{00050\ \ \ \ \ \ \ a0\ =\ a1\ =\ 0.5;\ \textcolor{comment}{//\ safety}}
-\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keywordtype}{double}\ sum\ =\ a0\ +\ a1;}
-\DoxyCodeLine{00052\ \ \ \ \ a0\ /=\ sum;}
-\DoxyCodeLine{00053\ \ \ \ \ a1\ /=\ sum;}
-\DoxyCodeLine{00054\ \ \ \}}
-\DoxyCodeLine{00055\ \};}
-\DoxyCodeLine{00056\ }
-\DoxyCodeLine{00057\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_cork_triangle}{CorkTriangle}}\ :\ \textcolor{keyword}{public}\ MinimalTriangleData,}
-\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ RemeshTriangleData,}
-\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ IsctTriangleData,}
-\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ BoolTriangleData\ \{}
-\DoxyCodeLine{00061\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{struct_cork_triangle_abed31f774bb6d009bbcb7c8efebe7074}{merge}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_cork_triangle}{CorkTriangle}}\ \&,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{struct_cork_triangle}{CorkTriangle}}\ \&)\ \{\}}
-\DoxyCodeLine{00062\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{struct_cork_triangle_ad4cafc5ee1e4ba63eb2fff4bcebb86ef}{split}}(\mbox{\hyperlink{struct_cork_triangle}{CorkTriangle}}\ \&,\ \mbox{\hyperlink{struct_cork_triangle}{CorkTriangle}}\ \&,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{struct_cork_triangle}{CorkTriangle}}\ \&)\ \{\}}
-\DoxyCodeLine{00063\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{struct_cork_triangle_a05d2bb64d1fa172dbd26cf2b299492f2}{move}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_cork_triangle}{CorkTriangle}}\ \&)\ \{\}}
-\DoxyCodeLine{00064\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{struct_cork_triangle_aec03efa1accf09f20aa40c707b4ccd71}{subdivide}}(SubdivideTriInput<CorkVertex,\ CorkTriangle>\ input)\ \{}
-\DoxyCodeLine{00065\ \ \ \ \ bool\_alg\_data\ =\ input.pt-\/>bool\_alg\_data;}
-\DoxyCodeLine{00066\ \ \ \}}
-\DoxyCodeLine{00067\ \};}
-\DoxyCodeLine{00068\ }
-\DoxyCodeLine{00069\ \textcolor{keyword}{typedef}\ RawMesh<CorkVertex,\ CorkTriangle>\ \mbox{\hyperlink{cork__decls_8hpp_a864a275345581fb763af9d5a76cd1a73}{RawCorkMesh}};}
-\DoxyCodeLine{00070\ \textcolor{keyword}{typedef}\ Mesh<CorkVertex,\ CorkTriangle>\ \mbox{\hyperlink{cork__decls_8hpp_a4149c638f6ac02f19d42b6ded643ac4f}{CorkMesh}};}
+\DoxyCodeLine{00015\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_cork_triangle}{CorkTriangle}};}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00027\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_cork_vertex}{CorkVertex}}\ :\ \textcolor{keyword}{public}\ MinimalVertexData,}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ RemeshVertexData,}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ IsctVertexData,}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ BoolVertexData\ \{}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00038\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{struct_cork_vertex_af6ad67f7ae80db9b107b81b867104c43}{merge}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_cork_vertex}{CorkVertex}}\ \&v0,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{struct_cork_vertex}{CorkVertex}}\ \&v1)\ \{}
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keywordtype}{double}\ a0\ =\ 0.5;}
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordflow}{if}\ (v0.manifold\ \&\&\ !v1.manifold)}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ a0\ =\ 0.0;}
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keywordflow}{if}\ (!v0.manifold\ \&\&\ v1.manifold)}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ a0\ =\ 1.0;}
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keywordtype}{double}\ a1\ =\ 1.0\ -\/\ a0;}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \ \ \ \ pos\ =\ a0\ *\ v0.pos\ +\ a1\ *\ v1.pos;}
+\DoxyCodeLine{00047\ \ \ \}}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00055\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{struct_cork_vertex_a37aec33d8958655727bf71b1913e222f}{interpolate}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_cork_vertex}{CorkVertex}}\ \&v0,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{struct_cork_vertex}{CorkVertex}}\ \&v1)\ \{}
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keywordtype}{double}\ a0\ =\ 0.5;}
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keywordtype}{double}\ a1\ =\ 0.5;}
+\DoxyCodeLine{00058\ \ \ \ \ pos\ =\ a0\ *\ v0.pos\ +\ a1\ *\ v1.pos;}
+\DoxyCodeLine{00059\ \ \ \}}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00066\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{struct_cork_vertex_ade8f2b85f08f06c9dfafeeb8e3354629}{isct}}(IsctVertEdgeTriInput<CorkVertex,\ CorkTriangle>\ input)\ \{}
+\DoxyCodeLine{00067\ \ \ \ \ Vec2d\ a\_e\ =\ Vec2d(1,\ 1)\ /\ 2.0;}
+\DoxyCodeLine{00068\ \ \ \ \ Vec3d\ a\_t\ =\ Vec3d(1,\ 1,\ 1)\ /\ 3.0;}
+\DoxyCodeLine{00069\ \ \ \ \ a\_e\ /=\ 2.0;}
+\DoxyCodeLine{00070\ \ \ \ \ a\_t\ /=\ 2.0;}
+\DoxyCodeLine{00071\ \ \ \}}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00078\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{struct_cork_vertex_aa8405a0742e9f3753e8423736289975e}{isct}}(IsctVertTriTriTriInput<CorkVertex,\ CorkTriangle>\ input)\ \{}
+\DoxyCodeLine{00079\ \ \ \ \ Vec3d\ a[3];}
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{keywordflow}{for}\ (uint\ k\ =\ 0;\ k\ <\ 3;\ k++)\ \{}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ a[k]\ =\ Vec3d(1,\ 1,\ 1)\ /\ 3.0;}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ a[k]\ /=\ 3.0;}
+\DoxyCodeLine{00083\ \ \ \ \ \}}
+\DoxyCodeLine{00084\ \ \ \ \ \textcolor{keywordflow}{for}\ (uint\ i\ =\ 0;\ i\ <\ 3;\ i++)\ \{}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (uint\ j\ =\ 0;\ j\ <\ 3;\ j++)\ \{}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00087\ \ \ \ \ \}}
+\DoxyCodeLine{00088\ \ \ \}}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00096\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{struct_cork_vertex_a6d741e4d599b5071a2ed2b078707e04b}{isctInterpolate}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_cork_vertex}{CorkVertex}}\ \&v0,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{struct_cork_vertex}{CorkVertex}}\ \&v1)\ \{}
+\DoxyCodeLine{00097\ \ \ \ \ \textcolor{keywordtype}{double}\ a0\ =\ len(v1.pos\ -\/\ pos);}
+\DoxyCodeLine{00098\ \ \ \ \ \textcolor{keywordtype}{double}\ a1\ =\ len(v0.pos\ -\/\ pos);}
+\DoxyCodeLine{00099\ \ \ \ \ \textcolor{keywordflow}{if}\ (a0\ +\ a1\ ==\ 0.0)}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ a0\ =\ a1\ =\ 0.5;\ \textcolor{comment}{//\ safety}}
+\DoxyCodeLine{00101\ \ \ \ \ \textcolor{keywordtype}{double}\ sum\ =\ a0\ +\ a1;}
+\DoxyCodeLine{00102\ \ \ \ \ a0\ /=\ sum;}
+\DoxyCodeLine{00103\ \ \ \ \ a1\ /=\ sum;}
+\DoxyCodeLine{00104\ \ \ \}}
+\DoxyCodeLine{00105\ \};}
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00107\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_cork_triangle}{CorkTriangle}}\ :\ \textcolor{keyword}{public}\ MinimalTriangleData,}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ RemeshTriangleData,}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ IsctTriangleData,}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ BoolTriangleData\ \{}
+\DoxyCodeLine{00111\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{struct_cork_triangle_abed31f774bb6d009bbcb7c8efebe7074}{merge}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_cork_triangle}{CorkTriangle}}\ \&,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{struct_cork_triangle}{CorkTriangle}}\ \&)\ \{\}}
+\DoxyCodeLine{00112\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{struct_cork_triangle_ad4cafc5ee1e4ba63eb2fff4bcebb86ef}{split}}(\mbox{\hyperlink{struct_cork_triangle}{CorkTriangle}}\ \&,\ \mbox{\hyperlink{struct_cork_triangle}{CorkTriangle}}\ \&,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{struct_cork_triangle}{CorkTriangle}}\ \&)\ \{\}}
+\DoxyCodeLine{00113\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{struct_cork_triangle_a05d2bb64d1fa172dbd26cf2b299492f2}{move}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_cork_triangle}{CorkTriangle}}\ \&)\ \{\}}
+\DoxyCodeLine{00114\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{struct_cork_triangle_aec03efa1accf09f20aa40c707b4ccd71}{subdivide}}(SubdivideTriInput<CorkVertex,\ CorkTriangle>\ input)\ \{}
+\DoxyCodeLine{00115\ \ \ \ \ bool\_alg\_data\ =\ input.pt-\/>bool\_alg\_data;}
+\DoxyCodeLine{00116\ \ \ \}}
+\DoxyCodeLine{00117\ \};}
+\DoxyCodeLine{00118\ }
+\DoxyCodeLine{00123\ \textcolor{keyword}{typedef}\ RawMesh<CorkVertex,\ CorkTriangle>\ \mbox{\hyperlink{cork__decls_8hpp_ab70592d352d8c043392bf40b026d48c5}{RawCorkMesh}};}
+\DoxyCodeLine{00124\ }
+\DoxyCodeLine{00129\ \textcolor{keyword}{typedef}\ Mesh<CorkVertex,\ CorkTriangle>\ \mbox{\hyperlink{cork__decls_8hpp_a49d3bb86fbcf9db3cb7ced09f9a30152}{CorkMesh}};}
 
 \end{DoxyCode}

@@ -2,27 +2,32 @@
 \label{classnetdem_1_1_general_net}\index{netdem::GeneralNet@{netdem::GeneralNet}}
 
 
+A class representing a general neural network.  
+
+
+
+
 {\ttfamily \#include $<$general\+\_\+net.\+hpp$>$}
 
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 void \mbox{\hyperlink{classnetdem_1_1_general_net_a1165fbcdceed3836bb65d07d2d5b2196}{Reset\+Model}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Resets the current neural network model. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classnetdem_1_1_general_net_a19e9ec754597a43951d46ba3597300b5}{Add\+Layer}} (\mbox{\hyperlink{namespacenetdem_a06635636eca09676377d47de7cb4c02c}{Layer\+Type}} layer\+\_\+name,...)
-\item 
+\begin{DoxyCompactList}\small\item\em Adds a layer to the current neural network model. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classnetdem_1_1_general_net_a0c31c725dea72fe4a05faaf990407ac5}{Train}} (const arma\+::mat \&data\+\_\+x, const arma\+::mat \&data\+\_\+y)
-\item 
+\begin{DoxyCompactList}\small\item\em Trains the current neural network model using the given input and output data. \end{DoxyCompactList}\item 
 arma\+::mat \mbox{\hyperlink{classnetdem_1_1_general_net_a1a0f3c83138854d1c1297cc339119a83}{Predict}} (const arma\+::mat \&data\+\_\+x)
-\item 
+\begin{DoxyCompactList}\small\item\em Predicts output values based on input data. \end{DoxyCompactList}\item 
 arma\+::mat \mbox{\hyperlink{classnetdem_1_1_general_net_af2fc4261724d922ce5723f9d977bd21e}{Classify}} (const arma\+::mat \&data\+\_\+x)
-\item 
+\begin{DoxyCompactList}\small\item\em Classifies input data based on the current neural network model. \end{DoxyCompactList}\item 
 arma\+::mat \mbox{\hyperlink{classnetdem_1_1_general_net_addeaee5b77ba0891085bb9be81caa4fd}{Regress}} (const arma\+::mat \&data\+\_\+x)
-\item 
+\begin{DoxyCompactList}\small\item\em Performs regression on input data using the current neural network model. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classnetdem_1_1_general_net_a0a7b122315dff46529463a46d8d180a0}{Load}} (std\+::string const \&filename, std\+::string const \&label)
-\item 
+\begin{DoxyCompactList}\small\item\em Loads a previously saved neural network model from a file. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classnetdem_1_1_general_net_a17354db1181787f46187d01ba5ed6e7f}{Save}} (std\+::string const \&filename, std\+::string const \&label)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Saves the current neural network model to a file. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -46,6 +51,11 @@ bool \mbox{\hyperlink{classnetdem_1_1_general_net_a12b761ddea693146d7d4357a70865
 \end{DoxyCompactItemize}
 
 
+\doxysubsection{Detailed Description}
+A class representing a general neural network. 
+
+The \mbox{\hyperlink{classnetdem_1_1_general_net}{General\+Net}} class is used to represent a general neural network, and provides methods for adding layers, training the network, and making predictions. 
+
 \doxysubsection{Member Function Documentation}
 \mbox{\Hypertarget{classnetdem_1_1_general_net_a19e9ec754597a43951d46ba3597300b5}\label{classnetdem_1_1_general_net_a19e9ec754597a43951d46ba3597300b5}} 
 \index{netdem::GeneralNet@{netdem::GeneralNet}!AddLayer@{AddLayer}}
@@ -53,35 +63,97 @@ bool \mbox{\hyperlink{classnetdem_1_1_general_net_a12b761ddea693146d7d4357a70865
 \doxysubsubsection{\texorpdfstring{AddLayer()}{AddLayer()}}
 {\footnotesize\ttfamily void netdem\+::\+General\+Net\+::\+Add\+Layer (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacenetdem_a06635636eca09676377d47de7cb4c02c}{Layer\+Type}}}]{layer\+\_\+name,  }\item[{}]{... }\end{DoxyParamCaption})}
 
+
+
+Adds a layer to the current neural network model. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em layer\+\_\+name} & The type of layer to add. \\
+\hline
+{\em ...} & Additional parameters required for the layer to be added. \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{classnetdem_1_1_general_net_af2fc4261724d922ce5723f9d977bd21e}\label{classnetdem_1_1_general_net_af2fc4261724d922ce5723f9d977bd21e}} 
 \index{netdem::GeneralNet@{netdem::GeneralNet}!Classify@{Classify}}
 \index{Classify@{Classify}!netdem::GeneralNet@{netdem::GeneralNet}}
 \doxysubsubsection{\texorpdfstring{Classify()}{Classify()}}
 {\footnotesize\ttfamily arma\+::mat netdem\+::\+General\+Net\+::\+Classify (\begin{DoxyParamCaption}\item[{const arma\+::mat \&}]{data\+\_\+x }\end{DoxyParamCaption})}
 
+
+
+Classifies input data based on the current neural network model. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data\+\_\+x} & The input data to classify. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The classification results. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{classnetdem_1_1_general_net_a0a7b122315dff46529463a46d8d180a0}\label{classnetdem_1_1_general_net_a0a7b122315dff46529463a46d8d180a0}} 
 \index{netdem::GeneralNet@{netdem::GeneralNet}!Load@{Load}}
 \index{Load@{Load}!netdem::GeneralNet@{netdem::GeneralNet}}
 \doxysubsubsection{\texorpdfstring{Load()}{Load()}}
 {\footnotesize\ttfamily void netdem\+::\+General\+Net\+::\+Load (\begin{DoxyParamCaption}\item[{std\+::string const \&}]{filename,  }\item[{std\+::string const \&}]{label }\end{DoxyParamCaption})}
 
+
+
+Loads a previously saved neural network model from a file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & The name of the file containing the saved model. \\
+\hline
+{\em label} & The label for the saved model. \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{classnetdem_1_1_general_net_a1a0f3c83138854d1c1297cc339119a83}\label{classnetdem_1_1_general_net_a1a0f3c83138854d1c1297cc339119a83}} 
 \index{netdem::GeneralNet@{netdem::GeneralNet}!Predict@{Predict}}
 \index{Predict@{Predict}!netdem::GeneralNet@{netdem::GeneralNet}}
 \doxysubsubsection{\texorpdfstring{Predict()}{Predict()}}
 {\footnotesize\ttfamily arma\+::mat netdem\+::\+General\+Net\+::\+Predict (\begin{DoxyParamCaption}\item[{const arma\+::mat \&}]{data\+\_\+x }\end{DoxyParamCaption})}
 
+
+
+Predicts output values based on input data. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data\+\_\+x} & The input data to use for prediction. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The predicted output values. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{classnetdem_1_1_general_net_addeaee5b77ba0891085bb9be81caa4fd}\label{classnetdem_1_1_general_net_addeaee5b77ba0891085bb9be81caa4fd}} 
 \index{netdem::GeneralNet@{netdem::GeneralNet}!Regress@{Regress}}
 \index{Regress@{Regress}!netdem::GeneralNet@{netdem::GeneralNet}}
 \doxysubsubsection{\texorpdfstring{Regress()}{Regress()}}
 {\footnotesize\ttfamily arma\+::mat netdem\+::\+General\+Net\+::\+Regress (\begin{DoxyParamCaption}\item[{const arma\+::mat \&}]{data\+\_\+x }\end{DoxyParamCaption})}
 
+
+
+Performs regression on input data using the current neural network model. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data\+\_\+x} & The input data to use for regression. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The regression results. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{classnetdem_1_1_general_net_a1165fbcdceed3836bb65d07d2d5b2196}\label{classnetdem_1_1_general_net_a1165fbcdceed3836bb65d07d2d5b2196}} 
 \index{netdem::GeneralNet@{netdem::GeneralNet}!ResetModel@{ResetModel}}
 \index{ResetModel@{ResetModel}!netdem::GeneralNet@{netdem::GeneralNet}}
 \doxysubsubsection{\texorpdfstring{ResetModel()}{ResetModel()}}
 {\footnotesize\ttfamily void netdem\+::\+General\+Net\+::\+Reset\+Model (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Resets the current neural network model. 
 
 \mbox{\Hypertarget{classnetdem_1_1_general_net_a17354db1181787f46187d01ba5ed6e7f}\label{classnetdem_1_1_general_net_a17354db1181787f46187d01ba5ed6e7f}} 
 \index{netdem::GeneralNet@{netdem::GeneralNet}!Save@{Save}}
@@ -89,12 +161,34 @@ bool \mbox{\hyperlink{classnetdem_1_1_general_net_a12b761ddea693146d7d4357a70865
 \doxysubsubsection{\texorpdfstring{Save()}{Save()}}
 {\footnotesize\ttfamily void netdem\+::\+General\+Net\+::\+Save (\begin{DoxyParamCaption}\item[{std\+::string const \&}]{filename,  }\item[{std\+::string const \&}]{label }\end{DoxyParamCaption})}
 
+
+
+Saves the current neural network model to a file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & The name of the file to save the model to. \\
+\hline
+{\em label} & The label for the saved model. \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{classnetdem_1_1_general_net_a0c31c725dea72fe4a05faaf990407ac5}\label{classnetdem_1_1_general_net_a0c31c725dea72fe4a05faaf990407ac5}} 
 \index{netdem::GeneralNet@{netdem::GeneralNet}!Train@{Train}}
 \index{Train@{Train}!netdem::GeneralNet@{netdem::GeneralNet}}
 \doxysubsubsection{\texorpdfstring{Train()}{Train()}}
 {\footnotesize\ttfamily void netdem\+::\+General\+Net\+::\+Train (\begin{DoxyParamCaption}\item[{const arma\+::mat \&}]{data\+\_\+x,  }\item[{const arma\+::mat \&}]{data\+\_\+y }\end{DoxyParamCaption})}
 
+
+
+Trains the current neural network model using the given input and output data. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data\+\_\+x} & The input data to use for training. \\
+\hline
+{\em data\+\_\+y} & The output data to use for training. \\
+\hline
+\end{DoxyParams}
 
 
 \doxysubsection{Member Data Documentation}

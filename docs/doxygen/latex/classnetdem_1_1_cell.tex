@@ -2,27 +2,32 @@
 \label{classnetdem_1_1_cell}\index{netdem::Cell@{netdem::Cell}}
 
 
+A class representing a cell in a simulation grid.  
+
+
+
+
 {\ttfamily \#include $<$cell.\+hpp$>$}
 
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{classnetdem_1_1_cell_a394510643e8664cf12b5efaf5cb99f71}{Cell}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Default constructor for the \mbox{\hyperlink{classnetdem_1_1_cell}{Cell}} class. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classnetdem_1_1_cell_ac04c905212af3d12f81f9466cf2d827a}{Cell}} (\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&bmin, \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&bmax)
-\item 
+\begin{DoxyCompactList}\small\item\em Constructor for the \mbox{\hyperlink{classnetdem_1_1_cell}{Cell}} class with bounding box specified. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{classnetdem_1_1_cell_a77ddcecf6dd798b2009fb80ed2cd90bd}{Is\+Judge\+Cell}} (\mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} const \&p, \mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} const \&q)
-\item 
+\begin{DoxyCompactList}\small\item\em Determine if two particles are in the same cell. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{classnetdem_1_1_cell_a440ef10926963a9e37a9dba4924fa9b7}{Is\+Judge\+Cell}} (\mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} const \&p, \mbox{\hyperlink{classnetdem_1_1_wall}{Wall}} const \&w)
-\item 
+\begin{DoxyCompactList}\small\item\em Determine if a particle and a wall are in the same cell. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classnetdem_1_1_cell_a16b2debdbaf07c2a98e700a1cb115a82}{Clear\+Linked\+Lists}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Clear the linked particle and wall lists. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classnetdem_1_1_s_t_l_model}{STLModel}} \mbox{\hyperlink{classnetdem_1_1_cell_a01b91d2d13137269856bacd9ced8904d}{Get\+STLModel}} ()
-\begin{DoxyCompactList}\small\item\em for visualization purpose \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Generate an STL model for visualization purposes. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classnetdem_1_1_cell_a9fa559f7a28e2b4336c6879ca09304d8}{$\sim$\+Cell}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Default destructor for the \mbox{\hyperlink{classnetdem_1_1_cell}{Cell}} class. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classnetdem_1_1_cell_af71040602de48882145f0a241b34b9d4}{Print}} ()
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Print the bounding box of the cell to stdout. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -31,18 +36,22 @@ void \mbox{\hyperlink{classnetdem_1_1_cell_af71040602de48882145f0a241b34b9d4}{Pr
 \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \mbox{\hyperlink{classnetdem_1_1_cell_ae3d3ed4322434ef86d5cace1ba277443}{bound\+\_\+max}} \{0.\+5, 0.\+5, 0.\+5\}
 \item 
 \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ std\+::pair$<$ \mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} $\ast$, int $>$ $>$ \mbox{\hyperlink{classnetdem_1_1_cell_aaaa3575af0d035fea16fd7b7e1287929}{linked\+\_\+particle\+\_\+list}}
-\begin{DoxyCompactList}\small\item\em this list is maintained by Update\+Linked\+Cells in particle \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em A list of linked particles maintained by Update\+Linked\+Cells in particle. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ std\+::pair$<$ \mbox{\hyperlink{classnetdem_1_1_wall}{Wall}} $\ast$, int $>$ $>$ \mbox{\hyperlink{classnetdem_1_1_cell_ace812eb598a049427b3f8e0b8b9a5445}{linked\+\_\+wall\+\_\+list}}
-\begin{DoxyCompactList}\small\item\em this list is maintained by Update\+Linked\+Cells in wall \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em A list of linked walls maintained by Update\+Linked\+Cells in wall. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
+A class representing a cell in a simulation grid. 
+
 cell is used for broad-\/phase contact detection. The particles in a sub-\/domain will first be sorted into cells, so that only the particles that fall in the same cell could be potentially contact with each other.
 \begin{DoxyItemize}
 \item bound\+\_\+min, bound\+\_\+max\+: coordinates of the lower and upper boundary of the rectangle cell.
 \item particle\+\_\+list\+: particles that fall in this cell.
-\item wall\+\_\+list\+: walls that fall in this cell. 
+\item wall\+\_\+list\+: walls that fall in this cell.
 \end{DoxyItemize}
+
+This class keeps track of particles and walls that are located within its boundaries. 
 
 \doxysubsection{Constructor \& Destructor Documentation}
 \mbox{\Hypertarget{classnetdem_1_1_cell_a394510643e8664cf12b5efaf5cb99f71}\label{classnetdem_1_1_cell_a394510643e8664cf12b5efaf5cb99f71}} 
@@ -51,17 +60,36 @@ cell is used for broad-\/phase contact detection. The particles in a sub-\/domai
 \doxysubsubsection{\texorpdfstring{Cell()}{Cell()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily Cell\+::\+Cell (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
+
+
+Default constructor for the \mbox{\hyperlink{classnetdem_1_1_cell}{Cell}} class. 
+
 \mbox{\Hypertarget{classnetdem_1_1_cell_ac04c905212af3d12f81f9466cf2d827a}\label{classnetdem_1_1_cell_ac04c905212af3d12f81f9466cf2d827a}} 
 \index{netdem::Cell@{netdem::Cell}!Cell@{Cell}}
 \index{Cell@{Cell}!netdem::Cell@{netdem::Cell}}
 \doxysubsubsection{\texorpdfstring{Cell()}{Cell()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
 {\footnotesize\ttfamily Cell\+::\+Cell (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&}]{bmin,  }\item[{\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&}]{bmax }\end{DoxyParamCaption})}
 
+
+
+Constructor for the \mbox{\hyperlink{classnetdem_1_1_cell}{Cell}} class with bounding box specified. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em bmin} & The minimum coordinates of the cell\textquotesingle{}s bounding box. \\
+\hline
+{\em bmax} & The maximum coordinates of the cell\textquotesingle{}s bounding box. \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{classnetdem_1_1_cell_a9fa559f7a28e2b4336c6879ca09304d8}\label{classnetdem_1_1_cell_a9fa559f7a28e2b4336c6879ca09304d8}} 
 \index{netdem::Cell@{netdem::Cell}!````~Cell@{$\sim$Cell}}
 \index{````~Cell@{$\sim$Cell}!netdem::Cell@{netdem::Cell}}
 \doxysubsubsection{\texorpdfstring{$\sim$Cell()}{~Cell()}}
 {\footnotesize\ttfamily Cell\+::$\sim$\+Cell (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Default destructor for the \mbox{\hyperlink{classnetdem_1_1_cell}{Cell}} class. 
 
 
 
@@ -72,6 +100,10 @@ cell is used for broad-\/phase contact detection. The particles in a sub-\/domai
 \doxysubsubsection{\texorpdfstring{ClearLinkedLists()}{ClearLinkedLists()}}
 {\footnotesize\ttfamily void Cell\+::\+Clear\+Linked\+Lists (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
+
+
+Clear the linked particle and wall lists. 
+
 \mbox{\Hypertarget{classnetdem_1_1_cell_a01b91d2d13137269856bacd9ced8904d}\label{classnetdem_1_1_cell_a01b91d2d13137269856bacd9ced8904d}} 
 \index{netdem::Cell@{netdem::Cell}!GetSTLModel@{GetSTLModel}}
 \index{GetSTLModel@{GetSTLModel}!netdem::Cell@{netdem::Cell}}
@@ -80,25 +112,60 @@ cell is used for broad-\/phase contact detection. The particles in a sub-\/domai
 
 
 
-for visualization purpose 
+Generate an STL model for visualization purposes. 
 
+\begin{DoxyReturn}{Returns}
+An \mbox{\hyperlink{classnetdem_1_1_s_t_l_model}{STLModel}} object representing the cell. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{classnetdem_1_1_cell_a77ddcecf6dd798b2009fb80ed2cd90bd}\label{classnetdem_1_1_cell_a77ddcecf6dd798b2009fb80ed2cd90bd}} 
 \index{netdem::Cell@{netdem::Cell}!IsJudgeCell@{IsJudgeCell}}
 \index{IsJudgeCell@{IsJudgeCell}!netdem::Cell@{netdem::Cell}}
 \doxysubsubsection{\texorpdfstring{IsJudgeCell()}{IsJudgeCell()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily bool Cell\+::\+Is\+Judge\+Cell (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} const \&}]{p,  }\item[{\mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} const \&}]{q }\end{DoxyParamCaption})}
 
+
+
+Determine if two particles are in the same cell. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & The first particle. \\
+\hline
+{\em q} & The second particle. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the two particles are in the same cell, false otherwise. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{classnetdem_1_1_cell_a440ef10926963a9e37a9dba4924fa9b7}\label{classnetdem_1_1_cell_a440ef10926963a9e37a9dba4924fa9b7}} 
 \index{netdem::Cell@{netdem::Cell}!IsJudgeCell@{IsJudgeCell}}
 \index{IsJudgeCell@{IsJudgeCell}!netdem::Cell@{netdem::Cell}}
 \doxysubsubsection{\texorpdfstring{IsJudgeCell()}{IsJudgeCell()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
 {\footnotesize\ttfamily bool Cell\+::\+Is\+Judge\+Cell (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} const \&}]{p,  }\item[{\mbox{\hyperlink{classnetdem_1_1_wall}{Wall}} const \&}]{w }\end{DoxyParamCaption})}
 
+
+
+Determine if a particle and a wall are in the same cell. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & The particle. \\
+\hline
+{\em w} & The wall. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the particle and the wall are in the same cell, false otherwise. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{classnetdem_1_1_cell_af71040602de48882145f0a241b34b9d4}\label{classnetdem_1_1_cell_af71040602de48882145f0a241b34b9d4}} 
 \index{netdem::Cell@{netdem::Cell}!Print@{Print}}
 \index{Print@{Print}!netdem::Cell@{netdem::Cell}}
 \doxysubsubsection{\texorpdfstring{Print()}{Print()}}
 {\footnotesize\ttfamily void Cell\+::\+Print (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Print the bounding box of the cell to stdout. 
 
 
 
@@ -109,13 +176,13 @@ for visualization purpose
 \doxysubsubsection{\texorpdfstring{bound\_max}{bound\_max}}
 {\footnotesize\ttfamily \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} netdem\+::\+Cell\+::bound\+\_\+max \{0.\+5, 0.\+5, 0.\+5\}}
 
-\mbox{\Hypertarget{classnetdem_1_1_cell_a8cac2b018f1c1800dd25b89802535e90}\label{classnetdem_1_1_cell_a8cac2b018f1c1800dd25b89802535e90}} 
+The maximum coordinates of the cell\textquotesingle{}s bounding box. \mbox{\Hypertarget{classnetdem_1_1_cell_a8cac2b018f1c1800dd25b89802535e90}\label{classnetdem_1_1_cell_a8cac2b018f1c1800dd25b89802535e90}} 
 \index{netdem::Cell@{netdem::Cell}!bound\_min@{bound\_min}}
 \index{bound\_min@{bound\_min}!netdem::Cell@{netdem::Cell}}
 \doxysubsubsection{\texorpdfstring{bound\_min}{bound\_min}}
 {\footnotesize\ttfamily \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} netdem\+::\+Cell\+::bound\+\_\+min \{-\/0.\+5, -\/0.\+5, -\/0.\+5\}}
 
-\mbox{\Hypertarget{classnetdem_1_1_cell_aaaa3575af0d035fea16fd7b7e1287929}\label{classnetdem_1_1_cell_aaaa3575af0d035fea16fd7b7e1287929}} 
+The minimum coordinates of the cell\textquotesingle{}s bounding box. \mbox{\Hypertarget{classnetdem_1_1_cell_aaaa3575af0d035fea16fd7b7e1287929}\label{classnetdem_1_1_cell_aaaa3575af0d035fea16fd7b7e1287929}} 
 \index{netdem::Cell@{netdem::Cell}!linked\_particle\_list@{linked\_particle\_list}}
 \index{linked\_particle\_list@{linked\_particle\_list}!netdem::Cell@{netdem::Cell}}
 \doxysubsubsection{\texorpdfstring{linked\_particle\_list}{linked\_particle\_list}}
@@ -123,7 +190,7 @@ for visualization purpose
 
 
 
-this list is maintained by Update\+Linked\+Cells in particle 
+A list of linked particles maintained by Update\+Linked\+Cells in particle. 
 
 \mbox{\Hypertarget{classnetdem_1_1_cell_ace812eb598a049427b3f8e0b8b9a5445}\label{classnetdem_1_1_cell_ace812eb598a049427b3f8e0b8b9a5445}} 
 \index{netdem::Cell@{netdem::Cell}!linked\_wall\_list@{linked\_wall\_list}}
@@ -133,7 +200,7 @@ this list is maintained by Update\+Linked\+Cells in particle
 
 
 
-this list is maintained by Update\+Linked\+Cells in wall 
+A list of linked walls maintained by Update\+Linked\+Cells in wall. 
 
 
 

@@ -2,6 +2,11 @@
 \label{classnetdem_1_1_peri_digm_damage_model}\index{netdem::PeriDigmDamageModel@{netdem::PeriDigmDamageModel}}
 
 
+A class representing a damage model.  
+
+
+
+
 {\ttfamily \#include $<$peridigm\+\_\+damage\+\_\+model.\+hpp$>$}
 
 \doxysubsection*{Public Types}
@@ -9,27 +14,32 @@
 \item 
 enum \mbox{\hyperlink{classnetdem_1_1_peri_digm_damage_model_acac3537b5c322c8f13561a0a8f897280}{Type}} \{ \mbox{\hyperlink{classnetdem_1_1_peri_digm_damage_model_acac3537b5c322c8f13561a0a8f897280a70c047016b926748d8d848e057657112}{Critical\+\_\+\+Stretch}}
  \}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em An enumeration defining the types of damage models. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 void \mbox{\hyperlink{classnetdem_1_1_peri_digm_damage_model_a0ff75741fa5aca79be571ac02d7eb853}{Init\+From\+Energy\+Release\+Rate}} (double youngs\+\_\+modulus, double poissons\+\_\+ratio, double horizon, double energy\+\_\+release\+\_\+rate)
-\item 
+\begin{DoxyCompactList}\small\item\em Initializes the damage model from an energy release rate. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classnetdem_1_1_peri_digm_damage_model_aca722f21c05cbccf4b21122eec0dedf5}{Write\+Input\+File}} (std\+::ostream \&os, int damage\+\_\+model\+\_\+id)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Writes the damage model to an input file. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 static double \mbox{\hyperlink{classnetdem_1_1_peri_digm_damage_model_a3e555e94b9f67558aa934c8042339128}{Get\+Stretch\+From\+Energy\+Release\+Rate}} (double youngs\+\_\+modulus, double poissons\+\_\+ratio, double horizon, double energy\+\_\+release\+\_\+rate)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Computes the stretch value from an energy release rate. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{classnetdem_1_1_peri_digm_damage_model_acac3537b5c322c8f13561a0a8f897280}{Type}} \mbox{\hyperlink{classnetdem_1_1_peri_digm_damage_model_ac5a12f3415fed0363b44230bae0e800b}{type}} \{\mbox{\hyperlink{classnetdem_1_1_peri_digm_damage_model_acac3537b5c322c8f13561a0a8f897280a70c047016b926748d8d848e057657112}{Type\+::\+Critical\+\_\+\+Stretch}}\}
-\item 
+\begin{DoxyCompactList}\small\item\em The type of the damage model. \end{DoxyCompactList}\item 
 double \mbox{\hyperlink{classnetdem_1_1_peri_digm_damage_model_a091eb71a03bebf943bb229fd77347e5d}{critical\+\_\+stretch}} \{1.\+0e-\/2\}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em The critical stretch value. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
+
+\doxysubsection{Detailed Description}
+A class representing a damage model. 
+
+The \mbox{\hyperlink{classnetdem_1_1_peri_digm_damage_model}{Peri\+Digm\+Damage\+Model}} class represents a damage model that is used to simulate the deformation and failure of material in a peridynamic simulation. Currently, only one type of damage model is supported\+: critical stretch. 
 
 \doxysubsection{Member Enumeration Documentation}
 \mbox{\Hypertarget{classnetdem_1_1_peri_digm_damage_model_acac3537b5c322c8f13561a0a8f897280}\label{classnetdem_1_1_peri_digm_damage_model_acac3537b5c322c8f13561a0a8f897280}} 
@@ -37,6 +47,10 @@ double \mbox{\hyperlink{classnetdem_1_1_peri_digm_damage_model_a091eb71a03bebf94
 \index{Type@{Type}!netdem::PeriDigmDamageModel@{netdem::PeriDigmDamageModel}}
 \doxysubsubsection{\texorpdfstring{Type}{Type}}
 {\footnotesize\ttfamily enum \mbox{\hyperlink{classnetdem_1_1_peri_digm_damage_model_acac3537b5c322c8f13561a0a8f897280}{netdem\+::\+Peri\+Digm\+Damage\+Model\+::\+Type}}}
+
+
+
+An enumeration defining the types of damage models. 
 
 \begin{DoxyEnumFields}{Enumerator}
 \raisebox{\heightof{T}}[0pt][0pt]{\index{Critical\_Stretch@{Critical\_Stretch}!netdem::PeriDigmDamageModel@{netdem::PeriDigmDamageModel}}\index{netdem::PeriDigmDamageModel@{netdem::PeriDigmDamageModel}!Critical\_Stretch@{Critical\_Stretch}}}\mbox{\Hypertarget{classnetdem_1_1_peri_digm_damage_model_acac3537b5c322c8f13561a0a8f897280a70c047016b926748d8d848e057657112}\label{classnetdem_1_1_peri_digm_damage_model_acac3537b5c322c8f13561a0a8f897280a70c047016b926748d8d848e057657112}} 
@@ -53,18 +67,68 @@ Critical\+\_\+\+Stretch&\\
 \doxysubsubsection{\texorpdfstring{GetStretchFromEnergyReleaseRate()}{GetStretchFromEnergyReleaseRate()}}
 {\footnotesize\ttfamily static double netdem\+::\+Peri\+Digm\+Damage\+Model\+::\+Get\+Stretch\+From\+Energy\+Release\+Rate (\begin{DoxyParamCaption}\item[{double}]{youngs\+\_\+modulus,  }\item[{double}]{poissons\+\_\+ratio,  }\item[{double}]{horizon,  }\item[{double}]{energy\+\_\+release\+\_\+rate }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
 
+
+
+Computes the stretch value from an energy release rate. 
+
+This static method computes the stretch value from an energy release rate and other material properties.
+
+
+\begin{DoxyParams}{Parameters}
+{\em youngs\+\_\+modulus} & The Young\textquotesingle{}s modulus of the material. \\
+\hline
+{\em poissons\+\_\+ratio} & The Poisson\textquotesingle{}s ratio of the material. \\
+\hline
+{\em horizon} & The horizon parameter used in the peridynamic simulation. \\
+\hline
+{\em energy\+\_\+release\+\_\+rate} & The energy release rate.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The computed stretch value. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{classnetdem_1_1_peri_digm_damage_model_a0ff75741fa5aca79be571ac02d7eb853}\label{classnetdem_1_1_peri_digm_damage_model_a0ff75741fa5aca79be571ac02d7eb853}} 
 \index{netdem::PeriDigmDamageModel@{netdem::PeriDigmDamageModel}!InitFromEnergyReleaseRate@{InitFromEnergyReleaseRate}}
 \index{InitFromEnergyReleaseRate@{InitFromEnergyReleaseRate}!netdem::PeriDigmDamageModel@{netdem::PeriDigmDamageModel}}
 \doxysubsubsection{\texorpdfstring{InitFromEnergyReleaseRate()}{InitFromEnergyReleaseRate()}}
 {\footnotesize\ttfamily void netdem\+::\+Peri\+Digm\+Damage\+Model\+::\+Init\+From\+Energy\+Release\+Rate (\begin{DoxyParamCaption}\item[{double}]{youngs\+\_\+modulus,  }\item[{double}]{poissons\+\_\+ratio,  }\item[{double}]{horizon,  }\item[{double}]{energy\+\_\+release\+\_\+rate }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
+
+
+Initializes the damage model from an energy release rate. 
+
+This method initializes the damage model by computing the critical stretch value from an energy release rate and other material properties.
+
+
+\begin{DoxyParams}{Parameters}
+{\em youngs\+\_\+modulus} & The Young\textquotesingle{}s modulus of the material. \\
+\hline
+{\em poissons\+\_\+ratio} & The Poisson\textquotesingle{}s ratio of the material. \\
+\hline
+{\em horizon} & The horizon parameter used in the peridynamic simulation. \\
+\hline
+{\em energy\+\_\+release\+\_\+rate} & The energy release rate. \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{classnetdem_1_1_peri_digm_damage_model_aca722f21c05cbccf4b21122eec0dedf5}\label{classnetdem_1_1_peri_digm_damage_model_aca722f21c05cbccf4b21122eec0dedf5}} 
 \index{netdem::PeriDigmDamageModel@{netdem::PeriDigmDamageModel}!WriteInputFile@{WriteInputFile}}
 \index{WriteInputFile@{WriteInputFile}!netdem::PeriDigmDamageModel@{netdem::PeriDigmDamageModel}}
 \doxysubsubsection{\texorpdfstring{WriteInputFile()}{WriteInputFile()}}
 {\footnotesize\ttfamily void netdem\+::\+Peri\+Digm\+Damage\+Model\+::\+Write\+Input\+File (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os,  }\item[{int}]{damage\+\_\+model\+\_\+id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
+
+
+Writes the damage model to an input file. 
+
+This method writes the damage model to an input file.
+
+
+\begin{DoxyParams}{Parameters}
+{\em os} & The output stream to which the input file is written. \\
+\hline
+{\em damage\+\_\+model\+\_\+id} & The index of the damage model. \\
+\hline
+\end{DoxyParams}
 
 
 \doxysubsection{Member Data Documentation}
@@ -74,11 +138,19 @@ Critical\+\_\+\+Stretch&\\
 \doxysubsubsection{\texorpdfstring{critical\_stretch}{critical\_stretch}}
 {\footnotesize\ttfamily double netdem\+::\+Peri\+Digm\+Damage\+Model\+::critical\+\_\+stretch \{1.\+0e-\/2\}}
 
+
+
+The critical stretch value. 
+
 \mbox{\Hypertarget{classnetdem_1_1_peri_digm_damage_model_ac5a12f3415fed0363b44230bae0e800b}\label{classnetdem_1_1_peri_digm_damage_model_ac5a12f3415fed0363b44230bae0e800b}} 
 \index{netdem::PeriDigmDamageModel@{netdem::PeriDigmDamageModel}!type@{type}}
 \index{type@{type}!netdem::PeriDigmDamageModel@{netdem::PeriDigmDamageModel}}
 \doxysubsubsection{\texorpdfstring{type}{type}}
 {\footnotesize\ttfamily \mbox{\hyperlink{classnetdem_1_1_peri_digm_damage_model_acac3537b5c322c8f13561a0a8f897280}{Type}} netdem\+::\+Peri\+Digm\+Damage\+Model\+::type \{\mbox{\hyperlink{classnetdem_1_1_peri_digm_damage_model_acac3537b5c322c8f13561a0a8f897280a70c047016b926748d8d848e057657112}{Type\+::\+Critical\+\_\+\+Stretch}}\}}
+
+
+
+The type of the damage model. 
 
 
 

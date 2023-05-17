@@ -2,6 +2,11 @@
 \label{classnetdem_1_1_solver_a_n_n_p_p}\index{netdem::SolverANNPP@{netdem::SolverANNPP}}
 
 
+A class that represents a collision solver using artificial neural networks.  
+
+
+
+
 {\ttfamily \#include $<$solver\+\_\+ann\+\_\+pp.\+hpp$>$}
 
 Inheritance diagram for netdem\+::Solver\+ANNPP\+:\begin{figure}[H]
@@ -14,37 +19,37 @@ Inheritance diagram for netdem\+::Solver\+ANNPP\+:\begin{figure}[H]
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{classnetdem_1_1_solver_a_n_n_p_p_a6f6d850424003eb68296ea0915d58b97}{Solver\+ANNPP}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Default constructor for the {\ttfamily \mbox{\hyperlink{classnetdem_1_1_solver_a_n_n_p_p}{Solver\+ANNPP}}} class. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classnetdem_1_1_solver_a_n_n_p_p_a171acd59e1c236921e7e681fc454f773}{Solver\+ANNPP}} (\mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} $\ast$const p1, \mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} $\ast$const p2)
-\item 
+\begin{DoxyCompactList}\small\item\em Constructor for the {\ttfamily \mbox{\hyperlink{classnetdem_1_1_solver_a_n_n_p_p}{Solver\+ANNPP}}} class. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classnetdem_1_1_collision_solver_p_p}{Collision\+Solver\+PP}} $\ast$ \mbox{\hyperlink{classnetdem_1_1_solver_a_n_n_p_p_ae437c1246fb8e0f8bc3c53fc57a480e2}{Clone}} () const override
-\item 
+\begin{DoxyCompactList}\small\item\em Creates a copy of the {\ttfamily \mbox{\hyperlink{classnetdem_1_1_solver_a_n_n_p_p}{Solver\+ANNPP}}} object. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classnetdem_1_1_solver_a_n_n_p_p_a14b0f28db9a443af5c9e7272901145b4}{Init}} (std\+::string const \&classifier\+\_\+file, std\+::string const \&regressor\+\_\+file)
-\item 
+\begin{DoxyCompactList}\small\item\em Initializes the collision solver with neural network models from disk. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classnetdem_1_1_solver_a_n_n_p_p_a06f906827b1806277f7eb4831307290d}{Init}} (\mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} $\ast$const p1, \mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} $\ast$const p2) override
-\item 
+\begin{DoxyCompactList}\small\item\em Initializes the collision solver with particles. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{classnetdem_1_1_solver_a_n_n_p_p_ac15121fb951f32fc92ea5c6da2d789e1}{Detect}} () override
-\item 
+\begin{DoxyCompactList}\small\item\em Detects collisions between the particles. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classnetdem_1_1_solver_a_n_n_p_p_ab86546f5298f0acbd6c062bb8cef5f90}{Resolve\+Init}} (\mbox{\hyperlink{classnetdem_1_1_contact_p_p}{Contact\+PP}} $\ast$const cnt, double timestep) override
-\item 
+\begin{DoxyCompactList}\small\item\em Resolves the collision at initialization time. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classnetdem_1_1_solver_a_n_n_p_p_a3dab4850f12b2e09990a3f872ceb030f}{Resolve\+Update}} (\mbox{\hyperlink{classnetdem_1_1_contact_p_p}{Contact\+PP}} $\ast$const cnt, double timestep) override
-\item 
+\begin{DoxyCompactList}\small\item\em Resolves the collision during update time. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classnetdem_1_1_solver_a_n_n_p_p_aa8cef74e42c1ff38510bcaca32822ddb}{Resolve\+Init\+\_\+\+Linear\+Spring}} (\mbox{\hyperlink{classnetdem_1_1_collision_geometries}{Collision\+Geometries}} $\ast$const cnt\+\_\+geoms, double timestep)
-\item 
+\begin{DoxyCompactList}\small\item\em Resolves the collision using a linear spring model at initialization time. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classnetdem_1_1_solver_a_n_n_p_p_abb6ac7b54102898c056d4f8c16fd9725}{Resolve\+Update\+\_\+\+Linear\+Spring}} (\mbox{\hyperlink{classnetdem_1_1_collision_geometries}{Collision\+Geometries}} $\ast$const cnt\+\_\+geoms, double timestep)
-\item 
+\begin{DoxyCompactList}\small\item\em Resolves the collision using a linear spring model during update time. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classnetdem_1_1_solver_a_n_n_p_p_aec2ee9f674acebc480015dfcaa96e4b1}{Resolve\+Init\+\_\+\+Volume\+Based}} (\mbox{\hyperlink{classnetdem_1_1_collision_geometries}{Collision\+Geometries}} $\ast$const cnt\+\_\+geoms, double timestep)
-\item 
+\begin{DoxyCompactList}\small\item\em Resolves the collision using a volume-\/based method at initialization time. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classnetdem_1_1_solver_a_n_n_p_p_ad27e412a2abff98c9c5e2aaee53fdf57}{Resolve\+Update\+\_\+\+Volume\+Based}} (\mbox{\hyperlink{classnetdem_1_1_collision_geometries}{Collision\+Geometries}} $\ast$const cnt\+\_\+geoms, double timestep)
-\item 
+\begin{DoxyCompactList}\small\item\em Resolves the collision using a volume-\/based method during update time. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classnetdem_1_1_solver_a_n_n_p_p_a8607c1d75da611fc0f244fe767953f95}{Resolve\+Init\+\_\+\+Potential\+Based}} (\mbox{\hyperlink{classnetdem_1_1_collision_geometries}{Collision\+Geometries}} $\ast$const cnt\+\_\+geoms, double timestep)
-\item 
+\begin{DoxyCompactList}\small\item\em Resolves the collision using a potential-\/based method at initialization time. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classnetdem_1_1_solver_a_n_n_p_p_a5c886f91d3806301f62601ffdc2f78e5}{Resolve\+Update\+\_\+\+Potential\+Based}} (\mbox{\hyperlink{classnetdem_1_1_collision_geometries}{Collision\+Geometries}} $\ast$const cnt\+\_\+geoms, double timestep)
-\item 
+\begin{DoxyCompactList}\small\item\em Resolves the collision using a potential-\/based method during update time. \end{DoxyCompactList}\item 
 std\+::tuple$<$ double, \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $>$ \mbox{\hyperlink{classnetdem_1_1_solver_a_n_n_p_p_a89b709656262bba8b3ea2bfe4d7ecbff}{Potential}} (\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&pos, \mbox{\hyperlink{namespacenetdem_a13d5371f99b252a70fd5a5081b910370}{Vec4d}} const \&quat)
-\item 
+\begin{DoxyCompactList}\small\item\em Calculates the potential energy and contact position for the collision. \end{DoxyCompactList}\item 
 std\+::tuple$<$ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}, \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}, \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $>$ \mbox{\hyperlink{classnetdem_1_1_solver_a_n_n_p_p_ad4daff69a320bcf52e0167e336ad9b36}{Evaluate\+Contact\+Forces}} ()
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Evaluates the contact forces for the collision. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Public Member Functions inherited from \mbox{\hyperlink{classnetdem_1_1_collision_solver_p_p}{netdem\+::\+Collision\+Solver\+PP}}}
 \begin{DoxyCompactItemize}
 \item 
@@ -70,11 +75,11 @@ virtual \mbox{\hyperlink{classnetdem_1_1_collision_solver_p_p_ad1586bed40c07a916
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{classnetdem_1_1_general_net}{netdem\+::\+General\+Net}} \mbox{\hyperlink{classnetdem_1_1_solver_a_n_n_p_p_a59a40fa088ed4cb4222b4c58eb9fc18b}{classifier}}
-\item 
+\begin{DoxyCompactList}\small\item\em The neural network model used for classification. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classnetdem_1_1_regression_net}{netdem\+::\+Regression\+Net}} \mbox{\hyperlink{classnetdem_1_1_solver_a_n_n_p_p_aa74acd96b9ed1836c1155592b2667062}{regressor}}
-\item 
+\begin{DoxyCompactList}\small\item\em The neural network model used for regression. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{classnetdem_1_1_solver_a_n_n_p_p_a12ab763fd208ec7179de90a5449b741d}{is\+\_\+initialized}} \{false\}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Whether or not the solver has been initialized. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Public Attributes inherited from \mbox{\hyperlink{classnetdem_1_1_collision_solver_p_p}{netdem\+::\+Collision\+Solver\+PP}}}
 \begin{DoxyCompactItemize}
 \item 
@@ -86,21 +91,21 @@ bool \mbox{\hyperlink{classnetdem_1_1_solver_a_n_n_p_p_a12ab763fd208ec7179de90a5
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{classnetdem_1_1_shape}{Shape}} $\ast$ \mbox{\hyperlink{classnetdem_1_1_solver_a_n_n_p_p_a689f9f941945ebb7b4c58c1842ed757a}{shape\+\_\+1}} \{nullptr\}
-\item 
-\mbox{\hyperlink{classnetdem_1_1_shape}{Shape}} $\ast$ \mbox{\hyperlink{classnetdem_1_1_solver_a_n_n_p_p_ae8d6c6797cff81d4ddc62f276d53c364}{shape\+\_\+2}} \{nullptr\}
-\item 
+\begin{DoxyCompactList}\small\item\em The shape of the first particle. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classnetdem_1_1_shape}{Shape}} $\ast$ \mbox{\hyperlink{classnetdem_1_1_solver_a_n_n_p_p_a77ef33cf7c5051de23f2d72ac4f52f68}{shape\+\_\+2}} \{nullptr\}
+\begin{DoxyCompactList}\small\item\em The shape of the second particle. \end{DoxyCompactList}\item 
 double \mbox{\hyperlink{classnetdem_1_1_solver_a_n_n_p_p_a33be7f85adf19d16239da1a17e9e42c8}{bound\+\_\+sphere\+\_\+radius\+\_\+1}}
-\item 
+\begin{DoxyCompactList}\small\item\em The radius of the bounding sphere for the first particle. \end{DoxyCompactList}\item 
 double \mbox{\hyperlink{classnetdem_1_1_solver_a_n_n_p_p_a040011801d6c4e56a5c6c14e4ee17d9b}{bound\+\_\+sphere\+\_\+radius\+\_\+2}}
-\item 
+\begin{DoxyCompactList}\small\item\em The radius of the bounding sphere for the second particle. \end{DoxyCompactList}\item 
 double \mbox{\hyperlink{classnetdem_1_1_solver_a_n_n_p_p_a25674dd1d9fcf4591d92ab4756c8ab3b}{scale}}
-\item 
+\begin{DoxyCompactList}\small\item\em The scale factor used to scale the potential energy. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \mbox{\hyperlink{classnetdem_1_1_solver_a_n_n_p_p_a78048749026a47a36b890a415c71ce6f}{dpos\+\_\+12}}
-\item 
+\begin{DoxyCompactList}\small\item\em The relative position vector between the particles at initialization time. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \mbox{\hyperlink{classnetdem_1_1_solver_a_n_n_p_p_a5f55bde556641a88bc6800fe8fb051e2}{dpos\+\_\+12\+\_\+ref}}
-\item 
+\begin{DoxyCompactList}\small\item\em The reference relative position vector between the particles. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{namespacenetdem_a13d5371f99b252a70fd5a5081b910370}{Vec4d}} \mbox{\hyperlink{classnetdem_1_1_solver_a_n_n_p_p_a5f8e8642672632f381968bbd64e4bb42}{dquat\+\_\+12}}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em The relative quaternion between the particles. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Additional Inherited Members}
 \doxysubsubsection*{Protected Member Functions inherited from \mbox{\hyperlink{classnetdem_1_1_collision_solver_p_p}{netdem\+::\+Collision\+Solver\+PP}}}
 \begin{DoxyCompactItemize}
@@ -112,7 +117,11 @@ void \mbox{\hyperlink{classnetdem_1_1_collision_solver_p_p_acbd9d1cbc9698b5b4d37
 
 
 \doxysubsection{Detailed Description}
+A class that represents a collision solver using artificial neural networks. 
+
 concrete geometric solver for sphere and sphere contacts. 
+
+The {\ttfamily \mbox{\hyperlink{classnetdem_1_1_solver_a_n_n_p_p}{Solver\+ANNPP}}} class is a specific implementation of a collision solver using artificial neural networks. It provides functionality to detect and resolve collisions between two particles, as well as calculate potential energies and contact forces. 
 
 \doxysubsection{Constructor \& Destructor Documentation}
 \mbox{\Hypertarget{classnetdem_1_1_solver_a_n_n_p_p_a6f6d850424003eb68296ea0915d58b97}\label{classnetdem_1_1_solver_a_n_n_p_p_a6f6d850424003eb68296ea0915d58b97}} 
@@ -121,12 +130,29 @@ concrete geometric solver for sphere and sphere contacts.
 \doxysubsubsection{\texorpdfstring{SolverANNPP()}{SolverANNPP()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily netdem\+::\+Solver\+ANNPP\+::\+Solver\+ANNPP (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-\mbox{\Hypertarget{classnetdem_1_1_solver_a_n_n_p_p_a171acd59e1c236921e7e681fc454f773}\label{classnetdem_1_1_solver_a_n_n_p_p_a171acd59e1c236921e7e681fc454f773}} 
+
+
+Default constructor for the {\ttfamily \mbox{\hyperlink{classnetdem_1_1_solver_a_n_n_p_p}{Solver\+ANNPP}}} class. 
+
+This function constructs a new {\ttfamily \mbox{\hyperlink{classnetdem_1_1_solver_a_n_n_p_p}{Solver\+ANNPP}}} object with default values. \mbox{\Hypertarget{classnetdem_1_1_solver_a_n_n_p_p_a171acd59e1c236921e7e681fc454f773}\label{classnetdem_1_1_solver_a_n_n_p_p_a171acd59e1c236921e7e681fc454f773}} 
 \index{netdem::SolverANNPP@{netdem::SolverANNPP}!SolverANNPP@{SolverANNPP}}
 \index{SolverANNPP@{SolverANNPP}!netdem::SolverANNPP@{netdem::SolverANNPP}}
 \doxysubsubsection{\texorpdfstring{SolverANNPP()}{SolverANNPP()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
 {\footnotesize\ttfamily netdem\+::\+Solver\+ANNPP\+::\+Solver\+ANNPP (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} $\ast$const}]{p1,  }\item[{\mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} $\ast$const}]{p2 }\end{DoxyParamCaption})}
 
+
+
+Constructor for the {\ttfamily \mbox{\hyperlink{classnetdem_1_1_solver_a_n_n_p_p}{Solver\+ANNPP}}} class. 
+
+This function constructs a new {\ttfamily \mbox{\hyperlink{classnetdem_1_1_solver_a_n_n_p_p}{Solver\+ANNPP}}} object with the provided particles.
+
+
+\begin{DoxyParams}{Parameters}
+{\em p1} & The first particle. \\
+\hline
+{\em p2} & The second particle. \\
+\hline
+\end{DoxyParams}
 
 
 \doxysubsection{Member Function Documentation}
@@ -136,12 +162,14 @@ concrete geometric solver for sphere and sphere contacts.
 \doxysubsubsection{\texorpdfstring{Clone()}{Clone()}}
 {\footnotesize\ttfamily \mbox{\hyperlink{classnetdem_1_1_collision_solver_p_p}{Collision\+Solver\+PP}} $\ast$ netdem\+::\+Solver\+ANNPP\+::\+Clone (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
-Virtual copy constructor.
 
-This method should be overridden by subclasses to create a new instance of the same type as the calling object.
+
+Creates a copy of the {\ttfamily \mbox{\hyperlink{classnetdem_1_1_solver_a_n_n_p_p}{Solver\+ANNPP}}} object. 
+
+This function creates a copy of the {\ttfamily \mbox{\hyperlink{classnetdem_1_1_solver_a_n_n_p_p}{Solver\+ANNPP}}} object.
 
 \begin{DoxyReturn}{Returns}
-A pointer to a new instance of the same type as the calling object. 
+A pointer to the newly created copy of the {\ttfamily \mbox{\hyperlink{classnetdem_1_1_solver_a_n_n_p_p}{Solver\+ANNPP}}} object. 
 \end{DoxyReturn}
 
 
@@ -153,12 +181,14 @@ Implements \mbox{\hyperlink{classnetdem_1_1_collision_solver_p_p_a8aa1b7f9a55845
 \doxysubsubsection{\texorpdfstring{Detect()}{Detect()}}
 {\footnotesize\ttfamily bool netdem\+::\+Solver\+ANNPP\+::\+Detect (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
-Detects whether a collision has occurred.
 
-This method should be overridden by subclasses to detect whether a collision has occurred between the particles.
+
+Detects collisions between the particles. 
+
+This function detects collisions between the particles using the neural network classification model.
 
 \begin{DoxyReturn}{Returns}
-Whether a collision has occurred. 
+Whether or not a collision was detected. 
 \end{DoxyReturn}
 
 
@@ -170,21 +200,32 @@ Implements \mbox{\hyperlink{classnetdem_1_1_collision_solver_p_p_a6eced6d2533770
 \doxysubsubsection{\texorpdfstring{EvaluateContactForces()}{EvaluateContactForces()}}
 {\footnotesize\ttfamily std\+::tuple$<$ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}, \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}, \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $>$ netdem\+::\+Solver\+ANNPP\+::\+Evaluate\+Contact\+Forces (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
+
+
+Evaluates the contact forces for the collision. 
+
+This function evaluates the contact forces for the collision and returns them as a tuple containing the force, moment, and position vectors.
+
+\begin{DoxyReturn}{Returns}
+A tuple containing the force, moment, and position vectors. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{classnetdem_1_1_solver_a_n_n_p_p_a06f906827b1806277f7eb4831307290d}\label{classnetdem_1_1_solver_a_n_n_p_p_a06f906827b1806277f7eb4831307290d}} 
 \index{netdem::SolverANNPP@{netdem::SolverANNPP}!Init@{Init}}
 \index{Init@{Init}!netdem::SolverANNPP@{netdem::SolverANNPP}}
 \doxysubsubsection{\texorpdfstring{Init()}{Init()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily void netdem\+::\+Solver\+ANNPP\+::\+Init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} $\ast$const}]{p1,  }\item[{\mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} $\ast$const}]{p2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
-Initializes the particles involved in the collision.
 
-This method should be overridden by subclasses to set the values of the particles involved in the collision.
+
+Initializes the collision solver with particles. 
+
+This function initializes the collision solver with the provided particles.
 
 
 \begin{DoxyParams}{Parameters}
-{\em p1} & Pointer to the first particle involved in the collision. \\
+{\em p1} & The first particle. \\
 \hline
-{\em p2} & Pointer to the second particle involved in the collision. \\
+{\em p2} & The second particle. \\
 \hline
 \end{DoxyParams}
 
@@ -197,27 +238,58 @@ Reimplemented from \mbox{\hyperlink{classnetdem_1_1_collision_solver_p_p_a6dad96
 \doxysubsubsection{\texorpdfstring{Init()}{Init()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
 {\footnotesize\ttfamily void netdem\+::\+Solver\+ANNPP\+::\+Init (\begin{DoxyParamCaption}\item[{std\+::string const \&}]{classifier\+\_\+file,  }\item[{std\+::string const \&}]{regressor\+\_\+file }\end{DoxyParamCaption})}
 
+
+
+Initializes the collision solver with neural network models from disk. 
+
+This function initializes the collision solver with neural network models loaded from disk.
+
+
+\begin{DoxyParams}{Parameters}
+{\em classifier\+\_\+file} & The name of the file containing the classification model data. \\
+\hline
+{\em regressor\+\_\+file} & The name of the file containing the regression model data. \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{classnetdem_1_1_solver_a_n_n_p_p_a89b709656262bba8b3ea2bfe4d7ecbff}\label{classnetdem_1_1_solver_a_n_n_p_p_a89b709656262bba8b3ea2bfe4d7ecbff}} 
 \index{netdem::SolverANNPP@{netdem::SolverANNPP}!Potential@{Potential}}
 \index{Potential@{Potential}!netdem::SolverANNPP@{netdem::SolverANNPP}}
 \doxysubsubsection{\texorpdfstring{Potential()}{Potential()}}
 {\footnotesize\ttfamily std\+::tuple$<$ double, \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $>$ netdem\+::\+Solver\+ANNPP\+::\+Potential (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&}]{pos,  }\item[{\mbox{\hyperlink{namespacenetdem_a13d5371f99b252a70fd5a5081b910370}{Vec4d}} const \&}]{quat }\end{DoxyParamCaption})}
 
+
+
+Calculates the potential energy and contact position for the collision. 
+
+This function calculates the potential energy and contact position for the collision given a position and quaternion representing the particles\textquotesingle{} orientations.
+
+
+\begin{DoxyParams}{Parameters}
+{\em pos} & The position of the particles relative to each other. \\
+\hline
+{\em quat} & The quaternion representing the particles\textquotesingle{} orientations relative to each other. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A tuple containing the potential energy and contact position. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{classnetdem_1_1_solver_a_n_n_p_p_ab86546f5298f0acbd6c062bb8cef5f90}\label{classnetdem_1_1_solver_a_n_n_p_p_ab86546f5298f0acbd6c062bb8cef5f90}} 
 \index{netdem::SolverANNPP@{netdem::SolverANNPP}!ResolveInit@{ResolveInit}}
 \index{ResolveInit@{ResolveInit}!netdem::SolverANNPP@{netdem::SolverANNPP}}
 \doxysubsubsection{\texorpdfstring{ResolveInit()}{ResolveInit()}}
 {\footnotesize\ttfamily void netdem\+::\+Solver\+ANNPP\+::\+Resolve\+Init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_contact_p_p}{Contact\+PP}} $\ast$const}]{cnt,  }\item[{double}]{timestep }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
-Initializes the resolution of a collision.
 
-This method should be overridden by subclasses to initialize the resolution of a collision. The method is called once per collision to set up the {\ttfamily \mbox{\hyperlink{classnetdem_1_1_contact_p_p}{Contact\+PP}}} object used for resolving the collision.
+
+Resolves the collision at initialization time. 
+
+This function resolves the collision between the particles at initialization time using one of several methods.
 
 
 \begin{DoxyParams}{Parameters}
-{\em cnt} & A pointer to the {\ttfamily \mbox{\hyperlink{classnetdem_1_1_contact_p_p}{Contact\+PP}}} object to use for resolving the collision. \\
+{\em cnt} & The contact point representing the collision. \\
 \hline
-{\em timestep} & The size of the simulation timestep. \\
+{\em timestep} & The timestep used for the simulation. \\
 \hline
 \end{DoxyParams}
 
@@ -230,33 +302,74 @@ Implements \mbox{\hyperlink{classnetdem_1_1_collision_solver_p_p_a415abfb524cee7
 \doxysubsubsection{\texorpdfstring{ResolveInit\_LinearSpring()}{ResolveInit\_LinearSpring()}}
 {\footnotesize\ttfamily void netdem\+::\+Solver\+ANNPP\+::\+Resolve\+Init\+\_\+\+Linear\+Spring (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_collision_geometries}{Collision\+Geometries}} $\ast$const}]{cnt\+\_\+geoms,  }\item[{double}]{timestep }\end{DoxyParamCaption})}
 
+
+
+Resolves the collision using a linear spring model at initialization time. 
+
+This function resolves the collision between the particles at initialization time using a linear spring model.
+
+
+\begin{DoxyParams}{Parameters}
+{\em cnt\+\_\+geoms} & The collision geometries used to resolve the collision. \\
+\hline
+{\em timestep} & The timestep used for the simulation. \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{classnetdem_1_1_solver_a_n_n_p_p_a8607c1d75da611fc0f244fe767953f95}\label{classnetdem_1_1_solver_a_n_n_p_p_a8607c1d75da611fc0f244fe767953f95}} 
 \index{netdem::SolverANNPP@{netdem::SolverANNPP}!ResolveInit\_PotentialBased@{ResolveInit\_PotentialBased}}
 \index{ResolveInit\_PotentialBased@{ResolveInit\_PotentialBased}!netdem::SolverANNPP@{netdem::SolverANNPP}}
 \doxysubsubsection{\texorpdfstring{ResolveInit\_PotentialBased()}{ResolveInit\_PotentialBased()}}
 {\footnotesize\ttfamily void netdem\+::\+Solver\+ANNPP\+::\+Resolve\+Init\+\_\+\+Potential\+Based (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_collision_geometries}{Collision\+Geometries}} $\ast$const}]{cnt\+\_\+geoms,  }\item[{double}]{timestep }\end{DoxyParamCaption})}
 
+
+
+Resolves the collision using a potential-\/based method at initialization time. 
+
+This function resolves the collision between the particles at initialization time using a potential-\/based method.
+
+
+\begin{DoxyParams}{Parameters}
+{\em cnt\+\_\+geoms} & The collision geometries used to resolve the collision. \\
+\hline
+{\em timestep} & The timestep used for the simulation. \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{classnetdem_1_1_solver_a_n_n_p_p_aec2ee9f674acebc480015dfcaa96e4b1}\label{classnetdem_1_1_solver_a_n_n_p_p_aec2ee9f674acebc480015dfcaa96e4b1}} 
 \index{netdem::SolverANNPP@{netdem::SolverANNPP}!ResolveInit\_VolumeBased@{ResolveInit\_VolumeBased}}
 \index{ResolveInit\_VolumeBased@{ResolveInit\_VolumeBased}!netdem::SolverANNPP@{netdem::SolverANNPP}}
 \doxysubsubsection{\texorpdfstring{ResolveInit\_VolumeBased()}{ResolveInit\_VolumeBased()}}
 {\footnotesize\ttfamily void netdem\+::\+Solver\+ANNPP\+::\+Resolve\+Init\+\_\+\+Volume\+Based (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_collision_geometries}{Collision\+Geometries}} $\ast$const}]{cnt\+\_\+geoms,  }\item[{double}]{timestep }\end{DoxyParamCaption})}
 
+
+
+Resolves the collision using a volume-\/based method at initialization time. 
+
+This function resolves the collision between the particles at initialization time using a volume-\/based method.
+
+
+\begin{DoxyParams}{Parameters}
+{\em cnt\+\_\+geoms} & The collision geometries used to resolve the collision. \\
+\hline
+{\em timestep} & The timestep used for the simulation. \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{classnetdem_1_1_solver_a_n_n_p_p_a3dab4850f12b2e09990a3f872ceb030f}\label{classnetdem_1_1_solver_a_n_n_p_p_a3dab4850f12b2e09990a3f872ceb030f}} 
 \index{netdem::SolverANNPP@{netdem::SolverANNPP}!ResolveUpdate@{ResolveUpdate}}
 \index{ResolveUpdate@{ResolveUpdate}!netdem::SolverANNPP@{netdem::SolverANNPP}}
 \doxysubsubsection{\texorpdfstring{ResolveUpdate()}{ResolveUpdate()}}
 {\footnotesize\ttfamily void netdem\+::\+Solver\+ANNPP\+::\+Resolve\+Update (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_contact_p_p}{Contact\+PP}} $\ast$const}]{cnt,  }\item[{double}]{timestep }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
-Updates the resolution of a collision.
 
-This method should be overridden by subclasses to update the resolution of a collision. The method is called repeatedly during the simulation to update the {\ttfamily \mbox{\hyperlink{classnetdem_1_1_contact_p_p}{Contact\+PP}}} object used for resolving the collision.
+
+Resolves the collision during update time. 
+
+This function resolves the collision between the particles during update time using one of several methods.
 
 
 \begin{DoxyParams}{Parameters}
-{\em cnt} & A pointer to the {\ttfamily \mbox{\hyperlink{classnetdem_1_1_contact_p_p}{Contact\+PP}}} object used for resolving the collision. \\
+{\em cnt} & The contact point representing the collision. \\
 \hline
-{\em timestep} & The size of the simulation timestep. \\
+{\em timestep} & The timestep used for the simulation. \\
 \hline
 \end{DoxyParams}
 
@@ -269,18 +382,57 @@ Implements \mbox{\hyperlink{classnetdem_1_1_collision_solver_p_p_a771c9c6936e759
 \doxysubsubsection{\texorpdfstring{ResolveUpdate\_LinearSpring()}{ResolveUpdate\_LinearSpring()}}
 {\footnotesize\ttfamily void netdem\+::\+Solver\+ANNPP\+::\+Resolve\+Update\+\_\+\+Linear\+Spring (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_collision_geometries}{Collision\+Geometries}} $\ast$const}]{cnt\+\_\+geoms,  }\item[{double}]{timestep }\end{DoxyParamCaption})}
 
+
+
+Resolves the collision using a linear spring model during update time. 
+
+This function resolves the collision between the particles during update time using a linear spring model.
+
+
+\begin{DoxyParams}{Parameters}
+{\em cnt\+\_\+geoms} & The collision geometries used to resolve the collision. \\
+\hline
+{\em timestep} & The timestep used for the simulation. \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{classnetdem_1_1_solver_a_n_n_p_p_a5c886f91d3806301f62601ffdc2f78e5}\label{classnetdem_1_1_solver_a_n_n_p_p_a5c886f91d3806301f62601ffdc2f78e5}} 
 \index{netdem::SolverANNPP@{netdem::SolverANNPP}!ResolveUpdate\_PotentialBased@{ResolveUpdate\_PotentialBased}}
 \index{ResolveUpdate\_PotentialBased@{ResolveUpdate\_PotentialBased}!netdem::SolverANNPP@{netdem::SolverANNPP}}
 \doxysubsubsection{\texorpdfstring{ResolveUpdate\_PotentialBased()}{ResolveUpdate\_PotentialBased()}}
 {\footnotesize\ttfamily void netdem\+::\+Solver\+ANNPP\+::\+Resolve\+Update\+\_\+\+Potential\+Based (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_collision_geometries}{Collision\+Geometries}} $\ast$const}]{cnt\+\_\+geoms,  }\item[{double}]{timestep }\end{DoxyParamCaption})}
 
+
+
+Resolves the collision using a potential-\/based method during update time. 
+
+This function resolves the collision between the particles during update time using a potential-\/based method.
+
+
+\begin{DoxyParams}{Parameters}
+{\em cnt\+\_\+geoms} & The collision geometries used to resolve the collision. \\
+\hline
+{\em timestep} & The timestep used for the simulation. \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{classnetdem_1_1_solver_a_n_n_p_p_ad27e412a2abff98c9c5e2aaee53fdf57}\label{classnetdem_1_1_solver_a_n_n_p_p_ad27e412a2abff98c9c5e2aaee53fdf57}} 
 \index{netdem::SolverANNPP@{netdem::SolverANNPP}!ResolveUpdate\_VolumeBased@{ResolveUpdate\_VolumeBased}}
 \index{ResolveUpdate\_VolumeBased@{ResolveUpdate\_VolumeBased}!netdem::SolverANNPP@{netdem::SolverANNPP}}
 \doxysubsubsection{\texorpdfstring{ResolveUpdate\_VolumeBased()}{ResolveUpdate\_VolumeBased()}}
 {\footnotesize\ttfamily void netdem\+::\+Solver\+ANNPP\+::\+Resolve\+Update\+\_\+\+Volume\+Based (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_collision_geometries}{Collision\+Geometries}} $\ast$const}]{cnt\+\_\+geoms,  }\item[{double}]{timestep }\end{DoxyParamCaption})}
 
+
+
+Resolves the collision using a volume-\/based method during update time. 
+
+This function resolves the collision between the particles during update time using a volume-\/based method.
+
+
+\begin{DoxyParams}{Parameters}
+{\em cnt\+\_\+geoms} & The collision geometries used to resolve the collision. \\
+\hline
+{\em timestep} & The timestep used for the simulation. \\
+\hline
+\end{DoxyParams}
 
 
 \doxysubsection{Member Data Documentation}
@@ -290,11 +442,19 @@ Implements \mbox{\hyperlink{classnetdem_1_1_collision_solver_p_p_a771c9c6936e759
 \doxysubsubsection{\texorpdfstring{bound\_sphere\_radius\_1}{bound\_sphere\_radius\_1}}
 {\footnotesize\ttfamily double netdem\+::\+Solver\+ANNPP\+::bound\+\_\+sphere\+\_\+radius\+\_\+1\hspace{0.3cm}{\ttfamily [private]}}
 
+
+
+The radius of the bounding sphere for the first particle. 
+
 \mbox{\Hypertarget{classnetdem_1_1_solver_a_n_n_p_p_a040011801d6c4e56a5c6c14e4ee17d9b}\label{classnetdem_1_1_solver_a_n_n_p_p_a040011801d6c4e56a5c6c14e4ee17d9b}} 
 \index{netdem::SolverANNPP@{netdem::SolverANNPP}!bound\_sphere\_radius\_2@{bound\_sphere\_radius\_2}}
 \index{bound\_sphere\_radius\_2@{bound\_sphere\_radius\_2}!netdem::SolverANNPP@{netdem::SolverANNPP}}
 \doxysubsubsection{\texorpdfstring{bound\_sphere\_radius\_2}{bound\_sphere\_radius\_2}}
 {\footnotesize\ttfamily double netdem\+::\+Solver\+ANNPP\+::bound\+\_\+sphere\+\_\+radius\+\_\+2\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The radius of the bounding sphere for the second particle. 
 
 \mbox{\Hypertarget{classnetdem_1_1_solver_a_n_n_p_p_a59a40fa088ed4cb4222b4c58eb9fc18b}\label{classnetdem_1_1_solver_a_n_n_p_p_a59a40fa088ed4cb4222b4c58eb9fc18b}} 
 \index{netdem::SolverANNPP@{netdem::SolverANNPP}!classifier@{classifier}}
@@ -302,11 +462,19 @@ Implements \mbox{\hyperlink{classnetdem_1_1_collision_solver_p_p_a771c9c6936e759
 \doxysubsubsection{\texorpdfstring{classifier}{classifier}}
 {\footnotesize\ttfamily \mbox{\hyperlink{classnetdem_1_1_general_net}{netdem\+::\+General\+Net}} netdem\+::\+Solver\+ANNPP\+::classifier}
 
+
+
+The neural network model used for classification. 
+
 \mbox{\Hypertarget{classnetdem_1_1_solver_a_n_n_p_p_a78048749026a47a36b890a415c71ce6f}\label{classnetdem_1_1_solver_a_n_n_p_p_a78048749026a47a36b890a415c71ce6f}} 
 \index{netdem::SolverANNPP@{netdem::SolverANNPP}!dpos\_12@{dpos\_12}}
 \index{dpos\_12@{dpos\_12}!netdem::SolverANNPP@{netdem::SolverANNPP}}
 \doxysubsubsection{\texorpdfstring{dpos\_12}{dpos\_12}}
 {\footnotesize\ttfamily \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} netdem\+::\+Solver\+ANNPP\+::dpos\+\_\+12\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The relative position vector between the particles at initialization time. 
 
 \mbox{\Hypertarget{classnetdem_1_1_solver_a_n_n_p_p_a5f55bde556641a88bc6800fe8fb051e2}\label{classnetdem_1_1_solver_a_n_n_p_p_a5f55bde556641a88bc6800fe8fb051e2}} 
 \index{netdem::SolverANNPP@{netdem::SolverANNPP}!dpos\_12\_ref@{dpos\_12\_ref}}
@@ -314,11 +482,19 @@ Implements \mbox{\hyperlink{classnetdem_1_1_collision_solver_p_p_a771c9c6936e759
 \doxysubsubsection{\texorpdfstring{dpos\_12\_ref}{dpos\_12\_ref}}
 {\footnotesize\ttfamily \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} netdem\+::\+Solver\+ANNPP\+::dpos\+\_\+12\+\_\+ref\hspace{0.3cm}{\ttfamily [private]}}
 
+
+
+The reference relative position vector between the particles. 
+
 \mbox{\Hypertarget{classnetdem_1_1_solver_a_n_n_p_p_a5f8e8642672632f381968bbd64e4bb42}\label{classnetdem_1_1_solver_a_n_n_p_p_a5f8e8642672632f381968bbd64e4bb42}} 
 \index{netdem::SolverANNPP@{netdem::SolverANNPP}!dquat\_12@{dquat\_12}}
 \index{dquat\_12@{dquat\_12}!netdem::SolverANNPP@{netdem::SolverANNPP}}
 \doxysubsubsection{\texorpdfstring{dquat\_12}{dquat\_12}}
 {\footnotesize\ttfamily \mbox{\hyperlink{namespacenetdem_a13d5371f99b252a70fd5a5081b910370}{Vec4d}} netdem\+::\+Solver\+ANNPP\+::dquat\+\_\+12\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The relative quaternion between the particles. 
 
 \mbox{\Hypertarget{classnetdem_1_1_solver_a_n_n_p_p_a12ab763fd208ec7179de90a5449b741d}\label{classnetdem_1_1_solver_a_n_n_p_p_a12ab763fd208ec7179de90a5449b741d}} 
 \index{netdem::SolverANNPP@{netdem::SolverANNPP}!is\_initialized@{is\_initialized}}
@@ -326,11 +502,19 @@ Implements \mbox{\hyperlink{classnetdem_1_1_collision_solver_p_p_a771c9c6936e759
 \doxysubsubsection{\texorpdfstring{is\_initialized}{is\_initialized}}
 {\footnotesize\ttfamily bool netdem\+::\+Solver\+ANNPP\+::is\+\_\+initialized \{false\}}
 
+
+
+Whether or not the solver has been initialized. 
+
 \mbox{\Hypertarget{classnetdem_1_1_solver_a_n_n_p_p_aa74acd96b9ed1836c1155592b2667062}\label{classnetdem_1_1_solver_a_n_n_p_p_aa74acd96b9ed1836c1155592b2667062}} 
 \index{netdem::SolverANNPP@{netdem::SolverANNPP}!regressor@{regressor}}
 \index{regressor@{regressor}!netdem::SolverANNPP@{netdem::SolverANNPP}}
 \doxysubsubsection{\texorpdfstring{regressor}{regressor}}
 {\footnotesize\ttfamily \mbox{\hyperlink{classnetdem_1_1_regression_net}{netdem\+::\+Regression\+Net}} netdem\+::\+Solver\+ANNPP\+::regressor}
+
+
+
+The neural network model used for regression. 
 
 \mbox{\Hypertarget{classnetdem_1_1_solver_a_n_n_p_p_a25674dd1d9fcf4591d92ab4756c8ab3b}\label{classnetdem_1_1_solver_a_n_n_p_p_a25674dd1d9fcf4591d92ab4756c8ab3b}} 
 \index{netdem::SolverANNPP@{netdem::SolverANNPP}!scale@{scale}}
@@ -338,17 +522,29 @@ Implements \mbox{\hyperlink{classnetdem_1_1_collision_solver_p_p_a771c9c6936e759
 \doxysubsubsection{\texorpdfstring{scale}{scale}}
 {\footnotesize\ttfamily double netdem\+::\+Solver\+ANNPP\+::scale\hspace{0.3cm}{\ttfamily [private]}}
 
+
+
+The scale factor used to scale the potential energy. 
+
 \mbox{\Hypertarget{classnetdem_1_1_solver_a_n_n_p_p_a689f9f941945ebb7b4c58c1842ed757a}\label{classnetdem_1_1_solver_a_n_n_p_p_a689f9f941945ebb7b4c58c1842ed757a}} 
 \index{netdem::SolverANNPP@{netdem::SolverANNPP}!shape\_1@{shape\_1}}
 \index{shape\_1@{shape\_1}!netdem::SolverANNPP@{netdem::SolverANNPP}}
 \doxysubsubsection{\texorpdfstring{shape\_1}{shape\_1}}
 {\footnotesize\ttfamily \mbox{\hyperlink{classnetdem_1_1_shape}{Shape}}$\ast$ netdem\+::\+Solver\+ANNPP\+::shape\+\_\+1 \{nullptr\}\hspace{0.3cm}{\ttfamily [private]}}
 
-\mbox{\Hypertarget{classnetdem_1_1_solver_a_n_n_p_p_ae8d6c6797cff81d4ddc62f276d53c364}\label{classnetdem_1_1_solver_a_n_n_p_p_ae8d6c6797cff81d4ddc62f276d53c364}} 
+
+
+The shape of the first particle. 
+
+\mbox{\Hypertarget{classnetdem_1_1_solver_a_n_n_p_p_a77ef33cf7c5051de23f2d72ac4f52f68}\label{classnetdem_1_1_solver_a_n_n_p_p_a77ef33cf7c5051de23f2d72ac4f52f68}} 
 \index{netdem::SolverANNPP@{netdem::SolverANNPP}!shape\_2@{shape\_2}}
 \index{shape\_2@{shape\_2}!netdem::SolverANNPP@{netdem::SolverANNPP}}
 \doxysubsubsection{\texorpdfstring{shape\_2}{shape\_2}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classnetdem_1_1_shape}{Shape}} $\ast$ netdem\+::\+Solver\+ANNPP\+::shape\+\_\+2 \{nullptr\}\hspace{0.3cm}{\ttfamily [private]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classnetdem_1_1_shape}{Shape}}$\ast$ netdem\+::\+Solver\+ANNPP\+::shape\+\_\+2 \{nullptr\}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The shape of the second particle. 
 
 
 

@@ -2,6 +2,11 @@
 \label{classnetdem_1_1_peri_digm_material}\index{netdem::PeriDigmMaterial@{netdem::PeriDigmMaterial}}
 
 
+A class representing the material properties used in a peridynamic simulation.  
+
+
+
+
 {\ttfamily \#include $<$peridigm\+\_\+material.\+hpp$>$}
 
 \doxysubsection*{Public Types}
@@ -9,24 +14,29 @@
 \item 
 enum \mbox{\hyperlink{classnetdem_1_1_peri_digm_material_af84a9833d460b55e6dd0415ca65d19e1}{Type}} \{ \mbox{\hyperlink{classnetdem_1_1_peri_digm_material_af84a9833d460b55e6dd0415ca65d19e1af1c23eb067332e07e81c31cdad513101}{Elastic}}
  \}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em An enum representing the type of material model used. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 void \mbox{\hyperlink{classnetdem_1_1_peri_digm_material_ab58c372cf0bf106be0087bddecd08319}{Write\+Input\+File}} (std\+::ostream \&os, int material\+\_\+id)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Writes the material parameters to a file stream in Peridigm-\/compatible format. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{classnetdem_1_1_peri_digm_material_af84a9833d460b55e6dd0415ca65d19e1}{Type}} \mbox{\hyperlink{classnetdem_1_1_peri_digm_material_a00dd07484fd4de87da54bfead91ac6ab}{type}} \{\mbox{\hyperlink{classnetdem_1_1_peri_digm_material_af84a9833d460b55e6dd0415ca65d19e1af1c23eb067332e07e81c31cdad513101}{Type\+::\+Elastic}}\}
-\item 
+\begin{DoxyCompactList}\small\item\em The type of material model used. \end{DoxyCompactList}\item 
 double \mbox{\hyperlink{classnetdem_1_1_peri_digm_material_ac670d6ba97d9de6ea0a031b952dcfaab}{density}} = 2650.\+0
-\item 
+\begin{DoxyCompactList}\small\item\em The density of the material. \end{DoxyCompactList}\item 
 double \mbox{\hyperlink{classnetdem_1_1_peri_digm_material_a563683537747a6383015b5aa5754a56b}{youngs\+\_\+modulus}} = 70.\+0e9
-\item 
+\begin{DoxyCompactList}\small\item\em The Young\textquotesingle{}s modulus of the material. \end{DoxyCompactList}\item 
 double \mbox{\hyperlink{classnetdem_1_1_peri_digm_material_a1b8cd989a1445c6439719f191147c73d}{poissons\+\_\+ratio}} = 0.\+15
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em The Poisson\textquotesingle{}s ratio of the material. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
+
+\doxysubsection{Detailed Description}
+A class representing the material properties used in a peridynamic simulation. 
+
+The \mbox{\hyperlink{classnetdem_1_1_peri_digm_material}{Peri\+Digm\+Material}} class represents the material properties used in a peridynamic simulation. It includes methods for writing the material properties to file in a format compatible with the Peridigm code. 
 
 \doxysubsection{Member Enumeration Documentation}
 \mbox{\Hypertarget{classnetdem_1_1_peri_digm_material_af84a9833d460b55e6dd0415ca65d19e1}\label{classnetdem_1_1_peri_digm_material_af84a9833d460b55e6dd0415ca65d19e1}} 
@@ -35,7 +45,11 @@ double \mbox{\hyperlink{classnetdem_1_1_peri_digm_material_a1b8cd989a1445c643971
 \doxysubsubsection{\texorpdfstring{Type}{Type}}
 {\footnotesize\ttfamily enum \mbox{\hyperlink{classnetdem_1_1_peri_digm_material_af84a9833d460b55e6dd0415ca65d19e1}{netdem\+::\+Peri\+Digm\+Material\+::\+Type}}}
 
-\begin{DoxyEnumFields}{Enumerator}
+
+
+An enum representing the type of material model used. 
+
+The Type enum represents the type of material model used, which can be currently only Elastic. \begin{DoxyEnumFields}{Enumerator}
 \raisebox{\heightof{T}}[0pt][0pt]{\index{Elastic@{Elastic}!netdem::PeriDigmMaterial@{netdem::PeriDigmMaterial}}\index{netdem::PeriDigmMaterial@{netdem::PeriDigmMaterial}!Elastic@{Elastic}}}\mbox{\Hypertarget{classnetdem_1_1_peri_digm_material_af84a9833d460b55e6dd0415ca65d19e1af1c23eb067332e07e81c31cdad513101}\label{classnetdem_1_1_peri_digm_material_af84a9833d460b55e6dd0415ca65d19e1af1c23eb067332e07e81c31cdad513101}} 
 Elastic&\\
 \hline
@@ -52,6 +66,19 @@ Elastic&\\
 
 
 
+Writes the material parameters to a file stream in Peridigm-\/compatible format. 
+
+This method writes the material parameters to a file stream in Peridigm-\/compatible format, including the material model, density, Young\textquotesingle{}s modulus, and Poisson\textquotesingle{}s ratio.
+
+
+\begin{DoxyParams}{Parameters}
+{\em os} & The output stream to write to. \\
+\hline
+{\em material\+\_\+id} & The ID number of the material. \\
+\hline
+\end{DoxyParams}
+
+
 \doxysubsection{Member Data Documentation}
 \mbox{\Hypertarget{classnetdem_1_1_peri_digm_material_ac670d6ba97d9de6ea0a031b952dcfaab}\label{classnetdem_1_1_peri_digm_material_ac670d6ba97d9de6ea0a031b952dcfaab}} 
 \index{netdem::PeriDigmMaterial@{netdem::PeriDigmMaterial}!density@{density}}
@@ -59,11 +86,19 @@ Elastic&\\
 \doxysubsubsection{\texorpdfstring{density}{density}}
 {\footnotesize\ttfamily double netdem\+::\+Peri\+Digm\+Material\+::density = 2650.\+0}
 
+
+
+The density of the material. 
+
 \mbox{\Hypertarget{classnetdem_1_1_peri_digm_material_a1b8cd989a1445c6439719f191147c73d}\label{classnetdem_1_1_peri_digm_material_a1b8cd989a1445c6439719f191147c73d}} 
 \index{netdem::PeriDigmMaterial@{netdem::PeriDigmMaterial}!poissons\_ratio@{poissons\_ratio}}
 \index{poissons\_ratio@{poissons\_ratio}!netdem::PeriDigmMaterial@{netdem::PeriDigmMaterial}}
 \doxysubsubsection{\texorpdfstring{poissons\_ratio}{poissons\_ratio}}
 {\footnotesize\ttfamily double netdem\+::\+Peri\+Digm\+Material\+::poissons\+\_\+ratio = 0.\+15}
+
+
+
+The Poisson\textquotesingle{}s ratio of the material. 
 
 \mbox{\Hypertarget{classnetdem_1_1_peri_digm_material_a00dd07484fd4de87da54bfead91ac6ab}\label{classnetdem_1_1_peri_digm_material_a00dd07484fd4de87da54bfead91ac6ab}} 
 \index{netdem::PeriDigmMaterial@{netdem::PeriDigmMaterial}!type@{type}}
@@ -71,11 +106,19 @@ Elastic&\\
 \doxysubsubsection{\texorpdfstring{type}{type}}
 {\footnotesize\ttfamily \mbox{\hyperlink{classnetdem_1_1_peri_digm_material_af84a9833d460b55e6dd0415ca65d19e1}{Type}} netdem\+::\+Peri\+Digm\+Material\+::type \{\mbox{\hyperlink{classnetdem_1_1_peri_digm_material_af84a9833d460b55e6dd0415ca65d19e1af1c23eb067332e07e81c31cdad513101}{Type\+::\+Elastic}}\}}
 
+
+
+The type of material model used. 
+
 \mbox{\Hypertarget{classnetdem_1_1_peri_digm_material_a563683537747a6383015b5aa5754a56b}\label{classnetdem_1_1_peri_digm_material_a563683537747a6383015b5aa5754a56b}} 
 \index{netdem::PeriDigmMaterial@{netdem::PeriDigmMaterial}!youngs\_modulus@{youngs\_modulus}}
 \index{youngs\_modulus@{youngs\_modulus}!netdem::PeriDigmMaterial@{netdem::PeriDigmMaterial}}
 \doxysubsubsection{\texorpdfstring{youngs\_modulus}{youngs\_modulus}}
 {\footnotesize\ttfamily double netdem\+::\+Peri\+Digm\+Material\+::youngs\+\_\+modulus = 70.\+0e9}
+
+
+
+The Young\textquotesingle{}s modulus of the material. 
 
 
 

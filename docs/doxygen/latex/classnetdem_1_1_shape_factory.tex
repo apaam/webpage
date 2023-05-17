@@ -2,19 +2,29 @@
 \label{classnetdem_1_1_shape_factory}\index{netdem::ShapeFactory@{netdem::ShapeFactory}}
 
 
+A class for creating \mbox{\hyperlink{classnetdem_1_1_shape}{Shape}} objects using a factory pattern.  
+
+
+
+
 {\ttfamily \#include $<$shape\+\_\+factory.\+hpp$>$}
 
 \doxysubsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 static \mbox{\hyperlink{classnetdem_1_1_shape}{Shape}} $\ast$ \mbox{\hyperlink{classnetdem_1_1_shape_factory_a31490072b12ba9822ff80de6bffc4bf6}{New\+Shape}} (std\+::string const \&shape\+\_\+name, nlohmann\+::json const \&js)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Create a new \mbox{\hyperlink{classnetdem_1_1_shape}{Shape}} object by name. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Static Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
 static std\+::unordered\+\_\+map$<$ std\+::string, \mbox{\hyperlink{classnetdem_1_1_shape_aa97bccd1fe4043614c4b84a3f254a158}{Shape\+::\+Type}} $>$ \mbox{\hyperlink{classnetdem_1_1_shape_factory_a88d73b0ac01ae0771d640d15e1178bdf}{shape\+\_\+map}}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em A map of valid \mbox{\hyperlink{classnetdem_1_1_shape}{Shape}} names and types. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
+
+\doxysubsection{Detailed Description}
+A class for creating \mbox{\hyperlink{classnetdem_1_1_shape}{Shape}} objects using a factory pattern. 
+
+This class provides a static method for creating \mbox{\hyperlink{classnetdem_1_1_shape}{Shape}} objects by name and a map of valid \mbox{\hyperlink{classnetdem_1_1_shape}{Shape}} names and types. 
 
 \doxysubsection{Member Function Documentation}
 \mbox{\Hypertarget{classnetdem_1_1_shape_factory_a31490072b12ba9822ff80de6bffc4bf6}\label{classnetdem_1_1_shape_factory_a31490072b12ba9822ff80de6bffc4bf6}} 
@@ -23,6 +33,22 @@ static std\+::unordered\+\_\+map$<$ std\+::string, \mbox{\hyperlink{classnetdem_
 \doxysubsubsection{\texorpdfstring{NewShape()}{NewShape()}}
 {\footnotesize\ttfamily \mbox{\hyperlink{classnetdem_1_1_shape}{Shape}} $\ast$ Shape\+Factory\+::\+New\+Shape (\begin{DoxyParamCaption}\item[{std\+::string const \&}]{shape\+\_\+name,  }\item[{nlohmann\+::json const \&}]{js }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
+
+
+Create a new \mbox{\hyperlink{classnetdem_1_1_shape}{Shape}} object by name. 
+
+This static method creates a new \mbox{\hyperlink{classnetdem_1_1_shape}{Shape}} object of the specified type by name and initializes it from a JSON structure.
+
+
+\begin{DoxyParams}{Parameters}
+{\em shape\+\_\+name} & The name of the \mbox{\hyperlink{classnetdem_1_1_shape}{Shape}} object to create. \\
+\hline
+{\em js} & The JSON structure to initialize the new \mbox{\hyperlink{classnetdem_1_1_shape}{Shape}} object with. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to the new \mbox{\hyperlink{classnetdem_1_1_shape}{Shape}} object. 
+\end{DoxyReturn}
 
 
 \doxysubsection{Member Data Documentation}
@@ -53,6 +79,10 @@ static std\+::unordered\+\_\+map$<$ std\+::string, \mbox{\hyperlink{classnetdem_
 \DoxyCodeLine{\ \ \ \ \{\textcolor{stringliteral}{"{}coded\_netsdf"{}},\ \mbox{\hyperlink{classnetdem_1_1_shape_aa97bccd1fe4043614c4b84a3f254a158a0b86f6658887e22102a419b8a15852b6}{Shape::Type::coded\_netsdf}}\}\}}
 
 \end{DoxyCode}
+
+
+A map of valid \mbox{\hyperlink{classnetdem_1_1_shape}{Shape}} names and types. 
+
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

@@ -2,37 +2,42 @@
 \label{classnetdem_1_1_modifier_manager}\index{netdem::ModifierManager@{netdem::ModifierManager}}
 
 
+A class used to manage modifiers in a simulation.  
+
+
+
+
 {\ttfamily \#include $<$modifier\+\_\+manager.\+hpp$>$}
 
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{classnetdem_1_1_modifier_manager_a87f2065f56285e3b60f72d887fc67043}{Modifier\+Manager}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Default constructor for \mbox{\hyperlink{classnetdem_1_1_modifier_manager}{Modifier\+Manager}} class. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classnetdem_1_1_modifier_manager_a1179562f59841398cce0c0d8999bb294}{Init}} (\mbox{\hyperlink{classnetdem_1_1_simulation}{Simulation}} $\ast$s)
-\item 
+\begin{DoxyCompactList}\small\item\em Initializes the \mbox{\hyperlink{classnetdem_1_1_modifier_manager}{Modifier\+Manager}} instance. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classnetdem_1_1_modifier}{Modifier}} $\ast$ \mbox{\hyperlink{classnetdem_1_1_modifier_manager_a6748f7dfd9b3e8e9999c4981684a9945}{Insert}} (\mbox{\hyperlink{classnetdem_1_1_modifier}{Modifier}} $\ast$e)
-\begin{DoxyCompactList}\small\item\em insert and remove modifiers \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Inserts new modifier into the simulation. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classnetdem_1_1_modifier_manager_ab361b307afdf6ee71bc40a59f2d87a7e}{Remove\+Modifier}} (std\+::string const \&label)
-\item 
+\begin{DoxyCompactList}\small\item\em Removes a modifier from the simulation. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classnetdem_1_1_modifier_manager_a75ba1abedb33d45398052ada3177baa2}{Enable}} (std\+::string const \&label)
-\begin{DoxyCompactList}\small\item\em activate and deactivate modifiers \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Enables a modifier in the simulation. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classnetdem_1_1_modifier_manager_ab88c1611f705b3e7b964125c791746c4}{Disable}} (std\+::string const \&label)
-\item 
+\begin{DoxyCompactList}\small\item\em Disables a modifier in the simulation. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classnetdem_1_1_modifier_manager_abd602617060caed4ecdb781b8e971434}{Enable}} (\mbox{\hyperlink{classnetdem_1_1_modifier}{Modifier}} $\ast$const e)
-\item 
+\begin{DoxyCompactList}\small\item\em Enables a modifier in the simulation. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classnetdem_1_1_modifier_manager_ad0c57582b5b6b3337d416e7476761a82}{Disable}} (\mbox{\hyperlink{classnetdem_1_1_modifier}{Modifier}} $\ast$const e)
-\item 
+\begin{DoxyCompactList}\small\item\em Disables a modifier in the simulation. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classnetdem_1_1_modifier}{Modifier}} $\ast$ \mbox{\hyperlink{classnetdem_1_1_modifier_manager_a394fb1f03924b6a5251b8bc687973779}{Find\+Modifier}} (std\+::string const \&label)
-\begin{DoxyCompactList}\small\item\em find modifier \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Finds a modifier in the simulation by label. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{classnetdem_1_1_modifier_manager_a099c246c7b07fd3fa6e11f231546549e}{Find\+Modifier}} (\mbox{\hyperlink{classnetdem_1_1_modifier}{Modifier}} $\ast$const e)
-\item 
+\begin{DoxyCompactList}\small\item\em Finds a modifier in the simulation by pointer. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classnetdem_1_1_modifier_manager_a2c882c34517217e77c9d5df143b0e709}{Update\+Modifiers}} ()
-\begin{DoxyCompactList}\small\item\em update the modifiers in the scene\+\_\+state\+\_\+subscribers when scene changes \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Updates the modifiers in the scene\+\_\+state\+\_\+subscribers when the scene changes. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classnetdem_1_1_modifier_manager_ae5eb767ca885a19999aa607c3ac0b5e1}{Execute\+Modifiers}} (\mbox{\hyperlink{classnetdem_1_1_d_e_m_solver_a7b625d897bb69cd28838602603b8b0c4}{DEMSolver\+::\+Cycle\+Point}} cycle\+\_\+point)
-\begin{DoxyCompactList}\small\item\em excute during DEM cycling \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Executes all modifiers during the specified cycle point of the DEM solver. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classnetdem_1_1_modifier_manager_a40befdf4101570942907589f377f2ccb}{$\sim$\+Modifier\+Manager}} ()
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Destructor for \mbox{\hyperlink{classnetdem_1_1_modifier_manager}{Modifier\+Manager}} class. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -50,12 +55,9 @@ std\+::unordered\+\_\+set$<$ \mbox{\hyperlink{classnetdem_1_1_modifier}{Modifier
 
 
 \doxysubsection{Detailed Description}
-Manages the modifiers in a simulation. Note that an modifier would take effects only if it is activated (i.\+e., it is inserted into pre\+\_\+modifier\+\_\+list or post\+\_\+modifier\+\_\+list).
-\begin{DoxyItemize}
-\item modifier\+\_\+lib\+: stores the list of defined modifiers.
-\item modifier\+\_\+list\+: stores the list of activated modifiers.
-\item scene\+\_\+state\+\_\+subscribers\+: stores the list of modifiers, whose properties need to update if the scene changes. For example, a body force modifier is defined for a certain particle. If this particle get out of the domain (i.\+e., the scene does not contain this particle any more), this body force modifier needs to be updated so that no more particles is in the particle\+\_\+list. 
-\end{DoxyItemize}
+A class used to manage modifiers in a simulation. 
+
+The \mbox{\hyperlink{classnetdem_1_1_modifier_manager}{Modifier\+Manager}} class handles the activation and deactivation of modifiers, as well as the updating of modifier properties when the scene changes. 
 
 \doxysubsection{Constructor \& Destructor Documentation}
 \mbox{\Hypertarget{classnetdem_1_1_modifier_manager_a87f2065f56285e3b60f72d887fc67043}\label{classnetdem_1_1_modifier_manager_a87f2065f56285e3b60f72d887fc67043}} 
@@ -64,11 +66,19 @@ Manages the modifiers in a simulation. Note that an modifier would take effects 
 \doxysubsubsection{\texorpdfstring{ModifierManager()}{ModifierManager()}}
 {\footnotesize\ttfamily netdem\+::\+Modifier\+Manager\+::\+Modifier\+Manager (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
+
+
+Default constructor for \mbox{\hyperlink{classnetdem_1_1_modifier_manager}{Modifier\+Manager}} class. 
+
 \mbox{\Hypertarget{classnetdem_1_1_modifier_manager_a40befdf4101570942907589f377f2ccb}\label{classnetdem_1_1_modifier_manager_a40befdf4101570942907589f377f2ccb}} 
 \index{netdem::ModifierManager@{netdem::ModifierManager}!````~ModifierManager@{$\sim$ModifierManager}}
 \index{````~ModifierManager@{$\sim$ModifierManager}!netdem::ModifierManager@{netdem::ModifierManager}}
 \doxysubsubsection{\texorpdfstring{$\sim$ModifierManager()}{~ModifierManager()}}
 {\footnotesize\ttfamily netdem\+::\+Modifier\+Manager\+::$\sim$\+Modifier\+Manager (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Destructor for \mbox{\hyperlink{classnetdem_1_1_modifier_manager}{Modifier\+Manager}} class. 
 
 
 
@@ -79,18 +89,45 @@ Manages the modifiers in a simulation. Note that an modifier would take effects 
 \doxysubsubsection{\texorpdfstring{Disable()}{Disable()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily void netdem\+::\+Modifier\+Manager\+::\+Disable (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_modifier}{Modifier}} $\ast$const}]{e }\end{DoxyParamCaption})}
 
+
+
+Disables a modifier in the simulation. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em e} & Pointer to the modifier to be disabled. \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{classnetdem_1_1_modifier_manager_ab88c1611f705b3e7b964125c791746c4}\label{classnetdem_1_1_modifier_manager_ab88c1611f705b3e7b964125c791746c4}} 
 \index{netdem::ModifierManager@{netdem::ModifierManager}!Disable@{Disable}}
 \index{Disable@{Disable}!netdem::ModifierManager@{netdem::ModifierManager}}
 \doxysubsubsection{\texorpdfstring{Disable()}{Disable()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
 {\footnotesize\ttfamily void netdem\+::\+Modifier\+Manager\+::\+Disable (\begin{DoxyParamCaption}\item[{std\+::string const \&}]{label }\end{DoxyParamCaption})}
 
+
+
+Disables a modifier in the simulation. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em label} & Label of the modifier to be disabled. \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{classnetdem_1_1_modifier_manager_abd602617060caed4ecdb781b8e971434}\label{classnetdem_1_1_modifier_manager_abd602617060caed4ecdb781b8e971434}} 
 \index{netdem::ModifierManager@{netdem::ModifierManager}!Enable@{Enable}}
 \index{Enable@{Enable}!netdem::ModifierManager@{netdem::ModifierManager}}
 \doxysubsubsection{\texorpdfstring{Enable()}{Enable()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily void netdem\+::\+Modifier\+Manager\+::\+Enable (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_modifier}{Modifier}} $\ast$const}]{e }\end{DoxyParamCaption})}
 
+
+
+Enables a modifier in the simulation. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em e} & Pointer to the modifier to be enabled. \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{classnetdem_1_1_modifier_manager_a75ba1abedb33d45398052ada3177baa2}\label{classnetdem_1_1_modifier_manager_a75ba1abedb33d45398052ada3177baa2}} 
 \index{netdem::ModifierManager@{netdem::ModifierManager}!Enable@{Enable}}
 \index{Enable@{Enable}!netdem::ModifierManager@{netdem::ModifierManager}}
@@ -99,8 +136,13 @@ Manages the modifiers in a simulation. Note that an modifier would take effects 
 
 
 
-activate and deactivate modifiers 
+Enables a modifier in the simulation. 
 
+
+\begin{DoxyParams}{Parameters}
+{\em label} & Label of the modifier to be enabled. \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{classnetdem_1_1_modifier_manager_ae5eb767ca885a19999aa607c3ac0b5e1}\label{classnetdem_1_1_modifier_manager_ae5eb767ca885a19999aa607c3ac0b5e1}} 
 \index{netdem::ModifierManager@{netdem::ModifierManager}!ExecuteModifiers@{ExecuteModifiers}}
 \index{ExecuteModifiers@{ExecuteModifiers}!netdem::ModifierManager@{netdem::ModifierManager}}
@@ -109,14 +151,31 @@ activate and deactivate modifiers
 
 
 
-excute during DEM cycling 
+Executes all modifiers during the specified cycle point of the DEM solver. 
 
+
+\begin{DoxyParams}{Parameters}
+{\em cycle\+\_\+point} & The cycle point to execute modifiers at. \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{classnetdem_1_1_modifier_manager_a099c246c7b07fd3fa6e11f231546549e}\label{classnetdem_1_1_modifier_manager_a099c246c7b07fd3fa6e11f231546549e}} 
 \index{netdem::ModifierManager@{netdem::ModifierManager}!FindModifier@{FindModifier}}
 \index{FindModifier@{FindModifier}!netdem::ModifierManager@{netdem::ModifierManager}}
 \doxysubsubsection{\texorpdfstring{FindModifier()}{FindModifier()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily bool netdem\+::\+Modifier\+Manager\+::\+Find\+Modifier (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_modifier}{Modifier}} $\ast$const}]{e }\end{DoxyParamCaption})}
 
+
+
+Finds a modifier in the simulation by pointer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em e} & Pointer to the modifier to find. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the modifier is found, false otherwise. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{classnetdem_1_1_modifier_manager_a394fb1f03924b6a5251b8bc687973779}\label{classnetdem_1_1_modifier_manager_a394fb1f03924b6a5251b8bc687973779}} 
 \index{netdem::ModifierManager@{netdem::ModifierManager}!FindModifier@{FindModifier}}
 \index{FindModifier@{FindModifier}!netdem::ModifierManager@{netdem::ModifierManager}}
@@ -125,14 +184,31 @@ excute during DEM cycling
 
 
 
-find modifier 
+Finds a modifier in the simulation by label. 
 
+
+\begin{DoxyParams}{Parameters}
+{\em label} & Label of the modifier to find. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to the found \mbox{\hyperlink{classnetdem_1_1_modifier}{Modifier}} object. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{classnetdem_1_1_modifier_manager_a1179562f59841398cce0c0d8999bb294}\label{classnetdem_1_1_modifier_manager_a1179562f59841398cce0c0d8999bb294}} 
 \index{netdem::ModifierManager@{netdem::ModifierManager}!Init@{Init}}
 \index{Init@{Init}!netdem::ModifierManager@{netdem::ModifierManager}}
 \doxysubsubsection{\texorpdfstring{Init()}{Init()}}
 {\footnotesize\ttfamily void netdem\+::\+Modifier\+Manager\+::\+Init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_simulation}{Simulation}} $\ast$}]{s }\end{DoxyParamCaption})}
 
+
+
+Initializes the \mbox{\hyperlink{classnetdem_1_1_modifier_manager}{Modifier\+Manager}} instance. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & Pointer to the current simulation object. \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{classnetdem_1_1_modifier_manager_a6748f7dfd9b3e8e9999c4981684a9945}\label{classnetdem_1_1_modifier_manager_a6748f7dfd9b3e8e9999c4981684a9945}} 
 \index{netdem::ModifierManager@{netdem::ModifierManager}!Insert@{Insert}}
 \index{Insert@{Insert}!netdem::ModifierManager@{netdem::ModifierManager}}
@@ -141,14 +217,31 @@ find modifier
 
 
 
-insert and remove modifiers 
+Inserts new modifier into the simulation. 
 
+
+\begin{DoxyParams}{Parameters}
+{\em e} & Pointer to the modifier to be inserted. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to the inserted modifier object. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{classnetdem_1_1_modifier_manager_ab361b307afdf6ee71bc40a59f2d87a7e}\label{classnetdem_1_1_modifier_manager_ab361b307afdf6ee71bc40a59f2d87a7e}} 
 \index{netdem::ModifierManager@{netdem::ModifierManager}!RemoveModifier@{RemoveModifier}}
 \index{RemoveModifier@{RemoveModifier}!netdem::ModifierManager@{netdem::ModifierManager}}
 \doxysubsubsection{\texorpdfstring{RemoveModifier()}{RemoveModifier()}}
 {\footnotesize\ttfamily void netdem\+::\+Modifier\+Manager\+::\+Remove\+Modifier (\begin{DoxyParamCaption}\item[{std\+::string const \&}]{label }\end{DoxyParamCaption})}
 
+
+
+Removes a modifier from the simulation. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em label} & Label of the modifier to be removed. \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{classnetdem_1_1_modifier_manager_a2c882c34517217e77c9d5df143b0e709}\label{classnetdem_1_1_modifier_manager_a2c882c34517217e77c9d5df143b0e709}} 
 \index{netdem::ModifierManager@{netdem::ModifierManager}!UpdateModifiers@{UpdateModifiers}}
 \index{UpdateModifiers@{UpdateModifiers}!netdem::ModifierManager@{netdem::ModifierManager}}
@@ -157,7 +250,7 @@ insert and remove modifiers
 
 
 
-update the modifiers in the scene\+\_\+state\+\_\+subscribers when scene changes 
+Updates the modifiers in the scene\+\_\+state\+\_\+subscribers when the scene changes. 
 
 
 

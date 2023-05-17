@@ -2,6 +2,11 @@
 \label{class_uniform_distribution}\index{UniformDistribution@{UniformDistribution}}
 
 
+Generates random numbers from a uniform distribution.  
+
+
+
+
 {\ttfamily \#include $<$distribution\+\_\+uniform.\+hpp$>$}
 
 Inheritance diagram for Uniform\+Distribution\+:\begin{figure}[H]
@@ -14,13 +19,13 @@ Inheritance diagram for Uniform\+Distribution\+:\begin{figure}[H]
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{class_uniform_distribution_a796cddf2004918526dabdba0037722ed}{Uniform\+Distribution}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Default constructor. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{class_uniform_distribution_a4e9d38caa8826e613f316a16a20f8159}{Uniform\+Distribution}} (double \mbox{\hyperlink{class_uniform_distribution_a8149c07654582ab5bcba05286303c27f}{bound\+\_\+min}}, double \mbox{\hyperlink{class_uniform_distribution_aa4f03d869bb468295ac3b8dcb9a4d434}{bound\+\_\+max}})
-\item 
+\begin{DoxyCompactList}\small\item\em Constructor that takes bounds as input parameters. \end{DoxyCompactList}\item 
 double \mbox{\hyperlink{class_uniform_distribution_aae19bbb1f331465ff67203b8621fac23}{Get}} () override
-\item 
+\begin{DoxyCompactList}\small\item\em Get a single random number from the uniform distribution. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ double $>$ \mbox{\hyperlink{class_uniform_distribution_ad45593f9674287928452253fc5b84340}{Get}} (int num) override
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Get multiple random numbers from the uniform distribution. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Public Member Functions inherited from \mbox{\hyperlink{classnetdem_1_1_distribution}{netdem\+::\+Distribution}}}
 \begin{DoxyCompactItemize}
 \item 
@@ -34,17 +39,22 @@ virtual \mbox{\hyperlink{classnetdem_1_1_distribution_a7a55f4fb756cb139109b2bef5
 \begin{DoxyCompactItemize}
 \item 
 double \mbox{\hyperlink{class_uniform_distribution_a8149c07654582ab5bcba05286303c27f}{bound\+\_\+min}}
-\begin{DoxyCompactList}\small\item\em lower and upper bounds of the uniform random numbers \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Lower and upper bounds of the uniform distribution. \end{DoxyCompactList}\item 
 double \mbox{\hyperlink{class_uniform_distribution_aa4f03d869bb468295ac3b8dcb9a4d434}{bound\+\_\+max}}
 \end{DoxyCompactItemize}
 \doxysubsection*{Private Attributes}
 \begin{DoxyCompactItemize}
 \item 
 std\+::mt19937 \mbox{\hyperlink{class_uniform_distribution_a1f9ae4079e31b34c3c42aef0f54219f9}{mt\+\_\+eng}}
-\item 
+\begin{DoxyCompactList}\small\item\em Mersenne twister random number generator engine. \end{DoxyCompactList}\item 
 std\+::uniform\+\_\+real\+\_\+distribution$<$ double $>$ \mbox{\hyperlink{class_uniform_distribution_a3c096aaa715f8bfeb9ccfc87fff7a98b}{real\+\_\+dist}}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Uniform real distribution. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
+
+\doxysubsection{Detailed Description}
+Generates random numbers from a uniform distribution. 
+
+This class generates random numbers from a uniform distribution with specified bounds. 
 
 \doxysubsection{Constructor \& Destructor Documentation}
 \mbox{\Hypertarget{class_uniform_distribution_a796cddf2004918526dabdba0037722ed}\label{class_uniform_distribution_a796cddf2004918526dabdba0037722ed}} 
@@ -53,12 +63,29 @@ std\+::uniform\+\_\+real\+\_\+distribution$<$ double $>$ \mbox{\hyperlink{class_
 \doxysubsubsection{\texorpdfstring{UniformDistribution()}{UniformDistribution()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily Uniform\+Distribution\+::\+Uniform\+Distribution (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
-\mbox{\Hypertarget{class_uniform_distribution_a4e9d38caa8826e613f316a16a20f8159}\label{class_uniform_distribution_a4e9d38caa8826e613f316a16a20f8159}} 
+
+
+Default constructor. 
+
+This constructor initializes the lower and upper bounds of the uniform distribution to 0 and 1, respectively. It also initializes the random number generator and distribution. \mbox{\Hypertarget{class_uniform_distribution_a4e9d38caa8826e613f316a16a20f8159}\label{class_uniform_distribution_a4e9d38caa8826e613f316a16a20f8159}} 
 \index{UniformDistribution@{UniformDistribution}!UniformDistribution@{UniformDistribution}}
 \index{UniformDistribution@{UniformDistribution}!UniformDistribution@{UniformDistribution}}
 \doxysubsubsection{\texorpdfstring{UniformDistribution()}{UniformDistribution()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
 {\footnotesize\ttfamily Uniform\+Distribution\+::\+Uniform\+Distribution (\begin{DoxyParamCaption}\item[{double}]{bound\+\_\+min,  }\item[{double}]{bound\+\_\+max }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
+
+
+Constructor that takes bounds as input parameters. 
+
+This constructor initializes the lower and upper bounds of the uniform distribution to the values passed in via {\ttfamily bound\+\_\+min} and {\ttfamily bound\+\_\+max}, respectively. It also initializes the random number generator and distribution.
+
+
+\begin{DoxyParams}{Parameters}
+{\em bound\+\_\+min} & The lower bound of the uniform distribution. \\
+\hline
+{\em bound\+\_\+max} & The upper bound of the uniform distribution. \\
+\hline
+\end{DoxyParams}
 
 
 \doxysubsection{Member Function Documentation}
@@ -70,6 +97,13 @@ std\+::uniform\+\_\+real\+\_\+distribution$<$ double $>$ \mbox{\hyperlink{class_
 
 
 
+Get a single random number from the uniform distribution. 
+
+\begin{DoxyReturn}{Returns}
+A random number generated from the uniform distribution. 
+\end{DoxyReturn}
+
+
 Implements \mbox{\hyperlink{classnetdem_1_1_distribution_a8306c3ecfc50c9c4c48622c7e77b8780}{netdem\+::\+Distribution}}.
 
 \mbox{\Hypertarget{class_uniform_distribution_ad45593f9674287928452253fc5b84340}\label{class_uniform_distribution_ad45593f9674287928452253fc5b84340}} 
@@ -78,6 +112,20 @@ Implements \mbox{\hyperlink{classnetdem_1_1_distribution_a8306c3ecfc50c9c4c48622
 \doxysubsubsection{\texorpdfstring{Get()}{Get()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
 {\footnotesize\ttfamily \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ double $>$ Uniform\+Distribution\+::\+Get (\begin{DoxyParamCaption}\item[{int}]{num }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
 
+
+
+Get multiple random numbers from the uniform distribution. 
+
+This method generates {\ttfamily num} random numbers from the uniform distribution and returns them as a vector.
+
+
+\begin{DoxyParams}{Parameters}
+{\em num} & The number of random numbers to generate. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A vector containing {\ttfamily num} random numbers generated from the uniform distribution. 
+\end{DoxyReturn}
 
 
 Implements \mbox{\hyperlink{classnetdem_1_1_distribution_ae654396b390d3de10a23fa70cd2d7c0e}{netdem\+::\+Distribution}}.
@@ -99,7 +147,7 @@ Implements \mbox{\hyperlink{classnetdem_1_1_distribution_ae654396b390d3de10a23fa
 
 
 
-lower and upper bounds of the uniform random numbers 
+Lower and upper bounds of the uniform distribution. 
 
 \mbox{\Hypertarget{class_uniform_distribution_a1f9ae4079e31b34c3c42aef0f54219f9}\label{class_uniform_distribution_a1f9ae4079e31b34c3c42aef0f54219f9}} 
 \index{UniformDistribution@{UniformDistribution}!mt\_eng@{mt\_eng}}
@@ -107,11 +155,19 @@ lower and upper bounds of the uniform random numbers
 \doxysubsubsection{\texorpdfstring{mt\_eng}{mt\_eng}}
 {\footnotesize\ttfamily std\+::mt19937 Uniform\+Distribution\+::mt\+\_\+eng\hspace{0.3cm}{\ttfamily [private]}}
 
+
+
+Mersenne twister random number generator engine. 
+
 \mbox{\Hypertarget{class_uniform_distribution_a3c096aaa715f8bfeb9ccfc87fff7a98b}\label{class_uniform_distribution_a3c096aaa715f8bfeb9ccfc87fff7a98b}} 
 \index{UniformDistribution@{UniformDistribution}!real\_dist@{real\_dist}}
 \index{real\_dist@{real\_dist}!UniformDistribution@{UniformDistribution}}
 \doxysubsubsection{\texorpdfstring{real\_dist}{real\_dist}}
 {\footnotesize\ttfamily std\+::uniform\+\_\+real\+\_\+distribution$<$double$>$ Uniform\+Distribution\+::real\+\_\+dist\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Uniform real distribution. 
 
 
 
