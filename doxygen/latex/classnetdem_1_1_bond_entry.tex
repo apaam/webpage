@@ -2,7 +2,7 @@
 \label{classnetdem_1_1_bond_entry}\index{netdem::BondEntry@{netdem::BondEntry}}
 
 
-A class representing a bond entry.  
+The \mbox{\hyperlink{classnetdem_1_1_bond_entry}{Bond\+Entry}} class represents a collection of contact geometries and forces for one bond.  
 
 
 
@@ -13,30 +13,28 @@ A class representing a bond entry.
 \begin{DoxyCompactItemize}
 \item 
 void \mbox{\hyperlink{classnetdem_1_1_bond_entry_a25f847a18cafa9d62bee7b58c0a4ac24}{Update\+Forces}} (\mbox{\hyperlink{classnetdem_1_1_contact_p_p}{Contact\+PP}} $\ast$const cnt, double dt)
-\item 
+\begin{DoxyCompactList}\small\item\em Updates the contact forces based on pairwise particle contact interactions. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classnetdem_1_1_bond_entry_a3f450993802b4956ffe82d2236eef33e}{Update\+Forces}} (\mbox{\hyperlink{classnetdem_1_1_contact_p_w}{Contact\+PW}} $\ast$const cnt, double dt)
-\item 
+\begin{DoxyCompactList}\small\item\em Updates the contact forces based on particle-\/wall contact interactions. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classnetdem_1_1_bond_entry_a1978131c668fb5ab2d394ef792757606}{Update\+Local\+Forces}} (\mbox{\hyperlink{classnetdem_1_1_contact_p_p}{Contact\+PP}} $\ast$const cnt, double dt)
-\item 
+\begin{DoxyCompactList}\small\item\em Updates the local contact forces based on pairwise particle contact interactions. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classnetdem_1_1_bond_entry_a5b8d6a0d85702048180b208f78b341ca}{Update\+Local\+Forces}} (\mbox{\hyperlink{classnetdem_1_1_contact_p_w}{Contact\+PW}} $\ast$const cnt, double dt)
-\item 
+\begin{DoxyCompactList}\small\item\em Updates the local contact forces based on particle-\/wall contact interactions. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classnetdem_1_1_bond_entry_a00fa20c2a1f962cae09ae09d5d90592b}{Update\+Global\+Forces}} ()
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Updates the global contact forces associated with this bond entry. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{classnetdem_1_1_bond_geometries}{Bond\+Geometries}} \mbox{\hyperlink{classnetdem_1_1_bond_entry_a93b57a41a37decad0395c7ec381a0a86}{cnt\+\_\+geoms}}
-\item 
+\begin{DoxyCompactList}\small\item\em The contact geometries associated with this bond entry. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classnetdem_1_1_contact_forces}{Contact\+Forces}} \mbox{\hyperlink{classnetdem_1_1_bond_entry_a56a6d756cd6119a683817ab9eb1fec57}{cnt\+\_\+forces}}
-\item 
+\begin{DoxyCompactList}\small\item\em The contact forces associated with this bond entry. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classnetdem_1_1_contact_model}{Contact\+Model}} $\ast$ \mbox{\hyperlink{classnetdem_1_1_bond_entry_a562cf381b37ae58eabee608cae255848}{cnt\+\_\+model}} \{nullptr\}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Pointer to the contact model used to calculate forces. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
-A class representing a bond entry. 
-
-This class contains information about a bond\textquotesingle{}s geometries and contact forces. It also maintains a pointer to the contact model for potential extension. 
+The \mbox{\hyperlink{classnetdem_1_1_bond_entry}{Bond\+Entry}} class represents a collection of contact geometries and forces for one bond. 
 
 \doxysubsection{Member Function Documentation}
 \mbox{\Hypertarget{classnetdem_1_1_bond_entry_a25f847a18cafa9d62bee7b58c0a4ac24}\label{classnetdem_1_1_bond_entry_a25f847a18cafa9d62bee7b58c0a4ac24}} 
@@ -45,13 +43,15 @@ This class contains information about a bond\textquotesingle{}s geometries and c
 \doxysubsubsection{\texorpdfstring{UpdateForces()}{UpdateForces()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily void Bond\+Entry\+::\+Update\+Forces (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_contact_p_p}{Contact\+PP}} $\ast$const}]{cnt,  }\item[{double}]{dt }\end{DoxyParamCaption})}
 
-Updates the forces associated with a point-\/point contact.
+
+
+Updates the contact forces based on pairwise particle contact interactions. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em cnt} & A pointer to the point-\/point contact. \\
+{\em cnt} & Pointer to the pairwise particle contact object. \\
 \hline
-{\em dt} & The change in time. \\
+{\em dt} & Timestep of the simulation. \\
 \hline
 \end{DoxyParams}
 \mbox{\Hypertarget{classnetdem_1_1_bond_entry_a3f450993802b4956ffe82d2236eef33e}\label{classnetdem_1_1_bond_entry_a3f450993802b4956ffe82d2236eef33e}} 
@@ -60,13 +60,15 @@ Updates the forces associated with a point-\/point contact.
 \doxysubsubsection{\texorpdfstring{UpdateForces()}{UpdateForces()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
 {\footnotesize\ttfamily void Bond\+Entry\+::\+Update\+Forces (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_contact_p_w}{Contact\+PW}} $\ast$const}]{cnt,  }\item[{double}]{dt }\end{DoxyParamCaption})}
 
-Updates the forces associated with a point-\/wall contact.
+
+
+Updates the contact forces based on particle-\/wall contact interactions. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em cnt} & A pointer to the point-\/wall contact. \\
+{\em cnt} & Pointer to the particle-\/wall contact object. \\
 \hline
-{\em dt} & The change in time. \\
+{\em dt} & Timestep of the simulation. \\
 \hline
 \end{DoxyParams}
 \mbox{\Hypertarget{classnetdem_1_1_bond_entry_a00fa20c2a1f962cae09ae09d5d90592b}\label{classnetdem_1_1_bond_entry_a00fa20c2a1f962cae09ae09d5d90592b}} 
@@ -75,19 +77,25 @@ Updates the forces associated with a point-\/wall contact.
 \doxysubsubsection{\texorpdfstring{UpdateGlobalForces()}{UpdateGlobalForces()}}
 {\footnotesize\ttfamily void Bond\+Entry\+::\+Update\+Global\+Forces (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-Updates the global forces associated with this bond entry. \mbox{\Hypertarget{classnetdem_1_1_bond_entry_a1978131c668fb5ab2d394ef792757606}\label{classnetdem_1_1_bond_entry_a1978131c668fb5ab2d394ef792757606}} 
+
+
+Updates the global contact forces associated with this bond entry. 
+
+\mbox{\Hypertarget{classnetdem_1_1_bond_entry_a1978131c668fb5ab2d394ef792757606}\label{classnetdem_1_1_bond_entry_a1978131c668fb5ab2d394ef792757606}} 
 \index{netdem::BondEntry@{netdem::BondEntry}!UpdateLocalForces@{UpdateLocalForces}}
 \index{UpdateLocalForces@{UpdateLocalForces}!netdem::BondEntry@{netdem::BondEntry}}
 \doxysubsubsection{\texorpdfstring{UpdateLocalForces()}{UpdateLocalForces()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily void Bond\+Entry\+::\+Update\+Local\+Forces (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_contact_p_p}{Contact\+PP}} $\ast$const}]{cnt,  }\item[{double}]{dt }\end{DoxyParamCaption})}
 
-Updates the local forces associated with a point-\/point contact.
+
+
+Updates the local contact forces based on pairwise particle contact interactions. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em cnt} & A pointer to the point-\/point contact. \\
+{\em cnt} & Pointer to the pairwise particle contact object. \\
 \hline
-{\em dt} & The change in time. \\
+{\em dt} & Timestep of the simulation. \\
 \hline
 \end{DoxyParams}
 \mbox{\Hypertarget{classnetdem_1_1_bond_entry_a5b8d6a0d85702048180b208f78b341ca}\label{classnetdem_1_1_bond_entry_a5b8d6a0d85702048180b208f78b341ca}} 
@@ -96,13 +104,15 @@ Updates the local forces associated with a point-\/point contact.
 \doxysubsubsection{\texorpdfstring{UpdateLocalForces()}{UpdateLocalForces()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
 {\footnotesize\ttfamily void Bond\+Entry\+::\+Update\+Local\+Forces (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_contact_p_w}{Contact\+PW}} $\ast$const}]{cnt,  }\item[{double}]{dt }\end{DoxyParamCaption})}
 
-Updates the local forces associated with a point-\/wall contact.
+
+
+Updates the local contact forces based on particle-\/wall contact interactions. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em cnt} & A pointer to the point-\/wall contact. \\
+{\em cnt} & Pointer to the particle-\/wall contact object. \\
 \hline
-{\em dt} & The change in time. \\
+{\em dt} & Timestep of the simulation. \\
 \hline
 \end{DoxyParams}
 
@@ -114,19 +124,31 @@ Updates the local forces associated with a point-\/wall contact.
 \doxysubsubsection{\texorpdfstring{cnt\_forces}{cnt\_forces}}
 {\footnotesize\ttfamily \mbox{\hyperlink{classnetdem_1_1_contact_forces}{Contact\+Forces}} netdem\+::\+Bond\+Entry\+::cnt\+\_\+forces}
 
-The contact forces associated with this bond entry. \mbox{\Hypertarget{classnetdem_1_1_bond_entry_a93b57a41a37decad0395c7ec381a0a86}\label{classnetdem_1_1_bond_entry_a93b57a41a37decad0395c7ec381a0a86}} 
+
+
+The contact forces associated with this bond entry. 
+
+\mbox{\Hypertarget{classnetdem_1_1_bond_entry_a93b57a41a37decad0395c7ec381a0a86}\label{classnetdem_1_1_bond_entry_a93b57a41a37decad0395c7ec381a0a86}} 
 \index{netdem::BondEntry@{netdem::BondEntry}!cnt\_geoms@{cnt\_geoms}}
 \index{cnt\_geoms@{cnt\_geoms}!netdem::BondEntry@{netdem::BondEntry}}
 \doxysubsubsection{\texorpdfstring{cnt\_geoms}{cnt\_geoms}}
 {\footnotesize\ttfamily \mbox{\hyperlink{classnetdem_1_1_bond_geometries}{Bond\+Geometries}} netdem\+::\+Bond\+Entry\+::cnt\+\_\+geoms}
 
-The bond geometries associated with this bond entry. \mbox{\Hypertarget{classnetdem_1_1_bond_entry_a562cf381b37ae58eabee608cae255848}\label{classnetdem_1_1_bond_entry_a562cf381b37ae58eabee608cae255848}} 
+
+
+The contact geometries associated with this bond entry. 
+
+\mbox{\Hypertarget{classnetdem_1_1_bond_entry_a562cf381b37ae58eabee608cae255848}\label{classnetdem_1_1_bond_entry_a562cf381b37ae58eabee608cae255848}} 
 \index{netdem::BondEntry@{netdem::BondEntry}!cnt\_model@{cnt\_model}}
 \index{cnt\_model@{cnt\_model}!netdem::BondEntry@{netdem::BondEntry}}
 \doxysubsubsection{\texorpdfstring{cnt\_model}{cnt\_model}}
 {\footnotesize\ttfamily \mbox{\hyperlink{classnetdem_1_1_contact_model}{Contact\+Model}}$\ast$ netdem\+::\+Bond\+Entry\+::cnt\+\_\+model \{nullptr\}}
 
-A pointer to the contact model associated with this bond entry. 
+
+
+Pointer to the contact model used to calculate forces. 
+
+This pointer is maintained in each individual contact entry for potential extension. 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 

@@ -2,117 +2,127 @@
 \label{classnetdem_1_1_peri_digm_d_e_m_coupler}\index{netdem::PeriDigmDEMCoupler@{netdem::PeriDigmDEMCoupler}}
 
 
+A class representing a coupling between a discrete element method (DEM) simulation and a peridynamic simulation.  
+
+
+
+
 {\ttfamily \#include $<$peridigm\+\_\+dem\+\_\+coupler.\+hpp$>$}
 
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{classnetdem_1_1_peri_digm_d_e_m_coupler_a329cb33912e3781e2e2249e01d3847bb}{Peri\+Digm\+DEMCoupler}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Default constructor. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classnetdem_1_1_peri_digm_d_e_m_coupler_a4e8ebe5bdc88048837c835f66d9c5935}{Init}} (\mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} $\ast$p)
-\item 
+\begin{DoxyCompactList}\small\item\em Initializes the coupler with the given particle. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classnetdem_1_1_peri_digm_d_e_m_coupler_a756e1ce97d9ff543c5482d2a4bd8e291}{Solve}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Solves the coupled DEM and peridynamic simulations. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classnetdem_1_1_peri_digm_d_e_m_coupler_acdb89d6fe5f9bc611bd3e5ed6a3322c6}{Apply\+Boundary\+Force}} (\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&pos, \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&force)
-\item 
+\begin{DoxyCompactList}\small\item\em Applies a boundary force to the peridynamic simulation at the given position. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{classnetdem_1_1_peri_digm_d_e_m_coupler_a61422ecfaf1ad6e0d67317e76caacd60}{Check\+Breakage}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Checks if particle breakage has occurred. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{classnetdem_1_1_d_e_m_fragment}{DEMFragment}} $>$ \mbox{\hyperlink{classnetdem_1_1_peri_digm_d_e_m_coupler_a647d8f80e93149d89cc6c4c64fbd6ef7}{Get\+Fragments}} ()
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Gets the fragments resulting from the fragment reconstruction routine. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
 std\+::string \mbox{\hyperlink{classnetdem_1_1_peri_digm_d_e_m_coupler_a5352d233726f407987fb833b8e17a493}{base\+\_\+dir}} \{\char`\"{}tmp/out/\char`\"{}\}
-\begin{DoxyCompactList}\small\item\em working directory \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em The working directory. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{classnetdem_1_1_peri_digm_d_e_m_coupler_ae1320d269bddf2bdcd084a1f8e27e07a}{sub\+\_\+dir\+\_\+index}} \{0\}
-\item 
+\begin{DoxyCompactList}\small\item\em The index of the subdirectory. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} $\ast$ \mbox{\hyperlink{classnetdem_1_1_peri_digm_d_e_m_coupler_a2893f658e331f4af37e48b51107f00c6}{particle}} \{nullptr\}
-\item 
+\begin{DoxyCompactList}\small\item\em A pointer to the particle. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classnetdem_1_1_peri_digm_simulator}{Peri\+Digm\+Simulator}} \mbox{\hyperlink{classnetdem_1_1_peri_digm_d_e_m_coupler_a0eaf203bfc63afcd3d670c3abbc4aad5}{pd\+\_\+sim}}
-\item 
+\begin{DoxyCompactList}\small\item\em The peridynamic simulator. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classnetdem_1_1_s_t_l_model}{STLModel}} \mbox{\hyperlink{classnetdem_1_1_peri_digm_d_e_m_coupler_af72bb0bd6ce49962b1746c8aea48c8ae}{surface\+\_\+stl}}
-\item 
+\begin{DoxyCompactList}\small\item\em The STL model of the surface. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{classnetdem_1_1_peri_digm_d_e_m_coupler_a82b3d9c2eaa510bcb34d15adef4cad28}{mesh\+\_\+res}} \{20\}
-\item 
+\begin{DoxyCompactList}\small\item\em The resolution of the mesh. \end{DoxyCompactList}\item 
 double \mbox{\hyperlink{classnetdem_1_1_peri_digm_d_e_m_coupler_a326aadf5d903ace8f01f7c212008e2a8}{node\+\_\+size\+\_\+ave}} \{0.\+0\}
-\item 
+\begin{DoxyCompactList}\small\item\em The average size of the nodes. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ int $>$ \mbox{\hyperlink{classnetdem_1_1_peri_digm_d_e_m_coupler_a7a7776e0507b39fb863a0d8268d3b5c3}{fixed\+\_\+nodes}}
-\item 
+\begin{DoxyCompactList}\small\item\em The indices of the fixed nodes in the peridynamic simulation. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ int $>$ \mbox{\hyperlink{classnetdem_1_1_peri_digm_d_e_m_coupler_a760c734b51f37ab17369023de1987d50}{boundary\+\_\+force\+\_\+nodes}}
-\item 
+\begin{DoxyCompactList}\small\item\em The indices of the nodes on which boundary forces are applied in the peridynamic simulation. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ double $>$ \mbox{\hyperlink{classnetdem_1_1_peri_digm_d_e_m_coupler_ae31ef7e6927f0c5c40f2b36f3acbfda4}{boundary\+\_\+force\+\_\+node\+\_\+vols}}
-\item 
+\begin{DoxyCompactList}\small\item\em The volumes of the nodes on which boundary forces are applied in the peridynamic simulation. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $>$ \mbox{\hyperlink{classnetdem_1_1_peri_digm_d_e_m_coupler_a9583d48ff372d029f4719989fddbc51b}{boundary\+\_\+force\+\_\+values}}
-\item 
+\begin{DoxyCompactList}\small\item\em The values of the boundary forces applied to the nodes in the peridynamic simulation. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ int $>$ \mbox{\hyperlink{classnetdem_1_1_peri_digm_d_e_m_coupler_a132709642870796065ffe5a3cec5be5f}{unbalanced\+\_\+force\+\_\+nodes}}
-\item 
+\begin{DoxyCompactList}\small\item\em The indices of the nodes on which unbalanced forces are applied in the peridynamic simulation. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \mbox{\hyperlink{classnetdem_1_1_peri_digm_d_e_m_coupler_a415b721f30494edf3a5cba04e06855e6}{unbalanced\+\_\+force\+\_\+values}} \{0, 0, 0\}
-\item 
+\begin{DoxyCompactList}\small\item\em The values of the unbalanced forces applied to the nodes in the peridynamic simulation. \end{DoxyCompactList}\item 
 double \mbox{\hyperlink{classnetdem_1_1_peri_digm_d_e_m_coupler_aaa959c399b9060c39b6dd7b3276d952f}{contact\+\_\+force\+\_\+max}} \{0.\+0\}
-\item 
+\begin{DoxyCompactList}\small\item\em The maximum contact force. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ double $>$ \mbox{\hyperlink{classnetdem_1_1_peri_digm_d_e_m_coupler_afa09cf7f35d113af57677803235a618f}{contact\+\_\+force\+\_\+list}}
-\item 
+\begin{DoxyCompactList}\small\item\em A list of contact forces. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{classnetdem_1_1_peri_digm_d_e_m_coupler_a2ee76c8efb3053c97526ffe87e36b1c9}{use\+\_\+customized\+\_\+loading\+\_\+rate}} \{false\}
-\item 
+\begin{DoxyCompactList}\small\item\em Whether to use a customized loading rate in the peridynamic simulation. \end{DoxyCompactList}\item 
 double \mbox{\hyperlink{classnetdem_1_1_peri_digm_d_e_m_coupler_aa139fc8b1f004979fee0ed32b7e51433}{loading\+\_\+rate}} \{1.\+0e5\}
-\item 
+\begin{DoxyCompactList}\small\item\em The loading rate used in the peridynamic simulation. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{classnetdem_1_1_peri_digm_d_e_m_coupler_a3344d147a83d7dde6506628375d265df}{loading\+\_\+steps}} \{1000\}
-\item 
+\begin{DoxyCompactList}\small\item\em The number of loading steps used in the peridynamic simulation. \end{DoxyCompactList}\item 
 double \mbox{\hyperlink{classnetdem_1_1_peri_digm_d_e_m_coupler_a183c83ba1bb1a0a0a98d87c7698145b8}{mech\+\_\+time}} \{0.\+0\}
-\item 
+\begin{DoxyCompactList}\small\item\em The current mechanical time. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{classnetdem_1_1_peri_digm_d_e_m_coupler_a0423cbf1cebcc28e4e3dcd24400b42b6}{is\+\_\+broken}} \{false\}
-\begin{DoxyCompactList}\small\item\em fragment reconstruction settings \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Whether the material is currently broken. \end{DoxyCompactList}\item 
 double \mbox{\hyperlink{classnetdem_1_1_peri_digm_d_e_m_coupler_a7ae4ff16beabc35924423b99ed60fa76}{damage\+\_\+fraction\+\_\+limit}} \{0.\+05\}
-\item 
+\begin{DoxyCompactList}\small\item\em The limit for the fraction of damaged bonds above which the fragment reconstruction routine is invoked. \end{DoxyCompactList}\item 
 double \mbox{\hyperlink{classnetdem_1_1_peri_digm_d_e_m_coupler_a9f441391e37bd2c24f5682acba8529ee}{fragment\+\_\+vol\+\_\+limit}} \{0.\+001\}
-\item 
+\begin{DoxyCompactList}\small\item\em The limit for the volume of a fragment below which it will be considered a spherical fine rather than reconstructed. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{classnetdem_1_1_peri_digm_d_e_m_coupler_a3fbd38776ebd68802b4203ac3f86a9e4}{ignore\+\_\+fines}} \{true\}
-\item 
+\begin{DoxyCompactList}\small\item\em Whether to ignore spherical fines during the fragment reconstruction routine. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{classnetdem_1_1_peri_digm_d_e_m_coupler_a1ce84285dac9d397aaf856cc0bd0a7b4}{use\+\_\+alpha\+\_\+shape}} \{true\}
-\item 
+\begin{DoxyCompactList}\small\item\em Whether to use alpha shapes in the fragment reconstruction routine. \end{DoxyCompactList}\item 
 double \mbox{\hyperlink{classnetdem_1_1_peri_digm_d_e_m_coupler_a96b822eeba61ae47783142e7972f4196}{fragment\+\_\+alpha}} \{0.\+0\}
-\item 
+\begin{DoxyCompactList}\small\item\em The value of alpha used in the alpha shape computation for the fragment reconstruction routine. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classnetdem_1_1_particle_strength_parameters}{Particle\+Strength\+Parameters}} \mbox{\hyperlink{classnetdem_1_1_peri_digm_d_e_m_coupler_a71edc56d136c4e8d1eca500f9fd3421a}{strength\+\_\+params}}
-\item 
+\begin{DoxyCompactList}\small\item\em The strength parameters of the particles. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classnetdem_1_1_peri_digm_material}{Peri\+Digm\+Material}} \mbox{\hyperlink{classnetdem_1_1_peri_digm_d_e_m_coupler_a06fd234f4cc5b9240a15fabc55c719d4}{material\+\_\+params}}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em The material parameters of the peridynamic simulation. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Private Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 void \mbox{\hyperlink{classnetdem_1_1_peri_digm_d_e_m_coupler_a1289932c1c2bc2c72487f933420aa0ba}{Update\+Materials}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Updates the material properties of the peridynamic simulation based on the current state. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classnetdem_1_1_peri_digm_d_e_m_coupler_a632c5a3823ab969709a88ca716354e08}{Update\+Mech\+Time}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Updates the mechanical time of the simulation. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classnetdem_1_1_peri_digm_d_e_m_coupler_a382dab2a3f5bada71850957084c29cbc}{Update\+Critical\+Stretch}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Updates the critical stretch values for broken bonds in the peridynamic simulation. \end{DoxyCompactList}\item 
 std\+::string \mbox{\hyperlink{classnetdem_1_1_peri_digm_d_e_m_coupler_ae19ff5f13cc7197377ae7af56689911d}{Get\+Result\+Directory}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Gets the directory where results will be written. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ int $>$ \mbox{\hyperlink{classnetdem_1_1_peri_digm_d_e_m_coupler_af036049974cfaac8f7696b9397985078}{Seperate\+Fragments}} (const \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_ad732d71ff9685f48b7bcbfc82812e60e}{Vec2i}} $>$ \&bond\+\_\+list)
-\item 
+\begin{DoxyCompactList}\small\item\em Separates the fragments resulting from the fragment reconstruction routine into distinct groups. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ int $>$ \mbox{\hyperlink{classnetdem_1_1_peri_digm_d_e_m_coupler_ac450caba65bb201a3115815f0dce9cbe}{Get\+Fragment\+Node\+Indices}} (const \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_ad732d71ff9685f48b7bcbfc82812e60e}{Vec2i}} $>$ \&bond\+\_\+list, const \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ int $>$ \&frag\+\_\+id\+\_\+list, int frag\+\_\+id)
-\item 
+\begin{DoxyCompactList}\small\item\em Gets the node indices for a given fragment ID. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $>$ \mbox{\hyperlink{classnetdem_1_1_peri_digm_d_e_m_coupler_aaabd1145e75b40169fcd6ee0ba506b69}{Get\+Fragment\+Nodes}} (const \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $>$ \&node\+\_\+list, const \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ int $>$ \&node\+\_\+ids)
-\item 
+\begin{DoxyCompactList}\small\item\em Gets the positions of the nodes corresponding to a given list of node indices. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $>$ \mbox{\hyperlink{classnetdem_1_1_peri_digm_d_e_m_coupler_a0ae22dfdb679cda17d77c994525800e2}{Get\+Fragment\+Node\+Velocities}} (const \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $>$ \&velocity\+\_\+list, const \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ int $>$ \&node\+\_\+ids)
-\item 
+\begin{DoxyCompactList}\small\item\em Gets the velocities of the nodes corresponding to a given list of node indices. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ double $>$ \mbox{\hyperlink{classnetdem_1_1_peri_digm_d_e_m_coupler_a46eccdb43b1ba669f1b1c045af1e01b8}{Get\+Fragment\+Nodevolumes}} (const \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ double $>$ \&node\+\_\+vol\+\_\+list, const \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ int $>$ \&node\+\_\+ids)
-\item 
+\begin{DoxyCompactList}\small\item\em Gets the volumes of the nodes corresponding to a given list of node indices. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classnetdem_1_1_s_t_l_model}{STLModel}} \mbox{\hyperlink{classnetdem_1_1_peri_digm_d_e_m_coupler_a8e78370d058dfcccb1edf19151d6d515}{Get\+Alpha\+Shape}} (const \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $>$ \&point\+\_\+list, double alpha)
-\item 
+\begin{DoxyCompactList}\small\item\em Computes the alpha shape of a set of points. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classnetdem_1_1_peri_digm_d_e_m_coupler_a3c44f919d6b75cf2feb9c1b59f8f2bca}{Resolve\+Fragment\+Overlap}} (\mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{classnetdem_1_1_d_e_m_fragment}{DEMFragment}} $>$ $\ast$const frag\+\_\+list)
-\item 
+\begin{DoxyCompactList}\small\item\em Resolves the overlap between fragments resulting from the fragment reconstruction routine. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classnetdem_1_1_d_e_m_fragment}{DEMFragment}} \mbox{\hyperlink{classnetdem_1_1_peri_digm_d_e_m_coupler_a312813891c02e3c8aad4d9ce2493ebbf}{Get\+Fragment\+Combined}} (const \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{classnetdem_1_1_d_e_m_fragment}{DEMFragment}} $>$ \&frag\+\_\+list)
-\item 
+\begin{DoxyCompactList}\small\item\em Combines the fragments into a single \mbox{\hyperlink{classnetdem_1_1_d_e_m_fragment}{DEMFragment}} object. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classnetdem_1_1_peri_digm_d_e_m_coupler_a9034657ad4600cd5e7735209e4731c09}{Write\+Log\+File\+DEM}} ()
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Writes a log file containing information about the current state of the simulation. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Private Attributes}
 \begin{DoxyCompactItemize}
 \item 
 double \mbox{\hyperlink{classnetdem_1_1_peri_digm_d_e_m_coupler_aa3acf9a431a9700896ab2c3d380a3a56}{damage\+\_\+limit}} \{0.\+5\}
-\item 
+\begin{DoxyCompactList}\small\item\em The damage limit for bonds in the peridynamic simulation. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ double $>$ $>$ \mbox{\hyperlink{classnetdem_1_1_peri_digm_d_e_m_coupler_af54d81813555fc30463ca6fc6b4050be}{damage\+\_\+data}}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em A data structure storing the damage information for each bond. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
+
+\doxysubsection{Detailed Description}
+A class representing a coupling between a discrete element method (DEM) simulation and a peridynamic simulation. 
+
+The \mbox{\hyperlink{classnetdem_1_1_peri_digm_d_e_m_coupler}{Peri\+Digm\+DEMCoupler}} class represents a coupling between a discrete element method (DEM) simulation and a peridynamic simulation. This allows for the simulation of the deformation and failure of a granular material under various loading conditions. 
 
 \doxysubsection{Constructor \& Destructor Documentation}
 \mbox{\Hypertarget{classnetdem_1_1_peri_digm_d_e_m_coupler_a329cb33912e3781e2e2249e01d3847bb}\label{classnetdem_1_1_peri_digm_d_e_m_coupler_a329cb33912e3781e2e2249e01d3847bb}} 
@@ -123,6 +133,10 @@ double \mbox{\hyperlink{classnetdem_1_1_peri_digm_d_e_m_coupler_aa3acf9a431a9700
 
 
 
+Default constructor. 
+
+
+
 \doxysubsection{Member Function Documentation}
 \mbox{\Hypertarget{classnetdem_1_1_peri_digm_d_e_m_coupler_acdb89d6fe5f9bc611bd3e5ed6a3322c6}\label{classnetdem_1_1_peri_digm_d_e_m_coupler_acdb89d6fe5f9bc611bd3e5ed6a3322c6}} 
 \index{netdem::PeriDigmDEMCoupler@{netdem::PeriDigmDEMCoupler}!ApplyBoundaryForce@{ApplyBoundaryForce}}
@@ -130,109 +144,301 @@ double \mbox{\hyperlink{classnetdem_1_1_peri_digm_d_e_m_coupler_aa3acf9a431a9700
 \doxysubsubsection{\texorpdfstring{ApplyBoundaryForce()}{ApplyBoundaryForce()}}
 {\footnotesize\ttfamily void netdem\+::\+Peri\+Digm\+DEMCoupler\+::\+Apply\+Boundary\+Force (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&}]{pos,  }\item[{\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&}]{force }\end{DoxyParamCaption})}
 
+
+
+Applies a boundary force to the peridynamic simulation at the given position. 
+
+This method applies a boundary force to the peridynamic simulation at the given position. The force is applied as a force density.
+
+
+\begin{DoxyParams}{Parameters}
+{\em pos} & The position at which the force is applied. \\
+\hline
+{\em force} & The force to be applied. \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{classnetdem_1_1_peri_digm_d_e_m_coupler_a61422ecfaf1ad6e0d67317e76caacd60}\label{classnetdem_1_1_peri_digm_d_e_m_coupler_a61422ecfaf1ad6e0d67317e76caacd60}} 
 \index{netdem::PeriDigmDEMCoupler@{netdem::PeriDigmDEMCoupler}!CheckBreakage@{CheckBreakage}}
 \index{CheckBreakage@{CheckBreakage}!netdem::PeriDigmDEMCoupler@{netdem::PeriDigmDEMCoupler}}
 \doxysubsubsection{\texorpdfstring{CheckBreakage()}{CheckBreakage()}}
 {\footnotesize\ttfamily bool netdem\+::\+Peri\+Digm\+DEMCoupler\+::\+Check\+Breakage (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
+
+
+Checks if particle breakage has occurred. 
+
+This method checks if particle breakage has occurred by comparing the fraction of damaged bonds to the damage fraction limit.
+
+\begin{DoxyReturn}{Returns}
+True if particle breakage has occurred, false otherwise. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{classnetdem_1_1_peri_digm_d_e_m_coupler_a8e78370d058dfcccb1edf19151d6d515}\label{classnetdem_1_1_peri_digm_d_e_m_coupler_a8e78370d058dfcccb1edf19151d6d515}} 
 \index{netdem::PeriDigmDEMCoupler@{netdem::PeriDigmDEMCoupler}!GetAlphaShape@{GetAlphaShape}}
 \index{GetAlphaShape@{GetAlphaShape}!netdem::PeriDigmDEMCoupler@{netdem::PeriDigmDEMCoupler}}
 \doxysubsubsection{\texorpdfstring{GetAlphaShape()}{GetAlphaShape()}}
 {\footnotesize\ttfamily \mbox{\hyperlink{classnetdem_1_1_s_t_l_model}{STLModel}} netdem\+::\+Peri\+Digm\+DEMCoupler\+::\+Get\+Alpha\+Shape (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $>$ \&}]{point\+\_\+list,  }\item[{double}]{alpha }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
+
+
+Computes the alpha shape of a set of points. 
+
+This method computes the alpha shape of a set of points using a given alpha parameter. The result is returned as an \mbox{\hyperlink{classnetdem_1_1_s_t_l_model}{STLModel}} object.
+
+
+\begin{DoxyParams}{Parameters}
+{\em point\+\_\+list} & A list of points to compute the alpha shape of. \\
+\hline
+{\em alpha} & The alpha parameter to use in the computation.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An \mbox{\hyperlink{classnetdem_1_1_s_t_l_model}{STLModel}} object representing the alpha shape of the given points. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{classnetdem_1_1_peri_digm_d_e_m_coupler_a312813891c02e3c8aad4d9ce2493ebbf}\label{classnetdem_1_1_peri_digm_d_e_m_coupler_a312813891c02e3c8aad4d9ce2493ebbf}} 
 \index{netdem::PeriDigmDEMCoupler@{netdem::PeriDigmDEMCoupler}!GetFragmentCombined@{GetFragmentCombined}}
 \index{GetFragmentCombined@{GetFragmentCombined}!netdem::PeriDigmDEMCoupler@{netdem::PeriDigmDEMCoupler}}
 \doxysubsubsection{\texorpdfstring{GetFragmentCombined()}{GetFragmentCombined()}}
 {\footnotesize\ttfamily \mbox{\hyperlink{classnetdem_1_1_d_e_m_fragment}{DEMFragment}} netdem\+::\+Peri\+Digm\+DEMCoupler\+::\+Get\+Fragment\+Combined (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{classnetdem_1_1_d_e_m_fragment}{DEMFragment}} $>$ \&}]{frag\+\_\+list }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
+
+
+Combines the fragments into a single \mbox{\hyperlink{classnetdem_1_1_d_e_m_fragment}{DEMFragment}} object. 
+
+This method combines the given fragments into a single \mbox{\hyperlink{classnetdem_1_1_d_e_m_fragment}{DEMFragment}} object by computing their combined position, velocity, volume, and other properties.
+
+
+\begin{DoxyParams}{Parameters}
+{\em frag\+\_\+list} & A vector of \mbox{\hyperlink{classnetdem_1_1_d_e_m_fragment}{DEMFragment}} objects representing the fragments to combine.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The combined \mbox{\hyperlink{classnetdem_1_1_d_e_m_fragment}{DEMFragment}} object. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{classnetdem_1_1_peri_digm_d_e_m_coupler_ac450caba65bb201a3115815f0dce9cbe}\label{classnetdem_1_1_peri_digm_d_e_m_coupler_ac450caba65bb201a3115815f0dce9cbe}} 
 \index{netdem::PeriDigmDEMCoupler@{netdem::PeriDigmDEMCoupler}!GetFragmentNodeIndices@{GetFragmentNodeIndices}}
 \index{GetFragmentNodeIndices@{GetFragmentNodeIndices}!netdem::PeriDigmDEMCoupler@{netdem::PeriDigmDEMCoupler}}
 \doxysubsubsection{\texorpdfstring{GetFragmentNodeIndices()}{GetFragmentNodeIndices()}}
 {\footnotesize\ttfamily \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ int $>$ netdem\+::\+Peri\+Digm\+DEMCoupler\+::\+Get\+Fragment\+Node\+Indices (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_ad732d71ff9685f48b7bcbfc82812e60e}{Vec2i}} $>$ \&}]{bond\+\_\+list,  }\item[{const \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ int $>$ \&}]{frag\+\_\+id\+\_\+list,  }\item[{int}]{frag\+\_\+id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
+
+
+Gets the node indices for a given fragment ID. 
+
+This method gets the node indices corresponding to a given fragment ID from a list of bond pairs and fragment IDs.
+
+
+\begin{DoxyParams}{Parameters}
+{\em bond\+\_\+list} & A list of pairs of node IDs representing the bonds between particles. \\
+\hline
+{\em frag\+\_\+id\+\_\+list} & A list of integers representing the fragment IDs for each node. \\
+\hline
+{\em frag\+\_\+id} & The ID of the fragment to get the node indices for.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A vector of integers representing the node indices for the requested fragment. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{classnetdem_1_1_peri_digm_d_e_m_coupler_aaabd1145e75b40169fcd6ee0ba506b69}\label{classnetdem_1_1_peri_digm_d_e_m_coupler_aaabd1145e75b40169fcd6ee0ba506b69}} 
 \index{netdem::PeriDigmDEMCoupler@{netdem::PeriDigmDEMCoupler}!GetFragmentNodes@{GetFragmentNodes}}
 \index{GetFragmentNodes@{GetFragmentNodes}!netdem::PeriDigmDEMCoupler@{netdem::PeriDigmDEMCoupler}}
 \doxysubsubsection{\texorpdfstring{GetFragmentNodes()}{GetFragmentNodes()}}
 {\footnotesize\ttfamily \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $>$ netdem\+::\+Peri\+Digm\+DEMCoupler\+::\+Get\+Fragment\+Nodes (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $>$ \&}]{node\+\_\+list,  }\item[{const \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ int $>$ \&}]{node\+\_\+ids }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
+
+
+Gets the positions of the nodes corresponding to a given list of node indices. 
+
+This method gets the positions of the nodes corresponding to a given list of node indices from a list of node positions.
+
+
+\begin{DoxyParams}{Parameters}
+{\em node\+\_\+list} & A list of node positions. \\
+\hline
+{\em node\+\_\+ids} & A list of node indices for which to retrieve positions.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A vector of Vec3d objects representing the positions of the requested nodes. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{classnetdem_1_1_peri_digm_d_e_m_coupler_a0ae22dfdb679cda17d77c994525800e2}\label{classnetdem_1_1_peri_digm_d_e_m_coupler_a0ae22dfdb679cda17d77c994525800e2}} 
 \index{netdem::PeriDigmDEMCoupler@{netdem::PeriDigmDEMCoupler}!GetFragmentNodeVelocities@{GetFragmentNodeVelocities}}
 \index{GetFragmentNodeVelocities@{GetFragmentNodeVelocities}!netdem::PeriDigmDEMCoupler@{netdem::PeriDigmDEMCoupler}}
 \doxysubsubsection{\texorpdfstring{GetFragmentNodeVelocities()}{GetFragmentNodeVelocities()}}
 {\footnotesize\ttfamily \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $>$ netdem\+::\+Peri\+Digm\+DEMCoupler\+::\+Get\+Fragment\+Node\+Velocities (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $>$ \&}]{velocity\+\_\+list,  }\item[{const \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ int $>$ \&}]{node\+\_\+ids }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
+
+
+Gets the velocities of the nodes corresponding to a given list of node indices. 
+
+This method gets the velocities of the nodes corresponding to a given list of node indices from a list of node velocities.
+
+
+\begin{DoxyParams}{Parameters}
+{\em velocity\+\_\+list} & A list of node velocities. \\
+\hline
+{\em node\+\_\+ids} & A list of node indices for which to retrieve velocities.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A vector of Vec3d objects representing the velocities of the requested nodes. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{classnetdem_1_1_peri_digm_d_e_m_coupler_a46eccdb43b1ba669f1b1c045af1e01b8}\label{classnetdem_1_1_peri_digm_d_e_m_coupler_a46eccdb43b1ba669f1b1c045af1e01b8}} 
 \index{netdem::PeriDigmDEMCoupler@{netdem::PeriDigmDEMCoupler}!GetFragmentNodevolumes@{GetFragmentNodevolumes}}
 \index{GetFragmentNodevolumes@{GetFragmentNodevolumes}!netdem::PeriDigmDEMCoupler@{netdem::PeriDigmDEMCoupler}}
 \doxysubsubsection{\texorpdfstring{GetFragmentNodevolumes()}{GetFragmentNodevolumes()}}
 {\footnotesize\ttfamily \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ double $>$ netdem\+::\+Peri\+Digm\+DEMCoupler\+::\+Get\+Fragment\+Nodevolumes (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ double $>$ \&}]{node\+\_\+vol\+\_\+list,  }\item[{const \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ int $>$ \&}]{node\+\_\+ids }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
+
+
+Gets the volumes of the nodes corresponding to a given list of node indices. 
+
+This method gets the volumes of the nodes corresponding to a given list of node indices from a list of node volumes.
+
+
+\begin{DoxyParams}{Parameters}
+{\em node\+\_\+vol\+\_\+list} & A list of node volumes. \\
+\hline
+{\em node\+\_\+ids} & A list of node indices for which to retrieve volumes.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A vector of doubles representing the volumes of the requested nodes. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{classnetdem_1_1_peri_digm_d_e_m_coupler_a647d8f80e93149d89cc6c4c64fbd6ef7}\label{classnetdem_1_1_peri_digm_d_e_m_coupler_a647d8f80e93149d89cc6c4c64fbd6ef7}} 
 \index{netdem::PeriDigmDEMCoupler@{netdem::PeriDigmDEMCoupler}!GetFragments@{GetFragments}}
 \index{GetFragments@{GetFragments}!netdem::PeriDigmDEMCoupler@{netdem::PeriDigmDEMCoupler}}
 \doxysubsubsection{\texorpdfstring{GetFragments()}{GetFragments()}}
 {\footnotesize\ttfamily \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{classnetdem_1_1_d_e_m_fragment}{DEMFragment}} $>$ netdem\+::\+Peri\+Digm\+DEMCoupler\+::\+Get\+Fragments (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
+
+
+Gets the fragments resulting from the fragment reconstruction routine. 
+
+This method gets the fragments resulting from the fragment reconstruction routine.
+
+\begin{DoxyReturn}{Returns}
+A vector of \mbox{\hyperlink{classnetdem_1_1_d_e_m_fragment}{DEMFragment}} objects representing the reconstructed fragments. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{classnetdem_1_1_peri_digm_d_e_m_coupler_ae19ff5f13cc7197377ae7af56689911d}\label{classnetdem_1_1_peri_digm_d_e_m_coupler_ae19ff5f13cc7197377ae7af56689911d}} 
 \index{netdem::PeriDigmDEMCoupler@{netdem::PeriDigmDEMCoupler}!GetResultDirectory@{GetResultDirectory}}
 \index{GetResultDirectory@{GetResultDirectory}!netdem::PeriDigmDEMCoupler@{netdem::PeriDigmDEMCoupler}}
 \doxysubsubsection{\texorpdfstring{GetResultDirectory()}{GetResultDirectory()}}
 {\footnotesize\ttfamily string netdem\+::\+Peri\+Digm\+DEMCoupler\+::\+Get\+Result\+Directory (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
+
+
+Gets the directory where results will be written. 
+
+This method gets the directory where results will be written, which is a subdirectory of the base\+\_\+dir with a name that includes the sub\+\_\+dir\+\_\+index.
+
+\begin{DoxyReturn}{Returns}
+The result directory path. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{classnetdem_1_1_peri_digm_d_e_m_coupler_a4e8ebe5bdc88048837c835f66d9c5935}\label{classnetdem_1_1_peri_digm_d_e_m_coupler_a4e8ebe5bdc88048837c835f66d9c5935}} 
 \index{netdem::PeriDigmDEMCoupler@{netdem::PeriDigmDEMCoupler}!Init@{Init}}
 \index{Init@{Init}!netdem::PeriDigmDEMCoupler@{netdem::PeriDigmDEMCoupler}}
 \doxysubsubsection{\texorpdfstring{Init()}{Init()}}
 {\footnotesize\ttfamily void netdem\+::\+Peri\+Digm\+DEMCoupler\+::\+Init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} $\ast$}]{p }\end{DoxyParamCaption})}
 
+
+
+Initializes the coupler with the given particle. 
+
+This method initializes the coupler with the given particle.
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & A pointer to the particle. \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{classnetdem_1_1_peri_digm_d_e_m_coupler_a3c44f919d6b75cf2feb9c1b59f8f2bca}\label{classnetdem_1_1_peri_digm_d_e_m_coupler_a3c44f919d6b75cf2feb9c1b59f8f2bca}} 
 \index{netdem::PeriDigmDEMCoupler@{netdem::PeriDigmDEMCoupler}!ResolveFragmentOverlap@{ResolveFragmentOverlap}}
 \index{ResolveFragmentOverlap@{ResolveFragmentOverlap}!netdem::PeriDigmDEMCoupler@{netdem::PeriDigmDEMCoupler}}
 \doxysubsubsection{\texorpdfstring{ResolveFragmentOverlap()}{ResolveFragmentOverlap()}}
 {\footnotesize\ttfamily void netdem\+::\+Peri\+Digm\+DEMCoupler\+::\+Resolve\+Fragment\+Overlap (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{classnetdem_1_1_d_e_m_fragment}{DEMFragment}} $>$ $\ast$const}]{frag\+\_\+list }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
+
+
+Resolves the overlap between fragments resulting from the fragment reconstruction routine. 
+
+This method resolves the overlap between fragments resulting from the fragment reconstruction routine by computing the minimum distance between their surfaces and adjusting their positions accordingly.
+
+
+\begin{DoxyParams}{Parameters}
+{\em frag\+\_\+list} & A vector of \mbox{\hyperlink{classnetdem_1_1_d_e_m_fragment}{DEMFragment}} objects representing the reconstructed fragments. \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{classnetdem_1_1_peri_digm_d_e_m_coupler_af036049974cfaac8f7696b9397985078}\label{classnetdem_1_1_peri_digm_d_e_m_coupler_af036049974cfaac8f7696b9397985078}} 
 \index{netdem::PeriDigmDEMCoupler@{netdem::PeriDigmDEMCoupler}!SeperateFragments@{SeperateFragments}}
 \index{SeperateFragments@{SeperateFragments}!netdem::PeriDigmDEMCoupler@{netdem::PeriDigmDEMCoupler}}
 \doxysubsubsection{\texorpdfstring{SeperateFragments()}{SeperateFragments()}}
 {\footnotesize\ttfamily \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ int $>$ netdem\+::\+Peri\+Digm\+DEMCoupler\+::\+Seperate\+Fragments (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_ad732d71ff9685f48b7bcbfc82812e60e}{Vec2i}} $>$ \&}]{bond\+\_\+list }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
+
+
+Separates the fragments resulting from the fragment reconstruction routine into distinct groups. 
+
+This method separates the fragments resulting from the fragment reconstruction routine into distinct groups, each represented by a different integer ID.
+
+
+\begin{DoxyParams}{Parameters}
+{\em bond\+\_\+list} & A list of pairs of node IDs representing the bonds between particles.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A vector of integers representing the fragment IDs for each node. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{classnetdem_1_1_peri_digm_d_e_m_coupler_a756e1ce97d9ff543c5482d2a4bd8e291}\label{classnetdem_1_1_peri_digm_d_e_m_coupler_a756e1ce97d9ff543c5482d2a4bd8e291}} 
 \index{netdem::PeriDigmDEMCoupler@{netdem::PeriDigmDEMCoupler}!Solve@{Solve}}
 \index{Solve@{Solve}!netdem::PeriDigmDEMCoupler@{netdem::PeriDigmDEMCoupler}}
 \doxysubsubsection{\texorpdfstring{Solve()}{Solve()}}
 {\footnotesize\ttfamily void netdem\+::\+Peri\+Digm\+DEMCoupler\+::\+Solve (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-\mbox{\Hypertarget{classnetdem_1_1_peri_digm_d_e_m_coupler_a382dab2a3f5bada71850957084c29cbc}\label{classnetdem_1_1_peri_digm_d_e_m_coupler_a382dab2a3f5bada71850957084c29cbc}} 
+
+
+Solves the coupled DEM and peridynamic simulations. 
+
+This method solves the coupled DEM and peridynamic simulations. \mbox{\Hypertarget{classnetdem_1_1_peri_digm_d_e_m_coupler_a382dab2a3f5bada71850957084c29cbc}\label{classnetdem_1_1_peri_digm_d_e_m_coupler_a382dab2a3f5bada71850957084c29cbc}} 
 \index{netdem::PeriDigmDEMCoupler@{netdem::PeriDigmDEMCoupler}!UpdateCriticalStretch@{UpdateCriticalStretch}}
 \index{UpdateCriticalStretch@{UpdateCriticalStretch}!netdem::PeriDigmDEMCoupler@{netdem::PeriDigmDEMCoupler}}
 \doxysubsubsection{\texorpdfstring{UpdateCriticalStretch()}{UpdateCriticalStretch()}}
 {\footnotesize\ttfamily void netdem\+::\+Peri\+Digm\+DEMCoupler\+::\+Update\+Critical\+Stretch (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
-\mbox{\Hypertarget{classnetdem_1_1_peri_digm_d_e_m_coupler_a1289932c1c2bc2c72487f933420aa0ba}\label{classnetdem_1_1_peri_digm_d_e_m_coupler_a1289932c1c2bc2c72487f933420aa0ba}} 
+
+
+Updates the critical stretch values for broken bonds in the peridynamic simulation. 
+
+This method updates the critical stretch values for broken bonds in the peridynamic simulation based on the current material properties and deformation. \mbox{\Hypertarget{classnetdem_1_1_peri_digm_d_e_m_coupler_a1289932c1c2bc2c72487f933420aa0ba}\label{classnetdem_1_1_peri_digm_d_e_m_coupler_a1289932c1c2bc2c72487f933420aa0ba}} 
 \index{netdem::PeriDigmDEMCoupler@{netdem::PeriDigmDEMCoupler}!UpdateMaterials@{UpdateMaterials}}
 \index{UpdateMaterials@{UpdateMaterials}!netdem::PeriDigmDEMCoupler@{netdem::PeriDigmDEMCoupler}}
 \doxysubsubsection{\texorpdfstring{UpdateMaterials()}{UpdateMaterials()}}
 {\footnotesize\ttfamily void netdem\+::\+Peri\+Digm\+DEMCoupler\+::\+Update\+Materials (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
-\mbox{\Hypertarget{classnetdem_1_1_peri_digm_d_e_m_coupler_a632c5a3823ab969709a88ca716354e08}\label{classnetdem_1_1_peri_digm_d_e_m_coupler_a632c5a3823ab969709a88ca716354e08}} 
+
+
+Updates the material properties of the peridynamic simulation based on the current state. 
+
+This method updates the material properties of the peridynamic simulation based on the current state. \mbox{\Hypertarget{classnetdem_1_1_peri_digm_d_e_m_coupler_a632c5a3823ab969709a88ca716354e08}\label{classnetdem_1_1_peri_digm_d_e_m_coupler_a632c5a3823ab969709a88ca716354e08}} 
 \index{netdem::PeriDigmDEMCoupler@{netdem::PeriDigmDEMCoupler}!UpdateMechTime@{UpdateMechTime}}
 \index{UpdateMechTime@{UpdateMechTime}!netdem::PeriDigmDEMCoupler@{netdem::PeriDigmDEMCoupler}}
 \doxysubsubsection{\texorpdfstring{UpdateMechTime()}{UpdateMechTime()}}
 {\footnotesize\ttfamily void netdem\+::\+Peri\+Digm\+DEMCoupler\+::\+Update\+Mech\+Time (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
-\mbox{\Hypertarget{classnetdem_1_1_peri_digm_d_e_m_coupler_a9034657ad4600cd5e7735209e4731c09}\label{classnetdem_1_1_peri_digm_d_e_m_coupler_a9034657ad4600cd5e7735209e4731c09}} 
+
+
+Updates the mechanical time of the simulation. 
+
+This method updates the mechanical time of the simulation by computing the maximum displacement and dividing it by the loading rate. \mbox{\Hypertarget{classnetdem_1_1_peri_digm_d_e_m_coupler_a9034657ad4600cd5e7735209e4731c09}\label{classnetdem_1_1_peri_digm_d_e_m_coupler_a9034657ad4600cd5e7735209e4731c09}} 
 \index{netdem::PeriDigmDEMCoupler@{netdem::PeriDigmDEMCoupler}!WriteLogFileDEM@{WriteLogFileDEM}}
 \index{WriteLogFileDEM@{WriteLogFileDEM}!netdem::PeriDigmDEMCoupler@{netdem::PeriDigmDEMCoupler}}
 \doxysubsubsection{\texorpdfstring{WriteLogFileDEM()}{WriteLogFileDEM()}}
 {\footnotesize\ttfamily void netdem\+::\+Peri\+Digm\+DEMCoupler\+::\+Write\+Log\+File\+DEM (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
 
+
+Writes a log file containing information about the current state of the simulation. 
+
+This method writes a log file containing information about the current state of the simulation, including the time, number of broken bonds, and more. 
 
 \doxysubsection{Member Data Documentation}
 \mbox{\Hypertarget{classnetdem_1_1_peri_digm_d_e_m_coupler_a5352d233726f407987fb833b8e17a493}\label{classnetdem_1_1_peri_digm_d_e_m_coupler_a5352d233726f407987fb833b8e17a493}} 
@@ -243,7 +449,7 @@ double \mbox{\hyperlink{classnetdem_1_1_peri_digm_d_e_m_coupler_aa3acf9a431a9700
 
 
 
-working directory 
+The working directory. 
 
 \mbox{\Hypertarget{classnetdem_1_1_peri_digm_d_e_m_coupler_ae31ef7e6927f0c5c40f2b36f3acbfda4}\label{classnetdem_1_1_peri_digm_d_e_m_coupler_ae31ef7e6927f0c5c40f2b36f3acbfda4}} 
 \index{netdem::PeriDigmDEMCoupler@{netdem::PeriDigmDEMCoupler}!boundary\_force\_node\_vols@{boundary\_force\_node\_vols}}
@@ -251,11 +457,19 @@ working directory
 \doxysubsubsection{\texorpdfstring{boundary\_force\_node\_vols}{boundary\_force\_node\_vols}}
 {\footnotesize\ttfamily \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$double$>$ netdem\+::\+Peri\+Digm\+DEMCoupler\+::boundary\+\_\+force\+\_\+node\+\_\+vols}
 
+
+
+The volumes of the nodes on which boundary forces are applied in the peridynamic simulation. 
+
 \mbox{\Hypertarget{classnetdem_1_1_peri_digm_d_e_m_coupler_a760c734b51f37ab17369023de1987d50}\label{classnetdem_1_1_peri_digm_d_e_m_coupler_a760c734b51f37ab17369023de1987d50}} 
 \index{netdem::PeriDigmDEMCoupler@{netdem::PeriDigmDEMCoupler}!boundary\_force\_nodes@{boundary\_force\_nodes}}
 \index{boundary\_force\_nodes@{boundary\_force\_nodes}!netdem::PeriDigmDEMCoupler@{netdem::PeriDigmDEMCoupler}}
 \doxysubsubsection{\texorpdfstring{boundary\_force\_nodes}{boundary\_force\_nodes}}
 {\footnotesize\ttfamily \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$int$>$ netdem\+::\+Peri\+Digm\+DEMCoupler\+::boundary\+\_\+force\+\_\+nodes}
+
+
+
+The indices of the nodes on which boundary forces are applied in the peridynamic simulation. 
 
 \mbox{\Hypertarget{classnetdem_1_1_peri_digm_d_e_m_coupler_a9583d48ff372d029f4719989fddbc51b}\label{classnetdem_1_1_peri_digm_d_e_m_coupler_a9583d48ff372d029f4719989fddbc51b}} 
 \index{netdem::PeriDigmDEMCoupler@{netdem::PeriDigmDEMCoupler}!boundary\_force\_values@{boundary\_force\_values}}
@@ -263,11 +477,19 @@ working directory
 \doxysubsubsection{\texorpdfstring{boundary\_force\_values}{boundary\_force\_values}}
 {\footnotesize\ttfamily \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}$>$ netdem\+::\+Peri\+Digm\+DEMCoupler\+::boundary\+\_\+force\+\_\+values}
 
+
+
+The values of the boundary forces applied to the nodes in the peridynamic simulation. 
+
 \mbox{\Hypertarget{classnetdem_1_1_peri_digm_d_e_m_coupler_afa09cf7f35d113af57677803235a618f}\label{classnetdem_1_1_peri_digm_d_e_m_coupler_afa09cf7f35d113af57677803235a618f}} 
 \index{netdem::PeriDigmDEMCoupler@{netdem::PeriDigmDEMCoupler}!contact\_force\_list@{contact\_force\_list}}
 \index{contact\_force\_list@{contact\_force\_list}!netdem::PeriDigmDEMCoupler@{netdem::PeriDigmDEMCoupler}}
 \doxysubsubsection{\texorpdfstring{contact\_force\_list}{contact\_force\_list}}
 {\footnotesize\ttfamily \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$double$>$ netdem\+::\+Peri\+Digm\+DEMCoupler\+::contact\+\_\+force\+\_\+list}
+
+
+
+A list of contact forces. 
 
 \mbox{\Hypertarget{classnetdem_1_1_peri_digm_d_e_m_coupler_aaa959c399b9060c39b6dd7b3276d952f}\label{classnetdem_1_1_peri_digm_d_e_m_coupler_aaa959c399b9060c39b6dd7b3276d952f}} 
 \index{netdem::PeriDigmDEMCoupler@{netdem::PeriDigmDEMCoupler}!contact\_force\_max@{contact\_force\_max}}
@@ -275,17 +497,29 @@ working directory
 \doxysubsubsection{\texorpdfstring{contact\_force\_max}{contact\_force\_max}}
 {\footnotesize\ttfamily double netdem\+::\+Peri\+Digm\+DEMCoupler\+::contact\+\_\+force\+\_\+max \{0.\+0\}}
 
+
+
+The maximum contact force. 
+
 \mbox{\Hypertarget{classnetdem_1_1_peri_digm_d_e_m_coupler_af54d81813555fc30463ca6fc6b4050be}\label{classnetdem_1_1_peri_digm_d_e_m_coupler_af54d81813555fc30463ca6fc6b4050be}} 
 \index{netdem::PeriDigmDEMCoupler@{netdem::PeriDigmDEMCoupler}!damage\_data@{damage\_data}}
 \index{damage\_data@{damage\_data}!netdem::PeriDigmDEMCoupler@{netdem::PeriDigmDEMCoupler}}
 \doxysubsubsection{\texorpdfstring{damage\_data}{damage\_data}}
 {\footnotesize\ttfamily \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$\mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$double$>$ $>$ netdem\+::\+Peri\+Digm\+DEMCoupler\+::damage\+\_\+data\hspace{0.3cm}{\ttfamily [private]}}
 
-\mbox{\Hypertarget{classnetdem_1_1_peri_digm_d_e_m_coupler_a7ae4ff16beabc35924423b99ed60fa76}\label{classnetdem_1_1_peri_digm_d_e_m_coupler_a7ae4ff16beabc35924423b99ed60fa76}} 
+
+
+A data structure storing the damage information for each bond. 
+
+The damage\+\_\+data vector stores information about each bond, including the node IDs, the damage value, and more. \mbox{\Hypertarget{classnetdem_1_1_peri_digm_d_e_m_coupler_a7ae4ff16beabc35924423b99ed60fa76}\label{classnetdem_1_1_peri_digm_d_e_m_coupler_a7ae4ff16beabc35924423b99ed60fa76}} 
 \index{netdem::PeriDigmDEMCoupler@{netdem::PeriDigmDEMCoupler}!damage\_fraction\_limit@{damage\_fraction\_limit}}
 \index{damage\_fraction\_limit@{damage\_fraction\_limit}!netdem::PeriDigmDEMCoupler@{netdem::PeriDigmDEMCoupler}}
 \doxysubsubsection{\texorpdfstring{damage\_fraction\_limit}{damage\_fraction\_limit}}
 {\footnotesize\ttfamily double netdem\+::\+Peri\+Digm\+DEMCoupler\+::damage\+\_\+fraction\+\_\+limit \{0.\+05\}}
+
+
+
+The limit for the fraction of damaged bonds above which the fragment reconstruction routine is invoked. 
 
 \mbox{\Hypertarget{classnetdem_1_1_peri_digm_d_e_m_coupler_aa3acf9a431a9700896ab2c3d380a3a56}\label{classnetdem_1_1_peri_digm_d_e_m_coupler_aa3acf9a431a9700896ab2c3d380a3a56}} 
 \index{netdem::PeriDigmDEMCoupler@{netdem::PeriDigmDEMCoupler}!damage\_limit@{damage\_limit}}
@@ -293,11 +527,19 @@ working directory
 \doxysubsubsection{\texorpdfstring{damage\_limit}{damage\_limit}}
 {\footnotesize\ttfamily double netdem\+::\+Peri\+Digm\+DEMCoupler\+::damage\+\_\+limit \{0.\+5\}\hspace{0.3cm}{\ttfamily [private]}}
 
-\mbox{\Hypertarget{classnetdem_1_1_peri_digm_d_e_m_coupler_a7a7776e0507b39fb863a0d8268d3b5c3}\label{classnetdem_1_1_peri_digm_d_e_m_coupler_a7a7776e0507b39fb863a0d8268d3b5c3}} 
+
+
+The damage limit for bonds in the peridynamic simulation. 
+
+In the peridynamic simulation, bonds have only two states\+: undamaged (0) and damaged (1). The damage limit is kept there for potential improvements in future. \mbox{\Hypertarget{classnetdem_1_1_peri_digm_d_e_m_coupler_a7a7776e0507b39fb863a0d8268d3b5c3}\label{classnetdem_1_1_peri_digm_d_e_m_coupler_a7a7776e0507b39fb863a0d8268d3b5c3}} 
 \index{netdem::PeriDigmDEMCoupler@{netdem::PeriDigmDEMCoupler}!fixed\_nodes@{fixed\_nodes}}
 \index{fixed\_nodes@{fixed\_nodes}!netdem::PeriDigmDEMCoupler@{netdem::PeriDigmDEMCoupler}}
 \doxysubsubsection{\texorpdfstring{fixed\_nodes}{fixed\_nodes}}
 {\footnotesize\ttfamily \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$int$>$ netdem\+::\+Peri\+Digm\+DEMCoupler\+::fixed\+\_\+nodes}
+
+
+
+The indices of the fixed nodes in the peridynamic simulation. 
 
 \mbox{\Hypertarget{classnetdem_1_1_peri_digm_d_e_m_coupler_a96b822eeba61ae47783142e7972f4196}\label{classnetdem_1_1_peri_digm_d_e_m_coupler_a96b822eeba61ae47783142e7972f4196}} 
 \index{netdem::PeriDigmDEMCoupler@{netdem::PeriDigmDEMCoupler}!fragment\_alpha@{fragment\_alpha}}
@@ -305,17 +547,29 @@ working directory
 \doxysubsubsection{\texorpdfstring{fragment\_alpha}{fragment\_alpha}}
 {\footnotesize\ttfamily double netdem\+::\+Peri\+Digm\+DEMCoupler\+::fragment\+\_\+alpha \{0.\+0\}}
 
+
+
+The value of alpha used in the alpha shape computation for the fragment reconstruction routine. 
+
 \mbox{\Hypertarget{classnetdem_1_1_peri_digm_d_e_m_coupler_a9f441391e37bd2c24f5682acba8529ee}\label{classnetdem_1_1_peri_digm_d_e_m_coupler_a9f441391e37bd2c24f5682acba8529ee}} 
 \index{netdem::PeriDigmDEMCoupler@{netdem::PeriDigmDEMCoupler}!fragment\_vol\_limit@{fragment\_vol\_limit}}
 \index{fragment\_vol\_limit@{fragment\_vol\_limit}!netdem::PeriDigmDEMCoupler@{netdem::PeriDigmDEMCoupler}}
 \doxysubsubsection{\texorpdfstring{fragment\_vol\_limit}{fragment\_vol\_limit}}
 {\footnotesize\ttfamily double netdem\+::\+Peri\+Digm\+DEMCoupler\+::fragment\+\_\+vol\+\_\+limit \{0.\+001\}}
 
+
+
+The limit for the volume of a fragment below which it will be considered a spherical fine rather than reconstructed. 
+
 \mbox{\Hypertarget{classnetdem_1_1_peri_digm_d_e_m_coupler_a3fbd38776ebd68802b4203ac3f86a9e4}\label{classnetdem_1_1_peri_digm_d_e_m_coupler_a3fbd38776ebd68802b4203ac3f86a9e4}} 
 \index{netdem::PeriDigmDEMCoupler@{netdem::PeriDigmDEMCoupler}!ignore\_fines@{ignore\_fines}}
 \index{ignore\_fines@{ignore\_fines}!netdem::PeriDigmDEMCoupler@{netdem::PeriDigmDEMCoupler}}
 \doxysubsubsection{\texorpdfstring{ignore\_fines}{ignore\_fines}}
 {\footnotesize\ttfamily bool netdem\+::\+Peri\+Digm\+DEMCoupler\+::ignore\+\_\+fines \{true\}}
+
+
+
+Whether to ignore spherical fines during the fragment reconstruction routine. 
 
 \mbox{\Hypertarget{classnetdem_1_1_peri_digm_d_e_m_coupler_a0423cbf1cebcc28e4e3dcd24400b42b6}\label{classnetdem_1_1_peri_digm_d_e_m_coupler_a0423cbf1cebcc28e4e3dcd24400b42b6}} 
 \index{netdem::PeriDigmDEMCoupler@{netdem::PeriDigmDEMCoupler}!is\_broken@{is\_broken}}
@@ -325,7 +579,7 @@ working directory
 
 
 
-fragment reconstruction settings 
+Whether the material is currently broken. 
 
 \mbox{\Hypertarget{classnetdem_1_1_peri_digm_d_e_m_coupler_aa139fc8b1f004979fee0ed32b7e51433}\label{classnetdem_1_1_peri_digm_d_e_m_coupler_aa139fc8b1f004979fee0ed32b7e51433}} 
 \index{netdem::PeriDigmDEMCoupler@{netdem::PeriDigmDEMCoupler}!loading\_rate@{loading\_rate}}
@@ -333,11 +587,19 @@ fragment reconstruction settings
 \doxysubsubsection{\texorpdfstring{loading\_rate}{loading\_rate}}
 {\footnotesize\ttfamily double netdem\+::\+Peri\+Digm\+DEMCoupler\+::loading\+\_\+rate \{1.\+0e5\}}
 
+
+
+The loading rate used in the peridynamic simulation. 
+
 \mbox{\Hypertarget{classnetdem_1_1_peri_digm_d_e_m_coupler_a3344d147a83d7dde6506628375d265df}\label{classnetdem_1_1_peri_digm_d_e_m_coupler_a3344d147a83d7dde6506628375d265df}} 
 \index{netdem::PeriDigmDEMCoupler@{netdem::PeriDigmDEMCoupler}!loading\_steps@{loading\_steps}}
 \index{loading\_steps@{loading\_steps}!netdem::PeriDigmDEMCoupler@{netdem::PeriDigmDEMCoupler}}
 \doxysubsubsection{\texorpdfstring{loading\_steps}{loading\_steps}}
 {\footnotesize\ttfamily int netdem\+::\+Peri\+Digm\+DEMCoupler\+::loading\+\_\+steps \{1000\}}
+
+
+
+The number of loading steps used in the peridynamic simulation. 
 
 \mbox{\Hypertarget{classnetdem_1_1_peri_digm_d_e_m_coupler_a06fd234f4cc5b9240a15fabc55c719d4}\label{classnetdem_1_1_peri_digm_d_e_m_coupler_a06fd234f4cc5b9240a15fabc55c719d4}} 
 \index{netdem::PeriDigmDEMCoupler@{netdem::PeriDigmDEMCoupler}!material\_params@{material\_params}}
@@ -345,11 +607,19 @@ fragment reconstruction settings
 \doxysubsubsection{\texorpdfstring{material\_params}{material\_params}}
 {\footnotesize\ttfamily \mbox{\hyperlink{classnetdem_1_1_peri_digm_material}{Peri\+Digm\+Material}} netdem\+::\+Peri\+Digm\+DEMCoupler\+::material\+\_\+params}
 
+
+
+The material parameters of the peridynamic simulation. 
+
 \mbox{\Hypertarget{classnetdem_1_1_peri_digm_d_e_m_coupler_a183c83ba1bb1a0a0a98d87c7698145b8}\label{classnetdem_1_1_peri_digm_d_e_m_coupler_a183c83ba1bb1a0a0a98d87c7698145b8}} 
 \index{netdem::PeriDigmDEMCoupler@{netdem::PeriDigmDEMCoupler}!mech\_time@{mech\_time}}
 \index{mech\_time@{mech\_time}!netdem::PeriDigmDEMCoupler@{netdem::PeriDigmDEMCoupler}}
 \doxysubsubsection{\texorpdfstring{mech\_time}{mech\_time}}
 {\footnotesize\ttfamily double netdem\+::\+Peri\+Digm\+DEMCoupler\+::mech\+\_\+time \{0.\+0\}}
+
+
+
+The current mechanical time. 
 
 \mbox{\Hypertarget{classnetdem_1_1_peri_digm_d_e_m_coupler_a82b3d9c2eaa510bcb34d15adef4cad28}\label{classnetdem_1_1_peri_digm_d_e_m_coupler_a82b3d9c2eaa510bcb34d15adef4cad28}} 
 \index{netdem::PeriDigmDEMCoupler@{netdem::PeriDigmDEMCoupler}!mesh\_res@{mesh\_res}}
@@ -357,11 +627,19 @@ fragment reconstruction settings
 \doxysubsubsection{\texorpdfstring{mesh\_res}{mesh\_res}}
 {\footnotesize\ttfamily int netdem\+::\+Peri\+Digm\+DEMCoupler\+::mesh\+\_\+res \{20\}}
 
+
+
+The resolution of the mesh. 
+
 \mbox{\Hypertarget{classnetdem_1_1_peri_digm_d_e_m_coupler_a326aadf5d903ace8f01f7c212008e2a8}\label{classnetdem_1_1_peri_digm_d_e_m_coupler_a326aadf5d903ace8f01f7c212008e2a8}} 
 \index{netdem::PeriDigmDEMCoupler@{netdem::PeriDigmDEMCoupler}!node\_size\_ave@{node\_size\_ave}}
 \index{node\_size\_ave@{node\_size\_ave}!netdem::PeriDigmDEMCoupler@{netdem::PeriDigmDEMCoupler}}
 \doxysubsubsection{\texorpdfstring{node\_size\_ave}{node\_size\_ave}}
 {\footnotesize\ttfamily double netdem\+::\+Peri\+Digm\+DEMCoupler\+::node\+\_\+size\+\_\+ave \{0.\+0\}}
+
+
+
+The average size of the nodes. 
 
 \mbox{\Hypertarget{classnetdem_1_1_peri_digm_d_e_m_coupler_a2893f658e331f4af37e48b51107f00c6}\label{classnetdem_1_1_peri_digm_d_e_m_coupler_a2893f658e331f4af37e48b51107f00c6}} 
 \index{netdem::PeriDigmDEMCoupler@{netdem::PeriDigmDEMCoupler}!particle@{particle}}
@@ -369,11 +647,19 @@ fragment reconstruction settings
 \doxysubsubsection{\texorpdfstring{particle}{particle}}
 {\footnotesize\ttfamily \mbox{\hyperlink{classnetdem_1_1_particle}{Particle}}$\ast$ netdem\+::\+Peri\+Digm\+DEMCoupler\+::particle \{nullptr\}}
 
+
+
+A pointer to the particle. 
+
 \mbox{\Hypertarget{classnetdem_1_1_peri_digm_d_e_m_coupler_a0eaf203bfc63afcd3d670c3abbc4aad5}\label{classnetdem_1_1_peri_digm_d_e_m_coupler_a0eaf203bfc63afcd3d670c3abbc4aad5}} 
 \index{netdem::PeriDigmDEMCoupler@{netdem::PeriDigmDEMCoupler}!pd\_sim@{pd\_sim}}
 \index{pd\_sim@{pd\_sim}!netdem::PeriDigmDEMCoupler@{netdem::PeriDigmDEMCoupler}}
 \doxysubsubsection{\texorpdfstring{pd\_sim}{pd\_sim}}
 {\footnotesize\ttfamily \mbox{\hyperlink{classnetdem_1_1_peri_digm_simulator}{Peri\+Digm\+Simulator}} netdem\+::\+Peri\+Digm\+DEMCoupler\+::pd\+\_\+sim}
+
+
+
+The peridynamic simulator. 
 
 \mbox{\Hypertarget{classnetdem_1_1_peri_digm_d_e_m_coupler_a71edc56d136c4e8d1eca500f9fd3421a}\label{classnetdem_1_1_peri_digm_d_e_m_coupler_a71edc56d136c4e8d1eca500f9fd3421a}} 
 \index{netdem::PeriDigmDEMCoupler@{netdem::PeriDigmDEMCoupler}!strength\_params@{strength\_params}}
@@ -381,11 +667,19 @@ fragment reconstruction settings
 \doxysubsubsection{\texorpdfstring{strength\_params}{strength\_params}}
 {\footnotesize\ttfamily \mbox{\hyperlink{classnetdem_1_1_particle_strength_parameters}{Particle\+Strength\+Parameters}} netdem\+::\+Peri\+Digm\+DEMCoupler\+::strength\+\_\+params}
 
+
+
+The strength parameters of the particles. 
+
 \mbox{\Hypertarget{classnetdem_1_1_peri_digm_d_e_m_coupler_ae1320d269bddf2bdcd084a1f8e27e07a}\label{classnetdem_1_1_peri_digm_d_e_m_coupler_ae1320d269bddf2bdcd084a1f8e27e07a}} 
 \index{netdem::PeriDigmDEMCoupler@{netdem::PeriDigmDEMCoupler}!sub\_dir\_index@{sub\_dir\_index}}
 \index{sub\_dir\_index@{sub\_dir\_index}!netdem::PeriDigmDEMCoupler@{netdem::PeriDigmDEMCoupler}}
 \doxysubsubsection{\texorpdfstring{sub\_dir\_index}{sub\_dir\_index}}
 {\footnotesize\ttfamily int netdem\+::\+Peri\+Digm\+DEMCoupler\+::sub\+\_\+dir\+\_\+index \{0\}}
+
+
+
+The index of the subdirectory. 
 
 \mbox{\Hypertarget{classnetdem_1_1_peri_digm_d_e_m_coupler_af72bb0bd6ce49962b1746c8aea48c8ae}\label{classnetdem_1_1_peri_digm_d_e_m_coupler_af72bb0bd6ce49962b1746c8aea48c8ae}} 
 \index{netdem::PeriDigmDEMCoupler@{netdem::PeriDigmDEMCoupler}!surface\_stl@{surface\_stl}}
@@ -393,11 +687,19 @@ fragment reconstruction settings
 \doxysubsubsection{\texorpdfstring{surface\_stl}{surface\_stl}}
 {\footnotesize\ttfamily \mbox{\hyperlink{classnetdem_1_1_s_t_l_model}{STLModel}} netdem\+::\+Peri\+Digm\+DEMCoupler\+::surface\+\_\+stl}
 
+
+
+The STL model of the surface. 
+
 \mbox{\Hypertarget{classnetdem_1_1_peri_digm_d_e_m_coupler_a132709642870796065ffe5a3cec5be5f}\label{classnetdem_1_1_peri_digm_d_e_m_coupler_a132709642870796065ffe5a3cec5be5f}} 
 \index{netdem::PeriDigmDEMCoupler@{netdem::PeriDigmDEMCoupler}!unbalanced\_force\_nodes@{unbalanced\_force\_nodes}}
 \index{unbalanced\_force\_nodes@{unbalanced\_force\_nodes}!netdem::PeriDigmDEMCoupler@{netdem::PeriDigmDEMCoupler}}
 \doxysubsubsection{\texorpdfstring{unbalanced\_force\_nodes}{unbalanced\_force\_nodes}}
 {\footnotesize\ttfamily \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$int$>$ netdem\+::\+Peri\+Digm\+DEMCoupler\+::unbalanced\+\_\+force\+\_\+nodes}
+
+
+
+The indices of the nodes on which unbalanced forces are applied in the peridynamic simulation. 
 
 \mbox{\Hypertarget{classnetdem_1_1_peri_digm_d_e_m_coupler_a415b721f30494edf3a5cba04e06855e6}\label{classnetdem_1_1_peri_digm_d_e_m_coupler_a415b721f30494edf3a5cba04e06855e6}} 
 \index{netdem::PeriDigmDEMCoupler@{netdem::PeriDigmDEMCoupler}!unbalanced\_force\_values@{unbalanced\_force\_values}}
@@ -405,17 +707,29 @@ fragment reconstruction settings
 \doxysubsubsection{\texorpdfstring{unbalanced\_force\_values}{unbalanced\_force\_values}}
 {\footnotesize\ttfamily \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} netdem\+::\+Peri\+Digm\+DEMCoupler\+::unbalanced\+\_\+force\+\_\+values \{0, 0, 0\}}
 
+
+
+The values of the unbalanced forces applied to the nodes in the peridynamic simulation. 
+
 \mbox{\Hypertarget{classnetdem_1_1_peri_digm_d_e_m_coupler_a1ce84285dac9d397aaf856cc0bd0a7b4}\label{classnetdem_1_1_peri_digm_d_e_m_coupler_a1ce84285dac9d397aaf856cc0bd0a7b4}} 
 \index{netdem::PeriDigmDEMCoupler@{netdem::PeriDigmDEMCoupler}!use\_alpha\_shape@{use\_alpha\_shape}}
 \index{use\_alpha\_shape@{use\_alpha\_shape}!netdem::PeriDigmDEMCoupler@{netdem::PeriDigmDEMCoupler}}
 \doxysubsubsection{\texorpdfstring{use\_alpha\_shape}{use\_alpha\_shape}}
 {\footnotesize\ttfamily bool netdem\+::\+Peri\+Digm\+DEMCoupler\+::use\+\_\+alpha\+\_\+shape \{true\}}
 
+
+
+Whether to use alpha shapes in the fragment reconstruction routine. 
+
 \mbox{\Hypertarget{classnetdem_1_1_peri_digm_d_e_m_coupler_a2ee76c8efb3053c97526ffe87e36b1c9}\label{classnetdem_1_1_peri_digm_d_e_m_coupler_a2ee76c8efb3053c97526ffe87e36b1c9}} 
 \index{netdem::PeriDigmDEMCoupler@{netdem::PeriDigmDEMCoupler}!use\_customized\_loading\_rate@{use\_customized\_loading\_rate}}
 \index{use\_customized\_loading\_rate@{use\_customized\_loading\_rate}!netdem::PeriDigmDEMCoupler@{netdem::PeriDigmDEMCoupler}}
 \doxysubsubsection{\texorpdfstring{use\_customized\_loading\_rate}{use\_customized\_loading\_rate}}
 {\footnotesize\ttfamily bool netdem\+::\+Peri\+Digm\+DEMCoupler\+::use\+\_\+customized\+\_\+loading\+\_\+rate \{false\}}
+
+
+
+Whether to use a customized loading rate in the peridynamic simulation. 
 
 
 

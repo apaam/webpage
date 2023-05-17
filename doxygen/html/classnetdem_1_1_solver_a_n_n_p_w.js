@@ -26,5 +26,5 @@ var classnetdem_1_1_solver_a_n_n_p_w =
     [ "regressor", "classnetdem_1_1_solver_a_n_n_p_w.html#a595cd6e022ebe0d5e3a420145237148b", null ],
     [ "scale", "classnetdem_1_1_solver_a_n_n_p_w.html#af97ef342138f869801e97ae7794f5574", null ],
     [ "shape_1", "classnetdem_1_1_solver_a_n_n_p_w.html#a95268ae3d3cafa354a06a7189c72b720", null ],
-    [ "shape_2", "classnetdem_1_1_solver_a_n_n_p_w.html#a6ffcfc0d46335e5289340f28c133b952", null ]
+    [ "shape_2", "classnetdem_1_1_solver_a_n_n_p_w.html#a9eb5338305e02b0163b3f8425eb75b47", null ]
 ];

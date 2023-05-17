@@ -2,6 +2,11 @@
 \label{classnetdem_1_1_solver_s_d_f_p_w}\index{netdem::SolverSDFPW@{netdem::SolverSDFPW}}
 
 
+A class used to solve collisions between a particle and a wall using a signed distance field.  
+
+
+
+
 {\ttfamily \#include $<$solver\+\_\+sdf\+\_\+pw.\+hpp$>$}
 
 Inheritance diagram for netdem\+::Solver\+SDFPW\+:\begin{figure}[H]
@@ -16,38 +21,38 @@ Inheritance diagram for netdem\+::Solver\+SDFPW\+:\begin{figure}[H]
 enum \mbox{\hyperlink{classnetdem_1_1_solver_s_d_f_p_w_a5a5eb4fdc74c1276be050e7a92d5abb2}{Potential\+Type}} \{ \mbox{\hyperlink{classnetdem_1_1_solver_s_d_f_p_w_a5a5eb4fdc74c1276be050e7a92d5abb2a72452b11d2b55c1d0ffbefa88a5260fc}{linear}}
 , \mbox{\hyperlink{classnetdem_1_1_solver_s_d_f_p_w_a5a5eb4fdc74c1276be050e7a92d5abb2a92cd2b5d619574ce2fc452ba4906fc9b}{hertz}}
  \}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em An enum representing the type of potential function used. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{classnetdem_1_1_solver_s_d_f_p_w_abfb55a7ef45d7f460662553a066ed851}{Solver\+SDFPW}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Default constructor for \mbox{\hyperlink{classnetdem_1_1_solver_s_d_f_p_w}{Solver\+SDFPW}} class. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classnetdem_1_1_solver_s_d_f_p_w_a4ba4654f6d584abfa6c89ed5833e4226}{Solver\+SDFPW}} (\mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} $\ast$const p, \mbox{\hyperlink{classnetdem_1_1_wall}{Wall}} $\ast$const w)
-\item 
+\begin{DoxyCompactList}\small\item\em Constructor for \mbox{\hyperlink{classnetdem_1_1_solver_s_d_f_p_w}{Solver\+SDFPW}} class. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classnetdem_1_1_collision_solver_p_w}{Collision\+Solver\+PW}} $\ast$ \mbox{\hyperlink{classnetdem_1_1_solver_s_d_f_p_w_a7ba5eac7ce54b3cd887fd3704f1a292d}{Clone}} () const override
-\item 
+\begin{DoxyCompactList}\small\item\em Clones the current \mbox{\hyperlink{classnetdem_1_1_solver_s_d_f_p_w}{Solver\+SDFPW}} instance. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classnetdem_1_1_solver_s_d_f_p_w_a63fb7fbf9bd6e3e59643fab40f50676e}{Init}} (\mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} $\ast$const p, \mbox{\hyperlink{classnetdem_1_1_wall}{Wall}} $\ast$const w) override
-\item 
+\begin{DoxyCompactList}\small\item\em Initializes the \mbox{\hyperlink{classnetdem_1_1_solver_s_d_f_p_w}{Solver\+SDFPW}} instance with the given particles and walls. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{classnetdem_1_1_solver_s_d_f_p_w_a12a223019a63d13ec271f8f984f45ecb}{Detect}} () override
-\item 
+\begin{DoxyCompactList}\small\item\em Detects if there is a collision between the particle and the wall. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classnetdem_1_1_solver_s_d_f_p_w_a36a0052e769c792ea93ecdb1569b5729}{Resolve\+Init}} (\mbox{\hyperlink{classnetdem_1_1_contact_p_w}{Contact\+PW}} $\ast$const cnt, double timestep) override
-\item 
+\begin{DoxyCompactList}\small\item\em Resolves the collision based on the initial contact information and timestep. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classnetdem_1_1_solver_s_d_f_p_w_a1c1fd6e474289240892763599a267f12}{Resolve\+Update}} (\mbox{\hyperlink{classnetdem_1_1_contact_p_w}{Contact\+PW}} $\ast$const cnt, double timestep) override
-\item 
+\begin{DoxyCompactList}\small\item\em Updates the contact information object and resolves the collision based on the updated information and timestep. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classnetdem_1_1_solver_s_d_f_p_w_a9eb7693d27ab007242a02f24ac4a6e81}{Resolve\+Init}} (\mbox{\hyperlink{classnetdem_1_1_collision_geometries}{Collision\+Geometries}} $\ast$const cnt\+\_\+geoms, double timestep)
-\item 
+\begin{DoxyCompactList}\small\item\em Resolves the collision between the particle and the wall based on the initial contact geometries and timestep. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classnetdem_1_1_solver_s_d_f_p_w_a91663bb5dc65da1eeaf16f90d7e1b6e2}{Resolve\+Update}} (\mbox{\hyperlink{classnetdem_1_1_collision_geometries}{Collision\+Geometries}} $\ast$const cnt\+\_\+geoms, double timestep)
-\item 
+\begin{DoxyCompactList}\small\item\em Updates the contact geometries object and resolves the collision based on the updated information and timestep. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classnetdem_1_1_solver_s_d_f_p_w_a40fdb70570a2f28e3f3ee11181b33dcd}{Resolve\+Init\+WToP}} (\mbox{\hyperlink{classnetdem_1_1_collision_geometries}{Collision\+Geometries}} $\ast$const cnt\+\_\+geoms, double timestep)
-\item 
+\begin{DoxyCompactList}\small\item\em Resolves the collision between the wall and the particle based on the initial contact geometries and timestep. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classnetdem_1_1_solver_s_d_f_p_w_a53250f3c6c5c2af2f9bfdd3c35ffc050}{Resolve\+Update\+WToP}} (\mbox{\hyperlink{classnetdem_1_1_collision_geometries}{Collision\+Geometries}} $\ast$const cnt\+\_\+geoms, double timestep)
-\item 
+\begin{DoxyCompactList}\small\item\em Updates the contact geometries object and resolves the collision based on the updated information and timestep. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classnetdem_1_1_solver_s_d_f_p_w_afc85af9a83a2f6c932901f17fc2960be}{Resolve\+Init\+PToW}} (\mbox{\hyperlink{classnetdem_1_1_collision_geometries}{Collision\+Geometries}} $\ast$const cnt\+\_\+geoms, double timestep)
-\item 
+\begin{DoxyCompactList}\small\item\em Resolves the collision between the particle and the wall based on the initial contact geometries and timestep. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classnetdem_1_1_solver_s_d_f_p_w_a2927f477db76d7c4cc7f687176a3a4d1}{Resolve\+Update\+PToW}} (\mbox{\hyperlink{classnetdem_1_1_collision_geometries}{Collision\+Geometries}} $\ast$const cnt\+\_\+geoms, double timestep)
-\item 
+\begin{DoxyCompactList}\small\item\em Updates the contact geometries object and resolves the collision based on the updated information and timestep. \end{DoxyCompactList}\item 
 double \mbox{\hyperlink{classnetdem_1_1_solver_s_d_f_p_w_adf426a55527e60ad8a7ee0f20d501a1b}{Potential}} (double dist, \mbox{\hyperlink{classnetdem_1_1_shape}{Shape}} $\ast$shape)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Calculates the potential energy between two shapes based on their distance and type of potential function used. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Public Member Functions inherited from \mbox{\hyperlink{classnetdem_1_1_collision_solver_p_w}{netdem\+::\+Collision\+Solver\+PW}}}
 \begin{DoxyCompactItemize}
 \item 
@@ -133,7 +138,9 @@ void \mbox{\hyperlink{classnetdem_1_1_collision_solver_p_w_a75563d0f485ce14cca7e
 
 
 \doxysubsection{Detailed Description}
-Signed distance field-\/based contact solver 
+A class used to solve collisions between a particle and a wall using a signed distance field. 
+
+The \mbox{\hyperlink{classnetdem_1_1_solver_s_d_f_p_w}{Solver\+SDFPW}} class is used to solve collisions between a particle and a wall based on the signed distance field of the particles and walls in a particle-\/wall collision detection system. 
 
 \doxysubsection{Member Enumeration Documentation}
 \mbox{\Hypertarget{classnetdem_1_1_solver_s_d_f_p_w_a5a5eb4fdc74c1276be050e7a92d5abb2}\label{classnetdem_1_1_solver_s_d_f_p_w_a5a5eb4fdc74c1276be050e7a92d5abb2}} 
@@ -141,6 +148,10 @@ Signed distance field-\/based contact solver
 \index{PotentialType@{PotentialType}!netdem::SolverSDFPW@{netdem::SolverSDFPW}}
 \doxysubsubsection{\texorpdfstring{PotentialType}{PotentialType}}
 {\footnotesize\ttfamily enum \mbox{\hyperlink{classnetdem_1_1_solver_s_d_f_p_w_a5a5eb4fdc74c1276be050e7a92d5abb2}{netdem\+::\+Solver\+SDFPW\+::\+Potential\+Type}}}
+
+
+
+An enum representing the type of potential function used. 
 
 \begin{DoxyEnumFields}{Enumerator}
 \raisebox{\heightof{T}}[0pt][0pt]{\index{linear@{linear}!netdem::SolverSDFPW@{netdem::SolverSDFPW}}\index{netdem::SolverSDFPW@{netdem::SolverSDFPW}!linear@{linear}}}\mbox{\Hypertarget{classnetdem_1_1_solver_s_d_f_p_w_a5a5eb4fdc74c1276be050e7a92d5abb2a72452b11d2b55c1d0ffbefa88a5260fc}\label{classnetdem_1_1_solver_s_d_f_p_w_a5a5eb4fdc74c1276be050e7a92d5abb2a72452b11d2b55c1d0ffbefa88a5260fc}} 
@@ -161,12 +172,27 @@ hertz&\\
 \doxysubsubsection{\texorpdfstring{SolverSDFPW()}{SolverSDFPW()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily netdem\+::\+Solver\+SDFPW\+::\+Solver\+SDFPW (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
+
+
+Default constructor for \mbox{\hyperlink{classnetdem_1_1_solver_s_d_f_p_w}{Solver\+SDFPW}} class. 
+
 \mbox{\Hypertarget{classnetdem_1_1_solver_s_d_f_p_w_a4ba4654f6d584abfa6c89ed5833e4226}\label{classnetdem_1_1_solver_s_d_f_p_w_a4ba4654f6d584abfa6c89ed5833e4226}} 
 \index{netdem::SolverSDFPW@{netdem::SolverSDFPW}!SolverSDFPW@{SolverSDFPW}}
 \index{SolverSDFPW@{SolverSDFPW}!netdem::SolverSDFPW@{netdem::SolverSDFPW}}
 \doxysubsubsection{\texorpdfstring{SolverSDFPW()}{SolverSDFPW()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
 {\footnotesize\ttfamily netdem\+::\+Solver\+SDFPW\+::\+Solver\+SDFPW (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} $\ast$const}]{p,  }\item[{\mbox{\hyperlink{classnetdem_1_1_wall}{Wall}} $\ast$const}]{w }\end{DoxyParamCaption})}
 
+
+
+Constructor for \mbox{\hyperlink{classnetdem_1_1_solver_s_d_f_p_w}{Solver\+SDFPW}} class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & A pointer to the particle involved in the collision. \\
+\hline
+{\em w} & A pointer to the wall involved in the collision. \\
+\hline
+\end{DoxyParams}
 
 
 \doxysubsection{Member Function Documentation}
@@ -176,7 +202,14 @@ hertz&\\
 \doxysubsubsection{\texorpdfstring{Clone()}{Clone()}}
 {\footnotesize\ttfamily \mbox{\hyperlink{classnetdem_1_1_collision_solver_p_w}{Collision\+Solver\+PW}} $\ast$ netdem\+::\+Solver\+SDFPW\+::\+Clone (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
-Clone this collision solver. 
+
+
+Clones the current \mbox{\hyperlink{classnetdem_1_1_solver_s_d_f_p_w}{Solver\+SDFPW}} instance. 
+
+\begin{DoxyReturn}{Returns}
+A pointer to the cloned \mbox{\hyperlink{classnetdem_1_1_solver_s_d_f_p_w}{Solver\+SDFPW}} instance. 
+\end{DoxyReturn}
+
 
 Implements \mbox{\hyperlink{classnetdem_1_1_collision_solver_p_w_a9a373faf193910562f49bc0ac15050e9}{netdem\+::\+Collision\+Solver\+PW}}.
 
@@ -186,10 +219,12 @@ Implements \mbox{\hyperlink{classnetdem_1_1_collision_solver_p_w_a9a373faf193910
 \doxysubsubsection{\texorpdfstring{Detect()}{Detect()}}
 {\footnotesize\ttfamily bool netdem\+::\+Solver\+SDFPW\+::\+Detect (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
-Detect whether a collision has occurred between the particle and the wall.
+
+
+Detects if there is a collision between the particle and the wall. 
 
 \begin{DoxyReturn}{Returns}
-{\ttfamily true} if a collision has occurred, {\ttfamily false} otherwise. 
+True if there is a collision, false otherwise. 
 \end{DoxyReturn}
 
 
@@ -201,13 +236,15 @@ Implements \mbox{\hyperlink{classnetdem_1_1_collision_solver_p_w_a662b4b47765dd9
 \doxysubsubsection{\texorpdfstring{Init()}{Init()}}
 {\footnotesize\ttfamily void netdem\+::\+Solver\+SDFPW\+::\+Init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} $\ast$const}]{p,  }\item[{\mbox{\hyperlink{classnetdem_1_1_wall}{Wall}} $\ast$const}]{w }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
-Initialize the particle and wall involved in the collision.
+
+
+Initializes the \mbox{\hyperlink{classnetdem_1_1_solver_s_d_f_p_w}{Solver\+SDFPW}} instance with the given particles and walls. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em p} & The particle involved in the collision. \\
+{\em p} & A pointer to the particle involved in the collision. \\
 \hline
-{\em w} & The wall involved in the collision. \\
+{\em w} & A pointer to the wall involved in the collision. \\
 \hline
 \end{DoxyParams}
 
@@ -220,25 +257,52 @@ Reimplemented from \mbox{\hyperlink{classnetdem_1_1_collision_solver_p_w_a23b307
 \doxysubsubsection{\texorpdfstring{Potential()}{Potential()}}
 {\footnotesize\ttfamily double netdem\+::\+Solver\+SDFPW\+::\+Potential (\begin{DoxyParamCaption}\item[{double}]{dist,  }\item[{\mbox{\hyperlink{classnetdem_1_1_shape}{Shape}} $\ast$}]{shape }\end{DoxyParamCaption})}
 
+
+
+Calculates the potential energy between two shapes based on their distance and type of potential function used. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dist} & The distance between the shapes. \\
+\hline
+{\em shape} & A pointer to the shape of one of the objects.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The potential energy between the two shapes. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{classnetdem_1_1_solver_s_d_f_p_w_a9eb7693d27ab007242a02f24ac4a6e81}\label{classnetdem_1_1_solver_s_d_f_p_w_a9eb7693d27ab007242a02f24ac4a6e81}} 
 \index{netdem::SolverSDFPW@{netdem::SolverSDFPW}!ResolveInit@{ResolveInit}}
 \index{ResolveInit@{ResolveInit}!netdem::SolverSDFPW@{netdem::SolverSDFPW}}
 \doxysubsubsection{\texorpdfstring{ResolveInit()}{ResolveInit()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily void netdem\+::\+Solver\+SDFPW\+::\+Resolve\+Init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_collision_geometries}{Collision\+Geometries}} $\ast$const}]{cnt\+\_\+geoms,  }\item[{double}]{timestep }\end{DoxyParamCaption})}
 
+
+
+Resolves the collision between the particle and the wall based on the initial contact geometries and timestep. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cnt\+\_\+geoms} & A pointer to the contact geometries object. \\
+\hline
+{\em timestep} & The timestep to use for resolving the collision. \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{classnetdem_1_1_solver_s_d_f_p_w_a36a0052e769c792ea93ecdb1569b5729}\label{classnetdem_1_1_solver_s_d_f_p_w_a36a0052e769c792ea93ecdb1569b5729}} 
 \index{netdem::SolverSDFPW@{netdem::SolverSDFPW}!ResolveInit@{ResolveInit}}
 \index{ResolveInit@{ResolveInit}!netdem::SolverSDFPW@{netdem::SolverSDFPW}}
 \doxysubsubsection{\texorpdfstring{ResolveInit()}{ResolveInit()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
 {\footnotesize\ttfamily void netdem\+::\+Solver\+SDFPW\+::\+Resolve\+Init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_contact_p_w}{Contact\+PW}} $\ast$const}]{cnt,  }\item[{double}]{timestep }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
-Prepare for resolving the collision by initializing the {\ttfamily \mbox{\hyperlink{classnetdem_1_1_contact_p_w}{Contact\+PW}}} object.
+
+
+Resolves the collision based on the initial contact information and timestep. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em cnt} & A pointer to a {\ttfamily \mbox{\hyperlink{classnetdem_1_1_contact_p_w}{Contact\+PW}}} object storing details of the collision. \\
+{\em cnt} & A pointer to the contact information object. \\
 \hline
-{\em timestep} & The timestep length used in the simulation. \\
+{\em timestep} & The timestep to use for resolving the collision. \\
 \hline
 \end{DoxyParams}
 
@@ -251,31 +315,66 @@ Implements \mbox{\hyperlink{classnetdem_1_1_collision_solver_p_w_a1a4559783964fd
 \doxysubsubsection{\texorpdfstring{ResolveInitPToW()}{ResolveInitPToW()}}
 {\footnotesize\ttfamily void netdem\+::\+Solver\+SDFPW\+::\+Resolve\+Init\+PToW (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_collision_geometries}{Collision\+Geometries}} $\ast$const}]{cnt\+\_\+geoms,  }\item[{double}]{timestep }\end{DoxyParamCaption})}
 
+
+
+Resolves the collision between the particle and the wall based on the initial contact geometries and timestep. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cnt\+\_\+geoms} & A pointer to the contact geometries object. \\
+\hline
+{\em timestep} & The timestep to use for resolving the collision. \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{classnetdem_1_1_solver_s_d_f_p_w_a40fdb70570a2f28e3f3ee11181b33dcd}\label{classnetdem_1_1_solver_s_d_f_p_w_a40fdb70570a2f28e3f3ee11181b33dcd}} 
 \index{netdem::SolverSDFPW@{netdem::SolverSDFPW}!ResolveInitWToP@{ResolveInitWToP}}
 \index{ResolveInitWToP@{ResolveInitWToP}!netdem::SolverSDFPW@{netdem::SolverSDFPW}}
 \doxysubsubsection{\texorpdfstring{ResolveInitWToP()}{ResolveInitWToP()}}
 {\footnotesize\ttfamily void netdem\+::\+Solver\+SDFPW\+::\+Resolve\+Init\+WToP (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_collision_geometries}{Collision\+Geometries}} $\ast$const}]{cnt\+\_\+geoms,  }\item[{double}]{timestep }\end{DoxyParamCaption})}
 
+
+
+Resolves the collision between the wall and the particle based on the initial contact geometries and timestep. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cnt\+\_\+geoms} & A pointer to the contact geometries object. \\
+\hline
+{\em timestep} & The timestep to use for resolving the collision. \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{classnetdem_1_1_solver_s_d_f_p_w_a91663bb5dc65da1eeaf16f90d7e1b6e2}\label{classnetdem_1_1_solver_s_d_f_p_w_a91663bb5dc65da1eeaf16f90d7e1b6e2}} 
 \index{netdem::SolverSDFPW@{netdem::SolverSDFPW}!ResolveUpdate@{ResolveUpdate}}
 \index{ResolveUpdate@{ResolveUpdate}!netdem::SolverSDFPW@{netdem::SolverSDFPW}}
 \doxysubsubsection{\texorpdfstring{ResolveUpdate()}{ResolveUpdate()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily void netdem\+::\+Solver\+SDFPW\+::\+Resolve\+Update (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_collision_geometries}{Collision\+Geometries}} $\ast$const}]{cnt\+\_\+geoms,  }\item[{double}]{timestep }\end{DoxyParamCaption})}
 
+
+
+Updates the contact geometries object and resolves the collision based on the updated information and timestep. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cnt\+\_\+geoms} & A pointer to the contact geometries object. \\
+\hline
+{\em timestep} & The timestep to use for resolving the collision. \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{classnetdem_1_1_solver_s_d_f_p_w_a1c1fd6e474289240892763599a267f12}\label{classnetdem_1_1_solver_s_d_f_p_w_a1c1fd6e474289240892763599a267f12}} 
 \index{netdem::SolverSDFPW@{netdem::SolverSDFPW}!ResolveUpdate@{ResolveUpdate}}
 \index{ResolveUpdate@{ResolveUpdate}!netdem::SolverSDFPW@{netdem::SolverSDFPW}}
 \doxysubsubsection{\texorpdfstring{ResolveUpdate()}{ResolveUpdate()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
 {\footnotesize\ttfamily void netdem\+::\+Solver\+SDFPW\+::\+Resolve\+Update (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_contact_p_w}{Contact\+PW}} $\ast$const}]{cnt,  }\item[{double}]{timestep }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
-Update the particle and wall involved in the collision based on the current state of the simulation.
+
+
+Updates the contact information object and resolves the collision based on the updated information and timestep. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em cnt} & A pointer to a {\ttfamily \mbox{\hyperlink{classnetdem_1_1_contact_p_w}{Contact\+PW}}} object storing details of the collision. \\
+{\em cnt} & A pointer to the contact information object. \\
 \hline
-{\em timestep} & The timestep length used in the simulation. \\
+{\em timestep} & The timestep to use for resolving the collision. \\
 \hline
 \end{DoxyParams}
 
@@ -288,12 +387,34 @@ Implements \mbox{\hyperlink{classnetdem_1_1_collision_solver_p_w_a1fa6dc4af91346
 \doxysubsubsection{\texorpdfstring{ResolveUpdatePToW()}{ResolveUpdatePToW()}}
 {\footnotesize\ttfamily void netdem\+::\+Solver\+SDFPW\+::\+Resolve\+Update\+PToW (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_collision_geometries}{Collision\+Geometries}} $\ast$const}]{cnt\+\_\+geoms,  }\item[{double}]{timestep }\end{DoxyParamCaption})}
 
+
+
+Updates the contact geometries object and resolves the collision based on the updated information and timestep. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cnt\+\_\+geoms} & A pointer to the contact geometries object. \\
+\hline
+{\em timestep} & The timestep to use for resolving the collision. \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{classnetdem_1_1_solver_s_d_f_p_w_a53250f3c6c5c2af2f9bfdd3c35ffc050}\label{classnetdem_1_1_solver_s_d_f_p_w_a53250f3c6c5c2af2f9bfdd3c35ffc050}} 
 \index{netdem::SolverSDFPW@{netdem::SolverSDFPW}!ResolveUpdateWToP@{ResolveUpdateWToP}}
 \index{ResolveUpdateWToP@{ResolveUpdateWToP}!netdem::SolverSDFPW@{netdem::SolverSDFPW}}
 \doxysubsubsection{\texorpdfstring{ResolveUpdateWToP()}{ResolveUpdateWToP()}}
 {\footnotesize\ttfamily void netdem\+::\+Solver\+SDFPW\+::\+Resolve\+Update\+WToP (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_collision_geometries}{Collision\+Geometries}} $\ast$const}]{cnt\+\_\+geoms,  }\item[{double}]{timestep }\end{DoxyParamCaption})}
 
+
+
+Updates the contact geometries object and resolves the collision based on the updated information and timestep. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cnt\+\_\+geoms} & A pointer to the contact geometries object. \\
+\hline
+{\em timestep} & The timestep to use for resolving the collision. \\
+\hline
+\end{DoxyParams}
 
 
 \doxysubsection{Member Data Documentation}

@@ -2,6 +2,11 @@
 \label{classnetdem_1_1_command_create}\index{netdem::CommandCreate@{netdem::CommandCreate}}
 
 
+A command class to create an object in the simulation.  
+
+
+
+
 {\ttfamily \#include $<$command\+\_\+create.\+hpp$>$}
 
 Inheritance diagram for netdem\+::Command\+Create\+:\begin{figure}[H]
@@ -14,30 +19,34 @@ Inheritance diagram for netdem\+::Command\+Create\+:\begin{figure}[H]
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{classnetdem_1_1_command_create_a92160d9334f255b09d66c06e67b7ad42}{Command\+Create}} (nlohmann\+::json const \&\mbox{\hyperlink{classnetdem_1_1_command_a668e15f77d5a69393f93ef34458f2783}{info}}, \mbox{\hyperlink{classnetdem_1_1_simulation}{Simulation}} $\ast$\mbox{\hyperlink{classnetdem_1_1_command_a63a4b70af32a9dc74e4f8ea6d4436b47}{sim}})
-\item 
+\begin{DoxyCompactList}\small\item\em Constructs a new {\ttfamily \mbox{\hyperlink{classnetdem_1_1_command_create}{Command\+Create}}} object with the given information and simulation object. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classnetdem_1_1_command_create_af122f0fff5e5834dc0a8fbaea9419bb5}{Execute}} () override
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Creates the object in the simulation. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Public Member Functions inherited from \mbox{\hyperlink{classnetdem_1_1_command}{netdem\+::\+Command}}}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{classnetdem_1_1_command_a8651929cbf331515c0f58aaa251b2c3b}{Command}} (nlohmann\+::json const \&\mbox{\hyperlink{classnetdem_1_1_command_a668e15f77d5a69393f93ef34458f2783}{info}}, \mbox{\hyperlink{classnetdem_1_1_simulation}{Simulation}} $\ast$\mbox{\hyperlink{classnetdem_1_1_command_a63a4b70af32a9dc74e4f8ea6d4436b47}{sim}})
-\item 
+\begin{DoxyCompactList}\small\item\em Constructs a new {\ttfamily \mbox{\hyperlink{classnetdem_1_1_command}{Command}}} object with the given information and simulation object. \end{DoxyCompactList}\item 
 virtual void \mbox{\hyperlink{classnetdem_1_1_command_a80bf4d1d6290cd82d1da4204f9aa4125}{Execute}} ()=0
-\item 
+\begin{DoxyCompactList}\small\item\em Executes the command on the simulation object. \end{DoxyCompactList}\item 
 virtual \mbox{\hyperlink{classnetdem_1_1_command_a9bc4192d21119d5e4871369573eb4c71}{$\sim$\+Command}} ()
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Destroys the {\ttfamily \mbox{\hyperlink{classnetdem_1_1_command}{Command}}} object. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Additional Inherited Members}
 \doxysubsubsection*{Public Attributes inherited from \mbox{\hyperlink{classnetdem_1_1_command}{netdem\+::\+Command}}}
 \begin{DoxyCompactItemize}
 \item 
 nlohmann\+::json \mbox{\hyperlink{classnetdem_1_1_command_a668e15f77d5a69393f93ef34458f2783}{info}}
-\item 
+\begin{DoxyCompactList}\small\item\em The information associated with the command. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classnetdem_1_1_simulation}{Simulation}} $\ast$ \mbox{\hyperlink{classnetdem_1_1_command_a63a4b70af32a9dc74e4f8ea6d4436b47}{sim}}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em A pointer to the simulation object. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
+A command class to create an object in the simulation. 
+
 With the input parameters defined in json, create and insert a sphere shape into a simulation. 
+
+The {\ttfamily \mbox{\hyperlink{classnetdem_1_1_command_create}{Command\+Create}}} class is a command class that creates an object in the simulation based on the provided JSON information. It inherits from the {\ttfamily \mbox{\hyperlink{classnetdem_1_1_command}{Command}}} base class and implements the {\ttfamily \mbox{\hyperlink{classnetdem_1_1_command_create_af122f0fff5e5834dc0a8fbaea9419bb5}{Execute()}}} function to create the object in the simulation. 
 
 \doxysubsection{Constructor \& Destructor Documentation}
 \mbox{\Hypertarget{classnetdem_1_1_command_create_a92160d9334f255b09d66c06e67b7ad42}\label{classnetdem_1_1_command_create_a92160d9334f255b09d66c06e67b7ad42}} 
@@ -48,6 +57,19 @@ With the input parameters defined in json, create and insert a sphere shape into
 
 
 
+Constructs a new {\ttfamily \mbox{\hyperlink{classnetdem_1_1_command_create}{Command\+Create}}} object with the given information and simulation object. 
+
+This constructor creates a new {\ttfamily \mbox{\hyperlink{classnetdem_1_1_command_create}{Command\+Create}}} object with the given information and simulation object.
+
+
+\begin{DoxyParams}{Parameters}
+{\em info} & The information associated with the command. \\
+\hline
+{\em sim} & A pointer to the simulation object. \\
+\hline
+\end{DoxyParams}
+
+
 \doxysubsection{Member Function Documentation}
 \mbox{\Hypertarget{classnetdem_1_1_command_create_af122f0fff5e5834dc0a8fbaea9419bb5}\label{classnetdem_1_1_command_create_af122f0fff5e5834dc0a8fbaea9419bb5}} 
 \index{netdem::CommandCreate@{netdem::CommandCreate}!Execute@{Execute}}
@@ -56,6 +78,10 @@ With the input parameters defined in json, create and insert a sphere shape into
 {\footnotesize\ttfamily void netdem\+::\+Command\+Create\+::\+Execute (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
+
+Creates the object in the simulation. 
+
+This function creates the object in the simulation as specified by the JSON information in the {\ttfamily info} member variable. It overrides the {\ttfamily \mbox{\hyperlink{classnetdem_1_1_command_create_af122f0fff5e5834dc0a8fbaea9419bb5}{Execute()}}} function of the {\ttfamily \mbox{\hyperlink{classnetdem_1_1_command}{Command}}} base class. 
 
 Implements \mbox{\hyperlink{classnetdem_1_1_command_a80bf4d1d6290cd82d1da4204f9aa4125}{netdem\+::\+Command}}.
 

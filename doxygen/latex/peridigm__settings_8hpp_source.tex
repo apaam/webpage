@@ -12,86 +12,85 @@
 \DoxyCodeLine{00008\ }
 \DoxyCodeLine{00009\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacenetdem}{netdem}}\ \{}
 \DoxyCodeLine{00010\ }
-\DoxyCodeLine{00011\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classnetdem_1_1_peri_digm_settings}{PeriDigmSettings}}\ \{}
-\DoxyCodeLine{00012\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00013\ \ \ std::string\ \mbox{\hyperlink{classnetdem_1_1_peri_digm_settings_a319247ded9164df9600fd8b2d1d63551}{result\_dir}}\{\textcolor{stringliteral}{"{}tmp/out/peridigm/"{}}\};}
-\DoxyCodeLine{00014\ \ \ std::string\ \mbox{\hyperlink{classnetdem_1_1_peri_digm_settings_ab95abcb304d4b28809d22c3412cc7c37}{peridigm\_exe}}\{\textcolor{stringliteral}{"{}Peridigm"{}}\};}
-\DoxyCodeLine{00015\ }
-\DoxyCodeLine{00016\ \ \ \textcolor{comment}{//\ horizon\ =\ node\_size\ *\ horizon\_factor}}
-\DoxyCodeLine{00017\ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classnetdem_1_1_peri_digm_settings_ac941012c835a24dd368bc19a730d1950}{horizon\_factor}}\{3.01\};}
-\DoxyCodeLine{00018\ }
-\DoxyCodeLine{00019\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classnetdem_1_1_peri_digm_settings_a2d7fd8c01fc206f0f7dc7863b3fc5b1d}{omit\_bonds\_between\_blocks}}\{\textcolor{keyword}{false}\};}
-\DoxyCodeLine{00020\ }
-\DoxyCodeLine{00021\ \ \ \textcolor{comment}{//\ timestep\ settings}}
-\DoxyCodeLine{00022\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classnetdem_1_1_peri_digm_settings_a6ba53a5a64d7aff17e1487be3bc26f7c}{use\_auto\_timestep}}\{\textcolor{keyword}{true}\};}
-\DoxyCodeLine{00023\ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classnetdem_1_1_peri_digm_settings_a7f22220557a8e3b24f4959e4a62b4a20}{timestep}}\{1.0e-\/6\};}
-\DoxyCodeLine{00024\ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classnetdem_1_1_peri_digm_settings_a8cc00d7f112552edbd975f870c067759}{timestep\_factor}}\{0.95\};}
-\DoxyCodeLine{00025\ }
-\DoxyCodeLine{00026\ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classnetdem_1_1_peri_digm_settings_a918c0f3d9be5e2e6b06731873ba022b8}{mech\_time}}\{0.0\};}
+\DoxyCodeLine{00016\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classnetdem_1_1_peri_digm_settings}{PeriDigmSettings}}\ \{}
+\DoxyCodeLine{00017\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00021\ \ \ std::string\ \mbox{\hyperlink{classnetdem_1_1_peri_digm_settings_a319247ded9164df9600fd8b2d1d63551}{result\_dir}}\{\textcolor{stringliteral}{"{}tmp/out/peridigm/"{}}\};}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00026\ \ \ std::string\ \mbox{\hyperlink{classnetdem_1_1_peri_digm_settings_ab95abcb304d4b28809d22c3412cc7c37}{peridigm\_exe}}\{\textcolor{stringliteral}{"{}Peridigm"{}}\};}
 \DoxyCodeLine{00027\ }
-\DoxyCodeLine{00028\ \ \ \textcolor{comment}{//\ for\ point\ contact,\ the\ contact\ force\ is\ scatter\ onto\ the\ nodes\ arround\ this}}
-\DoxyCodeLine{00029\ \ \ \textcolor{comment}{//\ contact\ point}}
-\DoxyCodeLine{00030\ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classnetdem_1_1_peri_digm_settings_aa239e10be1fa85faf5d4cc8107c22601}{loading\_radius\_factor}}\{1.5\};}
-\DoxyCodeLine{00031\ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classnetdem_1_1_peri_digm_settings_a2a3596ee4c48a7e5a4770aacaef41f59}{constrain\_radius\_factor}}\{1.5\};}
-\DoxyCodeLine{00032\ }
-\DoxyCodeLine{00033\ \ \ \textcolor{comment}{//\ write\ output\ every\ x\ steps\ in\ peridigm}}
-\DoxyCodeLine{00034\ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classnetdem_1_1_peri_digm_settings_ab25a51c92aa79097370b54b6a23ece38}{output\_freqency}}\{10\};}
-\DoxyCodeLine{00035\ }
-\DoxyCodeLine{00036\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_peri_digm_settings_a40aa1f5e9ab48bdc3f309fd0d553f3eb}{WriteInputFile}}(std::ostream\ \&os)\ \{}
-\DoxyCodeLine{00037\ \ \ \ \ \textcolor{comment}{//\ solver\ settings}}
-\DoxyCodeLine{00038\ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\ \ Solver:\ "{}}\ <<\ std::endl;}
-\DoxyCodeLine{00039\ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\ \ \ \ Verbose:\ false"{}}\ <<\ std::endl;}
-\DoxyCodeLine{00040\ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\ \ \ \ Initial\ Time:\ 0.0"{}}\ <<\ std::endl;}
-\DoxyCodeLine{00041\ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\ \ \ \ Final\ Time:\ "{}}\ +\ \mbox{\hyperlink{namespacenetdem_1_1_i_o_aeffcbe77e69d20f81ab94571742c44d2}{IO::to\_string}}(\mbox{\hyperlink{classnetdem_1_1_peri_digm_settings_a918c0f3d9be5e2e6b06731873ba022b8}{mech\_time}})\ <<\ std::endl;}
-\DoxyCodeLine{00042\ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\ \ \ \ Verlet:\ "{}}\ <<\ std::endl;}
-\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{classnetdem_1_1_peri_digm_settings_a6ba53a5a64d7aff17e1487be3bc26f7c}{use\_auto\_timestep}})\ \{}
-\DoxyCodeLine{00044\ \ \ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\ \ \ \ \ \ Fixed\ dt:\ "{}}\ +\ \mbox{\hyperlink{namespacenetdem_1_1_i_o_aeffcbe77e69d20f81ab94571742c44d2}{IO::to\_string}}(\mbox{\hyperlink{classnetdem_1_1_peri_digm_settings_a7f22220557a8e3b24f4959e4a62b4a20}{timestep}})\ <<\ std::endl;}
-\DoxyCodeLine{00045\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
-\DoxyCodeLine{00046\ \ \ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\ \ \ \ \ \ Safety\ Factor:\ "{}}\ +\ \mbox{\hyperlink{namespacenetdem_1_1_i_o_aeffcbe77e69d20f81ab94571742c44d2}{IO::to\_string}}(\mbox{\hyperlink{classnetdem_1_1_peri_digm_settings_a8cc00d7f112552edbd975f870c067759}{timestep\_factor}})}
-\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \ <<\ std::endl;}
-\DoxyCodeLine{00048\ \ \ \ \ \}}
-\DoxyCodeLine{00049\ \ \ \ \ os\ <<\ std::endl;}
-\DoxyCodeLine{00050\ }
-\DoxyCodeLine{00051\ \ \ \ \ \textcolor{comment}{//\ compute\ settings,\ for\ fraguting\ the\ stored\ strain\ energy\ in\ the\ particle}}
-\DoxyCodeLine{00052\ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\ \ Compute\ Class\ Parameters:\ "{}}\ <<\ std::endl;}
-\DoxyCodeLine{00053\ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\ \ \ \ Grain\ Stored\ Elastic\ Energy:\ "{}}\ <<\ std::endl;}
-\DoxyCodeLine{00054\ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\ \ \ \ \ \ Compute\ Class:\ \(\backslash\)"{}Block\_Data\(\backslash\)"{}"{}}\ <<\ std::endl;}
-\DoxyCodeLine{00055\ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\ \ \ \ \ \ Calculation\ Type:\ \(\backslash\)"{}Sum\(\backslash\)"{}"{}}\ <<\ std::endl;}
-\DoxyCodeLine{00056\ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\ \ \ \ \ \ Block:\ \(\backslash\)"{}block\_1\(\backslash\)"{}"{}}\ <<\ std::endl;}
-\DoxyCodeLine{00057\ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\ \ \ \ \ \ Variable:\ \(\backslash\)"{}Stored\_Elastic\_Energy\(\backslash\)"{}"{}}\ <<\ std::endl;}
-\DoxyCodeLine{00058\ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\ \ \ \ \ \ Output\ Label:\ \(\backslash\)"{}Grain\_Stored\_Elastic\_Energy\(\backslash\)"{}"{}}\ <<\ std::endl;}
-\DoxyCodeLine{00059\ \ \ \ \ os\ <<\ std::endl;}
-\DoxyCodeLine{00060\ }
-\DoxyCodeLine{00061\ \ \ \ \ \textcolor{comment}{//\ output\ settings}}
-\DoxyCodeLine{00062\ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\ \ Output\ Data:\ "{}}\ <<\ std::endl;}
-\DoxyCodeLine{00063\ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\ \ \ \ Output\ File\ Type:\ \(\backslash\)"{}ExodusII\(\backslash\)"{}"{}}\ <<\ std::endl;}
-\DoxyCodeLine{00064\ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\ \ \ \ Output\ Format:\ \(\backslash\)"{}BINARY\(\backslash\)"{}"{}}\ <<\ std::endl;}
-\DoxyCodeLine{00065\ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\ \ \ \ Output\ Filename:\ \(\backslash\)"{}output\(\backslash\)"{}"{}}\ <<\ std::endl;}
-\DoxyCodeLine{00066\ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\ \ \ \ Output\ Frequency:\ "{}}\ +\ \mbox{\hyperlink{namespacenetdem_1_1_i_o_aeffcbe77e69d20f81ab94571742c44d2}{IO::to\_string}}(\mbox{\hyperlink{classnetdem_1_1_peri_digm_settings_ab25a51c92aa79097370b54b6a23ece38}{output\_freqency}})}
-\DoxyCodeLine{00067\ \ \ \ \ \ \ \ <<\ std::endl;}
-\DoxyCodeLine{00068\ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\ \ \ \ Parallel\ Write:\ true"{}}\ <<\ std::endl;}
-\DoxyCodeLine{00069\ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\ \ \ \ Output\ Variables:\ "{}}\ <<\ std::endl;}
-\DoxyCodeLine{00070\ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\ \ \ \ \ \ Displacement:\ true"{}}\ <<\ std::endl;}
-\DoxyCodeLine{00071\ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\ \ \ \ \ \ Velocity:\ true"{}}\ <<\ std::endl;}
-\DoxyCodeLine{00072\ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\ \ \ \ \ \ Element\_Id:\ true"{}}\ <<\ std::endl;}
-\DoxyCodeLine{00073\ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\ \ \ \ \ \ Dilatation:\ true"{}}\ <<\ std::endl;}
-\DoxyCodeLine{00074\ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\ \ \ \ \ \ Weighted\_Volume:\ true"{}}\ <<\ std::endl;}
-\DoxyCodeLine{00075\ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\ \ \ \ \ \ Volume:\ true"{}}\ <<\ std::endl;}
-\DoxyCodeLine{00076\ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\ \ \ \ \ \ Damage:\ true"{}}\ <<\ std::endl;}
-\DoxyCodeLine{00077\ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\ \ \ \ \ \ Radius:\ true"{}}\ <<\ std::endl;}
-\DoxyCodeLine{00078\ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\ \ \ \ \ \ Horizon:\ true"{}}\ <<\ std::endl;}
-\DoxyCodeLine{00079\ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\ \ \ \ \ \ Contact\_Force:\ true"{}}\ <<\ std::endl;}
-\DoxyCodeLine{00080\ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\ \ \ \ \ \ Number\_Of\_Neighbors:\ true"{}}\ <<\ std::endl;}
-\DoxyCodeLine{00081\ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\ \ \ \ \ \ Neighborhood\_Volume:\ true"{}}\ <<\ std::endl;}
-\DoxyCodeLine{00082\ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\ \ \ \ \ \ Force:\ true"{}}\ <<\ std::endl;}
-\DoxyCodeLine{00083\ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\ \ \ \ \ \ Force\_Density:\ true"{}}\ <<\ std::endl;}
-\DoxyCodeLine{00084\ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\ \ \ \ \ \ Stored\_Elastic\_Energy:\ true"{}}\ <<\ std::endl;}
-\DoxyCodeLine{00085\ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\ \ \ \ \ \ Grain\_Stored\_Elastic\_Energy:\ true"{}}\ <<\ std::endl;}
-\DoxyCodeLine{00086\ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\ \ \ \ \ \ Kinetic\_Energy:\ true"{}}\ <<\ std::endl;}
-\DoxyCodeLine{00087\ \ \ \ \ os\ <<\ std::endl;}
-\DoxyCodeLine{00088\ \ \ \}}
-\DoxyCodeLine{00089\ \};}
-\DoxyCodeLine{00090\ }
-\DoxyCodeLine{00091\ \}\ \textcolor{comment}{//\ namespace\ netdem}}
+\DoxyCodeLine{00033\ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classnetdem_1_1_peri_digm_settings_ac941012c835a24dd368bc19a730d1950}{horizon\_factor}}\{3.01\};}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00038\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classnetdem_1_1_peri_digm_settings_a2d7fd8c01fc206f0f7dc7863b3fc5b1d}{omit\_bonds\_between\_blocks}}\{\textcolor{keyword}{false}\};}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00043\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classnetdem_1_1_peri_digm_settings_a6ba53a5a64d7aff17e1487be3bc26f7c}{use\_auto\_timestep}}\{\textcolor{keyword}{true}\};}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00048\ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classnetdem_1_1_peri_digm_settings_a7f22220557a8e3b24f4959e4a62b4a20}{timestep}}\{1.0e-\/6\};}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00053\ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classnetdem_1_1_peri_digm_settings_a8cc00d7f112552edbd975f870c067759}{timestep\_factor}}\{0.95\};}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00058\ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classnetdem_1_1_peri_digm_settings_a918c0f3d9be5e2e6b06731873ba022b8}{mech\_time}}\{0.0\};}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00065\ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classnetdem_1_1_peri_digm_settings_aa239e10be1fa85faf5d4cc8107c22601}{loading\_radius\_factor}}\{1.5\};}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00072\ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classnetdem_1_1_peri_digm_settings_a2a3596ee4c48a7e5a4770aacaef41f59}{constrain\_radius\_factor}}\{1.5\};}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00077\ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classnetdem_1_1_peri_digm_settings_ab25a51c92aa79097370b54b6a23ece38}{output\_freqency}}\{10\};}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00086\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_peri_digm_settings_a40aa1f5e9ab48bdc3f309fd0d553f3eb}{WriteInputFile}}(std::ostream\ \&os)\ \{}
+\DoxyCodeLine{00087\ \ \ \ \ \textcolor{comment}{//\ solver\ settings}}
+\DoxyCodeLine{00088\ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\ \ Solver:\ "{}}\ <<\ std::endl;}
+\DoxyCodeLine{00089\ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\ \ \ \ Verbose:\ false"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00090\ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\ \ \ \ Initial\ Time:\ 0.0"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00091\ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\ \ \ \ Final\ Time:\ "{}}\ +\ \mbox{\hyperlink{namespacenetdem_1_1_i_o_aeffcbe77e69d20f81ab94571742c44d2}{IO::to\_string}}(\mbox{\hyperlink{classnetdem_1_1_peri_digm_settings_a918c0f3d9be5e2e6b06731873ba022b8}{mech\_time}})\ <<\ std::endl;}
+\DoxyCodeLine{00092\ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\ \ \ \ Verlet:\ "{}}\ <<\ std::endl;}
+\DoxyCodeLine{00093\ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{classnetdem_1_1_peri_digm_settings_a6ba53a5a64d7aff17e1487be3bc26f7c}{use\_auto\_timestep}})\ \{}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\ \ \ \ \ \ Fixed\ dt:\ "{}}\ +\ \mbox{\hyperlink{namespacenetdem_1_1_i_o_aeffcbe77e69d20f81ab94571742c44d2}{IO::to\_string}}(\mbox{\hyperlink{classnetdem_1_1_peri_digm_settings_a7f22220557a8e3b24f4959e4a62b4a20}{timestep}})\ <<\ std::endl;}
+\DoxyCodeLine{00095\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\ \ \ \ \ \ Safety\ Factor:\ "{}}\ +\ \mbox{\hyperlink{namespacenetdem_1_1_i_o_aeffcbe77e69d20f81ab94571742c44d2}{IO::to\_string}}(\mbox{\hyperlink{classnetdem_1_1_peri_digm_settings_a8cc00d7f112552edbd975f870c067759}{timestep\_factor}})}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \ <<\ std::endl;}
+\DoxyCodeLine{00098\ \ \ \ \ \}}
+\DoxyCodeLine{00099\ \ \ \ \ os\ <<\ std::endl;}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00101\ \ \ \ \ \textcolor{comment}{//\ compute\ settings,\ for\ fraguting\ the\ stored\ strain\ energy\ in\ the\ particle}}
+\DoxyCodeLine{00102\ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\ \ Compute\ Class\ Parameters:\ "{}}\ <<\ std::endl;}
+\DoxyCodeLine{00103\ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\ \ \ \ Grain\ Stored\ Elastic\ Energy:\ "{}}\ <<\ std::endl;}
+\DoxyCodeLine{00104\ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\ \ \ \ \ \ Compute\ Class:\ \(\backslash\)"{}Block\_Data\(\backslash\)"{}"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00105\ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\ \ \ \ \ \ Calculation\ Type:\ \(\backslash\)"{}Sum\(\backslash\)"{}"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00106\ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\ \ \ \ \ \ Block:\ \(\backslash\)"{}block\_1\(\backslash\)"{}"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00107\ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\ \ \ \ \ \ Variable:\ \(\backslash\)"{}Stored\_Elastic\_Energy\(\backslash\)"{}"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00108\ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\ \ \ \ \ \ Output\ Label:\ \(\backslash\)"{}Grain\_Stored\_Elastic\_Energy\(\backslash\)"{}"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00109\ \ \ \ \ os\ <<\ std::endl;}
+\DoxyCodeLine{00110\ }
+\DoxyCodeLine{00111\ \ \ \ \ \textcolor{comment}{//\ output\ settings}}
+\DoxyCodeLine{00112\ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\ \ Output\ Data:\ "{}}\ <<\ std::endl;}
+\DoxyCodeLine{00113\ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\ \ \ \ Output\ File\ Type:\ \(\backslash\)"{}ExodusII\(\backslash\)"{}"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00114\ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\ \ \ \ Output\ Format:\ \(\backslash\)"{}BINARY\(\backslash\)"{}"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00115\ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\ \ \ \ Output\ Filename:\ \(\backslash\)"{}output\(\backslash\)"{}"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00116\ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\ \ \ \ Output\ Frequency:\ "{}}\ +\ \mbox{\hyperlink{namespacenetdem_1_1_i_o_aeffcbe77e69d20f81ab94571742c44d2}{IO::to\_string}}(\mbox{\hyperlink{classnetdem_1_1_peri_digm_settings_ab25a51c92aa79097370b54b6a23ece38}{output\_freqency}})}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ <<\ std::endl;}
+\DoxyCodeLine{00118\ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\ \ \ \ Parallel\ Write:\ true"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00119\ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\ \ \ \ Output\ Variables:\ "{}}\ <<\ std::endl;}
+\DoxyCodeLine{00120\ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\ \ \ \ \ \ Displacement:\ true"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00121\ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\ \ \ \ \ \ Velocity:\ true"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00122\ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\ \ \ \ \ \ Element\_Id:\ true"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00123\ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\ \ \ \ \ \ Dilatation:\ true"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00124\ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\ \ \ \ \ \ Weighted\_Volume:\ true"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00125\ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\ \ \ \ \ \ Volume:\ true"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00126\ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\ \ \ \ \ \ Damage:\ true"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00127\ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\ \ \ \ \ \ Radius:\ true"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00128\ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\ \ \ \ \ \ Horizon:\ true"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00129\ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\ \ \ \ \ \ Contact\_Force:\ true"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00130\ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\ \ \ \ \ \ Number\_Of\_Neighbors:\ true"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00131\ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\ \ \ \ \ \ Neighborhood\_Volume:\ true"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00132\ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\ \ \ \ \ \ Force:\ true"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00133\ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\ \ \ \ \ \ Force\_Density:\ true"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00134\ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\ \ \ \ \ \ Stored\_Elastic\_Energy:\ true"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00135\ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\ \ \ \ \ \ Grain\_Stored\_Elastic\_Energy:\ true"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00136\ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\ \ \ \ \ \ Kinetic\_Energy:\ true"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00137\ \ \ \ \ os\ <<\ std::endl;}
+\DoxyCodeLine{00138\ \ \ \}}
+\DoxyCodeLine{00139\ \};}
+\DoxyCodeLine{00140\ }
+\DoxyCodeLine{00141\ \}\ \textcolor{comment}{//\ namespace\ netdem}}
 
 \end{DoxyCode}

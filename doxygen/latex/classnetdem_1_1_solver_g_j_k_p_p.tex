@@ -2,6 +2,11 @@
 \label{classnetdem_1_1_solver_g_j_k_p_p}\index{netdem::SolverGJKPP@{netdem::SolverGJKPP}}
 
 
+GJK solver for convex geometries.  
+
+
+
+
 {\ttfamily \#include $<$solver\+\_\+gjk\+\_\+pp.\+hpp$>$}
 
 Inheritance diagram for netdem\+::Solver\+GJKPP\+:\begin{figure}[H]
@@ -14,23 +19,23 @@ Inheritance diagram for netdem\+::Solver\+GJKPP\+:\begin{figure}[H]
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{classnetdem_1_1_solver_g_j_k_p_p_a8ab629a416d72462db32d759ad6b80eb}{Solver\+GJKPP}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Default constructor for \mbox{\hyperlink{classnetdem_1_1_solver_g_j_k_p_p}{Solver\+GJKPP}}. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classnetdem_1_1_solver_g_j_k_p_p_a442d9a46b7f075e6d0ead134b88e5193}{Solver\+GJKPP}} (\mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} $\ast$const p1, \mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} $\ast$const p2)
-\item 
+\begin{DoxyCompactList}\small\item\em Constructor for \mbox{\hyperlink{classnetdem_1_1_solver_g_j_k_p_p}{Solver\+GJKPP}}. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classnetdem_1_1_collision_solver_p_p}{Collision\+Solver\+PP}} $\ast$ \mbox{\hyperlink{classnetdem_1_1_solver_g_j_k_p_p_a0caca1decfab6602c3e8f5f1c691e00a}{Clone}} () const override
-\item 
+\begin{DoxyCompactList}\small\item\em Creates a copy of this collision solver. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classnetdem_1_1_solver_g_j_k_p_p_ab651c60ac53f857232372faa3e7d2652}{Init}} (\mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} $\ast$const p1, \mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} $\ast$const p2) override
-\item 
+\begin{DoxyCompactList}\small\item\em Initializes the collision solver with two particles. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{classnetdem_1_1_solver_g_j_k_p_p_a961ebc52e242d57fb32cd1a9f95dcf92}{Detect}} () override
-\item 
+\begin{DoxyCompactList}\small\item\em Detects collisions between the two particles. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classnetdem_1_1_solver_g_j_k_p_p_ab6cc16826443f7e38a64efe2c136d4fb}{Resolve\+Init}} (\mbox{\hyperlink{classnetdem_1_1_contact_p_p}{Contact\+PP}} $\ast$const cnt, double timestep) override
-\item 
+\begin{DoxyCompactList}\small\item\em Initializes the contact point between two particles at time t = 0. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classnetdem_1_1_solver_g_j_k_p_p_a316260af7610a6d9f090223dbd5f561a}{Resolve\+Update}} (\mbox{\hyperlink{classnetdem_1_1_contact_p_p}{Contact\+PP}} $\ast$const cnt, double timestep) override
-\item 
+\begin{DoxyCompactList}\small\item\em Updates the contact point between two particles at time t \texorpdfstring{$>$}{>} 0. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classnetdem_1_1_solver_g_j_k_p_p_aa961788d483b8f867f8049b1cbd4558e}{Resolve\+Init}} (\mbox{\hyperlink{classnetdem_1_1_collision_geometries}{Collision\+Geometries}} $\ast$const cnt\+\_\+geoms, double timestep)
-\item 
+\begin{DoxyCompactList}\small\item\em Initializes the contact geometries between two particles at time t = 0. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classnetdem_1_1_solver_g_j_k_p_p_aa751d5cb5deb9b2c0cceaa716a6f2b99}{Resolve\+Update}} (\mbox{\hyperlink{classnetdem_1_1_collision_geometries}{Collision\+Geometries}} $\ast$const cnt\+\_\+geoms, double timestep)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Updates the contact geometries between two particles at time t \texorpdfstring{$>$}{>} 0. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Public Member Functions inherited from \mbox{\hyperlink{classnetdem_1_1_collision_solver_p_p}{netdem\+::\+Collision\+Solver\+PP}}}
 \begin{DoxyCompactItemize}
 \item 
@@ -62,9 +67,9 @@ double \mbox{\hyperlink{classnetdem_1_1_solver_g_j_k_p_p_a536306da89a80cdce8ddf7
 bool \mbox{\hyperlink{classnetdem_1_1_solver_g_j_k_p_p_ab509ae070d4f84908e4aedc85e5dc4c4}{use\+\_\+erosion}} \{false\}
 \item 
 bool \mbox{\hyperlink{classnetdem_1_1_solver_g_j_k_p_p_ad32ab545189294b53e40698a707fda98}{enalbe\+\_\+debugging}} \{false\}
-\begin{DoxyCompactList}\small\item\em flag to whether output investigation data \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Flag to determine whether output investigation data is enabled. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{classnetdem_1_1_solver_g_j_k_p_p_abbcfc533b87b58663116db0ced702119}{enable\+\_\+logging}} \{false\}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Flag to determine whether logging is enabled. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Public Attributes inherited from \mbox{\hyperlink{classnetdem_1_1_collision_solver_p_p}{netdem\+::\+Collision\+Solver\+PP}}}
 \begin{DoxyCompactItemize}
 \item 
@@ -76,39 +81,39 @@ bool \mbox{\hyperlink{classnetdem_1_1_solver_g_j_k_p_p_abbcfc533b87b58663116db0c
 \begin{DoxyCompactItemize}
 \item 
 bool \mbox{\hyperlink{classnetdem_1_1_solver_g_j_k_p_p_a2e805d594f4b3c6176d661a580795d17}{GJK}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Runs the Gilbert-\/\+Johnson-\/\+Keerthi algorithm. \end{DoxyCompactList}\item 
 std\+::tuple$<$ double, \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}, \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $>$ \mbox{\hyperlink{classnetdem_1_1_solver_g_j_k_p_p_a18e35880d03142063713350066b6dc95}{GJK\+\_\+\+EROSION}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Runs the Gilbert-\/\+Johnson-\/\+Keerthi algorithm with erosion applied. \end{DoxyCompactList}\item 
 std\+::tuple$<$ double, \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}, \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $>$ \mbox{\hyperlink{classnetdem_1_1_solver_g_j_k_p_p_a3ca7efb2f529ce5ab77c8dcb67df7aed}{EPA}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Runs the Expanding Polytope Algorithm. \end{DoxyCompactList}\item 
 std\+::tuple$<$ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}, bool $>$ \mbox{\hyperlink{classnetdem_1_1_solver_g_j_k_p_p_aab1161404c701c9dfa5800b0bac485dc}{Get\+Contact\+Point}} (\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&dir)
-\item 
+\begin{DoxyCompactList}\small\item\em Computes the contact point along a given direction. \end{DoxyCompactList}\item 
 std\+::tuple$<$ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}, bool $>$ \mbox{\hyperlink{classnetdem_1_1_solver_g_j_k_p_p_a1a3eec300cc7048fb3e737908b47b9e7}{Get\+Contact\+Point\+\_\+\+Plane\+Case}} (\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&dir, const \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $>$ \&pos\+\_\+vec\+\_\+1, const \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $>$ \&pos\+\_\+vec\+\_\+2)
-\item 
+\begin{DoxyCompactList}\small\item\em Computes the contact point in the case where one of the shapes is a plane. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \mbox{\hyperlink{classnetdem_1_1_solver_g_j_k_p_p_a6512977593bb42cd9dbcdce2bed8c1fe}{Minkowski\+Diff}} (\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&dir, double erosion\+\_\+ratio=0)
-\item 
+\begin{DoxyCompactList}\small\item\em Computes the Minkowski difference of two shapes along a given direction. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classnetdem_1_1_solver_g_j_k_p_p_a8c452bbd00203639a86bbed5d80236aa}{Update\+Simplex}} (\mbox{\hyperlink{classnetdem_1_1_simplex}{Simplex}} $\ast$const s, \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $\ast$const dir, double $\ast$const min\+\_\+dist, bool $\ast$const cnt\+\_\+flag)
-\item 
+\begin{DoxyCompactList}\small\item\em Updates the simplex used in the Gilbert-\/\+Johnson-\/\+Keerthi algorithm. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classnetdem_1_1_solver_g_j_k_p_p_a28121af7b65d20352965e8f6f352ca05}{Update\+Simplex\+Line}} (\mbox{\hyperlink{classnetdem_1_1_simplex}{Simplex}} $\ast$const s, \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $\ast$const dir, double $\ast$const min\+\_\+dist, bool $\ast$const cnt\+\_\+flag)
-\item 
+\begin{DoxyCompactList}\small\item\em Updates the simplex when it contains a line segment. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classnetdem_1_1_solver_g_j_k_p_p_af3474d50da13c65c597a60898c9a9380}{Update\+Simplex\+Triangle}} (\mbox{\hyperlink{classnetdem_1_1_simplex}{Simplex}} $\ast$const s, \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $\ast$const dir, double $\ast$const min\+\_\+dist, bool $\ast$const cnt\+\_\+flag)
-\item 
+\begin{DoxyCompactList}\small\item\em Updates the simplex when it contains a triangle. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classnetdem_1_1_solver_g_j_k_p_p_af6d9cfa6c52775653cd9411a25abd059}{Update\+Simplex\+Tetrahedron}} (\mbox{\hyperlink{classnetdem_1_1_simplex}{Simplex}} $\ast$const s, \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $\ast$const dir, double $\ast$const min\+\_\+dist, bool $\ast$const cnt\+\_\+flag)
-\item 
+\begin{DoxyCompactList}\small\item\em Updates the simplex when it contains a tetrahedron. \end{DoxyCompactList}\item 
 std\+::tuple$<$ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}, double $>$ \mbox{\hyperlink{classnetdem_1_1_solver_g_j_k_p_p_a09347fa18b3834b5dfd296d0bf7e6a40}{Get\+Facet\+Normal}} (\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&a, \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&b, \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&c)
-\item 
+\begin{DoxyCompactList}\small\item\em Computes the normal and distance from origin of a facet defined by three vertices. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classnetdem_1_1_solver_g_j_k_p_p_a3edf26b2c2b64f3fb5271fdbd09c85cd}{Get\+Loose\+Edges}} (\mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_ad732d71ff9685f48b7bcbfc82812e60e}{Vec2i}} $>$ $\ast$const edges, \mbox{\hyperlink{namespacenetdem_a28e1404c8ce46c48bc78f553bd555980}{Vec3i}} const \&facet)
-\item 
+\begin{DoxyCompactList}\small\item\em Computes the edges of a triangle that could potentially be involved in a collision. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classnetdem_1_1_solver_g_j_k_p_p_ad1a0c84c84ec5b67c469b582f15d8af9}{Get\+Intersections}} (\mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $>$ $\ast$const intersects, \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&dir\+\_\+n, \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&l1\+\_\+p1, \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&l1\+\_\+p2, \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&l2\+\_\+p1, \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&l2\+\_\+p2)
-\item 
+\begin{DoxyCompactList}\small\item\em Computes the intersection points of two line segments. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classnetdem_1_1_solver_g_j_k_p_p_a5d5220bf131bfbbfa785fefee5b23664}{Get\+Intersections\+Aggresive}} (\mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $>$ $\ast$const intersects, \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&dir\+\_\+n, \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&l1\+\_\+p1, \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&l1\+\_\+p2, \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&l2\+\_\+p1, \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&l2\+\_\+p2)
-\item 
+\begin{DoxyCompactList}\small\item\em Computes the intersection points of two line segments using a more aggressive algorithm. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classnetdem_1_1_solver_g_j_k_p_p_a4e9171e68bd6a2acaefec79edc2bc890}{Sort\+Vertices}} (\mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $>$ $\ast$const pos\+\_\+vec, \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&dir\+\_\+n)
-\item 
+\begin{DoxyCompactList}\small\item\em Sorts the vertices of a polygon based on their distance to a given point. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{classnetdem_1_1_solver_g_j_k_p_p_a34f131034fc9d1e939911e9087773249}{Is\+Inside\+Polygon}} (\mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $>$ const \&pos\+\_\+vec, \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&dir\+\_\+n, \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&pos)
-\item 
+\begin{DoxyCompactList}\small\item\em Determines whether a point is inside a polygon. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \mbox{\hyperlink{classnetdem_1_1_solver_g_j_k_p_p_ad95a7f1e4fb67f1e96fedba43968a8ef}{Get\+Polygon\+Centroid}} (\mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $>$ const \&pos\+\_\+vec, \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&dir\+\_\+n)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Computes the centroid of a polygon. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Protected Member Functions inherited from \mbox{\hyperlink{classnetdem_1_1_collision_solver_p_p}{netdem\+::\+Collision\+Solver\+PP}}}
 \begin{DoxyCompactItemize}
 \item 
@@ -140,7 +145,7 @@ double \mbox{\hyperlink{classnetdem_1_1_solver_g_j_k_p_p_a4525018fe93e99888d95da
 
 
 \doxysubsection{Detailed Description}
-gjk solver for convex geometries 
+GJK solver for convex geometries. 
 
 \doxysubsection{Constructor \& Destructor Documentation}
 \mbox{\Hypertarget{classnetdem_1_1_solver_g_j_k_p_p_a8ab629a416d72462db32d759ad6b80eb}\label{classnetdem_1_1_solver_g_j_k_p_p_a8ab629a416d72462db32d759ad6b80eb}} 
@@ -148,6 +153,10 @@ gjk solver for convex geometries
 \index{SolverGJKPP@{SolverGJKPP}!netdem::SolverGJKPP@{netdem::SolverGJKPP}}
 \doxysubsubsection{\texorpdfstring{SolverGJKPP()}{SolverGJKPP()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily netdem\+::\+Solver\+GJKPP\+::\+Solver\+GJKPP (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Default constructor for \mbox{\hyperlink{classnetdem_1_1_solver_g_j_k_p_p}{Solver\+GJKPP}}. 
 
 \mbox{\Hypertarget{classnetdem_1_1_solver_g_j_k_p_p_a442d9a46b7f075e6d0ead134b88e5193}\label{classnetdem_1_1_solver_g_j_k_p_p_a442d9a46b7f075e6d0ead134b88e5193}} 
 \index{netdem::SolverGJKPP@{netdem::SolverGJKPP}!SolverGJKPP@{SolverGJKPP}}
@@ -157,6 +166,17 @@ gjk solver for convex geometries
 
 
 
+Constructor for \mbox{\hyperlink{classnetdem_1_1_solver_g_j_k_p_p}{Solver\+GJKPP}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p1} & The first particle. \\
+\hline
+{\em p2} & The second particle. \\
+\hline
+\end{DoxyParams}
+
+
 \doxysubsection{Member Function Documentation}
 \mbox{\Hypertarget{classnetdem_1_1_solver_g_j_k_p_p_a0caca1decfab6602c3e8f5f1c691e00a}\label{classnetdem_1_1_solver_g_j_k_p_p_a0caca1decfab6602c3e8f5f1c691e00a}} 
 \index{netdem::SolverGJKPP@{netdem::SolverGJKPP}!Clone@{Clone}}
@@ -164,12 +184,12 @@ gjk solver for convex geometries
 \doxysubsubsection{\texorpdfstring{Clone()}{Clone()}}
 {\footnotesize\ttfamily \mbox{\hyperlink{classnetdem_1_1_collision_solver_p_p}{Collision\+Solver\+PP}} $\ast$ netdem\+::\+Solver\+GJKPP\+::\+Clone (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
-Virtual copy constructor.
 
-This method should be overridden by subclasses to create a new instance of the same type as the calling object.
+
+Creates a copy of this collision solver. 
 
 \begin{DoxyReturn}{Returns}
-A pointer to a new instance of the same type as the calling object. 
+A new instance of the collision solver. 
 \end{DoxyReturn}
 
 
@@ -181,12 +201,12 @@ Implements \mbox{\hyperlink{classnetdem_1_1_collision_solver_p_p_a8aa1b7f9a55845
 \doxysubsubsection{\texorpdfstring{Detect()}{Detect()}}
 {\footnotesize\ttfamily bool netdem\+::\+Solver\+GJKPP\+::\+Detect (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
-Detects whether a collision has occurred.
 
-This method should be overridden by subclasses to detect whether a collision has occurred between the particles.
+
+Detects collisions between the two particles. 
 
 \begin{DoxyReturn}{Returns}
-Whether a collision has occurred. 
+True if a collision occurred, false otherwise. 
 \end{DoxyReturn}
 
 
@@ -198,75 +218,203 @@ Implements \mbox{\hyperlink{classnetdem_1_1_collision_solver_p_p_a6eced6d2533770
 \doxysubsubsection{\texorpdfstring{EPA()}{EPA()}}
 {\footnotesize\ttfamily tuple$<$ double, \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}, \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $>$ netdem\+::\+Solver\+GJKPP\+::\+EPA (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
 
+
+
+Runs the Expanding Polytope Algorithm. 
+
+\begin{DoxyReturn}{Returns}
+A tuple containing the contact position and a flag indicating whether the algorithm succeeded. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{classnetdem_1_1_solver_g_j_k_p_p_aab1161404c701c9dfa5800b0bac485dc}\label{classnetdem_1_1_solver_g_j_k_p_p_aab1161404c701c9dfa5800b0bac485dc}} 
 \index{netdem::SolverGJKPP@{netdem::SolverGJKPP}!GetContactPoint@{GetContactPoint}}
 \index{GetContactPoint@{GetContactPoint}!netdem::SolverGJKPP@{netdem::SolverGJKPP}}
 \doxysubsubsection{\texorpdfstring{GetContactPoint()}{GetContactPoint()}}
 {\footnotesize\ttfamily tuple$<$ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}, bool $>$ netdem\+::\+Solver\+GJKPP\+::\+Get\+Contact\+Point (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&}]{dir }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
 
+
+
+Computes the contact point along a given direction. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dir} & The direction to compute the contact point along. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A tuple containing the contact position and a flag indicating whether the algorithm succeeded. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{classnetdem_1_1_solver_g_j_k_p_p_a1a3eec300cc7048fb3e737908b47b9e7}\label{classnetdem_1_1_solver_g_j_k_p_p_a1a3eec300cc7048fb3e737908b47b9e7}} 
 \index{netdem::SolverGJKPP@{netdem::SolverGJKPP}!GetContactPoint\_PlaneCase@{GetContactPoint\_PlaneCase}}
 \index{GetContactPoint\_PlaneCase@{GetContactPoint\_PlaneCase}!netdem::SolverGJKPP@{netdem::SolverGJKPP}}
 \doxysubsubsection{\texorpdfstring{GetContactPoint\_PlaneCase()}{GetContactPoint\_PlaneCase()}}
 {\footnotesize\ttfamily tuple$<$ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}, bool $>$ netdem\+::\+Solver\+GJKPP\+::\+Get\+Contact\+Point\+\_\+\+Plane\+Case (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&}]{dir,  }\item[{const \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $>$ \&}]{pos\+\_\+vec\+\_\+1,  }\item[{const \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $>$ \&}]{pos\+\_\+vec\+\_\+2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
 
+
+
+Computes the contact point in the case where one of the shapes is a plane. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dir} & The contact normal. \\
+\hline
+{\em pos\+\_\+vec\+\_\+1} & The positions of the vertices of shape 1. \\
+\hline
+{\em pos\+\_\+vec\+\_\+2} & The positions of the vertices of shape 2. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A tuple containing the contact position and a flag indicating whether the algorithm succeeded. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{classnetdem_1_1_solver_g_j_k_p_p_a09347fa18b3834b5dfd296d0bf7e6a40}\label{classnetdem_1_1_solver_g_j_k_p_p_a09347fa18b3834b5dfd296d0bf7e6a40}} 
 \index{netdem::SolverGJKPP@{netdem::SolverGJKPP}!GetFacetNormal@{GetFacetNormal}}
 \index{GetFacetNormal@{GetFacetNormal}!netdem::SolverGJKPP@{netdem::SolverGJKPP}}
 \doxysubsubsection{\texorpdfstring{GetFacetNormal()}{GetFacetNormal()}}
 {\footnotesize\ttfamily std\+::tuple$<$ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}, double $>$ netdem\+::\+Solver\+GJKPP\+::\+Get\+Facet\+Normal (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&}]{a,  }\item[{\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&}]{b,  }\item[{\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&}]{c }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
 
+
+
+Computes the normal and distance from origin of a facet defined by three vertices. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & The first vertex. \\
+\hline
+{\em b} & The second vertex. \\
+\hline
+{\em c} & The third vertex. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A tuple containing the facet normal and distance from origin. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{classnetdem_1_1_solver_g_j_k_p_p_ad1a0c84c84ec5b67c469b582f15d8af9}\label{classnetdem_1_1_solver_g_j_k_p_p_ad1a0c84c84ec5b67c469b582f15d8af9}} 
 \index{netdem::SolverGJKPP@{netdem::SolverGJKPP}!GetIntersections@{GetIntersections}}
 \index{GetIntersections@{GetIntersections}!netdem::SolverGJKPP@{netdem::SolverGJKPP}}
 \doxysubsubsection{\texorpdfstring{GetIntersections()}{GetIntersections()}}
 {\footnotesize\ttfamily void netdem\+::\+Solver\+GJKPP\+::\+Get\+Intersections (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $>$ $\ast$const}]{intersects,  }\item[{\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&}]{dir\+\_\+n,  }\item[{\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&}]{l1\+\_\+p1,  }\item[{\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&}]{l1\+\_\+p2,  }\item[{\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&}]{l2\+\_\+p1,  }\item[{\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&}]{l2\+\_\+p2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
 
+
+
+Computes the intersection points of two line segments. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em intersects} & The output vector of intersection points. \\
+\hline
+{\em dir\+\_\+n} & The direction of the line segments. \\
+\hline
+{\em l1\+\_\+p1} & The starting point of the first line segment. \\
+\hline
+{\em l1\+\_\+p2} & The ending point of the first line segment. \\
+\hline
+{\em l2\+\_\+p1} & The starting point of the second line segment. \\
+\hline
+{\em l2\+\_\+p2} & The ending point of the second line segment. \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{classnetdem_1_1_solver_g_j_k_p_p_a5d5220bf131bfbbfa785fefee5b23664}\label{classnetdem_1_1_solver_g_j_k_p_p_a5d5220bf131bfbbfa785fefee5b23664}} 
 \index{netdem::SolverGJKPP@{netdem::SolverGJKPP}!GetIntersectionsAggresive@{GetIntersectionsAggresive}}
 \index{GetIntersectionsAggresive@{GetIntersectionsAggresive}!netdem::SolverGJKPP@{netdem::SolverGJKPP}}
 \doxysubsubsection{\texorpdfstring{GetIntersectionsAggresive()}{GetIntersectionsAggresive()}}
 {\footnotesize\ttfamily void netdem\+::\+Solver\+GJKPP\+::\+Get\+Intersections\+Aggresive (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $>$ $\ast$const}]{intersects,  }\item[{\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&}]{dir\+\_\+n,  }\item[{\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&}]{l1\+\_\+p1,  }\item[{\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&}]{l1\+\_\+p2,  }\item[{\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&}]{l2\+\_\+p1,  }\item[{\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&}]{l2\+\_\+p2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
 
+
+
+Computes the intersection points of two line segments using a more aggressive algorithm. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em intersects} & The output vector of intersection points. \\
+\hline
+{\em dir\+\_\+n} & The direction of the line segments. \\
+\hline
+{\em l1\+\_\+p1} & The starting point of the first line segment. \\
+\hline
+{\em l1\+\_\+p2} & The ending point of the first line segment. \\
+\hline
+{\em l2\+\_\+p1} & The starting point of the second line segment. \\
+\hline
+{\em l2\+\_\+p2} & The ending point of the second line segment. \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{classnetdem_1_1_solver_g_j_k_p_p_a3edf26b2c2b64f3fb5271fdbd09c85cd}\label{classnetdem_1_1_solver_g_j_k_p_p_a3edf26b2c2b64f3fb5271fdbd09c85cd}} 
 \index{netdem::SolverGJKPP@{netdem::SolverGJKPP}!GetLooseEdges@{GetLooseEdges}}
 \index{GetLooseEdges@{GetLooseEdges}!netdem::SolverGJKPP@{netdem::SolverGJKPP}}
 \doxysubsubsection{\texorpdfstring{GetLooseEdges()}{GetLooseEdges()}}
 {\footnotesize\ttfamily void netdem\+::\+Solver\+GJKPP\+::\+Get\+Loose\+Edges (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_ad732d71ff9685f48b7bcbfc82812e60e}{Vec2i}} $>$ $\ast$const}]{edges,  }\item[{\mbox{\hyperlink{namespacenetdem_a28e1404c8ce46c48bc78f553bd555980}{Vec3i}} const \&}]{facet }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
 
+
+
+Computes the edges of a triangle that could potentially be involved in a collision. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em edges} & The output vector of edges. \\
+\hline
+{\em facet} & The indices of the vertices defining the triangle. \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{classnetdem_1_1_solver_g_j_k_p_p_ad95a7f1e4fb67f1e96fedba43968a8ef}\label{classnetdem_1_1_solver_g_j_k_p_p_ad95a7f1e4fb67f1e96fedba43968a8ef}} 
 \index{netdem::SolverGJKPP@{netdem::SolverGJKPP}!GetPolygonCentroid@{GetPolygonCentroid}}
 \index{GetPolygonCentroid@{GetPolygonCentroid}!netdem::SolverGJKPP@{netdem::SolverGJKPP}}
 \doxysubsubsection{\texorpdfstring{GetPolygonCentroid()}{GetPolygonCentroid()}}
 {\footnotesize\ttfamily \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} netdem\+::\+Solver\+GJKPP\+::\+Get\+Polygon\+Centroid (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $>$ const \&}]{pos\+\_\+vec,  }\item[{\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&}]{dir\+\_\+n }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
 
+
+
+Computes the centroid of a polygon. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pos\+\_\+vec} & The vector of vertices defining the polygon. \\
+\hline
+{\em dir\+\_\+n} & The normal of the polygon. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The centroid of the polygon. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{classnetdem_1_1_solver_g_j_k_p_p_a2e805d594f4b3c6176d661a580795d17}\label{classnetdem_1_1_solver_g_j_k_p_p_a2e805d594f4b3c6176d661a580795d17}} 
 \index{netdem::SolverGJKPP@{netdem::SolverGJKPP}!GJK@{GJK}}
 \index{GJK@{GJK}!netdem::SolverGJKPP@{netdem::SolverGJKPP}}
 \doxysubsubsection{\texorpdfstring{GJK()}{GJK()}}
 {\footnotesize\ttfamily bool netdem\+::\+Solver\+GJKPP\+::\+GJK (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
 
+
+
+Runs the Gilbert-\/\+Johnson-\/\+Keerthi algorithm. 
+
+\begin{DoxyReturn}{Returns}
+True if a collision occurred, false otherwise. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{classnetdem_1_1_solver_g_j_k_p_p_a18e35880d03142063713350066b6dc95}\label{classnetdem_1_1_solver_g_j_k_p_p_a18e35880d03142063713350066b6dc95}} 
 \index{netdem::SolverGJKPP@{netdem::SolverGJKPP}!GJK\_EROSION@{GJK\_EROSION}}
 \index{GJK\_EROSION@{GJK\_EROSION}!netdem::SolverGJKPP@{netdem::SolverGJKPP}}
 \doxysubsubsection{\texorpdfstring{GJK\_EROSION()}{GJK\_EROSION()}}
 {\footnotesize\ttfamily tuple$<$ double, \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}, \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $>$ netdem\+::\+Solver\+GJKPP\+::\+GJK\+\_\+\+EROSION (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
 
+
+
+Runs the Gilbert-\/\+Johnson-\/\+Keerthi algorithm with erosion applied. 
+
+\begin{DoxyReturn}{Returns}
+A tuple containing the length of the contact normal, the contact direction, and the contact position. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{classnetdem_1_1_solver_g_j_k_p_p_ab651c60ac53f857232372faa3e7d2652}\label{classnetdem_1_1_solver_g_j_k_p_p_ab651c60ac53f857232372faa3e7d2652}} 
 \index{netdem::SolverGJKPP@{netdem::SolverGJKPP}!Init@{Init}}
 \index{Init@{Init}!netdem::SolverGJKPP@{netdem::SolverGJKPP}}
 \doxysubsubsection{\texorpdfstring{Init()}{Init()}}
 {\footnotesize\ttfamily void netdem\+::\+Solver\+GJKPP\+::\+Init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} $\ast$const}]{p1,  }\item[{\mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} $\ast$const}]{p2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
-Initializes the particles involved in the collision.
 
-This method should be overridden by subclasses to set the values of the particles involved in the collision.
+
+Initializes the collision solver with two particles. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em p1} & Pointer to the first particle involved in the collision. \\
+{\em p1} & The first particle. \\
 \hline
-{\em p2} & Pointer to the second particle involved in the collision. \\
+{\em p2} & The second particle. \\
 \hline
 \end{DoxyParams}
 
@@ -279,33 +427,74 @@ Reimplemented from \mbox{\hyperlink{classnetdem_1_1_collision_solver_p_p_a6dad96
 \doxysubsubsection{\texorpdfstring{IsInsidePolygon()}{IsInsidePolygon()}}
 {\footnotesize\ttfamily bool netdem\+::\+Solver\+GJKPP\+::\+Is\+Inside\+Polygon (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $>$ const \&}]{pos\+\_\+vec,  }\item[{\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&}]{dir\+\_\+n,  }\item[{\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&}]{pos }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
 
+
+
+Determines whether a point is inside a polygon. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pos\+\_\+vec} & The vector of vertices defining the polygon. \\
+\hline
+{\em dir\+\_\+n} & The normal of the polygon. \\
+\hline
+{\em pos} & The position of the point to test. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the point is inside the polygon, false otherwise. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{classnetdem_1_1_solver_g_j_k_p_p_a6512977593bb42cd9dbcdce2bed8c1fe}\label{classnetdem_1_1_solver_g_j_k_p_p_a6512977593bb42cd9dbcdce2bed8c1fe}} 
 \index{netdem::SolverGJKPP@{netdem::SolverGJKPP}!MinkowskiDiff@{MinkowskiDiff}}
 \index{MinkowskiDiff@{MinkowskiDiff}!netdem::SolverGJKPP@{netdem::SolverGJKPP}}
 \doxysubsubsection{\texorpdfstring{MinkowskiDiff()}{MinkowskiDiff()}}
 {\footnotesize\ttfamily \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} netdem\+::\+Solver\+GJKPP\+::\+Minkowski\+Diff (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&}]{dir,  }\item[{double}]{erosion\+\_\+ratio = {\ttfamily 0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
 
+
+
+Computes the Minkowski difference of two shapes along a given direction. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dir} & The direction to compute the Minkowski difference along. \\
+\hline
+{\em erosion\+\_\+ratio} & The erosion ratio to apply. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The Minkowski difference of the two shapes. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{classnetdem_1_1_solver_g_j_k_p_p_aa961788d483b8f867f8049b1cbd4558e}\label{classnetdem_1_1_solver_g_j_k_p_p_aa961788d483b8f867f8049b1cbd4558e}} 
 \index{netdem::SolverGJKPP@{netdem::SolverGJKPP}!ResolveInit@{ResolveInit}}
 \index{ResolveInit@{ResolveInit}!netdem::SolverGJKPP@{netdem::SolverGJKPP}}
 \doxysubsubsection{\texorpdfstring{ResolveInit()}{ResolveInit()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily void netdem\+::\+Solver\+GJKPP\+::\+Resolve\+Init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_collision_geometries}{Collision\+Geometries}} $\ast$const}]{cnt\+\_\+geoms,  }\item[{double}]{timestep }\end{DoxyParamCaption})}
 
+
+
+Initializes the contact geometries between two particles at time t = 0. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cnt\+\_\+geoms} & The contact geometries. \\
+\hline
+{\em timestep} & The simulation timestep. \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{classnetdem_1_1_solver_g_j_k_p_p_ab6cc16826443f7e38a64efe2c136d4fb}\label{classnetdem_1_1_solver_g_j_k_p_p_ab6cc16826443f7e38a64efe2c136d4fb}} 
 \index{netdem::SolverGJKPP@{netdem::SolverGJKPP}!ResolveInit@{ResolveInit}}
 \index{ResolveInit@{ResolveInit}!netdem::SolverGJKPP@{netdem::SolverGJKPP}}
 \doxysubsubsection{\texorpdfstring{ResolveInit()}{ResolveInit()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
 {\footnotesize\ttfamily void netdem\+::\+Solver\+GJKPP\+::\+Resolve\+Init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_contact_p_p}{Contact\+PP}} $\ast$const}]{cnt,  }\item[{double}]{timestep }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
-Initializes the resolution of a collision.
 
-This method should be overridden by subclasses to initialize the resolution of a collision. The method is called once per collision to set up the {\ttfamily \mbox{\hyperlink{classnetdem_1_1_contact_p_p}{Contact\+PP}}} object used for resolving the collision.
+
+Initializes the contact point between two particles at time t = 0. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em cnt} & A pointer to the {\ttfamily \mbox{\hyperlink{classnetdem_1_1_contact_p_p}{Contact\+PP}}} object to use for resolving the collision. \\
+{\em cnt} & The contact point. \\
 \hline
-{\em timestep} & The size of the simulation timestep. \\
+{\em timestep} & The simulation timestep. \\
 \hline
 \end{DoxyParams}
 
@@ -318,21 +507,32 @@ Implements \mbox{\hyperlink{classnetdem_1_1_collision_solver_p_p_a415abfb524cee7
 \doxysubsubsection{\texorpdfstring{ResolveUpdate()}{ResolveUpdate()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily void netdem\+::\+Solver\+GJKPP\+::\+Resolve\+Update (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_collision_geometries}{Collision\+Geometries}} $\ast$const}]{cnt\+\_\+geoms,  }\item[{double}]{timestep }\end{DoxyParamCaption})}
 
+
+
+Updates the contact geometries between two particles at time t \texorpdfstring{$>$}{>} 0. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cnt\+\_\+geoms} & The contact geometries. \\
+\hline
+{\em timestep} & The simulation timestep. \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{classnetdem_1_1_solver_g_j_k_p_p_a316260af7610a6d9f090223dbd5f561a}\label{classnetdem_1_1_solver_g_j_k_p_p_a316260af7610a6d9f090223dbd5f561a}} 
 \index{netdem::SolverGJKPP@{netdem::SolverGJKPP}!ResolveUpdate@{ResolveUpdate}}
 \index{ResolveUpdate@{ResolveUpdate}!netdem::SolverGJKPP@{netdem::SolverGJKPP}}
 \doxysubsubsection{\texorpdfstring{ResolveUpdate()}{ResolveUpdate()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
 {\footnotesize\ttfamily void netdem\+::\+Solver\+GJKPP\+::\+Resolve\+Update (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_contact_p_p}{Contact\+PP}} $\ast$const}]{cnt,  }\item[{double}]{timestep }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
-Updates the resolution of a collision.
 
-This method should be overridden by subclasses to update the resolution of a collision. The method is called repeatedly during the simulation to update the {\ttfamily \mbox{\hyperlink{classnetdem_1_1_contact_p_p}{Contact\+PP}}} object used for resolving the collision.
+
+Updates the contact point between two particles at time t \texorpdfstring{$>$}{>} 0. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em cnt} & A pointer to the {\ttfamily \mbox{\hyperlink{classnetdem_1_1_contact_p_p}{Contact\+PP}}} object used for resolving the collision. \\
+{\em cnt} & The contact point. \\
 \hline
-{\em timestep} & The size of the simulation timestep. \\
+{\em timestep} & The simulation timestep. \\
 \hline
 \end{DoxyParams}
 
@@ -345,30 +545,101 @@ Implements \mbox{\hyperlink{classnetdem_1_1_collision_solver_p_p_a771c9c6936e759
 \doxysubsubsection{\texorpdfstring{SortVertices()}{SortVertices()}}
 {\footnotesize\ttfamily void netdem\+::\+Solver\+GJKPP\+::\+Sort\+Vertices (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $>$ $\ast$const}]{pos\+\_\+vec,  }\item[{\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&}]{dir\+\_\+n }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
 
+
+
+Sorts the vertices of a polygon based on their distance to a given point. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pos\+\_\+vec} & The vector of vertices to sort. \\
+\hline
+{\em dir\+\_\+n} & The direction to sort the vertices in. \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{classnetdem_1_1_solver_g_j_k_p_p_a8c452bbd00203639a86bbed5d80236aa}\label{classnetdem_1_1_solver_g_j_k_p_p_a8c452bbd00203639a86bbed5d80236aa}} 
 \index{netdem::SolverGJKPP@{netdem::SolverGJKPP}!UpdateSimplex@{UpdateSimplex}}
 \index{UpdateSimplex@{UpdateSimplex}!netdem::SolverGJKPP@{netdem::SolverGJKPP}}
 \doxysubsubsection{\texorpdfstring{UpdateSimplex()}{UpdateSimplex()}}
 {\footnotesize\ttfamily void netdem\+::\+Solver\+GJKPP\+::\+Update\+Simplex (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_simplex}{Simplex}} $\ast$const}]{s,  }\item[{\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $\ast$const}]{dir,  }\item[{double $\ast$const}]{min\+\_\+dist,  }\item[{bool $\ast$const}]{cnt\+\_\+flag }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
 
+
+
+Updates the simplex used in the Gilbert-\/\+Johnson-\/\+Keerthi algorithm. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & The simplex to update. \\
+\hline
+{\em dir} & The search direction. \\
+\hline
+{\em min\+\_\+dist} & The minimum distance between the two shapes. \\
+\hline
+{\em cnt\+\_\+flag} & A flag indicating whether a contact has been found. \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{classnetdem_1_1_solver_g_j_k_p_p_a28121af7b65d20352965e8f6f352ca05}\label{classnetdem_1_1_solver_g_j_k_p_p_a28121af7b65d20352965e8f6f352ca05}} 
 \index{netdem::SolverGJKPP@{netdem::SolverGJKPP}!UpdateSimplexLine@{UpdateSimplexLine}}
 \index{UpdateSimplexLine@{UpdateSimplexLine}!netdem::SolverGJKPP@{netdem::SolverGJKPP}}
 \doxysubsubsection{\texorpdfstring{UpdateSimplexLine()}{UpdateSimplexLine()}}
 {\footnotesize\ttfamily void netdem\+::\+Solver\+GJKPP\+::\+Update\+Simplex\+Line (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_simplex}{Simplex}} $\ast$const}]{s,  }\item[{\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $\ast$const}]{dir,  }\item[{double $\ast$const}]{min\+\_\+dist,  }\item[{bool $\ast$const}]{cnt\+\_\+flag }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
 
+
+
+Updates the simplex when it contains a line segment. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & The simplex to update. \\
+\hline
+{\em dir} & The search direction. \\
+\hline
+{\em min\+\_\+dist} & The minimum distance between the two shapes. \\
+\hline
+{\em cnt\+\_\+flag} & A flag indicating whether a contact has been found. \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{classnetdem_1_1_solver_g_j_k_p_p_af6d9cfa6c52775653cd9411a25abd059}\label{classnetdem_1_1_solver_g_j_k_p_p_af6d9cfa6c52775653cd9411a25abd059}} 
 \index{netdem::SolverGJKPP@{netdem::SolverGJKPP}!UpdateSimplexTetrahedron@{UpdateSimplexTetrahedron}}
 \index{UpdateSimplexTetrahedron@{UpdateSimplexTetrahedron}!netdem::SolverGJKPP@{netdem::SolverGJKPP}}
 \doxysubsubsection{\texorpdfstring{UpdateSimplexTetrahedron()}{UpdateSimplexTetrahedron()}}
 {\footnotesize\ttfamily void netdem\+::\+Solver\+GJKPP\+::\+Update\+Simplex\+Tetrahedron (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_simplex}{Simplex}} $\ast$const}]{s,  }\item[{\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $\ast$const}]{dir,  }\item[{double $\ast$const}]{min\+\_\+dist,  }\item[{bool $\ast$const}]{cnt\+\_\+flag }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
 
+
+
+Updates the simplex when it contains a tetrahedron. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & The simplex to update. \\
+\hline
+{\em dir} & The search direction. \\
+\hline
+{\em min\+\_\+dist} & The minimum distance between the two shapes. \\
+\hline
+{\em cnt\+\_\+flag} & A flag indicating whether a contact has been found. \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{classnetdem_1_1_solver_g_j_k_p_p_af3474d50da13c65c597a60898c9a9380}\label{classnetdem_1_1_solver_g_j_k_p_p_af3474d50da13c65c597a60898c9a9380}} 
 \index{netdem::SolverGJKPP@{netdem::SolverGJKPP}!UpdateSimplexTriangle@{UpdateSimplexTriangle}}
 \index{UpdateSimplexTriangle@{UpdateSimplexTriangle}!netdem::SolverGJKPP@{netdem::SolverGJKPP}}
 \doxysubsubsection{\texorpdfstring{UpdateSimplexTriangle()}{UpdateSimplexTriangle()}}
 {\footnotesize\ttfamily void netdem\+::\+Solver\+GJKPP\+::\+Update\+Simplex\+Triangle (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_simplex}{Simplex}} $\ast$const}]{s,  }\item[{\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $\ast$const}]{dir,  }\item[{double $\ast$const}]{min\+\_\+dist,  }\item[{bool $\ast$const}]{cnt\+\_\+flag }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
 
+
+
+Updates the simplex when it contains a triangle. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & The simplex to update. \\
+\hline
+{\em dir} & The search direction. \\
+\hline
+{\em min\+\_\+dist} & The minimum distance between the two shapes. \\
+\hline
+{\em cnt\+\_\+flag} & A flag indicating whether a contact has been found. \\
+\hline
+\end{DoxyParams}
 
 
 \doxysubsection{Member Data Documentation}
@@ -414,6 +685,10 @@ Implements \mbox{\hyperlink{classnetdem_1_1_collision_solver_p_p_a771c9c6936e759
 \doxysubsubsection{\texorpdfstring{enable\_logging}{enable\_logging}}
 {\footnotesize\ttfamily bool netdem\+::\+Solver\+GJKPP\+::enable\+\_\+logging \{false\}}
 
+
+
+Flag to determine whether logging is enabled. 
+
 \mbox{\Hypertarget{classnetdem_1_1_solver_g_j_k_p_p_ad32ab545189294b53e40698a707fda98}\label{classnetdem_1_1_solver_g_j_k_p_p_ad32ab545189294b53e40698a707fda98}} 
 \index{netdem::SolverGJKPP@{netdem::SolverGJKPP}!enalbe\_debugging@{enalbe\_debugging}}
 \index{enalbe\_debugging@{enalbe\_debugging}!netdem::SolverGJKPP@{netdem::SolverGJKPP}}
@@ -422,7 +697,7 @@ Implements \mbox{\hyperlink{classnetdem_1_1_collision_solver_p_p_a771c9c6936e759
 
 
 
-flag to whether output investigation data 
+Flag to determine whether output investigation data is enabled. 
 
 \mbox{\Hypertarget{classnetdem_1_1_solver_g_j_k_p_p_a536306da89a80cdce8ddf78c641657df}\label{classnetdem_1_1_solver_g_j_k_p_p_a536306da89a80cdce8ddf78c641657df}} 
 \index{netdem::SolverGJKPP@{netdem::SolverGJKPP}!erosion\_ratio\_increment@{erosion\_ratio\_increment}}

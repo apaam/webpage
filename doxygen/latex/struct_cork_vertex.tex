@@ -14,16 +14,27 @@ Inheritance diagram for Cork\+Vertex\+:\begin{figure}[H]
 \begin{DoxyCompactItemize}
 \item 
 void \mbox{\hyperlink{struct_cork_vertex_af6ad67f7ae80db9b107b81b867104c43}{merge}} (const \mbox{\hyperlink{struct_cork_vertex}{Cork\+Vertex}} \&v0, const \mbox{\hyperlink{struct_cork_vertex}{Cork\+Vertex}} \&v1)
-\item 
+\begin{DoxyCompactList}\small\item\em Merge two vertices into one. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{struct_cork_vertex_a37aec33d8958655727bf71b1913e222f}{interpolate}} (const \mbox{\hyperlink{struct_cork_vertex}{Cork\+Vertex}} \&v0, const \mbox{\hyperlink{struct_cork_vertex}{Cork\+Vertex}} \&v1)
-\item 
+\begin{DoxyCompactList}\small\item\em Interpolate between two vertices. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{struct_cork_vertex_ade8f2b85f08f06c9dfafeeb8e3354629}{isct}} (Isct\+Vert\+Edge\+Tri\+Input$<$ \mbox{\hyperlink{struct_cork_vertex}{Cork\+Vertex}}, \mbox{\hyperlink{struct_cork_triangle}{Cork\+Triangle}} $>$ input)
-\item 
+\begin{DoxyCompactList}\small\item\em Compute intersection between a vertex and an edge/triangle. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{struct_cork_vertex_aa8405a0742e9f3753e8423736289975e}{isct}} (Isct\+Vert\+Tri\+Tri\+Tri\+Input$<$ \mbox{\hyperlink{struct_cork_vertex}{Cork\+Vertex}}, \mbox{\hyperlink{struct_cork_triangle}{Cork\+Triangle}} $>$ input)
-\item 
+\begin{DoxyCompactList}\small\item\em Compute intersection between a vertex and multiple triangles. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{struct_cork_vertex_a6d741e4d599b5071a2ed2b078707e04b}{isct\+Interpolate}} (const \mbox{\hyperlink{struct_cork_vertex}{Cork\+Vertex}} \&v0, const \mbox{\hyperlink{struct_cork_vertex}{Cork\+Vertex}} \&v1)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Interpolate between two vertices used in an intersection operation. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
+
+\doxysubsection{Detailed Description}
+Struct representing a vertex in a mesh.
+
+This struct inherits from several other structs, each of which provides additional functionality\+:
+\begin{DoxyItemize}
+\item Minimal\+Vertex\+Data\+: Provides minimal data storage for a vertex.
+\item Remesh\+Vertex\+Data\+: Data for vertices used in remeshing operations.
+\item Isct\+Vertex\+Data\+: Data for vertices used in intersection operations.
+\item Bool\+Vertex\+Data\+: Data for vertices used in Boolean operations. 
+\end{DoxyItemize}
 
 \doxysubsection{Member Function Documentation}
 \mbox{\Hypertarget{struct_cork_vertex_a37aec33d8958655727bf71b1913e222f}\label{struct_cork_vertex_a37aec33d8958655727bf71b1913e222f}} 
@@ -32,30 +43,81 @@ void \mbox{\hyperlink{struct_cork_vertex_a6d741e4d599b5071a2ed2b078707e04b}{isct
 \doxysubsubsection{\texorpdfstring{interpolate()}{interpolate()}}
 {\footnotesize\ttfamily void Cork\+Vertex\+::interpolate (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_cork_vertex}{Cork\+Vertex}} \&}]{v0,  }\item[{const \mbox{\hyperlink{struct_cork_vertex}{Cork\+Vertex}} \&}]{v1 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
+
+
+Interpolate between two vertices. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em v0} & The first vertex to interpolate from. \\
+\hline
+{\em v1} & The second vertex to interpolate from. \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{struct_cork_vertex_ade8f2b85f08f06c9dfafeeb8e3354629}\label{struct_cork_vertex_ade8f2b85f08f06c9dfafeeb8e3354629}} 
 \index{CorkVertex@{CorkVertex}!isct@{isct}}
 \index{isct@{isct}!CorkVertex@{CorkVertex}}
 \doxysubsubsection{\texorpdfstring{isct()}{isct()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily void Cork\+Vertex\+::isct (\begin{DoxyParamCaption}\item[{Isct\+Vert\+Edge\+Tri\+Input$<$ \mbox{\hyperlink{struct_cork_vertex}{Cork\+Vertex}}, \mbox{\hyperlink{struct_cork_triangle}{Cork\+Triangle}} $>$}]{input }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
+
+
+Compute intersection between a vertex and an edge/triangle. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em input} & Input data for the intersection operation. \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{struct_cork_vertex_aa8405a0742e9f3753e8423736289975e}\label{struct_cork_vertex_aa8405a0742e9f3753e8423736289975e}} 
 \index{CorkVertex@{CorkVertex}!isct@{isct}}
 \index{isct@{isct}!CorkVertex@{CorkVertex}}
 \doxysubsubsection{\texorpdfstring{isct()}{isct()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
 {\footnotesize\ttfamily void Cork\+Vertex\+::isct (\begin{DoxyParamCaption}\item[{Isct\+Vert\+Tri\+Tri\+Tri\+Input$<$ \mbox{\hyperlink{struct_cork_vertex}{Cork\+Vertex}}, \mbox{\hyperlink{struct_cork_triangle}{Cork\+Triangle}} $>$}]{input }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
+
+
+Compute intersection between a vertex and multiple triangles. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em input} & Input data for the intersection operation. \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{struct_cork_vertex_a6d741e4d599b5071a2ed2b078707e04b}\label{struct_cork_vertex_a6d741e4d599b5071a2ed2b078707e04b}} 
 \index{CorkVertex@{CorkVertex}!isctInterpolate@{isctInterpolate}}
 \index{isctInterpolate@{isctInterpolate}!CorkVertex@{CorkVertex}}
 \doxysubsubsection{\texorpdfstring{isctInterpolate()}{isctInterpolate()}}
 {\footnotesize\ttfamily void Cork\+Vertex\+::isct\+Interpolate (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_cork_vertex}{Cork\+Vertex}} \&}]{v0,  }\item[{const \mbox{\hyperlink{struct_cork_vertex}{Cork\+Vertex}} \&}]{v1 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
+
+
+Interpolate between two vertices used in an intersection operation. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em v0} & The first vertex to interpolate from. \\
+\hline
+{\em v1} & The second vertex to interpolate from. \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{struct_cork_vertex_af6ad67f7ae80db9b107b81b867104c43}\label{struct_cork_vertex_af6ad67f7ae80db9b107b81b867104c43}} 
 \index{CorkVertex@{CorkVertex}!merge@{merge}}
 \index{merge@{merge}!CorkVertex@{CorkVertex}}
 \doxysubsubsection{\texorpdfstring{merge()}{merge()}}
 {\footnotesize\ttfamily void Cork\+Vertex\+::merge (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_cork_vertex}{Cork\+Vertex}} \&}]{v0,  }\item[{const \mbox{\hyperlink{struct_cork_vertex}{Cork\+Vertex}} \&}]{v1 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
+
+
+Merge two vertices into one. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em v0} & The first vertex to merge. \\
+\hline
+{\em v1} & The second vertex to merge. \\
+\hline
+\end{DoxyParams}
 
 
 The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}

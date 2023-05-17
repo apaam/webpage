@@ -2,6 +2,11 @@
 \label{classnetdem_1_1_coded_net_s_d_f}\index{netdem::CodedNetSDF@{netdem::CodedNetSDF}}
 
 
+A class for representing a shape using a neural network-\/generated signed distance function and a latent code.  
+
+
+
+
 {\ttfamily \#include $<$shape\+\_\+coded\+\_\+netsdf.\+hpp$>$}
 
 Inheritance diagram for netdem\+::Coded\+Net\+SDF\+:\begin{figure}[H]
@@ -14,83 +19,83 @@ Inheritance diagram for netdem\+::Coded\+Net\+SDF\+:\begin{figure}[H]
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{classnetdem_1_1_coded_net_s_d_f_a2768c6201de34739d38e353ec632988b}{Coded\+Net\+SDF}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Default constructor. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classnetdem_1_1_coded_net_s_d_f_a7c578dceb4f9c595c0bfca856ef77279}{Init\+From\+Model\+Files}} (std\+::string const \&net\+\_\+sdf\+\_\+file, std\+::string const \&latent\+\_\+code\+\_\+file)
-\item 
+\begin{DoxyCompactList}\small\item\em Initialize the \mbox{\hyperlink{classnetdem_1_1_coded_net_s_d_f}{Coded\+Net\+SDF}} object from model files. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classnetdem_1_1_coded_net_s_d_f_ae89cd08d0d349cea8d997aa286187491}{Init}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Initialize the \mbox{\hyperlink{classnetdem_1_1_coded_net_s_d_f}{Coded\+Net\+SDF}} object. \end{DoxyCompactList}\item 
 nlohmann\+::json \mbox{\hyperlink{classnetdem_1_1_coded_net_s_d_f_aeaf4cd9598b817e889e8134cd164c17b}{Pack\+Json}} () override
-\item 
+\begin{DoxyCompactList}\small\item\em Pack the \mbox{\hyperlink{classnetdem_1_1_coded_net_s_d_f}{Coded\+Net\+SDF}} object into a JSON structure. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classnetdem_1_1_coded_net_s_d_f_a25a0071f10580b988272115bf317695f}{Init\+From\+Json}} (nlohmann\+::json const \&js) override
-\item 
+\begin{DoxyCompactList}\small\item\em Initialize the \mbox{\hyperlink{classnetdem_1_1_coded_net_s_d_f}{Coded\+Net\+SDF}} object from a JSON structure. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classnetdem_1_1_coded_net_s_d_f_a8b6fee51d4f0c741f6caa321995614fa}{Update\+Nodes}} () override
-\item 
+\begin{DoxyCompactList}\small\item\em Update the nodes of the \mbox{\hyperlink{classnetdem_1_1_coded_net_s_d_f}{Coded\+Net\+SDF}} object. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classnetdem_1_1_coded_net_s_d_f_aa96b5cff3c0d4b1d8d5905907bf15b16}{Update\+Shape\+Properties}} () override
-\item 
+\begin{DoxyCompactList}\small\item\em Update the shape properties of the \mbox{\hyperlink{classnetdem_1_1_coded_net_s_d_f}{Coded\+Net\+SDF}} object. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classnetdem_1_1_coded_net_s_d_f_ac9de0a9d32f7ec55ca42ec59b6407c63}{Set\+Size}} (double d) override
-\item 
+\begin{DoxyCompactList}\small\item\em Set the size of the \mbox{\hyperlink{classnetdem_1_1_coded_net_s_d_f}{Coded\+Net\+SDF}} object. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classnetdem_1_1_shape}{Shape}} $\ast$ \mbox{\hyperlink{classnetdem_1_1_coded_net_s_d_f_ac42180573bf44c6901b5d8b867d0d764}{Clone}} () const override
-\item 
+\begin{DoxyCompactList}\small\item\em Clone the \mbox{\hyperlink{classnetdem_1_1_coded_net_s_d_f}{Coded\+Net\+SDF}} object. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classnetdem_1_1_s_t_l_model}{STLModel}} \mbox{\hyperlink{classnetdem_1_1_coded_net_s_d_f_a20b77a22c7d48f0fd72734982fb33ce1}{Get\+STLModel}} (int num\+\_\+facets=400) override
-\item 
+\begin{DoxyCompactList}\small\item\em Generate an STL model of the \mbox{\hyperlink{classnetdem_1_1_coded_net_s_d_f}{Coded\+Net\+SDF}} object. \end{DoxyCompactList}\item 
 double \mbox{\hyperlink{classnetdem_1_1_coded_net_s_d_f_ab03d57cc1a6aeef2c5a0705e61efc1a8}{Signed\+Distance}} (\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&pos) const override
-\item 
+\begin{DoxyCompactList}\small\item\em Compute the signed distance from a given position to the surface of the \mbox{\hyperlink{classnetdem_1_1_coded_net_s_d_f}{Coded\+Net\+SDF}} object. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \mbox{\hyperlink{classnetdem_1_1_coded_net_s_d_f_aec5fbba3d30b131edaf6ed7ff21bd7f3}{Surface\+Point}} (\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&pos) override
-\item 
+\begin{DoxyCompactList}\small\item\em Compute the surface point closest to a given position on the \mbox{\hyperlink{classnetdem_1_1_coded_net_s_d_f}{Coded\+Net\+SDF}} object. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classnetdem_1_1_coded_net_s_d_f_a35f192141302902b7240dafd35b73f24}{$\sim$\+Coded\+Net\+SDF}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classnetdem_1_1_coded_net_s_d_f_a1eedd1fca77a9612bcc554b2f98db43e}{Print}} () override
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Print information about the \mbox{\hyperlink{classnetdem_1_1_coded_net_s_d_f}{Coded\+Net\+SDF}} object. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Public Member Functions inherited from \mbox{\hyperlink{classnetdem_1_1_shape}{netdem\+::\+Shape}}}
 \begin{DoxyCompactItemize}
 \item 
 virtual nlohmann\+::json \mbox{\hyperlink{classnetdem_1_1_shape_aaceb6d02ba07578916c4723eb14c1365}{Pack\+Json}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Packs the data of the shape instance into a JSON object. \end{DoxyCompactList}\item 
 virtual void \mbox{\hyperlink{classnetdem_1_1_shape_a01bdee57a765ce5432d16d9ef001c948}{Init\+From\+Json}} (nlohmann\+::json const \&js)
-\item 
+\begin{DoxyCompactList}\small\item\em Initializes the shape instance from a JSON object. \end{DoxyCompactList}\item 
 virtual void \mbox{\hyperlink{classnetdem_1_1_shape_aec28148f9a8810c845121cdfbbe9e95d}{Init\+From\+Json\+File}} (std\+::string const \&js\+\_\+file)
-\item 
+\begin{DoxyCompactList}\small\item\em Initializes the shape instance from a JSON file. \end{DoxyCompactList}\item 
 virtual void \mbox{\hyperlink{classnetdem_1_1_shape_a4891a52d4fc96c738c3ab208e4d884dd}{Translate}} (\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&pos)
-\item 
+\begin{DoxyCompactList}\small\item\em Translates the shape instance to a new position. \end{DoxyCompactList}\item 
 virtual void \mbox{\hyperlink{classnetdem_1_1_shape_a9f11fadd05e55890a9f90c676d0d1ae8}{Update\+Nodes}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Updates the nodes of the shape instance. \end{DoxyCompactList}\item 
 virtual void \mbox{\hyperlink{classnetdem_1_1_shape_a4286b79ebde34db279b1c13d167901ed}{Update\+Shape\+Properties}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Updates the shape properties of the shape instance. \end{DoxyCompactList}\item 
 virtual void \mbox{\hyperlink{classnetdem_1_1_shape_a83a4e08bc55fde5d3f99b5041efa6beb}{Set\+Size}} (double d)
-\item 
+\begin{DoxyCompactList}\small\item\em Sets the size of the shape instance. \end{DoxyCompactList}\item 
 virtual \mbox{\hyperlink{classnetdem_1_1_shape}{Shape}} $\ast$ \mbox{\hyperlink{classnetdem_1_1_shape_aa2f0bb26f5aa8f637a6bb3d5e735f45a}{Clone}} () const
-\item 
+\begin{DoxyCompactList}\small\item\em Clones the shape instance. \end{DoxyCompactList}\item 
 virtual \mbox{\hyperlink{classnetdem_1_1_s_t_l_model}{STLModel}} \mbox{\hyperlink{classnetdem_1_1_shape_ab3a616a53e637b4654fedf7ffd498f94}{Get\+STLModel}} (int num\+\_\+facets=400)
-\item 
+\begin{DoxyCompactList}\small\item\em Gets the STL model of the shape instance. \end{DoxyCompactList}\item 
 virtual void \mbox{\hyperlink{classnetdem_1_1_shape_a99ea5818f0b368e2d3c20bc9dcc51429}{Save\+As\+VTK}} (std\+::string const \&filename)
-\item 
+\begin{DoxyCompactList}\small\item\em Saves the shape instance as a VTK file. \end{DoxyCompactList}\item 
 virtual void \mbox{\hyperlink{classnetdem_1_1_shape_a2eaa2d4c2021a7963cbfcc65d0f6cd41}{Save\+As\+STL}} (std\+::string const \&filename)
-\item 
+\begin{DoxyCompactList}\small\item\em Saves the shape instance as an STL file. \end{DoxyCompactList}\item 
 virtual std\+::tuple$<$ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}, \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $>$ \mbox{\hyperlink{classnetdem_1_1_shape_af06ef75dd2d9528a4206173902f868e9}{Get\+Bound\+AABB}} (\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&pos, \mbox{\hyperlink{namespacenetdem_a13d5371f99b252a70fd5a5081b910370}{Vec4d}} const \&quat)
-\item 
+\begin{DoxyCompactList}\small\item\em Gets the boundary AABB of the shape instance. \end{DoxyCompactList}\item 
 virtual \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \mbox{\hyperlink{classnetdem_1_1_shape_a0cf9b4a6d035810b85aa24e118b81d1a}{Support\+Point}} (\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&dir)
-\item 
+\begin{DoxyCompactList}\small\item\em Gets the support point in a given direction for the shape instance. \end{DoxyCompactList}\item 
 virtual \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $>$ \mbox{\hyperlink{classnetdem_1_1_shape_a15152dc02a9d8dfcae6a412e6f2131bd}{Support\+Points}} (\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&dir)
-\item 
+\begin{DoxyCompactList}\small\item\em Gets the set of support points in a given direction for the shape instance. \end{DoxyCompactList}\item 
 virtual double \mbox{\hyperlink{classnetdem_1_1_shape_aa27f20eb627e2e983ed530102eb91cdc}{Signed\+Distance}} (\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&pos) const
-\item 
+\begin{DoxyCompactList}\small\item\em Calculates the signed distance between a point and the shape instance. \end{DoxyCompactList}\item 
 virtual \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \mbox{\hyperlink{classnetdem_1_1_shape_a8528b3f4a6e03c5e83821c9842f596ac}{Surface\+Point}} (\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&pos)
-\item 
+\begin{DoxyCompactList}\small\item\em Calculates the surface point corresponding to an intruding node. \end{DoxyCompactList}\item 
 virtual bool \mbox{\hyperlink{classnetdem_1_1_shape_a31b9d4d6a5847de62aadc17a672b556f}{Enclose}} (\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&pos)
-\item 
+\begin{DoxyCompactList}\small\item\em Determines whether a given point is enclosed within the shape instance. \end{DoxyCompactList}\item 
 virtual void \mbox{\hyperlink{classnetdem_1_1_shape_a5e11d9bc46005ddf54d7bff51024c2bb}{Print}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Prints the properties of the shape instance. \end{DoxyCompactList}\item 
 virtual \mbox{\hyperlink{classnetdem_1_1_shape_a935afc9e576015f967d90de56977167d}{$\sim$\+Shape}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Destructor for the \mbox{\hyperlink{classnetdem_1_1_shape}{Shape}} class. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{namespacenetdem_aa1535a5d1ed2f90088a89de1f7670952}{Mat\+Nd}}$<$ 8, 3 $>$ \mbox{\hyperlink{classnetdem_1_1_shape_a91aa2921c75ed9fb0ec38ccacc4e6c13}{Get\+Bound\+AABBVertices}} ()
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Gets the vertices of the boundary AABB of the shape instance. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{classnetdem_1_1_regression_net}{Regression\+Net}} \mbox{\hyperlink{classnetdem_1_1_coded_net_s_d_f_a5660470cab9a89400c71160bacd96173}{net\+\_\+sdf\+\_\+model}}
-\item 
+\begin{DoxyCompactList}\small\item\em The neural network model used to generate the signed distance function. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ double $>$ \mbox{\hyperlink{classnetdem_1_1_coded_net_s_d_f_a538ae87838a65043e9dfc902279771b1}{latent\+\_\+code}}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em The latent code used as input to the neural network model. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Public Attributes inherited from \mbox{\hyperlink{classnetdem_1_1_shape}{netdem\+::\+Shape}}}
 \begin{DoxyCompactItemize}
 \item 
@@ -134,14 +139,14 @@ bool \mbox{\hyperlink{classnetdem_1_1_shape_a731518cf0917f5af9e02b12adcb3d54a}{u
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{classnetdem_1_1_s_t_l_model}{STLModel}} \mbox{\hyperlink{classnetdem_1_1_coded_net_s_d_f_a09295947acbd090b43c06d939ed3795d}{Get\+STLModel\+Init}} (int num\+\_\+facets)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Generate an initial STL model of the \mbox{\hyperlink{classnetdem_1_1_coded_net_s_d_f}{Coded\+Net\+SDF}} object. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Private Attributes}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{classnetdem_1_1_s_t_l_model}{STLModel}} \mbox{\hyperlink{classnetdem_1_1_coded_net_s_d_f_affa2b5d6773c3e825b381f5ecab1be3e}{surface\+\_\+stl}}
-\item 
+\begin{DoxyCompactList}\small\item\em The STL model representing the surface of the \mbox{\hyperlink{classnetdem_1_1_coded_net_s_d_f}{Coded\+Net\+SDF}} object. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classnetdem_1_1_s_t_l_model}{STLModel}} \mbox{\hyperlink{classnetdem_1_1_coded_net_s_d_f_a3165d676d706f2aabbca3d98ccb52c3b}{surface\+\_\+stl\+\_\+tmp}}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em A temporary STL model used during initialization. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Additional Inherited Members}
 \doxysubsubsection*{Public Types inherited from \mbox{\hyperlink{classnetdem_1_1_shape}{netdem\+::\+Shape}}}
 \begin{DoxyCompactItemize}
@@ -169,8 +174,13 @@ enum \mbox{\hyperlink{classnetdem_1_1_shape_aa97bccd1fe4043614c4b84a3f254a158}{T
 , \newline
 \mbox{\hyperlink{classnetdem_1_1_shape_aa97bccd1fe4043614c4b84a3f254a158a15cffbd4779c9d52d6babf8426d07eb1}{num\+\_\+shapes}}
  \}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Enumeration for different types of shapes. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
+
+\doxysubsection{Detailed Description}
+A class for representing a shape using a neural network-\/generated signed distance function and a latent code. 
+
+This class provides methods for loading and initializing a neural network-\/generated signed distance function and a corresponding latent code, as well as computing signed distances and surface points from a given position. 
 
 \doxysubsection{Constructor \& Destructor Documentation}
 \mbox{\Hypertarget{classnetdem_1_1_coded_net_s_d_f_a2768c6201de34739d38e353ec632988b}\label{classnetdem_1_1_coded_net_s_d_f_a2768c6201de34739d38e353ec632988b}} 
@@ -179,11 +189,19 @@ enum \mbox{\hyperlink{classnetdem_1_1_shape_aa97bccd1fe4043614c4b84a3f254a158}{T
 \doxysubsubsection{\texorpdfstring{CodedNetSDF()}{CodedNetSDF()}}
 {\footnotesize\ttfamily Coded\+Net\+SDF\+::\+Coded\+Net\+SDF (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
+
+
+Default constructor. 
+
 \mbox{\Hypertarget{classnetdem_1_1_coded_net_s_d_f_a35f192141302902b7240dafd35b73f24}\label{classnetdem_1_1_coded_net_s_d_f_a35f192141302902b7240dafd35b73f24}} 
 \index{netdem::CodedNetSDF@{netdem::CodedNetSDF}!````~CodedNetSDF@{$\sim$CodedNetSDF}}
 \index{````~CodedNetSDF@{$\sim$CodedNetSDF}!netdem::CodedNetSDF@{netdem::CodedNetSDF}}
 \doxysubsubsection{\texorpdfstring{$\sim$CodedNetSDF()}{~CodedNetSDF()}}
 {\footnotesize\ttfamily Coded\+Net\+SDF\+::$\sim$\+Coded\+Net\+SDF (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Destructor. 
 
 
 
@@ -196,6 +214,15 @@ enum \mbox{\hyperlink{classnetdem_1_1_shape_aa97bccd1fe4043614c4b84a3f254a158}{T
 
 
 
+Clone the \mbox{\hyperlink{classnetdem_1_1_coded_net_s_d_f}{Coded\+Net\+SDF}} object. 
+
+This method creates a copy of the \mbox{\hyperlink{classnetdem_1_1_coded_net_s_d_f}{Coded\+Net\+SDF}} object.
+
+\begin{DoxyReturn}{Returns}
+A pointer to the cloned \mbox{\hyperlink{classnetdem_1_1_coded_net_s_d_f}{Coded\+Net\+SDF}} object. 
+\end{DoxyReturn}
+
+
 Reimplemented from \mbox{\hyperlink{classnetdem_1_1_shape_aa2f0bb26f5aa8f637a6bb3d5e735f45a}{netdem\+::\+Shape}}.
 
 \mbox{\Hypertarget{classnetdem_1_1_coded_net_s_d_f_a20b77a22c7d48f0fd72734982fb33ce1}\label{classnetdem_1_1_coded_net_s_d_f_a20b77a22c7d48f0fd72734982fb33ce1}} 
@@ -206,6 +233,20 @@ Reimplemented from \mbox{\hyperlink{classnetdem_1_1_shape_aa2f0bb26f5aa8f637a6bb
 
 
 
+Generate an STL model of the \mbox{\hyperlink{classnetdem_1_1_coded_net_s_d_f}{Coded\+Net\+SDF}} object. 
+
+This method generates an STL model of the \mbox{\hyperlink{classnetdem_1_1_coded_net_s_d_f}{Coded\+Net\+SDF}} object using the specified number of facets for each surface triangle.
+
+
+\begin{DoxyParams}{Parameters}
+{\em num\+\_\+facets} & The number of facets to use for each surface triangle (default\+: 400). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An \mbox{\hyperlink{classnetdem_1_1_s_t_l_model}{STLModel}} object representing the \mbox{\hyperlink{classnetdem_1_1_coded_net_s_d_f}{Coded\+Net\+SDF}} object. 
+\end{DoxyReturn}
+
+
 Reimplemented from \mbox{\hyperlink{classnetdem_1_1_shape_ab3a616a53e637b4654fedf7ffd498f94}{netdem\+::\+Shape}}.
 
 \mbox{\Hypertarget{classnetdem_1_1_coded_net_s_d_f_a09295947acbd090b43c06d939ed3795d}\label{classnetdem_1_1_coded_net_s_d_f_a09295947acbd090b43c06d939ed3795d}} 
@@ -214,18 +255,47 @@ Reimplemented from \mbox{\hyperlink{classnetdem_1_1_shape_ab3a616a53e637b4654fed
 \doxysubsubsection{\texorpdfstring{GetSTLModelInit()}{GetSTLModelInit()}}
 {\footnotesize\ttfamily \mbox{\hyperlink{classnetdem_1_1_s_t_l_model}{STLModel}} Coded\+Net\+SDF\+::\+Get\+STLModel\+Init (\begin{DoxyParamCaption}\item[{int}]{num\+\_\+facets }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
+
+
+Generate an initial STL model of the \mbox{\hyperlink{classnetdem_1_1_coded_net_s_d_f}{Coded\+Net\+SDF}} object. 
+
+This private method generates an initial STL model of the \mbox{\hyperlink{classnetdem_1_1_coded_net_s_d_f}{Coded\+Net\+SDF}} object using the specified number of facets for each surface triangle.
+
+
+\begin{DoxyParams}{Parameters}
+{\em num\+\_\+facets} & The number of facets to use for each surface triangle. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An \mbox{\hyperlink{classnetdem_1_1_s_t_l_model}{STLModel}} object representing the initial surface of the \mbox{\hyperlink{classnetdem_1_1_coded_net_s_d_f}{Coded\+Net\+SDF}} object. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{classnetdem_1_1_coded_net_s_d_f_ae89cd08d0d349cea8d997aa286187491}\label{classnetdem_1_1_coded_net_s_d_f_ae89cd08d0d349cea8d997aa286187491}} 
 \index{netdem::CodedNetSDF@{netdem::CodedNetSDF}!Init@{Init}}
 \index{Init@{Init}!netdem::CodedNetSDF@{netdem::CodedNetSDF}}
 \doxysubsubsection{\texorpdfstring{Init()}{Init()}}
 {\footnotesize\ttfamily void Coded\+Net\+SDF\+::\+Init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-\mbox{\Hypertarget{classnetdem_1_1_coded_net_s_d_f_a25a0071f10580b988272115bf317695f}\label{classnetdem_1_1_coded_net_s_d_f_a25a0071f10580b988272115bf317695f}} 
+
+
+Initialize the \mbox{\hyperlink{classnetdem_1_1_coded_net_s_d_f}{Coded\+Net\+SDF}} object. 
+
+This method initializes the \mbox{\hyperlink{classnetdem_1_1_coded_net_s_d_f}{Coded\+Net\+SDF}} object by loading the neural network model and corresponding latent code from memory. \mbox{\Hypertarget{classnetdem_1_1_coded_net_s_d_f_a25a0071f10580b988272115bf317695f}\label{classnetdem_1_1_coded_net_s_d_f_a25a0071f10580b988272115bf317695f}} 
 \index{netdem::CodedNetSDF@{netdem::CodedNetSDF}!InitFromJson@{InitFromJson}}
 \index{InitFromJson@{InitFromJson}!netdem::CodedNetSDF@{netdem::CodedNetSDF}}
 \doxysubsubsection{\texorpdfstring{InitFromJson()}{InitFromJson()}}
 {\footnotesize\ttfamily void Coded\+Net\+SDF\+::\+Init\+From\+Json (\begin{DoxyParamCaption}\item[{nlohmann\+::json const \&}]{js }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
+
+
+Initialize the \mbox{\hyperlink{classnetdem_1_1_coded_net_s_d_f}{Coded\+Net\+SDF}} object from a JSON structure. 
+
+This method initializes the \mbox{\hyperlink{classnetdem_1_1_coded_net_s_d_f}{Coded\+Net\+SDF}} object from a JSON structure previously generated by \mbox{\hyperlink{classnetdem_1_1_coded_net_s_d_f_aeaf4cd9598b817e889e8134cd164c17b}{Pack\+Json()}}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em js} & The JSON structure to load. \\
+\hline
+\end{DoxyParams}
 
 
 Reimplemented from \mbox{\hyperlink{classnetdem_1_1_shape_a01bdee57a765ce5432d16d9ef001c948}{netdem\+::\+Shape}}.
@@ -236,12 +306,34 @@ Reimplemented from \mbox{\hyperlink{classnetdem_1_1_shape_a01bdee57a765ce5432d16
 \doxysubsubsection{\texorpdfstring{InitFromModelFiles()}{InitFromModelFiles()}}
 {\footnotesize\ttfamily void Coded\+Net\+SDF\+::\+Init\+From\+Model\+Files (\begin{DoxyParamCaption}\item[{std\+::string const \&}]{net\+\_\+sdf\+\_\+file,  }\item[{std\+::string const \&}]{latent\+\_\+code\+\_\+file }\end{DoxyParamCaption})}
 
+
+
+Initialize the \mbox{\hyperlink{classnetdem_1_1_coded_net_s_d_f}{Coded\+Net\+SDF}} object from model files. 
+
+This method initializes the \mbox{\hyperlink{classnetdem_1_1_coded_net_s_d_f}{Coded\+Net\+SDF}} object from two model files\+: one containing the trained neural network model and one containing the corresponding latent code.
+
+
+\begin{DoxyParams}{Parameters}
+{\em net\+\_\+sdf\+\_\+file} & The name of the file containing the trained neural network model. \\
+\hline
+{\em latent\+\_\+code\+\_\+file} & The name of the file containing the corresponding latent code. \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{classnetdem_1_1_coded_net_s_d_f_aeaf4cd9598b817e889e8134cd164c17b}\label{classnetdem_1_1_coded_net_s_d_f_aeaf4cd9598b817e889e8134cd164c17b}} 
 \index{netdem::CodedNetSDF@{netdem::CodedNetSDF}!PackJson@{PackJson}}
 \index{PackJson@{PackJson}!netdem::CodedNetSDF@{netdem::CodedNetSDF}}
 \doxysubsubsection{\texorpdfstring{PackJson()}{PackJson()}}
 {\footnotesize\ttfamily nlohmann\+::json Coded\+Net\+SDF\+::\+Pack\+Json (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
+
+
+Pack the \mbox{\hyperlink{classnetdem_1_1_coded_net_s_d_f}{Coded\+Net\+SDF}} object into a JSON structure. 
+
+This method packs the \mbox{\hyperlink{classnetdem_1_1_coded_net_s_d_f}{Coded\+Net\+SDF}} object into a JSON structure for serialization and storage.
+
+\begin{DoxyReturn}{Returns}
+The packed JSON structure. 
+\end{DoxyReturn}
 
 
 Reimplemented from \mbox{\hyperlink{classnetdem_1_1_shape_aaceb6d02ba07578916c4723eb14c1365}{netdem\+::\+Shape}}.
@@ -254,6 +346,10 @@ Reimplemented from \mbox{\hyperlink{classnetdem_1_1_shape_aaceb6d02ba07578916c47
 
 
 
+Print information about the \mbox{\hyperlink{classnetdem_1_1_coded_net_s_d_f}{Coded\+Net\+SDF}} object. 
+
+This method prints basic information about the \mbox{\hyperlink{classnetdem_1_1_coded_net_s_d_f}{Coded\+Net\+SDF}} object, including its position, rotation, size, and volume. 
+
 Reimplemented from \mbox{\hyperlink{classnetdem_1_1_shape_a5e11d9bc46005ddf54d7bff51024c2bb}{netdem\+::\+Shape}}.
 
 \mbox{\Hypertarget{classnetdem_1_1_coded_net_s_d_f_ac9de0a9d32f7ec55ca42ec59b6407c63}\label{classnetdem_1_1_coded_net_s_d_f_ac9de0a9d32f7ec55ca42ec59b6407c63}} 
@@ -262,6 +358,17 @@ Reimplemented from \mbox{\hyperlink{classnetdem_1_1_shape_a5e11d9bc46005ddf54d7b
 \doxysubsubsection{\texorpdfstring{SetSize()}{SetSize()}}
 {\footnotesize\ttfamily void Coded\+Net\+SDF\+::\+Set\+Size (\begin{DoxyParamCaption}\item[{double}]{d }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
+
+
+Set the size of the \mbox{\hyperlink{classnetdem_1_1_coded_net_s_d_f}{Coded\+Net\+SDF}} object. 
+
+This method sets the size of the \mbox{\hyperlink{classnetdem_1_1_coded_net_s_d_f}{Coded\+Net\+SDF}} object by scaling it uniformly in all dimensions.
+
+
+\begin{DoxyParams}{Parameters}
+{\em d} & The new size of the \mbox{\hyperlink{classnetdem_1_1_coded_net_s_d_f}{Coded\+Net\+SDF}} object. \\
+\hline
+\end{DoxyParams}
 
 
 Reimplemented from \mbox{\hyperlink{classnetdem_1_1_shape_a83a4e08bc55fde5d3f99b5041efa6beb}{netdem\+::\+Shape}}.
@@ -274,6 +381,20 @@ Reimplemented from \mbox{\hyperlink{classnetdem_1_1_shape_a83a4e08bc55fde5d3f99b
 
 
 
+Compute the signed distance from a given position to the surface of the \mbox{\hyperlink{classnetdem_1_1_coded_net_s_d_f}{Coded\+Net\+SDF}} object. 
+
+This method computes the signed distance from a given position to the surface of the \mbox{\hyperlink{classnetdem_1_1_coded_net_s_d_f}{Coded\+Net\+SDF}} object by evaluating its neural network-\/generated signed distance function.
+
+
+\begin{DoxyParams}{Parameters}
+{\em pos} & The position for which to compute the signed distance. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The signed distance from the specified position to the surface of the \mbox{\hyperlink{classnetdem_1_1_coded_net_s_d_f}{Coded\+Net\+SDF}} object. 
+\end{DoxyReturn}
+
+
 Reimplemented from \mbox{\hyperlink{classnetdem_1_1_shape_aa27f20eb627e2e983ed530102eb91cdc}{netdem\+::\+Shape}}.
 
 \mbox{\Hypertarget{classnetdem_1_1_coded_net_s_d_f_aec5fbba3d30b131edaf6ed7ff21bd7f3}\label{classnetdem_1_1_coded_net_s_d_f_aec5fbba3d30b131edaf6ed7ff21bd7f3}} 
@@ -282,7 +403,21 @@ Reimplemented from \mbox{\hyperlink{classnetdem_1_1_shape_aa27f20eb627e2e983ed53
 \doxysubsubsection{\texorpdfstring{SurfacePoint()}{SurfacePoint()}}
 {\footnotesize\ttfamily \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} Coded\+Net\+SDF\+::\+Surface\+Point (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&}]{pos }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
-calculate the surface point corrsponding to a intruding node. It will be used to compute the contact point 
+
+
+Compute the surface point closest to a given position on the \mbox{\hyperlink{classnetdem_1_1_coded_net_s_d_f}{Coded\+Net\+SDF}} object. 
+
+This method computes the surface point closest to a given position on the \mbox{\hyperlink{classnetdem_1_1_coded_net_s_d_f}{Coded\+Net\+SDF}} object by using its neural network-\/generated signed distance function to perform an iterative search.
+
+
+\begin{DoxyParams}{Parameters}
+{\em pos} & The position for which to compute the closest surface point. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The surface point closest to the specified position on the \mbox{\hyperlink{classnetdem_1_1_coded_net_s_d_f}{Coded\+Net\+SDF}} object. 
+\end{DoxyReturn}
+
 
 Reimplemented from \mbox{\hyperlink{classnetdem_1_1_shape_a8528b3f4a6e03c5e83821c9842f596ac}{netdem\+::\+Shape}}.
 
@@ -294,6 +429,10 @@ Reimplemented from \mbox{\hyperlink{classnetdem_1_1_shape_a8528b3f4a6e03c5e83821
 
 
 
+Update the nodes of the \mbox{\hyperlink{classnetdem_1_1_coded_net_s_d_f}{Coded\+Net\+SDF}} object. 
+
+This method updates the nodes of the \mbox{\hyperlink{classnetdem_1_1_coded_net_s_d_f}{Coded\+Net\+SDF}} object based on its current position and rotation. 
+
 Reimplemented from \mbox{\hyperlink{classnetdem_1_1_shape_a9f11fadd05e55890a9f90c676d0d1ae8}{netdem\+::\+Shape}}.
 
 \mbox{\Hypertarget{classnetdem_1_1_coded_net_s_d_f_aa96b5cff3c0d4b1d8d5905907bf15b16}\label{classnetdem_1_1_coded_net_s_d_f_aa96b5cff3c0d4b1d8d5905907bf15b16}} 
@@ -303,6 +442,10 @@ Reimplemented from \mbox{\hyperlink{classnetdem_1_1_shape_a9f11fadd05e55890a9f90
 {\footnotesize\ttfamily void Coded\+Net\+SDF\+::\+Update\+Shape\+Properties (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
+
+Update the shape properties of the \mbox{\hyperlink{classnetdem_1_1_coded_net_s_d_f}{Coded\+Net\+SDF}} object. 
+
+This method updates the shape properties of the \mbox{\hyperlink{classnetdem_1_1_coded_net_s_d_f}{Coded\+Net\+SDF}} object, such as its volume and surface area. 
 
 Reimplemented from \mbox{\hyperlink{classnetdem_1_1_shape_a4286b79ebde34db279b1c13d167901ed}{netdem\+::\+Shape}}.
 
@@ -315,11 +458,19 @@ Reimplemented from \mbox{\hyperlink{classnetdem_1_1_shape_a4286b79ebde34db279b1c
 \doxysubsubsection{\texorpdfstring{latent\_code}{latent\_code}}
 {\footnotesize\ttfamily \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$double$>$ netdem\+::\+Coded\+Net\+SDF\+::latent\+\_\+code}
 
+
+
+The latent code used as input to the neural network model. 
+
 \mbox{\Hypertarget{classnetdem_1_1_coded_net_s_d_f_a5660470cab9a89400c71160bacd96173}\label{classnetdem_1_1_coded_net_s_d_f_a5660470cab9a89400c71160bacd96173}} 
 \index{netdem::CodedNetSDF@{netdem::CodedNetSDF}!net\_sdf\_model@{net\_sdf\_model}}
 \index{net\_sdf\_model@{net\_sdf\_model}!netdem::CodedNetSDF@{netdem::CodedNetSDF}}
 \doxysubsubsection{\texorpdfstring{net\_sdf\_model}{net\_sdf\_model}}
 {\footnotesize\ttfamily \mbox{\hyperlink{classnetdem_1_1_regression_net}{Regression\+Net}} netdem\+::\+Coded\+Net\+SDF\+::net\+\_\+sdf\+\_\+model}
+
+
+
+The neural network model used to generate the signed distance function. 
 
 \mbox{\Hypertarget{classnetdem_1_1_coded_net_s_d_f_affa2b5d6773c3e825b381f5ecab1be3e}\label{classnetdem_1_1_coded_net_s_d_f_affa2b5d6773c3e825b381f5ecab1be3e}} 
 \index{netdem::CodedNetSDF@{netdem::CodedNetSDF}!surface\_stl@{surface\_stl}}
@@ -327,13 +478,21 @@ Reimplemented from \mbox{\hyperlink{classnetdem_1_1_shape_a4286b79ebde34db279b1c
 \doxysubsubsection{\texorpdfstring{surface\_stl}{surface\_stl}}
 {\footnotesize\ttfamily \mbox{\hyperlink{classnetdem_1_1_s_t_l_model}{STLModel}} netdem\+::\+Coded\+Net\+SDF\+::surface\+\_\+stl\hspace{0.3cm}{\ttfamily [private]}}
 
-\mbox{\Hypertarget{classnetdem_1_1_coded_net_s_d_f_a3165d676d706f2aabbca3d98ccb52c3b}\label{classnetdem_1_1_coded_net_s_d_f_a3165d676d706f2aabbca3d98ccb52c3b}} 
+
+
+The STL model representing the surface of the \mbox{\hyperlink{classnetdem_1_1_coded_net_s_d_f}{Coded\+Net\+SDF}} object. 
+
+This private member variable stores the STL model representing the surface of the \mbox{\hyperlink{classnetdem_1_1_coded_net_s_d_f}{Coded\+Net\+SDF}} object. \mbox{\Hypertarget{classnetdem_1_1_coded_net_s_d_f_a3165d676d706f2aabbca3d98ccb52c3b}\label{classnetdem_1_1_coded_net_s_d_f_a3165d676d706f2aabbca3d98ccb52c3b}} 
 \index{netdem::CodedNetSDF@{netdem::CodedNetSDF}!surface\_stl\_tmp@{surface\_stl\_tmp}}
 \index{surface\_stl\_tmp@{surface\_stl\_tmp}!netdem::CodedNetSDF@{netdem::CodedNetSDF}}
 \doxysubsubsection{\texorpdfstring{surface\_stl\_tmp}{surface\_stl\_tmp}}
 {\footnotesize\ttfamily \mbox{\hyperlink{classnetdem_1_1_s_t_l_model}{STLModel}} netdem\+::\+Coded\+Net\+SDF\+::surface\+\_\+stl\+\_\+tmp\hspace{0.3cm}{\ttfamily [private]}}
 
 
+
+A temporary STL model used during initialization. 
+
+This private member variable stores a temporary STL model used during initialization to optimize performance. 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
