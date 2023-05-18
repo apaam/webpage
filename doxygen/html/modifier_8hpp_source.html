@@ -17,6 +17,8 @@
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -92,9 +94,9 @@ $(document).ready(function(){initNavTree('modifier_8hpp_source.html',''); initRe
   <div class="headertitle"><div class="title">modifier.hpp</div></div>
 </div><!--header-->
 <div class="contents">
-<a href="modifier_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &quot;<a class="code" href="dem__solver_8hpp.html">dem_solver.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &quot;dem_solver.hpp&quot;</span></div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;string&gt;</span></div>
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacenetdem.html">netdem</a> {</div>
@@ -102,62 +104,54 @@ $(document).ready(function(){initNavTree('modifier_8hpp_source.html',''); initRe
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="keyword">class </span>Simulation;</div>
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="keyword">class </span>Scene;</div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="classnetdem_1_1_modifier.html">   17</a></span><span class="keyword">class </span><a class="code hl_class" href="classnetdem_1_1_modifier.html">Modifier</a> {</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="classnetdem_1_1_modifier.html#a9ca96d4276e4cb637b0220ab6fbbbbee">   19</a></span>  std::string <a class="code hl_variable" href="classnetdem_1_1_modifier.html#a9ca96d4276e4cb637b0220ab6fbbbbee">label</a>{<span class="stringliteral">&quot;default&quot;</span>};</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="classnetdem_1_1_modifier.html#ac97b78c11b6264901e6ea5ee9324fe14">   20</a></span>  <a class="code hl_enumeration" href="classnetdem_1_1_d_e_m_solver.html#a7b625d897bb69cd28838602603b8b0c4">DEMSolver::CyclePoint</a> <a class="code hl_variable" href="classnetdem_1_1_modifier.html#ac97b78c11b6264901e6ea5ee9324fe14">cycle_point</a>{<a class="code hl_enumvalue" href="classnetdem_1_1_d_e_m_solver.html#a7b625d897bb69cd28838602603b8b0c4a03e21037ee2bb4ffa60b59913aafc1ae">DEMSolver::CyclePoint::pre</a>};</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="classnetdem_1_1_modifier.html#a2af15a41cb6d01349b0597d2f1828763">   22</a></span>  <a class="code hl_class" href="classnetdem_1_1_simulation.html">Simulation</a> *<a class="code hl_variable" href="classnetdem_1_1_modifier.html#a2af15a41cb6d01349b0597d2f1828763">sim</a>{<span class="keyword">nullptr</span>};</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="classnetdem_1_1_modifier.html#a8a325cf86217e207d54672249c23eb95">   23</a></span>  <a class="code hl_class" href="classnetdem_1_1_scene.html">Scene</a> *<a class="code hl_variable" href="classnetdem_1_1_modifier.html#a8a325cf86217e207d54672249c23eb95">scene</a>{<span class="keyword">nullptr</span>};</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="classnetdem_1_1_modifier.html#a2258d80ff48346506d430f6f14ee486e">   25</a></span>  <span class="keywordtype">bool</span> <a class="code hl_variable" href="classnetdem_1_1_modifier.html#a2258d80ff48346506d430f6f14ee486e">update_with_scene</a>{<span class="keyword">false</span>};</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="classnetdem_1_1_modifier.html#a86866b7b68088778ba6062cf88126302">   26</a></span>  <span class="keywordtype">bool</span> <a class="code hl_variable" href="classnetdem_1_1_modifier.html#a86866b7b68088778ba6062cf88126302">enable_logging</a>{<span class="keyword">true</span>};</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>  <a class="code hl_function" href="classnetdem_1_1_modifier.html#a00ecd168ce3ca5e2f3d4d741d7a56bbd">Modifier</a>();</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>  <span class="keyword">virtual</span> <a class="code hl_class" href="classnetdem_1_1_modifier.html">Modifier</a> *<a class="code hl_function" href="classnetdem_1_1_modifier.html#a0c808763e3e8052cbd446cb7d910f843">Clone</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>  <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classnetdem_1_1_modifier.html#ad340b35e3d4a44cbb708a522b89eec91">Init</a>(<a class="code hl_class" href="classnetdem_1_1_simulation.html">Simulation</a> *<a class="code hl_variable" href="classnetdem_1_1_modifier.html#a2af15a41cb6d01349b0597d2f1828763">sim</a>);</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>  <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classnetdem_1_1_modifier.html#af24eb11dda7460744ff568ce299bee6f">Enable</a>();</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>  <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classnetdem_1_1_modifier.html#aba99c2f91ecd22eb1c88c45b1890aa38">Disable</a>();</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>  <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classnetdem_1_1_modifier.html#a8ffc62d61052f129a3301278b7cffb2c">Execute</a>();</div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>  <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classnetdem_1_1_modifier.html#adb2442a93cd18bc810156aa7275a46b8">Update</a>();</div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span> </div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>  <span class="keyword">virtual</span> <a class="code hl_function" href="classnetdem_1_1_modifier.html#a370a42d8715caec46e4d4d241667d053">~Modifier</a>();</div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>};</div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>} <span class="comment">// namespace netdem</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="classnetdem_1_1_modifier.html">   18</a></span><span class="keyword">class </span><a class="code hl_class" href="classnetdem_1_1_modifier.html">Modifier</a> {</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>  std::string label{<span class="stringliteral">&quot;default&quot;</span>};</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>  <a class="code hl_enumeration" href="classnetdem_1_1_d_e_m_solver.html#a7b625d897bb69cd28838602603b8b0c4">DEMSolver::CyclePoint</a> cycle_point{DEMSolver::CyclePoint::pre};</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>  <a class="code hl_class" href="classnetdem_1_1_simulation.html">Simulation</a> *sim{<span class="keyword">nullptr</span>};</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>  <a class="code hl_class" href="classnetdem_1_1_scene.html">Scene</a> *scene{<span class="keyword">nullptr</span>};</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>  <span class="keywordtype">bool</span> update_with_scene{<span class="keyword">false</span>};</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>  <span class="keywordtype">bool</span> enable_logging{<span class="keyword">true</span>};</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>  <a class="code hl_function" href="classnetdem_1_1_modifier.html#a00ecd168ce3ca5e2f3d4d741d7a56bbd">Modifier</a>();</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>  <span class="keyword">virtual</span> <a class="code hl_class" href="classnetdem_1_1_modifier.html">Modifier</a> *<a class="code hl_function" href="classnetdem_1_1_modifier.html#a0c808763e3e8052cbd446cb7d910f843">Clone</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>  <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classnetdem_1_1_modifier.html#ad340b35e3d4a44cbb708a522b89eec91">Init</a>(<a class="code hl_class" href="classnetdem_1_1_simulation.html">Simulation</a> *sim);</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>  <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classnetdem_1_1_modifier.html#af24eb11dda7460744ff568ce299bee6f">Enable</a>();</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>  <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classnetdem_1_1_modifier.html#aba99c2f91ecd22eb1c88c45b1890aa38">Disable</a>();</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>  <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classnetdem_1_1_modifier.html#a8ffc62d61052f129a3301278b7cffb2c">Execute</a>();</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>  <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classnetdem_1_1_modifier.html#adb2442a93cd18bc810156aa7275a46b8">Update</a>();</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>  <span class="keyword">virtual</span> <a class="code hl_function" href="classnetdem_1_1_modifier.html#a370a42d8715caec46e4d4d241667d053">~Modifier</a>();</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>};</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>} <span class="comment">// namespace netdem</span></div>
 <div class="ttc" id="aclassnetdem_1_1_d_e_m_solver_html_a7b625d897bb69cd28838602603b8b0c4"><div class="ttname"><a href="classnetdem_1_1_d_e_m_solver.html#a7b625d897bb69cd28838602603b8b0c4">netdem::DEMSolver::CyclePoint</a></div><div class="ttdeci">CyclePoint</div><div class="ttdef"><b>Definition:</b> dem_solver.hpp:27</div></div>
-<div class="ttc" id="aclassnetdem_1_1_d_e_m_solver_html_a7b625d897bb69cd28838602603b8b0c4a03e21037ee2bb4ffa60b59913aafc1ae"><div class="ttname"><a href="classnetdem_1_1_d_e_m_solver.html#a7b625d897bb69cd28838602603b8b0c4a03e21037ee2bb4ffa60b59913aafc1ae">netdem::DEMSolver::pre</a></div><div class="ttdeci">@ pre</div><div class="ttdef"><b>Definition:</b> dem_solver.hpp:28</div></div>
-<div class="ttc" id="aclassnetdem_1_1_modifier_html"><div class="ttname"><a href="classnetdem_1_1_modifier.html">netdem::Modifier</a></div><div class="ttdoc">An interface class used to modify a DEM simulation.</div><div class="ttdef"><b>Definition:</b> modifier.hpp:17</div></div>
+<div class="ttc" id="aclassnetdem_1_1_modifier_html"><div class="ttname"><a href="classnetdem_1_1_modifier.html">netdem::Modifier</a></div><div class="ttdoc">An interface class used to modify a DEM simulation.</div><div class="ttdef"><b>Definition:</b> modifier.hpp:18</div></div>
 <div class="ttc" id="aclassnetdem_1_1_modifier_html_a00ecd168ce3ca5e2f3d4d741d7a56bbd"><div class="ttname"><a href="classnetdem_1_1_modifier.html#a00ecd168ce3ca5e2f3d4d741d7a56bbd">netdem::Modifier::Modifier</a></div><div class="ttdeci">Modifier()</div><div class="ttdoc">Default constructor for Modifier class.</div><div class="ttdef"><b>Definition:</b> modifier.cpp:7</div></div>
 <div class="ttc" id="aclassnetdem_1_1_modifier_html_a0c808763e3e8052cbd446cb7d910f843"><div class="ttname"><a href="classnetdem_1_1_modifier.html#a0c808763e3e8052cbd446cb7d910f843">netdem::Modifier::Clone</a></div><div class="ttdeci">virtual Modifier * Clone() const</div><div class="ttdoc">Clones the current Modifier instance.</div><div class="ttdef"><b>Definition:</b> modifier.cpp:9</div></div>
-<div class="ttc" id="aclassnetdem_1_1_modifier_html_a2258d80ff48346506d430f6f14ee486e"><div class="ttname"><a href="classnetdem_1_1_modifier.html#a2258d80ff48346506d430f6f14ee486e">netdem::Modifier::update_with_scene</a></div><div class="ttdeci">bool update_with_scene</div><div class="ttdef"><b>Definition:</b> modifier.hpp:25</div></div>
-<div class="ttc" id="aclassnetdem_1_1_modifier_html_a2af15a41cb6d01349b0597d2f1828763"><div class="ttname"><a href="classnetdem_1_1_modifier.html#a2af15a41cb6d01349b0597d2f1828763">netdem::Modifier::sim</a></div><div class="ttdeci">Simulation * sim</div><div class="ttdef"><b>Definition:</b> modifier.hpp:22</div></div>
 <div class="ttc" id="aclassnetdem_1_1_modifier_html_a370a42d8715caec46e4d4d241667d053"><div class="ttname"><a href="classnetdem_1_1_modifier.html#a370a42d8715caec46e4d4d241667d053">netdem::Modifier::~Modifier</a></div><div class="ttdeci">virtual ~Modifier()</div><div class="ttdoc">Destructor for Modifier class.</div><div class="ttdef"><b>Definition:</b> modifier.cpp:45</div></div>
-<div class="ttc" id="aclassnetdem_1_1_modifier_html_a86866b7b68088778ba6062cf88126302"><div class="ttname"><a href="classnetdem_1_1_modifier.html#a86866b7b68088778ba6062cf88126302">netdem::Modifier::enable_logging</a></div><div class="ttdeci">bool enable_logging</div><div class="ttdef"><b>Definition:</b> modifier.hpp:26</div></div>
-<div class="ttc" id="aclassnetdem_1_1_modifier_html_a8a325cf86217e207d54672249c23eb95"><div class="ttname"><a href="classnetdem_1_1_modifier.html#a8a325cf86217e207d54672249c23eb95">netdem::Modifier::scene</a></div><div class="ttdeci">Scene * scene</div><div class="ttdef"><b>Definition:</b> modifier.hpp:23</div></div>
 <div class="ttc" id="aclassnetdem_1_1_modifier_html_a8ffc62d61052f129a3301278b7cffb2c"><div class="ttname"><a href="classnetdem_1_1_modifier.html#a8ffc62d61052f129a3301278b7cffb2c">netdem::Modifier::Execute</a></div><div class="ttdeci">virtual void Execute()</div><div class="ttdoc">Executes the Modifier instance.</div><div class="ttdef"><b>Definition:</b> modifier.cpp:41</div></div>
-<div class="ttc" id="aclassnetdem_1_1_modifier_html_a9ca96d4276e4cb637b0220ab6fbbbbee"><div class="ttname"><a href="classnetdem_1_1_modifier.html#a9ca96d4276e4cb637b0220ab6fbbbbee">netdem::Modifier::label</a></div><div class="ttdeci">std::string label</div><div class="ttdef"><b>Definition:</b> modifier.hpp:19</div></div>
 <div class="ttc" id="aclassnetdem_1_1_modifier_html_aba99c2f91ecd22eb1c88c45b1890aa38"><div class="ttname"><a href="classnetdem_1_1_modifier.html#aba99c2f91ecd22eb1c88c45b1890aa38">netdem::Modifier::Disable</a></div><div class="ttdeci">virtual void Disable()</div><div class="ttdoc">Disables the Modifier instance.</div><div class="ttdef"><b>Definition:</b> modifier.cpp:29</div></div>
-<div class="ttc" id="aclassnetdem_1_1_modifier_html_ac97b78c11b6264901e6ea5ee9324fe14"><div class="ttname"><a href="classnetdem_1_1_modifier.html#ac97b78c11b6264901e6ea5ee9324fe14">netdem::Modifier::cycle_point</a></div><div class="ttdeci">DEMSolver::CyclePoint cycle_point</div><div class="ttdef"><b>Definition:</b> modifier.hpp:20</div></div>
 <div class="ttc" id="aclassnetdem_1_1_modifier_html_ad340b35e3d4a44cbb708a522b89eec91"><div class="ttname"><a href="classnetdem_1_1_modifier.html#ad340b35e3d4a44cbb708a522b89eec91">netdem::Modifier::Init</a></div><div class="ttdeci">virtual void Init(Simulation *sim)</div><div class="ttdoc">Initializes the Modifier instance.</div><div class="ttdef"><b>Definition:</b> modifier.cpp:11</div></div>
 <div class="ttc" id="aclassnetdem_1_1_modifier_html_adb2442a93cd18bc810156aa7275a46b8"><div class="ttname"><a href="classnetdem_1_1_modifier.html#adb2442a93cd18bc810156aa7275a46b8">netdem::Modifier::Update</a></div><div class="ttdeci">virtual void Update()</div><div class="ttdoc">Updates the Modifier instance.</div><div class="ttdef"><b>Definition:</b> modifier.cpp:43</div></div>
 <div class="ttc" id="aclassnetdem_1_1_modifier_html_af24eb11dda7460744ff568ce299bee6f"><div class="ttname"><a href="classnetdem_1_1_modifier.html#af24eb11dda7460744ff568ce299bee6f">netdem::Modifier::Enable</a></div><div class="ttdeci">virtual void Enable()</div><div class="ttdoc">Enables the Modifier instance.</div><div class="ttdef"><b>Definition:</b> modifier.cpp:17</div></div>
 <div class="ttc" id="aclassnetdem_1_1_scene_html"><div class="ttname"><a href="classnetdem_1_1_scene.html">netdem::Scene</a></div><div class="ttdef"><b>Definition:</b> scene.hpp:54</div></div>
 <div class="ttc" id="aclassnetdem_1_1_simulation_html"><div class="ttname"><a href="classnetdem_1_1_simulation.html">netdem::Simulation</a></div><div class="ttdoc">Class for managing a DEM simulation.</div><div class="ttdef"><b>Definition:</b> simulation.hpp:20</div></div>
-<div class="ttc" id="adem__solver_8hpp_html"><div class="ttname"><a href="dem__solver_8hpp.html">dem_solver.hpp</a></div></div>
 <div class="ttc" id="anamespacenetdem_html"><div class="ttname"><a href="namespacenetdem.html">netdem</a></div><div class="ttdoc">A class representing a fragment in a discrete element method simulation.</div><div class="ttdef"><b>Definition:</b> bond_entry.hpp:7</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_1f2a9fe58f9a6358aa24a6d1516340da.html">netdem</a></li><li class="navelem"><a class="el" href="dir_04176275722661bc84c11bcbe74288bf.html">src</a></li><li class="navelem"><a class="el" href="dir_c541b056411db48a7d1442791b573641.html">modifier</a></li><li class="navelem"><a class="el" href="modifier_8hpp.html">modifier.hpp</a></li>
+    <li class="navelem"><a class="el" href="dir_1f2a9fe58f9a6358aa24a6d1516340da.html">netdem</a></li><li class="navelem"><a class="el" href="dir_04176275722661bc84c11bcbe74288bf.html">src</a></li><li class="navelem"><a class="el" href="dir_c541b056411db48a7d1442791b573641.html">modifier</a></li><li class="navelem"><b>modifier.hpp</b></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.6 </li>
   </ul>
 </div>

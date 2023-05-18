@@ -46,9 +46,9 @@ void \mbox{\hyperlink{classnetdem_1_1_solver_a_n_n_p_w_acbebaaf70d14bde5b252c8ca
 \begin{DoxyCompactList}\small\item\em Resolves the collision using a potential-\/based method at initialization time. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classnetdem_1_1_solver_a_n_n_p_w_a9933eaccd0b3266a07dc9b7d26f98b6e}{Resolve\+Update\+\_\+\+Potential\+Based}} (\mbox{\hyperlink{classnetdem_1_1_collision_geometries}{Collision\+Geometries}} $\ast$const cnt\+\_\+geoms, double timestep)
 \begin{DoxyCompactList}\small\item\em Resolves the collision using a potential-\/based method during update time. \end{DoxyCompactList}\item 
-std\+::tuple$<$ double, \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $>$ \mbox{\hyperlink{classnetdem_1_1_solver_a_n_n_p_w_aa52d72d511bac2290b7c454324d6ae01}{Potential}} (\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&pos, \mbox{\hyperlink{namespacenetdem_a13d5371f99b252a70fd5a5081b910370}{Vec4d}} const \&quat)
+std\+::tuple$<$ double, Vec3d $>$ \mbox{\hyperlink{classnetdem_1_1_solver_a_n_n_p_w_aa52d72d511bac2290b7c454324d6ae01}{Potential}} (Vec3d const \&pos, Vec4d const \&quat)
 \begin{DoxyCompactList}\small\item\em Calculates the potential energy and contact position for the collision. \end{DoxyCompactList}\item 
-std\+::tuple$<$ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}, \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}, \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $>$ \mbox{\hyperlink{classnetdem_1_1_solver_a_n_n_p_w_a0e60fe21eecbf1128bcbf9d5c197aa14}{Evaluate\+Contact\+Forces}} ()
+std\+::tuple$<$ Vec3d, Vec3d, Vec3d $>$ \mbox{\hyperlink{classnetdem_1_1_solver_a_n_n_p_w_a0e60fe21eecbf1128bcbf9d5c197aa14}{Evaluate\+Contact\+Forces}} ()
 \begin{DoxyCompactList}\small\item\em Evaluates the contact forces for the collision. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Public Member Functions inherited from \mbox{\hyperlink{classnetdem_1_1_collision_solver_p_w}{netdem\+::\+Collision\+Solver\+PW}}}
 \begin{DoxyCompactItemize}
@@ -74,11 +74,14 @@ virtual \mbox{\hyperlink{classnetdem_1_1_collision_solver_p_w_aed072d2954a6f834d
 \doxysubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{classnetdem_1_1_general_net}{netdem\+::\+General\+Net}} \mbox{\hyperlink{classnetdem_1_1_solver_a_n_n_p_w_a16513312fa17f1f37fed03044c2ac048}{classifier}}
+\mbox{\Hypertarget{classnetdem_1_1_solver_a_n_n_p_w_a16513312fa17f1f37fed03044c2ac048}\label{classnetdem_1_1_solver_a_n_n_p_w_a16513312fa17f1f37fed03044c2ac048}} 
+\mbox{\hyperlink{classnetdem_1_1_general_net}{netdem\+::\+General\+Net}} {\bfseries classifier}
 \begin{DoxyCompactList}\small\item\em The neural network model used for classification. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{classnetdem_1_1_regression_net}{netdem\+::\+Regression\+Net}} \mbox{\hyperlink{classnetdem_1_1_solver_a_n_n_p_w_a595cd6e022ebe0d5e3a420145237148b}{regressor}}
+\mbox{\Hypertarget{classnetdem_1_1_solver_a_n_n_p_w_a595cd6e022ebe0d5e3a420145237148b}\label{classnetdem_1_1_solver_a_n_n_p_w_a595cd6e022ebe0d5e3a420145237148b}} 
+\mbox{\hyperlink{classnetdem_1_1_regression_net}{netdem\+::\+Regression\+Net}} {\bfseries regressor}
 \begin{DoxyCompactList}\small\item\em The neural network model used for regression. \end{DoxyCompactList}\item 
-bool \mbox{\hyperlink{classnetdem_1_1_solver_a_n_n_p_w_a8c319b8ded0d9e03ae72edf39d3f4b52}{is\+\_\+initialized}} \{false\}
+\mbox{\Hypertarget{classnetdem_1_1_solver_a_n_n_p_w_a8c319b8ded0d9e03ae72edf39d3f4b52}\label{classnetdem_1_1_solver_a_n_n_p_w_a8c319b8ded0d9e03ae72edf39d3f4b52}} 
+bool {\bfseries is\+\_\+initialized} \{false\}
 \begin{DoxyCompactList}\small\item\em Whether or not the solver has been initialized. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Public Attributes inherited from \mbox{\hyperlink{classnetdem_1_1_collision_solver_p_w}{netdem\+::\+Collision\+Solver\+PW}}}
 \begin{DoxyCompactItemize}
@@ -87,32 +90,13 @@ bool \mbox{\hyperlink{classnetdem_1_1_solver_a_n_n_p_w_a8c319b8ded0d9e03ae72edf3
 \item 
 \mbox{\hyperlink{classnetdem_1_1_wall}{Wall}} $\ast$ \mbox{\hyperlink{classnetdem_1_1_collision_solver_p_w_af277573368172045c160c12a3caa232b}{wall}} \{nullptr\}
 \end{DoxyCompactItemize}
-\doxysubsection*{Private Attributes}
-\begin{DoxyCompactItemize}
-\item 
-\mbox{\hyperlink{classnetdem_1_1_shape}{Shape}} $\ast$ \mbox{\hyperlink{classnetdem_1_1_solver_a_n_n_p_w_a95268ae3d3cafa354a06a7189c72b720}{shape\+\_\+1}} \{nullptr\}
-\begin{DoxyCompactList}\small\item\em The shape of the first particle. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{classnetdem_1_1_shape}{Shape}} $\ast$ \mbox{\hyperlink{classnetdem_1_1_solver_a_n_n_p_w_a9eb5338305e02b0163b3f8425eb75b47}{shape\+\_\+2}} \{nullptr\}
-\begin{DoxyCompactList}\small\item\em The shape of the second particle. \end{DoxyCompactList}\item 
-double \mbox{\hyperlink{classnetdem_1_1_solver_a_n_n_p_w_a1c0f6ae2512a664916684cd585b55b15}{bound\+\_\+sphere\+\_\+radius\+\_\+1}}
-\begin{DoxyCompactList}\small\item\em The radius of the bounding sphere for the first particle. \end{DoxyCompactList}\item 
-double \mbox{\hyperlink{classnetdem_1_1_solver_a_n_n_p_w_a6b52199fa4a6a236afb34566c0f4d505}{bound\+\_\+sphere\+\_\+radius\+\_\+2}}
-\begin{DoxyCompactList}\small\item\em The radius of the bounding sphere for the second particle. \end{DoxyCompactList}\item 
-double \mbox{\hyperlink{classnetdem_1_1_solver_a_n_n_p_w_af97ef342138f869801e97ae7794f5574}{scale}}
-\begin{DoxyCompactList}\small\item\em The scale factor used to scale the potential energy. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \mbox{\hyperlink{classnetdem_1_1_solver_a_n_n_p_w_ae46a0bd5078e458729d1e4bbc4d6329a}{dpos\+\_\+12}}
-\begin{DoxyCompactList}\small\item\em The relative position between the two particles. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \mbox{\hyperlink{classnetdem_1_1_solver_a_n_n_p_w_a87cce5f15494af51ffbb335b5ea2e6ea}{dpos\+\_\+12\+\_\+ref}}
-\begin{DoxyCompactList}\small\item\em The reference relative position between the two particles. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{namespacenetdem_a13d5371f99b252a70fd5a5081b910370}{Vec4d}} \mbox{\hyperlink{classnetdem_1_1_solver_a_n_n_p_w_a496a1bbf0f4317f8c6b4cb57a42091b4}{dquat\+\_\+12}}
-\begin{DoxyCompactList}\small\item\em The relative orientation between the two particles. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Additional Inherited Members}
 \doxysubsubsection*{Protected Member Functions inherited from \mbox{\hyperlink{classnetdem_1_1_collision_solver_p_w}{netdem\+::\+Collision\+Solver\+PW}}}
 \begin{DoxyCompactItemize}
 \item 
 void \mbox{\hyperlink{classnetdem_1_1_collision_solver_p_w_ac71fefe3b9e08712eedae9d5e5bfe336}{Init\+Basic\+Geoms}} (\mbox{\hyperlink{classnetdem_1_1_collision_geometries}{Collision\+Geometries}} $\ast$const cnt\+\_\+geoms, double timestep)
 \item 
-void \mbox{\hyperlink{classnetdem_1_1_collision_solver_p_w_a75563d0f485ce14cca7eef636099b546}{Update\+Basic\+Geoms}} (\mbox{\hyperlink{classnetdem_1_1_collision_geometries}{Collision\+Geometries}} $\ast$const cnt\+\_\+geoms, double timestep, \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&dir\+\_\+n\+\_\+old)
+void \mbox{\hyperlink{classnetdem_1_1_collision_solver_p_w_a75563d0f485ce14cca7eef636099b546}{Update\+Basic\+Geoms}} (\mbox{\hyperlink{classnetdem_1_1_collision_geometries}{Collision\+Geometries}} $\ast$const cnt\+\_\+geoms, double timestep, Vec3d const \&dir\+\_\+n\+\_\+old)
 \end{DoxyCompactItemize}
 
 
@@ -198,7 +182,7 @@ Implements \mbox{\hyperlink{classnetdem_1_1_collision_solver_p_w_a662b4b47765dd9
 \index{netdem::SolverANNPW@{netdem::SolverANNPW}!EvaluateContactForces@{EvaluateContactForces}}
 \index{EvaluateContactForces@{EvaluateContactForces}!netdem::SolverANNPW@{netdem::SolverANNPW}}
 \doxysubsubsection{\texorpdfstring{EvaluateContactForces()}{EvaluateContactForces()}}
-{\footnotesize\ttfamily std\+::tuple$<$ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}, \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}, \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $>$ netdem\+::\+Solver\+ANNPW\+::\+Evaluate\+Contact\+Forces (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily std\+::tuple$<$ Vec3d, Vec3d, Vec3d $>$ netdem\+::\+Solver\+ANNPW\+::\+Evaluate\+Contact\+Forces (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 
 
@@ -255,7 +239,7 @@ This function initializes the collision solver with neural network models loaded
 \index{netdem::SolverANNPW@{netdem::SolverANNPW}!Potential@{Potential}}
 \index{Potential@{Potential}!netdem::SolverANNPW@{netdem::SolverANNPW}}
 \doxysubsubsection{\texorpdfstring{Potential()}{Potential()}}
-{\footnotesize\ttfamily std\+::tuple$<$ double, \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $>$ netdem\+::\+Solver\+ANNPW\+::\+Potential (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&}]{pos,  }\item[{\mbox{\hyperlink{namespacenetdem_a13d5371f99b252a70fd5a5081b910370}{Vec4d}} const \&}]{quat }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily std\+::tuple$<$ double, Vec3d $>$ netdem\+::\+Solver\+ANNPW\+::\+Potential (\begin{DoxyParamCaption}\item[{Vec3d const \&}]{pos,  }\item[{Vec4d const \&}]{quat }\end{DoxyParamCaption})}
 
 
 
@@ -435,120 +419,7 @@ This function resolves the collision between the two particles during update tim
 \end{DoxyParams}
 
 
-\doxysubsection{Member Data Documentation}
-\mbox{\Hypertarget{classnetdem_1_1_solver_a_n_n_p_w_a1c0f6ae2512a664916684cd585b55b15}\label{classnetdem_1_1_solver_a_n_n_p_w_a1c0f6ae2512a664916684cd585b55b15}} 
-\index{netdem::SolverANNPW@{netdem::SolverANNPW}!bound\_sphere\_radius\_1@{bound\_sphere\_radius\_1}}
-\index{bound\_sphere\_radius\_1@{bound\_sphere\_radius\_1}!netdem::SolverANNPW@{netdem::SolverANNPW}}
-\doxysubsubsection{\texorpdfstring{bound\_sphere\_radius\_1}{bound\_sphere\_radius\_1}}
-{\footnotesize\ttfamily double netdem\+::\+Solver\+ANNPW\+::bound\+\_\+sphere\+\_\+radius\+\_\+1\hspace{0.3cm}{\ttfamily [private]}}
-
-
-
-The radius of the bounding sphere for the first particle. 
-
-\mbox{\Hypertarget{classnetdem_1_1_solver_a_n_n_p_w_a6b52199fa4a6a236afb34566c0f4d505}\label{classnetdem_1_1_solver_a_n_n_p_w_a6b52199fa4a6a236afb34566c0f4d505}} 
-\index{netdem::SolverANNPW@{netdem::SolverANNPW}!bound\_sphere\_radius\_2@{bound\_sphere\_radius\_2}}
-\index{bound\_sphere\_radius\_2@{bound\_sphere\_radius\_2}!netdem::SolverANNPW@{netdem::SolverANNPW}}
-\doxysubsubsection{\texorpdfstring{bound\_sphere\_radius\_2}{bound\_sphere\_radius\_2}}
-{\footnotesize\ttfamily double netdem\+::\+Solver\+ANNPW\+::bound\+\_\+sphere\+\_\+radius\+\_\+2\hspace{0.3cm}{\ttfamily [private]}}
-
-
-
-The radius of the bounding sphere for the second particle. 
-
-\mbox{\Hypertarget{classnetdem_1_1_solver_a_n_n_p_w_a16513312fa17f1f37fed03044c2ac048}\label{classnetdem_1_1_solver_a_n_n_p_w_a16513312fa17f1f37fed03044c2ac048}} 
-\index{netdem::SolverANNPW@{netdem::SolverANNPW}!classifier@{classifier}}
-\index{classifier@{classifier}!netdem::SolverANNPW@{netdem::SolverANNPW}}
-\doxysubsubsection{\texorpdfstring{classifier}{classifier}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classnetdem_1_1_general_net}{netdem\+::\+General\+Net}} netdem\+::\+Solver\+ANNPW\+::classifier}
-
-
-
-The neural network model used for classification. 
-
-\mbox{\Hypertarget{classnetdem_1_1_solver_a_n_n_p_w_ae46a0bd5078e458729d1e4bbc4d6329a}\label{classnetdem_1_1_solver_a_n_n_p_w_ae46a0bd5078e458729d1e4bbc4d6329a}} 
-\index{netdem::SolverANNPW@{netdem::SolverANNPW}!dpos\_12@{dpos\_12}}
-\index{dpos\_12@{dpos\_12}!netdem::SolverANNPW@{netdem::SolverANNPW}}
-\doxysubsubsection{\texorpdfstring{dpos\_12}{dpos\_12}}
-{\footnotesize\ttfamily \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} netdem\+::\+Solver\+ANNPW\+::dpos\+\_\+12\hspace{0.3cm}{\ttfamily [private]}}
-
-
-
-The relative position between the two particles. 
-
-\mbox{\Hypertarget{classnetdem_1_1_solver_a_n_n_p_w_a87cce5f15494af51ffbb335b5ea2e6ea}\label{classnetdem_1_1_solver_a_n_n_p_w_a87cce5f15494af51ffbb335b5ea2e6ea}} 
-\index{netdem::SolverANNPW@{netdem::SolverANNPW}!dpos\_12\_ref@{dpos\_12\_ref}}
-\index{dpos\_12\_ref@{dpos\_12\_ref}!netdem::SolverANNPW@{netdem::SolverANNPW}}
-\doxysubsubsection{\texorpdfstring{dpos\_12\_ref}{dpos\_12\_ref}}
-{\footnotesize\ttfamily \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} netdem\+::\+Solver\+ANNPW\+::dpos\+\_\+12\+\_\+ref\hspace{0.3cm}{\ttfamily [private]}}
-
-
-
-The reference relative position between the two particles. 
-
-\mbox{\Hypertarget{classnetdem_1_1_solver_a_n_n_p_w_a496a1bbf0f4317f8c6b4cb57a42091b4}\label{classnetdem_1_1_solver_a_n_n_p_w_a496a1bbf0f4317f8c6b4cb57a42091b4}} 
-\index{netdem::SolverANNPW@{netdem::SolverANNPW}!dquat\_12@{dquat\_12}}
-\index{dquat\_12@{dquat\_12}!netdem::SolverANNPW@{netdem::SolverANNPW}}
-\doxysubsubsection{\texorpdfstring{dquat\_12}{dquat\_12}}
-{\footnotesize\ttfamily \mbox{\hyperlink{namespacenetdem_a13d5371f99b252a70fd5a5081b910370}{Vec4d}} netdem\+::\+Solver\+ANNPW\+::dquat\+\_\+12\hspace{0.3cm}{\ttfamily [private]}}
-
-
-
-The relative orientation between the two particles. 
-
-\mbox{\Hypertarget{classnetdem_1_1_solver_a_n_n_p_w_a8c319b8ded0d9e03ae72edf39d3f4b52}\label{classnetdem_1_1_solver_a_n_n_p_w_a8c319b8ded0d9e03ae72edf39d3f4b52}} 
-\index{netdem::SolverANNPW@{netdem::SolverANNPW}!is\_initialized@{is\_initialized}}
-\index{is\_initialized@{is\_initialized}!netdem::SolverANNPW@{netdem::SolverANNPW}}
-\doxysubsubsection{\texorpdfstring{is\_initialized}{is\_initialized}}
-{\footnotesize\ttfamily bool netdem\+::\+Solver\+ANNPW\+::is\+\_\+initialized \{false\}}
-
-
-
-Whether or not the solver has been initialized. 
-
-\mbox{\Hypertarget{classnetdem_1_1_solver_a_n_n_p_w_a595cd6e022ebe0d5e3a420145237148b}\label{classnetdem_1_1_solver_a_n_n_p_w_a595cd6e022ebe0d5e3a420145237148b}} 
-\index{netdem::SolverANNPW@{netdem::SolverANNPW}!regressor@{regressor}}
-\index{regressor@{regressor}!netdem::SolverANNPW@{netdem::SolverANNPW}}
-\doxysubsubsection{\texorpdfstring{regressor}{regressor}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classnetdem_1_1_regression_net}{netdem\+::\+Regression\+Net}} netdem\+::\+Solver\+ANNPW\+::regressor}
-
-
-
-The neural network model used for regression. 
-
-\mbox{\Hypertarget{classnetdem_1_1_solver_a_n_n_p_w_af97ef342138f869801e97ae7794f5574}\label{classnetdem_1_1_solver_a_n_n_p_w_af97ef342138f869801e97ae7794f5574}} 
-\index{netdem::SolverANNPW@{netdem::SolverANNPW}!scale@{scale}}
-\index{scale@{scale}!netdem::SolverANNPW@{netdem::SolverANNPW}}
-\doxysubsubsection{\texorpdfstring{scale}{scale}}
-{\footnotesize\ttfamily double netdem\+::\+Solver\+ANNPW\+::scale\hspace{0.3cm}{\ttfamily [private]}}
-
-
-
-The scale factor used to scale the potential energy. 
-
-\mbox{\Hypertarget{classnetdem_1_1_solver_a_n_n_p_w_a95268ae3d3cafa354a06a7189c72b720}\label{classnetdem_1_1_solver_a_n_n_p_w_a95268ae3d3cafa354a06a7189c72b720}} 
-\index{netdem::SolverANNPW@{netdem::SolverANNPW}!shape\_1@{shape\_1}}
-\index{shape\_1@{shape\_1}!netdem::SolverANNPW@{netdem::SolverANNPW}}
-\doxysubsubsection{\texorpdfstring{shape\_1}{shape\_1}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classnetdem_1_1_shape}{Shape}}$\ast$ netdem\+::\+Solver\+ANNPW\+::shape\+\_\+1 \{nullptr\}\hspace{0.3cm}{\ttfamily [private]}}
-
-
-
-The shape of the first particle. 
-
-\mbox{\Hypertarget{classnetdem_1_1_solver_a_n_n_p_w_a9eb5338305e02b0163b3f8425eb75b47}\label{classnetdem_1_1_solver_a_n_n_p_w_a9eb5338305e02b0163b3f8425eb75b47}} 
-\index{netdem::SolverANNPW@{netdem::SolverANNPW}!shape\_2@{shape\_2}}
-\index{shape\_2@{shape\_2}!netdem::SolverANNPW@{netdem::SolverANNPW}}
-\doxysubsubsection{\texorpdfstring{shape\_2}{shape\_2}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classnetdem_1_1_shape}{Shape}}$\ast$ netdem\+::\+Solver\+ANNPW\+::shape\+\_\+2 \{nullptr\}\hspace{0.3cm}{\ttfamily [private]}}
-
-
-
-The shape of the second particle. 
-
-
-
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-/\+Users/lzhshou/\+Documents/\+Research/my\+Projects/apaam/repo/netdem/src/mlpack/\mbox{\hyperlink{solver__ann__pw_8hpp}{solver\+\_\+ann\+\_\+pw.\+hpp}}\item 
-/\+Users/lzhshou/\+Documents/\+Research/my\+Projects/apaam/repo/netdem/src/mlpack/\mbox{\hyperlink{solver__ann__pw_8cpp}{solver\+\_\+ann\+\_\+pw.\+cpp}}\end{DoxyCompactItemize}
+/\+Users/lzhshou/\+Documents/\+Research/my\+Projects/apaam/repo/netdem/src/mlpack/solver\+\_\+ann\+\_\+pw.\+hpp\item 
+/\+Users/lzhshou/\+Documents/\+Research/my\+Projects/apaam/repo/netdem/src/mlpack/solver\+\_\+ann\+\_\+pw.\+cpp\end{DoxyCompactItemize}

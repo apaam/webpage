@@ -12,17 +12,16 @@ Class for working with STL models.
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{classnetdem_1_1_s_t_l_model_a2ef4663faef155d7672d750d0b205763}{STLModel}} ()
-\item 
-\mbox{\hyperlink{classnetdem_1_1_s_t_l_model_a394d1639aa4fa72f1c0bd58111b5484a}{STLModel}} (const \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $>$ \&vv, const \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_a28e1404c8ce46c48bc78f553bd555980}{Vec3i}} $>$ \&ff)
+\mbox{\Hypertarget{classnetdem_1_1_s_t_l_model_a394d1639aa4fa72f1c0bd58111b5484a}\label{classnetdem_1_1_s_t_l_model_a394d1639aa4fa72f1c0bd58111b5484a}} 
+{\bfseries STLModel} (const Vec\+XT$<$ Vec3d $>$ \&vv, const Vec\+XT$<$ Vec3i $>$ \&ff)
 \item 
 void \mbox{\hyperlink{classnetdem_1_1_s_t_l_model_abb01a9583427f88f59d2abdf79b1e981}{Init\+From\+STL}} (std\+::string const \&file)
 \begin{DoxyCompactList}\small\item\em Initialize the model from an STL file. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classnetdem_1_1_s_t_l_model_a3dd5eed2e1c5891c04f594b5e7f86b85}{Init\+From\+OFF}} (std\+::string const \&file)
 \begin{DoxyCompactList}\small\item\em Initialize the model from an OFF file. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classnetdem_1_1_s_t_l_model_a6101a6ca3260e842549f19da0d2f3fe4}{Translate}} (\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&disp)
+void \mbox{\hyperlink{classnetdem_1_1_s_t_l_model_a6101a6ca3260e842549f19da0d2f3fe4}{Translate}} (Vec3d const \&disp)
 \begin{DoxyCompactList}\small\item\em Translate the model by a given displacement. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classnetdem_1_1_s_t_l_model_af3bea98cc520d68a6eec50d83a181708}{Rotate}} (\mbox{\hyperlink{namespacenetdem_a13d5371f99b252a70fd5a5081b910370}{Vec4d}} const \&quat)
+void \mbox{\hyperlink{classnetdem_1_1_s_t_l_model_af3bea98cc520d68a6eec50d83a181708}{Rotate}} (Vec4d const \&quat)
 \begin{DoxyCompactList}\small\item\em Rotate the model by a given quaternion. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classnetdem_1_1_s_t_l_model_afd2b35240921f19a81eb77cef0df66e6}{Copy\+Pose}} (\mbox{\hyperlink{classnetdem_1_1_s_t_l_model}{STLModel}} const \&stl\+\_\+model)
 \begin{DoxyCompactList}\small\item\em Set the center and rotation to those of another STL model. \end{DoxyCompactList}\item 
@@ -52,51 +51,48 @@ void \mbox{\hyperlink{classnetdem_1_1_s_t_l_model_a0772feb68489d7c3a9734d458e55c
 \begin{DoxyCompactList}\small\item\em Smooth the vertices of the model. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classnetdem_1_1_s_t_l_model_aff2367bb63bee0e94f07568834b819f9}{Merge\+STLModel}} (\mbox{\hyperlink{classnetdem_1_1_s_t_l_model}{STLModel}} const \&stl\+\_\+model)
 \begin{DoxyCompactList}\small\item\em Merge another STL model into this one. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ int $>$ \mbox{\hyperlink{classnetdem_1_1_s_t_l_model_a25639474e4c87058bcd479cb0fc36f6e}{Get\+Triangle\+Strips}} () const
+Vec\+XT$<$ int $>$ \mbox{\hyperlink{classnetdem_1_1_s_t_l_model_a25639474e4c87058bcd479cb0fc36f6e}{Get\+Triangle\+Strips}} () const
 \begin{DoxyCompactList}\small\item\em Get the triangle strip for VTK visualization. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{classnetdem_1_1_s_t_l_model_a97a9bc91fdbff846dc5c6ea1ebf857b0}{Is\+Face\+Outside}} (bool flip\+\_\+outside=true)
 \begin{DoxyCompactList}\small\item\em Check if a face is outside the model. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{classnetdem_1_1_s_t_l_model_afc5e21bb5aed02b4260fb1b1dad65e15}{Is\+Convex}} ()
 \begin{DoxyCompactList}\small\item\em Check if the model is convex. \end{DoxyCompactList}\item 
-bool \mbox{\hyperlink{classnetdem_1_1_s_t_l_model_a975e0084ae7699108adc0c12a7d3978b}{Enclose}} (\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&pos) const
+bool \mbox{\hyperlink{classnetdem_1_1_s_t_l_model_a975e0084ae7699108adc0c12a7d3978b}{Enclose}} (Vec3d const \&pos) const
 \begin{DoxyCompactList}\small\item\em Check if a point is enclosed by the model. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classnetdem_1_1_s_t_l_model_a234615e9ec4b4ca887569a0561d5a3df}{Print}} ()
 \begin{DoxyCompactList}\small\item\em Print information about the model to stdout. \end{DoxyCompactList}\item 
-std\+::tuple$<$ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}, \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $>$ \mbox{\hyperlink{classnetdem_1_1_s_t_l_model_ad4d3ddf3883ab1584bc0cb72a5cae800}{Get\+Bound\+AABB}} () const
+std\+::tuple$<$ Vec3d, Vec3d $>$ \mbox{\hyperlink{classnetdem_1_1_s_t_l_model_ad4d3ddf3883ab1584bc0cb72a5cae800}{Get\+Bound\+AABB}} () const
 \begin{DoxyCompactList}\small\item\em Get the axis-\/aligned bounding box of the model. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \mbox{\hyperlink{classnetdem_1_1_s_t_l_model_a6388dad14bc7b426194d42e006b0b445}{Get\+Center}} () const
+Vec3d \mbox{\hyperlink{classnetdem_1_1_s_t_l_model_a6388dad14bc7b426194d42e006b0b445}{Get\+Center}} () const
 \begin{DoxyCompactList}\small\item\em Get the center of mass of the model. \end{DoxyCompactList}\item 
 double \mbox{\hyperlink{classnetdem_1_1_s_t_l_model_a878885a531edd2d723d9508879edd96f}{Get\+Surface\+Area}} () const
 \begin{DoxyCompactList}\small\item\em Get the surface area of the model. \end{DoxyCompactList}\item 
 double \mbox{\hyperlink{classnetdem_1_1_s_t_l_model_a4dbefaa48b7306f5dee1a7f0d143528d}{Get\+Volume}} () const
 \begin{DoxyCompactList}\small\item\em Get the volume of the model. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{namespacenetdem_ae589ca87f7a16ea70807ee6b1c3bc1c8}{Mat3d}} \mbox{\hyperlink{classnetdem_1_1_s_t_l_model_a40d0a63338a068d028fec2afa36ae445}{Get\+Inertia}} () const
+Mat3d \mbox{\hyperlink{classnetdem_1_1_s_t_l_model_a40d0a63338a068d028fec2afa36ae445}{Get\+Inertia}} () const
 \begin{DoxyCompactList}\small\item\em Get the inertia tensor of the model. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-static \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \mbox{\hyperlink{classnetdem_1_1_s_t_l_model_a7214014765ce1a3940511ff1c8474a6f}{Get\+Center}} (const \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $>$ \&v, const \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_a28e1404c8ce46c48bc78f553bd555980}{Vec3i}} $>$ \&f)
+static Vec3d \mbox{\hyperlink{classnetdem_1_1_s_t_l_model_a7214014765ce1a3940511ff1c8474a6f}{Get\+Center}} (const Vec\+XT$<$ Vec3d $>$ \&v, const Vec\+XT$<$ Vec3i $>$ \&f)
 \begin{DoxyCompactList}\small\item\em Get the center of mass of a set of vertices and facets. \end{DoxyCompactList}\item 
-static double \mbox{\hyperlink{classnetdem_1_1_s_t_l_model_a63bc30821aed446a82068154183df8fb}{Get\+Surface\+Area}} (const \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $>$ \&v, const \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_a28e1404c8ce46c48bc78f553bd555980}{Vec3i}} $>$ \&f)
+static double \mbox{\hyperlink{classnetdem_1_1_s_t_l_model_a63bc30821aed446a82068154183df8fb}{Get\+Surface\+Area}} (const Vec\+XT$<$ Vec3d $>$ \&v, const Vec\+XT$<$ Vec3i $>$ \&f)
 \begin{DoxyCompactList}\small\item\em Get the surface area of a set of vertices and facets. \end{DoxyCompactList}\item 
-static double \mbox{\hyperlink{classnetdem_1_1_s_t_l_model_a45feaaa25651020a8938bb7bdda0b036}{Get\+Volume}} (const \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $>$ \&v, const \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_a28e1404c8ce46c48bc78f553bd555980}{Vec3i}} $>$ \&f)
+static double \mbox{\hyperlink{classnetdem_1_1_s_t_l_model_a45feaaa25651020a8938bb7bdda0b036}{Get\+Volume}} (const Vec\+XT$<$ Vec3d $>$ \&v, const Vec\+XT$<$ Vec3i $>$ \&f)
 \begin{DoxyCompactList}\small\item\em Get the volume of a set of vertices and facets. \end{DoxyCompactList}\item 
-static \mbox{\hyperlink{namespacenetdem_ae589ca87f7a16ea70807ee6b1c3bc1c8}{Mat3d}} \mbox{\hyperlink{classnetdem_1_1_s_t_l_model_a77588a4f8efb6b5ff3ce440a963e167c}{Get\+Inertia}} (const \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $>$ \&v, const \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_a28e1404c8ce46c48bc78f553bd555980}{Vec3i}} $>$ \&f)
+static Mat3d \mbox{\hyperlink{classnetdem_1_1_s_t_l_model_a77588a4f8efb6b5ff3ce440a963e167c}{Get\+Inertia}} (const Vec\+XT$<$ Vec3d $>$ \&v, const Vec\+XT$<$ Vec3i $>$ \&f)
 \begin{DoxyCompactList}\small\item\em Get the inertia tensor of a set of vertices and facets. \end{DoxyCompactList}\item 
-static bool \mbox{\hyperlink{classnetdem_1_1_s_t_l_model_a435a7bc4a03ca8ac86876eeecc31a61b}{Is\+Convex}} (const \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $>$ \&v, const \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_a28e1404c8ce46c48bc78f553bd555980}{Vec3i}} $>$ \&f)
+static bool \mbox{\hyperlink{classnetdem_1_1_s_t_l_model_a435a7bc4a03ca8ac86876eeecc31a61b}{Is\+Convex}} (const Vec\+XT$<$ Vec3d $>$ \&v, const Vec\+XT$<$ Vec3i $>$ \&f)
 \begin{DoxyCompactList}\small\item\em Check if a set of vertices and facets is convex. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $>$ \mbox{\hyperlink{classnetdem_1_1_s_t_l_model_a74db86ccf2a6a377aa4d7b0057f5082a}{vertices}}
+\mbox{\Hypertarget{classnetdem_1_1_s_t_l_model_a74db86ccf2a6a377aa4d7b0057f5082a}\label{classnetdem_1_1_s_t_l_model_a74db86ccf2a6a377aa4d7b0057f5082a}} 
+Vec\+XT$<$ Vec3d $>$ {\bfseries vertices}
 \begin{DoxyCompactList}\small\item\em A N by 3 matrix that defines the points on the 3D model surface. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_a28e1404c8ce46c48bc78f553bd555980}{Vec3i}} $>$ \mbox{\hyperlink{classnetdem_1_1_s_t_l_model_a6c82d2e74216bf22886b41737b67b0ca}{facets}}
+\mbox{\Hypertarget{classnetdem_1_1_s_t_l_model_a6c82d2e74216bf22886b41737b67b0ca}\label{classnetdem_1_1_s_t_l_model_a6c82d2e74216bf22886b41737b67b0ca}} 
+Vec\+XT$<$ Vec3i $>$ {\bfseries facets}
 \begin{DoxyCompactList}\small\item\em A M by 3 matrix. Each row defines a facet, with the row elements being the indices of the vertices. \end{DoxyCompactList}\end{DoxyCompactItemize}
-\doxysubsection*{Private Member Functions}
-\begin{DoxyCompactItemize}
-\item 
-int \mbox{\hyperlink{classnetdem_1_1_s_t_l_model_a541f8eab216d7c079f8424498b886c38}{Vertex\+Index\+In\+Facet}} (const \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \&facet, int vertex\+\_\+id)
-\begin{DoxyCompactList}\small\item\em Get the index of a vertex in a facet. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
@@ -107,21 +103,6 @@ A class representing a 3D model in STL format.
 This class provides methods for working with STL models, including loading and saving models in various formats, manipulating the orientation and position of the model, and computing geometric properties such as surface area and volume. It also provides methods for refining the mesh, smoothing the vertices, and merging models together.
 
 This class represents a 3D model in STL (STereo\+Lithography) format, which is commonly used in 3D printing and computer-\/aided design. 
-
-\doxysubsection{Constructor \& Destructor Documentation}
-\mbox{\Hypertarget{classnetdem_1_1_s_t_l_model_a2ef4663faef155d7672d750d0b205763}\label{classnetdem_1_1_s_t_l_model_a2ef4663faef155d7672d750d0b205763}} 
-\index{netdem::STLModel@{netdem::STLModel}!STLModel@{STLModel}}
-\index{STLModel@{STLModel}!netdem::STLModel@{netdem::STLModel}}
-\doxysubsubsection{\texorpdfstring{STLModel()}{STLModel()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily STLModel\+::\+STLModel (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
-
-\mbox{\Hypertarget{classnetdem_1_1_s_t_l_model_a394d1639aa4fa72f1c0bd58111b5484a}\label{classnetdem_1_1_s_t_l_model_a394d1639aa4fa72f1c0bd58111b5484a}} 
-\index{netdem::STLModel@{netdem::STLModel}!STLModel@{STLModel}}
-\index{STLModel@{STLModel}!netdem::STLModel@{netdem::STLModel}}
-\doxysubsubsection{\texorpdfstring{STLModel()}{STLModel()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily STLModel\+::\+STLModel (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $>$ \&}]{vv,  }\item[{const \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_a28e1404c8ce46c48bc78f553bd555980}{Vec3i}} $>$ \&}]{ff }\end{DoxyParamCaption})}
-
-
 
 \doxysubsection{Member Function Documentation}
 \mbox{\Hypertarget{classnetdem_1_1_s_t_l_model_afd2b35240921f19a81eb77cef0df66e6}\label{classnetdem_1_1_s_t_l_model_afd2b35240921f19a81eb77cef0df66e6}} 
@@ -181,7 +162,7 @@ This method decimates the model by removing a given number of facets while prese
 \index{netdem::STLModel@{netdem::STLModel}!Enclose@{Enclose}}
 \index{Enclose@{Enclose}!netdem::STLModel@{netdem::STLModel}}
 \doxysubsubsection{\texorpdfstring{Enclose()}{Enclose()}}
-{\footnotesize\ttfamily bool STLModel\+::\+Enclose (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&}]{pos }\end{DoxyParamCaption}) const}
+{\footnotesize\ttfamily bool STLModel\+::\+Enclose (\begin{DoxyParamCaption}\item[{Vec3d const \&}]{pos }\end{DoxyParamCaption}) const}
 
 
 
@@ -203,7 +184,7 @@ A boolean value indicating whether the point is enclosed by the model.
 \index{netdem::STLModel@{netdem::STLModel}!GetBoundAABB@{GetBoundAABB}}
 \index{GetBoundAABB@{GetBoundAABB}!netdem::STLModel@{netdem::STLModel}}
 \doxysubsubsection{\texorpdfstring{GetBoundAABB()}{GetBoundAABB()}}
-{\footnotesize\ttfamily std\+::tuple$<$ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}, \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $>$ STLModel\+::\+Get\+Bound\+AABB (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+{\footnotesize\ttfamily std\+::tuple$<$ Vec3d, Vec3d $>$ STLModel\+::\+Get\+Bound\+AABB (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
 
 
@@ -218,7 +199,7 @@ A tuple containing the minimum and maximum coordinates of the AABB.
 \index{netdem::STLModel@{netdem::STLModel}!GetCenter@{GetCenter}}
 \index{GetCenter@{GetCenter}!netdem::STLModel@{netdem::STLModel}}
 \doxysubsubsection{\texorpdfstring{GetCenter()}{GetCenter()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} STLModel\+::\+Get\+Center (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+{\footnotesize\ttfamily Vec3d STLModel\+::\+Get\+Center (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
 
 
@@ -233,7 +214,7 @@ The center of mass of the model.
 \index{netdem::STLModel@{netdem::STLModel}!GetCenter@{GetCenter}}
 \index{GetCenter@{GetCenter}!netdem::STLModel@{netdem::STLModel}}
 \doxysubsubsection{\texorpdfstring{GetCenter()}{GetCenter()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} STLModel\+::\+Get\+Center (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $>$ \&}]{v,  }\item[{const \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_a28e1404c8ce46c48bc78f553bd555980}{Vec3i}} $>$ \&}]{f }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+{\footnotesize\ttfamily Vec3d STLModel\+::\+Get\+Center (\begin{DoxyParamCaption}\item[{const Vec\+XT$<$ Vec3d $>$ \&}]{v,  }\item[{const Vec\+XT$<$ Vec3i $>$ \&}]{f }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
 
 
@@ -255,7 +236,7 @@ The center of mass of the mesh.
 \index{netdem::STLModel@{netdem::STLModel}!GetInertia@{GetInertia}}
 \index{GetInertia@{GetInertia}!netdem::STLModel@{netdem::STLModel}}
 \doxysubsubsection{\texorpdfstring{GetInertia()}{GetInertia()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily \mbox{\hyperlink{namespacenetdem_ae589ca87f7a16ea70807ee6b1c3bc1c8}{Mat3d}} STLModel\+::\+Get\+Inertia (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+{\footnotesize\ttfamily Mat3d STLModel\+::\+Get\+Inertia (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
 
 
@@ -270,7 +251,7 @@ The inertia tensor of the model.
 \index{netdem::STLModel@{netdem::STLModel}!GetInertia@{GetInertia}}
 \index{GetInertia@{GetInertia}!netdem::STLModel@{netdem::STLModel}}
 \doxysubsubsection{\texorpdfstring{GetInertia()}{GetInertia()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily \mbox{\hyperlink{namespacenetdem_ae589ca87f7a16ea70807ee6b1c3bc1c8}{Mat3d}} STLModel\+::\+Get\+Inertia (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $>$ \&}]{v,  }\item[{const \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_a28e1404c8ce46c48bc78f553bd555980}{Vec3i}} $>$ \&}]{f }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+{\footnotesize\ttfamily Mat3d STLModel\+::\+Get\+Inertia (\begin{DoxyParamCaption}\item[{const Vec\+XT$<$ Vec3d $>$ \&}]{v,  }\item[{const Vec\+XT$<$ Vec3i $>$ \&}]{f }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
 
 
@@ -307,7 +288,7 @@ The surface area of the model.
 \index{netdem::STLModel@{netdem::STLModel}!GetSurfaceArea@{GetSurfaceArea}}
 \index{GetSurfaceArea@{GetSurfaceArea}!netdem::STLModel@{netdem::STLModel}}
 \doxysubsubsection{\texorpdfstring{GetSurfaceArea()}{GetSurfaceArea()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily double STLModel\+::\+Get\+Surface\+Area (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $>$ \&}]{v,  }\item[{const \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_a28e1404c8ce46c48bc78f553bd555980}{Vec3i}} $>$ \&}]{f }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+{\footnotesize\ttfamily double STLModel\+::\+Get\+Surface\+Area (\begin{DoxyParamCaption}\item[{const Vec\+XT$<$ Vec3d $>$ \&}]{v,  }\item[{const Vec\+XT$<$ Vec3i $>$ \&}]{f }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
 
 
@@ -329,7 +310,7 @@ The surface area of the mesh.
 \index{netdem::STLModel@{netdem::STLModel}!GetTriangleStrips@{GetTriangleStrips}}
 \index{GetTriangleStrips@{GetTriangleStrips}!netdem::STLModel@{netdem::STLModel}}
 \doxysubsubsection{\texorpdfstring{GetTriangleStrips()}{GetTriangleStrips()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ int $>$ STLModel\+::\+Get\+Triangle\+Strips (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+{\footnotesize\ttfamily Vec\+XT$<$ int $>$ STLModel\+::\+Get\+Triangle\+Strips (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
 
 
@@ -359,7 +340,7 @@ The volume of the model.
 \index{netdem::STLModel@{netdem::STLModel}!GetVolume@{GetVolume}}
 \index{GetVolume@{GetVolume}!netdem::STLModel@{netdem::STLModel}}
 \doxysubsubsection{\texorpdfstring{GetVolume()}{GetVolume()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily double STLModel\+::\+Get\+Volume (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $>$ \&}]{v,  }\item[{const \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_a28e1404c8ce46c48bc78f553bd555980}{Vec3i}} $>$ \&}]{f }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+{\footnotesize\ttfamily double STLModel\+::\+Get\+Volume (\begin{DoxyParamCaption}\item[{const Vec\+XT$<$ Vec3d $>$ \&}]{v,  }\item[{const Vec\+XT$<$ Vec3i $>$ \&}]{f }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
 
 
@@ -430,7 +411,7 @@ A boolean value indicating whether the model is convex.
 \index{netdem::STLModel@{netdem::STLModel}!IsConvex@{IsConvex}}
 \index{IsConvex@{IsConvex}!netdem::STLModel@{netdem::STLModel}}
 \doxysubsubsection{\texorpdfstring{IsConvex()}{IsConvex()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily bool STLModel\+::\+Is\+Convex (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $>$ \&}]{v,  }\item[{const \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_a28e1404c8ce46c48bc78f553bd555980}{Vec3i}} $>$ \&}]{f }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+{\footnotesize\ttfamily bool STLModel\+::\+Is\+Convex (\begin{DoxyParamCaption}\item[{const Vec\+XT$<$ Vec3d $>$ \&}]{v,  }\item[{const Vec\+XT$<$ Vec3i $>$ \&}]{f }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
 
 
@@ -556,7 +537,7 @@ This method reorients the facets of the model so that their normals point outwar
 \index{netdem::STLModel@{netdem::STLModel}!Rotate@{Rotate}}
 \index{Rotate@{Rotate}!netdem::STLModel@{netdem::STLModel}}
 \doxysubsubsection{\texorpdfstring{Rotate()}{Rotate()}}
-{\footnotesize\ttfamily void STLModel\+::\+Rotate (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacenetdem_a13d5371f99b252a70fd5a5081b910370}{Vec4d}} const \&}]{quat }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void STLModel\+::\+Rotate (\begin{DoxyParamCaption}\item[{Vec4d const \&}]{quat }\end{DoxyParamCaption})}
 
 
 
@@ -651,7 +632,7 @@ This method standardizes the model by centering it at the origin and scaling it 
 \index{netdem::STLModel@{netdem::STLModel}!Translate@{Translate}}
 \index{Translate@{Translate}!netdem::STLModel@{netdem::STLModel}}
 \doxysubsubsection{\texorpdfstring{Translate()}{Translate()}}
-{\footnotesize\ttfamily void STLModel\+::\+Translate (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&}]{disp }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void STLModel\+::\+Translate (\begin{DoxyParamCaption}\item[{Vec3d const \&}]{disp }\end{DoxyParamCaption})}
 
 
 
@@ -664,54 +645,9 @@ This method translates the model by a given displacement vector.
 {\em disp} & The displacement vector. \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{classnetdem_1_1_s_t_l_model_a541f8eab216d7c079f8424498b886c38}\label{classnetdem_1_1_s_t_l_model_a541f8eab216d7c079f8424498b886c38}} 
-\index{netdem::STLModel@{netdem::STLModel}!VertexIndexInFacet@{VertexIndexInFacet}}
-\index{VertexIndexInFacet@{VertexIndexInFacet}!netdem::STLModel@{netdem::STLModel}}
-\doxysubsubsection{\texorpdfstring{VertexIndexInFacet()}{VertexIndexInFacet()}}
-{\footnotesize\ttfamily int STLModel\+::\+Vertex\+Index\+In\+Facet (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \&}]{facet,  }\item[{int}]{vertex\+\_\+id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
-
-
-
-Get the index of a vertex in a facet. 
-
-This private method computes the index (0, 1, or 2) of a given vertex within a given facet.
-
-
-\begin{DoxyParams}{Parameters}
-{\em facet} & The facet to search. \\
-\hline
-{\em vertex\+\_\+id} & The ID of the vertex to find. \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-The index of the vertex in the facet (0, 1, or 2). 
-\end{DoxyReturn}
-
-
-\doxysubsection{Member Data Documentation}
-\mbox{\Hypertarget{classnetdem_1_1_s_t_l_model_a6c82d2e74216bf22886b41737b67b0ca}\label{classnetdem_1_1_s_t_l_model_a6c82d2e74216bf22886b41737b67b0ca}} 
-\index{netdem::STLModel@{netdem::STLModel}!facets@{facets}}
-\index{facets@{facets}!netdem::STLModel@{netdem::STLModel}}
-\doxysubsubsection{\texorpdfstring{facets}{facets}}
-{\footnotesize\ttfamily \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$\mbox{\hyperlink{namespacenetdem_a28e1404c8ce46c48bc78f553bd555980}{Vec3i}}$>$ netdem\+::\+STLModel\+::facets}
-
-
-
-A M by 3 matrix. Each row defines a facet, with the row elements being the indices of the vertices. 
-
-\mbox{\Hypertarget{classnetdem_1_1_s_t_l_model_a74db86ccf2a6a377aa4d7b0057f5082a}\label{classnetdem_1_1_s_t_l_model_a74db86ccf2a6a377aa4d7b0057f5082a}} 
-\index{netdem::STLModel@{netdem::STLModel}!vertices@{vertices}}
-\index{vertices@{vertices}!netdem::STLModel@{netdem::STLModel}}
-\doxysubsubsection{\texorpdfstring{vertices}{vertices}}
-{\footnotesize\ttfamily \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}$>$ netdem\+::\+STLModel\+::vertices}
-
-
-
-A N by 3 matrix that defines the points on the 3D model surface. 
-
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-/\+Users/lzhshou/\+Documents/\+Research/my\+Projects/apaam/repo/netdem/src/utils/\mbox{\hyperlink{stl__model_8hpp}{stl\+\_\+model.\+hpp}}\item 
-/\+Users/lzhshou/\+Documents/\+Research/my\+Projects/apaam/repo/netdem/src/utils/\mbox{\hyperlink{stl__model_8cpp}{stl\+\_\+model.\+cpp}}\end{DoxyCompactItemize}
+/\+Users/lzhshou/\+Documents/\+Research/my\+Projects/apaam/repo/netdem/src/utils/stl\+\_\+model.\+hpp\item 
+/\+Users/lzhshou/\+Documents/\+Research/my\+Projects/apaam/repo/netdem/src/utils/stl\+\_\+model.\+cpp\end{DoxyCompactItemize}

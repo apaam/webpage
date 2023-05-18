@@ -16,7 +16,6 @@ var classnetdem_1_1_contact_p_p =
     [ "bond_entries", "classnetdem_1_1_contact_p_p.html#a104a05c3bab1c1a3f20601dc3b129f39", null ],
     [ "bond_model", "classnetdem_1_1_contact_p_p.html#a0f89c46c537695077e1cf3bffb4ca5e0", null ],
     [ "collision_entries", "classnetdem_1_1_contact_p_p.html#aa3acdd9b8fc2ff59edd98a8869047486", null ],
-    [ "collision_model", "classnetdem_1_1_contact_p_p.html#acff97c04d59f325dbb517c09632e58d5", null ],
     [ "dynamic_properties", "classnetdem_1_1_contact_p_p.html#a1eae54102bc8cdadac5c7161e911320f", null ],
     [ "particle_1", "classnetdem_1_1_contact_p_p.html#ae1df0bacca599aa599446efa8e1fc8a4", null ],
     [ "particle_2", "classnetdem_1_1_contact_p_p.html#a1c4ffff9ecfa935189d883a74b7499a4", null ]

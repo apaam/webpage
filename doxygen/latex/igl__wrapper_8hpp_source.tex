@@ -1,65 +1,65 @@
 \hypertarget{igl__wrapper_8hpp_source}{}\doxysection{igl\+\_\+wrapper.\+hpp}
 \label{igl__wrapper_8hpp_source}\index{/Users/lzhshou/Documents/Research/myProjects/apaam/repo/netdem/src/utils/igl\_wrapper.hpp@{/Users/lzhshou/Documents/Research/myProjects/apaam/repo/netdem/src/utils/igl\_wrapper.hpp}}
-\mbox{\hyperlink{igl__wrapper_8hpp}{Go to the documentation of this file.}}
+
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
 \DoxyCodeLine{00002\ }
-\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{stl__model_8hpp}{stl\_model.hpp}}"{}}}
-\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{utils__math_8hpp}{utils\_math.hpp}}"{}}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}stl\_model.hpp"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}utils\_math.hpp"{}}}
 \DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <Eigen/Dense>}}
 \DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <igl/signed\_distance.h>}}
 \DoxyCodeLine{00007\ }
 \DoxyCodeLine{00008\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacenetdem}{netdem}}\ \{}
 \DoxyCodeLine{00009\ }
-\DoxyCodeLine{00010\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacenetdem_ab2db4ffa4bb2e531368007702de9f517}{igl\_remove\_unreferenced\_vertices}}(VecXT<Vec3d>\ *\textcolor{keyword}{const}\ v,}
+\DoxyCodeLine{00010\ \textcolor{keywordtype}{void}\ igl\_remove\_unreferenced\_vertices(VecXT<Vec3d>\ *\textcolor{keyword}{const}\ v,}
 \DoxyCodeLine{00011\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ VecXT<Vec3i>\ *\textcolor{keyword}{const}\ f);}
 \DoxyCodeLine{00012\ }
-\DoxyCodeLine{00013\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacenetdem_a6a62e700268f9600b8d851b362aa52e7}{igl\_remove\_duplicate\_vertices}}(VecXT<Vec3d>\ *\textcolor{keyword}{const}\ v,}
+\DoxyCodeLine{00013\ \textcolor{keywordtype}{void}\ igl\_remove\_duplicate\_vertices(VecXT<Vec3d>\ *\textcolor{keyword}{const}\ v,}
 \DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ VecXT<Vec3i>\ *\textcolor{keyword}{const}\ f);}
 \DoxyCodeLine{00015\ }
-\DoxyCodeLine{00016\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacenetdem_a6a62e700268f9600b8d851b362aa52e7}{igl\_remove\_duplicate\_vertices}}(VecXT<Vec3d>\ *\textcolor{keyword}{const}\ v);}
+\DoxyCodeLine{00016\ \textcolor{keywordtype}{void}\ igl\_remove\_duplicate\_vertices(VecXT<Vec3d>\ *\textcolor{keyword}{const}\ v);}
 \DoxyCodeLine{00017\ }
-\DoxyCodeLine{00018\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacenetdem_a9cd927ef7d6e9432f158bf1112d1d907}{igl\_mesh\_intersect}}(\textcolor{keyword}{const}\ VecXT<Vec3d>\ \&va,\ \textcolor{keyword}{const}\ VecXT<Vec3i>\ \&fa,}
+\DoxyCodeLine{00018\ \textcolor{keywordtype}{void}\ igl\_mesh\_intersect(\textcolor{keyword}{const}\ VecXT<Vec3d>\ \&va,\ \textcolor{keyword}{const}\ VecXT<Vec3i>\ \&fa,}
 \DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ VecXT<Vec3d>\ \&vb,\ \textcolor{keyword}{const}\ VecXT<Vec3i>\ \&fb,}
 \DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ VecXT<Vec3d>\ *\textcolor{keyword}{const}\ vab,\ VecXT<Vec3i>\ *\textcolor{keyword}{const}\ fab,}
 \DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ VecXT<int>\ *\textcolor{keyword}{const}\ jab);}
 \DoxyCodeLine{00022\ }
-\DoxyCodeLine{00023\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacenetdem_a9cd927ef7d6e9432f158bf1112d1d907}{igl\_mesh\_intersect}}(\textcolor{keyword}{const}\ VecXT<Vec3d>\ \&va,\ \textcolor{keyword}{const}\ VecXT<Vec3i>\ \&fa,}
+\DoxyCodeLine{00023\ \textcolor{keywordtype}{void}\ igl\_mesh\_intersect(\textcolor{keyword}{const}\ VecXT<Vec3d>\ \&va,\ \textcolor{keyword}{const}\ VecXT<Vec3i>\ \&fa,}
 \DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ VecXT<Vec3d>\ \&vb,\ \textcolor{keyword}{const}\ VecXT<Vec3i>\ \&fb,}
 \DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ VecXT<Vec3d>\ *\textcolor{keyword}{const}\ vab,\ VecXT<Vec3i>\ *\textcolor{keyword}{const}\ fab);}
 \DoxyCodeLine{00026\ }
-\DoxyCodeLine{00027\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacenetdem_a9cd927ef7d6e9432f158bf1112d1d907}{igl\_mesh\_intersect}}(\textcolor{keyword}{const}\ VecXT<Vec3d>\ \&va,\ \textcolor{keyword}{const}\ VecXT<Vec3i>\ \&fa,}
-\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ dist\_pc\_to\_plane,\ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ \textcolor{keyword}{const}\ \&dir\_n,}
+\DoxyCodeLine{00027\ \textcolor{keywordtype}{void}\ igl\_mesh\_intersect(\textcolor{keyword}{const}\ VecXT<Vec3d>\ \&va,\ \textcolor{keyword}{const}\ VecXT<Vec3i>\ \&fa,}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ dist\_pc\_to\_plane,\ Vec3d\ \textcolor{keyword}{const}\ \&dir\_n,}
 \DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ VecXT<Vec3d>\ *\textcolor{keyword}{const}\ vab,\ VecXT<Vec3i>\ *\textcolor{keyword}{const}\ fab,}
 \DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ VecXT<int>\ *\textcolor{keyword}{const}\ jab);}
 \DoxyCodeLine{00031\ }
-\DoxyCodeLine{00032\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacenetdem_a9cd927ef7d6e9432f158bf1112d1d907}{igl\_mesh\_intersect}}(\textcolor{keyword}{const}\ VecXT<Vec3d>\ \&va,\ \textcolor{keyword}{const}\ VecXT<Vec3i>\ \&fa,}
-\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ dist\_pc\_to\_plane,\ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ \textcolor{keyword}{const}\ \&dir\_n,}
+\DoxyCodeLine{00032\ \textcolor{keywordtype}{void}\ igl\_mesh\_intersect(\textcolor{keyword}{const}\ VecXT<Vec3d>\ \&va,\ \textcolor{keyword}{const}\ VecXT<Vec3i>\ \&fa,}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ dist\_pc\_to\_plane,\ Vec3d\ \textcolor{keyword}{const}\ \&dir\_n,}
 \DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ VecXT<Vec3d>\ *\textcolor{keyword}{const}\ vab,\ VecXT<Vec3i>\ *\textcolor{keyword}{const}\ fab);}
 \DoxyCodeLine{00035\ }
-\DoxyCodeLine{00036\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacenetdem_a939c8e088a1648b48be10b70b4c6173c}{igl\_mesh\_refine}}(VecXT<Vec3d>\ *\textcolor{keyword}{const}\ v,\ VecXT<Vec3i>\ *\textcolor{keyword}{const}\ f,}
+\DoxyCodeLine{00036\ \textcolor{keywordtype}{void}\ igl\_mesh\_refine(VecXT<Vec3d>\ *\textcolor{keyword}{const}\ v,\ VecXT<Vec3i>\ *\textcolor{keyword}{const}\ f,}
 \DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ num\_refines);}
 \DoxyCodeLine{00038\ }
-\DoxyCodeLine{00039\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacenetdem_a6990b319d7b56314aa2dd2f03e4eb9af}{igl\_mesh\_decimate}}(VecXT<Vec3d>\ *\textcolor{keyword}{const}\ v,\ VecXT<Vec3i>\ *\textcolor{keyword}{const}\ f,}
+\DoxyCodeLine{00039\ \textcolor{keywordtype}{void}\ igl\_mesh\_decimate(VecXT<Vec3d>\ *\textcolor{keyword}{const}\ v,\ VecXT<Vec3i>\ *\textcolor{keyword}{const}\ f,}
 \DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ num\_facets);}
 \DoxyCodeLine{00041\ }
-\DoxyCodeLine{00042\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{namespacenetdem_a106fe956254edf0da2fbc4f8ff003b39}{igl\_facet\_components}}(\textcolor{keyword}{const}\ VecXT<Vec3i>\ \&fi,\ VecXT<int>\ *\textcolor{keyword}{const}\ fc);}
+\DoxyCodeLine{00042\ \textcolor{keywordtype}{int}\ igl\_facet\_components(\textcolor{keyword}{const}\ VecXT<Vec3i>\ \&fi,\ VecXT<int>\ *\textcolor{keyword}{const}\ fc);}
 \DoxyCodeLine{00043\ }
-\DoxyCodeLine{00044\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacenetdem_ae43253287b305bb8efbaa1e9c1815117}{igl\_reorient\_facets}}(\textcolor{keyword}{const}\ VecXT<Vec3d>\ \&v,\ VecXT<Vec3i>\ *\textcolor{keyword}{const}\ f);}
+\DoxyCodeLine{00044\ \textcolor{keywordtype}{void}\ igl\_reorient\_facets(\textcolor{keyword}{const}\ VecXT<Vec3d>\ \&v,\ VecXT<Vec3i>\ *\textcolor{keyword}{const}\ f);}
 \DoxyCodeLine{00045\ }
-\DoxyCodeLine{00046\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{namespacenetdem_a42904e29baae6989be8c86f90af437cb}{igl\_check\_winding}}(\textcolor{keyword}{const}\ VecXT<Vec3d>\ \&v,\ \textcolor{keyword}{const}\ VecXT<Vec3i>\ \&f);}
+\DoxyCodeLine{00046\ \textcolor{keywordtype}{bool}\ igl\_check\_winding(\textcolor{keyword}{const}\ VecXT<Vec3d>\ \&v,\ \textcolor{keyword}{const}\ VecXT<Vec3i>\ \&f);}
 \DoxyCodeLine{00047\ }
-\DoxyCodeLine{00048\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacenetdem_a4bab584b6c2cd88ab6326e24b9d61b68}{igl\_convex\_hull}}(\textcolor{keyword}{const}\ VecXT<Vec3d>\ \&v0,\ VecXT<Vec3d>\ *\textcolor{keyword}{const}\ v1,}
+\DoxyCodeLine{00048\ \textcolor{keywordtype}{void}\ igl\_convex\_hull(\textcolor{keyword}{const}\ VecXT<Vec3d>\ \&v0,\ VecXT<Vec3d>\ *\textcolor{keyword}{const}\ v1,}
 \DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ VecXT<Vec3i>\ *\textcolor{keyword}{const}\ f1);}
 \DoxyCodeLine{00050\ }
-\DoxyCodeLine{00051\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacenetdem_a4ac685cb8de32a7c6d30a9aab54a759d}{igl\_tetmesh\_boundary}}(\textcolor{keyword}{const}\ VecXT<Vec4i>\ \&tt,\ VecXT<Vec3i>\ *\textcolor{keyword}{const}\ ff,}
+\DoxyCodeLine{00051\ \textcolor{keywordtype}{void}\ igl\_tetmesh\_boundary(\textcolor{keyword}{const}\ VecXT<Vec4i>\ \&tt,\ VecXT<Vec3i>\ *\textcolor{keyword}{const}\ ff,}
 \DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ VecXT<int>\ *\textcolor{keyword}{const}\ fj);}
 \DoxyCodeLine{00053\ }
-\DoxyCodeLine{00054\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacenetdem_a4ac685cb8de32a7c6d30a9aab54a759d}{igl\_tetmesh\_boundary}}(\textcolor{keyword}{const}\ VecXT<Vec4i>\ \&tt,\ VecXT<Vec3i>\ *\textcolor{keyword}{const}\ ff);}
+\DoxyCodeLine{00054\ \textcolor{keywordtype}{void}\ igl\_tetmesh\_boundary(\textcolor{keyword}{const}\ VecXT<Vec4i>\ \&tt,\ VecXT<Vec3i>\ *\textcolor{keyword}{const}\ ff);}
 \DoxyCodeLine{00055\ }
-\DoxyCodeLine{00056\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacenetdem_a963af3a5e0895c55b84e3755caa7e5cf}{igl\_marching\_cubes}}(VecXT<Vec3d>\ *\textcolor{keyword}{const}\ vv,\ VecXT<Vec3i>\ *\textcolor{keyword}{const}\ ff,}
-\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT}}<\mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT}}<VecXT<double>>>\ \textcolor{keyword}{const}\ \&sdf,}
-\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ \textcolor{keyword}{const}\ \&corner,\ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ \textcolor{keyword}{const}\ \&spacing,}
+\DoxyCodeLine{00056\ \textcolor{keywordtype}{void}\ igl\_marching\_cubes(VecXT<Vec3d>\ *\textcolor{keyword}{const}\ vv,\ VecXT<Vec3i>\ *\textcolor{keyword}{const}\ ff,}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ VecXT<VecXT<VecXT<double>>>\ \textcolor{keyword}{const}\ \&sdf,}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Vec3d\ \textcolor{keyword}{const}\ \&corner,\ Vec3d\ \textcolor{keyword}{const}\ \&spacing,}
 \DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ iso\_value\ =\ 0);}
 \DoxyCodeLine{00060\ }
 \DoxyCodeLine{00061\ \textcolor{comment}{//\ need\ tetgen\ library,\ not\ added\ yet}}
@@ -69,41 +69,42 @@
 \DoxyCodeLine{00065\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ VecXT<\ Vec4i>\ *const\ tt,}}
 \DoxyCodeLine{00066\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ VecXT<Vec3i>\ *const\ tf);}}
 \DoxyCodeLine{00067\ }
-\DoxyCodeLine{00068\ VecXT<int>\ \mbox{\hyperlink{namespacenetdem_a78ba72c77b3c9cd255b5e0ebd3e42edc}{igl\_points\_inside\_mesh}}(\textcolor{keyword}{const}\ VecXT<Vec3d>\ \&v,\ \textcolor{keyword}{const}\ VecXT<Vec3i>\ \&f,}
+\DoxyCodeLine{00068\ VecXT<int>\ igl\_points\_inside\_mesh(\textcolor{keyword}{const}\ VecXT<Vec3d>\ \&v,\ \textcolor{keyword}{const}\ VecXT<Vec3i>\ \&f,}
 \DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ VecXT<Vec3d>\ \&v\_querry);}
 \DoxyCodeLine{00070\ }
 \DoxyCodeLine{00071\ \textcolor{comment}{//\ reference:\ igl\ tutorial\ 704}}
-\DoxyCodeLine{00086\ \textcolor{comment}{}\textcolor{keyword}{class\ }\mbox{\hyperlink{classnetdem_1_1_s_d_f_calculator}{SDFCalculator}}\ \{}
-\DoxyCodeLine{00087\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00088\ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classnetdem_1_1_s_d_f_calculator_ae5110336b03e5804fa16efb00e43d8b2}{max\_distance}}\{0.0\};\ }
-\DoxyCodeLine{00089\ }
-\DoxyCodeLine{00096\ \ \ \mbox{\hyperlink{classnetdem_1_1_s_d_f_calculator_aa8a0cab4d342177cb775edbf692a1b09}{SDFCalculator}}();}
-\DoxyCodeLine{00097\ }
-\DoxyCodeLine{00107\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_s_d_f_calculator_abde55bf4a5f69649136cadc5ace8537a}{InitFromSTL}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<Vec3d>}}\ \&vv,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<Vec3i>}}\ \&ff);}
-\DoxyCodeLine{00108\ }
-\DoxyCodeLine{00117\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_s_d_f_calculator_abde55bf4a5f69649136cadc5ace8537a}{InitFromSTL}}(\mbox{\hyperlink{classnetdem_1_1_s_t_l_model}{STLModel}}\ \textcolor{keyword}{const}\ \&stl\_model);}
-\DoxyCodeLine{00118\ }
-\DoxyCodeLine{00126\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_s_d_f_calculator_ad07355ccd1bb1b590dd258a2de9e3a9c}{Init}}();}
-\DoxyCodeLine{00127\ }
-\DoxyCodeLine{00137\ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classnetdem_1_1_s_d_f_calculator_ac6f6822eccf2696168ad4d376ce528e5}{SignedDistance}}(\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ \textcolor{keyword}{const}\ \&pos)\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00138\ }
-\DoxyCodeLine{00147\ \ \ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ \mbox{\hyperlink{classnetdem_1_1_s_d_f_calculator_a1aa5ad48be7c50db1fd9df163494049b}{SurfacePoint}}(\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ \textcolor{keyword}{const}\ \&pos)\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00148\ }
-\DoxyCodeLine{00157\ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classnetdem_1_1_s_d_f_calculator_a1ea283971e65103166b60cb2cedce31b}{ClosestFacet}}(\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ \textcolor{keyword}{const}\ \&pos)\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00158\ }
-\DoxyCodeLine{00159\ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00160\ \ \ Eigen::MatrixXd\ \mbox{\hyperlink{classnetdem_1_1_s_d_f_calculator_a12ffc01ade8397c7243bc225baf75783}{vertices}};\ }
-\DoxyCodeLine{00161\ \ \ Eigen::MatrixXi\ \mbox{\hyperlink{classnetdem_1_1_s_d_f_calculator_aba766469a898ab663419901d42fd3bc6}{facets}};\ }
-\DoxyCodeLine{00162\ }
-\DoxyCodeLine{00163\ \ \ Eigen::MatrixXi\ \mbox{\hyperlink{classnetdem_1_1_s_d_f_calculator_adcfdb7972eb8e7126390fd912c5ed078}{T}};\ }
+\DoxyCodeLine{00087\ \textcolor{comment}{}\textcolor{keyword}{class\ }\mbox{\hyperlink{classnetdem_1_1_s_d_f_calculator}{SDFCalculator}}\ \{}
+\DoxyCodeLine{00088\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00089\ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classnetdem_1_1_s_d_f_calculator_ae5110336b03e5804fa16efb00e43d8b2}{max\_distance}}\{0.0\};\ }
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00097\ \ \ \mbox{\hyperlink{classnetdem_1_1_s_d_f_calculator_aa8a0cab4d342177cb775edbf692a1b09}{SDFCalculator}}();}
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00109\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_s_d_f_calculator_abde55bf4a5f69649136cadc5ace8537a}{InitFromSTL}}(\textcolor{keyword}{const}\ VecXT<Vec3d>\ \&vv,\ \textcolor{keyword}{const}\ VecXT<Vec3i>\ \&ff);}
+\DoxyCodeLine{00110\ }
+\DoxyCodeLine{00120\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_s_d_f_calculator_abde55bf4a5f69649136cadc5ace8537a}{InitFromSTL}}(\mbox{\hyperlink{classnetdem_1_1_s_t_l_model}{STLModel}}\ \textcolor{keyword}{const}\ \&stl\_model);}
+\DoxyCodeLine{00121\ }
+\DoxyCodeLine{00130\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_s_d_f_calculator_ad07355ccd1bb1b590dd258a2de9e3a9c}{Init}}();}
+\DoxyCodeLine{00131\ }
+\DoxyCodeLine{00142\ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classnetdem_1_1_s_d_f_calculator_ac6f6822eccf2696168ad4d376ce528e5}{SignedDistance}}(Vec3d\ \textcolor{keyword}{const}\ \&pos)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00143\ }
+\DoxyCodeLine{00153\ \ \ Vec3d\ \mbox{\hyperlink{classnetdem_1_1_s_d_f_calculator_a1aa5ad48be7c50db1fd9df163494049b}{SurfacePoint}}(Vec3d\ \textcolor{keyword}{const}\ \&pos)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00154\ }
+\DoxyCodeLine{00163\ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classnetdem_1_1_s_d_f_calculator_a1ea283971e65103166b60cb2cedce31b}{ClosestFacet}}(Vec3d\ \textcolor{keyword}{const}\ \&pos)\ \textcolor{keyword}{const};}
 \DoxyCodeLine{00164\ }
-\DoxyCodeLine{00165\ \ \ igl::AABB<Eigen::MatrixXd,\ 3>\ \mbox{\hyperlink{classnetdem_1_1_s_d_f_calculator_af00a0e39a11dde13a169d5e38249c729}{tree}};\ }
-\DoxyCodeLine{00166\ }
-\DoxyCodeLine{00167\ \ \ Eigen::MatrixXd\ \mbox{\hyperlink{classnetdem_1_1_s_d_f_calculator_a04cd0ea0be339eaccab7bddda163b666}{FN}},\ \mbox{\hyperlink{classnetdem_1_1_s_d_f_calculator_a3756fa0f3613081d2633131718286a77}{VN}},\ \mbox{\hyperlink{classnetdem_1_1_s_d_f_calculator_a4eabf380059cba715ff54d531e45dd25}{EN}};\ }
-\DoxyCodeLine{00168\ \ \ Eigen::MatrixXi\ \mbox{\hyperlink{classnetdem_1_1_s_d_f_calculator_a994d2b2530c6a6646bec5aa55d4b32f0}{E}};\ }
-\DoxyCodeLine{00169\ \ \ Eigen::VectorXi\ \mbox{\hyperlink{classnetdem_1_1_s_d_f_calculator_a596a4825f3c1e5e7b3cc5db963b07ed0}{EMAP}};\ }
-\DoxyCodeLine{00170\ \};}
-\DoxyCodeLine{00171\ }
-\DoxyCodeLine{00172\ \}\ \textcolor{comment}{//\ namespace\ netdem}}
+\DoxyCodeLine{00165\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00166\ \ \ Eigen::MatrixXd\ vertices;\ }
+\DoxyCodeLine{00167\ \ \ Eigen::MatrixXi\ facets;\ }
+\DoxyCodeLine{00168\ }
+\DoxyCodeLine{00169\ \ \ Eigen::MatrixXi\ T;\ }
+\DoxyCodeLine{00170\ }
+\DoxyCodeLine{00171\ \ \ igl::AABB<Eigen::MatrixXd,\ 3>}
+\DoxyCodeLine{00172\ \ \ \ \ \ \ tree;\ }
+\DoxyCodeLine{00173\ }
+\DoxyCodeLine{00174\ \ \ Eigen::MatrixXd\ FN,\ VN,\ EN;\ }
+\DoxyCodeLine{00176\ \ \ Eigen::MatrixXi\ E;\ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00177\ \ \ Eigen::VectorXi\ EMAP;\ \ \ \ \ \ \ }
+\DoxyCodeLine{00178\ \};}
+\DoxyCodeLine{00179\ }
+\DoxyCodeLine{00180\ \}\ \textcolor{comment}{//\ namespace\ netdem}}
 
 \end{DoxyCode}

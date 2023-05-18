@@ -10,7 +10,5 @@ var classnetdem_1_1_particle_group =
     [ "Remove", "classnetdem_1_1_particle_group.html#a87c41fe2deaee3a80242bc24202a66e9", null ],
     [ "SetSpin", "classnetdem_1_1_particle_group.html#a1a8f2553f5e3789dbca4c72531c29580", null ],
     [ "SetVelocity", "classnetdem_1_1_particle_group.html#a5b170749df6fa9c7fe4a2267105566d2", null ],
-    [ "Update", "classnetdem_1_1_particle_group.html#a3b1f8bdddb7187904cae14031a12f1b3", null ],
-    [ "particle_ids", "classnetdem_1_1_particle_group.html#a83f027dc92fccc5198b73570eed23fd3", null ],
-    [ "particle_list", "classnetdem_1_1_particle_group.html#aa14893da00d40386076537d870d3ea56", null ]
+    [ "Update", "classnetdem_1_1_particle_group.html#a3b1f8bdddb7187904cae14031a12f1b3", null ]
 ];

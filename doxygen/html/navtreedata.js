@@ -31,10 +31,7 @@ var NAVTREE =
       [ "Namespace Members", "namespacemembers.html", [
         [ "All", "namespacemembers.html", null ],
         [ "Functions", "namespacemembers_func.html", null ],
-        [ "Variables", "namespacemembers_vars.html", null ],
-        [ "Typedefs", "namespacemembers_type.html", null ],
-        [ "Enumerations", "namespacemembers_enum.html", null ],
-        [ "Enumerator", "namespacemembers_eval.html", null ]
+        [ "Enumerations", "namespacemembers_enum.html", null ]
       ] ]
     ] ],
     [ "Classes", "annotated.html", [
@@ -50,12 +47,7 @@ var NAVTREE =
       ] ]
     ] ],
     [ "Files", "files.html", [
-      [ "File List", "files.html", "files_dup" ],
-      [ "File Members", "globals.html", [
-        [ "All", "globals.html", null ],
-        [ "Functions", "globals_func.html", null ],
-        [ "Typedefs", "globals_type.html", null ]
-      ] ]
+      [ "File List", "files.html", "files_dup" ]
     ] ]
   ] ]
 ];
@@ -63,30 +55,21 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"classnetdem_1_1_bonded_voronois.html#ac8294c983297c79c274c396dea55ac97",
-"classnetdem_1_1_collision_solver_p_w.html#a1a4559783964fdb3f7eea71950d88c93",
-"classnetdem_1_1_contact_solver_factory.html#ac253d213f568e7a8bacbf00fc2c093c8",
-"classnetdem_1_1_data_dumper.html#a25b1cd6a1f55fb41ae1b94f9e3794a58",
-"classnetdem_1_1_distribution.html#a8306c3ecfc50c9c4c48622c7e77b8780",
-"classnetdem_1_1_f_e_m_simulator.html#aa70e2622c5bc64a4746202c8f0e0dd5d",
-"classnetdem_1_1_m_p_i_manager.html#a021b34b7e403cfa33e24e24b2be53950",
-"classnetdem_1_1_m_p_i_manager.html#af12a92c3bbc51428a401564af54b4a29",
-"classnetdem_1_1_modifier_manager.html#a6748f7dfd9b3e8e9999c4981684a9945",
-"classnetdem_1_1_particle.html#ac11425c8bad91adc110a84e3c9ebc38a",
-"classnetdem_1_1_peri_digm_d_e_m_coupler.html#a3344d147a83d7dde6506628375d265df",
-"classnetdem_1_1_plane.html#add49f3aedde65a09c68eca34b8a097fb",
-"classnetdem_1_1_s_d_f_calculator.html#a04cd0ea0be339eaccab7bddda163b666",
-"classnetdem_1_1_shape.html#a05a8aa2b95d47cca08bb1e246ddd2d43",
-"classnetdem_1_1_solver_a_n_n_p_plane.html#a833da05e679fbf27170471d77d61d5dc",
-"classnetdem_1_1_solver_g_j_k_p_p.html#ad762670c8652be706bebae38454952ad",
-"classnetdem_1_1_solver_sphere_plane.html#a40493812b7d5944974a8488437166204",
-"classnetdem_1_1_tri_mesh.html#a61ab58f72d319c22473f926a5917339e",
-"classnetdem_1_1_wall.html#a93c0900a24136767ca1ff330d4d5c31f",
-"contact__pw__data_8hpp.html",
-"index.html#autotoc_md5",
-"peridigm__discretization_8hpp_source.html",
-"structnetdem_1_1_bond_entry_data.html#a44111b88bd4bc44fd022808450ca1f20",
-"utils__math_8hpp.html#a7a8d9e915b47d202c5c2b49d227c55b5"
+"classnetdem_1_1_breakage_analysis_p_d.html#adffe4c5118ccdff62542d3e600bec88f",
+"classnetdem_1_1_contact_model.html#a44804e500c1e234486125e9be7e5c9b5",
+"classnetdem_1_1_d_e_m_fragment.html#add22e978aee2d28ca7c74546ffd0ceed",
+"classnetdem_1_1_deformation_analysis_1_1_settings.html",
+"classnetdem_1_1_f_e_m_simulator.html#afa699e8e627501767271f5be81a10f47",
+"classnetdem_1_1_membrane.html#a53dbcfb8fed5335f6cad97a56299f910",
+"classnetdem_1_1_particle_group.html#a3b1f8bdddb7187904cae14031a12f1b3",
+"classnetdem_1_1_peri_digm_settings.html#ab95abcb304d4b28809d22c3412cc7c37",
+"classnetdem_1_1_regression_net.html#ad0a454915d74f397ea4b6ce40c46f84e",
+"classnetdem_1_1_simplex.html#ac81f7eaec0ee14f43df6a958924e2a8f",
+"classnetdem_1_1_solver_g_j_k_p_p.html#aa751d5cb5deb9b2c0cceaa716a6f2b99",
+"classnetdem_1_1_sphere.html#a8e52d6c77c06cb6f1f194006e707ce50",
+"classnetdem_1_1_volume_based.html#af63e965787f179a4325306200d464cc6",
+"index.html",
+"structnetdem_1_1_particle_energy.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

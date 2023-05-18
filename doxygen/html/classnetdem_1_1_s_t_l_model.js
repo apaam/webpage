@@ -1,7 +1,5 @@
 var classnetdem_1_1_s_t_l_model =
 [
-    [ "STLModel", "classnetdem_1_1_s_t_l_model.html#a2ef4663faef155d7672d750d0b205763", null ],
-    [ "STLModel", "classnetdem_1_1_s_t_l_model.html#a394d1639aa4fa72f1c0bd58111b5484a", null ],
     [ "CopyPose", "classnetdem_1_1_s_t_l_model.html#afd2b35240921f19a81eb77cef0df66e6", null ],
     [ "CopyPoseDev", "classnetdem_1_1_s_t_l_model.html#a606a37724c6b4965ea9b91c32a00fa84", null ],
     [ "Decimate", "classnetdem_1_1_s_t_l_model.html#af6ff34b3666195fd16e7c7b35916ece2", null ],
@@ -30,7 +28,6 @@ var classnetdem_1_1_s_t_l_model =
     [ "SmoothMesh", "classnetdem_1_1_s_t_l_model.html#a0772feb68489d7c3a9734d458e55c031", null ],
     [ "Standardize", "classnetdem_1_1_s_t_l_model.html#aafbdce68eec88494326403f8302b98a0", null ],
     [ "Translate", "classnetdem_1_1_s_t_l_model.html#a6101a6ca3260e842549f19da0d2f3fe4", null ],
-    [ "VertexIndexInFacet", "classnetdem_1_1_s_t_l_model.html#a541f8eab216d7c079f8424498b886c38", null ],
     [ "facets", "classnetdem_1_1_s_t_l_model.html#a6c82d2e74216bf22886b41737b67b0ca", null ],
     [ "vertices", "classnetdem_1_1_s_t_l_model.html#a74db86ccf2a6a377aa4d7b0057f5082a", null ]
 ];

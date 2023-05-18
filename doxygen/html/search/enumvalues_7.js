@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['identity_0',['Identity',['../namespacenetdem.html#a06635636eca09676377d47de7cb4c02cac9c5c65fb4af9cf90eb99b3b84424189',1,'netdem']]]
+  ['softmax_0',['Softmax',['../namespacenetdem.html#a06635636eca09676377d47de7cb4c02ca31d953b9d49a6b4378f45097047976d0',1,'netdem']]]
 ];

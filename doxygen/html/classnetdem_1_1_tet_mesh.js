@@ -6,7 +6,6 @@ var classnetdem_1_1_tet_mesh =
     [ "TetMesh", "classnetdem_1_1_tet_mesh.html#a0012b0838b1dfead5d94a9bebd2f481e", null ],
     [ "GetSurfaceSTL", "classnetdem_1_1_tet_mesh.html#abd86ff3a037925b0bd9f4ae3f2d34927", null ],
     [ "Init", "classnetdem_1_1_tet_mesh.html#a990167ef526d28b181b1221fc9afcd38", null ],
-    [ "InitBoundary", "classnetdem_1_1_tet_mesh.html#aa60ba8fef04dcc90574859a59082a35d", null ],
     [ "SaveAsVTK", "classnetdem_1_1_tet_mesh.html#a50395a58e2ead4cdec93932aaa054cd0", null ],
     [ "bound_edges", "classnetdem_1_1_tet_mesh.html#a16e8cf44195ebc36b3e80df0f8560ffc", null ],
     [ "bound_facet_areas", "classnetdem_1_1_tet_mesh.html#a6f83eeccf1ac409f0dd8d29857e2b1e6", null ],
