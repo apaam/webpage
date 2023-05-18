@@ -13,7 +13,7 @@ A solver class for performing discrete element method (DEM) simulations.
 \begin{DoxyCompactItemize}
 \item 
 enum \mbox{\hyperlink{classnetdem_1_1_d_e_m_solver_a7b625d897bb69cd28838602603b8b0c4}{Cycle\+Point}} \{ \newline
-\mbox{\hyperlink{classnetdem_1_1_d_e_m_solver_a7b625d897bb69cd28838602603b8b0c4a03e21037ee2bb4ffa60b59913aafc1ae}{pre}}
+{\bfseries pre}
 , \mbox{\hyperlink{classnetdem_1_1_d_e_m_solver_a7b625d897bb69cd28838602603b8b0c4a0155416866bc9ebbdb5d406118db307c}{mid\+\_\+0}}
 , \mbox{\hyperlink{classnetdem_1_1_d_e_m_solver_a7b625d897bb69cd28838602603b8b0c4a69786b2a409af23dce615f2de6fed7c8}{mid\+\_\+1}}
 , \mbox{\hyperlink{classnetdem_1_1_d_e_m_solver_a7b625d897bb69cd28838602603b8b0c4a01b3c5aa2f497958bd709b1587328a9b}{mid\+\_\+2}}
@@ -29,7 +29,7 @@ enum \mbox{\hyperlink{classnetdem_1_1_d_e_m_solver_a7b625d897bb69cd28838602603b8
 \item 
 \mbox{\hyperlink{classnetdem_1_1_d_e_m_solver_aedec0fdad0c9bbd11dbdeca367c6a9ac}{DEMSolver}} ()
 \item 
-void \mbox{\hyperlink{classnetdem_1_1_d_e_m_solver_a84eec875e502e4045e7b3aa346cd9b59}{Init}} (\mbox{\hyperlink{classnetdem_1_1_simulation}{Simulation}} $\ast$\mbox{\hyperlink{classnetdem_1_1_d_e_m_solver_a88cfb46303446f25e1e543a8cd7dfcdd}{sim}})
+void \mbox{\hyperlink{classnetdem_1_1_d_e_m_solver_a84eec875e502e4045e7b3aa346cd9b59}{Init}} (\mbox{\hyperlink{classnetdem_1_1_simulation}{Simulation}} $\ast$sim)
 \begin{DoxyCompactList}\small\item\em Initialize the solver with a given simulation object. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classnetdem_1_1_d_e_m_solver_af64e293b3bcbcd833b033b76ddc3aec8}{Update\+Pre\+Modifiers}} ()
 \begin{DoxyCompactList}\small\item\em step 0 \end{DoxyCompactList}\item 
@@ -60,24 +60,6 @@ double \mbox{\hyperlink{classnetdem_1_1_d_e_m_solver_a425c71e883bed7ce636ce51f50
 \item 
 \mbox{\hyperlink{classnetdem_1_1_contact_solver_factory}{Contact\+Solver\+Factory}} \mbox{\hyperlink{classnetdem_1_1_d_e_m_solver_afacb73a3ad5d0cdb271e71ba518ab545}{contact\+\_\+solver\+\_\+factory}}
 \end{DoxyCompactItemize}
-\doxysubsection*{Private Member Functions}
-\begin{DoxyCompactItemize}
-\item 
-void \mbox{\hyperlink{classnetdem_1_1_d_e_m_solver_a7cf48d8c2ccce21403731290fbc0d3e8}{Update\+Mid\+Modifiers}} (\mbox{\hyperlink{classnetdem_1_1_d_e_m_solver_a7b625d897bb69cd28838602603b8b0c4}{Cycle\+Point}} cyc\+\_\+point)
-\item 
-void \mbox{\hyperlink{classnetdem_1_1_d_e_m_solver_ada8f81d4b485dac311fa9d9cd47d854a}{Cycle}} ()
-\item 
-void \mbox{\hyperlink{classnetdem_1_1_d_e_m_solver_a48bb51dc896d0d42ec8deaf776a55604}{Dry\+Cycle}} ()
-\item 
-void \mbox{\hyperlink{classnetdem_1_1_d_e_m_solver_a9c164d6c7e9ab6ab42a9e26561750ab4}{Solve\+Contact\+PP}} (\mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} $\ast$const p\+\_\+ii, \mbox{\hyperlink{classnetdem_1_1_neigh_pof_p}{Neigh\+PofP}} $\ast$const neigh\+\_\+tuple, \mbox{\hyperlink{classnetdem_1_1_contact_solver_factory}{Contact\+Solver\+Factory}} $\ast$const solver\+\_\+factory)
-\begin{DoxyCompactList}\small\item\em Solve contacts between a particle and its neighbors using a given contact solver factory. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classnetdem_1_1_d_e_m_solver_a0e2e6b28b7b923cf19670312f873a35f}{Solve\+Contact\+PW}} (\mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} $\ast$const p\+\_\+ii, \mbox{\hyperlink{classnetdem_1_1_neigh_wof_p}{Neigh\+WofP}} $\ast$const neigh\+\_\+tuple, \mbox{\hyperlink{classnetdem_1_1_contact_solver_factory}{Contact\+Solver\+Factory}} $\ast$const solver\+\_\+factory)
-\begin{DoxyCompactList}\small\item\em Solve contacts between a particle and its adjacent walls using a given contact solver factory. \end{DoxyCompactList}\end{DoxyCompactItemize}
-\doxysubsection*{Private Attributes}
-\begin{DoxyCompactItemize}
-\item 
-\mbox{\hyperlink{classnetdem_1_1_simulation}{Simulation}} $\ast$ \mbox{\hyperlink{classnetdem_1_1_d_e_m_solver_a88cfb46303446f25e1e543a8cd7dfcdd}{sim}} \{nullptr\}
-\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
@@ -93,10 +75,6 @@ This class provides a set of methods and member variables for updating the posit
 {\footnotesize\ttfamily enum \mbox{\hyperlink{classnetdem_1_1_d_e_m_solver_a7b625d897bb69cd28838602603b8b0c4}{netdem\+::\+DEMSolver\+::\+Cycle\+Point}}}
 
 An enum representing different points in the update cycle where modifiers can be applied. \begin{DoxyEnumFields}{Enumerator}
-\raisebox{\heightof{T}}[0pt][0pt]{\index{pre@{pre}!netdem::DEMSolver@{netdem::DEMSolver}}\index{netdem::DEMSolver@{netdem::DEMSolver}!pre@{pre}}}\mbox{\Hypertarget{classnetdem_1_1_d_e_m_solver_a7b625d897bb69cd28838602603b8b0c4a03e21037ee2bb4ffa60b59913aafc1ae}\label{classnetdem_1_1_d_e_m_solver_a7b625d897bb69cd28838602603b8b0c4a03e21037ee2bb4ffa60b59913aafc1ae}} 
-pre&\\
-\hline
-
 \raisebox{\heightof{T}}[0pt][0pt]{\index{mid\_0@{mid\_0}!netdem::DEMSolver@{netdem::DEMSolver}}\index{netdem::DEMSolver@{netdem::DEMSolver}!mid\_0@{mid\_0}}}\mbox{\Hypertarget{classnetdem_1_1_d_e_m_solver_a7b625d897bb69cd28838602603b8b0c4a0155416866bc9ebbdb5d406118db307c}\label{classnetdem_1_1_d_e_m_solver_a7b625d897bb69cd28838602603b8b0c4a0155416866bc9ebbdb5d406118db307c}} 
 mid\+\_\+0&Before the main simulation loop begins. \\
 \hline
@@ -138,16 +116,10 @@ num\+\_\+cycle\+\_\+points&After the main simulation loop ends. The total number
 A default constructor for this class. 
 
 \doxysubsection{Member Function Documentation}
-\mbox{\Hypertarget{classnetdem_1_1_d_e_m_solver_ada8f81d4b485dac311fa9d9cd47d854a}\label{classnetdem_1_1_d_e_m_solver_ada8f81d4b485dac311fa9d9cd47d854a}} 
+\mbox{\Hypertarget{classnetdem_1_1_d_e_m_solver_a4a21b0cd9ee990cee7de35491647927d}\label{classnetdem_1_1_d_e_m_solver_a4a21b0cd9ee990cee7de35491647927d}} 
 \index{netdem::DEMSolver@{netdem::DEMSolver}!Cycle@{Cycle}}
 \index{Cycle@{Cycle}!netdem::DEMSolver@{netdem::DEMSolver}}
-\doxysubsubsection{\texorpdfstring{Cycle()}{Cycle()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily void DEMSolver\+::\+Cycle (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
-
-Perform a single cycle of the simulation loop. \mbox{\Hypertarget{classnetdem_1_1_d_e_m_solver_a4a21b0cd9ee990cee7de35491647927d}\label{classnetdem_1_1_d_e_m_solver_a4a21b0cd9ee990cee7de35491647927d}} 
-\index{netdem::DEMSolver@{netdem::DEMSolver}!Cycle@{Cycle}}
-\index{Cycle@{Cycle}!netdem::DEMSolver@{netdem::DEMSolver}}
-\doxysubsubsection{\texorpdfstring{Cycle()}{Cycle()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+\doxysubsubsection{\texorpdfstring{Cycle()}{Cycle()}}
 {\footnotesize\ttfamily void DEMSolver\+::\+Cycle (\begin{DoxyParamCaption}\item[{int}]{num\+\_\+cycles }\end{DoxyParamCaption})}
 
 
@@ -161,13 +133,7 @@ This method runs a given number of cycles of the simulation loop, performing all
 {\em num\+\_\+cycles} & The number of cycles to perform. \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{classnetdem_1_1_d_e_m_solver_a48bb51dc896d0d42ec8deaf776a55604}\label{classnetdem_1_1_d_e_m_solver_a48bb51dc896d0d42ec8deaf776a55604}} 
-\index{netdem::DEMSolver@{netdem::DEMSolver}!DryCycle@{DryCycle}}
-\index{DryCycle@{DryCycle}!netdem::DEMSolver@{netdem::DEMSolver}}
-\doxysubsubsection{\texorpdfstring{DryCycle()}{DryCycle()}}
-{\footnotesize\ttfamily void DEMSolver\+::\+Dry\+Cycle (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
-
-Perform a dry run of the simulation, updating neighbors and contacts but not computing forces or motion. \mbox{\Hypertarget{classnetdem_1_1_d_e_m_solver_a84eec875e502e4045e7b3aa346cd9b59}\label{classnetdem_1_1_d_e_m_solver_a84eec875e502e4045e7b3aa346cd9b59}} 
+\mbox{\Hypertarget{classnetdem_1_1_d_e_m_solver_a84eec875e502e4045e7b3aa346cd9b59}\label{classnetdem_1_1_d_e_m_solver_a84eec875e502e4045e7b3aa346cd9b59}} 
 \index{netdem::DEMSolver@{netdem::DEMSolver}!Init@{Init}}
 \index{Init@{Init}!netdem::DEMSolver@{netdem::DEMSolver}}
 \doxysubsubsection{\texorpdfstring{Init()}{Init()}}
@@ -201,48 +167,6 @@ This method solves the simulation for a given amount of time, by running multipl
 {\em time} & The total duration to simulate, in seconds. \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{classnetdem_1_1_d_e_m_solver_a9c164d6c7e9ab6ab42a9e26561750ab4}\label{classnetdem_1_1_d_e_m_solver_a9c164d6c7e9ab6ab42a9e26561750ab4}} 
-\index{netdem::DEMSolver@{netdem::DEMSolver}!SolveContactPP@{SolveContactPP}}
-\index{SolveContactPP@{SolveContactPP}!netdem::DEMSolver@{netdem::DEMSolver}}
-\doxysubsubsection{\texorpdfstring{SolveContactPP()}{SolveContactPP()}}
-{\footnotesize\ttfamily void DEMSolver\+::\+Solve\+Contact\+PP (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} $\ast$const}]{p\+\_\+ii,  }\item[{\mbox{\hyperlink{classnetdem_1_1_neigh_pof_p}{Neigh\+PofP}} $\ast$const}]{neigh\+\_\+tuple,  }\item[{\mbox{\hyperlink{classnetdem_1_1_contact_solver_factory}{Contact\+Solver\+Factory}} $\ast$const}]{solver\+\_\+factory }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
-
-
-
-Solve contacts between a particle and its neighbors using a given contact solver factory. 
-
-This method computes the contact forces between a given particle and its neighbors, using a specified \mbox{\hyperlink{classnetdem_1_1_contact_solver_factory}{Contact\+Solver\+Factory}} object to choose the appropriate contact solver for each contact.
-
-
-\begin{DoxyParams}{Parameters}
-{\em p\+\_\+ii} & A pointer to the central particle in the contact calculation. \\
-\hline
-{\em neigh\+\_\+tuple} & A pointer to the neighbor list for the central particle. \\
-\hline
-{\em solver\+\_\+factory} & A pointer to the \mbox{\hyperlink{classnetdem_1_1_contact_solver_factory}{Contact\+Solver\+Factory}} object to use for choosing the appropriate contact solver. \\
-\hline
-\end{DoxyParams}
-\mbox{\Hypertarget{classnetdem_1_1_d_e_m_solver_a0e2e6b28b7b923cf19670312f873a35f}\label{classnetdem_1_1_d_e_m_solver_a0e2e6b28b7b923cf19670312f873a35f}} 
-\index{netdem::DEMSolver@{netdem::DEMSolver}!SolveContactPW@{SolveContactPW}}
-\index{SolveContactPW@{SolveContactPW}!netdem::DEMSolver@{netdem::DEMSolver}}
-\doxysubsubsection{\texorpdfstring{SolveContactPW()}{SolveContactPW()}}
-{\footnotesize\ttfamily void DEMSolver\+::\+Solve\+Contact\+PW (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} $\ast$const}]{p\+\_\+ii,  }\item[{\mbox{\hyperlink{classnetdem_1_1_neigh_wof_p}{Neigh\+WofP}} $\ast$const}]{neigh\+\_\+tuple,  }\item[{\mbox{\hyperlink{classnetdem_1_1_contact_solver_factory}{Contact\+Solver\+Factory}} $\ast$const}]{solver\+\_\+factory }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
-
-
-
-Solve contacts between a particle and its adjacent walls using a given contact solver factory. 
-
-This method computes the contact forces between a given particle and its adjacent walls, using a specified \mbox{\hyperlink{classnetdem_1_1_contact_solver_factory}{Contact\+Solver\+Factory}} object to choose the appropriate contact solver for each contact.
-
-
-\begin{DoxyParams}{Parameters}
-{\em p\+\_\+ii} & A pointer to the central particle in the contact calculation. \\
-\hline
-{\em neigh\+\_\+tuple} & A pointer to the list of adjacent walls for the central particle. \\
-\hline
-{\em solver\+\_\+factory} & A pointer to the \mbox{\hyperlink{classnetdem_1_1_contact_solver_factory}{Contact\+Solver\+Factory}} object to use for choosing the appropriate contact solver. \\
-\hline
-\end{DoxyParams}
 \mbox{\Hypertarget{classnetdem_1_1_d_e_m_solver_a3bf2c499df14f86466f2a12016081f63}\label{classnetdem_1_1_d_e_m_solver_a3bf2c499df14f86466f2a12016081f63}} 
 \index{netdem::DEMSolver@{netdem::DEMSolver}!UpdateContacts@{UpdateContacts}}
 \index{UpdateContacts@{UpdateContacts}!netdem::DEMSolver@{netdem::DEMSolver}}
@@ -263,13 +187,7 @@ Compute contact forces between particles and walls. \mbox{\Hypertarget{classnetd
 
 step 1 
 
-Update the linked list of particles in the simulation. \mbox{\Hypertarget{classnetdem_1_1_d_e_m_solver_a7cf48d8c2ccce21403731290fbc0d3e8}\label{classnetdem_1_1_d_e_m_solver_a7cf48d8c2ccce21403731290fbc0d3e8}} 
-\index{netdem::DEMSolver@{netdem::DEMSolver}!UpdateMidModifiers@{UpdateMidModifiers}}
-\index{UpdateMidModifiers@{UpdateMidModifiers}!netdem::DEMSolver@{netdem::DEMSolver}}
-\doxysubsubsection{\texorpdfstring{UpdateMidModifiers()}{UpdateMidModifiers()}}
-{\footnotesize\ttfamily void DEMSolver\+::\+Update\+Mid\+Modifiers (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_d_e_m_solver_a7b625d897bb69cd28838602603b8b0c4}{Cycle\+Point}}}]{cyc\+\_\+point }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
-
-Apply mid-\/cycle modifiers to the simulation state at a given cycle point. \mbox{\Hypertarget{classnetdem_1_1_d_e_m_solver_ac6d328dae5ec7dfbd9357af58dde5d00}\label{classnetdem_1_1_d_e_m_solver_ac6d328dae5ec7dfbd9357af58dde5d00}} 
+Update the linked list of particles in the simulation. \mbox{\Hypertarget{classnetdem_1_1_d_e_m_solver_ac6d328dae5ec7dfbd9357af58dde5d00}\label{classnetdem_1_1_d_e_m_solver_ac6d328dae5ec7dfbd9357af58dde5d00}} 
 \index{netdem::DEMSolver@{netdem::DEMSolver}!UpdateParticlesContactForce@{UpdateParticlesContactForce}}
 \index{UpdateParticlesContactForce@{UpdateParticlesContactForce}!netdem::DEMSolver@{netdem::DEMSolver}}
 \doxysubsubsection{\texorpdfstring{UpdateParticlesContactForce()}{UpdateParticlesContactForce()}}
@@ -344,13 +262,7 @@ A factory object for storing solvers for contacts between particles and walls. \
 \doxysubsubsection{\texorpdfstring{dem\_profiler}{dem\_profiler}}
 {\footnotesize\ttfamily \mbox{\hyperlink{classnetdem_1_1_d_e_m_profiler}{DEMProfiler}} netdem\+::\+DEMSolver\+::dem\+\_\+profiler}
 
-A profiler object for tracking performance metrics during the simulation. \mbox{\Hypertarget{classnetdem_1_1_d_e_m_solver_a88cfb46303446f25e1e543a8cd7dfcdd}\label{classnetdem_1_1_d_e_m_solver_a88cfb46303446f25e1e543a8cd7dfcdd}} 
-\index{netdem::DEMSolver@{netdem::DEMSolver}!sim@{sim}}
-\index{sim@{sim}!netdem::DEMSolver@{netdem::DEMSolver}}
-\doxysubsubsection{\texorpdfstring{sim}{sim}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classnetdem_1_1_simulation}{Simulation}}$\ast$ netdem\+::\+DEMSolver\+::sim \{nullptr\}\hspace{0.3cm}{\ttfamily [private]}}
-
-A pointer to the \mbox{\hyperlink{classnetdem_1_1_simulation}{Simulation}} object representing the current simulation. \mbox{\Hypertarget{classnetdem_1_1_d_e_m_solver_a425c71e883bed7ce636ce51f50f42f7f}\label{classnetdem_1_1_d_e_m_solver_a425c71e883bed7ce636ce51f50f42f7f}} 
+A profiler object for tracking performance metrics during the simulation. \mbox{\Hypertarget{classnetdem_1_1_d_e_m_solver_a425c71e883bed7ce636ce51f50f42f7f}\label{classnetdem_1_1_d_e_m_solver_a425c71e883bed7ce636ce51f50f42f7f}} 
 \index{netdem::DEMSolver@{netdem::DEMSolver}!timestep@{timestep}}
 \index{timestep@{timestep}!netdem::DEMSolver@{netdem::DEMSolver}}
 \doxysubsubsection{\texorpdfstring{timestep}{timestep}}
@@ -360,5 +272,5 @@ The timestep to use when integrating particle motion.
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-/\+Users/lzhshou/\+Documents/\+Research/my\+Projects/apaam/repo/netdem/src/dem/\mbox{\hyperlink{dem__solver_8hpp}{dem\+\_\+solver.\+hpp}}\item 
-/\+Users/lzhshou/\+Documents/\+Research/my\+Projects/apaam/repo/netdem/src/dem/\mbox{\hyperlink{dem__solver_8cpp}{dem\+\_\+solver.\+cpp}}\end{DoxyCompactItemize}
+/\+Users/lzhshou/\+Documents/\+Research/my\+Projects/apaam/repo/netdem/src/dem/dem\+\_\+solver.\+hpp\item 
+/\+Users/lzhshou/\+Documents/\+Research/my\+Projects/apaam/repo/netdem/src/dem/dem\+\_\+solver.\+cpp\end{DoxyCompactItemize}

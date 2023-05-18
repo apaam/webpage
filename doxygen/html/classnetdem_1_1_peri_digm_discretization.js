@@ -7,7 +7,6 @@ var classnetdem_1_1_peri_digm_discretization =
     [ "PeriDigmDiscretization", "classnetdem_1_1_peri_digm_discretization.html#afeab5b1eb61cbd7226255056de2c2531", null ],
     [ "~PeriDigmDiscretization", "classnetdem_1_1_peri_digm_discretization.html#ad3e8445b24ce0dcbe0aa47c159f69a9f", null ],
     [ "GetNodeSize", "classnetdem_1_1_peri_digm_discretization.html#a8ac9115cc0019b85c6bb093e812c3910", null ],
-    [ "InitDefaultBlockIndices", "classnetdem_1_1_peri_digm_discretization.html#a41aec4af8560a0040953f27d9eaa87e3", null ],
     [ "InitFromDistanceMap", "classnetdem_1_1_peri_digm_discretization.html#a0ee03a178267cc1507b57805165e233a", null ],
     [ "InitFromGrid", "classnetdem_1_1_peri_digm_discretization.html#a8984979fa9687e1e02e1e0c1d81680c3", null ],
     [ "InitFromSTL", "classnetdem_1_1_peri_digm_discretization.html#afda2f3d6e77fc4dcfbd07a56cb2644e3", null ],

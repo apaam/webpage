@@ -1,29 +1,34 @@
 \hypertarget{voronoi_8hpp_source}{}\doxysection{voronoi.\+hpp}
 \label{voronoi_8hpp_source}\index{/Users/lzhshou/Documents/Research/myProjects/apaam/repo/netdem/src/utils/voronoi.hpp@{/Users/lzhshou/Documents/Research/myProjects/apaam/repo/netdem/src/utils/voronoi.hpp}}
-\mbox{\hyperlink{voronoi_8hpp}{Go to the documentation of this file.}}
+
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
 \DoxyCodeLine{00002\ }
-\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{igl__wrapper_8hpp}{igl\_wrapper.hpp}}"{}}}
-\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{stl__model_8hpp}{stl\_model.hpp}}"{}}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}igl\_wrapper.hpp"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}stl\_model.hpp"{}}}
 \DoxyCodeLine{00005\ }
 \DoxyCodeLine{00010\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacenetdem}{netdem}}\ \{}
 \DoxyCodeLine{00011\ }
-\DoxyCodeLine{00018\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classnetdem_1_1_voronoi}{Voronoi}}\ \{}
-\DoxyCodeLine{00019\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00030\ \ \ \textcolor{keyword}{static}\ std::tuple<VecXT<Vec3d>,\ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<VecXT<Vec3i>}}>>}
-\DoxyCodeLine{00031\ \ \ \mbox{\hyperlink{classnetdem_1_1_voronoi_aad20cbaf6f08cbcdd1a6cd6619c21db5}{Solve}}(\mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<Vec3d>}}\ \textcolor{keyword}{const}\ \&vt\_seeds,\ \mbox{\hyperlink{classnetdem_1_1_s_t_l_model}{STLModel}}\ \textcolor{keyword}{const}\ \&stl\_model,\ \textcolor{keywordtype}{bool}\ use\_cork\ =\ \textcolor{keyword}{true});}
-\DoxyCodeLine{00032\ }
-\DoxyCodeLine{00045\ \ \ \textcolor{keyword}{static}\ std::tuple<VecXT<Vec3d>,\ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<VecXT<Vec3i>}}>,\ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<Vec3d>}}>}
-\DoxyCodeLine{00046\ \ \ \mbox{\hyperlink{classnetdem_1_1_voronoi_aad20cbaf6f08cbcdd1a6cd6619c21db5}{Solve}}(\mbox{\hyperlink{classnetdem_1_1_s_t_l_model}{STLModel}}\ \textcolor{keyword}{const}\ \&stl\_model,\ \textcolor{keywordtype}{int}\ num\_seeds,\ \textcolor{keywordtype}{int}\ max\_iter\ =\ 1000,\ \textcolor{keywordtype}{double}\ tol\ =\ 1.0e-\/3,\ \textcolor{keywordtype}{bool}\ use\_cork\ =\ \textcolor{keyword}{true});}
-\DoxyCodeLine{00047\ }
-\DoxyCodeLine{00058\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_voronoi_aeeae6e079df18c53f9c7f38cf3fbf6d8}{SaveAsVTK}}(std::string\ \textcolor{keyword}{const}\ \&file,\ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<Vec3d>}}\ \textcolor{keyword}{const}\ \&vt\_nodes,\ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT}}<\mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<Vec3i>}}>\ \textcolor{keyword}{const}\ \&vt\_cells,\ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<Vec3d>}}\ \textcolor{keyword}{const}\ \&vt\_seeds);}
-\DoxyCodeLine{00059\ }
-\DoxyCodeLine{00060\ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00072\ \ \ \textcolor{keyword}{static}\ std::tuple<VecXT<Vec3d>,\ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<VecXT<Vec3i>}}>>}
-\DoxyCodeLine{00073\ \ \ \mbox{\hyperlink{classnetdem_1_1_voronoi_aad20cbaf6f08cbcdd1a6cd6619c21db5}{Solve}}(\mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<Vec3d>}}\ \textcolor{keyword}{const}\ \&vt\_seeds,\ \mbox{\hyperlink{classnetdem_1_1_s_t_l_model}{STLModel}}\ \textcolor{keyword}{const}\ \&stl\_model,\ \mbox{\hyperlink{classnetdem_1_1_s_d_f_calculator}{SDFCalculator}}\ \textcolor{keyword}{const}\ \&sdf\_calculator,\ \textcolor{keywordtype}{bool}\ use\_cork\ =\ \textcolor{keyword}{true});}
-\DoxyCodeLine{00074\ \};}
-\DoxyCodeLine{00075\ }
-\DoxyCodeLine{00076\ \}\ \textcolor{comment}{//\ namespace\ netdem}}
+\DoxyCodeLine{00019\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classnetdem_1_1_voronoi}{Voronoi}}\ \{}
+\DoxyCodeLine{00020\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00036\ \ \ \textcolor{keyword}{static}\ std::tuple<VecXT<Vec3d>,\ VecXT<VecXT<Vec3i>>>}
+\DoxyCodeLine{00037\ \ \ \mbox{\hyperlink{classnetdem_1_1_voronoi_aad20cbaf6f08cbcdd1a6cd6619c21db5}{Solve}}(VecXT<Vec3d>\ \textcolor{keyword}{const}\ \&vt\_seeds,\ \mbox{\hyperlink{classnetdem_1_1_s_t_l_model}{STLModel}}\ \textcolor{keyword}{const}\ \&stl\_model,}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ use\_cork\ =\ \textcolor{keyword}{true});}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00058\ \ \ \textcolor{keyword}{static}\ std::tuple<VecXT<Vec3d>,\ VecXT<VecXT<Vec3i>>,\ VecXT<Vec3d>>}
+\DoxyCodeLine{00059\ \ \ \mbox{\hyperlink{classnetdem_1_1_voronoi_aad20cbaf6f08cbcdd1a6cd6619c21db5}{Solve}}(\mbox{\hyperlink{classnetdem_1_1_s_t_l_model}{STLModel}}\ \textcolor{keyword}{const}\ \&stl\_model,\ \textcolor{keywordtype}{int}\ num\_seeds,\ \textcolor{keywordtype}{int}\ max\_iter\ =\ 1000,}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ tol\ =\ 1.0e-\/3,\ \textcolor{keywordtype}{bool}\ use\_cork\ =\ \textcolor{keyword}{true});}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00073\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_voronoi_aeeae6e079df18c53f9c7f38cf3fbf6d8}{SaveAsVTK}}(std::string\ \textcolor{keyword}{const}\ \&file,\ VecXT<Vec3d>\ \textcolor{keyword}{const}\ \&vt\_nodes,}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ VecXT<VecXT<Vec3i>>\ \textcolor{keyword}{const}\ \&vt\_cells,}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ VecXT<Vec3d>\ \textcolor{keyword}{const}\ \&vt\_seeds);}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00095\ \ \ \textcolor{keyword}{static}\ std::tuple<VecXT<Vec3d>,\ VecXT<VecXT<Vec3i>>>}
+\DoxyCodeLine{00096\ \ \ \mbox{\hyperlink{classnetdem_1_1_voronoi_aad20cbaf6f08cbcdd1a6cd6619c21db5}{Solve}}(VecXT<Vec3d>\ \textcolor{keyword}{const}\ \&vt\_seeds,\ \mbox{\hyperlink{classnetdem_1_1_s_t_l_model}{STLModel}}\ \textcolor{keyword}{const}\ \&stl\_model,}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classnetdem_1_1_s_d_f_calculator}{SDFCalculator}}\ \textcolor{keyword}{const}\ \&sdf\_calculator,\ \textcolor{keywordtype}{bool}\ use\_cork\ =\ \textcolor{keyword}{true});}
+\DoxyCodeLine{00098\ \};}
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00100\ \}\ \textcolor{comment}{//\ namespace\ netdem}}
 
 \end{DoxyCode}

@@ -18,7 +18,8 @@ Inheritance diagram for netdem\+::Polybezier\+:\begin{figure}[H]
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{classnetdem_1_1_polybezier_a310db06214373de8588a02916ef8616c}{Polybezier}} ()
+\mbox{\Hypertarget{classnetdem_1_1_polybezier_a310db06214373de8588a02916ef8616c}\label{classnetdem_1_1_polybezier_a310db06214373de8588a02916ef8616c}} 
+{\bfseries Polybezier} ()
 \begin{DoxyCompactList}\small\item\em Default constructor. \end{DoxyCompactList}\item 
 nlohmann\+::json \mbox{\hyperlink{classnetdem_1_1_polybezier_ae286a4defe8607e3bf2ffd771ebae261}{Pack\+Json}} () override
 \begin{DoxyCompactList}\small\item\em Pack the \mbox{\hyperlink{classnetdem_1_1_polybezier}{Polybezier}} object into a JSON structure. \end{DoxyCompactList}\item 
@@ -46,9 +47,9 @@ void \mbox{\hyperlink{classnetdem_1_1_polybezier_a557097154fc91ec51a7de8a8c33a89
 \begin{DoxyCompactList}\small\item\em Save normal patches as a spherical mesh. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classnetdem_1_1_polybezier_aa340e7dae1dc62af6f34e00cd4507d27}{Save\+Normal\+Patches\+Cubic}} (std\+::string const \&file)
 \begin{DoxyCompactList}\small\item\em Save normal patches as a cubic mesh. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \mbox{\hyperlink{classnetdem_1_1_polybezier_a622e64685d49416ca42732c5466a9b1a}{Support\+Point}} (\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&dir) override
+Vec3d \mbox{\hyperlink{classnetdem_1_1_polybezier_a622e64685d49416ca42732c5466a9b1a}{Support\+Point}} (Vec3d const \&dir) override
 \begin{DoxyCompactList}\small\item\em Compute the support point of the \mbox{\hyperlink{classnetdem_1_1_polybezier}{Polybezier}} object in a given direction. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $>$ \mbox{\hyperlink{classnetdem_1_1_polybezier_ac96d550cd6d9e4ef692fe5b882779d8d}{Support\+Points}} (\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&dir) override
+Vec\+XT$<$ Vec3d $>$ \mbox{\hyperlink{classnetdem_1_1_polybezier_ac96d550cd6d9e4ef692fe5b882779d8d}{Support\+Points}} (Vec3d const \&dir) override
 \begin{DoxyCompactList}\small\item\em Compute the support points of the \mbox{\hyperlink{classnetdem_1_1_polybezier}{Polybezier}} object in a given direction. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classnetdem_1_1_polybezier_ab0c76c3d8158f3a4fb764fdb407e9912}{Print}} () override
 \begin{DoxyCompactList}\small\item\em Print information about the \mbox{\hyperlink{classnetdem_1_1_polybezier}{Polybezier}} object. \end{DoxyCompactList}\end{DoxyCompactItemize}
@@ -61,7 +62,7 @@ virtual void \mbox{\hyperlink{classnetdem_1_1_shape_a01bdee57a765ce5432d16d9ef00
 \begin{DoxyCompactList}\small\item\em Initializes the shape instance from a JSON object. \end{DoxyCompactList}\item 
 virtual void \mbox{\hyperlink{classnetdem_1_1_shape_aec28148f9a8810c845121cdfbbe9e95d}{Init\+From\+Json\+File}} (std\+::string const \&js\+\_\+file)
 \begin{DoxyCompactList}\small\item\em Initializes the shape instance from a JSON file. \end{DoxyCompactList}\item 
-virtual void \mbox{\hyperlink{classnetdem_1_1_shape_a4891a52d4fc96c738c3ab208e4d884dd}{Translate}} (\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&pos)
+virtual void \mbox{\hyperlink{classnetdem_1_1_shape_a4891a52d4fc96c738c3ab208e4d884dd}{Translate}} (Vec3d const \&pos)
 \begin{DoxyCompactList}\small\item\em Translates the shape instance to a new position. \end{DoxyCompactList}\item 
 virtual void \mbox{\hyperlink{classnetdem_1_1_shape_a9f11fadd05e55890a9f90c676d0d1ae8}{Update\+Nodes}} ()
 \begin{DoxyCompactList}\small\item\em Updates the nodes of the shape instance. \end{DoxyCompactList}\item 
@@ -77,42 +78,51 @@ virtual void \mbox{\hyperlink{classnetdem_1_1_shape_a99ea5818f0b368e2d3c20bc9dcc
 \begin{DoxyCompactList}\small\item\em Saves the shape instance as a VTK file. \end{DoxyCompactList}\item 
 virtual void \mbox{\hyperlink{classnetdem_1_1_shape_a2eaa2d4c2021a7963cbfcc65d0f6cd41}{Save\+As\+STL}} (std\+::string const \&filename)
 \begin{DoxyCompactList}\small\item\em Saves the shape instance as an STL file. \end{DoxyCompactList}\item 
-virtual std\+::tuple$<$ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}, \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $>$ \mbox{\hyperlink{classnetdem_1_1_shape_af06ef75dd2d9528a4206173902f868e9}{Get\+Bound\+AABB}} (\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&pos, \mbox{\hyperlink{namespacenetdem_a13d5371f99b252a70fd5a5081b910370}{Vec4d}} const \&quat)
+virtual std\+::tuple$<$ Vec3d, Vec3d $>$ \mbox{\hyperlink{classnetdem_1_1_shape_af06ef75dd2d9528a4206173902f868e9}{Get\+Bound\+AABB}} (Vec3d const \&pos, Vec4d const \&quat)
 \begin{DoxyCompactList}\small\item\em Gets the boundary AABB of the shape instance. \end{DoxyCompactList}\item 
-virtual \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \mbox{\hyperlink{classnetdem_1_1_shape_a0cf9b4a6d035810b85aa24e118b81d1a}{Support\+Point}} (\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&dir)
+virtual Vec3d \mbox{\hyperlink{classnetdem_1_1_shape_a0cf9b4a6d035810b85aa24e118b81d1a}{Support\+Point}} (Vec3d const \&dir)
 \begin{DoxyCompactList}\small\item\em Gets the support point in a given direction for the shape instance. \end{DoxyCompactList}\item 
-virtual \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $>$ \mbox{\hyperlink{classnetdem_1_1_shape_a15152dc02a9d8dfcae6a412e6f2131bd}{Support\+Points}} (\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&dir)
+virtual Vec\+XT$<$ Vec3d $>$ \mbox{\hyperlink{classnetdem_1_1_shape_a15152dc02a9d8dfcae6a412e6f2131bd}{Support\+Points}} (Vec3d const \&dir)
 \begin{DoxyCompactList}\small\item\em Gets the set of support points in a given direction for the shape instance. \end{DoxyCompactList}\item 
-virtual double \mbox{\hyperlink{classnetdem_1_1_shape_aa27f20eb627e2e983ed530102eb91cdc}{Signed\+Distance}} (\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&pos) const
+virtual double \mbox{\hyperlink{classnetdem_1_1_shape_aa27f20eb627e2e983ed530102eb91cdc}{Signed\+Distance}} (Vec3d const \&pos) const
 \begin{DoxyCompactList}\small\item\em Calculates the signed distance between a point and the shape instance. \end{DoxyCompactList}\item 
-virtual \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \mbox{\hyperlink{classnetdem_1_1_shape_a8528b3f4a6e03c5e83821c9842f596ac}{Surface\+Point}} (\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&pos)
+virtual Vec3d \mbox{\hyperlink{classnetdem_1_1_shape_a8528b3f4a6e03c5e83821c9842f596ac}{Surface\+Point}} (Vec3d const \&pos)
 \begin{DoxyCompactList}\small\item\em Calculates the surface point corresponding to an intruding node. \end{DoxyCompactList}\item 
-virtual bool \mbox{\hyperlink{classnetdem_1_1_shape_a31b9d4d6a5847de62aadc17a672b556f}{Enclose}} (\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&pos)
+virtual bool \mbox{\hyperlink{classnetdem_1_1_shape_a31b9d4d6a5847de62aadc17a672b556f}{Enclose}} (Vec3d const \&pos)
 \begin{DoxyCompactList}\small\item\em Determines whether a given point is enclosed within the shape instance. \end{DoxyCompactList}\item 
 virtual void \mbox{\hyperlink{classnetdem_1_1_shape_a5e11d9bc46005ddf54d7bff51024c2bb}{Print}} ()
 \begin{DoxyCompactList}\small\item\em Prints the properties of the shape instance. \end{DoxyCompactList}\item 
-virtual \mbox{\hyperlink{classnetdem_1_1_shape_a935afc9e576015f967d90de56977167d}{$\sim$\+Shape}} ()
+\mbox{\Hypertarget{classnetdem_1_1_shape_a935afc9e576015f967d90de56977167d}\label{classnetdem_1_1_shape_a935afc9e576015f967d90de56977167d}} 
+virtual {\bfseries $\sim$\+Shape} ()
 \begin{DoxyCompactList}\small\item\em Destructor for the \mbox{\hyperlink{classnetdem_1_1_shape}{Shape}} class. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{namespacenetdem_aa1535a5d1ed2f90088a89de1f7670952}{Mat\+Nd}}$<$ 8, 3 $>$ \mbox{\hyperlink{classnetdem_1_1_shape_a91aa2921c75ed9fb0ec38ccacc4e6c13}{Get\+Bound\+AABBVertices}} ()
+Mat\+Nd$<$ 8, 3 $>$ \mbox{\hyperlink{classnetdem_1_1_shape_a91aa2921c75ed9fb0ec38ccacc4e6c13}{Get\+Bound\+AABBVertices}} ()
 \begin{DoxyCompactList}\small\item\em Gets the vertices of the boundary AABB of the shape instance. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-int \mbox{\hyperlink{classnetdem_1_1_polybezier_a9db7309122cf86a54a6b5d91e8b6954d}{num\+\_\+patches}} \{30\}
+\mbox{\Hypertarget{classnetdem_1_1_polybezier_a9db7309122cf86a54a6b5d91e8b6954d}\label{classnetdem_1_1_polybezier_a9db7309122cf86a54a6b5d91e8b6954d}} 
+int {\bfseries num\+\_\+patches} \{30\}
 \item 
-int \mbox{\hyperlink{classnetdem_1_1_polybezier_a1a2361798195770502dc4dbf84d8ed03}{order}} \{2\}
+\mbox{\Hypertarget{classnetdem_1_1_polybezier_a1a2361798195770502dc4dbf84d8ed03}\label{classnetdem_1_1_polybezier_a1a2361798195770502dc4dbf84d8ed03}} 
+int {\bfseries order} \{2\}
 \item 
-\mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $>$ $>$ \mbox{\hyperlink{classnetdem_1_1_polybezier_aca8f31dddc2d7af147dec1c8ceddde26}{face\+\_\+patch\+\_\+knots\+\_\+list}}
+\mbox{\Hypertarget{classnetdem_1_1_polybezier_aca8f31dddc2d7af147dec1c8ceddde26}\label{classnetdem_1_1_polybezier_aca8f31dddc2d7af147dec1c8ceddde26}} 
+Vec\+XT$<$ Vec\+XT$<$ Vec3d $>$ $>$ {\bfseries face\+\_\+patch\+\_\+knots\+\_\+list}
 \item 
-\mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $>$ $>$ \mbox{\hyperlink{classnetdem_1_1_polybezier_a5134e4d2db0021867d8c64d7f06bb7b9}{face\+\_\+patch\+\_\+normals\+\_\+list}}
+\mbox{\Hypertarget{classnetdem_1_1_polybezier_a5134e4d2db0021867d8c64d7f06bb7b9}\label{classnetdem_1_1_polybezier_a5134e4d2db0021867d8c64d7f06bb7b9}} 
+Vec\+XT$<$ Vec\+XT$<$ Vec3d $>$ $>$ {\bfseries face\+\_\+patch\+\_\+normals\+\_\+list}
 \item 
-\mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $>$ $>$ \mbox{\hyperlink{classnetdem_1_1_polybezier_ac1218a57c9b3d1304b99d4ba729a02fb}{edge\+\_\+patch\+\_\+knots\+\_\+list}}
+\mbox{\Hypertarget{classnetdem_1_1_polybezier_ac1218a57c9b3d1304b99d4ba729a02fb}\label{classnetdem_1_1_polybezier_ac1218a57c9b3d1304b99d4ba729a02fb}} 
+Vec\+XT$<$ Vec\+XT$<$ Vec3d $>$ $>$ {\bfseries edge\+\_\+patch\+\_\+knots\+\_\+list}
 \item 
-\mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_a28e1404c8ce46c48bc78f553bd555980}{Vec3i}} $>$ \mbox{\hyperlink{classnetdem_1_1_polybezier_ac10a187ae800aaf1521eed709db7d640}{linked\+\_\+edges\+\_\+list}}
+\mbox{\Hypertarget{classnetdem_1_1_polybezier_ac10a187ae800aaf1521eed709db7d640}\label{classnetdem_1_1_polybezier_ac10a187ae800aaf1521eed709db7d640}} 
+Vec\+XT$<$ Vec3i $>$ {\bfseries linked\+\_\+edges\+\_\+list}
 \item 
-\mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ int $>$ $>$ \mbox{\hyperlink{classnetdem_1_1_polybezier_a742b5cbbaaf0a113737f5e06fb060196}{linked\+\_\+patches\+\_\+list}}
+\mbox{\Hypertarget{classnetdem_1_1_polybezier_a742b5cbbaaf0a113737f5e06fb060196}\label{classnetdem_1_1_polybezier_a742b5cbbaaf0a113737f5e06fb060196}} 
+Vec\+XT$<$ Vec\+XT$<$ int $>$ $>$ {\bfseries linked\+\_\+patches\+\_\+list}
 \item 
-int \mbox{\hyperlink{classnetdem_1_1_polybezier_aea00adb3552548d2699c8ec53bcc9fe1}{num\+\_\+cells}} \{4\}
+\mbox{\Hypertarget{classnetdem_1_1_polybezier_aea00adb3552548d2699c8ec53bcc9fe1}\label{classnetdem_1_1_polybezier_aea00adb3552548d2699c8ec53bcc9fe1}} 
+int {\bfseries num\+\_\+cells} \{4\}
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Public Attributes inherited from \mbox{\hyperlink{classnetdem_1_1_shape}{netdem\+::\+Shape}}}
 \begin{DoxyCompactItemize}
@@ -125,94 +135,69 @@ int \mbox{\hyperlink{classnetdem_1_1_shape_adafc3591f0c28b1bcc977294c9cd8748}{sh
 \item 
 std\+::string \mbox{\hyperlink{classnetdem_1_1_shape_a15f899d2a390b2bdf73f0f5e310b6b34}{shape\+\_\+name}} \{\char`\"{}shape\char`\"{}\}
 \item 
-double \mbox{\hyperlink{classnetdem_1_1_shape_afd08386decfb825ba190c7a2d4e0aac6}{size}} \{1.\+0\}
+\mbox{\Hypertarget{classnetdem_1_1_shape_afd08386decfb825ba190c7a2d4e0aac6}\label{classnetdem_1_1_shape_afd08386decfb825ba190c7a2d4e0aac6}} 
+double {\bfseries size} \{1.\+0\}
 \item 
 double \mbox{\hyperlink{classnetdem_1_1_shape_a1812859ebfa70a57c31626dbc0552ae6}{volume}} \{0.\+5236\}
 \item 
-\mbox{\hyperlink{namespacenetdem_ae589ca87f7a16ea70807ee6b1c3bc1c8}{Mat3d}} \mbox{\hyperlink{classnetdem_1_1_shape_ac2e16aec8f9607d572c012ef9f2917d1}{inertia}} \{\{\{0.\+05236, 0, 0\}, \{0, 0.\+05236, 0\}, \{0, 0, 0.\+05236\}\}\}
+Mat3d \mbox{\hyperlink{classnetdem_1_1_shape_ac2e16aec8f9607d572c012ef9f2917d1}{inertia}}
 \item 
-double \mbox{\hyperlink{classnetdem_1_1_shape_aa2544899cc79d4ae84fc700f490a37dc}{bound\+\_\+sphere\+\_\+radius}} \{1.\+0\}
+\mbox{\Hypertarget{classnetdem_1_1_shape_aa2544899cc79d4ae84fc700f490a37dc}\label{classnetdem_1_1_shape_aa2544899cc79d4ae84fc700f490a37dc}} 
+double {\bfseries bound\+\_\+sphere\+\_\+radius} \{1.\+0\}
 \item 
-double \mbox{\hyperlink{classnetdem_1_1_shape_ac864f3e9a93cf92fcaea59c567d30301}{skin}} \{0.\+05\}
+\mbox{\Hypertarget{classnetdem_1_1_shape_ac864f3e9a93cf92fcaea59c567d30301}\label{classnetdem_1_1_shape_ac864f3e9a93cf92fcaea59c567d30301}} 
+double {\bfseries skin} \{0.\+05\}
 \item 
-double \mbox{\hyperlink{classnetdem_1_1_shape_a68e3c0cd726bedd1406faceb9dc5130d}{skin\+\_\+factor}} \{0.\+05\}
+\mbox{\Hypertarget{classnetdem_1_1_shape_a68e3c0cd726bedd1406faceb9dc5130d}\label{classnetdem_1_1_shape_a68e3c0cd726bedd1406faceb9dc5130d}} 
+double {\bfseries skin\+\_\+factor} \{0.\+05\}
 \item 
-\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \mbox{\hyperlink{classnetdem_1_1_shape_ae4c913e572cfb7fdb70d37d81b7037de}{bound\+\_\+aabb\+\_\+min}} \{-\/0.\+5, -\/0.\+5, -\/0.\+5\}
+\mbox{\Hypertarget{classnetdem_1_1_shape_ae4c913e572cfb7fdb70d37d81b7037de}\label{classnetdem_1_1_shape_ae4c913e572cfb7fdb70d37d81b7037de}} 
+Vec3d {\bfseries bound\+\_\+aabb\+\_\+min} \{-\/0.\+5, -\/0.\+5, -\/0.\+5\}
 \item 
-\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \mbox{\hyperlink{classnetdem_1_1_shape_a2abbd207dea9e86d154131624e217b96}{bound\+\_\+aabb\+\_\+max}} \{0.\+5, 0.\+5, 0.\+5\}
+Vec3d \mbox{\hyperlink{classnetdem_1_1_shape_a2abbd207dea9e86d154131624e217b96}{bound\+\_\+aabb\+\_\+max}}
 \item 
-bool \mbox{\hyperlink{classnetdem_1_1_shape_a05a8aa2b95d47cca08bb1e246ddd2d43}{use\+\_\+node}} \{false\}
+\mbox{\Hypertarget{classnetdem_1_1_shape_a05a8aa2b95d47cca08bb1e246ddd2d43}\label{classnetdem_1_1_shape_a05a8aa2b95d47cca08bb1e246ddd2d43}} 
+bool {\bfseries use\+\_\+node} \{false\}
 \item 
-int \mbox{\hyperlink{classnetdem_1_1_shape_a4f5ba046585284a39cb93c6bd83746f7}{node\+\_\+num}} \{1000\}
+\mbox{\Hypertarget{classnetdem_1_1_shape_a4f5ba046585284a39cb93c6bd83746f7}\label{classnetdem_1_1_shape_a4f5ba046585284a39cb93c6bd83746f7}} 
+int {\bfseries node\+\_\+num} \{1000\}
 \item 
-double \mbox{\hyperlink{classnetdem_1_1_shape_ad3d356f624bb4602bdd50b32cacdee8c}{node\+\_\+spacing}} \{std\+::sqrt(\mbox{\hyperlink{namespacenetdem_1_1_math_a902d4826f3f4fb5e5b105a223e1aed6e}{Math\+::\+PI}} / 1000.\+0)\}
+\mbox{\Hypertarget{classnetdem_1_1_shape_ad3d356f624bb4602bdd50b32cacdee8c}\label{classnetdem_1_1_shape_ad3d356f624bb4602bdd50b32cacdee8c}} 
+double {\bfseries node\+\_\+spacing} \{std\+::sqrt(Math\+::\+PI / 1000.\+0)\}
 \item 
-\mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $>$ \mbox{\hyperlink{classnetdem_1_1_shape_aca813b26eea63d56642829360c7f5a3b}{nodes}}
+Vec\+XT$<$ Vec3d $>$ \mbox{\hyperlink{classnetdem_1_1_shape_aca813b26eea63d56642829360c7f5a3b}{nodes}}
 \item 
-bool \mbox{\hyperlink{classnetdem_1_1_shape_a43558fbf3d8318948292aaf7c65f6c70}{is\+\_\+convex}} \{true\}
+bool \mbox{\hyperlink{classnetdem_1_1_shape_a43558fbf3d8318948292aaf7c65f6c70}{is\+\_\+convex}}
 \item 
 bool \mbox{\hyperlink{classnetdem_1_1_shape_a731518cf0917f5af9e02b12adcb3d54a}{use\+\_\+customized\+\_\+solver}} \{false\}
 \begin{DoxyCompactList}\small\item\em use customized contact solver \end{DoxyCompactList}\end{DoxyCompactItemize}
-\doxysubsection*{Private Member Functions}
-\begin{DoxyCompactItemize}
-\item 
-void \mbox{\hyperlink{classnetdem_1_1_polybezier_ac37917eef300d61d1b03b4b2d0022ab9}{Align\+Axes}} ()
-\begin{DoxyCompactList}\small\item\em Align the axes of the \mbox{\hyperlink{classnetdem_1_1_polybezier}{Polybezier}} object. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classnetdem_1_1_polybezier_a4cac596cafff90f1f042597cd49c847e}{Update\+Linked\+Patches}} ()
-\begin{DoxyCompactList}\small\item\em Update linked patches for the \mbox{\hyperlink{classnetdem_1_1_polybezier}{Polybezier}} object. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classnetdem_1_1_polybezier_addb736c4de06bea2325c1d4779730f83}{Updata\+Mat\+Du\+Dv}} ()
-\begin{DoxyCompactList}\small\item\em Update the derivative matrices for the \mbox{\hyperlink{classnetdem_1_1_polybezier}{Polybezier}} object. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \mbox{\hyperlink{classnetdem_1_1_polybezier_a42f7ff3eacffe3dbe5a86e8626033a0d}{Get\+Edge\+Knot}} (\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&v0, \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&v1, \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&n01)
-\begin{DoxyCompactList}\small\item\em Compute the knot vector for an edge patch. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classnetdem_1_1_polybezier_a77bdfffbd741628fb3a69d3f5122e214}{Get\+Unique\+Edges}} (\mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_ad732d71ff9685f48b7bcbfc82812e60e}{Vec2i}} $>$ $\ast$const edges, \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_a28e1404c8ce46c48bc78f553bd555980}{Vec3i}} $>$ $\ast$const \mbox{\hyperlink{namespacenetdem_a3d1c9a57f81d32e05adbb87079c38501a9a735ec7821ddf983286f9983036013a}{linked\+\_\+list}}, \mbox{\hyperlink{classnetdem_1_1_s_t_l_model}{STLModel}} const \&stl\+\_\+model)
-\begin{DoxyCompactList}\small\item\em Get a list of unique edges from an STL model. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \mbox{\hyperlink{classnetdem_1_1_polybezier_acde47579bdd056b569604569b81ef000}{Get\+Patch\+Normal}} (\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&v0, \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&v1, \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&v2)
-\begin{DoxyCompactList}\small\item\em Compute the normal vector for a face patch. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classnetdem_1_1_polybezier_adba0889fada0b0d20ec9fe7a7682d3c0}{Sort\+Normal\+Patch\+Vertices}} (\mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $>$ $\ast$const normals)
-\begin{DoxyCompactList}\small\item\em Sort the vertices of a normal patch. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $>$ \mbox{\hyperlink{classnetdem_1_1_polybezier_a3ab4b99c6d1ae4f41d8c2c15eecbaca1}{Get\+Cartesian\+Project}} (const \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $>$ \&normals)
-\begin{DoxyCompactList}\small\item\em Project a list of normal vectors onto the XY plane. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $>$ \mbox{\hyperlink{classnetdem_1_1_polybezier_adc7082e1dcb08af051ec782258cd8ad5}{Get\+Cartesian\+Project}} (\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&v1, \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&v2)
-\begin{DoxyCompactList}\small\item\em Project two normal vectors onto the XY plane and return their midpoint. \end{DoxyCompactList}\item 
-bool \mbox{\hyperlink{classnetdem_1_1_polybezier_aff7a0c108638e4e8e3c49eead1714c09}{Contain\+Corner}} (\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&corner, const \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $>$ \&normals)
-\begin{DoxyCompactList}\small\item\em Check if a normal patch contains a given corner. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{classnetdem_1_1_s_t_l_model}{STLModel}} \mbox{\hyperlink{classnetdem_1_1_polybezier_a8dfa25259236b05c9694bf1229a4b85d}{Get\+STLModel}} (const \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $>$ \&knots, int num\+\_\+facets\+\_\+each)
-\begin{DoxyCompactList}\small\item\em Generate an STL model for a set of knot vectors. \end{DoxyCompactList}\item 
-int \mbox{\hyperlink{classnetdem_1_1_polybezier_acbf99d22498a667b5176ef4aed36e18c}{Get\+Support\+Patch\+ID}} (\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&dir)
-\begin{DoxyCompactList}\small\item\em Compute the ID of the support patch in a given direction. \end{DoxyCompactList}\end{DoxyCompactItemize}
-\doxysubsection*{Private Attributes}
-\begin{DoxyCompactItemize}
-\item 
-\mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_a4c6a34e4b9bc01901ac527bb8ea83909}{Vec\+NT}}$<$ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}, 3 $>$ $>$ \mbox{\hyperlink{classnetdem_1_1_polybezier_a46646e4585e2a687551464588c511b72}{mat\+\_\+du\+\_\+list}}
-\item 
-\mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_a4c6a34e4b9bc01901ac527bb8ea83909}{Vec\+NT}}$<$ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}, 3 $>$ $>$ \mbox{\hyperlink{classnetdem_1_1_polybezier_aa9f12be6f733b7aa8294b68b8dd77614}{mat\+\_\+dv\+\_\+list}}
-\end{DoxyCompactItemize}
 \doxysubsection*{Additional Inherited Members}
 \doxysubsubsection*{Public Types inherited from \mbox{\hyperlink{classnetdem_1_1_shape}{netdem\+::\+Shape}}}
 \begin{DoxyCompactItemize}
 \item 
+\mbox{\Hypertarget{classnetdem_1_1_shape_aa97bccd1fe4043614c4b84a3f254a158}\label{classnetdem_1_1_shape_aa97bccd1fe4043614c4b84a3f254a158}} 
 enum \mbox{\hyperlink{classnetdem_1_1_shape_aa97bccd1fe4043614c4b84a3f254a158}{Type}} \{ \newline
-\mbox{\hyperlink{classnetdem_1_1_shape_aa97bccd1fe4043614c4b84a3f254a158aff276b34067b006ebf753785c1f5a709}{none}}
-, \mbox{\hyperlink{classnetdem_1_1_shape_aa97bccd1fe4043614c4b84a3f254a158a77b0f103a30d9e17cdc77343e718d4b7}{point\+\_\+sphere}}
-, \mbox{\hyperlink{classnetdem_1_1_shape_aa97bccd1fe4043614c4b84a3f254a158a170d861e8a6889d3e8803738cc63f286}{sphere}}
-, \mbox{\hyperlink{classnetdem_1_1_shape_aa97bccd1fe4043614c4b84a3f254a158a6934ff15963cfa85e954f7176902cf21}{spherical\+\_\+harmonics}}
+{\bfseries none}
+, {\bfseries point\+\_\+sphere}
+, {\bfseries sphere}
+, {\bfseries spherical\+\_\+harmonics}
 , \newline
-\mbox{\hyperlink{classnetdem_1_1_shape_aa97bccd1fe4043614c4b84a3f254a158a5187b4655382cea01566700a063c4948}{trimesh}}
-, \mbox{\hyperlink{classnetdem_1_1_shape_aa97bccd1fe4043614c4b84a3f254a158a6ffdab954c3926efa3d221df723bea05}{trimesh\+\_\+convex}}
-, \mbox{\hyperlink{classnetdem_1_1_shape_aa97bccd1fe4043614c4b84a3f254a158a9f582803c73a356d2507138d144f8dfe}{ellipsoid}}
-, \mbox{\hyperlink{classnetdem_1_1_shape_aa97bccd1fe4043614c4b84a3f254a158af792e524a73ec96220ba33edadc02487}{polybezier}}
+{\bfseries trimesh}
+, {\bfseries trimesh\+\_\+convex}
+, {\bfseries ellipsoid}
+, {\bfseries polybezier}
 , \newline
-\mbox{\hyperlink{classnetdem_1_1_shape_aa97bccd1fe4043614c4b84a3f254a158a23fbfbc640dc1eb353b213cbac48229d}{triangle}}
-, \mbox{\hyperlink{classnetdem_1_1_shape_aa97bccd1fe4043614c4b84a3f254a158a162daf2708fbaa4e4ab24bdbbb80efd2}{plane}}
-, \mbox{\hyperlink{classnetdem_1_1_shape_aa97bccd1fe4043614c4b84a3f254a158aa14147e0bd93b09d0cfba0f07e8f4d3f}{cylinder}}
-, \mbox{\hyperlink{classnetdem_1_1_shape_aa97bccd1fe4043614c4b84a3f254a158af7738891289ef3772255987733afd2ae}{poly\+\_\+super\+\_\+ellipsoid}}
+{\bfseries triangle}
+, {\bfseries plane}
+, {\bfseries cylinder}
+, {\bfseries poly\+\_\+super\+\_\+ellipsoid}
 , \newline
-\mbox{\hyperlink{classnetdem_1_1_shape_aa97bccd1fe4043614c4b84a3f254a158a1c21bccb7feac60da9dafdc7af8a6055}{poly\+\_\+super\+\_\+quadrics}}
-, \mbox{\hyperlink{classnetdem_1_1_shape_aa97bccd1fe4043614c4b84a3f254a158a8a3b7ba36603ac8d0dbed1288d0eb35d}{level\+\_\+set}}
-, \mbox{\hyperlink{classnetdem_1_1_shape_aa97bccd1fe4043614c4b84a3f254a158a901c7bdd78c055966e71fc4ef5bc4a3c}{netsdf}}
-, \mbox{\hyperlink{classnetdem_1_1_shape_aa97bccd1fe4043614c4b84a3f254a158a0b86f6658887e22102a419b8a15852b6}{coded\+\_\+netsdf}}
+{\bfseries poly\+\_\+super\+\_\+quadrics}
+, {\bfseries level\+\_\+set}
+, {\bfseries netsdf}
+, {\bfseries coded\+\_\+netsdf}
 , \newline
-\mbox{\hyperlink{classnetdem_1_1_shape_aa97bccd1fe4043614c4b84a3f254a158a15cffbd4779c9d52d6babf8426d07eb1}{num\+\_\+shapes}}
+{\bfseries num\+\_\+shapes}
  \}
 \begin{DoxyCompactList}\small\item\em Enumeration for different types of shapes. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
@@ -222,31 +207,8 @@ A class representing a polybezier with variable orders and patches.
 
 This class provides methods for initializing, updating, and generating the \mbox{\hyperlink{classnetdem_1_1_polybezier}{Polybezier}} object using various sources such as kernel STL models or random initialization. It also implements operations such as computing support points and surface properties. The polybezier is defined by its patches which are represented by knot vectors as well as edge patches and face patches. 
 
-\doxysubsection{Constructor \& Destructor Documentation}
-\mbox{\Hypertarget{classnetdem_1_1_polybezier_a310db06214373de8588a02916ef8616c}\label{classnetdem_1_1_polybezier_a310db06214373de8588a02916ef8616c}} 
-\index{netdem::Polybezier@{netdem::Polybezier}!Polybezier@{Polybezier}}
-\index{Polybezier@{Polybezier}!netdem::Polybezier@{netdem::Polybezier}}
-\doxysubsubsection{\texorpdfstring{Polybezier()}{Polybezier()}}
-{\footnotesize\ttfamily Polybezier\+::\+Polybezier (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
-
-
-
-Default constructor. 
-
-
-
 \doxysubsection{Member Function Documentation}
-\mbox{\Hypertarget{classnetdem_1_1_polybezier_ac37917eef300d61d1b03b4b2d0022ab9}\label{classnetdem_1_1_polybezier_ac37917eef300d61d1b03b4b2d0022ab9}} 
-\index{netdem::Polybezier@{netdem::Polybezier}!AlignAxes@{AlignAxes}}
-\index{AlignAxes@{AlignAxes}!netdem::Polybezier@{netdem::Polybezier}}
-\doxysubsubsection{\texorpdfstring{AlignAxes()}{AlignAxes()}}
-{\footnotesize\ttfamily void Polybezier\+::\+Align\+Axes (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
-
-
-
-Align the axes of the \mbox{\hyperlink{classnetdem_1_1_polybezier}{Polybezier}} object. 
-
-This method aligns the axes of the \mbox{\hyperlink{classnetdem_1_1_polybezier}{Polybezier}} object to improve numerical stability during computations. \mbox{\Hypertarget{classnetdem_1_1_polybezier_a439a9125f96253fa67b83cb3fa126490}\label{classnetdem_1_1_polybezier_a439a9125f96253fa67b83cb3fa126490}} 
+\mbox{\Hypertarget{classnetdem_1_1_polybezier_a439a9125f96253fa67b83cb3fa126490}\label{classnetdem_1_1_polybezier_a439a9125f96253fa67b83cb3fa126490}} 
 \index{netdem::Polybezier@{netdem::Polybezier}!Clone@{Clone}}
 \index{Clone@{Clone}!netdem::Polybezier@{netdem::Polybezier}}
 \doxysubsubsection{\texorpdfstring{Clone()}{Clone()}}
@@ -265,144 +227,10 @@ A pointer to the cloned \mbox{\hyperlink{classnetdem_1_1_polybezier}{Polybezier}
 
 Reimplemented from \mbox{\hyperlink{classnetdem_1_1_shape_aa2f0bb26f5aa8f637a6bb3d5e735f45a}{netdem\+::\+Shape}}.
 
-\mbox{\Hypertarget{classnetdem_1_1_polybezier_aff7a0c108638e4e8e3c49eead1714c09}\label{classnetdem_1_1_polybezier_aff7a0c108638e4e8e3c49eead1714c09}} 
-\index{netdem::Polybezier@{netdem::Polybezier}!ContainCorner@{ContainCorner}}
-\index{ContainCorner@{ContainCorner}!netdem::Polybezier@{netdem::Polybezier}}
-\doxysubsubsection{\texorpdfstring{ContainCorner()}{ContainCorner()}}
-{\footnotesize\ttfamily bool Polybezier\+::\+Contain\+Corner (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&}]{corner,  }\item[{const \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $>$ \&}]{normals }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
-
-
-
-Check if a normal patch contains a given corner. 
-
-This method checks if a normal patch contains a given corner of the \mbox{\hyperlink{classnetdem_1_1_polybezier}{Polybezier}} object by comparing their Cartesian projections onto the XY plane.
-
-
-\begin{DoxyParams}{Parameters}
-{\em corner} & The corner to check. \\
-\hline
-{\em normals} & The normal patch to check. \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-True if the corner is contained in the normal patch, false otherwise. 
-\end{DoxyReturn}
-\mbox{\Hypertarget{classnetdem_1_1_polybezier_a3ab4b99c6d1ae4f41d8c2c15eecbaca1}\label{classnetdem_1_1_polybezier_a3ab4b99c6d1ae4f41d8c2c15eecbaca1}} 
-\index{netdem::Polybezier@{netdem::Polybezier}!GetCartesianProject@{GetCartesianProject}}
-\index{GetCartesianProject@{GetCartesianProject}!netdem::Polybezier@{netdem::Polybezier}}
-\doxysubsubsection{\texorpdfstring{GetCartesianProject()}{GetCartesianProject()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $>$ Polybezier\+::\+Get\+Cartesian\+Project (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $>$ \&}]{normals }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
-
-
-
-Project a list of normal vectors onto the XY plane. 
-
-This method projects a list of normal vectors onto the XY plane by discarding their Z component.
-
-
-\begin{DoxyParams}{Parameters}
-{\em normals} & The list of normal vectors to project. \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-The projected list of normal vectors. 
-\end{DoxyReturn}
-\mbox{\Hypertarget{classnetdem_1_1_polybezier_adc7082e1dcb08af051ec782258cd8ad5}\label{classnetdem_1_1_polybezier_adc7082e1dcb08af051ec782258cd8ad5}} 
-\index{netdem::Polybezier@{netdem::Polybezier}!GetCartesianProject@{GetCartesianProject}}
-\index{GetCartesianProject@{GetCartesianProject}!netdem::Polybezier@{netdem::Polybezier}}
-\doxysubsubsection{\texorpdfstring{GetCartesianProject()}{GetCartesianProject()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $>$ Polybezier\+::\+Get\+Cartesian\+Project (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&}]{v1,  }\item[{\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&}]{v2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
-
-
-
-Project two normal vectors onto the XY plane and return their midpoint. 
-
-This method projects two normal vectors onto the XY plane by discarding their Z component, and returns their midpoint.
-
-
-\begin{DoxyParams}{Parameters}
-{\em v1} & The first normal vector to project. \\
-\hline
-{\em v2} & The second normal vector to project. \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-The midpoint of the two projected normal vectors. 
-\end{DoxyReturn}
-\mbox{\Hypertarget{classnetdem_1_1_polybezier_a42f7ff3eacffe3dbe5a86e8626033a0d}\label{classnetdem_1_1_polybezier_a42f7ff3eacffe3dbe5a86e8626033a0d}} 
-\index{netdem::Polybezier@{netdem::Polybezier}!GetEdgeKnot@{GetEdgeKnot}}
-\index{GetEdgeKnot@{GetEdgeKnot}!netdem::Polybezier@{netdem::Polybezier}}
-\doxysubsubsection{\texorpdfstring{GetEdgeKnot()}{GetEdgeKnot()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} Polybezier\+::\+Get\+Edge\+Knot (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&}]{v0,  }\item[{\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&}]{v1,  }\item[{\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&}]{n01 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
-
-
-
-Compute the knot vector for an edge patch. 
-
-This method computes the knot vector for an edge patch based on the positions of its two end vertices and the shared normal vector.
-
-
-\begin{DoxyParams}{Parameters}
-{\em v0} & The first end vertex of the edge patch. \\
-\hline
-{\em v1} & The second end vertex of the edge patch. \\
-\hline
-{\em n01} & The shared normal vector of the edge patch. \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-The knot vector for the edge patch. 
-\end{DoxyReturn}
-\mbox{\Hypertarget{classnetdem_1_1_polybezier_acde47579bdd056b569604569b81ef000}\label{classnetdem_1_1_polybezier_acde47579bdd056b569604569b81ef000}} 
-\index{netdem::Polybezier@{netdem::Polybezier}!GetPatchNormal@{GetPatchNormal}}
-\index{GetPatchNormal@{GetPatchNormal}!netdem::Polybezier@{netdem::Polybezier}}
-\doxysubsubsection{\texorpdfstring{GetPatchNormal()}{GetPatchNormal()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} Polybezier\+::\+Get\+Patch\+Normal (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&}]{v0,  }\item[{\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&}]{v1,  }\item[{\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&}]{v2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
-
-
-
-Compute the normal vector for a face patch. 
-
-This method computes the normal vector for a face patch based on the positions of its three vertices.
-
-
-\begin{DoxyParams}{Parameters}
-{\em v0} & The first vertex of the face patch. \\
-\hline
-{\em v1} & The second vertex of the face patch. \\
-\hline
-{\em v2} & The third vertex of the face patch. \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-The normal vector for the face patch. 
-\end{DoxyReturn}
-\mbox{\Hypertarget{classnetdem_1_1_polybezier_a8dfa25259236b05c9694bf1229a4b85d}\label{classnetdem_1_1_polybezier_a8dfa25259236b05c9694bf1229a4b85d}} 
-\index{netdem::Polybezier@{netdem::Polybezier}!GetSTLModel@{GetSTLModel}}
-\index{GetSTLModel@{GetSTLModel}!netdem::Polybezier@{netdem::Polybezier}}
-\doxysubsubsection{\texorpdfstring{GetSTLModel()}{GetSTLModel()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classnetdem_1_1_s_t_l_model}{STLModel}} Polybezier\+::\+Get\+STLModel (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $>$ \&}]{knots,  }\item[{int}]{num\+\_\+facets\+\_\+each }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
-
-
-
-Generate an STL model for a set of knot vectors. 
-
-This method generates an \mbox{\hyperlink{classnetdem_1_1_s_t_l_model}{STLModel}} object representing a set of knot vectors with the specified number of facets for each surface triangle.
-
-
-\begin{DoxyParams}{Parameters}
-{\em knots} & The knot vectors to use. \\
-\hline
-{\em num\+\_\+facets\+\_\+each} & The number of facets to use for each surface triangle (default\+: 400). \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-An \mbox{\hyperlink{classnetdem_1_1_s_t_l_model}{STLModel}} object representing the knot vectors. 
-\end{DoxyReturn}
 \mbox{\Hypertarget{classnetdem_1_1_polybezier_a063a225810a381792101b8605365cb48}\label{classnetdem_1_1_polybezier_a063a225810a381792101b8605365cb48}} 
 \index{netdem::Polybezier@{netdem::Polybezier}!GetSTLModel@{GetSTLModel}}
 \index{GetSTLModel@{GetSTLModel}!netdem::Polybezier@{netdem::Polybezier}}
-\doxysubsubsection{\texorpdfstring{GetSTLModel()}{GetSTLModel()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+\doxysubsubsection{\texorpdfstring{GetSTLModel()}{GetSTLModel()}}
 {\footnotesize\ttfamily \mbox{\hyperlink{classnetdem_1_1_s_t_l_model}{STLModel}} Polybezier\+::\+Get\+STLModel (\begin{DoxyParamCaption}\item[{int}]{num\+\_\+facets = {\ttfamily 400} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
@@ -443,47 +271,6 @@ This method generates an alternate version of the \mbox{\hyperlink{classnetdem_1
 \begin{DoxyReturn}{Returns}
 An \mbox{\hyperlink{classnetdem_1_1_s_t_l_model}{STLModel}} object representing the alternate version of the \mbox{\hyperlink{classnetdem_1_1_polybezier}{Polybezier}} object. 
 \end{DoxyReturn}
-\mbox{\Hypertarget{classnetdem_1_1_polybezier_acbf99d22498a667b5176ef4aed36e18c}\label{classnetdem_1_1_polybezier_acbf99d22498a667b5176ef4aed36e18c}} 
-\index{netdem::Polybezier@{netdem::Polybezier}!GetSupportPatchID@{GetSupportPatchID}}
-\index{GetSupportPatchID@{GetSupportPatchID}!netdem::Polybezier@{netdem::Polybezier}}
-\doxysubsubsection{\texorpdfstring{GetSupportPatchID()}{GetSupportPatchID()}}
-{\footnotesize\ttfamily int Polybezier\+::\+Get\+Support\+Patch\+ID (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&}]{dir }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
-
-
-
-Compute the ID of the support patch in a given direction. 
-
-This method computes the ID of the support patch in a given direction based on the positions of the edge patches and their proximity to the specified direction.
-
-
-\begin{DoxyParams}{Parameters}
-{\em dir} & The direction in which to compute the support patch. \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-The ID of the support patch. 
-\end{DoxyReturn}
-\mbox{\Hypertarget{classnetdem_1_1_polybezier_a77bdfffbd741628fb3a69d3f5122e214}\label{classnetdem_1_1_polybezier_a77bdfffbd741628fb3a69d3f5122e214}} 
-\index{netdem::Polybezier@{netdem::Polybezier}!GetUniqueEdges@{GetUniqueEdges}}
-\index{GetUniqueEdges@{GetUniqueEdges}!netdem::Polybezier@{netdem::Polybezier}}
-\doxysubsubsection{\texorpdfstring{GetUniqueEdges()}{GetUniqueEdges()}}
-{\footnotesize\ttfamily void Polybezier\+::\+Get\+Unique\+Edges (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_ad732d71ff9685f48b7bcbfc82812e60e}{Vec2i}} $>$ $\ast$const}]{edges,  }\item[{\mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_a28e1404c8ce46c48bc78f553bd555980}{Vec3i}} $>$ $\ast$const}]{linked\+\_\+list,  }\item[{\mbox{\hyperlink{classnetdem_1_1_s_t_l_model}{STLModel}} const \&}]{stl\+\_\+model }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
-
-
-
-Get a list of unique edges from an STL model. 
-
-This method extracts a list of unique edges and their mapping to patches from an STL model.
-
-
-\begin{DoxyParams}{Parameters}
-{\em edges} & Pointer to the output list of unique edges. \\
-\hline
-{\em linked\+\_\+list} & Pointer to the output mapping of edges to patches. \\
-\hline
-{\em stl\+\_\+model} & The STL model to extract edges from. \\
-\hline
-\end{DoxyParams}
 \mbox{\Hypertarget{classnetdem_1_1_polybezier_a6d749ac649b147ad1f6cd540e3dbe080}\label{classnetdem_1_1_polybezier_a6d749ac649b147ad1f6cd540e3dbe080}} 
 \index{netdem::Polybezier@{netdem::Polybezier}!Init@{Init}}
 \index{Init@{Init}!netdem::Polybezier@{netdem::Polybezier}}
@@ -647,28 +434,11 @@ This method sets the size of the \mbox{\hyperlink{classnetdem_1_1_polybezier}{Po
 
 Reimplemented from \mbox{\hyperlink{classnetdem_1_1_shape_a83a4e08bc55fde5d3f99b5041efa6beb}{netdem\+::\+Shape}}.
 
-\mbox{\Hypertarget{classnetdem_1_1_polybezier_adba0889fada0b0d20ec9fe7a7682d3c0}\label{classnetdem_1_1_polybezier_adba0889fada0b0d20ec9fe7a7682d3c0}} 
-\index{netdem::Polybezier@{netdem::Polybezier}!SortNormalPatchVertices@{SortNormalPatchVertices}}
-\index{SortNormalPatchVertices@{SortNormalPatchVertices}!netdem::Polybezier@{netdem::Polybezier}}
-\doxysubsubsection{\texorpdfstring{SortNormalPatchVertices()}{SortNormalPatchVertices()}}
-{\footnotesize\ttfamily void Polybezier\+::\+Sort\+Normal\+Patch\+Vertices (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $>$ $\ast$const}]{normals }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
-
-
-
-Sort the vertices of a normal patch. 
-
-This method sorts the vertices of a normal patch in clockwise order with respect to their projection onto the XY plane.
-
-
-\begin{DoxyParams}{Parameters}
-{\em normals} & Pointer to the normal patch to sort. \\
-\hline
-\end{DoxyParams}
 \mbox{\Hypertarget{classnetdem_1_1_polybezier_a622e64685d49416ca42732c5466a9b1a}\label{classnetdem_1_1_polybezier_a622e64685d49416ca42732c5466a9b1a}} 
 \index{netdem::Polybezier@{netdem::Polybezier}!SupportPoint@{SupportPoint}}
 \index{SupportPoint@{SupportPoint}!netdem::Polybezier@{netdem::Polybezier}}
 \doxysubsubsection{\texorpdfstring{SupportPoint()}{SupportPoint()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} Polybezier\+::\+Support\+Point (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&}]{dir }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+{\footnotesize\ttfamily Vec3d Polybezier\+::\+Support\+Point (\begin{DoxyParamCaption}\item[{Vec3d const \&}]{dir }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
@@ -692,7 +462,7 @@ Reimplemented from \mbox{\hyperlink{classnetdem_1_1_shape_a0cf9b4a6d035810b85aa2
 \index{netdem::Polybezier@{netdem::Polybezier}!SupportPoints@{SupportPoints}}
 \index{SupportPoints@{SupportPoints}!netdem::Polybezier@{netdem::Polybezier}}
 \doxysubsubsection{\texorpdfstring{SupportPoints()}{SupportPoints()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $>$ Polybezier\+::\+Support\+Points (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&}]{dir }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+{\footnotesize\ttfamily Vec\+XT$<$ Vec3d $>$ Polybezier\+::\+Support\+Points (\begin{DoxyParamCaption}\item[{Vec3d const \&}]{dir }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
@@ -712,27 +482,7 @@ A vector containing the two support points of the \mbox{\hyperlink{classnetdem_1
 
 Reimplemented from \mbox{\hyperlink{classnetdem_1_1_shape_a15152dc02a9d8dfcae6a412e6f2131bd}{netdem\+::\+Shape}}.
 
-\mbox{\Hypertarget{classnetdem_1_1_polybezier_addb736c4de06bea2325c1d4779730f83}\label{classnetdem_1_1_polybezier_addb736c4de06bea2325c1d4779730f83}} 
-\index{netdem::Polybezier@{netdem::Polybezier}!UpdataMatDuDv@{UpdataMatDuDv}}
-\index{UpdataMatDuDv@{UpdataMatDuDv}!netdem::Polybezier@{netdem::Polybezier}}
-\doxysubsubsection{\texorpdfstring{UpdataMatDuDv()}{UpdataMatDuDv()}}
-{\footnotesize\ttfamily void Polybezier\+::\+Updata\+Mat\+Du\+Dv (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
-
-
-
-Update the derivative matrices for the \mbox{\hyperlink{classnetdem_1_1_polybezier}{Polybezier}} object. 
-
-This method updates the derivative matrices for the \mbox{\hyperlink{classnetdem_1_1_polybezier}{Polybezier}} object used in computing the surface normal vectors and tangent planes. \mbox{\Hypertarget{classnetdem_1_1_polybezier_a4cac596cafff90f1f042597cd49c847e}\label{classnetdem_1_1_polybezier_a4cac596cafff90f1f042597cd49c847e}} 
-\index{netdem::Polybezier@{netdem::Polybezier}!UpdateLinkedPatches@{UpdateLinkedPatches}}
-\index{UpdateLinkedPatches@{UpdateLinkedPatches}!netdem::Polybezier@{netdem::Polybezier}}
-\doxysubsubsection{\texorpdfstring{UpdateLinkedPatches()}{UpdateLinkedPatches()}}
-{\footnotesize\ttfamily void Polybezier\+::\+Update\+Linked\+Patches (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
-
-
-
-Update linked patches for the \mbox{\hyperlink{classnetdem_1_1_polybezier}{Polybezier}} object. 
-
-This method updates the linked patches for the \mbox{\hyperlink{classnetdem_1_1_polybezier}{Polybezier}} object by constructing a list of patches linked to each other based on their proximity and connectivity. \mbox{\Hypertarget{classnetdem_1_1_polybezier_a54241720500d2a90fb5652b8f750ea25}\label{classnetdem_1_1_polybezier_a54241720500d2a90fb5652b8f750ea25}} 
+\mbox{\Hypertarget{classnetdem_1_1_polybezier_a54241720500d2a90fb5652b8f750ea25}\label{classnetdem_1_1_polybezier_a54241720500d2a90fb5652b8f750ea25}} 
 \index{netdem::Polybezier@{netdem::Polybezier}!UpdateShapeProperties@{UpdateShapeProperties}}
 \index{UpdateShapeProperties@{UpdateShapeProperties}!netdem::Polybezier@{netdem::Polybezier}}
 \doxysubsubsection{\texorpdfstring{UpdateShapeProperties()}{UpdateShapeProperties()}}
@@ -748,70 +498,7 @@ Reimplemented from \mbox{\hyperlink{classnetdem_1_1_shape_a4286b79ebde34db279b1c
 
 
 
-\doxysubsection{Member Data Documentation}
-\mbox{\Hypertarget{classnetdem_1_1_polybezier_ac1218a57c9b3d1304b99d4ba729a02fb}\label{classnetdem_1_1_polybezier_ac1218a57c9b3d1304b99d4ba729a02fb}} 
-\index{netdem::Polybezier@{netdem::Polybezier}!edge\_patch\_knots\_list@{edge\_patch\_knots\_list}}
-\index{edge\_patch\_knots\_list@{edge\_patch\_knots\_list}!netdem::Polybezier@{netdem::Polybezier}}
-\doxysubsubsection{\texorpdfstring{edge\_patch\_knots\_list}{edge\_patch\_knots\_list}}
-{\footnotesize\ttfamily \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$\mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}$>$ $>$ netdem\+::\+Polybezier\+::edge\+\_\+patch\+\_\+knots\+\_\+list}
-
-\mbox{\Hypertarget{classnetdem_1_1_polybezier_aca8f31dddc2d7af147dec1c8ceddde26}\label{classnetdem_1_1_polybezier_aca8f31dddc2d7af147dec1c8ceddde26}} 
-\index{netdem::Polybezier@{netdem::Polybezier}!face\_patch\_knots\_list@{face\_patch\_knots\_list}}
-\index{face\_patch\_knots\_list@{face\_patch\_knots\_list}!netdem::Polybezier@{netdem::Polybezier}}
-\doxysubsubsection{\texorpdfstring{face\_patch\_knots\_list}{face\_patch\_knots\_list}}
-{\footnotesize\ttfamily \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$\mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}$>$ $>$ netdem\+::\+Polybezier\+::face\+\_\+patch\+\_\+knots\+\_\+list}
-
-\mbox{\Hypertarget{classnetdem_1_1_polybezier_a5134e4d2db0021867d8c64d7f06bb7b9}\label{classnetdem_1_1_polybezier_a5134e4d2db0021867d8c64d7f06bb7b9}} 
-\index{netdem::Polybezier@{netdem::Polybezier}!face\_patch\_normals\_list@{face\_patch\_normals\_list}}
-\index{face\_patch\_normals\_list@{face\_patch\_normals\_list}!netdem::Polybezier@{netdem::Polybezier}}
-\doxysubsubsection{\texorpdfstring{face\_patch\_normals\_list}{face\_patch\_normals\_list}}
-{\footnotesize\ttfamily \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$\mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}$>$ $>$ netdem\+::\+Polybezier\+::face\+\_\+patch\+\_\+normals\+\_\+list}
-
-\mbox{\Hypertarget{classnetdem_1_1_polybezier_ac10a187ae800aaf1521eed709db7d640}\label{classnetdem_1_1_polybezier_ac10a187ae800aaf1521eed709db7d640}} 
-\index{netdem::Polybezier@{netdem::Polybezier}!linked\_edges\_list@{linked\_edges\_list}}
-\index{linked\_edges\_list@{linked\_edges\_list}!netdem::Polybezier@{netdem::Polybezier}}
-\doxysubsubsection{\texorpdfstring{linked\_edges\_list}{linked\_edges\_list}}
-{\footnotesize\ttfamily \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$\mbox{\hyperlink{namespacenetdem_a28e1404c8ce46c48bc78f553bd555980}{Vec3i}}$>$ netdem\+::\+Polybezier\+::linked\+\_\+edges\+\_\+list}
-
-\mbox{\Hypertarget{classnetdem_1_1_polybezier_a742b5cbbaaf0a113737f5e06fb060196}\label{classnetdem_1_1_polybezier_a742b5cbbaaf0a113737f5e06fb060196}} 
-\index{netdem::Polybezier@{netdem::Polybezier}!linked\_patches\_list@{linked\_patches\_list}}
-\index{linked\_patches\_list@{linked\_patches\_list}!netdem::Polybezier@{netdem::Polybezier}}
-\doxysubsubsection{\texorpdfstring{linked\_patches\_list}{linked\_patches\_list}}
-{\footnotesize\ttfamily \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$\mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$int$>$ $>$ netdem\+::\+Polybezier\+::linked\+\_\+patches\+\_\+list}
-
-\mbox{\Hypertarget{classnetdem_1_1_polybezier_a46646e4585e2a687551464588c511b72}\label{classnetdem_1_1_polybezier_a46646e4585e2a687551464588c511b72}} 
-\index{netdem::Polybezier@{netdem::Polybezier}!mat\_du\_list@{mat\_du\_list}}
-\index{mat\_du\_list@{mat\_du\_list}!netdem::Polybezier@{netdem::Polybezier}}
-\doxysubsubsection{\texorpdfstring{mat\_du\_list}{mat\_du\_list}}
-{\footnotesize\ttfamily \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$\mbox{\hyperlink{namespacenetdem_a4c6a34e4b9bc01901ac527bb8ea83909}{Vec\+NT}}$<$\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}, 3$>$ $>$ netdem\+::\+Polybezier\+::mat\+\_\+du\+\_\+list\hspace{0.3cm}{\ttfamily [private]}}
-
-\mbox{\Hypertarget{classnetdem_1_1_polybezier_aa9f12be6f733b7aa8294b68b8dd77614}\label{classnetdem_1_1_polybezier_aa9f12be6f733b7aa8294b68b8dd77614}} 
-\index{netdem::Polybezier@{netdem::Polybezier}!mat\_dv\_list@{mat\_dv\_list}}
-\index{mat\_dv\_list@{mat\_dv\_list}!netdem::Polybezier@{netdem::Polybezier}}
-\doxysubsubsection{\texorpdfstring{mat\_dv\_list}{mat\_dv\_list}}
-{\footnotesize\ttfamily \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$\mbox{\hyperlink{namespacenetdem_a4c6a34e4b9bc01901ac527bb8ea83909}{Vec\+NT}}$<$\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}, 3$>$ $>$ netdem\+::\+Polybezier\+::mat\+\_\+dv\+\_\+list\hspace{0.3cm}{\ttfamily [private]}}
-
-\mbox{\Hypertarget{classnetdem_1_1_polybezier_aea00adb3552548d2699c8ec53bcc9fe1}\label{classnetdem_1_1_polybezier_aea00adb3552548d2699c8ec53bcc9fe1}} 
-\index{netdem::Polybezier@{netdem::Polybezier}!num\_cells@{num\_cells}}
-\index{num\_cells@{num\_cells}!netdem::Polybezier@{netdem::Polybezier}}
-\doxysubsubsection{\texorpdfstring{num\_cells}{num\_cells}}
-{\footnotesize\ttfamily int netdem\+::\+Polybezier\+::num\+\_\+cells \{4\}}
-
-\mbox{\Hypertarget{classnetdem_1_1_polybezier_a9db7309122cf86a54a6b5d91e8b6954d}\label{classnetdem_1_1_polybezier_a9db7309122cf86a54a6b5d91e8b6954d}} 
-\index{netdem::Polybezier@{netdem::Polybezier}!num\_patches@{num\_patches}}
-\index{num\_patches@{num\_patches}!netdem::Polybezier@{netdem::Polybezier}}
-\doxysubsubsection{\texorpdfstring{num\_patches}{num\_patches}}
-{\footnotesize\ttfamily int netdem\+::\+Polybezier\+::num\+\_\+patches \{30\}}
-
-\mbox{\Hypertarget{classnetdem_1_1_polybezier_a1a2361798195770502dc4dbf84d8ed03}\label{classnetdem_1_1_polybezier_a1a2361798195770502dc4dbf84d8ed03}} 
-\index{netdem::Polybezier@{netdem::Polybezier}!order@{order}}
-\index{order@{order}!netdem::Polybezier@{netdem::Polybezier}}
-\doxysubsubsection{\texorpdfstring{order}{order}}
-{\footnotesize\ttfamily int netdem\+::\+Polybezier\+::order \{2\}}
-
-
-
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-/\+Users/lzhshou/\+Documents/\+Research/my\+Projects/apaam/repo/netdem/src/shape/\mbox{\hyperlink{shape__polybezier_8hpp}{shape\+\_\+polybezier.\+hpp}}\item 
-/\+Users/lzhshou/\+Documents/\+Research/my\+Projects/apaam/repo/netdem/src/shape/\mbox{\hyperlink{shape__polybezier_8cpp}{shape\+\_\+polybezier.\+cpp}}\end{DoxyCompactItemize}
+/\+Users/lzhshou/\+Documents/\+Research/my\+Projects/apaam/repo/netdem/src/shape/shape\+\_\+polybezier.\+hpp\item 
+/\+Users/lzhshou/\+Documents/\+Research/my\+Projects/apaam/repo/netdem/src/shape/shape\+\_\+polybezier.\+cpp\end{DoxyCompactItemize}

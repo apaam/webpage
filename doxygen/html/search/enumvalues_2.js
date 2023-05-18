@@ -1,9 +1,6 @@
 var searchData=
 [
-  ['coded_5fnetsdf_0',['coded_netsdf',['../classnetdem_1_1_shape.html#aa97bccd1fe4043614c4b84a3f254a158a0b86f6658887e22102a419b8a15852b6',1,'netdem::Shape']]],
-  ['contacts_1',['contacts',['../namespacenetdem.html#a3d1c9a57f81d32e05adbb87079c38501aa211e9201b5f2351dd24af1fb02405d9',1,'netdem']]],
-  ['critical_5fstretch_2',['Critical_Stretch',['../classnetdem_1_1_peri_digm_damage_model.html#acac3537b5c322c8f13561a0a8f897280a70c047016b926748d8d848e057657112',1,'netdem::PeriDigmDamageModel']]],
-  ['custom_3',['custom',['../namespacenetdem.html#a3d1c9a57f81d32e05adbb87079c38501a3b823e7356e4e47a286937766a99cdd7',1,'netdem']]],
-  ['cycles_4',['cycles',['../classnetdem_1_1_deformation_analysis_1_1_settings.html#a3d5f3ec3fd8a98efe713dfa2a2dcb89fa2b7801a03c14b0cd5fbbac208d2e67c6',1,'netdem::DeformationAnalysis::Settings']]],
-  ['cylinder_5',['cylinder',['../classnetdem_1_1_shape.html#aa97bccd1fe4043614c4b84a3f254a158aa14147e0bd93b09d0cfba0f07e8f4d3f',1,'netdem::Shape']]]
+  ['leakyrelu_0',['LeakyReLU',['../namespacenetdem.html#a06635636eca09676377d47de7cb4c02cabb7ba525e0c40179fab22b4f7021e1f8',1,'netdem']]],
+  ['linear_1',['Linear',['../namespacenetdem.html#a06635636eca09676377d47de7cb4c02ca32a843da6ea40ab3b17a3421ccdf671b',1,'netdem']]],
+  ['logsoftmax_2',['LogSoftMax',['../namespacenetdem.html#a06635636eca09676377d47de7cb4c02ca4acdcc5d78331eed943edb19fd0824c6',1,'netdem']]]
 ];

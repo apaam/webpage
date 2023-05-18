@@ -1,7 +1,7 @@
 var annotated_dup =
 [
     [ "netdem", "namespacenetdem.html", [
-      [ "Math", "namespacenetdem_1_1_math.html", [
+      [ "Math", null, [
         [ "RandomEngine", "classnetdem_1_1_math_1_1_random_engine.html", "classnetdem_1_1_math_1_1_random_engine" ]
       ] ],
       [ "BondedSpheres", "classnetdem_1_1_bonded_spheres.html", "classnetdem_1_1_bonded_spheres" ],
@@ -44,7 +44,7 @@ var annotated_dup =
       [ "DEMObjectPool", "classnetdem_1_1_d_e_m_object_pool.html", "classnetdem_1_1_d_e_m_object_pool" ],
       [ "DEMProfiler", "classnetdem_1_1_d_e_m_profiler.html", "classnetdem_1_1_d_e_m_profiler" ],
       [ "DEMSolver", "classnetdem_1_1_d_e_m_solver.html", "classnetdem_1_1_d_e_m_solver" ],
-      [ "Distribution", "classnetdem_1_1_distribution.html", "classnetdem_1_1_distribution" ],
+      [ "Distribution", "classnetdem_1_1_distribution.html", null ],
       [ "Domain", "classnetdem_1_1_domain.html", "classnetdem_1_1_domain" ],
       [ "DomainManager", "classnetdem_1_1_domain_manager.html", "classnetdem_1_1_domain_manager" ],
       [ "DomainSplittor", "classnetdem_1_1_domain_splittor.html", "classnetdem_1_1_domain_splittor" ],
@@ -61,27 +61,27 @@ var annotated_dup =
       [ "LinearSpring", "classnetdem_1_1_linear_spring.html", "classnetdem_1_1_linear_spring" ],
       [ "Membrane", "classnetdem_1_1_membrane.html", "classnetdem_1_1_membrane" ],
       [ "MembraneWall", "classnetdem_1_1_membrane_wall.html", "classnetdem_1_1_membrane_wall" ],
-      [ "MiniMap", "classnetdem_1_1_mini_map.html", "classnetdem_1_1_mini_map" ],
+      [ "MiniMap", "classnetdem_1_1_mini_map.html", null ],
       [ "Modifier", "classnetdem_1_1_modifier.html", "classnetdem_1_1_modifier" ],
       [ "ModifierManager", "classnetdem_1_1_modifier_manager.html", "classnetdem_1_1_modifier_manager" ],
       [ "MPIDataDefine", "classnetdem_1_1_m_p_i_data_define.html", "classnetdem_1_1_m_p_i_data_define" ],
       [ "MPIManager", "classnetdem_1_1_m_p_i_manager.html", "classnetdem_1_1_m_p_i_manager" ],
-      [ "my_pair", "structnetdem_1_1my__pair.html", "structnetdem_1_1my__pair" ],
+      [ "my_pair", "structnetdem_1_1my__pair.html", null ],
       [ "NeighPofP", "classnetdem_1_1_neigh_pof_p.html", "classnetdem_1_1_neigh_pof_p" ],
       [ "NeighPofW", "classnetdem_1_1_neigh_pof_w.html", "classnetdem_1_1_neigh_pof_w" ],
       [ "NeighWofP", "classnetdem_1_1_neigh_wof_p.html", "classnetdem_1_1_neigh_wof_p" ],
       [ "NetSDF", "classnetdem_1_1_net_s_d_f.html", "classnetdem_1_1_net_s_d_f" ],
       [ "PackGenerator", "classnetdem_1_1_pack_generator.html", null ],
-      [ "pair_hash", "structnetdem_1_1pair__hash.html", "structnetdem_1_1pair__hash" ],
+      [ "pair_hash", "structnetdem_1_1pair__hash.html", null ],
       [ "ParallelBond", "classnetdem_1_1_parallel_bond.html", "classnetdem_1_1_parallel_bond" ],
       [ "Particle", "classnetdem_1_1_particle.html", "classnetdem_1_1_particle" ],
       [ "ParticleData", "structnetdem_1_1_particle_data.html", "structnetdem_1_1_particle_data" ],
-      [ "ParticleEnergy", "structnetdem_1_1_particle_energy.html", "structnetdem_1_1_particle_energy" ],
+      [ "ParticleEnergy", "structnetdem_1_1_particle_energy.html", null ],
       [ "ParticleEnergyEvaluator", "classnetdem_1_1_particle_energy_evaluator.html", "classnetdem_1_1_particle_energy_evaluator" ],
       [ "ParticleGroup", "classnetdem_1_1_particle_group.html", "classnetdem_1_1_particle_group" ],
       [ "ParticleMotionControl", "classnetdem_1_1_particle_motion_control.html", "classnetdem_1_1_particle_motion_control" ],
       [ "ParticleParser", "classnetdem_1_1_particle_parser.html", null ],
-      [ "ParticleStrengthParameters", "classnetdem_1_1_particle_strength_parameters.html", "classnetdem_1_1_particle_strength_parameters" ],
+      [ "ParticleStrengthParameters", "classnetdem_1_1_particle_strength_parameters.html", null ],
       [ "PeriDigmBlock", "classnetdem_1_1_peri_digm_block.html", "classnetdem_1_1_peri_digm_block" ],
       [ "PeriDigmBoundaryCondition", "classnetdem_1_1_peri_digm_boundary_condition.html", "classnetdem_1_1_peri_digm_boundary_condition" ],
       [ "PeriDigmDamageModel", "classnetdem_1_1_peri_digm_damage_model.html", "classnetdem_1_1_peri_digm_damage_model" ],
@@ -135,9 +135,9 @@ var annotated_dup =
       [ "WallServoControl", "classnetdem_1_1_wall_servo_control.html", "classnetdem_1_1_wall_servo_control" ],
       [ "WSCVTSampler", "classnetdem_1_1_w_s_c_v_t_sampler.html", "classnetdem_1_1_w_s_c_v_t_sampler" ]
     ] ],
-    [ "CorkTriangle", "struct_cork_triangle.html", "struct_cork_triangle" ],
+    [ "CorkTriangle", "struct_cork_triangle.html", null ],
     [ "CorkVertex", "struct_cork_vertex.html", "struct_cork_vertex" ],
-    [ "PolyhedronBuilder", "class_polyhedron_builder.html", "class_polyhedron_builder" ],
+    [ "PolyhedronBuilder", "class_polyhedron_builder.html", null ],
     [ "PyModifier", "class_py_modifier.html", "class_py_modifier" ],
     [ "UniformDistribution", "class_uniform_distribution.html", "class_uniform_distribution" ]
 ];

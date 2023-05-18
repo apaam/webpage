@@ -1,43 +1,45 @@
 \hypertarget{model__linear__spring_8hpp_source}{}\doxysection{model\+\_\+linear\+\_\+spring.\+hpp}
 \label{model__linear__spring_8hpp_source}\index{/Users/lzhshou/Documents/Research/myProjects/apaam/repo/netdem/src/dem/model\_linear\_spring.hpp@{/Users/lzhshou/Documents/Research/myProjects/apaam/repo/netdem/src/dem/model\_linear\_spring.hpp}}
-\mbox{\hyperlink{model__linear__spring_8hpp}{Go to the documentation of this file.}}
+
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
 \DoxyCodeLine{00002\ }
-\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{contact__model_8hpp}{contact\_model.hpp}}"{}}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}contact\_model.hpp"{}}}
 \DoxyCodeLine{00004\ }
 \DoxyCodeLine{00005\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacenetdem}{netdem}}\ \{}
 \DoxyCodeLine{00006\ }
-\DoxyCodeLine{00014\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classnetdem_1_1_linear_spring}{LinearSpring}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classnetdem_1_1_contact_model}{ContactModel}}\ \{}
-\DoxyCodeLine{00015\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00016\ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classnetdem_1_1_linear_spring_a2f1c34f217b708ddd2def45b0291936d}{kn}}\{2e6\},\ \mbox{\hyperlink{classnetdem_1_1_linear_spring_a0b932bc41153a3b030334cba63367c30}{kt}}\{1e6\},\ \mbox{\hyperlink{classnetdem_1_1_linear_spring_aa987d324343a1f5878f2bfd97bdb9cc3}{beta}}\{0.7\},\ \mbox{\hyperlink{classnetdem_1_1_linear_spring_aa8edba335f67c91bef296243a6d7a449}{mu}}\{0.5\};\ }
-\DoxyCodeLine{00017\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classnetdem_1_1_linear_spring_a8bf10c9dff540a4b963040904eab64f5}{use\_viscous\_damping}}\{\textcolor{keyword}{false}\};\ }
-\DoxyCodeLine{00018\ }
-\DoxyCodeLine{00022\ \ \ \mbox{\hyperlink{classnetdem_1_1_linear_spring_a92b4d742489e17e9db57213a877022d5}{LinearSpring}}();}
-\DoxyCodeLine{00023\ }
-\DoxyCodeLine{00031\ \ \ \mbox{\hyperlink{classnetdem_1_1_linear_spring_a92b4d742489e17e9db57213a877022d5}{LinearSpring}}(\textcolor{keywordtype}{double}\ \mbox{\hyperlink{classnetdem_1_1_linear_spring_a2f1c34f217b708ddd2def45b0291936d}{kn}},\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classnetdem_1_1_linear_spring_a0b932bc41153a3b030334cba63367c30}{kt}},\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classnetdem_1_1_linear_spring_aa987d324343a1f5878f2bfd97bdb9cc3}{beta}},\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classnetdem_1_1_linear_spring_aa8edba335f67c91bef296243a6d7a449}{mu}});}
-\DoxyCodeLine{00032\ }
-\DoxyCodeLine{00037\ \ \ nlohmann::json\ \mbox{\hyperlink{classnetdem_1_1_linear_spring_a8e3f2351614ca70c5ae23532494a8e37}{PackJson}}()\ \textcolor{keyword}{override};}
-\DoxyCodeLine{00038\ }
-\DoxyCodeLine{00043\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_linear_spring_ad3d3e87f1de14c836c484dd210a9ae76}{InitFromJson}}(nlohmann::json\ \textcolor{keyword}{const}\ \&js)\ \textcolor{keyword}{override};}
-\DoxyCodeLine{00044\ }
-\DoxyCodeLine{00049\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_linear_spring_a75c4ae4a723880f348870beda2ac2eab}{SetProperty}}(nlohmann::json\ \textcolor{keyword}{const}\ \&js)\ \textcolor{keyword}{override};}
-\DoxyCodeLine{00050\ }
-\DoxyCodeLine{00056\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_linear_spring_a345c06c0d6855ff688f242c824bf13dc}{SetProperty}}(std::string\ \textcolor{keyword}{const}\ \&name,\ \textcolor{keywordtype}{double}\ value)\ \textcolor{keyword}{override};}
-\DoxyCodeLine{00057\ }
-\DoxyCodeLine{00062\ \ \ \mbox{\hyperlink{classnetdem_1_1_contact_model}{ContactModel}}\ *\mbox{\hyperlink{classnetdem_1_1_linear_spring_a7c6f7710b72c617ea6f7af3c0cdf0b16}{Clone}}()\ \textcolor{keyword}{const\ override};}
-\DoxyCodeLine{00063\ }
-\DoxyCodeLine{00071\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_linear_spring_afed81fe8d9220c7a8bcccf3dda63c4cd}{EvaluateForceMoment}}(\mbox{\hyperlink{classnetdem_1_1_contact_forces}{ContactForces}}\ *\textcolor{keyword}{const}\ cnt\_forces,}
-\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classnetdem_1_1_collision_geometries}{CollisionGeometries}}\ \&cnt\_geoms,\ \mbox{\hyperlink{classnetdem_1_1_contact_p_p}{ContactPP}}\ *\textcolor{keyword}{const}\ cnt,}
-\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ dt)\ \textcolor{keyword}{const\ override};}
-\DoxyCodeLine{00074\ }
-\DoxyCodeLine{00082\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_linear_spring_afed81fe8d9220c7a8bcccf3dda63c4cd}{EvaluateForceMoment}}(\mbox{\hyperlink{classnetdem_1_1_contact_forces}{ContactForces}}\ *\textcolor{keyword}{const}\ cnt\_forces,}
-\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classnetdem_1_1_collision_geometries}{CollisionGeometries}}\ \&cnt\_geoms,\ \mbox{\hyperlink{classnetdem_1_1_contact_p_w}{ContactPW}}\ *\textcolor{keyword}{const}\ cnt,}
-\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ dt)\ \textcolor{keyword}{const\ override};}
-\DoxyCodeLine{00085\ }
-\DoxyCodeLine{00089\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_linear_spring_ac39b88c105fe0bd5e2a7fef4a69864f4}{Print}}()\ \textcolor{keyword}{const\ override};}
-\DoxyCodeLine{00090\ \};}
-\DoxyCodeLine{00091\ }
-\DoxyCodeLine{00092\ \}\ \textcolor{comment}{//\ namespace\ netdem}}
+\DoxyCodeLine{00016\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classnetdem_1_1_linear_spring}{LinearSpring}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classnetdem_1_1_contact_model}{ContactModel}}\ \{}
+\DoxyCodeLine{00017\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00018\ \ \ \textcolor{keywordtype}{double}\ kn\{2e6\},\ kt\{1e6\},\ beta\{0.7\},}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \mbox{\hyperlink{classnetdem_1_1_linear_spring_aa8edba335f67c91bef296243a6d7a449}{mu}}\{0.5\};\ }
+\DoxyCodeLine{00020\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classnetdem_1_1_linear_spring_a8bf10c9dff540a4b963040904eab64f5}{use\_viscous\_damping}}\{}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \textcolor{keyword}{false}\};\ }
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00026\ \ \ \mbox{\hyperlink{classnetdem_1_1_linear_spring_a92b4d742489e17e9db57213a877022d5}{LinearSpring}}();}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00035\ \ \ \mbox{\hyperlink{classnetdem_1_1_linear_spring_a92b4d742489e17e9db57213a877022d5}{LinearSpring}}(\textcolor{keywordtype}{double}\ kn,\ \textcolor{keywordtype}{double}\ kt,\ \textcolor{keywordtype}{double}\ beta,\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classnetdem_1_1_linear_spring_aa8edba335f67c91bef296243a6d7a449}{mu}});}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00041\ \ \ nlohmann::json\ \mbox{\hyperlink{classnetdem_1_1_linear_spring_a8e3f2351614ca70c5ae23532494a8e37}{PackJson}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00047\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_linear_spring_ad3d3e87f1de14c836c484dd210a9ae76}{InitFromJson}}(nlohmann::json\ \textcolor{keyword}{const}\ \&js)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00053\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_linear_spring_a75c4ae4a723880f348870beda2ac2eab}{SetProperty}}(nlohmann::json\ \textcolor{keyword}{const}\ \&js)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00060\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_linear_spring_a345c06c0d6855ff688f242c824bf13dc}{SetProperty}}(std::string\ \textcolor{keyword}{const}\ \&name,\ \textcolor{keywordtype}{double}\ value)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00066\ \ \ \mbox{\hyperlink{classnetdem_1_1_contact_model}{ContactModel}}\ *\mbox{\hyperlink{classnetdem_1_1_linear_spring_a7c6f7710b72c617ea6f7af3c0cdf0b16}{Clone}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00077\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_linear_spring_afed81fe8d9220c7a8bcccf3dda63c4cd}{EvaluateForceMoment}}(\mbox{\hyperlink{classnetdem_1_1_contact_forces}{ContactForces}}\ *\textcolor{keyword}{const}\ cnt\_forces,}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classnetdem_1_1_collision_geometries}{CollisionGeometries}}\ \&cnt\_geoms,\ \mbox{\hyperlink{classnetdem_1_1_contact_p_p}{ContactPP}}\ *\textcolor{keyword}{const}\ cnt,}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ dt)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00090\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_linear_spring_afed81fe8d9220c7a8bcccf3dda63c4cd}{EvaluateForceMoment}}(\mbox{\hyperlink{classnetdem_1_1_contact_forces}{ContactForces}}\ *\textcolor{keyword}{const}\ cnt\_forces,}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classnetdem_1_1_collision_geometries}{CollisionGeometries}}\ \&cnt\_geoms,\ \mbox{\hyperlink{classnetdem_1_1_contact_p_w}{ContactPW}}\ *\textcolor{keyword}{const}\ cnt,}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ dt)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00097\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_linear_spring_ac39b88c105fe0bd5e2a7fef4a69864f4}{Print}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00098\ \};}
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00100\ \}\ \textcolor{comment}{//\ namespace\ netdem}}
 
 \end{DoxyCode}
