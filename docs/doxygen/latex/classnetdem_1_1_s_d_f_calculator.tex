@@ -14,44 +14,24 @@ Class for computing signed distance fields from triangle meshes.
 \item 
 \mbox{\hyperlink{classnetdem_1_1_s_d_f_calculator_aa8a0cab4d342177cb775edbf692a1b09}{SDFCalculator}} ()
 \begin{DoxyCompactList}\small\item\em Default constructor. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classnetdem_1_1_s_d_f_calculator_abde55bf4a5f69649136cadc5ace8537a}{Init\+From\+STL}} (const \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $>$ \&vv, const \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_a28e1404c8ce46c48bc78f553bd555980}{Vec3i}} $>$ \&ff)
+void \mbox{\hyperlink{classnetdem_1_1_s_d_f_calculator_abde55bf4a5f69649136cadc5ace8537a}{Init\+From\+STL}} (const Vec\+XT$<$ Vec3d $>$ \&vv, const Vec\+XT$<$ Vec3i $>$ \&ff)
 \begin{DoxyCompactList}\small\item\em Initialize from a set of vertices and faces. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classnetdem_1_1_s_d_f_calculator_ab41ef27da95b30a9e59ff067950bf64b}{Init\+From\+STL}} (\mbox{\hyperlink{classnetdem_1_1_s_t_l_model}{STLModel}} const \&stl\+\_\+model)
 \begin{DoxyCompactList}\small\item\em Initialize from an STL model. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classnetdem_1_1_s_d_f_calculator_ad07355ccd1bb1b590dd258a2de9e3a9c}{Init}} ()
 \begin{DoxyCompactList}\small\item\em Initialize the \mbox{\hyperlink{classnetdem_1_1_s_d_f_calculator}{SDFCalculator}}. \end{DoxyCompactList}\item 
-double \mbox{\hyperlink{classnetdem_1_1_s_d_f_calculator_ac6f6822eccf2696168ad4d376ce528e5}{Signed\+Distance}} (\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&pos) const
+double \mbox{\hyperlink{classnetdem_1_1_s_d_f_calculator_ac6f6822eccf2696168ad4d376ce528e5}{Signed\+Distance}} (Vec3d const \&pos) const
 \begin{DoxyCompactList}\small\item\em Compute the signed distance at a point in space. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \mbox{\hyperlink{classnetdem_1_1_s_d_f_calculator_a1aa5ad48be7c50db1fd9df163494049b}{Surface\+Point}} (\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&pos) const
+Vec3d \mbox{\hyperlink{classnetdem_1_1_s_d_f_calculator_a1aa5ad48be7c50db1fd9df163494049b}{Surface\+Point}} (Vec3d const \&pos) const
 \begin{DoxyCompactList}\small\item\em Find the surface point on the mesh closest to a given point. \end{DoxyCompactList}\item 
-int \mbox{\hyperlink{classnetdem_1_1_s_d_f_calculator_a1ea283971e65103166b60cb2cedce31b}{Closest\+Facet}} (\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&pos) const
+int \mbox{\hyperlink{classnetdem_1_1_s_d_f_calculator_a1ea283971e65103166b60cb2cedce31b}{Closest\+Facet}} (Vec3d const \&pos) const
 \begin{DoxyCompactList}\small\item\em Find the closest facet on the mesh to a given point. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-double \mbox{\hyperlink{classnetdem_1_1_s_d_f_calculator_ae5110336b03e5804fa16efb00e43d8b2}{max\+\_\+distance}} \{0.\+0\}
+\mbox{\Hypertarget{classnetdem_1_1_s_d_f_calculator_ae5110336b03e5804fa16efb00e43d8b2}\label{classnetdem_1_1_s_d_f_calculator_ae5110336b03e5804fa16efb00e43d8b2}} 
+double {\bfseries max\+\_\+distance} \{0.\+0\}
 \begin{DoxyCompactList}\small\item\em Maximum distance from any point to the mesh. \end{DoxyCompactList}\end{DoxyCompactItemize}
-\doxysubsection*{Private Attributes}
-\begin{DoxyCompactItemize}
-\item 
-Eigen\+::\+Matrix\+Xd \mbox{\hyperlink{classnetdem_1_1_s_d_f_calculator_a12ffc01ade8397c7243bc225baf75783}{vertices}}
-\begin{DoxyCompactList}\small\item\em Matrix containing the vertex positions. \end{DoxyCompactList}\item 
-Eigen\+::\+Matrix\+Xi \mbox{\hyperlink{classnetdem_1_1_s_d_f_calculator_aba766469a898ab663419901d42fd3bc6}{facets}}
-\begin{DoxyCompactList}\small\item\em Matrix containing the indices of the mesh faces. \end{DoxyCompactList}\item 
-Eigen\+::\+Matrix\+Xi \mbox{\hyperlink{classnetdem_1_1_s_d_f_calculator_adcfdb7972eb8e7126390fd912c5ed078}{T}}
-\begin{DoxyCompactList}\small\item\em Matrix containing AABB tree node information. \end{DoxyCompactList}\item 
-igl\+::\+AABB$<$ Eigen\+::\+Matrix\+Xd, 3 $>$ \mbox{\hyperlink{classnetdem_1_1_s_d_f_calculator_af00a0e39a11dde13a169d5e38249c729}{tree}}
-\begin{DoxyCompactList}\small\item\em AABB tree used to accelerate signed distance computation. \end{DoxyCompactList}\item 
-Eigen\+::\+Matrix\+Xd \mbox{\hyperlink{classnetdem_1_1_s_d_f_calculator_a04cd0ea0be339eaccab7bddda163b666}{FN}}
-\item 
-Eigen\+::\+Matrix\+Xd \mbox{\hyperlink{classnetdem_1_1_s_d_f_calculator_a3756fa0f3613081d2633131718286a77}{VN}}
-\item 
-Eigen\+::\+Matrix\+Xd \mbox{\hyperlink{classnetdem_1_1_s_d_f_calculator_a4eabf380059cba715ff54d531e45dd25}{EN}}
-\item 
-Eigen\+::\+Matrix\+Xi \mbox{\hyperlink{classnetdem_1_1_s_d_f_calculator_a994d2b2530c6a6646bec5aa55d4b32f0}{E}}
-\begin{DoxyCompactList}\small\item\em Matrix containing edge indices. \end{DoxyCompactList}\item 
-Eigen\+::\+Vector\+Xi \mbox{\hyperlink{classnetdem_1_1_s_d_f_calculator_a596a4825f3c1e5e7b3cc5db963b07ed0}{EMAP}}
-\begin{DoxyCompactList}\small\item\em Vector mapping edges to their index in E. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
@@ -77,7 +57,7 @@ This creates an empty \mbox{\hyperlink{classnetdem_1_1_s_d_f_calculator}{SDFCalc
 \index{netdem::SDFCalculator@{netdem::SDFCalculator}!ClosestFacet@{ClosestFacet}}
 \index{ClosestFacet@{ClosestFacet}!netdem::SDFCalculator@{netdem::SDFCalculator}}
 \doxysubsubsection{\texorpdfstring{ClosestFacet()}{ClosestFacet()}}
-{\footnotesize\ttfamily int netdem\+::\+SDFCalculator\+::\+Closest\+Facet (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&}]{pos }\end{DoxyParamCaption}) const}
+{\footnotesize\ttfamily int netdem\+::\+SDFCalculator\+::\+Closest\+Facet (\begin{DoxyParamCaption}\item[{Vec3d const \&}]{pos }\end{DoxyParamCaption}) const}
 
 
 
@@ -107,7 +87,7 @@ This method initializes the \mbox{\hyperlink{classnetdem_1_1_s_d_f_calculator}{S
 \index{netdem::SDFCalculator@{netdem::SDFCalculator}!InitFromSTL@{InitFromSTL}}
 \index{InitFromSTL@{InitFromSTL}!netdem::SDFCalculator@{netdem::SDFCalculator}}
 \doxysubsubsection{\texorpdfstring{InitFromSTL()}{InitFromSTL()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily void netdem\+::\+SDFCalculator\+::\+Init\+From\+STL (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} $>$ \&}]{vv,  }\item[{const \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_a28e1404c8ce46c48bc78f553bd555980}{Vec3i}} $>$ \&}]{ff }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void netdem\+::\+SDFCalculator\+::\+Init\+From\+STL (\begin{DoxyParamCaption}\item[{const Vec\+XT$<$ Vec3d $>$ \&}]{vv,  }\item[{const Vec\+XT$<$ Vec3i $>$ \&}]{ff }\end{DoxyParamCaption})}
 
 
 
@@ -143,7 +123,7 @@ This method initializes the \mbox{\hyperlink{classnetdem_1_1_s_d_f_calculator}{S
 \index{netdem::SDFCalculator@{netdem::SDFCalculator}!SignedDistance@{SignedDistance}}
 \index{SignedDistance@{SignedDistance}!netdem::SDFCalculator@{netdem::SDFCalculator}}
 \doxysubsubsection{\texorpdfstring{SignedDistance()}{SignedDistance()}}
-{\footnotesize\ttfamily double netdem\+::\+SDFCalculator\+::\+Signed\+Distance (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&}]{pos }\end{DoxyParamCaption}) const}
+{\footnotesize\ttfamily double netdem\+::\+SDFCalculator\+::\+Signed\+Distance (\begin{DoxyParamCaption}\item[{Vec3d const \&}]{pos }\end{DoxyParamCaption}) const}
 
 
 
@@ -163,7 +143,7 @@ The signed distance between the point and the mesh.
 \index{netdem::SDFCalculator@{netdem::SDFCalculator}!SurfacePoint@{SurfacePoint}}
 \index{SurfacePoint@{SurfacePoint}!netdem::SDFCalculator@{netdem::SDFCalculator}}
 \doxysubsubsection{\texorpdfstring{SurfacePoint()}{SurfacePoint()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} netdem\+::\+SDFCalculator\+::\+Surface\+Point (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&}]{pos }\end{DoxyParamCaption}) const}
+{\footnotesize\ttfamily Vec3d netdem\+::\+SDFCalculator\+::\+Surface\+Point (\begin{DoxyParamCaption}\item[{Vec3d const \&}]{pos }\end{DoxyParamCaption}) const}
 
 
 
@@ -181,98 +161,7 @@ The closest surface point on the mesh.
 \end{DoxyReturn}
 
 
-\doxysubsection{Member Data Documentation}
-\mbox{\Hypertarget{classnetdem_1_1_s_d_f_calculator_a994d2b2530c6a6646bec5aa55d4b32f0}\label{classnetdem_1_1_s_d_f_calculator_a994d2b2530c6a6646bec5aa55d4b32f0}} 
-\index{netdem::SDFCalculator@{netdem::SDFCalculator}!E@{E}}
-\index{E@{E}!netdem::SDFCalculator@{netdem::SDFCalculator}}
-\doxysubsubsection{\texorpdfstring{E}{E}}
-{\footnotesize\ttfamily Eigen\+::\+Matrix\+Xi netdem\+::\+SDFCalculator\+::E\hspace{0.3cm}{\ttfamily [private]}}
-
-
-
-Matrix containing edge indices. 
-
-\mbox{\Hypertarget{classnetdem_1_1_s_d_f_calculator_a596a4825f3c1e5e7b3cc5db963b07ed0}\label{classnetdem_1_1_s_d_f_calculator_a596a4825f3c1e5e7b3cc5db963b07ed0}} 
-\index{netdem::SDFCalculator@{netdem::SDFCalculator}!EMAP@{EMAP}}
-\index{EMAP@{EMAP}!netdem::SDFCalculator@{netdem::SDFCalculator}}
-\doxysubsubsection{\texorpdfstring{EMAP}{EMAP}}
-{\footnotesize\ttfamily Eigen\+::\+Vector\+Xi netdem\+::\+SDFCalculator\+::\+EMAP\hspace{0.3cm}{\ttfamily [private]}}
-
-
-
-Vector mapping edges to their index in E. 
-
-\mbox{\Hypertarget{classnetdem_1_1_s_d_f_calculator_a4eabf380059cba715ff54d531e45dd25}\label{classnetdem_1_1_s_d_f_calculator_a4eabf380059cba715ff54d531e45dd25}} 
-\index{netdem::SDFCalculator@{netdem::SDFCalculator}!EN@{EN}}
-\index{EN@{EN}!netdem::SDFCalculator@{netdem::SDFCalculator}}
-\doxysubsubsection{\texorpdfstring{EN}{EN}}
-{\footnotesize\ttfamily Eigen\+::\+Matrix\+Xd netdem\+::\+SDFCalculator\+::\+EN\hspace{0.3cm}{\ttfamily [private]}}
-
-Matrices containing face normals, vertex normals, and edge normals. \mbox{\Hypertarget{classnetdem_1_1_s_d_f_calculator_aba766469a898ab663419901d42fd3bc6}\label{classnetdem_1_1_s_d_f_calculator_aba766469a898ab663419901d42fd3bc6}} 
-\index{netdem::SDFCalculator@{netdem::SDFCalculator}!facets@{facets}}
-\index{facets@{facets}!netdem::SDFCalculator@{netdem::SDFCalculator}}
-\doxysubsubsection{\texorpdfstring{facets}{facets}}
-{\footnotesize\ttfamily Eigen\+::\+Matrix\+Xi netdem\+::\+SDFCalculator\+::facets\hspace{0.3cm}{\ttfamily [private]}}
-
-
-
-Matrix containing the indices of the mesh faces. 
-
-\mbox{\Hypertarget{classnetdem_1_1_s_d_f_calculator_a04cd0ea0be339eaccab7bddda163b666}\label{classnetdem_1_1_s_d_f_calculator_a04cd0ea0be339eaccab7bddda163b666}} 
-\index{netdem::SDFCalculator@{netdem::SDFCalculator}!FN@{FN}}
-\index{FN@{FN}!netdem::SDFCalculator@{netdem::SDFCalculator}}
-\doxysubsubsection{\texorpdfstring{FN}{FN}}
-{\footnotesize\ttfamily Eigen\+::\+Matrix\+Xd netdem\+::\+SDFCalculator\+::\+FN\hspace{0.3cm}{\ttfamily [private]}}
-
-\mbox{\Hypertarget{classnetdem_1_1_s_d_f_calculator_ae5110336b03e5804fa16efb00e43d8b2}\label{classnetdem_1_1_s_d_f_calculator_ae5110336b03e5804fa16efb00e43d8b2}} 
-\index{netdem::SDFCalculator@{netdem::SDFCalculator}!max\_distance@{max\_distance}}
-\index{max\_distance@{max\_distance}!netdem::SDFCalculator@{netdem::SDFCalculator}}
-\doxysubsubsection{\texorpdfstring{max\_distance}{max\_distance}}
-{\footnotesize\ttfamily double netdem\+::\+SDFCalculator\+::max\+\_\+distance \{0.\+0\}}
-
-
-
-Maximum distance from any point to the mesh. 
-
-\mbox{\Hypertarget{classnetdem_1_1_s_d_f_calculator_adcfdb7972eb8e7126390fd912c5ed078}\label{classnetdem_1_1_s_d_f_calculator_adcfdb7972eb8e7126390fd912c5ed078}} 
-\index{netdem::SDFCalculator@{netdem::SDFCalculator}!T@{T}}
-\index{T@{T}!netdem::SDFCalculator@{netdem::SDFCalculator}}
-\doxysubsubsection{\texorpdfstring{T}{T}}
-{\footnotesize\ttfamily Eigen\+::\+Matrix\+Xi netdem\+::\+SDFCalculator\+::T\hspace{0.3cm}{\ttfamily [private]}}
-
-
-
-Matrix containing AABB tree node information. 
-
-\mbox{\Hypertarget{classnetdem_1_1_s_d_f_calculator_af00a0e39a11dde13a169d5e38249c729}\label{classnetdem_1_1_s_d_f_calculator_af00a0e39a11dde13a169d5e38249c729}} 
-\index{netdem::SDFCalculator@{netdem::SDFCalculator}!tree@{tree}}
-\index{tree@{tree}!netdem::SDFCalculator@{netdem::SDFCalculator}}
-\doxysubsubsection{\texorpdfstring{tree}{tree}}
-{\footnotesize\ttfamily igl\+::\+AABB$<$Eigen\+::\+Matrix\+Xd, 3$>$ netdem\+::\+SDFCalculator\+::tree\hspace{0.3cm}{\ttfamily [private]}}
-
-
-
-AABB tree used to accelerate signed distance computation. 
-
-\mbox{\Hypertarget{classnetdem_1_1_s_d_f_calculator_a12ffc01ade8397c7243bc225baf75783}\label{classnetdem_1_1_s_d_f_calculator_a12ffc01ade8397c7243bc225baf75783}} 
-\index{netdem::SDFCalculator@{netdem::SDFCalculator}!vertices@{vertices}}
-\index{vertices@{vertices}!netdem::SDFCalculator@{netdem::SDFCalculator}}
-\doxysubsubsection{\texorpdfstring{vertices}{vertices}}
-{\footnotesize\ttfamily Eigen\+::\+Matrix\+Xd netdem\+::\+SDFCalculator\+::vertices\hspace{0.3cm}{\ttfamily [private]}}
-
-
-
-Matrix containing the vertex positions. 
-
-\mbox{\Hypertarget{classnetdem_1_1_s_d_f_calculator_a3756fa0f3613081d2633131718286a77}\label{classnetdem_1_1_s_d_f_calculator_a3756fa0f3613081d2633131718286a77}} 
-\index{netdem::SDFCalculator@{netdem::SDFCalculator}!VN@{VN}}
-\index{VN@{VN}!netdem::SDFCalculator@{netdem::SDFCalculator}}
-\doxysubsubsection{\texorpdfstring{VN}{VN}}
-{\footnotesize\ttfamily Eigen\+::\+Matrix\+Xd netdem\+::\+SDFCalculator\+::\+VN\hspace{0.3cm}{\ttfamily [private]}}
-
-
-
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-/\+Users/lzhshou/\+Documents/\+Research/my\+Projects/apaam/repo/netdem/src/utils/\mbox{\hyperlink{igl__wrapper_8hpp}{igl\+\_\+wrapper.\+hpp}}\item 
-/\+Users/lzhshou/\+Documents/\+Research/my\+Projects/apaam/repo/netdem/src/utils/\mbox{\hyperlink{igl__wrapper_8cpp}{igl\+\_\+wrapper.\+cpp}}\end{DoxyCompactItemize}
+/\+Users/lzhshou/\+Documents/\+Research/my\+Projects/apaam/repo/netdem/src/utils/igl\+\_\+wrapper.\+hpp\item 
+/\+Users/lzhshou/\+Documents/\+Research/my\+Projects/apaam/repo/netdem/src/utils/igl\+\_\+wrapper.\+cpp\end{DoxyCompactItemize}

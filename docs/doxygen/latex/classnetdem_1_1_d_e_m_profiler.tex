@@ -14,9 +14,9 @@ A profiler class for measuring performance metrics in a DEM simulation.
 \item 
 \mbox{\hyperlink{classnetdem_1_1_d_e_m_profiler_a46aba9b0373388df0829757af1c1c851}{DEMProfiler}} ()
 \item 
-void \mbox{\hyperlink{classnetdem_1_1_d_e_m_profiler_aec4a998774b78edc07c06b148f0b3cf7}{Start\+Timer}} (\mbox{\hyperlink{namespacenetdem_a3d1c9a57f81d32e05adbb87079c38501}{Timer\+Type}} t\+\_\+type)
+void \mbox{\hyperlink{classnetdem_1_1_d_e_m_profiler_aec4a998774b78edc07c06b148f0b3cf7}{Start\+Timer}} (Timer\+Type t\+\_\+type)
 \begin{DoxyCompactList}\small\item\em Start a timer for measuring elapsed time. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classnetdem_1_1_d_e_m_profiler_aac02a7272beacf6e1b5a52fb9cb01d4a}{End\+Timer}} (\mbox{\hyperlink{namespacenetdem_a3d1c9a57f81d32e05adbb87079c38501}{Timer\+Type}} t\+\_\+type)
+void \mbox{\hyperlink{classnetdem_1_1_d_e_m_profiler_aac02a7272beacf6e1b5a52fb9cb01d4a}{End\+Timer}} (Timer\+Type t\+\_\+type)
 \begin{DoxyCompactList}\small\item\em End a timer for measuring elapsed time. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classnetdem_1_1_d_e_m_profiler_a78b51bc67b8a79503f870ee34ac89e76}{Clear}} ()
 \item 
@@ -25,12 +25,12 @@ void \mbox{\hyperlink{classnetdem_1_1_d_e_m_profiler_a0d25477fcf226067c6e3fa8965
 \doxysubsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-static \mbox{\hyperlink{namespacenetdem_a13434eec0cbb4e188101abb60e920e21}{int64t}} \mbox{\hyperlink{classnetdem_1_1_d_e_m_profiler_a997fb73ac349236eefcadba4893a3d9e}{Get\+Time\+Micros}} ()
+static int64t \mbox{\hyperlink{classnetdem_1_1_d_e_m_profiler_a997fb73ac349236eefcadba4893a3d9e}{Get\+Time\+Micros}} ()
 \begin{DoxyCompactList}\small\item\em Get the current time in microseconds. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{namespacenetdem_a13434eec0cbb4e188101abb60e920e21}{int64t}} \mbox{\hyperlink{classnetdem_1_1_d_e_m_profiler_a1807f89997ec1340772b0dc4cd99db6c}{timer\+\_\+list}} \mbox{[}\mbox{\hyperlink{namespacenetdem_a3d1c9a57f81d32e05adbb87079c38501ad4a2a1ca9ed510f9220347b5418e15e4}{Timer\+Type\+::num\+\_\+timers}}\mbox{]}
+int64t \mbox{\hyperlink{classnetdem_1_1_d_e_m_profiler_a1807f89997ec1340772b0dc4cd99db6c}{timer\+\_\+list}} \mbox{[}Timer\+Type\+::num\+\_\+timers\mbox{]}
 \item 
 int \mbox{\hyperlink{classnetdem_1_1_d_e_m_profiler_a7d28d05419ceeab8fd685584b843e79d}{num\+\_\+particles}} \{0\}
 \item 
@@ -41,18 +41,6 @@ int \mbox{\hyperlink{classnetdem_1_1_d_e_m_profiler_a4f24387f9a6dcca396ae35f7526
 int \mbox{\hyperlink{classnetdem_1_1_d_e_m_profiler_a3c88365db2283b5298cf5234c183a20f}{num\+\_\+neigh\+\_\+builds}} \{0\}
 \item 
 double \mbox{\hyperlink{classnetdem_1_1_d_e_m_profiler_a63797e23b4be48da7195e088fe5f0a72}{num\+\_\+neighs\+\_\+per\+\_\+p}} \{0\}
-\end{DoxyCompactItemize}
-\doxysubsection*{Private Member Functions}
-\begin{DoxyCompactItemize}
-\item 
-\mbox{\hyperlink{namespacenetdem_a13434eec0cbb4e188101abb60e920e21}{int64t}} \mbox{\hyperlink{classnetdem_1_1_d_e_m_profiler_a74553e644ff3bd03709ea90fdce749e4}{Get\+Total\+Time}} ()
-\begin{DoxyCompactList}\small\item\em Get the total elapsed time for all running timers. \end{DoxyCompactList}\end{DoxyCompactItemize}
-\doxysubsection*{Private Attributes}
-\begin{DoxyCompactItemize}
-\item 
-\mbox{\hyperlink{namespacenetdem_a13434eec0cbb4e188101abb60e920e21}{int64t}} \mbox{\hyperlink{classnetdem_1_1_d_e_m_profiler_ab7d2947cb98fab1a0ad2d96be95cc8b4}{t\+\_\+start}} \mbox{[}\mbox{\hyperlink{namespacenetdem_a3d1c9a57f81d32e05adbb87079c38501ad4a2a1ca9ed510f9220347b5418e15e4}{Timer\+Type\+::num\+\_\+timers}}\mbox{]}
-\item 
-bool \mbox{\hyperlink{classnetdem_1_1_d_e_m_profiler_a1e1255ea4691e9da8cb53e4a155f27a7}{timer\+\_\+started}} \mbox{[}\mbox{\hyperlink{namespacenetdem_a3d1c9a57f81d32e05adbb87079c38501ad4a2a1ca9ed510f9220347b5418e15e4}{Timer\+Type\+::num\+\_\+timers}}\mbox{]}
 \end{DoxyCompactItemize}
 
 
@@ -81,7 +69,7 @@ Reset all performance metrics to zero. \mbox{\Hypertarget{classnetdem_1_1_d_e_m_
 \index{netdem::DEMProfiler@{netdem::DEMProfiler}!EndTimer@{EndTimer}}
 \index{EndTimer@{EndTimer}!netdem::DEMProfiler@{netdem::DEMProfiler}}
 \doxysubsubsection{\texorpdfstring{EndTimer()}{EndTimer()}}
-{\footnotesize\ttfamily void DEMProfiler\+::\+End\+Timer (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacenetdem_a3d1c9a57f81d32e05adbb87079c38501}{Timer\+Type}}}]{t\+\_\+type }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void DEMProfiler\+::\+End\+Timer (\begin{DoxyParamCaption}\item[{Timer\+Type}]{t\+\_\+type }\end{DoxyParamCaption})}
 
 
 
@@ -98,7 +86,7 @@ This method stops a timer that was previously started using {\ttfamily \mbox{\hy
 \index{netdem::DEMProfiler@{netdem::DEMProfiler}!GetTimeMicros@{GetTimeMicros}}
 \index{GetTimeMicros@{GetTimeMicros}!netdem::DEMProfiler@{netdem::DEMProfiler}}
 \doxysubsubsection{\texorpdfstring{GetTimeMicros()}{GetTimeMicros()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{namespacenetdem_a13434eec0cbb4e188101abb60e920e21}{int64t}} DEMProfiler\+::\+Get\+Time\+Micros (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+{\footnotesize\ttfamily int64t DEMProfiler\+::\+Get\+Time\+Micros (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
 
 
@@ -108,21 +96,6 @@ This static method returns the current time in microseconds, using whatever high
 
 \begin{DoxyReturn}{Returns}
 The current time in microseconds. 
-\end{DoxyReturn}
-\mbox{\Hypertarget{classnetdem_1_1_d_e_m_profiler_a74553e644ff3bd03709ea90fdce749e4}\label{classnetdem_1_1_d_e_m_profiler_a74553e644ff3bd03709ea90fdce749e4}} 
-\index{netdem::DEMProfiler@{netdem::DEMProfiler}!GetTotalTime@{GetTotalTime}}
-\index{GetTotalTime@{GetTotalTime}!netdem::DEMProfiler@{netdem::DEMProfiler}}
-\doxysubsubsection{\texorpdfstring{GetTotalTime()}{GetTotalTime()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{namespacenetdem_a13434eec0cbb4e188101abb60e920e21}{int64t}} DEMProfiler\+::\+Get\+Total\+Time (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
-
-
-
-Get the total elapsed time for all running timers. 
-
-This method computes the total elapsed time for all currently running timers by subtracting their start times from the current time and summing the resulting values. This is used to compute the elapsed time for a given interval of the simulation.
-
-\begin{DoxyReturn}{Returns}
-The total elapsed time for all running timers, in microseconds. 
 \end{DoxyReturn}
 \mbox{\Hypertarget{classnetdem_1_1_d_e_m_profiler_a0d25477fcf226067c6e3fa8965a0c56f}\label{classnetdem_1_1_d_e_m_profiler_a0d25477fcf226067c6e3fa8965a0c56f}} 
 \index{netdem::DEMProfiler@{netdem::DEMProfiler}!Print@{Print}}
@@ -134,7 +107,7 @@ Print all collected performance metrics to the console. \mbox{\Hypertarget{class
 \index{netdem::DEMProfiler@{netdem::DEMProfiler}!StartTimer@{StartTimer}}
 \index{StartTimer@{StartTimer}!netdem::DEMProfiler@{netdem::DEMProfiler}}
 \doxysubsubsection{\texorpdfstring{StartTimer()}{StartTimer()}}
-{\footnotesize\ttfamily void DEMProfiler\+::\+Start\+Timer (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacenetdem_a3d1c9a57f81d32e05adbb87079c38501}{Timer\+Type}}}]{t\+\_\+type }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void DEMProfiler\+::\+Start\+Timer (\begin{DoxyParamCaption}\item[{Timer\+Type}]{t\+\_\+type }\end{DoxyParamCaption})}
 
 
 
@@ -180,27 +153,15 @@ The number of particles in the simulation. \mbox{\Hypertarget{classnetdem_1_1_d_
 \doxysubsubsection{\texorpdfstring{num\_walls}{num\_walls}}
 {\footnotesize\ttfamily int netdem\+::\+DEMProfiler\+::num\+\_\+walls \{0\}}
 
-The number of walls in the simulation. \mbox{\Hypertarget{classnetdem_1_1_d_e_m_profiler_ab7d2947cb98fab1a0ad2d96be95cc8b4}\label{classnetdem_1_1_d_e_m_profiler_ab7d2947cb98fab1a0ad2d96be95cc8b4}} 
-\index{netdem::DEMProfiler@{netdem::DEMProfiler}!t\_start@{t\_start}}
-\index{t\_start@{t\_start}!netdem::DEMProfiler@{netdem::DEMProfiler}}
-\doxysubsubsection{\texorpdfstring{t\_start}{t\_start}}
-{\footnotesize\ttfamily \mbox{\hyperlink{namespacenetdem_a13434eec0cbb4e188101abb60e920e21}{int64t}} netdem\+::\+DEMProfiler\+::t\+\_\+start\mbox{[}\mbox{\hyperlink{namespacenetdem_a3d1c9a57f81d32e05adbb87079c38501ad4a2a1ca9ed510f9220347b5418e15e4}{Timer\+Type\+::num\+\_\+timers}}\mbox{]}\hspace{0.3cm}{\ttfamily [private]}}
-
-An array of timestamps representing the start time for each running timer. \mbox{\Hypertarget{classnetdem_1_1_d_e_m_profiler_a1807f89997ec1340772b0dc4cd99db6c}\label{classnetdem_1_1_d_e_m_profiler_a1807f89997ec1340772b0dc4cd99db6c}} 
+The number of walls in the simulation. \mbox{\Hypertarget{classnetdem_1_1_d_e_m_profiler_a1807f89997ec1340772b0dc4cd99db6c}\label{classnetdem_1_1_d_e_m_profiler_a1807f89997ec1340772b0dc4cd99db6c}} 
 \index{netdem::DEMProfiler@{netdem::DEMProfiler}!timer\_list@{timer\_list}}
 \index{timer\_list@{timer\_list}!netdem::DEMProfiler@{netdem::DEMProfiler}}
 \doxysubsubsection{\texorpdfstring{timer\_list}{timer\_list}}
-{\footnotesize\ttfamily \mbox{\hyperlink{namespacenetdem_a13434eec0cbb4e188101abb60e920e21}{int64t}} netdem\+::\+DEMProfiler\+::timer\+\_\+list\mbox{[}\mbox{\hyperlink{namespacenetdem_a3d1c9a57f81d32e05adbb87079c38501ad4a2a1ca9ed510f9220347b5418e15e4}{Timer\+Type\+::num\+\_\+timers}}\mbox{]}}
+{\footnotesize\ttfamily int64t netdem\+::\+DEMProfiler\+::timer\+\_\+list\mbox{[}Timer\+Type\+::num\+\_\+timers\mbox{]}}
 
-An array of timers for measuring elapsed time in different parts of the simulation. \mbox{\Hypertarget{classnetdem_1_1_d_e_m_profiler_a1e1255ea4691e9da8cb53e4a155f27a7}\label{classnetdem_1_1_d_e_m_profiler_a1e1255ea4691e9da8cb53e4a155f27a7}} 
-\index{netdem::DEMProfiler@{netdem::DEMProfiler}!timer\_started@{timer\_started}}
-\index{timer\_started@{timer\_started}!netdem::DEMProfiler@{netdem::DEMProfiler}}
-\doxysubsubsection{\texorpdfstring{timer\_started}{timer\_started}}
-{\footnotesize\ttfamily bool netdem\+::\+DEMProfiler\+::timer\+\_\+started\mbox{[}\mbox{\hyperlink{namespacenetdem_a3d1c9a57f81d32e05adbb87079c38501ad4a2a1ca9ed510f9220347b5418e15e4}{Timer\+Type\+::num\+\_\+timers}}\mbox{]}\hspace{0.3cm}{\ttfamily [private]}}
-
-An array indicating whether each timer is currently running or stopped. 
+An array of timers for measuring elapsed time in different parts of the simulation. 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-/\+Users/lzhshou/\+Documents/\+Research/my\+Projects/apaam/repo/netdem/src/dem/\mbox{\hyperlink{dem__profiler_8hpp}{dem\+\_\+profiler.\+hpp}}\item 
-/\+Users/lzhshou/\+Documents/\+Research/my\+Projects/apaam/repo/netdem/src/dem/\mbox{\hyperlink{dem__profiler_8cpp}{dem\+\_\+profiler.\+cpp}}\end{DoxyCompactItemize}
+/\+Users/lzhshou/\+Documents/\+Research/my\+Projects/apaam/repo/netdem/src/dem/dem\+\_\+profiler.\+hpp\item 
+/\+Users/lzhshou/\+Documents/\+Research/my\+Projects/apaam/repo/netdem/src/dem/dem\+\_\+profiler.\+cpp\end{DoxyCompactItemize}

@@ -1,30 +1,30 @@
 \hypertarget{shape__poly__super__ellipsoid_8hpp_source}{}\doxysection{shape\+\_\+poly\+\_\+super\+\_\+ellipsoid.\+hpp}
 \label{shape__poly__super__ellipsoid_8hpp_source}\index{/Users/lzhshou/Documents/Research/myProjects/apaam/repo/netdem/src/shape/shape\_poly\_super\_ellipsoid.hpp@{/Users/lzhshou/Documents/Research/myProjects/apaam/repo/netdem/src/shape/shape\_poly\_super\_ellipsoid.hpp}}
-\mbox{\hyperlink{shape__poly__super__ellipsoid_8hpp}{Go to the documentation of this file.}}
+
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
 \DoxyCodeLine{00002\ }
-\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{shape_8hpp}{shape.hpp}}"{}}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}shape.hpp"{}}}
 \DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <iostream>}}
 \DoxyCodeLine{00005\ }
 \DoxyCodeLine{00010\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacenetdem}{netdem}}\ \{}
 \DoxyCodeLine{00011\ }
 \DoxyCodeLine{00031\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classnetdem_1_1_poly_super_ellipsoid}{PolySuperEllipsoid}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classnetdem_1_1_shape}{Shape}}\ \{}
 \DoxyCodeLine{00032\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00033\ \ \ \mbox{\hyperlink{namespacenetdem_ac259822745bc5554db4ac0b62e4f9360}{Vec2d}}\ \mbox{\hyperlink{classnetdem_1_1_poly_super_ellipsoid_a8ff8b27afcbeb2740e1377853e7491f2}{axis\_a}}\{0.5,\ 0.5\},\ \mbox{\hyperlink{classnetdem_1_1_poly_super_ellipsoid_a9be1839b55cb1f5797e5e1b1d53e50f2}{axis\_b}}\{0.5,\ 0.5\},\ \mbox{\hyperlink{classnetdem_1_1_poly_super_ellipsoid_a119ed4d50c86d764267cea0c0e7d5b6f}{axis\_c}}\{0.5,\ 0.5\};}
-\DoxyCodeLine{00034\ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classnetdem_1_1_poly_super_ellipsoid_aba808f1ab42db91ba117f22e2b7b00ec}{order\_ab}}\{1.0\},\ \mbox{\hyperlink{classnetdem_1_1_poly_super_ellipsoid_a3c989c243d8ccc24f16e87284ad43211}{order\_c}}\{1.0\};}
+\DoxyCodeLine{00033\ \ \ Vec2d\ axis\_a\{0.5,\ 0.5\},\ axis\_b\{0.5,\ 0.5\},\ axis\_c\{0.5,\ 0.5\};}
+\DoxyCodeLine{00034\ \ \ \textcolor{keywordtype}{double}\ order\_ab\{1.0\},\ order\_c\{1.0\};}
 \DoxyCodeLine{00035\ }
 \DoxyCodeLine{00036\ \ \ \textcolor{comment}{//\ translating\ and\ rotating\ by\ pos\_ref\ and\ quat\_ref\ to\ convert\ to\ centroid\ and}}
 \DoxyCodeLine{00037\ \ \ \textcolor{comment}{//\ axies\ aligned\ shape}}
-\DoxyCodeLine{00038\ \ \ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ \mbox{\hyperlink{classnetdem_1_1_poly_super_ellipsoid_add91c0139934bd237c66b00ea1d113ec}{pos\_ref}}\{0,\ 0,\ 0\};}
-\DoxyCodeLine{00039\ \ \ \mbox{\hyperlink{namespacenetdem_a13d5371f99b252a70fd5a5081b910370}{Vec4d}}\ \mbox{\hyperlink{classnetdem_1_1_poly_super_ellipsoid_af804f192a323b2e87abf8f720eb0af41}{quat\_ref}}\{1,\ 0,\ 0,\ 0\},\ \mbox{\hyperlink{classnetdem_1_1_poly_super_ellipsoid_aeac0f30737cf618e91ee207e4cfdcc0c}{quat\_conj}}\{1,\ 0,\ 0,\ 0\};}
+\DoxyCodeLine{00038\ \ \ Vec3d\ pos\_ref\{0,\ 0,\ 0\};}
+\DoxyCodeLine{00039\ \ \ Vec4d\ quat\_ref\{1,\ 0,\ 0,\ 0\},\ quat\_conj\{1,\ 0,\ 0,\ 0\};}
 \DoxyCodeLine{00040\ }
 \DoxyCodeLine{00044\ \ \ \mbox{\hyperlink{classnetdem_1_1_poly_super_ellipsoid_aeba2e04f33f92b790fbd55d1241b1c86}{PolySuperEllipsoid}}();}
 \DoxyCodeLine{00045\ }
 \DoxyCodeLine{00059\ \ \ \mbox{\hyperlink{classnetdem_1_1_poly_super_ellipsoid_aeba2e04f33f92b790fbd55d1241b1c86}{PolySuperEllipsoid}}(\textcolor{keywordtype}{double}\ am,\ \textcolor{keywordtype}{double}\ ap,\ \textcolor{keywordtype}{double}\ bm,\ \textcolor{keywordtype}{double}\ bp,\ \textcolor{keywordtype}{double}\ cm,}
 \DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ cp,\ \textcolor{keywordtype}{double}\ nab,\ \textcolor{keywordtype}{double}\ nc);}
 \DoxyCodeLine{00061\ }
-\DoxyCodeLine{00069\ \ \ Shape\ *\mbox{\hyperlink{classnetdem_1_1_poly_super_ellipsoid_a6f9f509e155f8d20e4883c8034d009ff}{Clone}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00069\ \ \ \mbox{\hyperlink{classnetdem_1_1_shape}{Shape}}\ *\mbox{\hyperlink{classnetdem_1_1_poly_super_ellipsoid_a6f9f509e155f8d20e4883c8034d009ff}{Clone}}()\ \textcolor{keyword}{const\ override};}
 \DoxyCodeLine{00070\ }
 \DoxyCodeLine{00079\ \ \ nlohmann::json\ \mbox{\hyperlink{classnetdem_1_1_poly_super_ellipsoid_aaa347a33ee9e9a077113ecd201e65ab7}{PackJson}}()\ \textcolor{keyword}{override};}
 \DoxyCodeLine{00080\ }
@@ -38,17 +38,17 @@
 \DoxyCodeLine{00114\ }
 \DoxyCodeLine{00123\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_poly_super_ellipsoid_add0e7ce7668bb0fe006087de5c1dc4b7}{SetSize}}(\textcolor{keywordtype}{double}\ d)\ \textcolor{keyword}{override};}
 \DoxyCodeLine{00124\ }
-\DoxyCodeLine{00135\ \ \ STLModel\ \mbox{\hyperlink{classnetdem_1_1_poly_super_ellipsoid_ae34a02199025196d3aae832875238eb8}{GetSTLModel}}(\textcolor{keywordtype}{int}\ num\_facets\ =\ 400)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00135\ \ \ \mbox{\hyperlink{classnetdem_1_1_s_t_l_model}{STLModel}}\ \mbox{\hyperlink{classnetdem_1_1_poly_super_ellipsoid_ae34a02199025196d3aae832875238eb8}{GetSTLModel}}(\textcolor{keywordtype}{int}\ num\_facets\ =\ 400)\ \textcolor{keyword}{override};}
 \DoxyCodeLine{00136\ }
-\DoxyCodeLine{00149\ \ \ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ \mbox{\hyperlink{classnetdem_1_1_poly_super_ellipsoid_a9ef2a06469ffb8d3def03357ee02143a}{SupportPoint}}(\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ \textcolor{keyword}{const}\ \&dir)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00149\ \ \ Vec3d\ \mbox{\hyperlink{classnetdem_1_1_poly_super_ellipsoid_a9ef2a06469ffb8d3def03357ee02143a}{SupportPoint}}(Vec3d\ \textcolor{keyword}{const}\ \&dir)\ \textcolor{keyword}{override};}
 \DoxyCodeLine{00150\ }
-\DoxyCodeLine{00163\ \ \ VecXT<Vec3d>\ \mbox{\hyperlink{classnetdem_1_1_poly_super_ellipsoid_a2e68640a5484b1bee074169f12b59616}{SupportPoints}}(\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ \textcolor{keyword}{const}\ \&dir)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00163\ \ \ VecXT<Vec3d>\ \mbox{\hyperlink{classnetdem_1_1_poly_super_ellipsoid_a2e68640a5484b1bee074169f12b59616}{SupportPoints}}(Vec3d\ \textcolor{keyword}{const}\ \&dir)\ \textcolor{keyword}{override};}
 \DoxyCodeLine{00164\ }
-\DoxyCodeLine{00177\ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classnetdem_1_1_poly_super_ellipsoid_a003d830f6564dfb68bce0d4ad54c9168}{SignedDistance}}(\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ \textcolor{keyword}{const}\ \&pos)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00177\ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classnetdem_1_1_poly_super_ellipsoid_a003d830f6564dfb68bce0d4ad54c9168}{SignedDistance}}(Vec3d\ \textcolor{keyword}{const}\ \&pos)\ \textcolor{keyword}{const\ override};}
 \DoxyCodeLine{00178\ }
-\DoxyCodeLine{00191\ \ \ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ \mbox{\hyperlink{classnetdem_1_1_poly_super_ellipsoid_aa65616c50b792e039d70b4ac0d90a579}{SurfacePoint}}(\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ \textcolor{keyword}{const}\ \&pos)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00191\ \ \ Vec3d\ \mbox{\hyperlink{classnetdem_1_1_poly_super_ellipsoid_aa65616c50b792e039d70b4ac0d90a579}{SurfacePoint}}(Vec3d\ \textcolor{keyword}{const}\ \&pos)\ \textcolor{keyword}{override};}
 \DoxyCodeLine{00192\ }
-\DoxyCodeLine{00204\ \ \ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ \mbox{\hyperlink{classnetdem_1_1_poly_super_ellipsoid_a87c4154b0684c8c689ed7bee6fa36742}{ParametrizationPoint}}(\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ \textcolor{keyword}{const}\ \&dir);}
+\DoxyCodeLine{00204\ \ \ Vec3d\ \mbox{\hyperlink{classnetdem_1_1_poly_super_ellipsoid_a87c4154b0684c8c689ed7bee6fa36742}{ParametrizationPoint}}(Vec3d\ \textcolor{keyword}{const}\ \&dir);}
 \DoxyCodeLine{00205\ }
 \DoxyCodeLine{00206\ \ \ \textcolor{comment}{//\ double\ CalculateRho(Vec3d\ const\&\ dir);}}
 \DoxyCodeLine{00207\ }

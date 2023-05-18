@@ -16,15 +16,7 @@ var classnetdem_1_1_solver_a_n_n_p_p =
     [ "ResolveUpdate_LinearSpring", "classnetdem_1_1_solver_a_n_n_p_p.html#abb6ac7b54102898c056d4f8c16fd9725", null ],
     [ "ResolveUpdate_PotentialBased", "classnetdem_1_1_solver_a_n_n_p_p.html#a5c886f91d3806301f62601ffdc2f78e5", null ],
     [ "ResolveUpdate_VolumeBased", "classnetdem_1_1_solver_a_n_n_p_p.html#ad27e412a2abff98c9c5e2aaee53fdf57", null ],
-    [ "bound_sphere_radius_1", "classnetdem_1_1_solver_a_n_n_p_p.html#a33be7f85adf19d16239da1a17e9e42c8", null ],
-    [ "bound_sphere_radius_2", "classnetdem_1_1_solver_a_n_n_p_p.html#a040011801d6c4e56a5c6c14e4ee17d9b", null ],
     [ "classifier", "classnetdem_1_1_solver_a_n_n_p_p.html#a59a40fa088ed4cb4222b4c58eb9fc18b", null ],
-    [ "dpos_12", "classnetdem_1_1_solver_a_n_n_p_p.html#a78048749026a47a36b890a415c71ce6f", null ],
-    [ "dpos_12_ref", "classnetdem_1_1_solver_a_n_n_p_p.html#a5f55bde556641a88bc6800fe8fb051e2", null ],
-    [ "dquat_12", "classnetdem_1_1_solver_a_n_n_p_p.html#a5f8e8642672632f381968bbd64e4bb42", null ],
     [ "is_initialized", "classnetdem_1_1_solver_a_n_n_p_p.html#a12ab763fd208ec7179de90a5449b741d", null ],
-    [ "regressor", "classnetdem_1_1_solver_a_n_n_p_p.html#aa74acd96b9ed1836c1155592b2667062", null ],
-    [ "scale", "classnetdem_1_1_solver_a_n_n_p_p.html#a25674dd1d9fcf4591d92ab4756c8ab3b", null ],
-    [ "shape_1", "classnetdem_1_1_solver_a_n_n_p_p.html#a689f9f941945ebb7b4c58c1842ed757a", null ],
-    [ "shape_2", "classnetdem_1_1_solver_a_n_n_p_p.html#a77ef33cf7c5051de23f2d72ac4f52f68", null ]
+    [ "regressor", "classnetdem_1_1_solver_a_n_n_p_p.html#aa74acd96b9ed1836c1155592b2667062", null ]
 ];

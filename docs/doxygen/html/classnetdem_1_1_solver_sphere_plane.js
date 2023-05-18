@@ -8,11 +8,5 @@ var classnetdem_1_1_solver_sphere_plane =
     [ "ResolveInit", "classnetdem_1_1_solver_sphere_plane.html#a31d76e1ced28d4dedbd6be736c092e94", null ],
     [ "ResolveInit", "classnetdem_1_1_solver_sphere_plane.html#a8099acaacd7d8cbcdb3c4f1a43277459", null ],
     [ "ResolveUpdate", "classnetdem_1_1_solver_sphere_plane.html#ab37c6f709accc6819810044c518e96b0", null ],
-    [ "ResolveUpdate", "classnetdem_1_1_solver_sphere_plane.html#a7d6f5c680c7a18211f39d8f6f17626ab", null ],
-    [ "cnt_pos", "classnetdem_1_1_solver_sphere_plane.html#a351c2f163c786baf977e65bbeab3e64a", null ],
-    [ "dir_n", "classnetdem_1_1_solver_sphere_plane.html#a40493812b7d5944974a8488437166204", null ],
-    [ "dist_pc_to_plane", "classnetdem_1_1_solver_sphere_plane.html#afd331d2d6e8447770608eb025508d7f4", null ],
-    [ "dpos_12", "classnetdem_1_1_solver_sphere_plane.html#aac583bd11858c74046df104681175e60", null ],
-    [ "plane", "classnetdem_1_1_solver_sphere_plane.html#a5c59246dc9d61c5c89ec63d4040d19db", null ],
-    [ "radius_1", "classnetdem_1_1_solver_sphere_plane.html#ad7e9245bb5d901048e6eb7177436f8b5", null ]
+    [ "ResolveUpdate", "classnetdem_1_1_solver_sphere_plane.html#a7d6f5c680c7a18211f39d8f6f17626ab", null ]
 ];

@@ -12,32 +12,34 @@ A class responsible for managing cells in a simulation grid.
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{classnetdem_1_1_cell_manager_a31c805f31cd40d475b00edbf16edaec7}{Cell\+Manager}} ()
+\mbox{\Hypertarget{classnetdem_1_1_cell_manager_a31c805f31cd40d475b00edbf16edaec7}\label{classnetdem_1_1_cell_manager_a31c805f31cd40d475b00edbf16edaec7}} 
+{\bfseries Cell\+Manager} ()
 \begin{DoxyCompactList}\small\item\em Default constructor for the \mbox{\hyperlink{classnetdem_1_1_cell_manager}{Cell\+Manager}} class. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classnetdem_1_1_cell_manager_a6a3812db962d019d0cdc7194061a1363}{Init}} ()
+\mbox{\Hypertarget{classnetdem_1_1_cell_manager_a6a3812db962d019d0cdc7194061a1363}\label{classnetdem_1_1_cell_manager_a6a3812db962d019d0cdc7194061a1363}} 
+void {\bfseries Init} ()
 \begin{DoxyCompactList}\small\item\em Initialize the simulation grid by populating it with cells. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classnetdem_1_1_cell_manager_ad518ba021c95b571933b93455fef6e06}{Set\+Bound}} (double bmin\+\_\+x, double bmin\+\_\+y, double bmin\+\_\+z, double bmax\+\_\+x, double bmax\+\_\+y, double bmax\+\_\+z)
 \begin{DoxyCompactList}\small\item\em Set the bounds of the simulation. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classnetdem_1_1_cell_manager_abf83122f19b51e973bf8a877e975b17d}{Set\+Spacing}} (double s\+\_\+x, double s\+\_\+y, double s\+\_\+z)
 \begin{DoxyCompactList}\small\item\em Set the spacing between adjacent cells in the simulation grid. \end{DoxyCompactList}\item 
-std\+::tuple$<$ \mbox{\hyperlink{namespacenetdem_a28e1404c8ce46c48bc78f553bd555980}{Vec3i}}, \mbox{\hyperlink{namespacenetdem_a28e1404c8ce46c48bc78f553bd555980}{Vec3i}} $>$ \mbox{\hyperlink{classnetdem_1_1_cell_manager_ad230b1a98d3cc1a83d79f25c4e973843}{Get\+Overlapped\+Cells}} (\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&bmin, \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&bmax)
+std\+::tuple$<$ Vec3i, Vec3i $>$ \mbox{\hyperlink{classnetdem_1_1_cell_manager_ad230b1a98d3cc1a83d79f25c4e973843}{Get\+Overlapped\+Cells}} (Vec3d const \&bmin, Vec3d const \&bmax)
 \begin{DoxyCompactList}\small\item\em Determine which cells overlap with a given bounding box. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{namespacenetdem_a28e1404c8ce46c48bc78f553bd555980}{Vec3i}} \mbox{\hyperlink{classnetdem_1_1_cell_manager_a29262a89b959545bf5bb5d519d01a628}{Get\+Overlapped\+Cell}} (\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&pos)
+Vec3i \mbox{\hyperlink{classnetdem_1_1_cell_manager_a29262a89b959545bf5bb5d519d01a628}{Get\+Overlapped\+Cell}} (Vec3d const \&pos)
 \begin{DoxyCompactList}\small\item\em Determine which cell a given point is in. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classnetdem_1_1_s_t_l_model}{STLModel}} \mbox{\hyperlink{classnetdem_1_1_cell_manager_a20f270debd2ccbe4ab63e7f5ca924427}{Get\+STLModel}} ()
 \begin{DoxyCompactList}\small\item\em Generate an STL model for visualization purposes. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \mbox{\hyperlink{classnetdem_1_1_cell_manager_a17ba69f82be86c80477320d85f19fcb2}{bound\+\_\+min}}
+Vec3d \mbox{\hyperlink{classnetdem_1_1_cell_manager_a17ba69f82be86c80477320d85f19fcb2}{bound\+\_\+min}}
 \item 
-\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \mbox{\hyperlink{classnetdem_1_1_cell_manager_a0f61944e4230a514346605b50625f0e5}{bound\+\_\+max}}
+Vec3d \mbox{\hyperlink{classnetdem_1_1_cell_manager_a0f61944e4230a514346605b50625f0e5}{bound\+\_\+max}}
 \item 
-\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \mbox{\hyperlink{classnetdem_1_1_cell_manager_aafebf468896b7eaa5c7b1256ac800bb3}{spacing}}
+Vec3d \mbox{\hyperlink{classnetdem_1_1_cell_manager_aafebf468896b7eaa5c7b1256ac800bb3}{spacing}}
 \item 
-\mbox{\hyperlink{namespacenetdem_a28e1404c8ce46c48bc78f553bd555980}{Vec3i}} \mbox{\hyperlink{classnetdem_1_1_cell_manager_ad09fec9b82f190f6c1460a07cb856428}{cell\+\_\+size}} \{3, 3, 3\}
+Vec3i \mbox{\hyperlink{classnetdem_1_1_cell_manager_ad09fec9b82f190f6c1460a07cb856428}{cell\+\_\+size}} \{3, 3, 3\}
 \item 
-\mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{classnetdem_1_1_cell}{Cell}} $>$ $>$ $>$ \mbox{\hyperlink{classnetdem_1_1_cell_manager_a11cbfbb0ea29ee4216941c16f7f12a73}{cell\+\_\+list}}
+Vec\+XT$<$ Vec\+XT$<$ Vec\+XT$<$ \mbox{\hyperlink{classnetdem_1_1_cell}{Cell}} $>$ $>$ $>$ \mbox{\hyperlink{classnetdem_1_1_cell_manager_a11cbfbb0ea29ee4216941c16f7f12a73}{cell\+\_\+list}}
 \end{DoxyCompactItemize}
 
 
@@ -46,25 +48,12 @@ A class responsible for managing cells in a simulation grid.
 
 This class is responsible for creating and maintaining the cells in the simulation grid. It also provides functionality to determine which cells overlap with a given bounding box, and to generate an STL model for visualization purposes. 
 
-\doxysubsection{Constructor \& Destructor Documentation}
-\mbox{\Hypertarget{classnetdem_1_1_cell_manager_a31c805f31cd40d475b00edbf16edaec7}\label{classnetdem_1_1_cell_manager_a31c805f31cd40d475b00edbf16edaec7}} 
-\index{netdem::CellManager@{netdem::CellManager}!CellManager@{CellManager}}
-\index{CellManager@{CellManager}!netdem::CellManager@{netdem::CellManager}}
-\doxysubsubsection{\texorpdfstring{CellManager()}{CellManager()}}
-{\footnotesize\ttfamily Cell\+Manager\+::\+Cell\+Manager (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
-
-
-
-Default constructor for the \mbox{\hyperlink{classnetdem_1_1_cell_manager}{Cell\+Manager}} class. 
-
-
-
 \doxysubsection{Member Function Documentation}
 \mbox{\Hypertarget{classnetdem_1_1_cell_manager_a29262a89b959545bf5bb5d519d01a628}\label{classnetdem_1_1_cell_manager_a29262a89b959545bf5bb5d519d01a628}} 
 \index{netdem::CellManager@{netdem::CellManager}!GetOverlappedCell@{GetOverlappedCell}}
 \index{GetOverlappedCell@{GetOverlappedCell}!netdem::CellManager@{netdem::CellManager}}
 \doxysubsubsection{\texorpdfstring{GetOverlappedCell()}{GetOverlappedCell()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{namespacenetdem_a28e1404c8ce46c48bc78f553bd555980}{Vec3i}} Cell\+Manager\+::\+Get\+Overlapped\+Cell (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&}]{pos }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily Vec3i Cell\+Manager\+::\+Get\+Overlapped\+Cell (\begin{DoxyParamCaption}\item[{Vec3d const \&}]{pos }\end{DoxyParamCaption})}
 
 
 
@@ -82,7 +71,7 @@ The index of the cell containing the point.
 \index{netdem::CellManager@{netdem::CellManager}!GetOverlappedCells@{GetOverlappedCells}}
 \index{GetOverlappedCells@{GetOverlappedCells}!netdem::CellManager@{netdem::CellManager}}
 \doxysubsubsection{\texorpdfstring{GetOverlappedCells()}{GetOverlappedCells()}}
-{\footnotesize\ttfamily tuple$<$ \mbox{\hyperlink{namespacenetdem_a28e1404c8ce46c48bc78f553bd555980}{Vec3i}}, \mbox{\hyperlink{namespacenetdem_a28e1404c8ce46c48bc78f553bd555980}{Vec3i}} $>$ Cell\+Manager\+::\+Get\+Overlapped\+Cells (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&}]{bmin,  }\item[{\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&}]{bmax }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily tuple$<$ Vec3i, Vec3i $>$ Cell\+Manager\+::\+Get\+Overlapped\+Cells (\begin{DoxyParamCaption}\item[{Vec3d const \&}]{bmin,  }\item[{Vec3d const \&}]{bmax }\end{DoxyParamCaption})}
 
 
 
@@ -111,16 +100,6 @@ Generate an STL model for visualization purposes.
 \begin{DoxyReturn}{Returns}
 An \mbox{\hyperlink{classnetdem_1_1_s_t_l_model}{STLModel}} object representing the simulation grid. 
 \end{DoxyReturn}
-\mbox{\Hypertarget{classnetdem_1_1_cell_manager_a6a3812db962d019d0cdc7194061a1363}\label{classnetdem_1_1_cell_manager_a6a3812db962d019d0cdc7194061a1363}} 
-\index{netdem::CellManager@{netdem::CellManager}!Init@{Init}}
-\index{Init@{Init}!netdem::CellManager@{netdem::CellManager}}
-\doxysubsubsection{\texorpdfstring{Init()}{Init()}}
-{\footnotesize\ttfamily void Cell\+Manager\+::\+Init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
-
-
-
-Initialize the simulation grid by populating it with cells. 
-
 \mbox{\Hypertarget{classnetdem_1_1_cell_manager_ad518ba021c95b571933b93455fef6e06}\label{classnetdem_1_1_cell_manager_ad518ba021c95b571933b93455fef6e06}} 
 \index{netdem::CellManager@{netdem::CellManager}!SetBound@{SetBound}}
 \index{SetBound@{SetBound}!netdem::CellManager@{netdem::CellManager}}
@@ -172,7 +151,7 @@ Set the spacing between adjacent cells in the simulation grid.
 \index{netdem::CellManager@{netdem::CellManager}!bound\_max@{bound\_max}}
 \index{bound\_max@{bound\_max}!netdem::CellManager@{netdem::CellManager}}
 \doxysubsubsection{\texorpdfstring{bound\_max}{bound\_max}}
-{\footnotesize\ttfamily \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} netdem\+::\+Cell\+Manager\+::bound\+\_\+max}
+{\footnotesize\ttfamily Vec3d netdem\+::\+Cell\+Manager\+::bound\+\_\+max}
 
 {\bfseries Initial value\+:}
 \begin{DoxyCode}{0}
@@ -184,7 +163,7 @@ The maximum coordinates of the simulation bounds. \mbox{\Hypertarget{classnetdem
 \index{netdem::CellManager@{netdem::CellManager}!bound\_min@{bound\_min}}
 \index{bound\_min@{bound\_min}!netdem::CellManager@{netdem::CellManager}}
 \doxysubsubsection{\texorpdfstring{bound\_min}{bound\_min}}
-{\footnotesize\ttfamily \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} netdem\+::\+Cell\+Manager\+::bound\+\_\+min}
+{\footnotesize\ttfamily Vec3d netdem\+::\+Cell\+Manager\+::bound\+\_\+min}
 
 {\bfseries Initial value\+:}
 \begin{DoxyCode}{0}
@@ -197,19 +176,19 @@ The minimum coordinates of the simulation bounds. \mbox{\Hypertarget{classnetdem
 \index{netdem::CellManager@{netdem::CellManager}!cell\_list@{cell\_list}}
 \index{cell\_list@{cell\_list}!netdem::CellManager@{netdem::CellManager}}
 \doxysubsubsection{\texorpdfstring{cell\_list}{cell\_list}}
-{\footnotesize\ttfamily \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$\mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$\mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$\mbox{\hyperlink{classnetdem_1_1_cell}{Cell}}$>$ $>$ $>$ netdem\+::\+Cell\+Manager\+::cell\+\_\+list}
+{\footnotesize\ttfamily Vec\+XT$<$Vec\+XT$<$Vec\+XT$<$\mbox{\hyperlink{classnetdem_1_1_cell}{Cell}}$>$ $>$ $>$ netdem\+::\+Cell\+Manager\+::cell\+\_\+list}
 
 A three-\/dimensional array of \mbox{\hyperlink{classnetdem_1_1_cell}{Cell}} objects representing the simulation grid. \mbox{\Hypertarget{classnetdem_1_1_cell_manager_ad09fec9b82f190f6c1460a07cb856428}\label{classnetdem_1_1_cell_manager_ad09fec9b82f190f6c1460a07cb856428}} 
 \index{netdem::CellManager@{netdem::CellManager}!cell\_size@{cell\_size}}
 \index{cell\_size@{cell\_size}!netdem::CellManager@{netdem::CellManager}}
 \doxysubsubsection{\texorpdfstring{cell\_size}{cell\_size}}
-{\footnotesize\ttfamily \mbox{\hyperlink{namespacenetdem_a28e1404c8ce46c48bc78f553bd555980}{Vec3i}} netdem\+::\+Cell\+Manager\+::cell\+\_\+size \{3, 3, 3\}}
+{\footnotesize\ttfamily Vec3i netdem\+::\+Cell\+Manager\+::cell\+\_\+size \{3, 3, 3\}}
 
 The size of the simulation grid in terms of the number of cells in each dimension. \mbox{\Hypertarget{classnetdem_1_1_cell_manager_aafebf468896b7eaa5c7b1256ac800bb3}\label{classnetdem_1_1_cell_manager_aafebf468896b7eaa5c7b1256ac800bb3}} 
 \index{netdem::CellManager@{netdem::CellManager}!spacing@{spacing}}
 \index{spacing@{spacing}!netdem::CellManager@{netdem::CellManager}}
 \doxysubsubsection{\texorpdfstring{spacing}{spacing}}
-{\footnotesize\ttfamily \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} netdem\+::\+Cell\+Manager\+::spacing}
+{\footnotesize\ttfamily Vec3d netdem\+::\+Cell\+Manager\+::spacing}
 
 {\bfseries Initial value\+:}
 \begin{DoxyCode}{0}
@@ -222,5 +201,5 @@ The spacing between adjacent cells in the simulation grid.
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-/\+Users/lzhshou/\+Documents/\+Research/my\+Projects/apaam/repo/netdem/src/domain/\mbox{\hyperlink{cell__manager_8hpp}{cell\+\_\+manager.\+hpp}}\item 
-/\+Users/lzhshou/\+Documents/\+Research/my\+Projects/apaam/repo/netdem/src/domain/\mbox{\hyperlink{cell__manager_8cpp}{cell\+\_\+manager.\+cpp}}\end{DoxyCompactItemize}
+/\+Users/lzhshou/\+Documents/\+Research/my\+Projects/apaam/repo/netdem/src/domain/cell\+\_\+manager.\+hpp\item 
+/\+Users/lzhshou/\+Documents/\+Research/my\+Projects/apaam/repo/netdem/src/domain/cell\+\_\+manager.\+cpp\end{DoxyCompactItemize}

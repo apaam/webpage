@@ -1,10 +1,10 @@
 \hypertarget{utils__io_8hpp_source}{}\doxysection{utils\+\_\+io.\+hpp}
 \label{utils__io_8hpp_source}\index{/Users/lzhshou/Documents/Research/myProjects/apaam/repo/netdem/src/utils/utils\_io.hpp@{/Users/lzhshou/Documents/Research/myProjects/apaam/repo/netdem/src/utils/utils\_io.hpp}}
-\mbox{\hyperlink{utils__io_8hpp}{Go to the documentation of this file.}}
+
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
 \DoxyCodeLine{00002\ }
-\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{utils__macros_8hpp}{utils\_macros.hpp}}"{}}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}utils\_macros.hpp"{}}}
 \DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <fstream>}}
 \DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <iostream>}}
 \DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <sstream>}}
@@ -13,41 +13,41 @@
 \DoxyCodeLine{00009\ }
 \DoxyCodeLine{00010\ \textcolor{keyword}{namespace\ }IO\ \{}
 \DoxyCodeLine{00011\ }
-\DoxyCodeLine{00012\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacenetdem_1_1_i_o_a902e76d87a12ff1ce7f7eb0c94ee81ff}{PrintInfo}}(std::string\ \textcolor{keyword}{const}\ \&info)\ \{}
+\DoxyCodeLine{00012\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ PrintInfo(std::string\ \textcolor{keyword}{const}\ \&info)\ \{}
 \DoxyCodeLine{00013\ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}info:\ "{}}\ <<\ info\ <<\ std::endl;}
 \DoxyCodeLine{00014\ \}}
 \DoxyCodeLine{00015\ }
-\DoxyCodeLine{00016\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacenetdem_1_1_i_o_a38fb9b1cd29d872e970fcbf173d4ee05}{PrintWarning}}(std::string\ \textcolor{keyword}{const}\ \&info)\ \{}
+\DoxyCodeLine{00016\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ PrintWarning(std::string\ \textcolor{keyword}{const}\ \&info)\ \{}
 \DoxyCodeLine{00017\ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}warning:\ "{}}\ <<\ info\ <<\ std::endl;}
 \DoxyCodeLine{00018\ \}}
 \DoxyCodeLine{00019\ }
-\DoxyCodeLine{00020\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacenetdem_1_1_i_o_a015fb6e06d3b796b6b5fd1f33f61e08e}{PrintError}}(std::string\ \textcolor{keyword}{const}\ \&info)\ \{}
+\DoxyCodeLine{00020\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ PrintError(std::string\ \textcolor{keyword}{const}\ \&info)\ \{}
 \DoxyCodeLine{00021\ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}error:\ "{}}\ <<\ info\ <<\ std::endl;}
 \DoxyCodeLine{00022\ \ \ std::exit(EXIT\_FAILURE);}
 \DoxyCodeLine{00023\ \}}
 \DoxyCodeLine{00024\ }
-\DoxyCodeLine{00025\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacenetdem_1_1_i_o_a8c6f6d50dad8efa8aa1287ae0bc6ef48}{PrintDebug}}(std::string\ \textcolor{keyword}{const}\ \&info)\ \{}
+\DoxyCodeLine{00025\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ PrintDebug(std::string\ \textcolor{keyword}{const}\ \&info)\ \{}
 \DoxyCodeLine{00026\ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}debug:\ "{}}\ <<\ info\ <<\ std::endl;}
 \DoxyCodeLine{00027\ \}}
 \DoxyCodeLine{00028\ }
-\DoxyCodeLine{00029\ \textcolor{keyword}{inline}\ std::string\ \mbox{\hyperlink{namespacenetdem_1_1_i_o_aeffcbe77e69d20f81ab94571742c44d2}{to\_string}}(\textcolor{keywordtype}{int}\ value)\ \{}
+\DoxyCodeLine{00029\ \textcolor{keyword}{inline}\ std::string\ to\_string(\textcolor{keywordtype}{int}\ value)\ \{}
 \DoxyCodeLine{00030\ \ \ std::stringstream\ ss;}
 \DoxyCodeLine{00031\ \ \ ss\ <<\ std::internal\ <<\ value;}
 \DoxyCodeLine{00032\ \ \ \textcolor{keywordflow}{return}\ ss.str();}
 \DoxyCodeLine{00033\ \}}
 \DoxyCodeLine{00034\ }
-\DoxyCodeLine{00035\ \textcolor{keyword}{inline}\ std::string\ \mbox{\hyperlink{namespacenetdem_1_1_i_o_aeffcbe77e69d20f81ab94571742c44d2}{to\_string}}(\textcolor{keywordtype}{double}\ value)\ \{}
+\DoxyCodeLine{00035\ \textcolor{keyword}{inline}\ std::string\ to\_string(\textcolor{keywordtype}{double}\ value)\ \{}
 \DoxyCodeLine{00036\ \ \ std::stringstream\ ss;}
 \DoxyCodeLine{00037\ \ \ ss\ <<\ std::scientific\ <<\ value;}
 \DoxyCodeLine{00038\ \ \ \textcolor{keywordflow}{return}\ ss.str();}
 \DoxyCodeLine{00039\ \}}
 \DoxyCodeLine{00040\ }
-\DoxyCodeLine{00041\ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<VecXT<double>}}>\ \mbox{\hyperlink{namespacenetdem_1_1_i_o_a1d3bc29ec9e773072e412de6b14ff5b1}{ImportData}}(std::string\ \textcolor{keyword}{const}\ \&filename,}
+\DoxyCodeLine{00041\ VecXT<VecXT<double>>\ ImportData(std::string\ \textcolor{keyword}{const}\ \&filename,}
 \DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ lines\_to\_skip\ =\ 0);}
 \DoxyCodeLine{00043\ }
-\DoxyCodeLine{00044\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{namespacenetdem_1_1_i_o_a31d24cb44a1b841178cefc7e7068d0ab}{FileExist}}(std::string\ \textcolor{keyword}{const}\ \&filename);}
+\DoxyCodeLine{00044\ \textcolor{keywordtype}{bool}\ FileExist(std::string\ \textcolor{keyword}{const}\ \&filename);}
 \DoxyCodeLine{00045\ }
-\DoxyCodeLine{00046\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacenetdem_1_1_i_o_a78914ab460eb12bcadfaaf0a54635a38}{SwapEnd}}(T\ \&var)\ \{}
+\DoxyCodeLine{00046\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ SwapEnd(T\ \&var)\ \{}
 \DoxyCodeLine{00047\ \ \ \textcolor{keywordtype}{char}\ *varArray\ =\ \textcolor{keyword}{reinterpret\_cast<}\textcolor{keywordtype}{char}\ *\textcolor{keyword}{>}(\&var);}
 \DoxyCodeLine{00048\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{long}\ i\ =\ 0;\ i\ <\ static\_cast<long>(\textcolor{keyword}{sizeof}(var)\ /\ 2);\ i++)}
 \DoxyCodeLine{00049\ \ \ \ \ std::swap(varArray[\textcolor{keyword}{sizeof}(var)\ -\/\ 1\ -\/\ i],\ varArray[i]);}
