@@ -8,159 +8,159 @@
 \DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{shape__trimesh_8hpp}{shape\_trimesh.hpp}}"{}}}
 \DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{wall_8hpp}{wall.hpp}}"{}}}
 \DoxyCodeLine{00006\ }
-\DoxyCodeLine{00010\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacenetdem}{netdem}}\ \{}
-\DoxyCodeLine{00011\ }
-\DoxyCodeLine{00018\ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classnetdem_1_1_wall_box_plate}{WallBoxPlate}}\ \{}
-\DoxyCodeLine{00019\ \ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00020\ \ \ \ \ \mbox{\hyperlink{classnetdem_1_1_tri_mesh}{TriMesh}}\ \mbox{\hyperlink{classnetdem_1_1_wall_box_plate_a3b1bde698c8e7c126725a38f14c4f259}{p\_x0}},\ \mbox{\hyperlink{classnetdem_1_1_wall_box_plate_ace778b23182e7f7a8b9e3a1e550c8a6f}{p\_y0}},\ \mbox{\hyperlink{classnetdem_1_1_wall_box_plate_a391662136a5eca4ad6e0618471c79ad0}{p\_z0}};}
-\DoxyCodeLine{00021\ \ \ \ \ \mbox{\hyperlink{classnetdem_1_1_wall}{Wall}}\ \mbox{\hyperlink{classnetdem_1_1_wall_box_plate_a5ac527a3e8d2868041b5511634c887f8}{w\_mx}},\ \mbox{\hyperlink{classnetdem_1_1_wall_box_plate_aa2329b3f5d49deb2b44855cfce35439a}{w\_px}},\ \mbox{\hyperlink{classnetdem_1_1_wall_box_plate_a22d7a5a8308adb569dcd082beeca1fdf}{w\_my}},\ \mbox{\hyperlink{classnetdem_1_1_wall_box_plate_abec1c173c6317167172e60335db41d12}{w\_py}},\ \mbox{\hyperlink{classnetdem_1_1_wall_box_plate_adb2e1ba3dd9210432bede776d93bd060}{w\_mz}},\ \mbox{\hyperlink{classnetdem_1_1_wall_box_plate_a67b554537b73be81d7e2ce2290e20aef}{w\_pz}};}
-\DoxyCodeLine{00022\ }
-\DoxyCodeLine{00033\ \ \ \ \ \mbox{\hyperlink{classnetdem_1_1_wall_box_plate_ab89de4b73b30c8effd582177acb7ed60}{WallBoxPlate}}(\textcolor{keywordtype}{double}\ len\_x,\ \textcolor{keywordtype}{double}\ len\_y,\ \textcolor{keywordtype}{double}\ len\_z,\ \textcolor{keywordtype}{double}\ center\_x,}
-\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ center\_y,\ \textcolor{keywordtype}{double}\ center\_z)\ \{}
-\DoxyCodeLine{00035\ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ t\_factor\ =\ 0.1;}
-\DoxyCodeLine{00036\ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ len\_factor\ =\ 1\ +\ 2\ *\ t\_factor;}
-\DoxyCodeLine{00037\ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ pan\_factor\ =\ 0.5\ *\ (1\ +\ t\_factor);}
-\DoxyCodeLine{00038\ }
-\DoxyCodeLine{00039\ \ \ \ \ \ \ \mbox{\hyperlink{classnetdem_1_1_wall_box_plate_a3b1bde698c8e7c126725a38f14c4f259}{p\_x0}}\ =\ \mbox{\hyperlink{classnetdem_1_1_wall_box_plate_aa08062cf02a2cf4aa20239ea83071e9a}{GetBox}}(len\_x\ *\ t\_factor,\ len\_y\ *\ len\_factor,\ len\_z\ *\ len\_factor);}
-\DoxyCodeLine{00040\ \ \ \ \ \ \ \mbox{\hyperlink{classnetdem_1_1_wall_box_plate_a3b1bde698c8e7c126725a38f14c4f259}{p\_x0}}.\mbox{\hyperlink{classnetdem_1_1_shape_aa2544899cc79d4ae84fc700f490a37dc}{bound\_sphere\_radius}}\ =\ \mbox{\hyperlink{namespacenetdem_1_1_math_a6b3fd05230aeb60caffe5988c2f19f24}{Math::NormL2}}(\mbox{\hyperlink{classnetdem_1_1_wall_box_plate_a3b1bde698c8e7c126725a38f14c4f259}{p\_x0}}.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_acde0779520f91ee0596048099ea7b5e8}{vertices}}[0]);}
-\DoxyCodeLine{00041\ \ \ \ \ \ \ \mbox{\hyperlink{classnetdem_1_1_wall_box_plate_a5ac527a3e8d2868041b5511634c887f8}{w\_mx}}\ =\ \mbox{\hyperlink{classnetdem_1_1_wall_box_plate_aa2329b3f5d49deb2b44855cfce35439a}{w\_px}}\ =\ \mbox{\hyperlink{classnetdem_1_1_wall}{Wall}}(\&\mbox{\hyperlink{classnetdem_1_1_wall_box_plate_a3b1bde698c8e7c126725a38f14c4f259}{p\_x0}});}
-\DoxyCodeLine{00042\ \ \ \ \ \ \ \mbox{\hyperlink{classnetdem_1_1_wall_box_plate_a5ac527a3e8d2868041b5511634c887f8}{w\_mx}}.\mbox{\hyperlink{classnetdem_1_1_wall_a72260b6cfb980c6a53aaf716cff0e57e}{SetPosition}}(center\_x\ -\/\ pan\_factor\ *\ len\_x,\ center\_y,\ center\_z);}
-\DoxyCodeLine{00043\ \ \ \ \ \ \ \mbox{\hyperlink{classnetdem_1_1_wall_box_plate_aa2329b3f5d49deb2b44855cfce35439a}{w\_px}}.\mbox{\hyperlink{classnetdem_1_1_wall_a72260b6cfb980c6a53aaf716cff0e57e}{SetPosition}}(center\_x\ +\ pan\_factor\ *\ len\_x,\ center\_y,\ center\_z);}
-\DoxyCodeLine{00044\ }
-\DoxyCodeLine{00045\ \ \ \ \ \ \ \mbox{\hyperlink{classnetdem_1_1_wall_box_plate_ace778b23182e7f7a8b9e3a1e550c8a6f}{p\_y0}}\ =\ \mbox{\hyperlink{classnetdem_1_1_wall_box_plate_aa08062cf02a2cf4aa20239ea83071e9a}{GetBox}}(len\_x\ *\ len\_factor,\ len\_y\ *\ t\_factor,\ len\_z\ *\ len\_factor);}
-\DoxyCodeLine{00046\ \ \ \ \ \ \ \mbox{\hyperlink{classnetdem_1_1_wall_box_plate_ace778b23182e7f7a8b9e3a1e550c8a6f}{p\_y0}}.\mbox{\hyperlink{classnetdem_1_1_shape_aa2544899cc79d4ae84fc700f490a37dc}{bound\_sphere\_radius}}\ =\ \mbox{\hyperlink{namespacenetdem_1_1_math_a6b3fd05230aeb60caffe5988c2f19f24}{Math::NormL2}}(\mbox{\hyperlink{classnetdem_1_1_wall_box_plate_a3b1bde698c8e7c126725a38f14c4f259}{p\_x0}}.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_acde0779520f91ee0596048099ea7b5e8}{vertices}}[0]);}
-\DoxyCodeLine{00047\ \ \ \ \ \ \ \mbox{\hyperlink{classnetdem_1_1_wall_box_plate_a22d7a5a8308adb569dcd082beeca1fdf}{w\_my}}\ =\ \mbox{\hyperlink{classnetdem_1_1_wall_box_plate_abec1c173c6317167172e60335db41d12}{w\_py}}\ =\ \mbox{\hyperlink{classnetdem_1_1_wall}{Wall}}(\&\mbox{\hyperlink{classnetdem_1_1_wall_box_plate_ace778b23182e7f7a8b9e3a1e550c8a6f}{p\_y0}});}
-\DoxyCodeLine{00048\ \ \ \ \ \ \ \mbox{\hyperlink{classnetdem_1_1_wall_box_plate_a22d7a5a8308adb569dcd082beeca1fdf}{w\_my}}.\mbox{\hyperlink{classnetdem_1_1_wall_a72260b6cfb980c6a53aaf716cff0e57e}{SetPosition}}(center\_x,\ center\_y\ -\/\ pan\_factor\ *\ len\_y,\ center\_z);}
-\DoxyCodeLine{00049\ \ \ \ \ \ \ \mbox{\hyperlink{classnetdem_1_1_wall_box_plate_abec1c173c6317167172e60335db41d12}{w\_py}}.\mbox{\hyperlink{classnetdem_1_1_wall_a72260b6cfb980c6a53aaf716cff0e57e}{SetPosition}}(center\_x,\ center\_y\ +\ pan\_factor\ *\ len\_y,\ center\_z);}
-\DoxyCodeLine{00050\ }
-\DoxyCodeLine{00051\ \ \ \ \ \ \ \mbox{\hyperlink{classnetdem_1_1_wall_box_plate_a391662136a5eca4ad6e0618471c79ad0}{p\_z0}}\ =\ \mbox{\hyperlink{classnetdem_1_1_wall_box_plate_aa08062cf02a2cf4aa20239ea83071e9a}{GetBox}}(len\_x\ *\ len\_factor,\ len\_y\ *\ len\_factor,\ len\_z\ *\ t\_factor);}
-\DoxyCodeLine{00052\ \ \ \ \ \ \ \mbox{\hyperlink{classnetdem_1_1_wall_box_plate_a391662136a5eca4ad6e0618471c79ad0}{p\_z0}}.\mbox{\hyperlink{classnetdem_1_1_shape_aa2544899cc79d4ae84fc700f490a37dc}{bound\_sphere\_radius}}\ =\ \mbox{\hyperlink{namespacenetdem_1_1_math_a6b3fd05230aeb60caffe5988c2f19f24}{Math::NormL2}}(\mbox{\hyperlink{classnetdem_1_1_wall_box_plate_a3b1bde698c8e7c126725a38f14c4f259}{p\_x0}}.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_acde0779520f91ee0596048099ea7b5e8}{vertices}}[0]);}
-\DoxyCodeLine{00053\ \ \ \ \ \ \ \mbox{\hyperlink{classnetdem_1_1_wall_box_plate_adb2e1ba3dd9210432bede776d93bd060}{w\_mz}}\ =\ \mbox{\hyperlink{classnetdem_1_1_wall_box_plate_a67b554537b73be81d7e2ce2290e20aef}{w\_pz}}\ =\ \mbox{\hyperlink{classnetdem_1_1_wall}{Wall}}(\&\mbox{\hyperlink{classnetdem_1_1_wall_box_plate_a391662136a5eca4ad6e0618471c79ad0}{p\_z0}});}
-\DoxyCodeLine{00054\ \ \ \ \ \ \ \mbox{\hyperlink{classnetdem_1_1_wall_box_plate_adb2e1ba3dd9210432bede776d93bd060}{w\_mz}}.\mbox{\hyperlink{classnetdem_1_1_wall_a72260b6cfb980c6a53aaf716cff0e57e}{SetPosition}}(center\_x,\ center\_y,\ center\_z\ -\/\ pan\_factor\ *\ len\_z);}
-\DoxyCodeLine{00055\ \ \ \ \ \ \ \mbox{\hyperlink{classnetdem_1_1_wall_box_plate_a67b554537b73be81d7e2ce2290e20aef}{w\_pz}}.\mbox{\hyperlink{classnetdem_1_1_wall_a72260b6cfb980c6a53aaf716cff0e57e}{SetPosition}}(center\_x,\ center\_y,\ center\_z\ +\ pan\_factor\ *\ len\_z);}
-\DoxyCodeLine{00056\ \ \ \ \ \}}
-\DoxyCodeLine{00057\ }
-\DoxyCodeLine{00063\ \ \ \ \ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<Shape\ *>}}\ \mbox{\hyperlink{classnetdem_1_1_wall_box_plate_a0dd5c3343016ede89d9e7a19f578c4fe}{GetShapes}}()\ \{}
-\DoxyCodeLine{00064\ \ \ \ \ \ \ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<Shape\ *>}}\ plate\_list;}
-\DoxyCodeLine{00065\ \ \ \ \ \ \ plate\_list.emplace\_back(\&\mbox{\hyperlink{classnetdem_1_1_wall_box_plate_a3b1bde698c8e7c126725a38f14c4f259}{p\_x0}});}
-\DoxyCodeLine{00066\ \ \ \ \ \ \ plate\_list.emplace\_back(\&\mbox{\hyperlink{classnetdem_1_1_wall_box_plate_ace778b23182e7f7a8b9e3a1e550c8a6f}{p\_y0}});}
-\DoxyCodeLine{00067\ \ \ \ \ \ \ plate\_list.emplace\_back(\&\mbox{\hyperlink{classnetdem_1_1_wall_box_plate_a391662136a5eca4ad6e0618471c79ad0}{p\_z0}});}
-\DoxyCodeLine{00068\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ plate\_list;}
-\DoxyCodeLine{00069\ \ \ \ \ \}}
-\DoxyCodeLine{00070\ }
-\DoxyCodeLine{00076\ \ \ \ \ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<Wall\ *>}}\ \mbox{\hyperlink{classnetdem_1_1_wall_box_plate_addc099ed1dab2a896bfb991d8d032fd7}{GetWalls}}()\ \{}
-\DoxyCodeLine{00077\ \ \ \ \ \ \ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<Wall\ *>}}\ wall\_list;}
-\DoxyCodeLine{00078\ \ \ \ \ \ \ wall\_list.emplace\_back(\&\mbox{\hyperlink{classnetdem_1_1_wall_box_plate_a5ac527a3e8d2868041b5511634c887f8}{w\_mx}});}
-\DoxyCodeLine{00079\ \ \ \ \ \ \ wall\_list.emplace\_back(\&\mbox{\hyperlink{classnetdem_1_1_wall_box_plate_aa2329b3f5d49deb2b44855cfce35439a}{w\_px}});}
-\DoxyCodeLine{00080\ \ \ \ \ \ \ wall\_list.emplace\_back(\&\mbox{\hyperlink{classnetdem_1_1_wall_box_plate_a22d7a5a8308adb569dcd082beeca1fdf}{w\_my}});}
-\DoxyCodeLine{00081\ \ \ \ \ \ \ wall\_list.emplace\_back(\&\mbox{\hyperlink{classnetdem_1_1_wall_box_plate_abec1c173c6317167172e60335db41d12}{w\_py}});}
-\DoxyCodeLine{00082\ \ \ \ \ \ \ wall\_list.emplace\_back(\&\mbox{\hyperlink{classnetdem_1_1_wall_box_plate_adb2e1ba3dd9210432bede776d93bd060}{w\_mz}});}
-\DoxyCodeLine{00083\ \ \ \ \ \ \ wall\_list.emplace\_back(\&\mbox{\hyperlink{classnetdem_1_1_wall_box_plate_a67b554537b73be81d7e2ce2290e20aef}{w\_pz}});}
-\DoxyCodeLine{00084\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ wall\_list;}
-\DoxyCodeLine{00085\ \ \ \ \ \}}
-\DoxyCodeLine{00086\ }
-\DoxyCodeLine{00092\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_wall_box_plate_a241f416c8f002b4147ae74e8a349d782}{ImportToScene}}(\mbox{\hyperlink{classnetdem_1_1_scene}{Scene}}\ *scene)\ \{}
-\DoxyCodeLine{00093\ \ \ \ \ \ \ \textcolor{keyword}{auto}\ shape\_ptr\_list\_local\ =\ \mbox{\hyperlink{classnetdem_1_1_wall_box_plate_a0dd5c3343016ede89d9e7a19f578c4fe}{GetShapes}}();}
-\DoxyCodeLine{00094\ \ \ \ \ \ \ \textcolor{keyword}{auto}\ wall\_ptr\_list\_local\ =\ \mbox{\hyperlink{classnetdem_1_1_wall_box_plate_addc099ed1dab2a896bfb991d8d032fd7}{GetWalls}}();}
-\DoxyCodeLine{00095\ }
-\DoxyCodeLine{00096\ \ \ \ \ \ \ \textcolor{keyword}{auto}\ shape\_ptr\_list\ =\ scene-\/>\mbox{\hyperlink{classnetdem_1_1_scene_a398e24fbcba078c40b7970edbe44e325}{InsertShape}}(shape\_ptr\_list\_local);}
-\DoxyCodeLine{00097\ }
-\DoxyCodeLine{00098\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ 6;\ i++)\ \{}
-\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ wall\_ptr\_list\_local[i]-\/>SetShape(shape\_ptr\_list[i\ /\ 2]);}
-\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ scene-\/>\mbox{\hyperlink{classnetdem_1_1_scene_ad0c28b5e5de3a1f8e785faa1a40c26b3}{InsertWall}}(wall\_ptr\_list\_local[i]);}
-\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ wall\_ptr\_list\_local[i]-\/>\mbox{\hyperlink{classnetdem_1_1_wall_a8c44963dfb071686db626459e06353a5}{SetShape}}(shape\_ptr\_list\_local[i\ /\ 2]);}
-\DoxyCodeLine{00102\ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00103\ \ \ \ \ \}}
-\DoxyCodeLine{00104\ }
-\DoxyCodeLine{00105\ \ \ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00118\ \ \ \ \ \mbox{\hyperlink{classnetdem_1_1_tri_mesh}{TriMesh}}\ \mbox{\hyperlink{classnetdem_1_1_wall_box_plate_aa08062cf02a2cf4aa20239ea83071e9a}{GetBox}}(\textcolor{keywordtype}{double}\ len\_x,\ \textcolor{keywordtype}{double}\ len\_y,\ \textcolor{keywordtype}{double}\ len\_z)\ \{}
-\DoxyCodeLine{00119\ \ \ \ \ \ \ \mbox{\hyperlink{classnetdem_1_1_tri_mesh}{TriMesh}}\ box\_ref;}
-\DoxyCodeLine{00120\ \ \ \ \ \ \ box\_ref.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_acde0779520f91ee0596048099ea7b5e8}{vertices}}.resize(8);}
-\DoxyCodeLine{00121\ \ \ \ \ \ \ box\_ref.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_aba68dfcd0734fba3a9f0106ec83e0066}{facets}}.resize(12);}
-\DoxyCodeLine{00122\ }
-\DoxyCodeLine{00123\ \ \ \ \ \ \ box\_ref.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_acde0779520f91ee0596048099ea7b5e8}{vertices}}[0][0]\ =\ -\/0.5\ *\ len\_x;}
-\DoxyCodeLine{00124\ \ \ \ \ \ \ box\_ref.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_acde0779520f91ee0596048099ea7b5e8}{vertices}}[0][1]\ =\ -\/0.5\ *\ len\_y;}
-\DoxyCodeLine{00125\ \ \ \ \ \ \ box\_ref.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_acde0779520f91ee0596048099ea7b5e8}{vertices}}[0][2]\ =\ -\/0.5\ *\ len\_z;}
+\DoxyCodeLine{00011\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacenetdem}{netdem}}\ \{}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00020\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classnetdem_1_1_wall_box_plate}{WallBoxPlate}}\ \{}
+\DoxyCodeLine{00021\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00022\ \ \ \mbox{\hyperlink{classnetdem_1_1_tri_mesh}{TriMesh}}\ \mbox{\hyperlink{classnetdem_1_1_wall_box_plate_a3b1bde698c8e7c126725a38f14c4f259}{p\_x0}},\ \mbox{\hyperlink{classnetdem_1_1_wall_box_plate_ace778b23182e7f7a8b9e3a1e550c8a6f}{p\_y0}},\ \mbox{\hyperlink{classnetdem_1_1_wall_box_plate_a391662136a5eca4ad6e0618471c79ad0}{p\_z0}};}
+\DoxyCodeLine{00023\ \ \ \mbox{\hyperlink{classnetdem_1_1_wall}{Wall}}\ \mbox{\hyperlink{classnetdem_1_1_wall_box_plate_a5ac527a3e8d2868041b5511634c887f8}{w\_mx}},\ \mbox{\hyperlink{classnetdem_1_1_wall_box_plate_aa2329b3f5d49deb2b44855cfce35439a}{w\_px}},\ \mbox{\hyperlink{classnetdem_1_1_wall_box_plate_a22d7a5a8308adb569dcd082beeca1fdf}{w\_my}},\ \mbox{\hyperlink{classnetdem_1_1_wall_box_plate_abec1c173c6317167172e60335db41d12}{w\_py}},\ \mbox{\hyperlink{classnetdem_1_1_wall_box_plate_adb2e1ba3dd9210432bede776d93bd060}{w\_mz}},\ \mbox{\hyperlink{classnetdem_1_1_wall_box_plate_a67b554537b73be81d7e2ce2290e20aef}{w\_pz}};}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00035\ \ \ \mbox{\hyperlink{classnetdem_1_1_wall_box_plate_ab89de4b73b30c8effd582177acb7ed60}{WallBoxPlate}}(\textcolor{keywordtype}{double}\ len\_x,\ \textcolor{keywordtype}{double}\ len\_y,\ \textcolor{keywordtype}{double}\ len\_z,\ \textcolor{keywordtype}{double}\ center\_x,}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ center\_y,\ \textcolor{keywordtype}{double}\ center\_z)\ \{}
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordtype}{double}\ t\_factor\ =\ 0.1;}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordtype}{double}\ len\_factor\ =\ 1\ +\ 2\ *\ t\_factor;}
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keywordtype}{double}\ pan\_factor\ =\ 0.5\ *\ (1\ +\ t\_factor);}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \ \ \ \ \mbox{\hyperlink{classnetdem_1_1_wall_box_plate_a3b1bde698c8e7c126725a38f14c4f259}{p\_x0}}\ =\ \mbox{\hyperlink{classnetdem_1_1_wall_box_plate_aa08062cf02a2cf4aa20239ea83071e9a}{GetBox}}(len\_x\ *\ t\_factor,\ len\_y\ *\ len\_factor,\ len\_z\ *\ len\_factor);}
+\DoxyCodeLine{00042\ \ \ \ \ \mbox{\hyperlink{classnetdem_1_1_wall_box_plate_a3b1bde698c8e7c126725a38f14c4f259}{p\_x0}}.\mbox{\hyperlink{classnetdem_1_1_shape_aa2544899cc79d4ae84fc700f490a37dc}{bound\_sphere\_radius}}\ =\ \mbox{\hyperlink{namespacenetdem_1_1_math_a6b3fd05230aeb60caffe5988c2f19f24}{Math::NormL2}}(\mbox{\hyperlink{classnetdem_1_1_wall_box_plate_a3b1bde698c8e7c126725a38f14c4f259}{p\_x0}}.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_acde0779520f91ee0596048099ea7b5e8}{vertices}}[0]);}
+\DoxyCodeLine{00043\ \ \ \ \ \mbox{\hyperlink{classnetdem_1_1_wall_box_plate_a5ac527a3e8d2868041b5511634c887f8}{w\_mx}}\ =\ \mbox{\hyperlink{classnetdem_1_1_wall_box_plate_aa2329b3f5d49deb2b44855cfce35439a}{w\_px}}\ =\ \mbox{\hyperlink{classnetdem_1_1_wall}{Wall}}(\&\mbox{\hyperlink{classnetdem_1_1_wall_box_plate_a3b1bde698c8e7c126725a38f14c4f259}{p\_x0}});}
+\DoxyCodeLine{00044\ \ \ \ \ \mbox{\hyperlink{classnetdem_1_1_wall_box_plate_a5ac527a3e8d2868041b5511634c887f8}{w\_mx}}.\mbox{\hyperlink{classnetdem_1_1_wall_a72260b6cfb980c6a53aaf716cff0e57e}{SetPosition}}(center\_x\ -\/\ pan\_factor\ *\ len\_x,\ center\_y,\ center\_z);}
+\DoxyCodeLine{00045\ \ \ \ \ \mbox{\hyperlink{classnetdem_1_1_wall_box_plate_aa2329b3f5d49deb2b44855cfce35439a}{w\_px}}.\mbox{\hyperlink{classnetdem_1_1_wall_a72260b6cfb980c6a53aaf716cff0e57e}{SetPosition}}(center\_x\ +\ pan\_factor\ *\ len\_x,\ center\_y,\ center\_z);}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \ \ \ \ \mbox{\hyperlink{classnetdem_1_1_wall_box_plate_ace778b23182e7f7a8b9e3a1e550c8a6f}{p\_y0}}\ =\ \mbox{\hyperlink{classnetdem_1_1_wall_box_plate_aa08062cf02a2cf4aa20239ea83071e9a}{GetBox}}(len\_x\ *\ len\_factor,\ len\_y\ *\ t\_factor,\ len\_z\ *\ len\_factor);}
+\DoxyCodeLine{00048\ \ \ \ \ \mbox{\hyperlink{classnetdem_1_1_wall_box_plate_ace778b23182e7f7a8b9e3a1e550c8a6f}{p\_y0}}.\mbox{\hyperlink{classnetdem_1_1_shape_aa2544899cc79d4ae84fc700f490a37dc}{bound\_sphere\_radius}}\ =\ \mbox{\hyperlink{namespacenetdem_1_1_math_a6b3fd05230aeb60caffe5988c2f19f24}{Math::NormL2}}(\mbox{\hyperlink{classnetdem_1_1_wall_box_plate_a3b1bde698c8e7c126725a38f14c4f259}{p\_x0}}.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_acde0779520f91ee0596048099ea7b5e8}{vertices}}[0]);}
+\DoxyCodeLine{00049\ \ \ \ \ \mbox{\hyperlink{classnetdem_1_1_wall_box_plate_a22d7a5a8308adb569dcd082beeca1fdf}{w\_my}}\ =\ \mbox{\hyperlink{classnetdem_1_1_wall_box_plate_abec1c173c6317167172e60335db41d12}{w\_py}}\ =\ \mbox{\hyperlink{classnetdem_1_1_wall}{Wall}}(\&\mbox{\hyperlink{classnetdem_1_1_wall_box_plate_ace778b23182e7f7a8b9e3a1e550c8a6f}{p\_y0}});}
+\DoxyCodeLine{00050\ \ \ \ \ \mbox{\hyperlink{classnetdem_1_1_wall_box_plate_a22d7a5a8308adb569dcd082beeca1fdf}{w\_my}}.\mbox{\hyperlink{classnetdem_1_1_wall_a72260b6cfb980c6a53aaf716cff0e57e}{SetPosition}}(center\_x,\ center\_y\ -\/\ pan\_factor\ *\ len\_y,\ center\_z);}
+\DoxyCodeLine{00051\ \ \ \ \ \mbox{\hyperlink{classnetdem_1_1_wall_box_plate_abec1c173c6317167172e60335db41d12}{w\_py}}.\mbox{\hyperlink{classnetdem_1_1_wall_a72260b6cfb980c6a53aaf716cff0e57e}{SetPosition}}(center\_x,\ center\_y\ +\ pan\_factor\ *\ len\_y,\ center\_z);}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \ \ \ \ \mbox{\hyperlink{classnetdem_1_1_wall_box_plate_a391662136a5eca4ad6e0618471c79ad0}{p\_z0}}\ =\ \mbox{\hyperlink{classnetdem_1_1_wall_box_plate_aa08062cf02a2cf4aa20239ea83071e9a}{GetBox}}(len\_x\ *\ len\_factor,\ len\_y\ *\ len\_factor,\ len\_z\ *\ t\_factor);}
+\DoxyCodeLine{00054\ \ \ \ \ \mbox{\hyperlink{classnetdem_1_1_wall_box_plate_a391662136a5eca4ad6e0618471c79ad0}{p\_z0}}.\mbox{\hyperlink{classnetdem_1_1_shape_aa2544899cc79d4ae84fc700f490a37dc}{bound\_sphere\_radius}}\ =\ \mbox{\hyperlink{namespacenetdem_1_1_math_a6b3fd05230aeb60caffe5988c2f19f24}{Math::NormL2}}(\mbox{\hyperlink{classnetdem_1_1_wall_box_plate_a3b1bde698c8e7c126725a38f14c4f259}{p\_x0}}.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_acde0779520f91ee0596048099ea7b5e8}{vertices}}[0]);}
+\DoxyCodeLine{00055\ \ \ \ \ \mbox{\hyperlink{classnetdem_1_1_wall_box_plate_adb2e1ba3dd9210432bede776d93bd060}{w\_mz}}\ =\ \mbox{\hyperlink{classnetdem_1_1_wall_box_plate_a67b554537b73be81d7e2ce2290e20aef}{w\_pz}}\ =\ \mbox{\hyperlink{classnetdem_1_1_wall}{Wall}}(\&\mbox{\hyperlink{classnetdem_1_1_wall_box_plate_a391662136a5eca4ad6e0618471c79ad0}{p\_z0}});}
+\DoxyCodeLine{00056\ \ \ \ \ \mbox{\hyperlink{classnetdem_1_1_wall_box_plate_adb2e1ba3dd9210432bede776d93bd060}{w\_mz}}.\mbox{\hyperlink{classnetdem_1_1_wall_a72260b6cfb980c6a53aaf716cff0e57e}{SetPosition}}(center\_x,\ center\_y,\ center\_z\ -\/\ pan\_factor\ *\ len\_z);}
+\DoxyCodeLine{00057\ \ \ \ \ \mbox{\hyperlink{classnetdem_1_1_wall_box_plate_a67b554537b73be81d7e2ce2290e20aef}{w\_pz}}.\mbox{\hyperlink{classnetdem_1_1_wall_a72260b6cfb980c6a53aaf716cff0e57e}{SetPosition}}(center\_x,\ center\_y,\ center\_z\ +\ pan\_factor\ *\ len\_z);}
+\DoxyCodeLine{00058\ \ \ \}}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00066\ \ \ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<Shape\ *>}}\ \mbox{\hyperlink{classnetdem_1_1_wall_box_plate_a0dd5c3343016ede89d9e7a19f578c4fe}{GetShapes}}()\ \{}
+\DoxyCodeLine{00067\ \ \ \ \ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<Shape\ *>}}\ plate\_list;}
+\DoxyCodeLine{00068\ \ \ \ \ plate\_list.emplace\_back(\&\mbox{\hyperlink{classnetdem_1_1_wall_box_plate_a3b1bde698c8e7c126725a38f14c4f259}{p\_x0}});}
+\DoxyCodeLine{00069\ \ \ \ \ plate\_list.emplace\_back(\&\mbox{\hyperlink{classnetdem_1_1_wall_box_plate_ace778b23182e7f7a8b9e3a1e550c8a6f}{p\_y0}});}
+\DoxyCodeLine{00070\ \ \ \ \ plate\_list.emplace\_back(\&\mbox{\hyperlink{classnetdem_1_1_wall_box_plate_a391662136a5eca4ad6e0618471c79ad0}{p\_z0}});}
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keywordflow}{return}\ plate\_list;}
+\DoxyCodeLine{00072\ \ \ \}}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00079\ \ \ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<Wall\ *>}}\ \mbox{\hyperlink{classnetdem_1_1_wall_box_plate_addc099ed1dab2a896bfb991d8d032fd7}{GetWalls}}()\ \{}
+\DoxyCodeLine{00080\ \ \ \ \ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<Wall\ *>}}\ wall\_list;}
+\DoxyCodeLine{00081\ \ \ \ \ wall\_list.emplace\_back(\&\mbox{\hyperlink{classnetdem_1_1_wall_box_plate_a5ac527a3e8d2868041b5511634c887f8}{w\_mx}});}
+\DoxyCodeLine{00082\ \ \ \ \ wall\_list.emplace\_back(\&\mbox{\hyperlink{classnetdem_1_1_wall_box_plate_aa2329b3f5d49deb2b44855cfce35439a}{w\_px}});}
+\DoxyCodeLine{00083\ \ \ \ \ wall\_list.emplace\_back(\&\mbox{\hyperlink{classnetdem_1_1_wall_box_plate_a22d7a5a8308adb569dcd082beeca1fdf}{w\_my}});}
+\DoxyCodeLine{00084\ \ \ \ \ wall\_list.emplace\_back(\&\mbox{\hyperlink{classnetdem_1_1_wall_box_plate_abec1c173c6317167172e60335db41d12}{w\_py}});}
+\DoxyCodeLine{00085\ \ \ \ \ wall\_list.emplace\_back(\&\mbox{\hyperlink{classnetdem_1_1_wall_box_plate_adb2e1ba3dd9210432bede776d93bd060}{w\_mz}});}
+\DoxyCodeLine{00086\ \ \ \ \ wall\_list.emplace\_back(\&\mbox{\hyperlink{classnetdem_1_1_wall_box_plate_a67b554537b73be81d7e2ce2290e20aef}{w\_pz}});}
+\DoxyCodeLine{00087\ \ \ \ \ \textcolor{keywordflow}{return}\ wall\_list;}
+\DoxyCodeLine{00088\ \ \ \}}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00095\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_wall_box_plate_a241f416c8f002b4147ae74e8a349d782}{ImportToScene}}(\mbox{\hyperlink{classnetdem_1_1_scene}{Scene}}\ *scene)\ \{}
+\DoxyCodeLine{00096\ \ \ \ \ \textcolor{keyword}{auto}\ shape\_ptr\_list\_local\ =\ \mbox{\hyperlink{classnetdem_1_1_wall_box_plate_a0dd5c3343016ede89d9e7a19f578c4fe}{GetShapes}}();}
+\DoxyCodeLine{00097\ \ \ \ \ \textcolor{keyword}{auto}\ wall\_ptr\_list\_local\ =\ \mbox{\hyperlink{classnetdem_1_1_wall_box_plate_addc099ed1dab2a896bfb991d8d032fd7}{GetWalls}}();}
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00099\ \ \ \ \ \textcolor{keyword}{auto}\ shape\_ptr\_list\ =\ scene-\/>\mbox{\hyperlink{classnetdem_1_1_scene_a398e24fbcba078c40b7970edbe44e325}{InsertShape}}(shape\_ptr\_list\_local);}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00101\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ 6;\ i++)\ \{}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ wall\_ptr\_list\_local[i]-\/>SetShape(shape\_ptr\_list[i\ /\ 2]);}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ scene-\/>\mbox{\hyperlink{classnetdem_1_1_scene_ad0c28b5e5de3a1f8e785faa1a40c26b3}{InsertWall}}(wall\_ptr\_list\_local[i]);}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ wall\_ptr\_list\_local[i]-\/>\mbox{\hyperlink{classnetdem_1_1_wall_a8c44963dfb071686db626459e06353a5}{SetShape}}(shape\_ptr\_list\_local[i\ /\ 2]);}
+\DoxyCodeLine{00105\ \ \ \ \ \}}
+\DoxyCodeLine{00106\ \ \ \}}
+\DoxyCodeLine{00107\ }
+\DoxyCodeLine{00108\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00122\ \ \ \mbox{\hyperlink{classnetdem_1_1_tri_mesh}{TriMesh}}\ \mbox{\hyperlink{classnetdem_1_1_wall_box_plate_aa08062cf02a2cf4aa20239ea83071e9a}{GetBox}}(\textcolor{keywordtype}{double}\ len\_x,\ \textcolor{keywordtype}{double}\ len\_y,\ \textcolor{keywordtype}{double}\ len\_z)\ \{}
+\DoxyCodeLine{00123\ \ \ \ \ \mbox{\hyperlink{classnetdem_1_1_tri_mesh}{TriMesh}}\ box\_ref;}
+\DoxyCodeLine{00124\ \ \ \ \ box\_ref.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_acde0779520f91ee0596048099ea7b5e8}{vertices}}.resize(8);}
+\DoxyCodeLine{00125\ \ \ \ \ box\_ref.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_aba68dfcd0734fba3a9f0106ec83e0066}{facets}}.resize(12);}
 \DoxyCodeLine{00126\ }
-\DoxyCodeLine{00127\ \ \ \ \ \ \ box\_ref.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_acde0779520f91ee0596048099ea7b5e8}{vertices}}[1][0]\ =\ -\/0.5\ *\ len\_x;}
-\DoxyCodeLine{00128\ \ \ \ \ \ \ box\_ref.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_acde0779520f91ee0596048099ea7b5e8}{vertices}}[1][1]\ =\ 0.5\ *\ len\_y;}
-\DoxyCodeLine{00129\ \ \ \ \ \ \ box\_ref.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_acde0779520f91ee0596048099ea7b5e8}{vertices}}[1][2]\ =\ -\/0.5\ *\ len\_z;}
+\DoxyCodeLine{00127\ \ \ \ \ box\_ref.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_acde0779520f91ee0596048099ea7b5e8}{vertices}}[0][0]\ =\ -\/0.5\ *\ len\_x;}
+\DoxyCodeLine{00128\ \ \ \ \ box\_ref.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_acde0779520f91ee0596048099ea7b5e8}{vertices}}[0][1]\ =\ -\/0.5\ *\ len\_y;}
+\DoxyCodeLine{00129\ \ \ \ \ box\_ref.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_acde0779520f91ee0596048099ea7b5e8}{vertices}}[0][2]\ =\ -\/0.5\ *\ len\_z;}
 \DoxyCodeLine{00130\ }
-\DoxyCodeLine{00131\ \ \ \ \ \ \ box\_ref.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_acde0779520f91ee0596048099ea7b5e8}{vertices}}[2][0]\ =\ -\/0.5\ *\ len\_x;}
-\DoxyCodeLine{00132\ \ \ \ \ \ \ box\_ref.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_acde0779520f91ee0596048099ea7b5e8}{vertices}}[2][1]\ =\ 0.5\ *\ len\_y;}
-\DoxyCodeLine{00133\ \ \ \ \ \ \ box\_ref.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_acde0779520f91ee0596048099ea7b5e8}{vertices}}[2][2]\ =\ 0.5\ *\ len\_z;}
+\DoxyCodeLine{00131\ \ \ \ \ box\_ref.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_acde0779520f91ee0596048099ea7b5e8}{vertices}}[1][0]\ =\ -\/0.5\ *\ len\_x;}
+\DoxyCodeLine{00132\ \ \ \ \ box\_ref.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_acde0779520f91ee0596048099ea7b5e8}{vertices}}[1][1]\ =\ 0.5\ *\ len\_y;}
+\DoxyCodeLine{00133\ \ \ \ \ box\_ref.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_acde0779520f91ee0596048099ea7b5e8}{vertices}}[1][2]\ =\ -\/0.5\ *\ len\_z;}
 \DoxyCodeLine{00134\ }
-\DoxyCodeLine{00135\ \ \ \ \ \ \ box\_ref.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_acde0779520f91ee0596048099ea7b5e8}{vertices}}[3][0]\ =\ -\/0.5\ *\ len\_x;}
-\DoxyCodeLine{00136\ \ \ \ \ \ \ box\_ref.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_acde0779520f91ee0596048099ea7b5e8}{vertices}}[3][1]\ =\ -\/0.5\ *\ len\_y;}
-\DoxyCodeLine{00137\ \ \ \ \ \ \ box\_ref.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_acde0779520f91ee0596048099ea7b5e8}{vertices}}[3][2]\ =\ 0.5\ *\ len\_z;}
+\DoxyCodeLine{00135\ \ \ \ \ box\_ref.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_acde0779520f91ee0596048099ea7b5e8}{vertices}}[2][0]\ =\ -\/0.5\ *\ len\_x;}
+\DoxyCodeLine{00136\ \ \ \ \ box\_ref.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_acde0779520f91ee0596048099ea7b5e8}{vertices}}[2][1]\ =\ 0.5\ *\ len\_y;}
+\DoxyCodeLine{00137\ \ \ \ \ box\_ref.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_acde0779520f91ee0596048099ea7b5e8}{vertices}}[2][2]\ =\ 0.5\ *\ len\_z;}
 \DoxyCodeLine{00138\ }
-\DoxyCodeLine{00139\ \ \ \ \ \ \ box\_ref.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_acde0779520f91ee0596048099ea7b5e8}{vertices}}[4][0]\ =\ 0.5\ *\ len\_x;}
-\DoxyCodeLine{00140\ \ \ \ \ \ \ box\_ref.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_acde0779520f91ee0596048099ea7b5e8}{vertices}}[4][1]\ =\ -\/0.5\ *\ len\_y;}
-\DoxyCodeLine{00141\ \ \ \ \ \ \ box\_ref.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_acde0779520f91ee0596048099ea7b5e8}{vertices}}[4][2]\ =\ -\/0.5\ *\ len\_z;}
+\DoxyCodeLine{00139\ \ \ \ \ box\_ref.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_acde0779520f91ee0596048099ea7b5e8}{vertices}}[3][0]\ =\ -\/0.5\ *\ len\_x;}
+\DoxyCodeLine{00140\ \ \ \ \ box\_ref.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_acde0779520f91ee0596048099ea7b5e8}{vertices}}[3][1]\ =\ -\/0.5\ *\ len\_y;}
+\DoxyCodeLine{00141\ \ \ \ \ box\_ref.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_acde0779520f91ee0596048099ea7b5e8}{vertices}}[3][2]\ =\ 0.5\ *\ len\_z;}
 \DoxyCodeLine{00142\ }
-\DoxyCodeLine{00143\ \ \ \ \ \ \ box\_ref.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_acde0779520f91ee0596048099ea7b5e8}{vertices}}[5][0]\ =\ 0.5\ *\ len\_x;}
-\DoxyCodeLine{00144\ \ \ \ \ \ \ box\_ref.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_acde0779520f91ee0596048099ea7b5e8}{vertices}}[5][1]\ =\ 0.5\ *\ len\_y;}
-\DoxyCodeLine{00145\ \ \ \ \ \ \ box\_ref.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_acde0779520f91ee0596048099ea7b5e8}{vertices}}[5][2]\ =\ -\/0.5\ *\ len\_z;}
+\DoxyCodeLine{00143\ \ \ \ \ box\_ref.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_acde0779520f91ee0596048099ea7b5e8}{vertices}}[4][0]\ =\ 0.5\ *\ len\_x;}
+\DoxyCodeLine{00144\ \ \ \ \ box\_ref.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_acde0779520f91ee0596048099ea7b5e8}{vertices}}[4][1]\ =\ -\/0.5\ *\ len\_y;}
+\DoxyCodeLine{00145\ \ \ \ \ box\_ref.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_acde0779520f91ee0596048099ea7b5e8}{vertices}}[4][2]\ =\ -\/0.5\ *\ len\_z;}
 \DoxyCodeLine{00146\ }
-\DoxyCodeLine{00147\ \ \ \ \ \ \ box\_ref.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_acde0779520f91ee0596048099ea7b5e8}{vertices}}[6][0]\ =\ 0.5\ *\ len\_x;}
-\DoxyCodeLine{00148\ \ \ \ \ \ \ box\_ref.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_acde0779520f91ee0596048099ea7b5e8}{vertices}}[6][1]\ =\ 0.5\ *\ len\_y;}
-\DoxyCodeLine{00149\ \ \ \ \ \ \ box\_ref.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_acde0779520f91ee0596048099ea7b5e8}{vertices}}[6][2]\ =\ 0.5\ *\ len\_z;}
+\DoxyCodeLine{00147\ \ \ \ \ box\_ref.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_acde0779520f91ee0596048099ea7b5e8}{vertices}}[5][0]\ =\ 0.5\ *\ len\_x;}
+\DoxyCodeLine{00148\ \ \ \ \ box\_ref.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_acde0779520f91ee0596048099ea7b5e8}{vertices}}[5][1]\ =\ 0.5\ *\ len\_y;}
+\DoxyCodeLine{00149\ \ \ \ \ box\_ref.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_acde0779520f91ee0596048099ea7b5e8}{vertices}}[5][2]\ =\ -\/0.5\ *\ len\_z;}
 \DoxyCodeLine{00150\ }
-\DoxyCodeLine{00151\ \ \ \ \ \ \ box\_ref.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_acde0779520f91ee0596048099ea7b5e8}{vertices}}[7][0]\ =\ 0.5\ *\ len\_x;}
-\DoxyCodeLine{00152\ \ \ \ \ \ \ box\_ref.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_acde0779520f91ee0596048099ea7b5e8}{vertices}}[7][1]\ =\ -\/0.5\ *\ len\_y;}
-\DoxyCodeLine{00153\ \ \ \ \ \ \ box\_ref.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_acde0779520f91ee0596048099ea7b5e8}{vertices}}[7][2]\ =\ 0.5\ *\ len\_z;}
+\DoxyCodeLine{00151\ \ \ \ \ box\_ref.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_acde0779520f91ee0596048099ea7b5e8}{vertices}}[6][0]\ =\ 0.5\ *\ len\_x;}
+\DoxyCodeLine{00152\ \ \ \ \ box\_ref.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_acde0779520f91ee0596048099ea7b5e8}{vertices}}[6][1]\ =\ 0.5\ *\ len\_y;}
+\DoxyCodeLine{00153\ \ \ \ \ box\_ref.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_acde0779520f91ee0596048099ea7b5e8}{vertices}}[6][2]\ =\ 0.5\ *\ len\_z;}
 \DoxyCodeLine{00154\ }
-\DoxyCodeLine{00155\ \ \ \ \ \ \ box\_ref.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_aba68dfcd0734fba3a9f0106ec83e0066}{facets}}[0][0]\ =\ 0;}
-\DoxyCodeLine{00156\ \ \ \ \ \ \ box\_ref.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_aba68dfcd0734fba3a9f0106ec83e0066}{facets}}[0][1]\ =\ 3;}
-\DoxyCodeLine{00157\ \ \ \ \ \ \ box\_ref.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_aba68dfcd0734fba3a9f0106ec83e0066}{facets}}[0][2]\ =\ 2;}
+\DoxyCodeLine{00155\ \ \ \ \ box\_ref.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_acde0779520f91ee0596048099ea7b5e8}{vertices}}[7][0]\ =\ 0.5\ *\ len\_x;}
+\DoxyCodeLine{00156\ \ \ \ \ box\_ref.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_acde0779520f91ee0596048099ea7b5e8}{vertices}}[7][1]\ =\ -\/0.5\ *\ len\_y;}
+\DoxyCodeLine{00157\ \ \ \ \ box\_ref.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_acde0779520f91ee0596048099ea7b5e8}{vertices}}[7][2]\ =\ 0.5\ *\ len\_z;}
 \DoxyCodeLine{00158\ }
-\DoxyCodeLine{00159\ \ \ \ \ \ \ box\_ref.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_aba68dfcd0734fba3a9f0106ec83e0066}{facets}}[1][0]\ =\ 0;}
-\DoxyCodeLine{00160\ \ \ \ \ \ \ box\_ref.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_aba68dfcd0734fba3a9f0106ec83e0066}{facets}}[1][1]\ =\ 2;}
-\DoxyCodeLine{00161\ \ \ \ \ \ \ box\_ref.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_aba68dfcd0734fba3a9f0106ec83e0066}{facets}}[1][2]\ =\ 1;}
+\DoxyCodeLine{00159\ \ \ \ \ box\_ref.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_aba68dfcd0734fba3a9f0106ec83e0066}{facets}}[0][0]\ =\ 0;}
+\DoxyCodeLine{00160\ \ \ \ \ box\_ref.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_aba68dfcd0734fba3a9f0106ec83e0066}{facets}}[0][1]\ =\ 3;}
+\DoxyCodeLine{00161\ \ \ \ \ box\_ref.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_aba68dfcd0734fba3a9f0106ec83e0066}{facets}}[0][2]\ =\ 2;}
 \DoxyCodeLine{00162\ }
-\DoxyCodeLine{00163\ \ \ \ \ \ \ box\_ref.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_aba68dfcd0734fba3a9f0106ec83e0066}{facets}}[2][0]\ =\ 4;}
-\DoxyCodeLine{00164\ \ \ \ \ \ \ box\_ref.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_aba68dfcd0734fba3a9f0106ec83e0066}{facets}}[2][1]\ =\ 5;}
-\DoxyCodeLine{00165\ \ \ \ \ \ \ box\_ref.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_aba68dfcd0734fba3a9f0106ec83e0066}{facets}}[2][2]\ =\ 6;}
+\DoxyCodeLine{00163\ \ \ \ \ box\_ref.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_aba68dfcd0734fba3a9f0106ec83e0066}{facets}}[1][0]\ =\ 0;}
+\DoxyCodeLine{00164\ \ \ \ \ box\_ref.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_aba68dfcd0734fba3a9f0106ec83e0066}{facets}}[1][1]\ =\ 2;}
+\DoxyCodeLine{00165\ \ \ \ \ box\_ref.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_aba68dfcd0734fba3a9f0106ec83e0066}{facets}}[1][2]\ =\ 1;}
 \DoxyCodeLine{00166\ }
-\DoxyCodeLine{00167\ \ \ \ \ \ \ box\_ref.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_aba68dfcd0734fba3a9f0106ec83e0066}{facets}}[3][0]\ =\ 4;}
-\DoxyCodeLine{00168\ \ \ \ \ \ \ box\_ref.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_aba68dfcd0734fba3a9f0106ec83e0066}{facets}}[3][1]\ =\ 6;}
-\DoxyCodeLine{00169\ \ \ \ \ \ \ box\_ref.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_aba68dfcd0734fba3a9f0106ec83e0066}{facets}}[3][2]\ =\ 7;}
+\DoxyCodeLine{00167\ \ \ \ \ box\_ref.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_aba68dfcd0734fba3a9f0106ec83e0066}{facets}}[2][0]\ =\ 4;}
+\DoxyCodeLine{00168\ \ \ \ \ box\_ref.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_aba68dfcd0734fba3a9f0106ec83e0066}{facets}}[2][1]\ =\ 5;}
+\DoxyCodeLine{00169\ \ \ \ \ box\_ref.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_aba68dfcd0734fba3a9f0106ec83e0066}{facets}}[2][2]\ =\ 6;}
 \DoxyCodeLine{00170\ }
-\DoxyCodeLine{00171\ \ \ \ \ \ \ box\_ref.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_aba68dfcd0734fba3a9f0106ec83e0066}{facets}}[4][0]\ =\ 7;}
-\DoxyCodeLine{00172\ \ \ \ \ \ \ box\_ref.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_aba68dfcd0734fba3a9f0106ec83e0066}{facets}}[4][1]\ =\ 3;}
-\DoxyCodeLine{00173\ \ \ \ \ \ \ box\_ref.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_aba68dfcd0734fba3a9f0106ec83e0066}{facets}}[4][2]\ =\ 0;}
+\DoxyCodeLine{00171\ \ \ \ \ box\_ref.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_aba68dfcd0734fba3a9f0106ec83e0066}{facets}}[3][0]\ =\ 4;}
+\DoxyCodeLine{00172\ \ \ \ \ box\_ref.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_aba68dfcd0734fba3a9f0106ec83e0066}{facets}}[3][1]\ =\ 6;}
+\DoxyCodeLine{00173\ \ \ \ \ box\_ref.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_aba68dfcd0734fba3a9f0106ec83e0066}{facets}}[3][2]\ =\ 7;}
 \DoxyCodeLine{00174\ }
-\DoxyCodeLine{00175\ \ \ \ \ \ \ box\_ref.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_aba68dfcd0734fba3a9f0106ec83e0066}{facets}}[5][0]\ =\ 7;}
-\DoxyCodeLine{00176\ \ \ \ \ \ \ box\_ref.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_aba68dfcd0734fba3a9f0106ec83e0066}{facets}}[5][1]\ =\ 0;}
-\DoxyCodeLine{00177\ \ \ \ \ \ \ box\_ref.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_aba68dfcd0734fba3a9f0106ec83e0066}{facets}}[5][2]\ =\ 4;}
+\DoxyCodeLine{00175\ \ \ \ \ box\_ref.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_aba68dfcd0734fba3a9f0106ec83e0066}{facets}}[4][0]\ =\ 7;}
+\DoxyCodeLine{00176\ \ \ \ \ box\_ref.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_aba68dfcd0734fba3a9f0106ec83e0066}{facets}}[4][1]\ =\ 3;}
+\DoxyCodeLine{00177\ \ \ \ \ box\_ref.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_aba68dfcd0734fba3a9f0106ec83e0066}{facets}}[4][2]\ =\ 0;}
 \DoxyCodeLine{00178\ }
-\DoxyCodeLine{00179\ \ \ \ \ \ \ box\_ref.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_aba68dfcd0734fba3a9f0106ec83e0066}{facets}}[6][0]\ =\ 6;}
-\DoxyCodeLine{00180\ \ \ \ \ \ \ box\_ref.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_aba68dfcd0734fba3a9f0106ec83e0066}{facets}}[6][1]\ =\ 5;}
-\DoxyCodeLine{00181\ \ \ \ \ \ \ box\_ref.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_aba68dfcd0734fba3a9f0106ec83e0066}{facets}}[6][2]\ =\ 1;}
+\DoxyCodeLine{00179\ \ \ \ \ box\_ref.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_aba68dfcd0734fba3a9f0106ec83e0066}{facets}}[5][0]\ =\ 7;}
+\DoxyCodeLine{00180\ \ \ \ \ box\_ref.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_aba68dfcd0734fba3a9f0106ec83e0066}{facets}}[5][1]\ =\ 0;}
+\DoxyCodeLine{00181\ \ \ \ \ box\_ref.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_aba68dfcd0734fba3a9f0106ec83e0066}{facets}}[5][2]\ =\ 4;}
 \DoxyCodeLine{00182\ }
-\DoxyCodeLine{00183\ \ \ \ \ \ \ box\_ref.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_aba68dfcd0734fba3a9f0106ec83e0066}{facets}}[7][0]\ =\ 6;}
-\DoxyCodeLine{00184\ \ \ \ \ \ \ box\_ref.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_aba68dfcd0734fba3a9f0106ec83e0066}{facets}}[7][1]\ =\ 1;}
-\DoxyCodeLine{00185\ \ \ \ \ \ \ box\_ref.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_aba68dfcd0734fba3a9f0106ec83e0066}{facets}}[7][2]\ =\ 2;}
+\DoxyCodeLine{00183\ \ \ \ \ box\_ref.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_aba68dfcd0734fba3a9f0106ec83e0066}{facets}}[6][0]\ =\ 6;}
+\DoxyCodeLine{00184\ \ \ \ \ box\_ref.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_aba68dfcd0734fba3a9f0106ec83e0066}{facets}}[6][1]\ =\ 5;}
+\DoxyCodeLine{00185\ \ \ \ \ box\_ref.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_aba68dfcd0734fba3a9f0106ec83e0066}{facets}}[6][2]\ =\ 1;}
 \DoxyCodeLine{00186\ }
-\DoxyCodeLine{00187\ \ \ \ \ \ \ box\_ref.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_aba68dfcd0734fba3a9f0106ec83e0066}{facets}}[8][0]\ =\ 0;}
-\DoxyCodeLine{00188\ \ \ \ \ \ \ box\_ref.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_aba68dfcd0734fba3a9f0106ec83e0066}{facets}}[8][1]\ =\ 1;}
-\DoxyCodeLine{00189\ \ \ \ \ \ \ box\_ref.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_aba68dfcd0734fba3a9f0106ec83e0066}{facets}}[8][2]\ =\ 5;}
+\DoxyCodeLine{00187\ \ \ \ \ box\_ref.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_aba68dfcd0734fba3a9f0106ec83e0066}{facets}}[7][0]\ =\ 6;}
+\DoxyCodeLine{00188\ \ \ \ \ box\_ref.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_aba68dfcd0734fba3a9f0106ec83e0066}{facets}}[7][1]\ =\ 1;}
+\DoxyCodeLine{00189\ \ \ \ \ box\_ref.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_aba68dfcd0734fba3a9f0106ec83e0066}{facets}}[7][2]\ =\ 2;}
 \DoxyCodeLine{00190\ }
-\DoxyCodeLine{00191\ \ \ \ \ \ \ box\_ref.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_aba68dfcd0734fba3a9f0106ec83e0066}{facets}}[9][0]\ =\ 0;}
-\DoxyCodeLine{00192\ \ \ \ \ \ \ box\_ref.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_aba68dfcd0734fba3a9f0106ec83e0066}{facets}}[9][1]\ =\ 5;}
-\DoxyCodeLine{00193\ \ \ \ \ \ \ box\_ref.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_aba68dfcd0734fba3a9f0106ec83e0066}{facets}}[9][2]\ =\ 6;}
+\DoxyCodeLine{00191\ \ \ \ \ box\_ref.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_aba68dfcd0734fba3a9f0106ec83e0066}{facets}}[8][0]\ =\ 0;}
+\DoxyCodeLine{00192\ \ \ \ \ box\_ref.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_aba68dfcd0734fba3a9f0106ec83e0066}{facets}}[8][1]\ =\ 1;}
+\DoxyCodeLine{00193\ \ \ \ \ box\_ref.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_aba68dfcd0734fba3a9f0106ec83e0066}{facets}}[8][2]\ =\ 5;}
 \DoxyCodeLine{00194\ }
-\DoxyCodeLine{00195\ \ \ \ \ \ \ box\_ref.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_aba68dfcd0734fba3a9f0106ec83e0066}{facets}}[10][0]\ =\ 7;}
-\DoxyCodeLine{00196\ \ \ \ \ \ \ box\_ref.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_aba68dfcd0734fba3a9f0106ec83e0066}{facets}}[10][1]\ =\ 6;}
-\DoxyCodeLine{00197\ \ \ \ \ \ \ box\_ref.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_aba68dfcd0734fba3a9f0106ec83e0066}{facets}}[10][2]\ =\ 2;}
+\DoxyCodeLine{00195\ \ \ \ \ box\_ref.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_aba68dfcd0734fba3a9f0106ec83e0066}{facets}}[9][0]\ =\ 0;}
+\DoxyCodeLine{00196\ \ \ \ \ box\_ref.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_aba68dfcd0734fba3a9f0106ec83e0066}{facets}}[9][1]\ =\ 5;}
+\DoxyCodeLine{00197\ \ \ \ \ box\_ref.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_aba68dfcd0734fba3a9f0106ec83e0066}{facets}}[9][2]\ =\ 6;}
 \DoxyCodeLine{00198\ }
-\DoxyCodeLine{00199\ \ \ \ \ \ \ box\_ref.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_aba68dfcd0734fba3a9f0106ec83e0066}{facets}}[11][0]\ =\ 7;}
-\DoxyCodeLine{00200\ \ \ \ \ \ \ box\_ref.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_aba68dfcd0734fba3a9f0106ec83e0066}{facets}}[11][1]\ =\ 2;}
-\DoxyCodeLine{00201\ \ \ \ \ \ \ box\_ref.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_aba68dfcd0734fba3a9f0106ec83e0066}{facets}}[11][2]\ =\ 3;}
+\DoxyCodeLine{00199\ \ \ \ \ box\_ref.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_aba68dfcd0734fba3a9f0106ec83e0066}{facets}}[10][0]\ =\ 7;}
+\DoxyCodeLine{00200\ \ \ \ \ box\_ref.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_aba68dfcd0734fba3a9f0106ec83e0066}{facets}}[10][1]\ =\ 6;}
+\DoxyCodeLine{00201\ \ \ \ \ box\_ref.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_aba68dfcd0734fba3a9f0106ec83e0066}{facets}}[10][2]\ =\ 2;}
 \DoxyCodeLine{00202\ }
-\DoxyCodeLine{00203\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ box\_ref;}
-\DoxyCodeLine{00204\ \ \ \ \ \}}
-\DoxyCodeLine{00205\ \ \ \};}
-\DoxyCodeLine{00206\ \}\ \ \textcolor{comment}{//\ namespace\ netdem}}
+\DoxyCodeLine{00203\ \ \ \ \ box\_ref.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_aba68dfcd0734fba3a9f0106ec83e0066}{facets}}[11][0]\ =\ 7;}
+\DoxyCodeLine{00204\ \ \ \ \ box\_ref.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_aba68dfcd0734fba3a9f0106ec83e0066}{facets}}[11][1]\ =\ 2;}
+\DoxyCodeLine{00205\ \ \ \ \ box\_ref.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_aba68dfcd0734fba3a9f0106ec83e0066}{facets}}[11][2]\ =\ 3;}
+\DoxyCodeLine{00206\ }
+\DoxyCodeLine{00207\ \ \ \ \ \textcolor{keywordflow}{return}\ box\_ref;}
+\DoxyCodeLine{00208\ \ \ \}}
+\DoxyCodeLine{00209\ \};}
+\DoxyCodeLine{00210\ \}\ \textcolor{comment}{//\ namespace\ netdem}}
 
 \end{DoxyCode}
