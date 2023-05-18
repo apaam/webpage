@@ -25,7 +25,17 @@
 var NAVTREE =
 [
   [ "NetDEM", "index.html", [
-    [ "Welcome", "index.html", "index" ],
+    [ "Welcome", "index.html#autotoc_md1", null ],
+    [ "Get started", "index.html#autotoc_md2", [
+      [ "Install", "index.html#autotoc_md3", [
+        [ "Prerequisites", "index.html#autotoc_md4", null ],
+        [ "Compile and build", "index.html#autotoc_md5", null ],
+        [ "Test the installation", "index.html#autotoc_md6", null ]
+      ] ],
+      [ "Examples & tutorials", "index.html#autotoc_md7", null ],
+      [ "Visualize & post-process", "index.html#autotoc_md8", null ]
+    ] ],
+    [ "Support", "index.html#autotoc_md9", null ],
     [ "Namespaces", "namespaces.html", [
       [ "Namespace List", "namespaces.html", "namespaces_dup" ],
       [ "Namespace Members", "namespacemembers.html", [
@@ -48,18 +58,20 @@ var NAVTREE =
     ] ],
     [ "Files", "files.html", [
       [ "File List", "files.html", "files_dup" ]
-    ] ]
+    ] ],
+    [ "Examples", "examples.html", "examples" ],
+    [ "APAAM", "^https://apaam.github.io/netdem_docs/", null ]
   ] ]
 ];
 
 var NAVTREEINDEX =
 [
-"annotated.html",
-"classnetdem_1_1_breakage_analysis_p_d.html#adffe4c5118ccdff62542d3e600bec88f",
-"classnetdem_1_1_contact_model.html#a44804e500c1e234486125e9be7e5c9b5",
-"classnetdem_1_1_d_e_m_fragment.html#add22e978aee2d28ca7c74546ffd0ceed",
-"classnetdem_1_1_deformation_analysis_1_1_settings.html",
-"classnetdem_1_1_f_e_m_simulator.html#afa699e8e627501767271f5be81a10f47",
+"0_geometric_solver_8cpp-example.html",
+"classnetdem_1_1_breakage_analysis_p_d.html#ad051c4c0c2d537fdc0aaa434f6cfd8b2",
+"classnetdem_1_1_contact_model.html#a191a737b001313dd8a39d5f1dc1d6a78",
+"classnetdem_1_1_d_e_m_fragment.html#a65255e84793e3559a539d0fbfb2647b4",
+"classnetdem_1_1_deformation_analysis.html#afc6bbd7046fd0cd377e6d67f659b12e3",
+"classnetdem_1_1_f_e_m_simulator.html#af8b9e96b01d415c7c767947598eaacf7",
 "classnetdem_1_1_membrane.html#a53dbcfb8fed5335f6cad97a56299f910",
 "classnetdem_1_1_particle_group.html#a3b1f8bdddb7187904cae14031a12f1b3",
 "classnetdem_1_1_peri_digm_settings.html#ab95abcb304d4b28809d22c3412cc7c37",
@@ -68,8 +80,8 @@ var NAVTREEINDEX =
 "classnetdem_1_1_solver_g_j_k_p_p.html#aa751d5cb5deb9b2c0cceaa716a6f2b99",
 "classnetdem_1_1_sphere.html#a8e52d6c77c06cb6f1f194006e707ce50",
 "classnetdem_1_1_volume_based.html#af63e965787f179a4325306200d464cc6",
-"index.html",
-"structnetdem_1_1_particle_energy.html"
+"igl__wrapper_8hpp_source.html",
+"structnetdem_1_1_particle_data.html#afd03d38c1ad8334a3830bafe4a7756ce"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
