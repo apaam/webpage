@@ -8,7 +8,6 @@ var classnetdem_1_1_deformable_particle =
     [ "ClearForce", "classnetdem_1_1_deformable_particle.html#a41df46b2a3ba9cf0e646206007072936", null ],
     [ "Clone", "classnetdem_1_1_deformable_particle.html#aa09b1a0027e1bc32338473236d2bed5f", null ],
     [ "GetVelocity", "classnetdem_1_1_deformable_particle.html#a56ea9463633d0d0cf858d134256ce304", null ],
-    [ "InitFEMSimulator", "classnetdem_1_1_deformable_particle.html#aed874fd9917626167596b85d0edfc7e7", null ],
     [ "SaveAsVTK", "classnetdem_1_1_deformable_particle.html#aaa3fe30e53372abc97acfe2e97f3ed0b", null ],
     [ "SaveSurfaceAsVTK", "classnetdem_1_1_deformable_particle.html#ac4d47fe1ba95931922cbbd2beb48fa26", null ],
     [ "SetDensity", "classnetdem_1_1_deformable_particle.html#a7023f5af76ec009d53265bfc6952a77b", null ],

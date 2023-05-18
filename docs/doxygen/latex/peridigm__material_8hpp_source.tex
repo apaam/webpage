@@ -1,19 +1,19 @@
 \hypertarget{peridigm__material_8hpp_source}{}\doxysection{peridigm\+\_\+material.\+hpp}
 \label{peridigm__material_8hpp_source}\index{/Users/lzhshou/Documents/Research/myProjects/apaam/repo/netdem/src/peridigm/peridigm\_material.hpp@{/Users/lzhshou/Documents/Research/myProjects/apaam/repo/netdem/src/peridigm/peridigm\_material.hpp}}
-\mbox{\hyperlink{peridigm__material_8hpp}{Go to the documentation of this file.}}
+
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
 \DoxyCodeLine{00002\ }
-\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{utils__io_8hpp}{utils\_io.hpp}}"{}}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}utils\_io.hpp"{}}}
 \DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <cmath>}}
 \DoxyCodeLine{00005\ }
 \DoxyCodeLine{00006\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacenetdem}{netdem}}\ \{}
 \DoxyCodeLine{00007\ }
 \DoxyCodeLine{00016\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classnetdem_1_1_peri_digm_material}{PeriDigmMaterial}}\ \{}
 \DoxyCodeLine{00017\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00024\ \ \ \textcolor{keyword}{enum}\ \mbox{\hyperlink{classnetdem_1_1_peri_digm_material_af84a9833d460b55e6dd0415ca65d19e1}{Type}}\ \{\ \mbox{\hyperlink{classnetdem_1_1_peri_digm_material_af84a9833d460b55e6dd0415ca65d19e1af1c23eb067332e07e81c31cdad513101}{Elastic}}\ \};}
+\DoxyCodeLine{00024\ \ \ \textcolor{keyword}{enum}\ \mbox{\hyperlink{classnetdem_1_1_peri_digm_material_af84a9833d460b55e6dd0415ca65d19e1}{Type}}\ \{\ Elastic\ \};}
 \DoxyCodeLine{00025\ }
-\DoxyCodeLine{00029\ \ \ \mbox{\hyperlink{classnetdem_1_1_peri_digm_material_af84a9833d460b55e6dd0415ca65d19e1}{Type}}\ \mbox{\hyperlink{classnetdem_1_1_peri_digm_material_a00dd07484fd4de87da54bfead91ac6ab}{type}}\{\mbox{\hyperlink{classnetdem_1_1_peri_digm_material_af84a9833d460b55e6dd0415ca65d19e1af1c23eb067332e07e81c31cdad513101}{Type::Elastic}}\};}
+\DoxyCodeLine{00029\ \ \ \mbox{\hyperlink{classnetdem_1_1_peri_digm_material_af84a9833d460b55e6dd0415ca65d19e1}{Type}}\ \mbox{\hyperlink{classnetdem_1_1_peri_digm_material_a00dd07484fd4de87da54bfead91ac6ab}{type}}\{Type::Elastic\};}
 \DoxyCodeLine{00030\ }
 \DoxyCodeLine{00034\ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classnetdem_1_1_peri_digm_material_ac670d6ba97d9de6ea0a031b952dcfaab}{density}}\ =\ 2650.0;}
 \DoxyCodeLine{00035\ }
@@ -25,17 +25,17 @@
 \DoxyCodeLine{00058\ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\ \ \ \ My\ Material\ "{}}\ +\ std::to\_string(material\_id\ +\ 1)\ +\ \textcolor{stringliteral}{"{}:\ "{}}}
 \DoxyCodeLine{00059\ \ \ \ \ \ \ \ <<\ std::endl;}
 \DoxyCodeLine{00060\ \ \ \ \ \textcolor{keywordflow}{switch}\ (\mbox{\hyperlink{classnetdem_1_1_peri_digm_material_a00dd07484fd4de87da54bfead91ac6ab}{type}})\ \{}
-\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{classnetdem_1_1_peri_digm_material_af84a9833d460b55e6dd0415ca65d19e1af1c23eb067332e07e81c31cdad513101}{Type::Elastic}}:}
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keywordflow}{case}\ Type::Elastic:}
 \DoxyCodeLine{00062\ \ \ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\ \ \ \ \ \ Material\ Model\ :\ \(\backslash\)"{}Elastic\(\backslash\)"{}"{}}\ <<\ std::endl;}
-\DoxyCodeLine{00063\ \ \ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\ \ \ \ \ \ Density:\ "{}}\ +\ \mbox{\hyperlink{namespacenetdem_1_1_i_o_aeffcbe77e69d20f81ab94571742c44d2}{IO::to\_string}}(\mbox{\hyperlink{classnetdem_1_1_peri_digm_material_ac670d6ba97d9de6ea0a031b952dcfaab}{density}})\ <<\ std::endl;}
-\DoxyCodeLine{00064\ \ \ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\ \ \ \ \ \ Young's\ Modulus:\ "{}}\ +\ \mbox{\hyperlink{namespacenetdem_1_1_i_o_aeffcbe77e69d20f81ab94571742c44d2}{IO::to\_string}}(\mbox{\hyperlink{classnetdem_1_1_peri_digm_material_a563683537747a6383015b5aa5754a56b}{youngs\_modulus}})}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\ \ \ \ \ \ Density:\ "{}}\ +\ IO::to\_string(\mbox{\hyperlink{classnetdem_1_1_peri_digm_material_ac670d6ba97d9de6ea0a031b952dcfaab}{density}})\ <<\ std::endl;}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\ \ \ \ \ \ Young's\ Modulus:\ "{}}\ +\ IO::to\_string(\mbox{\hyperlink{classnetdem_1_1_peri_digm_material_a563683537747a6383015b5aa5754a56b}{youngs\_modulus}})}
 \DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \ <<\ std::endl;}
-\DoxyCodeLine{00066\ \ \ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\ \ \ \ \ \ Poisson's\ Ratio:\ "{}}\ +\ \mbox{\hyperlink{namespacenetdem_1_1_i_o_aeffcbe77e69d20f81ab94571742c44d2}{IO::to\_string}}(\mbox{\hyperlink{classnetdem_1_1_peri_digm_material_a1b8cd989a1445c6439719f191147c73d}{poissons\_ratio}})}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\ \ \ \ \ \ Poisson's\ Ratio:\ "{}}\ +\ IO::to\_string(\mbox{\hyperlink{classnetdem_1_1_peri_digm_material_a1b8cd989a1445c6439719f191147c73d}{poissons\_ratio}})}
 \DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \ <<\ std::endl;}
 \DoxyCodeLine{00068\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
 \DoxyCodeLine{00069\ }
 \DoxyCodeLine{00070\ \ \ \ \ \textcolor{keywordflow}{default}:}
-\DoxyCodeLine{00071\ \ \ \ \ \ \ \mbox{\hyperlink{namespacenetdem_1_1_i_o_a015fb6e06d3b796b6b5fd1f33f61e08e}{IO::PrintError}}(}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ IO::PrintError(}
 \DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}in\ PeriDigmMaterial::WriteToFile,\ material\ type\ not\ defined"{}});}
 \DoxyCodeLine{00073\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
 \DoxyCodeLine{00074\ \ \ \ \ \}}

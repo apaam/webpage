@@ -14,19 +14,6 @@ A class for reading STL files.
 \item 
 static \mbox{\hyperlink{classnetdem_1_1_s_t_l_model}{STLModel}} \mbox{\hyperlink{classnetdem_1_1_s_t_l_reader_ac767bc720d3cca36bb15c95fdc63ecaa}{Read\+File}} (std\+::string const \&filename)
 \begin{DoxyCompactList}\small\item\em Read an STL file. \end{DoxyCompactList}\end{DoxyCompactItemize}
-\doxysubsection*{Static Private Member Functions}
-\begin{DoxyCompactItemize}
-\item 
-static bool \mbox{\hyperlink{classnetdem_1_1_s_t_l_reader_a6774378247cbcf5b0c34140827bc0c44}{Is\+ASCII}} (std\+::string const \&filename)
-\begin{DoxyCompactList}\small\item\em Check if an STL file is in ASCII format. \end{DoxyCompactList}\item 
-static \mbox{\hyperlink{classnetdem_1_1_s_t_l_model}{STLModel}} \mbox{\hyperlink{classnetdem_1_1_s_t_l_reader_a07c39cdc8ef32ccef6ffdb55ca65f657}{Read\+ASCII}} (const char $\ast$buffer)
-\begin{DoxyCompactList}\small\item\em Read an STL file in ASCII format. \end{DoxyCompactList}\item 
-static \mbox{\hyperlink{classnetdem_1_1_s_t_l_model}{STLModel}} \mbox{\hyperlink{classnetdem_1_1_s_t_l_reader_a289fd12bc737562ffaca71d868149681}{Read\+Binary}} (const char $\ast$buffer)
-\begin{DoxyCompactList}\small\item\em Read an STL file in binary format. \end{DoxyCompactList}\item 
-static int \mbox{\hyperlink{classnetdem_1_1_s_t_l_reader_a8413e973cd6d5b5dbf7cfcb86b20f20e}{cpyint}} (const char $\ast$\&p)
-\begin{DoxyCompactList}\small\item\em Copy an integer from a character array. \end{DoxyCompactList}\item 
-static double \mbox{\hyperlink{classnetdem_1_1_s_t_l_reader_accd7946d7495e49698a5b60c36fa60c4}{cpydouble}} (const char $\ast$\&p)
-\begin{DoxyCompactList}\small\item\em Copy a double-\/precision floating-\/point number from a character array. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
@@ -35,106 +22,6 @@ A class for reading STL files.
 This class provides methods for reading STL (STereo\+Lithography) files. It supports both ASCII and binary formats. 
 
 \doxysubsection{Member Function Documentation}
-\mbox{\Hypertarget{classnetdem_1_1_s_t_l_reader_accd7946d7495e49698a5b60c36fa60c4}\label{classnetdem_1_1_s_t_l_reader_accd7946d7495e49698a5b60c36fa60c4}} 
-\index{netdem::STLReader@{netdem::STLReader}!cpydouble@{cpydouble}}
-\index{cpydouble@{cpydouble}!netdem::STLReader@{netdem::STLReader}}
-\doxysubsubsection{\texorpdfstring{cpydouble()}{cpydouble()}}
-{\footnotesize\ttfamily double STLReader\+::cpydouble (\begin{DoxyParamCaption}\item[{const char $\ast$\&}]{p }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
-
-
-
-Copy a double-\/precision floating-\/point number from a character array. 
-
-This static method copies a double-\/precision floating-\/point number from the character array pointed to by {\ttfamily p} and advances the pointer past the copied value.
-
-
-\begin{DoxyParams}{Parameters}
-{\em p} & A reference to a pointer to the character array. \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-The copied double-\/precision floating-\/point value. 
-\end{DoxyReturn}
-\mbox{\Hypertarget{classnetdem_1_1_s_t_l_reader_a8413e973cd6d5b5dbf7cfcb86b20f20e}\label{classnetdem_1_1_s_t_l_reader_a8413e973cd6d5b5dbf7cfcb86b20f20e}} 
-\index{netdem::STLReader@{netdem::STLReader}!cpyint@{cpyint}}
-\index{cpyint@{cpyint}!netdem::STLReader@{netdem::STLReader}}
-\doxysubsubsection{\texorpdfstring{cpyint()}{cpyint()}}
-{\footnotesize\ttfamily int STLReader\+::cpyint (\begin{DoxyParamCaption}\item[{const char $\ast$\&}]{p }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
-
-
-
-Copy an integer from a character array. 
-
-This static method copies an integer from the character array pointed to by {\ttfamily p} and advances the pointer past the copied value.
-
-
-\begin{DoxyParams}{Parameters}
-{\em p} & A reference to a pointer to the character array. \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-The copied integer value. 
-\end{DoxyReturn}
-\mbox{\Hypertarget{classnetdem_1_1_s_t_l_reader_a6774378247cbcf5b0c34140827bc0c44}\label{classnetdem_1_1_s_t_l_reader_a6774378247cbcf5b0c34140827bc0c44}} 
-\index{netdem::STLReader@{netdem::STLReader}!IsASCII@{IsASCII}}
-\index{IsASCII@{IsASCII}!netdem::STLReader@{netdem::STLReader}}
-\doxysubsubsection{\texorpdfstring{IsASCII()}{IsASCII()}}
-{\footnotesize\ttfamily bool STLReader\+::\+Is\+ASCII (\begin{DoxyParamCaption}\item[{std\+::string const \&}]{filename }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
-
-
-
-Check if an STL file is in ASCII format. 
-
-This static method checks if an STL file with the given filename is in ASCII format by examining its contents.
-
-
-\begin{DoxyParams}{Parameters}
-{\em filename} & The name of the file to check. \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-A boolean value indicating whether the file is in ASCII format. 
-\end{DoxyReturn}
-\mbox{\Hypertarget{classnetdem_1_1_s_t_l_reader_a07c39cdc8ef32ccef6ffdb55ca65f657}\label{classnetdem_1_1_s_t_l_reader_a07c39cdc8ef32ccef6ffdb55ca65f657}} 
-\index{netdem::STLReader@{netdem::STLReader}!ReadASCII@{ReadASCII}}
-\index{ReadASCII@{ReadASCII}!netdem::STLReader@{netdem::STLReader}}
-\doxysubsubsection{\texorpdfstring{ReadASCII()}{ReadASCII()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classnetdem_1_1_s_t_l_model}{STLModel}} STLReader\+::\+Read\+ASCII (\begin{DoxyParamCaption}\item[{const char $\ast$}]{buffer }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
-
-
-
-Read an STL file in ASCII format. 
-
-This static method reads an STL file in ASCII format from the given buffer and returns a corresponding \mbox{\hyperlink{classnetdem_1_1_s_t_l_model}{STLModel}} object.
-
-
-\begin{DoxyParams}{Parameters}
-{\em buffer} & A pointer to the beginning of the buffer containing the file data. \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-An \mbox{\hyperlink{classnetdem_1_1_s_t_l_model}{STLModel}} object representing the contents of the file. 
-\end{DoxyReturn}
-\mbox{\Hypertarget{classnetdem_1_1_s_t_l_reader_a289fd12bc737562ffaca71d868149681}\label{classnetdem_1_1_s_t_l_reader_a289fd12bc737562ffaca71d868149681}} 
-\index{netdem::STLReader@{netdem::STLReader}!ReadBinary@{ReadBinary}}
-\index{ReadBinary@{ReadBinary}!netdem::STLReader@{netdem::STLReader}}
-\doxysubsubsection{\texorpdfstring{ReadBinary()}{ReadBinary()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classnetdem_1_1_s_t_l_model}{STLModel}} STLReader\+::\+Read\+Binary (\begin{DoxyParamCaption}\item[{const char $\ast$}]{buffer }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
-
-
-
-Read an STL file in binary format. 
-
-This static method reads an STL file in binary format from the given buffer and returns a corresponding \mbox{\hyperlink{classnetdem_1_1_s_t_l_model}{STLModel}} object.
-
-
-\begin{DoxyParams}{Parameters}
-{\em buffer} & A pointer to the beginning of the buffer containing the file data. \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-An \mbox{\hyperlink{classnetdem_1_1_s_t_l_model}{STLModel}} object representing the contents of the file. 
-\end{DoxyReturn}
 \mbox{\Hypertarget{classnetdem_1_1_s_t_l_reader_ac767bc720d3cca36bb15c95fdc63ecaa}\label{classnetdem_1_1_s_t_l_reader_ac767bc720d3cca36bb15c95fdc63ecaa}} 
 \index{netdem::STLReader@{netdem::STLReader}!ReadFile@{ReadFile}}
 \index{ReadFile@{ReadFile}!netdem::STLReader@{netdem::STLReader}}
@@ -159,5 +46,5 @@ An \mbox{\hyperlink{classnetdem_1_1_s_t_l_model}{STLModel}} object representing 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-/\+Users/lzhshou/\+Documents/\+Research/my\+Projects/apaam/repo/netdem/src/utils/\mbox{\hyperlink{stl__reader_8hpp}{stl\+\_\+reader.\+hpp}}\item 
-/\+Users/lzhshou/\+Documents/\+Research/my\+Projects/apaam/repo/netdem/src/utils/\mbox{\hyperlink{stl__reader_8cpp}{stl\+\_\+reader.\+cpp}}\end{DoxyCompactItemize}
+/\+Users/lzhshou/\+Documents/\+Research/my\+Projects/apaam/repo/netdem/src/utils/stl\+\_\+reader.\+hpp\item 
+/\+Users/lzhshou/\+Documents/\+Research/my\+Projects/apaam/repo/netdem/src/utils/stl\+\_\+reader.\+cpp\end{DoxyCompactItemize}

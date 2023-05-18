@@ -1,11 +1,11 @@
 \hypertarget{peridigm__boundary__condition_8hpp_source}{}\doxysection{peridigm\+\_\+boundary\+\_\+condition.\+hpp}
 \label{peridigm__boundary__condition_8hpp_source}\index{/Users/lzhshou/Documents/Research/myProjects/apaam/repo/netdem/src/peridigm/peridigm\_boundary\_condition.hpp@{/Users/lzhshou/Documents/Research/myProjects/apaam/repo/netdem/src/peridigm/peridigm\_boundary\_condition.hpp}}
-\mbox{\hyperlink{peridigm__boundary__condition_8hpp}{Go to the documentation of this file.}}
+
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
 \DoxyCodeLine{00002\ }
-\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{utils__io_8hpp}{utils\_io.hpp}}"{}}}
-\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{utils__math_8hpp}{utils\_math.hpp}}"{}}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}utils\_io.hpp"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}utils\_math.hpp"{}}}
 \DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <fstream>}}
 \DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <sstream>}}
 \DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <string>}}
@@ -14,23 +14,23 @@
 \DoxyCodeLine{00019\ }
 \DoxyCodeLine{00020\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classnetdem_1_1_peri_digm_boundary_condition}{PeriDigmBoundaryCondition}}\ \{}
 \DoxyCodeLine{00021\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00025\ \ \ \textcolor{keyword}{enum}\ \mbox{\hyperlink{classnetdem_1_1_peri_digm_boundary_condition_a88a481b907b917051a6af894c667ce52}{Type}}\ \{\ \mbox{\hyperlink{classnetdem_1_1_peri_digm_boundary_condition_a88a481b907b917051a6af894c667ce52a8d63eed306007379881a157d2cf580ae}{Prescribed\_Displacement}},\ \mbox{\hyperlink{classnetdem_1_1_peri_digm_boundary_condition_a88a481b907b917051a6af894c667ce52abfd647ee048cdc6451af012b0cb81224}{Body\_Force}}\ \};}
+\DoxyCodeLine{00025\ \ \ \textcolor{keyword}{enum}\ \mbox{\hyperlink{classnetdem_1_1_peri_digm_boundary_condition_a88a481b907b917051a6af894c667ce52}{Type}}\ \{\ Prescribed\_Displacement,\ Body\_Force\ \};}
 \DoxyCodeLine{00026\ }
-\DoxyCodeLine{00030\ \ \ \mbox{\hyperlink{classnetdem_1_1_peri_digm_boundary_condition_a88a481b907b917051a6af894c667ce52}{Type}}\ \mbox{\hyperlink{classnetdem_1_1_peri_digm_boundary_condition_a382a2e3a8c56b0de62d452415ffb5ea6}{type}}\{\mbox{\hyperlink{classnetdem_1_1_peri_digm_boundary_condition_a88a481b907b917051a6af894c667ce52a8d63eed306007379881a157d2cf580ae}{Type::Prescribed\_Displacement}}\};}
+\DoxyCodeLine{00030\ \ \ \mbox{\hyperlink{classnetdem_1_1_peri_digm_boundary_condition_a88a481b907b917051a6af894c667ce52}{Type}}\ \mbox{\hyperlink{classnetdem_1_1_peri_digm_boundary_condition_a382a2e3a8c56b0de62d452415ffb5ea6}{type}}\{Type::Prescribed\_Displacement\};}
 \DoxyCodeLine{00031\ }
-\DoxyCodeLine{00035\ \ \ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<int>}}\ \mbox{\hyperlink{classnetdem_1_1_peri_digm_boundary_condition_a17544c6aaa8233a09ab921144a0799d7}{node\_indices}};}
+\DoxyCodeLine{00035\ \ \ VecXT<int>\ \mbox{\hyperlink{classnetdem_1_1_peri_digm_boundary_condition_a17544c6aaa8233a09ab921144a0799d7}{node\_indices}};}
 \DoxyCodeLine{00036\ }
-\DoxyCodeLine{00041\ \ \ \mbox{\hyperlink{namespacenetdem_a4c6a34e4b9bc01901ac527bb8ea83909}{VecNT<bool,\ 3>}}\ \mbox{\hyperlink{classnetdem_1_1_peri_digm_boundary_condition_a48cacc9b07eef2eec646805acf24e9f2}{dim\_activated}}\{\textcolor{keyword}{true},\ \textcolor{keyword}{true},\ \textcolor{keyword}{true}\};}
+\DoxyCodeLine{00041\ \ \ VecNT<bool,\ 3>\ \mbox{\hyperlink{classnetdem_1_1_peri_digm_boundary_condition_a48cacc9b07eef2eec646805acf24e9f2}{dim\_activated}}\{\textcolor{keyword}{true},\ \textcolor{keyword}{true},\ \textcolor{keyword}{true}\};}
 \DoxyCodeLine{00042\ }
 \DoxyCodeLine{00047\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classnetdem_1_1_peri_digm_boundary_condition_aab4d0daf1123ed9444885d5d7ddd45d0}{time\_depedent}}\{\textcolor{keyword}{true}\};}
 \DoxyCodeLine{00048\ }
-\DoxyCodeLine{00053\ \ \ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ \mbox{\hyperlink{classnetdem_1_1_peri_digm_boundary_condition_a83e8ba1879a8003ae0fdd864e020b481}{disp\_rate}}\{0,\ 0,\ 0\};}
+\DoxyCodeLine{00053\ \ \ Vec3d\ \mbox{\hyperlink{classnetdem_1_1_peri_digm_boundary_condition_a83e8ba1879a8003ae0fdd864e020b481}{disp\_rate}}\{0,\ 0,\ 0\};}
 \DoxyCodeLine{00054\ }
-\DoxyCodeLine{00059\ \ \ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ \mbox{\hyperlink{classnetdem_1_1_peri_digm_boundary_condition_a66476f3b9deffaaa99149b53729c2c25}{loading\_rate}}\{0,\ 0,\ 0\};}
+\DoxyCodeLine{00059\ \ \ Vec3d\ \mbox{\hyperlink{classnetdem_1_1_peri_digm_boundary_condition_a66476f3b9deffaaa99149b53729c2c25}{loading\_rate}}\{0,\ 0,\ 0\};}
 \DoxyCodeLine{00060\ }
-\DoxyCodeLine{00065\ \ \ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ \mbox{\hyperlink{classnetdem_1_1_peri_digm_boundary_condition_a5261df1956c76b500b206a3ab99dfb48}{disp}}\{0,\ 0,\ 0\};}
+\DoxyCodeLine{00065\ \ \ Vec3d\ \mbox{\hyperlink{classnetdem_1_1_peri_digm_boundary_condition_a5261df1956c76b500b206a3ab99dfb48}{disp}}\{0,\ 0,\ 0\};}
 \DoxyCodeLine{00066\ }
-\DoxyCodeLine{00071\ \ \ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ \mbox{\hyperlink{classnetdem_1_1_peri_digm_boundary_condition_a8e16c9e54c7fa5d42ce623a1b9adcfec}{loading}}\{0,\ 0,\ 0\};}
+\DoxyCodeLine{00071\ \ \ Vec3d\ \mbox{\hyperlink{classnetdem_1_1_peri_digm_boundary_condition_a8e16c9e54c7fa5d42ce623a1b9adcfec}{loading}}\{0,\ 0,\ 0\};}
 \DoxyCodeLine{00072\ }
 \DoxyCodeLine{00077\ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classnetdem_1_1_peri_digm_boundary_condition_ace0e28610fbfb77daeb167d0a763c758}{mech\_time}}\{0\};}
 \DoxyCodeLine{00078\ }
@@ -80,92 +80,92 @@
 \DoxyCodeLine{00189\ }
 \DoxyCodeLine{00202\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_peri_digm_boundary_condition_a617f005782c169c4d4b2043cfcb05298}{WriteInputFile}}(std::ostream\ \&os,\ \textcolor{keywordtype}{int}\ node\_set\_id)\ \{}
 \DoxyCodeLine{00203\ \ \ \ \ \textcolor{keywordflow}{switch}\ (\mbox{\hyperlink{classnetdem_1_1_peri_digm_boundary_condition_a382a2e3a8c56b0de62d452415ffb5ea6}{type}})\ \{}
-\DoxyCodeLine{00204\ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{classnetdem_1_1_peri_digm_boundary_condition_a88a481b907b917051a6af894c667ce52a8d63eed306007379881a157d2cf580ae}{Type::Prescribed\_Displacement}}:}
-\DoxyCodeLine{00205\ \ \ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\ \ \ \ Node\_Set\_"{}}\ +\ \mbox{\hyperlink{namespacenetdem_1_1_i_o_aeffcbe77e69d20f81ab94571742c44d2}{IO::to\_string}}(node\_set\_id\ +\ 1)\ +\ \textcolor{stringliteral}{"{}:\ \(\backslash\)"{}"{}}\ +}
-\DoxyCodeLine{00206\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classnetdem_1_1_peri_digm_boundary_condition_a1bf6b68fb10b331a26adca62bad1b21e}{GetNodeSetFileName}}(node\_set\_id)\ +\ \textcolor{stringliteral}{"{}\(\backslash\)"{}"{}}}
+\DoxyCodeLine{00204\ \ \ \ \ \textcolor{keywordflow}{case}\ Type::Prescribed\_Displacement:}
+\DoxyCodeLine{00205\ \ \ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\ \ \ \ Node\_Set\_"{}}\ +\ IO::to\_string(node\_set\_id\ +\ 1)\ +\ \textcolor{stringliteral}{"{}:\ \(\backslash\)"{}"{}}\ +}
+\DoxyCodeLine{00206\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ GetNodeSetFileName(node\_set\_id)\ +\ \textcolor{stringliteral}{"{}\(\backslash\)"{}"{}}}
 \DoxyCodeLine{00207\ \ \ \ \ \ \ \ \ \ <<\ std::endl;}
 \DoxyCodeLine{00208\ }
 \DoxyCodeLine{00209\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classnetdem_1_1_peri_digm_boundary_condition_a48cacc9b07eef2eec646805acf24e9f2}{dim\_activated}}[0])\ \{}
-\DoxyCodeLine{00210\ \ \ \ \ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\ \ \ \ Displacement\_NS\_"{}}\ +\ \mbox{\hyperlink{namespacenetdem_1_1_i_o_aeffcbe77e69d20f81ab94571742c44d2}{IO::to\_string}}(node\_set\_id\ +\ 1)\ +\ \textcolor{stringliteral}{"{}\_X:\ "{}}}
+\DoxyCodeLine{00210\ \ \ \ \ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\ \ \ \ Displacement\_NS\_"{}}\ +\ IO::to\_string(node\_set\_id\ +\ 1)\ +\ \textcolor{stringliteral}{"{}\_X:\ "{}}}
 \DoxyCodeLine{00211\ \ \ \ \ \ \ \ \ \ \ \ <<\ std::endl;}
 \DoxyCodeLine{00212\ \ \ \ \ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\ \ \ \ \ \ Type:\ \(\backslash\)"{}Prescribed\ Displacement\(\backslash\)"{}"{}}\ <<\ std::endl;}
-\DoxyCodeLine{00213\ \ \ \ \ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\ \ \ \ \ \ Node\ Set:\ \(\backslash\)"{}Node\_Set\_"{}}\ +\ \mbox{\hyperlink{namespacenetdem_1_1_i_o_aeffcbe77e69d20f81ab94571742c44d2}{IO::to\_string}}(node\_set\_id\ +\ 1)\ +}
+\DoxyCodeLine{00213\ \ \ \ \ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\ \ \ \ \ \ Node\ Set:\ \(\backslash\)"{}Node\_Set\_"{}}\ +\ IO::to\_string(node\_set\_id\ +\ 1)\ +}
 \DoxyCodeLine{00214\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\(\backslash\)"{}"{}}}
 \DoxyCodeLine{00215\ \ \ \ \ \ \ \ \ \ \ \ <<\ std::endl;}
 \DoxyCodeLine{00216\ \ \ \ \ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\ \ \ \ \ \ Coordinate:\ \(\backslash\)"{}x\(\backslash\)"{}"{}}\ <<\ std::endl;}
-\DoxyCodeLine{00217\ \ \ \ \ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\ \ \ \ \ \ Value:\ "{}}\ +\ \mbox{\hyperlink{classnetdem_1_1_peri_digm_boundary_condition_a454fad7418976240db8c354ec895e762}{GetDisplacementString}}(0)\ <<\ std::endl;}
+\DoxyCodeLine{00217\ \ \ \ \ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\ \ \ \ \ \ Value:\ "{}}\ +\ GetDisplacementString(0)\ <<\ std::endl;}
 \DoxyCodeLine{00218\ \ \ \ \ \ \ \}}
 \DoxyCodeLine{00219\ }
 \DoxyCodeLine{00220\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classnetdem_1_1_peri_digm_boundary_condition_a48cacc9b07eef2eec646805acf24e9f2}{dim\_activated}}[1])\ \{}
-\DoxyCodeLine{00221\ \ \ \ \ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\ \ \ \ Displacement\_NS\_"{}}\ +\ \mbox{\hyperlink{namespacenetdem_1_1_i_o_aeffcbe77e69d20f81ab94571742c44d2}{IO::to\_string}}(node\_set\_id\ +\ 1)\ +\ \textcolor{stringliteral}{"{}\_Y:\ "{}}}
+\DoxyCodeLine{00221\ \ \ \ \ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\ \ \ \ Displacement\_NS\_"{}}\ +\ IO::to\_string(node\_set\_id\ +\ 1)\ +\ \textcolor{stringliteral}{"{}\_Y:\ "{}}}
 \DoxyCodeLine{00222\ \ \ \ \ \ \ \ \ \ \ \ <<\ std::endl;}
 \DoxyCodeLine{00223\ \ \ \ \ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\ \ \ \ \ \ Type:\ \(\backslash\)"{}Prescribed\ Displacement\(\backslash\)"{}"{}}\ <<\ std::endl;}
-\DoxyCodeLine{00224\ \ \ \ \ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\ \ \ \ \ \ Node\ Set:\ \(\backslash\)"{}Node\_Set\_"{}}\ +\ \mbox{\hyperlink{namespacenetdem_1_1_i_o_aeffcbe77e69d20f81ab94571742c44d2}{IO::to\_string}}(node\_set\_id\ +\ 1)\ +}
+\DoxyCodeLine{00224\ \ \ \ \ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\ \ \ \ \ \ Node\ Set:\ \(\backslash\)"{}Node\_Set\_"{}}\ +\ IO::to\_string(node\_set\_id\ +\ 1)\ +}
 \DoxyCodeLine{00225\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\(\backslash\)"{}"{}}}
 \DoxyCodeLine{00226\ \ \ \ \ \ \ \ \ \ \ \ <<\ std::endl;}
 \DoxyCodeLine{00227\ \ \ \ \ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\ \ \ \ \ \ Coordinate:\ \(\backslash\)"{}y\(\backslash\)"{}"{}}\ <<\ std::endl;}
-\DoxyCodeLine{00228\ \ \ \ \ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\ \ \ \ \ \ Value:\ "{}}\ +\ \mbox{\hyperlink{classnetdem_1_1_peri_digm_boundary_condition_a454fad7418976240db8c354ec895e762}{GetDisplacementString}}(1)\ <<\ std::endl;}
+\DoxyCodeLine{00228\ \ \ \ \ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\ \ \ \ \ \ Value:\ "{}}\ +\ GetDisplacementString(1)\ <<\ std::endl;}
 \DoxyCodeLine{00229\ \ \ \ \ \ \ \}}
 \DoxyCodeLine{00230\ }
 \DoxyCodeLine{00231\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classnetdem_1_1_peri_digm_boundary_condition_a48cacc9b07eef2eec646805acf24e9f2}{dim\_activated}}[2])\ \{}
-\DoxyCodeLine{00232\ \ \ \ \ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\ \ \ \ Displacement\_NS\_"{}}\ +\ \mbox{\hyperlink{namespacenetdem_1_1_i_o_aeffcbe77e69d20f81ab94571742c44d2}{IO::to\_string}}(node\_set\_id\ +\ 1)\ +\ \textcolor{stringliteral}{"{}\_Z:\ "{}}}
+\DoxyCodeLine{00232\ \ \ \ \ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\ \ \ \ Displacement\_NS\_"{}}\ +\ IO::to\_string(node\_set\_id\ +\ 1)\ +\ \textcolor{stringliteral}{"{}\_Z:\ "{}}}
 \DoxyCodeLine{00233\ \ \ \ \ \ \ \ \ \ \ \ <<\ std::endl;}
 \DoxyCodeLine{00234\ \ \ \ \ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\ \ \ \ \ \ Type:\ \(\backslash\)"{}Prescribed\ Displacement\(\backslash\)"{}"{}}\ <<\ std::endl;}
-\DoxyCodeLine{00235\ \ \ \ \ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\ \ \ \ \ \ Node\ Set:\ \(\backslash\)"{}Node\_Set\_"{}}\ +\ \mbox{\hyperlink{namespacenetdem_1_1_i_o_aeffcbe77e69d20f81ab94571742c44d2}{IO::to\_string}}(node\_set\_id\ +\ 1)\ +}
+\DoxyCodeLine{00235\ \ \ \ \ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\ \ \ \ \ \ Node\ Set:\ \(\backslash\)"{}Node\_Set\_"{}}\ +\ IO::to\_string(node\_set\_id\ +\ 1)\ +}
 \DoxyCodeLine{00236\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\(\backslash\)"{}"{}}}
 \DoxyCodeLine{00237\ \ \ \ \ \ \ \ \ \ \ \ <<\ std::endl;}
 \DoxyCodeLine{00238\ \ \ \ \ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\ \ \ \ \ \ Coordinate:\ \(\backslash\)"{}z\(\backslash\)"{}"{}}\ <<\ std::endl;}
-\DoxyCodeLine{00239\ \ \ \ \ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\ \ \ \ \ \ Value:\ "{}}\ +\ \mbox{\hyperlink{classnetdem_1_1_peri_digm_boundary_condition_a454fad7418976240db8c354ec895e762}{GetDisplacementString}}(2)\ <<\ std::endl;}
+\DoxyCodeLine{00239\ \ \ \ \ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\ \ \ \ \ \ Value:\ "{}}\ +\ GetDisplacementString(2)\ <<\ std::endl;}
 \DoxyCodeLine{00240\ \ \ \ \ \ \ \}}
 \DoxyCodeLine{00241\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
 \DoxyCodeLine{00242\ }
-\DoxyCodeLine{00243\ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{classnetdem_1_1_peri_digm_boundary_condition_a88a481b907b917051a6af894c667ce52abfd647ee048cdc6451af012b0cb81224}{Type::Body\_Force}}:}
-\DoxyCodeLine{00244\ \ \ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\ \ \ \ Node\_Set\_"{}}\ +\ \mbox{\hyperlink{namespacenetdem_1_1_i_o_aeffcbe77e69d20f81ab94571742c44d2}{IO::to\_string}}(node\_set\_id\ +\ 1)\ +\ \textcolor{stringliteral}{"{}:\ \(\backslash\)"{}"{}}\ +}
-\DoxyCodeLine{00245\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classnetdem_1_1_peri_digm_boundary_condition_a1bf6b68fb10b331a26adca62bad1b21e}{GetNodeSetFileName}}(node\_set\_id)\ +\ \textcolor{stringliteral}{"{}\(\backslash\)"{}"{}}}
+\DoxyCodeLine{00243\ \ \ \ \ \textcolor{keywordflow}{case}\ Type::Body\_Force:}
+\DoxyCodeLine{00244\ \ \ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\ \ \ \ Node\_Set\_"{}}\ +\ IO::to\_string(node\_set\_id\ +\ 1)\ +\ \textcolor{stringliteral}{"{}:\ \(\backslash\)"{}"{}}\ +}
+\DoxyCodeLine{00245\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ GetNodeSetFileName(node\_set\_id)\ +\ \textcolor{stringliteral}{"{}\(\backslash\)"{}"{}}}
 \DoxyCodeLine{00246\ \ \ \ \ \ \ \ \ \ <<\ std::endl;}
 \DoxyCodeLine{00247\ }
 \DoxyCodeLine{00248\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classnetdem_1_1_peri_digm_boundary_condition_a48cacc9b07eef2eec646805acf24e9f2}{dim\_activated}}[0])\ \{}
-\DoxyCodeLine{00249\ \ \ \ \ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\ \ \ \ Force\_NS\_"{}}\ +\ \mbox{\hyperlink{namespacenetdem_1_1_i_o_aeffcbe77e69d20f81ab94571742c44d2}{IO::to\_string}}(node\_set\_id\ +\ 1)\ +\ \textcolor{stringliteral}{"{}\_X:\ "{}}}
+\DoxyCodeLine{00249\ \ \ \ \ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\ \ \ \ Force\_NS\_"{}}\ +\ IO::to\_string(node\_set\_id\ +\ 1)\ +\ \textcolor{stringliteral}{"{}\_X:\ "{}}}
 \DoxyCodeLine{00250\ \ \ \ \ \ \ \ \ \ \ \ <<\ std::endl;}
 \DoxyCodeLine{00251\ \ \ \ \ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\ \ \ \ \ \ Type:\ \(\backslash\)"{}Body\ Force\(\backslash\)"{}"{}}\ <<\ std::endl;}
-\DoxyCodeLine{00252\ \ \ \ \ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\ \ \ \ \ \ Node\ Set:\ \(\backslash\)"{}Node\_Set\_"{}}\ +\ \mbox{\hyperlink{namespacenetdem_1_1_i_o_aeffcbe77e69d20f81ab94571742c44d2}{IO::to\_string}}(node\_set\_id\ +\ 1)\ +}
+\DoxyCodeLine{00252\ \ \ \ \ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\ \ \ \ \ \ Node\ Set:\ \(\backslash\)"{}Node\_Set\_"{}}\ +\ IO::to\_string(node\_set\_id\ +\ 1)\ +}
 \DoxyCodeLine{00253\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\(\backslash\)"{}"{}}}
 \DoxyCodeLine{00254\ \ \ \ \ \ \ \ \ \ \ \ <<\ std::endl;}
 \DoxyCodeLine{00255\ \ \ \ \ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\ \ \ \ \ \ Coordinate:\ \(\backslash\)"{}x\(\backslash\)"{}"{}}\ <<\ std::endl;}
-\DoxyCodeLine{00256\ \ \ \ \ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\ \ \ \ \ \ Value:\ "{}}\ +\ \mbox{\hyperlink{classnetdem_1_1_peri_digm_boundary_condition_a9c2e19db8df9981558e4baa5e276f5c7}{GetLoadingString}}(0)\ <<\ std::endl;}
+\DoxyCodeLine{00256\ \ \ \ \ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\ \ \ \ \ \ Value:\ "{}}\ +\ GetLoadingString(0)\ <<\ std::endl;}
 \DoxyCodeLine{00257\ \ \ \ \ \ \ \}}
 \DoxyCodeLine{00258\ }
 \DoxyCodeLine{00259\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classnetdem_1_1_peri_digm_boundary_condition_a48cacc9b07eef2eec646805acf24e9f2}{dim\_activated}}[1])\ \{}
-\DoxyCodeLine{00260\ \ \ \ \ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\ \ \ \ Force\_NS\_"{}}\ +\ \mbox{\hyperlink{namespacenetdem_1_1_i_o_aeffcbe77e69d20f81ab94571742c44d2}{IO::to\_string}}(node\_set\_id\ +\ 1)\ +\ \textcolor{stringliteral}{"{}\_Y:\ "{}}}
+\DoxyCodeLine{00260\ \ \ \ \ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\ \ \ \ Force\_NS\_"{}}\ +\ IO::to\_string(node\_set\_id\ +\ 1)\ +\ \textcolor{stringliteral}{"{}\_Y:\ "{}}}
 \DoxyCodeLine{00261\ \ \ \ \ \ \ \ \ \ \ \ <<\ std::endl;}
 \DoxyCodeLine{00262\ \ \ \ \ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\ \ \ \ \ \ Type:\ \(\backslash\)"{}Body\ Force\(\backslash\)"{}"{}}\ <<\ std::endl;}
-\DoxyCodeLine{00263\ \ \ \ \ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\ \ \ \ \ \ Node\ Set:\ \(\backslash\)"{}Node\_Set\_"{}}\ +\ \mbox{\hyperlink{namespacenetdem_1_1_i_o_aeffcbe77e69d20f81ab94571742c44d2}{IO::to\_string}}(node\_set\_id\ +\ 1)\ +}
+\DoxyCodeLine{00263\ \ \ \ \ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\ \ \ \ \ \ Node\ Set:\ \(\backslash\)"{}Node\_Set\_"{}}\ +\ IO::to\_string(node\_set\_id\ +\ 1)\ +}
 \DoxyCodeLine{00264\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\(\backslash\)"{}"{}}}
 \DoxyCodeLine{00265\ \ \ \ \ \ \ \ \ \ \ \ <<\ std::endl;}
 \DoxyCodeLine{00266\ \ \ \ \ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\ \ \ \ \ \ Coordinate:\ \(\backslash\)"{}y\(\backslash\)"{}"{}}\ <<\ std::endl;}
-\DoxyCodeLine{00267\ \ \ \ \ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\ \ \ \ \ \ Value:\ "{}}\ +\ \mbox{\hyperlink{classnetdem_1_1_peri_digm_boundary_condition_a9c2e19db8df9981558e4baa5e276f5c7}{GetLoadingString}}(1)\ <<\ std::endl;}
+\DoxyCodeLine{00267\ \ \ \ \ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\ \ \ \ \ \ Value:\ "{}}\ +\ GetLoadingString(1)\ <<\ std::endl;}
 \DoxyCodeLine{00268\ \ \ \ \ \ \ \}}
 \DoxyCodeLine{00269\ }
 \DoxyCodeLine{00270\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classnetdem_1_1_peri_digm_boundary_condition_a48cacc9b07eef2eec646805acf24e9f2}{dim\_activated}}[2])\ \{}
-\DoxyCodeLine{00271\ \ \ \ \ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\ \ \ \ Force\_NS\_"{}}\ +\ \mbox{\hyperlink{namespacenetdem_1_1_i_o_aeffcbe77e69d20f81ab94571742c44d2}{IO::to\_string}}(node\_set\_id\ +\ 1)\ +\ \textcolor{stringliteral}{"{}\_Z:\ "{}}}
+\DoxyCodeLine{00271\ \ \ \ \ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\ \ \ \ Force\_NS\_"{}}\ +\ IO::to\_string(node\_set\_id\ +\ 1)\ +\ \textcolor{stringliteral}{"{}\_Z:\ "{}}}
 \DoxyCodeLine{00272\ \ \ \ \ \ \ \ \ \ \ \ <<\ std::endl;}
 \DoxyCodeLine{00273\ \ \ \ \ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\ \ \ \ \ \ Type:\ \(\backslash\)"{}Body\ Force\(\backslash\)"{}"{}}\ <<\ std::endl;}
-\DoxyCodeLine{00274\ \ \ \ \ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\ \ \ \ \ \ Node\ Set:\ \(\backslash\)"{}Node\_Set\_"{}}\ +\ \mbox{\hyperlink{namespacenetdem_1_1_i_o_aeffcbe77e69d20f81ab94571742c44d2}{IO::to\_string}}(node\_set\_id\ +\ 1)\ +}
+\DoxyCodeLine{00274\ \ \ \ \ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\ \ \ \ \ \ Node\ Set:\ \(\backslash\)"{}Node\_Set\_"{}}\ +\ IO::to\_string(node\_set\_id\ +\ 1)\ +}
 \DoxyCodeLine{00275\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\(\backslash\)"{}"{}}}
 \DoxyCodeLine{00276\ \ \ \ \ \ \ \ \ \ \ \ <<\ std::endl;}
 \DoxyCodeLine{00277\ \ \ \ \ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\ \ \ \ \ \ Coordinate:\ \(\backslash\)"{}z\(\backslash\)"{}"{}}\ <<\ std::endl;}
-\DoxyCodeLine{00278\ \ \ \ \ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\ \ \ \ \ \ Value:\ "{}}\ +\ \mbox{\hyperlink{classnetdem_1_1_peri_digm_boundary_condition_a9c2e19db8df9981558e4baa5e276f5c7}{GetLoadingString}}(2)\ <<\ std::endl;}
+\DoxyCodeLine{00278\ \ \ \ \ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\ \ \ \ \ \ Value:\ "{}}\ +\ GetLoadingString(2)\ <<\ std::endl;}
 \DoxyCodeLine{00279\ \ \ \ \ \ \ \}}
 \DoxyCodeLine{00280\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
 \DoxyCodeLine{00281\ }
 \DoxyCodeLine{00282\ \ \ \ \ \textcolor{keywordflow}{default}:}
-\DoxyCodeLine{00283\ \ \ \ \ \ \ \mbox{\hyperlink{namespacenetdem_1_1_i_o_a015fb6e06d3b796b6b5fd1f33f61e08e}{IO::PrintError}}(\textcolor{stringliteral}{"{}in\ PeriDigmBoundaryCondition::WriteToFile,\ boundary\ "{}}}
+\DoxyCodeLine{00283\ \ \ \ \ \ \ IO::PrintError(\textcolor{stringliteral}{"{}in\ PeriDigmBoundaryCondition::WriteToFile,\ boundary\ "{}}}
 \DoxyCodeLine{00284\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}condition\ type\ not\ defined"{}});}
 \DoxyCodeLine{00285\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
 \DoxyCodeLine{00286\ \ \ \ \ \}}
 \DoxyCodeLine{00287\ \ \ \}}
 \DoxyCodeLine{00288\ }
-\DoxyCodeLine{00289\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_peri_digm_boundary_condition_ab0d00a78e25809bfe8fb8a4f8ccdeb5c}{WriteNodeSetFile}}(std::string\ \textcolor{keyword}{const}\ \&result\_dir,\ \textcolor{keywordtype}{int}\ node\_set\_id)\ \{}
+\DoxyCodeLine{00289\ \ \ \textcolor{keywordtype}{void}\ WriteNodeSetFile(std::string\ \textcolor{keyword}{const}\ \&result\_dir,\ \textcolor{keywordtype}{int}\ node\_set\_id)\ \{}
 \DoxyCodeLine{00290\ \ \ \ \ std::stringbuf\ buf;}
 \DoxyCodeLine{00291\ \ \ \ \ std::ostream\ os(\&buf);}
 \DoxyCodeLine{00292\ }
@@ -176,11 +176,11 @@
 \DoxyCodeLine{00297\ \ \ \ \ \}}
 \DoxyCodeLine{00298\ }
 \DoxyCodeLine{00299\ \ \ \ \ std::ofstream\ outfile;}
-\DoxyCodeLine{00300\ \ \ \ \ outfile.open(result\_dir\ +\ \mbox{\hyperlink{classnetdem_1_1_peri_digm_boundary_condition_a1bf6b68fb10b331a26adca62bad1b21e}{GetNodeSetFileName}}(node\_set\_id));}
+\DoxyCodeLine{00300\ \ \ \ \ outfile.open(result\_dir\ +\ GetNodeSetFileName(node\_set\_id));}
 \DoxyCodeLine{00301\ \ \ \ \ \textcolor{keywordflow}{if}\ (!outfile.is\_open())\ \{}
-\DoxyCodeLine{00302\ \ \ \ \ \ \ \mbox{\hyperlink{namespacenetdem_1_1_i_o_a015fb6e06d3b796b6b5fd1f33f61e08e}{IO::PrintError}}(}
+\DoxyCodeLine{00302\ \ \ \ \ \ \ IO::PrintError(}
 \DoxyCodeLine{00303\ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}in\ PeriDigmBoundaryCondition::WriteNodeFile,\ cannot\ open\ file:\ "{}}\ +}
-\DoxyCodeLine{00304\ \ \ \ \ \ \ \ \ \ \ result\_dir\ +\ \mbox{\hyperlink{classnetdem_1_1_peri_digm_boundary_condition_a1bf6b68fb10b331a26adca62bad1b21e}{GetNodeSetFileName}}(node\_set\_id));}
+\DoxyCodeLine{00304\ \ \ \ \ \ \ \ \ \ \ result\_dir\ +\ GetNodeSetFileName(node\_set\_id));}
 \DoxyCodeLine{00305\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
 \DoxyCodeLine{00306\ \ \ \ \ \ \ outfile\ <<\ buf.str();}
 \DoxyCodeLine{00307\ \ \ \ \ \ \ outfile.close();}
@@ -188,33 +188,33 @@
 \DoxyCodeLine{00309\ \ \ \}}
 \DoxyCodeLine{00310\ }
 \DoxyCodeLine{00311\ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00322\ \ \ std::string\ \mbox{\hyperlink{classnetdem_1_1_peri_digm_boundary_condition_a1bf6b68fb10b331a26adca62bad1b21e}{GetNodeSetFileName}}(\textcolor{keywordtype}{int}\ node\_set\_id)\ \{}
+\DoxyCodeLine{00322\ \ \ std::string\ GetNodeSetFileName(\textcolor{keywordtype}{int}\ node\_set\_id)\ \{}
 \DoxyCodeLine{00323\ \ \ \ \ \textcolor{keywordtype}{char}\ filename[128];}
 \DoxyCodeLine{00324\ \ \ \ \ std::snprintf(filename,\ 128,\ \textcolor{stringliteral}{"{}node\_set/node\_set\_\%08d.txt"{}},\ node\_set\_id\ +\ 1);}
 \DoxyCodeLine{00325\ \ \ \ \ \textcolor{keywordflow}{return}\ filename;}
 \DoxyCodeLine{00326\ \ \ \}}
 \DoxyCodeLine{00327\ }
-\DoxyCodeLine{00339\ \ \ std::string\ \mbox{\hyperlink{classnetdem_1_1_peri_digm_boundary_condition_a454fad7418976240db8c354ec895e762}{GetDisplacementString}}(\textcolor{keywordtype}{int}\ dim)\ \{}
+\DoxyCodeLine{00339\ \ \ std::string\ GetDisplacementString(\textcolor{keywordtype}{int}\ dim)\ \{}
 \DoxyCodeLine{00340\ \ \ \ \ std::string\ disp\_string;}
 \DoxyCodeLine{00341\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classnetdem_1_1_peri_digm_boundary_condition_aab4d0daf1123ed9444885d5d7ddd45d0}{time\_depedent}})\ \{}
-\DoxyCodeLine{00342\ \ \ \ \ \ \ disp\_string\ =\ \textcolor{stringliteral}{"{}\(\backslash\)"{}"{}}\ +\ \mbox{\hyperlink{namespacenetdem_1_1_i_o_aeffcbe77e69d20f81ab94571742c44d2}{IO::to\_string}}(\mbox{\hyperlink{classnetdem_1_1_peri_digm_boundary_condition_a83e8ba1879a8003ae0fdd864e020b481}{disp\_rate}}[dim])\ +\ \textcolor{stringliteral}{"{}*t\(\backslash\)"{}"{}};}
+\DoxyCodeLine{00342\ \ \ \ \ \ \ disp\_string\ =\ \textcolor{stringliteral}{"{}\(\backslash\)"{}"{}}\ +\ IO::to\_string(\mbox{\hyperlink{classnetdem_1_1_peri_digm_boundary_condition_a83e8ba1879a8003ae0fdd864e020b481}{disp\_rate}}[dim])\ +\ \textcolor{stringliteral}{"{}*t\(\backslash\)"{}"{}};}
 \DoxyCodeLine{00343\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
-\DoxyCodeLine{00344\ \ \ \ \ \ \ disp\_string\ =\ \textcolor{stringliteral}{"{}\(\backslash\)"{}"{}}\ +\ \mbox{\hyperlink{namespacenetdem_1_1_i_o_aeffcbe77e69d20f81ab94571742c44d2}{IO::to\_string}}(\mbox{\hyperlink{classnetdem_1_1_peri_digm_boundary_condition_a5261df1956c76b500b206a3ab99dfb48}{disp}}[dim])\ +\ \textcolor{stringliteral}{"{}\(\backslash\)"{}"{}};}
+\DoxyCodeLine{00344\ \ \ \ \ \ \ disp\_string\ =\ \textcolor{stringliteral}{"{}\(\backslash\)"{}"{}}\ +\ IO::to\_string(\mbox{\hyperlink{classnetdem_1_1_peri_digm_boundary_condition_a5261df1956c76b500b206a3ab99dfb48}{disp}}[dim])\ +\ \textcolor{stringliteral}{"{}\(\backslash\)"{}"{}};}
 \DoxyCodeLine{00345\ \ \ \ \ \}}
 \DoxyCodeLine{00346\ \ \ \ \ \textcolor{keywordflow}{return}\ disp\_string;}
 \DoxyCodeLine{00347\ \ \ \}}
 \DoxyCodeLine{00348\ }
-\DoxyCodeLine{00360\ \ \ std::string\ \mbox{\hyperlink{classnetdem_1_1_peri_digm_boundary_condition_a9c2e19db8df9981558e4baa5e276f5c7}{GetLoadingString}}(\textcolor{keywordtype}{int}\ dim)\ \{}
+\DoxyCodeLine{00360\ \ \ std::string\ GetLoadingString(\textcolor{keywordtype}{int}\ dim)\ \{}
 \DoxyCodeLine{00361\ \ \ \ \ std::string\ loading\_string;}
 \DoxyCodeLine{00362\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classnetdem_1_1_peri_digm_boundary_condition_aab4d0daf1123ed9444885d5d7ddd45d0}{time\_depedent}})\ \{}
-\DoxyCodeLine{00363\ \ \ \ \ \ \ loading\_string\ =\ \textcolor{stringliteral}{"{}\(\backslash\)"{}"{}}\ +\ \mbox{\hyperlink{namespacenetdem_1_1_i_o_aeffcbe77e69d20f81ab94571742c44d2}{IO::to\_string}}(\mbox{\hyperlink{classnetdem_1_1_peri_digm_boundary_condition_a66476f3b9deffaaa99149b53729c2c25}{loading\_rate}}[dim])\ +\ \textcolor{stringliteral}{"{}*t\(\backslash\)"{}"{}};}
+\DoxyCodeLine{00363\ \ \ \ \ \ \ loading\_string\ =\ \textcolor{stringliteral}{"{}\(\backslash\)"{}"{}}\ +\ IO::to\_string(\mbox{\hyperlink{classnetdem_1_1_peri_digm_boundary_condition_a66476f3b9deffaaa99149b53729c2c25}{loading\_rate}}[dim])\ +\ \textcolor{stringliteral}{"{}*t\(\backslash\)"{}"{}};}
 \DoxyCodeLine{00364\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
 \DoxyCodeLine{00365\ \ \ \ \ \ \ \textcolor{comment}{//\ one-\/step\ loading}}
 \DoxyCodeLine{00366\ \ \ \ \ \ \ \textcolor{comment}{//\ loading\_string\ =\ "{}\(\backslash\)"{}"{}\ +\ IO::to\_string(loading[dim])\ +\ "{}\(\backslash\)"{}"{};}}
 \DoxyCodeLine{00367\ \ \ \ \ \ \ \textcolor{comment}{//\ sigmoid-\/increasing\ loading\ to\ improve\ stability}}
-\DoxyCodeLine{00368\ \ \ \ \ \ \ loading\_string\ =\ \textcolor{stringliteral}{"{}\(\backslash\)"{}"{}}\ +\ \mbox{\hyperlink{namespacenetdem_1_1_i_o_aeffcbe77e69d20f81ab94571742c44d2}{IO::to\_string}}(\mbox{\hyperlink{classnetdem_1_1_peri_digm_boundary_condition_a8e16c9e54c7fa5d42ce623a1b9adcfec}{loading}}[dim]\ /\ \mbox{\hyperlink{classnetdem_1_1_peri_digm_boundary_condition_ace0e28610fbfb77daeb167d0a763c758}{mech\_time}})\ +}
+\DoxyCodeLine{00368\ \ \ \ \ \ \ loading\_string\ =\ \textcolor{stringliteral}{"{}\(\backslash\)"{}"{}}\ +\ IO::to\_string(\mbox{\hyperlink{classnetdem_1_1_peri_digm_boundary_condition_a8e16c9e54c7fa5d42ce623a1b9adcfec}{loading}}[dim]\ /\ \mbox{\hyperlink{classnetdem_1_1_peri_digm_boundary_condition_ace0e28610fbfb77daeb167d0a763c758}{mech\_time}})\ +}
 \DoxyCodeLine{00369\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}*t/sqrt(0.01+t*t/"{}}\ +}
-\DoxyCodeLine{00370\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacenetdem_1_1_i_o_aeffcbe77e69d20f81ab94571742c44d2}{IO::to\_string}}(\mbox{\hyperlink{classnetdem_1_1_peri_digm_boundary_condition_ace0e28610fbfb77daeb167d0a763c758}{mech\_time}}\ *\ \mbox{\hyperlink{classnetdem_1_1_peri_digm_boundary_condition_ace0e28610fbfb77daeb167d0a763c758}{mech\_time}})\ +\ \textcolor{stringliteral}{"{})\(\backslash\)"{}"{}};}
+\DoxyCodeLine{00370\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IO::to\_string(\mbox{\hyperlink{classnetdem_1_1_peri_digm_boundary_condition_ace0e28610fbfb77daeb167d0a763c758}{mech\_time}}\ *\ \mbox{\hyperlink{classnetdem_1_1_peri_digm_boundary_condition_ace0e28610fbfb77daeb167d0a763c758}{mech\_time}})\ +\ \textcolor{stringliteral}{"{})\(\backslash\)"{}"{}};}
 \DoxyCodeLine{00371\ \ \ \ \ \}}
 \DoxyCodeLine{00372\ \ \ \ \ \textcolor{keywordflow}{return}\ loading\_string;}
 \DoxyCodeLine{00373\ \ \ \}}

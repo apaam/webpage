@@ -10,7 +10,5 @@ var classnetdem_1_1_wall_group =
     [ "Remove", "classnetdem_1_1_wall_group.html#a28328fa26249e93fd507666caa48513d", null ],
     [ "SetSpin", "classnetdem_1_1_wall_group.html#a7d41419d33624982347afad5ce76339e", null ],
     [ "SetVelocity", "classnetdem_1_1_wall_group.html#a77bf39c9de439b197d640f0f3b6e3833", null ],
-    [ "Update", "classnetdem_1_1_wall_group.html#a51bb7011b3adc2ed20e5fbda16bc9ba0", null ],
-    [ "wall_ids", "classnetdem_1_1_wall_group.html#a710857097a4b4b2f4723d07c457b928c", null ],
-    [ "wall_list", "classnetdem_1_1_wall_group.html#ac9eb8db5c62c2f66a6994d0764b59bad", null ]
+    [ "Update", "classnetdem_1_1_wall_group.html#a51bb7011b3adc2ed20e5fbda16bc9ba0", null ]
 ];

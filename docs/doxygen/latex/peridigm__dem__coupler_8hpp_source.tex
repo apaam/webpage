@@ -1,17 +1,17 @@
 \hypertarget{peridigm__dem__coupler_8hpp_source}{}\doxysection{peridigm\+\_\+dem\+\_\+coupler.\+hpp}
 \label{peridigm__dem__coupler_8hpp_source}\index{/Users/lzhshou/Documents/Research/myProjects/apaam/repo/netdem/src/peridigm/peridigm\_dem\_coupler.hpp@{/Users/lzhshou/Documents/Research/myProjects/apaam/repo/netdem/src/peridigm/peridigm\_dem\_coupler.hpp}}
-\mbox{\hyperlink{peridigm__dem__coupler_8hpp}{Go to the documentation of this file.}}
+
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ \textcolor{comment}{//\ Originates\ from\ Fan\ Zhu.\ Modified\ by\ Zhengshou\ Lai\ to\ be\ coupled\ with\ NetDEM}}
 \DoxyCodeLine{00002\ \textcolor{comment}{//\ by\ Sep\ 12,\ 2021}}
 \DoxyCodeLine{00003\ }
 \DoxyCodeLine{00004\ \textcolor{preprocessor}{\#pragma\ once}}
 \DoxyCodeLine{00005\ }
-\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{dem__fragment_8hpp}{dem\_fragment.hpp}}"{}}}
-\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{particle_8hpp}{particle.hpp}}"{}}}
-\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{particle__strength__parameters_8hpp}{particle\_strength\_parameters.hpp}}"{}}}
-\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{peridigm__simulator_8hpp}{peridigm\_simulator.hpp}}"{}}}
-\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{simulation_8hpp}{simulation.hpp}}"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}dem\_fragment.hpp"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}particle.hpp"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}particle\_strength\_parameters.hpp"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}peridigm\_simulator.hpp"{}}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}simulation.hpp"{}}}
 \DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <string>}}
 \DoxyCodeLine{00012\ }
 \DoxyCodeLine{00013\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacenetdem}{netdem}}\ \{}
@@ -32,21 +32,21 @@
 \DoxyCodeLine{00055\ }
 \DoxyCodeLine{00059\ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classnetdem_1_1_peri_digm_d_e_m_coupler_a326aadf5d903ace8f01f7c212008e2a8}{node\_size\_ave}}\{0.0\};}
 \DoxyCodeLine{00060\ }
-\DoxyCodeLine{00064\ \ \ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<int>}}\ \mbox{\hyperlink{classnetdem_1_1_peri_digm_d_e_m_coupler_a7a7776e0507b39fb863a0d8268d3b5c3}{fixed\_nodes}};}
+\DoxyCodeLine{00064\ \ \ VecXT<int>\ \mbox{\hyperlink{classnetdem_1_1_peri_digm_d_e_m_coupler_a7a7776e0507b39fb863a0d8268d3b5c3}{fixed\_nodes}};}
 \DoxyCodeLine{00065\ }
-\DoxyCodeLine{00070\ \ \ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<int>}}\ \mbox{\hyperlink{classnetdem_1_1_peri_digm_d_e_m_coupler_a760c734b51f37ab17369023de1987d50}{boundary\_force\_nodes}};}
+\DoxyCodeLine{00070\ \ \ VecXT<int>\ \mbox{\hyperlink{classnetdem_1_1_peri_digm_d_e_m_coupler_a760c734b51f37ab17369023de1987d50}{boundary\_force\_nodes}};}
 \DoxyCodeLine{00071\ }
-\DoxyCodeLine{00076\ \ \ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<double>}}\ \mbox{\hyperlink{classnetdem_1_1_peri_digm_d_e_m_coupler_ae31ef7e6927f0c5c40f2b36f3acbfda4}{boundary\_force\_node\_vols}};}
+\DoxyCodeLine{00076\ \ \ VecXT<double>\ \mbox{\hyperlink{classnetdem_1_1_peri_digm_d_e_m_coupler_ae31ef7e6927f0c5c40f2b36f3acbfda4}{boundary\_force\_node\_vols}};}
 \DoxyCodeLine{00077\ }
-\DoxyCodeLine{00082\ \ \ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<Vec3d>}}\ \mbox{\hyperlink{classnetdem_1_1_peri_digm_d_e_m_coupler_a9583d48ff372d029f4719989fddbc51b}{boundary\_force\_values}};}
+\DoxyCodeLine{00082\ \ \ VecXT<Vec3d>\ \mbox{\hyperlink{classnetdem_1_1_peri_digm_d_e_m_coupler_a9583d48ff372d029f4719989fddbc51b}{boundary\_force\_values}};}
 \DoxyCodeLine{00083\ }
-\DoxyCodeLine{00088\ \ \ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<int>}}\ \mbox{\hyperlink{classnetdem_1_1_peri_digm_d_e_m_coupler_a132709642870796065ffe5a3cec5be5f}{unbalanced\_force\_nodes}};}
+\DoxyCodeLine{00088\ \ \ VecXT<int>\ \mbox{\hyperlink{classnetdem_1_1_peri_digm_d_e_m_coupler_a132709642870796065ffe5a3cec5be5f}{unbalanced\_force\_nodes}};}
 \DoxyCodeLine{00089\ }
-\DoxyCodeLine{00094\ \ \ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ \mbox{\hyperlink{classnetdem_1_1_peri_digm_d_e_m_coupler_a415b721f30494edf3a5cba04e06855e6}{unbalanced\_force\_values}}\{0,\ 0,\ 0\};}
+\DoxyCodeLine{00094\ \ \ Vec3d\ \mbox{\hyperlink{classnetdem_1_1_peri_digm_d_e_m_coupler_a415b721f30494edf3a5cba04e06855e6}{unbalanced\_force\_values}}\{0,\ 0,\ 0\};}
 \DoxyCodeLine{00095\ }
 \DoxyCodeLine{00099\ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classnetdem_1_1_peri_digm_d_e_m_coupler_aaa959c399b9060c39b6dd7b3276d952f}{contact\_force\_max}}\{0.0\};}
 \DoxyCodeLine{00100\ }
-\DoxyCodeLine{00104\ \ \ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<double>}}\ \mbox{\hyperlink{classnetdem_1_1_peri_digm_d_e_m_coupler_afa09cf7f35d113af57677803235a618f}{contact\_force\_list}};}
+\DoxyCodeLine{00104\ \ \ VecXT<double>\ \mbox{\hyperlink{classnetdem_1_1_peri_digm_d_e_m_coupler_afa09cf7f35d113af57677803235a618f}{contact\_force\_list}};}
 \DoxyCodeLine{00105\ }
 \DoxyCodeLine{00110\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classnetdem_1_1_peri_digm_d_e_m_coupler_a2ee76c8efb3053c97526ffe87e36b1c9}{use\_customized\_loading\_rate}}\{\textcolor{keyword}{false}\};}
 \DoxyCodeLine{00111\ }
@@ -78,47 +78,47 @@
 \DoxyCodeLine{00184\ }
 \DoxyCodeLine{00190\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_peri_digm_d_e_m_coupler_a756e1ce97d9ff543c5482d2a4bd8e291}{Solve}}();}
 \DoxyCodeLine{00191\ }
-\DoxyCodeLine{00202\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_peri_digm_d_e_m_coupler_acdb89d6fe5f9bc611bd3e5ed6a3322c6}{ApplyBoundaryForce}}(\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ \textcolor{keyword}{const}\ \&pos,\ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ \textcolor{keyword}{const}\ \&force);}
+\DoxyCodeLine{00202\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_peri_digm_d_e_m_coupler_acdb89d6fe5f9bc611bd3e5ed6a3322c6}{ApplyBoundaryForce}}(Vec3d\ \textcolor{keyword}{const}\ \&pos,\ Vec3d\ \textcolor{keyword}{const}\ \&force);}
 \DoxyCodeLine{00203\ }
 \DoxyCodeLine{00212\ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classnetdem_1_1_peri_digm_d_e_m_coupler_a61422ecfaf1ad6e0d67317e76caacd60}{CheckBreakage}}();}
 \DoxyCodeLine{00213\ }
-\DoxyCodeLine{00224\ \ \ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<DEMFragment>}}\ \mbox{\hyperlink{classnetdem_1_1_peri_digm_d_e_m_coupler_a647d8f80e93149d89cc6c4c64fbd6ef7}{GetFragments}}();}
+\DoxyCodeLine{00224\ \ \ VecXT<DEMFragment>\ \mbox{\hyperlink{classnetdem_1_1_peri_digm_d_e_m_coupler_a647d8f80e93149d89cc6c4c64fbd6ef7}{GetFragments}}();}
 \DoxyCodeLine{00225\ }
 \DoxyCodeLine{00226\ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00234\ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classnetdem_1_1_peri_digm_d_e_m_coupler_aa3acf9a431a9700896ab2c3d380a3a56}{damage\_limit}}\{0.5\};}
+\DoxyCodeLine{00234\ \ \ \textcolor{keywordtype}{double}\ damage\_limit\{0.5\};}
 \DoxyCodeLine{00235\ }
-\DoxyCodeLine{00242\ \ \ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<VecXT<double>}}>\ \mbox{\hyperlink{classnetdem_1_1_peri_digm_d_e_m_coupler_af54d81813555fc30463ca6fc6b4050be}{damage\_data}};}
+\DoxyCodeLine{00242\ \ \ VecXT<VecXT<double>>\ damage\_data;}
 \DoxyCodeLine{00243\ }
-\DoxyCodeLine{00251\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_peri_digm_d_e_m_coupler_a1289932c1c2bc2c72487f933420aa0ba}{UpdateMaterials}}();}
+\DoxyCodeLine{00251\ \ \ \textcolor{keywordtype}{void}\ UpdateMaterials();}
 \DoxyCodeLine{00252\ }
-\DoxyCodeLine{00259\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_peri_digm_d_e_m_coupler_a632c5a3823ab969709a88ca716354e08}{UpdateMechTime}}();}
+\DoxyCodeLine{00259\ \ \ \textcolor{keywordtype}{void}\ UpdateMechTime();}
 \DoxyCodeLine{00260\ }
-\DoxyCodeLine{00269\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_peri_digm_d_e_m_coupler_a382dab2a3f5bada71850957084c29cbc}{UpdateCriticalStretch}}();}
+\DoxyCodeLine{00269\ \ \ \textcolor{keywordtype}{void}\ UpdateCriticalStretch();}
 \DoxyCodeLine{00270\ }
-\DoxyCodeLine{00279\ \ \ std::string\ \mbox{\hyperlink{classnetdem_1_1_peri_digm_d_e_m_coupler_ae19ff5f13cc7197377ae7af56689911d}{GetResultDirectory}}();}
+\DoxyCodeLine{00279\ \ \ std::string\ GetResultDirectory();}
 \DoxyCodeLine{00280\ }
-\DoxyCodeLine{00294\ \ \ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<int>}}\ \mbox{\hyperlink{classnetdem_1_1_peri_digm_d_e_m_coupler_af036049974cfaac8f7696b9397985078}{SeperateFragments}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<Vec2i>}}\ \&bond\_list);}
+\DoxyCodeLine{00294\ \ \ VecXT<int>\ SeperateFragments(\textcolor{keyword}{const}\ VecXT<Vec2i>\ \&bond\_list);}
 \DoxyCodeLine{00295\ }
-\DoxyCodeLine{00311\ \ \ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<int>}}\ \mbox{\hyperlink{classnetdem_1_1_peri_digm_d_e_m_coupler_ac450caba65bb201a3115815f0dce9cbe}{GetFragmentNodeIndices}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<Vec2i>}}\ \&bond\_list,}
-\DoxyCodeLine{00312\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<int>}}\ \&frag\_id\_list,}
+\DoxyCodeLine{00311\ \ \ VecXT<int>\ GetFragmentNodeIndices(\textcolor{keyword}{const}\ VecXT<Vec2i>\ \&bond\_list,}
+\DoxyCodeLine{00312\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ VecXT<int>\ \&frag\_id\_list,}
 \DoxyCodeLine{00313\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ frag\_id);}
 \DoxyCodeLine{00314\ }
-\DoxyCodeLine{00328\ \ \ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<Vec3d>}}\ \mbox{\hyperlink{classnetdem_1_1_peri_digm_d_e_m_coupler_aaabd1145e75b40169fcd6ee0ba506b69}{GetFragmentNodes}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<Vec3d>}}\ \&node\_list,}
-\DoxyCodeLine{00329\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<int>}}\ \&node\_ids);}
+\DoxyCodeLine{00328\ \ \ VecXT<Vec3d>\ GetFragmentNodes(\textcolor{keyword}{const}\ VecXT<Vec3d>\ \&node\_list,}
+\DoxyCodeLine{00329\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ VecXT<int>\ \&node\_ids);}
 \DoxyCodeLine{00330\ }
-\DoxyCodeLine{00344\ \ \ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<Vec3d>}}\ \mbox{\hyperlink{classnetdem_1_1_peri_digm_d_e_m_coupler_a0ae22dfdb679cda17d77c994525800e2}{GetFragmentNodeVelocities}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<Vec3d>}}\ \&velocity\_list,}
-\DoxyCodeLine{00345\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<int>}}\ \&node\_ids);}
+\DoxyCodeLine{00344\ \ \ VecXT<Vec3d>\ GetFragmentNodeVelocities(\textcolor{keyword}{const}\ VecXT<Vec3d>\ \&velocity\_list,}
+\DoxyCodeLine{00345\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ VecXT<int>\ \&node\_ids);}
 \DoxyCodeLine{00346\ }
-\DoxyCodeLine{00360\ \ \ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<double>}}\ \mbox{\hyperlink{classnetdem_1_1_peri_digm_d_e_m_coupler_a46eccdb43b1ba669f1b1c045af1e01b8}{GetFragmentNodevolumes}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<double>}}\ \&node\_vol\_list,}
-\DoxyCodeLine{00361\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<int>}}\ \&node\_ids);}
+\DoxyCodeLine{00360\ \ \ VecXT<double>\ GetFragmentNodevolumes(\textcolor{keyword}{const}\ VecXT<double>\ \&node\_vol\_list,}
+\DoxyCodeLine{00361\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ VecXT<int>\ \&node\_ids);}
 \DoxyCodeLine{00362\ }
-\DoxyCodeLine{00375\ \ \ \mbox{\hyperlink{classnetdem_1_1_s_t_l_model}{STLModel}}\ \mbox{\hyperlink{classnetdem_1_1_peri_digm_d_e_m_coupler_a8e78370d058dfcccb1edf19151d6d515}{GetAlphaShape}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<Vec3d>}}\ \&point\_list,\ \textcolor{keywordtype}{double}\ alpha);}
+\DoxyCodeLine{00375\ \ \ \mbox{\hyperlink{classnetdem_1_1_s_t_l_model}{STLModel}}\ GetAlphaShape(\textcolor{keyword}{const}\ VecXT<Vec3d>\ \&point\_list,\ \textcolor{keywordtype}{double}\ alpha);}
 \DoxyCodeLine{00376\ }
-\DoxyCodeLine{00388\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_peri_digm_d_e_m_coupler_a3c44f919d6b75cf2feb9c1b59f8f2bca}{ResolveFragmentOverlap}}(\mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<DEMFragment>}}\ *\textcolor{keyword}{const}\ frag\_list);}
+\DoxyCodeLine{00388\ \ \ \textcolor{keywordtype}{void}\ ResolveFragmentOverlap(VecXT<DEMFragment>\ *\textcolor{keyword}{const}\ frag\_list);}
 \DoxyCodeLine{00389\ }
-\DoxyCodeLine{00402\ \ \ \mbox{\hyperlink{classnetdem_1_1_d_e_m_fragment}{DEMFragment}}\ \mbox{\hyperlink{classnetdem_1_1_peri_digm_d_e_m_coupler_a312813891c02e3c8aad4d9ce2493ebbf}{GetFragmentCombined}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<DEMFragment>}}\ \&frag\_list);}
+\DoxyCodeLine{00402\ \ \ \mbox{\hyperlink{classnetdem_1_1_d_e_m_fragment}{DEMFragment}}\ GetFragmentCombined(\textcolor{keyword}{const}\ VecXT<DEMFragment>\ \&frag\_list);}
 \DoxyCodeLine{00403\ }
-\DoxyCodeLine{00412\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_peri_digm_d_e_m_coupler_a9034657ad4600cd5e7735209e4731c09}{WriteLogFileDEM}}();}
+\DoxyCodeLine{00412\ \ \ \textcolor{keywordtype}{void}\ WriteLogFileDEM();}
 \DoxyCodeLine{00413\ \};}
 \DoxyCodeLine{00414\ }
 \DoxyCodeLine{00415\ \}\ \textcolor{comment}{//\ namespace\ netdem}}

@@ -1,17 +1,17 @@
 \hypertarget{solver__ann__pw_8hpp_source}{}\doxysection{solver\+\_\+ann\+\_\+pw.\+hpp}
 \label{solver__ann__pw_8hpp_source}\index{/Users/lzhshou/Documents/Research/myProjects/apaam/repo/netdem/src/mlpack/solver\_ann\_pw.hpp@{/Users/lzhshou/Documents/Research/myProjects/apaam/repo/netdem/src/mlpack/solver\_ann\_pw.hpp}}
-\mbox{\hyperlink{solver__ann__pw_8hpp}{Go to the documentation of this file.}}
+
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
 \DoxyCodeLine{00002\ }
-\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{collision__geometries_8hpp}{collision\_geometries.hpp}}"{}}}
-\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{collision__solver__pw_8hpp}{collision\_solver\_pw.hpp}}"{}}}
-\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{contact__model__factory_8hpp}{contact\_model\_factory.hpp}}"{}}}
-\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{general__net_8hpp}{general\_net.hpp}}"{}}}
-\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{particle_8hpp}{particle.hpp}}"{}}}
-\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{regression__net_8hpp}{regression\_net.hpp}}"{}}}
-\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{shape_8hpp}{shape.hpp}}"{}}}
-\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{wall_8hpp}{wall.hpp}}"{}}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}collision\_geometries.hpp"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}collision\_solver\_pw.hpp"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}contact\_model\_factory.hpp"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}general\_net.hpp"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}particle.hpp"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}regression\_net.hpp"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}shape.hpp"{}}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}wall.hpp"{}}}
 \DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <string>}}
 \DoxyCodeLine{00012\ }
 \DoxyCodeLine{00013\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacenetdem}{netdem}}\ \{}
@@ -58,26 +58,26 @@
 \DoxyCodeLine{00196\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_solver_a_n_n_p_w_a9933eaccd0b3266a07dc9b7d26f98b6e}{ResolveUpdate\_PotentialBased}}(\mbox{\hyperlink{classnetdem_1_1_collision_geometries}{CollisionGeometries}}\ *\textcolor{keyword}{const}\ cnt\_geoms,}
 \DoxyCodeLine{00197\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ timestep);}
 \DoxyCodeLine{00198\ }
-\DoxyCodeLine{00210\ \ \ std::tuple<double,\ Vec3d>\ \mbox{\hyperlink{classnetdem_1_1_solver_a_n_n_p_w_aa52d72d511bac2290b7c454324d6ae01}{Potential}}(\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ \textcolor{keyword}{const}\ \&pos,\ \mbox{\hyperlink{namespacenetdem_a13d5371f99b252a70fd5a5081b910370}{Vec4d}}\ \textcolor{keyword}{const}\ \&quat);}
+\DoxyCodeLine{00210\ \ \ std::tuple<double,\ Vec3d>\ \mbox{\hyperlink{classnetdem_1_1_solver_a_n_n_p_w_aa52d72d511bac2290b7c454324d6ae01}{Potential}}(Vec3d\ \textcolor{keyword}{const}\ \&pos,\ Vec4d\ \textcolor{keyword}{const}\ \&quat);}
 \DoxyCodeLine{00211\ }
 \DoxyCodeLine{00220\ \ \ std::tuple<Vec3d,\ Vec3d,\ Vec3d>\ \mbox{\hyperlink{classnetdem_1_1_solver_a_n_n_p_w_a0e60fe21eecbf1128bcbf9d5c197aa14}{EvaluateContactForces}}();}
 \DoxyCodeLine{00221\ }
 \DoxyCodeLine{00222\ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00224\ \ \ \mbox{\hyperlink{classnetdem_1_1_shape}{Shape}}\ *\mbox{\hyperlink{classnetdem_1_1_solver_a_n_n_p_w_a95268ae3d3cafa354a06a7189c72b720}{shape\_1}}\{\textcolor{keyword}{nullptr}\};}
+\DoxyCodeLine{00224\ \ \ \mbox{\hyperlink{classnetdem_1_1_shape}{Shape}}\ *shape\_1\{\textcolor{keyword}{nullptr}\};}
 \DoxyCodeLine{00225\ }
-\DoxyCodeLine{00227\ \ \ \mbox{\hyperlink{classnetdem_1_1_shape}{Shape}}\ *\mbox{\hyperlink{classnetdem_1_1_solver_a_n_n_p_w_a9eb5338305e02b0163b3f8425eb75b47}{shape\_2}}\{\textcolor{keyword}{nullptr}\};}
+\DoxyCodeLine{00227\ \ \ \mbox{\hyperlink{classnetdem_1_1_shape}{Shape}}\ *shape\_2\{\textcolor{keyword}{nullptr}\};}
 \DoxyCodeLine{00228\ }
-\DoxyCodeLine{00230\ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classnetdem_1_1_solver_a_n_n_p_w_a1c0f6ae2512a664916684cd585b55b15}{bound\_sphere\_radius\_1}};}
+\DoxyCodeLine{00230\ \ \ \textcolor{keywordtype}{double}\ bound\_sphere\_radius\_1;}
 \DoxyCodeLine{00231\ }
-\DoxyCodeLine{00233\ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classnetdem_1_1_solver_a_n_n_p_w_a6b52199fa4a6a236afb34566c0f4d505}{bound\_sphere\_radius\_2}};}
+\DoxyCodeLine{00233\ \ \ \textcolor{keywordtype}{double}\ bound\_sphere\_radius\_2;}
 \DoxyCodeLine{00234\ }
-\DoxyCodeLine{00236\ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classnetdem_1_1_solver_a_n_n_p_w_af97ef342138f869801e97ae7794f5574}{scale}};}
+\DoxyCodeLine{00236\ \ \ \textcolor{keywordtype}{double}\ scale;}
 \DoxyCodeLine{00237\ }
-\DoxyCodeLine{00239\ \ \ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ \mbox{\hyperlink{classnetdem_1_1_solver_a_n_n_p_w_ae46a0bd5078e458729d1e4bbc4d6329a}{dpos\_12}};}
+\DoxyCodeLine{00239\ \ \ Vec3d\ dpos\_12;}
 \DoxyCodeLine{00240\ }
-\DoxyCodeLine{00242\ \ \ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ \mbox{\hyperlink{classnetdem_1_1_solver_a_n_n_p_w_a87cce5f15494af51ffbb335b5ea2e6ea}{dpos\_12\_ref}};}
+\DoxyCodeLine{00242\ \ \ Vec3d\ dpos\_12\_ref;}
 \DoxyCodeLine{00243\ }
-\DoxyCodeLine{00245\ \ \ \mbox{\hyperlink{namespacenetdem_a13d5371f99b252a70fd5a5081b910370}{Vec4d}}\ \mbox{\hyperlink{classnetdem_1_1_solver_a_n_n_p_w_a496a1bbf0f4317f8c6b4cb57a42091b4}{dquat\_12}};}
+\DoxyCodeLine{00245\ \ \ Vec4d\ dquat\_12;}
 \DoxyCodeLine{00246\ \};}
 \DoxyCodeLine{00247\ }
 \DoxyCodeLine{00248\ \}\ \textcolor{comment}{//\ namespace\ netdem}}

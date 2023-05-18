@@ -1,47 +1,47 @@
 \hypertarget{distribution__uniform_8hpp_source}{}\doxysection{distribution\+\_\+uniform.\+hpp}
 \label{distribution__uniform_8hpp_source}\index{/Users/lzhshou/Documents/Research/myProjects/apaam/repo/netdem/src/utils/distribution\_uniform.hpp@{/Users/lzhshou/Documents/Research/myProjects/apaam/repo/netdem/src/utils/distribution\_uniform.hpp}}
-\mbox{\hyperlink{distribution__uniform_8hpp}{Go to the documentation of this file.}}
+
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
 \DoxyCodeLine{00002\ }
-\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{distribution_8hpp}{distribution.hpp}}"{}}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}distribution.hpp"{}}}
 \DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <random>}}
 \DoxyCodeLine{00005\ }
 \DoxyCodeLine{00011\ \textcolor{keyword}{using\ namespace\ }\mbox{\hyperlink{namespacenetdem}{netdem}};}
 \DoxyCodeLine{00012\ }
 \DoxyCodeLine{00020\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_uniform_distribution}{UniformDistribution}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classnetdem_1_1_distribution}{Distribution}}\ \{}
 \DoxyCodeLine{00021\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00025\ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_uniform_distribution_a8149c07654582ab5bcba05286303c27f}{bound\_min}},\ \mbox{\hyperlink{class_uniform_distribution_aa4f03d869bb468295ac3b8dcb9a4d434}{bound\_max}};}
+\DoxyCodeLine{00025\ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_uniform_distribution_a8149c07654582ab5bcba05286303c27f}{bound\_min}},\ bound\_max;}
 \DoxyCodeLine{00026\ }
-\DoxyCodeLine{00034\ \ \ \mbox{\hyperlink{class_uniform_distribution_a796cddf2004918526dabdba0037722ed}{UniformDistribution}}()\ :\ \mbox{\hyperlink{class_uniform_distribution_a8149c07654582ab5bcba05286303c27f}{bound\_min}}(0),\ \mbox{\hyperlink{class_uniform_distribution_aa4f03d869bb468295ac3b8dcb9a4d434}{bound\_max}}(1)\ \{}
+\DoxyCodeLine{00034\ \ \ \mbox{\hyperlink{class_uniform_distribution_a796cddf2004918526dabdba0037722ed}{UniformDistribution}}()\ :\ \mbox{\hyperlink{class_uniform_distribution_a8149c07654582ab5bcba05286303c27f}{bound\_min}}(0),\ bound\_max(1)\ \{}
 \DoxyCodeLine{00035\ \ \ \ \ std::random\_device\ rd;}
-\DoxyCodeLine{00036\ \ \ \ \ \mbox{\hyperlink{class_uniform_distribution_a1f9ae4079e31b34c3c42aef0f54219f9}{mt\_eng}}\ =\ std::mt19937(rd());}
-\DoxyCodeLine{00037\ \ \ \ \ \mbox{\hyperlink{class_uniform_distribution_a3c096aaa715f8bfeb9ccfc87fff7a98b}{real\_dist}}\ =\ std::uniform\_real\_distribution<double>(0,\ 1);}
+\DoxyCodeLine{00036\ \ \ \ \ mt\_eng\ =\ std::mt19937(rd());}
+\DoxyCodeLine{00037\ \ \ \ \ real\_dist\ =\ std::uniform\_real\_distribution<double>(0,\ 1);}
 \DoxyCodeLine{00038\ \ \ \}}
 \DoxyCodeLine{00039\ }
-\DoxyCodeLine{00051\ \ \ \mbox{\hyperlink{class_uniform_distribution_a4e9d38caa8826e613f316a16a20f8159}{UniformDistribution}}(\textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_uniform_distribution_a8149c07654582ab5bcba05286303c27f}{bound\_min}},\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_uniform_distribution_aa4f03d869bb468295ac3b8dcb9a4d434}{bound\_max}})}
-\DoxyCodeLine{00052\ \ \ \ \ \ \ :\ \mbox{\hyperlink{class_uniform_distribution_a8149c07654582ab5bcba05286303c27f}{bound\_min}}(\mbox{\hyperlink{class_uniform_distribution_a8149c07654582ab5bcba05286303c27f}{bound\_min}}),\ \mbox{\hyperlink{class_uniform_distribution_aa4f03d869bb468295ac3b8dcb9a4d434}{bound\_max}}(\mbox{\hyperlink{class_uniform_distribution_aa4f03d869bb468295ac3b8dcb9a4d434}{bound\_max}})\ \{}
+\DoxyCodeLine{00051\ \ \ \mbox{\hyperlink{class_uniform_distribution_a4e9d38caa8826e613f316a16a20f8159}{UniformDistribution}}(\textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_uniform_distribution_a8149c07654582ab5bcba05286303c27f}{bound\_min}},\ \textcolor{keywordtype}{double}\ bound\_max)}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ :\ \mbox{\hyperlink{class_uniform_distribution_a8149c07654582ab5bcba05286303c27f}{bound\_min}}(\mbox{\hyperlink{class_uniform_distribution_a8149c07654582ab5bcba05286303c27f}{bound\_min}}),\ bound\_max(bound\_max)\ \{}
 \DoxyCodeLine{00053\ \ \ \ \ std::random\_device\ rd;}
-\DoxyCodeLine{00054\ \ \ \ \ \mbox{\hyperlink{class_uniform_distribution_a1f9ae4079e31b34c3c42aef0f54219f9}{mt\_eng}}\ =\ std::mt19937(rd());}
-\DoxyCodeLine{00055\ \ \ \ \ \mbox{\hyperlink{class_uniform_distribution_a3c096aaa715f8bfeb9ccfc87fff7a98b}{real\_dist}}\ =\ std::uniform\_real\_distribution<double>(\mbox{\hyperlink{class_uniform_distribution_a8149c07654582ab5bcba05286303c27f}{bound\_min}},\ \mbox{\hyperlink{class_uniform_distribution_aa4f03d869bb468295ac3b8dcb9a4d434}{bound\_max}});}
+\DoxyCodeLine{00054\ \ \ \ \ mt\_eng\ =\ std::mt19937(rd());}
+\DoxyCodeLine{00055\ \ \ \ \ real\_dist\ =\ std::uniform\_real\_distribution<double>(\mbox{\hyperlink{class_uniform_distribution_a8149c07654582ab5bcba05286303c27f}{bound\_min}},\ bound\_max);}
 \DoxyCodeLine{00056\ \ \ \}}
 \DoxyCodeLine{00057\ }
-\DoxyCodeLine{00063\ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_uniform_distribution_aae19bbb1f331465ff67203b8621fac23}{Get}}()\textcolor{keyword}{\ override\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_uniform_distribution_a3c096aaa715f8bfeb9ccfc87fff7a98b}{real\_dist}}(\mbox{\hyperlink{class_uniform_distribution_a1f9ae4079e31b34c3c42aef0f54219f9}{mt\_eng}});\ \}}
+\DoxyCodeLine{00063\ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_uniform_distribution_aae19bbb1f331465ff67203b8621fac23}{Get}}()\textcolor{keyword}{\ override\ }\{\ \textcolor{keywordflow}{return}\ real\_dist(mt\_eng);\ \}}
 \DoxyCodeLine{00064\ }
-\DoxyCodeLine{00075\ \ \ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<double>}}\ \mbox{\hyperlink{class_uniform_distribution_ad45593f9674287928452253fc5b84340}{Get}}(\textcolor{keywordtype}{int}\ num)\textcolor{keyword}{\ override\ }\{}
-\DoxyCodeLine{00076\ \ \ \ \ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<double>}}\ num\_list(num,\ 0);}
+\DoxyCodeLine{00075\ \ \ VecXT<double>\ \mbox{\hyperlink{class_uniform_distribution_ad45593f9674287928452253fc5b84340}{Get}}(\textcolor{keywordtype}{int}\ num)\textcolor{keyword}{\ override\ }\{}
+\DoxyCodeLine{00076\ \ \ \ \ VecXT<double>\ num\_list(num,\ 0);}
 \DoxyCodeLine{00077\ }
 \DoxyCodeLine{00078\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ num;\ i++)\ \{}
-\DoxyCodeLine{00079\ \ \ \ \ \ \ num\_list[i]\ =\ \mbox{\hyperlink{class_uniform_distribution_a3c096aaa715f8bfeb9ccfc87fff7a98b}{real\_dist}}(\mbox{\hyperlink{class_uniform_distribution_a1f9ae4079e31b34c3c42aef0f54219f9}{mt\_eng}});}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ num\_list[i]\ =\ real\_dist(mt\_eng);}
 \DoxyCodeLine{00080\ \ \ \ \ \}}
 \DoxyCodeLine{00081\ }
 \DoxyCodeLine{00082\ \ \ \ \ \textcolor{keywordflow}{return}\ num\_list;}
 \DoxyCodeLine{00083\ \ \ \}}
 \DoxyCodeLine{00084\ }
 \DoxyCodeLine{00085\ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00086\ \ \ std::mt19937\ \mbox{\hyperlink{class_uniform_distribution_a1f9ae4079e31b34c3c42aef0f54219f9}{mt\_eng}};\ }
+\DoxyCodeLine{00086\ \ \ std::mt19937\ mt\_eng;\ }
 \DoxyCodeLine{00087\ \ \ std::uniform\_real\_distribution<double>}
-\DoxyCodeLine{00088\ \ \ \ \ \ \ \mbox{\hyperlink{class_uniform_distribution_a3c096aaa715f8bfeb9ccfc87fff7a98b}{real\_dist}};\ }
+\DoxyCodeLine{00088\ \ \ \ \ \ \ real\_dist;\ }
 \DoxyCodeLine{00089\ \};}
 
 \end{DoxyCode}

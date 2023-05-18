@@ -2,26 +2,11 @@ var classnetdem_1_1_deformation_analysis =
 [
     [ "Settings", "classnetdem_1_1_deformation_analysis_1_1_settings.html", "classnetdem_1_1_deformation_analysis_1_1_settings" ],
     [ "DeformationAnalysis", "classnetdem_1_1_deformation_analysis.html#ab05aac278d6985741cb97d43052794ec", null ],
-    [ "CheckIfToExecute", "classnetdem_1_1_deformation_analysis.html#a34e5bc01e00f9d982d08e458f18c1d53", null ],
     [ "Clone", "classnetdem_1_1_deformation_analysis.html#a98c5cf82429ae3e24421a5c904a0655b", null ],
-    [ "EvaluateBCForce", "classnetdem_1_1_deformation_analysis.html#a3e5986249c4b67ca9d0b05adeb3111cc", null ],
-    [ "EvaluateBCForce", "classnetdem_1_1_deformation_analysis.html#ac9be9a02ba07007c3fca87432983e542", null ],
     [ "Execute", "classnetdem_1_1_deformation_analysis.html#a8385f9938a351aa739992e03c5f0ef80", null ],
-    [ "GetFEMResultFileName", "classnetdem_1_1_deformation_analysis.html#a377185728ce479037ab815e65039a5c0", null ],
     [ "Init", "classnetdem_1_1_deformation_analysis.html#a8159a1d65475e975f45886acf6c14253", null ],
-    [ "SaveFEMAsVTK", "classnetdem_1_1_deformation_analysis.html#ad2927c7129358774145cddf4e6aeb826", null ],
     [ "SetParticles", "classnetdem_1_1_deformation_analysis.html#afc6bbd7046fd0cd377e6d67f659b12e3", null ],
     [ "SetParticles", "classnetdem_1_1_deformation_analysis.html#adb4d5c3524c1d26f1c2a0b7af09b1e56", null ],
     [ "SetParticlesFromScene", "classnetdem_1_1_deformation_analysis.html#a4334dd75d854e5002be2bdd56a6a8535", null ],
-    [ "SetSettings", "classnetdem_1_1_deformation_analysis.html#a58b96b8770d840d7cf3b76e626eb3386", null ],
-    [ "SolveDeformation", "classnetdem_1_1_deformation_analysis.html#ae8b9fc92d62adc5d3cc1d5ec8ff21b91", null ],
-    [ "Update", "classnetdem_1_1_deformation_analysis.html#af3b65d438ee903795a61bd4ed225b0ec", null ],
-    [ "particle_id_list", "classnetdem_1_1_deformation_analysis.html#a815f027e9f7230aa685c9257adea9c83", null ],
-    [ "particle_map", "classnetdem_1_1_deformation_analysis.html#a3e35977142064ee467ab8c6490d907ec", null ],
-    [ "save_cycle_previous", "classnetdem_1_1_deformation_analysis.html#a2859a8fef30d6e1937dd30f80f04bfe7", null ],
-    [ "save_time_previous", "classnetdem_1_1_deformation_analysis.html#a7afcb1725371e64adbd40973256f628e", null ],
-    [ "settings", "classnetdem_1_1_deformation_analysis.html#a4f3bb4166d6db7cc6884ddef42711271", null ],
-    [ "solve_cycle_previous", "classnetdem_1_1_deformation_analysis.html#a21c9e61641b356f4e1adcd0372e8a6b4", null ],
-    [ "solve_time_previous", "classnetdem_1_1_deformation_analysis.html#add1095acc67a34a374a60e00c203904d", null ],
-    [ "use_particles_in_scene", "classnetdem_1_1_deformation_analysis.html#aa53fd96fd366aff89d5d872ce2a2fd98", null ]
+    [ "Update", "classnetdem_1_1_deformation_analysis.html#af3b65d438ee903795a61bd4ed225b0ec", null ]
 ];
