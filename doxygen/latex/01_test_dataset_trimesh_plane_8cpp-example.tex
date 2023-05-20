@@ -3,13 +3,13 @@ This is an example of how to use the netdem library.
 
 
 \begin{DoxyCodeInclude}{0}
-\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}contact\_solver\_factory.hpp"{}}}
-\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}model\_volume\_based.hpp"{}}}
-\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}particle.hpp"{}}}
-\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}shape\_trimesh.hpp"{}}}
-\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}solver\_boolean\_pp.hpp"{}}}
-\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}solver\_boolean\_pw.hpp"{}}}
-\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}utils\_math.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{contact__solver__factory_8hpp}{contact\_solver\_factory.hpp}}"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{model__volume__based_8hpp}{model\_volume\_based.hpp}}"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{particle_8hpp}{particle.hpp}}"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{shape__trimesh_8hpp}{shape\_trimesh.hpp}}"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{solver__boolean__pp_8hpp}{solver\_boolean\_pp.hpp}}"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{solver__boolean__pw_8hpp}{solver\_boolean\_pw.hpp}}"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{utils__math_8hpp}{utils\_math.hpp}}"{}}}
 \DoxyCodeLine{\textcolor{preprocessor}{\#include\ <fstream>}}
 \DoxyCodeLine{\textcolor{preprocessor}{\#include\ <iostream>}}
 \DoxyCodeLine{\textcolor{preprocessor}{\#include\ <random>}}
@@ -19,12 +19,12 @@ This is an example of how to use the netdem library.
 \DoxyCodeLine{\textcolor{keyword}{using\ namespace\ }\mbox{\hyperlink{namespacenetdem}{netdem}};}
 \DoxyCodeLine{\textcolor{keyword}{using\ namespace\ }std;}
 \DoxyCodeLine{}
-\DoxyCodeLine{VecXT<VecXT<double>>\ LoadDatasetTrimeshPlane(\textcolor{keywordtype}{string}\ filename)\ \{}
+\DoxyCodeLine{\mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<VecXT<double>}}>\ LoadDatasetTrimeshPlane(\textcolor{keywordtype}{string}\ filename)\ \{}
 \DoxyCodeLine{\ \ ifstream\ file\_handle;}
 \DoxyCodeLine{\ \ file\_handle.open(filename,\ ios::binary);}
 \DoxyCodeLine{\ \ \textcolor{keywordflow}{if}\ (!file\_handle)\ \{}
 \DoxyCodeLine{\ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Fail\ to\ read\ file:\ "{}}\ <<\ filename\ <<\ endl;}
-\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{return}\ VecXT<VecXT<double>>();}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<VecXT<double>}}>();}
 \DoxyCodeLine{\ \ \}}
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ file\_handle.seekg(0,\ ios::end);}
@@ -38,9 +38,9 @@ This is an example of how to use the netdem library.
 \DoxyCodeLine{\ \ ss.str(\textcolor{stringliteral}{"{}"{}});}
 \DoxyCodeLine{\ \ ss.clear();}
 \DoxyCodeLine{\ \ ss.str(buffer);}
-\DoxyCodeLine{\ \ VecXT<VecXT<double>>\ dataset;}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<VecXT<double>}}>\ dataset;}
 \DoxyCodeLine{\ \ \textcolor{keywordtype}{string}\ str\_line,\ str\_num;}
-\DoxyCodeLine{\ \ VecXT<double>\ data\_line;}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<double>}}\ data\_line;}
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ getline(ss,\ str\_line);}
 \DoxyCodeLine{\ \ istringstream\ readstr(str\_line);}
@@ -89,7 +89,7 @@ This is an example of how to use the netdem library.
 \DoxyCodeLine{\ \ cout\ <<\ \textcolor{stringliteral}{"{}wall\ created\ ...\ "{}}\ <<\ endl;}
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ \textcolor{keywordtype}{string}\ root\_dir\ =\ \textcolor{stringliteral}{"{}local/examples/netdem/ann\_models/trimesh\_plane/"{}};}
-\DoxyCodeLine{\ \ VecXT<VecXT<double>>\ dataset\ =}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<VecXT<double>}}>\ dataset\ =}
 \DoxyCodeLine{\ \ \ \ \ \ LoadDatasetTrimeshPlane(root\_dir\ +\ \textcolor{stringliteral}{"{}dataset\_detection.txt"{}});}
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ \textcolor{comment}{//\ for\ (int\ i\ =\ 0;\ i\ <\ dataset.size();\ i++)\ \{\ //\ for\ debug,\ test\ the\ loadded}}
@@ -101,7 +101,7 @@ This is an example of how to use the netdem library.
 \DoxyCodeLine{\ \ \textcolor{comment}{//\ \}}}
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ \textcolor{keywordtype}{int}\ num\_samples\ =\ dataset.size();}
-\DoxyCodeLine{\ \ \textcolor{keyword}{auto}\ *ds\_inputs\ =\ \textcolor{keyword}{new}\ Vec4d[num\_samples];}
+\DoxyCodeLine{\ \ \textcolor{keyword}{auto}\ *ds\_inputs\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{namespacenetdem_a13d5371f99b252a70fd5a5081b910370}{Vec4d}}[num\_samples];}
 \DoxyCodeLine{\ \ \textcolor{keyword}{auto}\ *ds\_cnt\_flags\ =\ \textcolor{keyword}{new}\ \textcolor{keywordtype}{bool}[num\_samples];}
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0,\ skip\ =\ 1;\ i\ <\ num\_samples;\ i\ +=\ skip)\ \{}
@@ -115,7 +115,7 @@ This is an example of how to use the netdem library.
 \DoxyCodeLine{\ \ \mbox{\hyperlink{classnetdem_1_1_volume_based}{VolumeBased}}\ cnt\_model;}
 \DoxyCodeLine{\ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ num\_samples;\ i++)\ \{}
 \DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{double}\ dist\_pc\_to\_plane;}
-\DoxyCodeLine{\ \ \ \ Vec3d\ dir\_n;}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ dir\_n;}
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ unpack\ the\ inputs}}
 \DoxyCodeLine{\ \ \ \ dist\_pc\_to\_plane\ =\ ds\_inputs[i][0];}
@@ -125,20 +125,20 @@ This is an example of how to use the netdem library.
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ transform\ the\ inputs\ to\ the\ wall\ position\ and\ rotation}}
 \DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ this\ is\ only\ for\ verification.\ No\ need\ to\ do\ this\ in\ contact\ solver}}
-\DoxyCodeLine{\ \ \ \ Vec3d\ dir\_n\_ref\{0,\ 0,\ 1\},\ rot\_axis;}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ dir\_n\_ref\{0,\ 0,\ 1\},\ rot\_axis;}
 \DoxyCodeLine{\ \ \ \ rot\_axis\ =\ Math::Cross(dir\_n\_ref,\ dir\_n);}
 \DoxyCodeLine{}
-\DoxyCodeLine{\ \ \ \ Vec4d\ quat;}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{namespacenetdem_a13d5371f99b252a70fd5a5081b910370}{Vec4d}}\ quat;}
 \DoxyCodeLine{\ \ \ \ quat[0]\ =\ 1.0\ +\ Math::Dot(dir\_n,\ dir\_n\_ref);}
 \DoxyCodeLine{\ \ \ \ quat[1]\ =\ rot\_axis[0];}
 \DoxyCodeLine{\ \ \ \ quat[2]\ =\ rot\_axis[1];}
 \DoxyCodeLine{\ \ \ \ quat[3]\ =\ rot\_axis[2];}
 \DoxyCodeLine{\ \ \ \ Math::Quaternion::Normalize(\&quat);}
 \DoxyCodeLine{}
-\DoxyCodeLine{\ \ \ \ obj\_w.SetPosition(-\/dist\_pc\_to\_plane\ *\ dir\_n[0],}
+\DoxyCodeLine{\ \ \ \ obj\_w.\mbox{\hyperlink{classnetdem_1_1_wall_a72260b6cfb980c6a53aaf716cff0e57e}{SetPosition}}(-\/dist\_pc\_to\_plane\ *\ dir\_n[0],}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ -\/dist\_pc\_to\_plane\ *\ dir\_n[1],}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ -\/dist\_pc\_to\_plane\ *\ dir\_n[2]);}
-\DoxyCodeLine{\ \ \ \ obj\_w.SetQuaternion(quat[0],\ quat[1],\ quat[2],\ quat[3]);}
+\DoxyCodeLine{\ \ \ \ obj\_w.\mbox{\hyperlink{classnetdem_1_1_wall_a01dde413501ffddde0ee31434ca5f9fe}{SetQuaternion}}(quat[0],\ quat[1],\ quat[2],\ quat[3]);}
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ \ \ cnt\_solver.\mbox{\hyperlink{classnetdem_1_1_solver_boolean_p_w_a4de5a57ebae1e1525345cdbe137273f2}{Init}}(\&obj\_p,\ \&obj\_w);}
 \DoxyCodeLine{}
@@ -167,13 +167,13 @@ This is an example of how to use the netdem library.
 \DoxyCodeLine{\ \ cout\ <<\ \textcolor{stringliteral}{"{}wall\ created\ ...\ "{}}\ <<\ endl;}
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ \textcolor{keywordtype}{string}\ root\_dir\ =\ \textcolor{stringliteral}{"{}local/examples/netdem/ann\_models/trimesh\_plane/"{}};}
-\DoxyCodeLine{\ \ VecXT<VecXT<double>>\ dataset\ =}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<VecXT<double>}}>\ dataset\ =}
 \DoxyCodeLine{\ \ \ \ \ \ LoadDatasetTrimeshPlane(root\_dir\ +\ \textcolor{stringliteral}{"{}dataset\_resolution.txt"{}});}
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ \textcolor{keywordtype}{int}\ num\_samples\ =\ dataset.size();}
-\DoxyCodeLine{\ \ \textcolor{keyword}{auto}\ *ds\_inputs\ =\ \textcolor{keyword}{new}\ Vec4d[num\_samples];}
+\DoxyCodeLine{\ \ \textcolor{keyword}{auto}\ *ds\_inputs\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{namespacenetdem_a13d5371f99b252a70fd5a5081b910370}{Vec4d}}[num\_samples];}
 \DoxyCodeLine{\ \ \textcolor{keyword}{auto}\ *ds\_cnt\_flags\ =\ \textcolor{keyword}{new}\ \textcolor{keywordtype}{bool}[num\_samples];}
-\DoxyCodeLine{\ \ \textcolor{keyword}{auto}\ *ds\_cnt\_feats\ =\ \textcolor{keyword}{new}\ VecNT<double,\ 5>[num\_samples];}
+\DoxyCodeLine{\ \ \textcolor{keyword}{auto}\ *ds\_cnt\_feats\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{namespacenetdem_a4c6a34e4b9bc01901ac527bb8ea83909}{VecNT<double,\ 5>}}[num\_samples];}
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0,\ skip\ =\ 1;\ i\ <\ num\_samples;\ i\ +=\ skip)\ \{}
 \DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\_inputs\ =\ 0;\ i\_inputs\ <\ 4;\ i\_inputs++)\ \{}
@@ -188,7 +188,7 @@ This is an example of how to use the netdem library.
 \DoxyCodeLine{\ \ \mbox{\hyperlink{classnetdem_1_1_volume_based}{VolumeBased}}\ cnt\_model;}
 \DoxyCodeLine{\ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ num\_samples;\ i++)\ \{}
 \DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{double}\ dist\_pc\_to\_plane;}
-\DoxyCodeLine{\ \ \ \ Vec3d\ dir\_n;}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ dir\_n;}
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ unpack\ the\ inputs}}
 \DoxyCodeLine{\ \ \ \ dist\_pc\_to\_plane\ =\ ds\_inputs[i][0];}
@@ -199,16 +199,16 @@ This is an example of how to use the netdem library.
 \DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ transform\ the\ inputs\ to\ the\ wall\ position\ and\ rotation}}
 \DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ this\ is\ only\ for\ verification.\ No\ need\ to\ do\ this\ in\ contact\ solver}}
 \DoxyCodeLine{}
-\DoxyCodeLine{\ \ \ \ Vec3d\ dir\_n\_ref\{0,\ 0,\ 1\};}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ dir\_n\_ref\{0,\ 0,\ 1\};}
 \DoxyCodeLine{\ \ \ \ \textcolor{keyword}{auto}\ rot\_axis\ =\ Math::Cross(dir\_n\_ref,\ dir\_n);}
 \DoxyCodeLine{\ \ \ \ Math::Normalize(\&rot\_axis);}
 \DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{double}\ rot\_angle\ =\ acos(Math::Dot(dir\_n,\ dir\_n\_ref));}
-\DoxyCodeLine{\ \ \ \ Vec4d\ quat\ =\ Math::Quaternion::FromRodrigues(rot\_angle,\ rot\_axis);}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{namespacenetdem_a13d5371f99b252a70fd5a5081b910370}{Vec4d}}\ quat\ =\ Math::Quaternion::FromRodrigues(rot\_angle,\ rot\_axis);}
 \DoxyCodeLine{}
-\DoxyCodeLine{\ \ \ \ obj\_w.SetPosition(-\/dist\_pc\_to\_plane\ *\ dir\_n[0],}
+\DoxyCodeLine{\ \ \ \ obj\_w.\mbox{\hyperlink{classnetdem_1_1_wall_a72260b6cfb980c6a53aaf716cff0e57e}{SetPosition}}(-\/dist\_pc\_to\_plane\ *\ dir\_n[0],}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ -\/dist\_pc\_to\_plane\ *\ dir\_n[1],}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ -\/dist\_pc\_to\_plane\ *\ dir\_n[2]);}
-\DoxyCodeLine{\ \ \ \ obj\_w.SetQuaternion(quat[0],\ quat[1],\ quat[2],\ quat[3]);}
+\DoxyCodeLine{\ \ \ \ obj\_w.\mbox{\hyperlink{classnetdem_1_1_wall_a01dde413501ffddde0ee31434ca5f9fe}{SetQuaternion}}(quat[0],\ quat[1],\ quat[2],\ quat[3]);}
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ \ \ cnt\_solver.\mbox{\hyperlink{classnetdem_1_1_solver_boolean_p_w_a4de5a57ebae1e1525345cdbe137273f2}{Init}}(\&obj\_p,\ \&obj\_w);}
 \DoxyCodeLine{}

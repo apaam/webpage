@@ -3,16 +3,16 @@ This is an example of how to use the netdem library.
 
 
 \begin{DoxyCodeInclude}{0}
-\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}dem\_profiler.hpp"{}}}
-\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}distribution\_uniform.hpp"{}}}
-\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}shape\_level\_set.hpp"{}}}
-\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}shape\_poly\_super\_ellipsoid.hpp"{}}}
-\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}shape\_poly\_super\_quadrics.hpp"{}}}
-\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}shape\_spherical\_harmonics.hpp"{}}}
-\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}shape\_trimesh.hpp"{}}}
-\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}stl\_model.hpp"{}}}
-\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}tetmesh.hpp"{}}}
-\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}utils\_math.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{dem__profiler_8hpp}{dem\_profiler.hpp}}"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{distribution__uniform_8hpp}{distribution\_uniform.hpp}}"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{shape__level__set_8hpp}{shape\_level\_set.hpp}}"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{shape__poly__super__ellipsoid_8hpp}{shape\_poly\_super\_ellipsoid.hpp}}"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{shape__poly__super__quadrics_8hpp}{shape\_poly\_super\_quadrics.hpp}}"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{shape__spherical__harmonics_8hpp}{shape\_spherical\_harmonics.hpp}}"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{shape__trimesh_8hpp}{shape\_trimesh.hpp}}"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{stl__model_8hpp}{stl\_model.hpp}}"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{tetmesh_8hpp}{tetmesh.hpp}}"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{utils__math_8hpp}{utils\_math.hpp}}"{}}}
 \DoxyCodeLine{\textcolor{preprocessor}{\#include\ <filesystem>}}
 \DoxyCodeLine{\textcolor{preprocessor}{\#include\ <fstream>}}
 \DoxyCodeLine{\textcolor{preprocessor}{\#include\ <iostream>}}
@@ -96,14 +96,14 @@ This is an example of how to use the netdem library.
 \DoxyCodeLine{\ \ stl\_model.SaveAsSTL(root\_dir\ +\ \textcolor{stringliteral}{"{}surface\_mesh.stl"{}});}
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ \textcolor{comment}{//\ calculate\ the\ signed\ distance}}
-\DoxyCodeLine{\ \ VecXT<double>\ dist\_list;}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<double>}}\ dist\_list;}
 \DoxyCodeLine{\ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \&node\ :\ tetmesh.\mbox{\hyperlink{classnetdem_1_1_tet_mesh_a851cb634900ec65f4370559106970bfb}{nodes}})\ \{}
 \DoxyCodeLine{\ \ \ \ dist\_list.push\_back(shape-\/>SignedDistance(node));}
 \DoxyCodeLine{\ \ \}}
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ \mbox{\hyperlink{classnetdem_1_1_d_e_m_profiler}{DEMProfiler}}\ dem\_profiler;}
 \DoxyCodeLine{\ \ dem\_profiler.\mbox{\hyperlink{classnetdem_1_1_d_e_m_profiler_a78b51bc67b8a79503f870ee34ac89e76}{Clear}}();}
-\DoxyCodeLine{\ \ dem\_profiler.\mbox{\hyperlink{classnetdem_1_1_d_e_m_profiler_aec4a998774b78edc07c06b148f0b3cf7}{StartTimer}}(TimerType::custom);}
+\DoxyCodeLine{\ \ dem\_profiler.\mbox{\hyperlink{classnetdem_1_1_d_e_m_profiler_aec4a998774b78edc07c06b148f0b3cf7}{StartTimer}}(DEMProfiler::TimerType::custom);}
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ \mbox{\hyperlink{classnetdem_1_1_uniform_distribution}{UniformDistribution}}\ uniform\_dist\_x(shape-\/>bound\_aabb\_min[0],}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ shape-\/>bound\_aabb\_max[0]);}
@@ -119,18 +119,18 @@ This is an example of how to use the netdem library.
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ num\_trials;\ i++)\ \{}
 \DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \&node\ :\ tetmesh.\mbox{\hyperlink{classnetdem_1_1_tet_mesh_a851cb634900ec65f4370559106970bfb}{nodes}})\ \{}
-\DoxyCodeLine{\ \ \ \ \ \ Vec3d\ pos\{pos\_x\_list[i],\ pos\_y\_list[i],\ pos\_z\_list[i]\};}
+\DoxyCodeLine{\ \ \ \ \ \ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ pos\{pos\_x\_list[i],\ pos\_y\_list[i],\ pos\_z\_list[i]\};}
 \DoxyCodeLine{\ \ \ \ \ \ shape-\/>SignedDistance(pos);}
 \DoxyCodeLine{\ \ \ \ \}}
 \DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{if}\ ((i\ +\ 1)\ \%\ 100\ ==\ 0)\ \{}
 \DoxyCodeLine{\ \ \ \ \ \ cout\ <<\ i\ +\ 1\ <<\ endl;}
 \DoxyCodeLine{\ \ \ \ \}}
 \DoxyCodeLine{\ \ \}}
-\DoxyCodeLine{\ \ dem\_profiler.\mbox{\hyperlink{classnetdem_1_1_d_e_m_profiler_aac02a7272beacf6e1b5a52fb9cb01d4a}{EndTimer}}(TimerType::custom);}
+\DoxyCodeLine{\ \ dem\_profiler.\mbox{\hyperlink{classnetdem_1_1_d_e_m_profiler_aac02a7272beacf6e1b5a52fb9cb01d4a}{EndTimer}}(DEMProfiler::TimerType::custom);}
 \DoxyCodeLine{\ \ cout\ <<\ \textcolor{stringliteral}{"{}no.\ nodes\ queried:\ "{}}\ <<\ tetmesh.\mbox{\hyperlink{classnetdem_1_1_tet_mesh_a851cb634900ec65f4370559106970bfb}{nodes}}.size()\ <<\ endl;}
-\DoxyCodeLine{\ \ printf(\textcolor{stringliteral}{"{}cost:\ \%f\ microsecond\ \(\backslash\)n"{}},\ dem\_profiler.\mbox{\hyperlink{classnetdem_1_1_d_e_m_profiler_a1807f89997ec1340772b0dc4cd99db6c}{timer\_list}}[TimerType::custom]\ /}
-\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 1.0\ /\ num\_trials\ /}
-\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ tetmesh.\mbox{\hyperlink{classnetdem_1_1_tet_mesh_a851cb634900ec65f4370559106970bfb}{nodes}}.size());}
+\DoxyCodeLine{\ \ printf(\textcolor{stringliteral}{"{}cost:\ \%f\ microsecond\ \(\backslash\)n"{}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ dem\_profiler.\mbox{\hyperlink{classnetdem_1_1_d_e_m_profiler_a1807f89997ec1340772b0dc4cd99db6c}{timer\_list}}[DEMProfiler::TimerType::custom]\ /\ 1.0\ /}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ num\_trials\ /\ tetmesh.\mbox{\hyperlink{classnetdem_1_1_tet_mesh_a851cb634900ec65f4370559106970bfb}{nodes}}.size());}
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ \textcolor{comment}{//\ save\ results}}
 \DoxyCodeLine{\ \ tetmesh.\mbox{\hyperlink{classnetdem_1_1_tet_mesh_a50395a58e2ead4cdec93932aaa054cd0}{SaveAsVTK}}(root\_dir\ +\ \textcolor{stringliteral}{"{}tetmesh.vtk"{}});}

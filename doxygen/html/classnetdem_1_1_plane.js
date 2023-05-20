@@ -18,5 +18,8 @@ var classnetdem_1_1_plane =
     [ "SupportPoints", "classnetdem_1_1_plane.html#ab903d619e2116b0a266ab65751eb4f8d", null ],
     [ "SurfacePoint", "classnetdem_1_1_plane.html#ab4cb8b2c8bb2ca52c80fa22d237d4417", null ],
     [ "UpdateNodes", "classnetdem_1_1_plane.html#a31b38658fe8dd656b9a9a708241069c3", null ],
-    [ "UpdateShapeProperties", "classnetdem_1_1_plane.html#a1fe81b8bc4637ade1fbbab5f62c4dadb", null ]
+    [ "UpdateShapeProperties", "classnetdem_1_1_plane.html#a1fe81b8bc4637ade1fbbab5f62c4dadb", null ],
+    [ "center", "classnetdem_1_1_plane.html#a73283d081022c3fd10521a69fc2899d8", null ],
+    [ "dir_n", "classnetdem_1_1_plane.html#a5e74ee505701134ef163cadac8378ce1", null ],
+    [ "extent", "classnetdem_1_1_plane.html#ab3551d38201eb320c89701efa73f37d6", null ]
 ];

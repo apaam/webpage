@@ -36,8 +36,10 @@ var NAVTREE =
       [ "Visualize & post-process", "index.html#autotoc_md8", null ]
     ] ],
     [ "Support", "index.html#autotoc_md9", null ],
-    [ "Namespaces", "namespaces.html", [
-      [ "Namespace List", "namespaces.html", "namespaces_dup" ]
+    [ "Namespace Members", "namespacemembers.html", [
+      [ "All", "namespacemembers.html", null ],
+      [ "Functions", "namespacemembers_func.html", null ],
+      [ "Typedefs", "namespacemembers_type.html", null ]
     ] ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
@@ -52,7 +54,12 @@ var NAVTREE =
       ] ]
     ] ],
     [ "Files", "files.html", [
-      [ "File List", "files.html", "files_dup" ]
+      [ "File List", "files.html", "files_dup" ],
+      [ "File Members", "globals.html", [
+        [ "All", "globals.html", null ],
+        [ "Functions", "globals_func.html", null ],
+        [ "Typedefs", "globals_type.html", null ]
+      ] ]
     ] ],
     [ "Examples", "examples.html", "examples" ],
     [ "APAAM", "^https://apaam.github.io/netdem_docs/", null ]
@@ -62,22 +69,18 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "00_contact_test_sphere_8cpp-example.html",
-"classnetdem_1_1_bonded_voronois.html#a08dbac4387391e32a4de32e2e672e76d",
-"classnetdem_1_1_collision_solver_p_w.html#a75563d0f485ce14cca7eef636099b546",
-"classnetdem_1_1_contact_solver_settings.html#adff2184170befa136fdaedd56a048170aa29705e887c1874c038c3820d9471e57",
-"classnetdem_1_1_deformable_particle.html#a208f8160ae055cb97ce851b2ace9fefb",
-"classnetdem_1_1_f_e_m_simulator.html",
-"classnetdem_1_1_linear_spring.html#a345c06c0d6855ff688f242c824bf13dc",
-"classnetdem_1_1_membrane_wall.html#a471ed5293d813605984163a459439a01",
-"classnetdem_1_1_particle_motion_control.html#ac68ff2d7066fe9cb7b71b513e2caab6b",
-"classnetdem_1_1_peri_digm_simulator.html#a947a689863242e889b11abf08d6a01ae",
-"classnetdem_1_1_s_d_f_calculator.html#aa8a0cab4d342177cb775edbf692a1b09",
-"classnetdem_1_1_simulation.html#a096ddc0ac2a273c662c77cc1ace957d3",
-"classnetdem_1_1_solver_g_j_k_p_p.html#abbcfc533b87b58663116db0ced702119",
-"classnetdem_1_1_spherical_harmonics.html",
-"classnetdem_1_1_volume_based.html#ac69b7ecb791d653ca64c516824095537",
-"functions_r.html",
-"structnetdem_1_1_contact_p_p_data.html#a6996dc0a02313071ec636a934882f488"
+"classnetdem_1_1_cell_manager.html#a6a3812db962d019d0cdc7194061a1363",
+"classnetdem_1_1_d_e_m_object_pool.html#a5e2d8c5774a096574bf76f39f7d774ff",
+"classnetdem_1_1_f_e_m_simulator.html#a2fe368b9d5837c583e65ecdc45023e4c",
+"classnetdem_1_1_membrane.html#abd4916216d8759b1bce6d572cfe60411",
+"classnetdem_1_1_particle_motion_control.html#abef790484d18d9d4ebb8dfaeb6bc384f",
+"classnetdem_1_1_polybezier.html#ab0c76c3d8158f3a4fb764fdb407e9912",
+"classnetdem_1_1_solver_a_n_n_p_plane.html#a167ff6e8342b482d2a4ad358c47becaf",
+"classnetdem_1_1_sphere.html#a8e52d6c77c06cb6f1f194006e707ce50",
+"classnetdem_1_1_wall_group.html#aa5e0b8cbb99fc21a3200c02fd03300db",
+"gen__wall__box__plate_8hpp_source.html",
+"pyutils_8cpp.html#a4bc3dea379c8a0e224755181715b520a",
+"utils__io_8hpp.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

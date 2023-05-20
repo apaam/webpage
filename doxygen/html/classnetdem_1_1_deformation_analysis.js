@@ -6,5 +6,6 @@ var classnetdem_1_1_deformation_analysis =
     [ "Execute", "classnetdem_1_1_deformation_analysis.html#a8385f9938a351aa739992e03c5f0ef80", null ],
     [ "Init", "classnetdem_1_1_deformation_analysis.html#a8159a1d65475e975f45886acf6c14253", null ],
     [ "Update", "classnetdem_1_1_deformation_analysis.html#af3b65d438ee903795a61bd4ed225b0ec", null ],
-    [ "particle_map", "classnetdem_1_1_deformation_analysis.html#a3e35977142064ee467ab8c6490d907ec", null ]
+    [ "particle_map", "classnetdem_1_1_deformation_analysis.html#a3e35977142064ee467ab8c6490d907ec", null ],
+    [ "settings", "classnetdem_1_1_deformation_analysis.html#a4f3bb4166d6db7cc6884ddef42711271", null ]
 ];

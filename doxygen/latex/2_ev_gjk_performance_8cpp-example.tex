@@ -3,13 +3,13 @@ This is an example of how to use the netdem library.
 
 
 \begin{DoxyCodeInclude}{0}
-\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}dem\_profiler.hpp"{}}}
-\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}distribution\_uniform.hpp"{}}}
-\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}particle.hpp"{}}}
-\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}shape\_ellipsoid.hpp"{}}}
-\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}shape\_sphere.hpp"{}}}
-\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}solver\_gjk\_pp.hpp"{}}}
-\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}utils\_math.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{dem__profiler_8hpp}{dem\_profiler.hpp}}"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{distribution__uniform_8hpp}{distribution\_uniform.hpp}}"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{particle_8hpp}{particle.hpp}}"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{shape__ellipsoid_8hpp}{shape\_ellipsoid.hpp}}"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{shape__sphere_8hpp}{shape\_sphere.hpp}}"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{solver__gjk__pp_8hpp}{solver\_gjk\_pp.hpp}}"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{utils__math_8hpp}{utils\_math.hpp}}"{}}}
 \DoxyCodeLine{\textcolor{preprocessor}{\#include\ <filesystem>}}
 \DoxyCodeLine{\textcolor{preprocessor}{\#include\ <fstream>}}
 \DoxyCodeLine{\textcolor{preprocessor}{\#include\ <iostream>}}
@@ -20,12 +20,12 @@ This is an example of how to use the netdem library.
 \DoxyCodeLine{}
 \DoxyCodeLine{\textcolor{keywordtype}{int}\ num\_samples\ =\ 1000000;}
 \DoxyCodeLine{}
-\DoxyCodeLine{\textcolor{keyword}{auto}\ *ds\_q\_pos\ =\ \textcolor{keyword}{new}\ Vec3d[num\_samples];}
-\DoxyCodeLine{\textcolor{keyword}{auto}\ *ds\_q\_quat\ =\ \textcolor{keyword}{new}\ Vec4d[num\_samples];}
+\DoxyCodeLine{\textcolor{keyword}{auto}\ *ds\_q\_pos\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}[num\_samples];}
+\DoxyCodeLine{\textcolor{keyword}{auto}\ *ds\_q\_quat\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{namespacenetdem_a13d5371f99b252a70fd5a5081b910370}{Vec4d}}[num\_samples];}
 \DoxyCodeLine{}
 \DoxyCodeLine{\textcolor{keyword}{auto}\ *ds\_len\_n\ =\ \textcolor{keyword}{new}\ \textcolor{keywordtype}{double}[num\_samples];}
-\DoxyCodeLine{\textcolor{keyword}{auto}\ *ds\_dir\_n\ =\ \textcolor{keyword}{new}\ Vec3d[num\_samples];}
-\DoxyCodeLine{\textcolor{keyword}{auto}\ *ds\_pos\ =\ \textcolor{keyword}{new}\ Vec3d[num\_samples];}
+\DoxyCodeLine{\textcolor{keyword}{auto}\ *ds\_dir\_n\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}[num\_samples];}
+\DoxyCodeLine{\textcolor{keyword}{auto}\ *ds\_pos\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}[num\_samples];}
 \DoxyCodeLine{}
 \DoxyCodeLine{\mbox{\hyperlink{classnetdem_1_1_ellipsoid}{Ellipsoid}}\ ellipsoid\ =\ \mbox{\hyperlink{classnetdem_1_1_ellipsoid}{Ellipsoid}}(0.5,\ 1.0,\ 0.5);}
 \DoxyCodeLine{\mbox{\hyperlink{classnetdem_1_1_particle}{Particle}}\ p1\ =\ \mbox{\hyperlink{classnetdem_1_1_particle}{Particle}}(\&ellipsoid);}
@@ -38,9 +38,9 @@ This is an example of how to use the netdem library.
 \DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ particle\ rotation}}
 \DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{double}\ rot\_axis\_theta\ =\ uniform\_dist.\mbox{\hyperlink{classnetdem_1_1_uniform_distribution_a7e39cbd0ed813d381022ad61986092bf}{Get}}()\ *\ Math::PI;}
 \DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{double}\ rot\_axis\_phi\ =\ uniform\_dist.\mbox{\hyperlink{classnetdem_1_1_uniform_distribution_a7e39cbd0ed813d381022ad61986092bf}{Get}}()\ *\ 2.0\ *\ Math::PI;}
-\DoxyCodeLine{\ \ \ \ Vec3d\ rot\_axis\_sph\{1.0,\ rot\_axis\_theta,\ rot\_axis\_phi\};}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ rot\_axis\_sph\{1.0,\ rot\_axis\_theta,\ rot\_axis\_phi\};}
 \DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{double}\ rot\_angle\ =\ uniform\_dist.\mbox{\hyperlink{classnetdem_1_1_uniform_distribution_a7e39cbd0ed813d381022ad61986092bf}{Get}}()\ *\ 2.0\ *\ Math::PI;}
-\DoxyCodeLine{\ \ \ \ Vec3d\ rot\_axis\ =\ Math::SphericalToCartesian(rot\_axis\_sph);}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ rot\_axis\ =\ Math::SphericalToCartesian(rot\_axis\_sph);}
 \DoxyCodeLine{\ \ \ \ ds\_q\_quat[i]\ =\ Math::Quaternion::FromRodrigues(rot\_angle,\ rot\_axis);}
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ target\ overlap}}
@@ -49,21 +49,21 @@ This is an example of how to use the netdem library.
 \DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ target\ contact\ normal}}
 \DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{double}\ dir\_theta\ =\ uniform\_dist.\mbox{\hyperlink{classnetdem_1_1_uniform_distribution_a7e39cbd0ed813d381022ad61986092bf}{Get}}()\ *\ Math::PI;}
 \DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{double}\ dir\_phi\ =\ uniform\_dist.\mbox{\hyperlink{classnetdem_1_1_uniform_distribution_a7e39cbd0ed813d381022ad61986092bf}{Get}}()\ *\ 2.0\ *\ Math::PI;}
-\DoxyCodeLine{\ \ \ \ Vec3d\ dir\_sph\{1.0,\ dir\_theta,\ dir\_phi\};}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ dir\_sph\{1.0,\ dir\_theta,\ dir\_phi\};}
 \DoxyCodeLine{\ \ \ \ ds\_dir\_n[i]\ =\ Math::SphericalToCartesian(dir\_sph);}
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ get\ the\ support\ points}}
-\DoxyCodeLine{\ \ \ \ Vec3d\ sup\_pos\_1,\ sup\_pos\_2;}
-\DoxyCodeLine{\ \ \ \ Vec3d\ dir\_n\_inv\ =\ -\/1.0\ *\ ds\_dir\_n[i];}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ sup\_pos\_1,\ sup\_pos\_2;}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ dir\_n\_inv\ =\ -\/1.0\ *\ ds\_dir\_n[i];}
 \DoxyCodeLine{\ \ \ \ sup\_pos\_1\ =\ ellipsoid.\mbox{\hyperlink{classnetdem_1_1_ellipsoid_aff41be1941a2b21dcdab49bfaae55ad5}{SupportPoint}}(dir\_n\_inv);}
 \DoxyCodeLine{\ \ \ \ sup\_pos\_2\ =\ sup\_pos\_1\ +\ ds\_len\_n[i]\ *\ ds\_dir\_n[i];}
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ \ \ ds\_pos[i]\ =\ sup\_pos\_1\ +\ 0.5\ *\ ds\_len\_n[i]\ *\ ds\_dir\_n[i];}
 \DoxyCodeLine{}
-\DoxyCodeLine{\ \ \ \ Vec4d\ quat\_conj\ =\ Math::Quaternion::Conjugate(ds\_q\_quat[i]);}
-\DoxyCodeLine{\ \ \ \ Vec3d\ dir\_n\_ref\ =\ Math::Rotate(ds\_dir\_n[i],\ quat\_conj);}
-\DoxyCodeLine{\ \ \ \ Vec3d\ sup\_pos\_2\_ref\ =\ ellipsoid.\mbox{\hyperlink{classnetdem_1_1_ellipsoid_aff41be1941a2b21dcdab49bfaae55ad5}{SupportPoint}}(dir\_n\_ref);}
-\DoxyCodeLine{\ \ \ \ Vec3d\ sup\_pos\_2\_rot\ =\ Math::Rotate(sup\_pos\_2\_ref,\ ds\_q\_quat[i]);}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{namespacenetdem_a13d5371f99b252a70fd5a5081b910370}{Vec4d}}\ quat\_conj\ =\ Math::Quaternion::Conjugate(ds\_q\_quat[i]);}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ dir\_n\_ref\ =\ Math::Rotate(ds\_dir\_n[i],\ quat\_conj);}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ sup\_pos\_2\_ref\ =\ ellipsoid.\mbox{\hyperlink{classnetdem_1_1_ellipsoid_aff41be1941a2b21dcdab49bfaae55ad5}{SupportPoint}}(dir\_n\_ref);}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ sup\_pos\_2\_rot\ =\ Math::Rotate(sup\_pos\_2\_ref,\ ds\_q\_quat[i]);}
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ calculate\ the\ particle\ position}}
 \DoxyCodeLine{\ \ \ \ ds\_q\_pos[i]\ =\ sup\_pos\_2\ -\/\ sup\_pos\_2\_rot;}
@@ -108,11 +108,11 @@ This is an example of how to use the netdem library.
 \DoxyCodeLine{\ \ os.setf(ios::scientific);}
 \DoxyCodeLine{\ \ os.precision(15);}
 \DoxyCodeLine{}
-\DoxyCodeLine{\ \ cnt\_solver.use\_erosion\ =\ use\_erosion;}
-\DoxyCodeLine{\ \ cnt\_solver.erosion\_ratio\_initial\ =\ erosion\_ratio\_initial;}
+\DoxyCodeLine{\ \ cnt\_solver.\mbox{\hyperlink{classnetdem_1_1_solver_g_j_k_p_p_ab509ae070d4f84908e4aedc85e5dc4c4}{use\_erosion}}\ =\ use\_erosion;}
+\DoxyCodeLine{\ \ cnt\_solver.\mbox{\hyperlink{classnetdem_1_1_solver_g_j_k_p_p_a84426e1ca5e1158dfebb04ea69b3bf71}{erosion\_ratio\_initial}}\ =\ erosion\_ratio\_initial;}
 \DoxyCodeLine{\ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ num\_samples;\ i++)\ \{}
-\DoxyCodeLine{\ \ \ \ p2.SetPosition(ds\_q\_pos[i][0],\ ds\_q\_pos[i][1],\ ds\_q\_pos[i][2]);}
-\DoxyCodeLine{\ \ \ \ p2.SetQuaternion(ds\_q\_quat[i][0],\ ds\_q\_quat[i][1],\ ds\_q\_quat[i][2],}
+\DoxyCodeLine{\ \ \ \ p2.\mbox{\hyperlink{classnetdem_1_1_particle_a3f272179dd1b248f9ea09638c1beecfb}{SetPosition}}(ds\_q\_pos[i][0],\ ds\_q\_pos[i][1],\ ds\_q\_pos[i][2]);}
+\DoxyCodeLine{\ \ \ \ p2.\mbox{\hyperlink{classnetdem_1_1_particle_a0696409eed30981670dd748997dc23b0}{SetQuaternion}}(ds\_q\_quat[i][0],\ ds\_q\_quat[i][1],\ ds\_q\_quat[i][2],}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ds\_q\_quat[i][3]);}
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ \ \ cnt\_solver.\mbox{\hyperlink{classnetdem_1_1_solver_g_j_k_p_p_ab651c60ac53f857232372faa3e7d2652}{Init}}(\&p1,\ \&p2);}
@@ -150,13 +150,13 @@ This is an example of how to use the netdem library.
 \DoxyCodeLine{\textcolor{keywordtype}{void}\ EvaluateGJK(\textcolor{keywordtype}{bool}\ use\_erosion,\ \textcolor{keywordtype}{double}\ erosion\_ratio\_initial)\ \{}
 \DoxyCodeLine{\ \ \mbox{\hyperlink{classnetdem_1_1_d_e_m_profiler}{DEMProfiler}}\ dem\_profiler;}
 \DoxyCodeLine{\ \ dem\_profiler.\mbox{\hyperlink{classnetdem_1_1_d_e_m_profiler_a78b51bc67b8a79503f870ee34ac89e76}{Clear}}();}
-\DoxyCodeLine{\ \ dem\_profiler.\mbox{\hyperlink{classnetdem_1_1_d_e_m_profiler_aec4a998774b78edc07c06b148f0b3cf7}{StartTimer}}(TimerType::custom);}
+\DoxyCodeLine{\ \ dem\_profiler.\mbox{\hyperlink{classnetdem_1_1_d_e_m_profiler_aec4a998774b78edc07c06b148f0b3cf7}{StartTimer}}(DEMProfiler::TimerType::custom);}
 \DoxyCodeLine{}
-\DoxyCodeLine{\ \ cnt\_solver.use\_erosion\ =\ use\_erosion;}
-\DoxyCodeLine{\ \ cnt\_solver.erosion\_ratio\_initial\ =\ erosion\_ratio\_initial;}
+\DoxyCodeLine{\ \ cnt\_solver.\mbox{\hyperlink{classnetdem_1_1_solver_g_j_k_p_p_ab509ae070d4f84908e4aedc85e5dc4c4}{use\_erosion}}\ =\ use\_erosion;}
+\DoxyCodeLine{\ \ cnt\_solver.\mbox{\hyperlink{classnetdem_1_1_solver_g_j_k_p_p_a84426e1ca5e1158dfebb04ea69b3bf71}{erosion\_ratio\_initial}}\ =\ erosion\_ratio\_initial;}
 \DoxyCodeLine{\ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ num\_samples;\ i++)\ \{}
-\DoxyCodeLine{\ \ \ \ p2.SetPosition(ds\_q\_pos[i][0],\ ds\_q\_pos[i][1],\ ds\_q\_pos[i][2]);}
-\DoxyCodeLine{\ \ \ \ p2.SetQuaternion(ds\_q\_quat[i][0],\ ds\_q\_quat[i][1],\ ds\_q\_quat[i][2],}
+\DoxyCodeLine{\ \ \ \ p2.\mbox{\hyperlink{classnetdem_1_1_particle_a3f272179dd1b248f9ea09638c1beecfb}{SetPosition}}(ds\_q\_pos[i][0],\ ds\_q\_pos[i][1],\ ds\_q\_pos[i][2]);}
+\DoxyCodeLine{\ \ \ \ p2.\mbox{\hyperlink{classnetdem_1_1_particle_a0696409eed30981670dd748997dc23b0}{SetQuaternion}}(ds\_q\_quat[i][0],\ ds\_q\_quat[i][1],\ ds\_q\_quat[i][2],}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ds\_q\_quat[i][3]);}
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ \ \ cnt\_solver.\mbox{\hyperlink{classnetdem_1_1_solver_g_j_k_p_p_ab651c60ac53f857232372faa3e7d2652}{Init}}(\&p1,\ \&p2);}
@@ -173,14 +173,14 @@ This is an example of how to use the netdem library.
 \DoxyCodeLine{\textcolor{comment}{\ \ \ \ \ \ //\ */}}
 \DoxyCodeLine{\ \ \ \ \}}
 \DoxyCodeLine{\ \ \}}
-\DoxyCodeLine{\ \ dem\_profiler.\mbox{\hyperlink{classnetdem_1_1_d_e_m_profiler_aac02a7272beacf6e1b5a52fb9cb01d4a}{EndTimer}}(TimerType::custom);}
+\DoxyCodeLine{\ \ dem\_profiler.\mbox{\hyperlink{classnetdem_1_1_d_e_m_profiler_aac02a7272beacf6e1b5a52fb9cb01d4a}{EndTimer}}(DEMProfiler::TimerType::custom);}
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ \textcolor{keywordflow}{if}\ (use\_erosion)\ \{}
 \DoxyCodeLine{\ \ \ \ printf(\textcolor{stringliteral}{"{}erosion:\ \%f\ s\ \(\backslash\)n"{}},}
-\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ dem\_profiler.\mbox{\hyperlink{classnetdem_1_1_d_e_m_profiler_a1807f89997ec1340772b0dc4cd99db6c}{timer\_list}}[TimerType::custom]\ /\ 1000000.0);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ dem\_profiler.\mbox{\hyperlink{classnetdem_1_1_d_e_m_profiler_a1807f89997ec1340772b0dc4cd99db6c}{timer\_list}}[DEMProfiler::TimerType::custom]\ /\ 1000000.0);}
 \DoxyCodeLine{\ \ \}\ \textcolor{keywordflow}{else}\ \{}
 \DoxyCodeLine{\ \ \ \ printf(\textcolor{stringliteral}{"{}epa:\ \%f\ s\ \(\backslash\)n"{}},}
-\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ dem\_profiler.\mbox{\hyperlink{classnetdem_1_1_d_e_m_profiler_a1807f89997ec1340772b0dc4cd99db6c}{timer\_list}}[TimerType::custom]\ /\ 1000000.0);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ dem\_profiler.\mbox{\hyperlink{classnetdem_1_1_d_e_m_profiler_a1807f89997ec1340772b0dc4cd99db6c}{timer\_list}}[DEMProfiler::TimerType::custom]\ /\ 1000000.0);}
 \DoxyCodeLine{\ \ \}}
 \DoxyCodeLine{\}}
 \DoxyCodeLine{}

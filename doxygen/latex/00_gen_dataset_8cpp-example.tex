@@ -3,16 +3,16 @@ This is an example of how to use the netdem library.
 
 
 \begin{DoxyCodeInclude}{0}
-\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}distribution\_uniform.hpp"{}}}
-\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}igl\_wrapper.hpp"{}}}
-\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}particle.hpp"{}}}
-\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}shape\_ellipsoid.hpp"{}}}
-\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}shape\_level\_set.hpp"{}}}
-\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}shape\_poly\_super\_ellipsoid.hpp"{}}}
-\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}shape\_spherical\_harmonics.hpp"{}}}
-\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}shape\_trimesh.hpp"{}}}
-\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}spherical\_voronoi.hpp"{}}}
-\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}utils\_math.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{distribution__uniform_8hpp}{distribution\_uniform.hpp}}"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{igl__wrapper_8hpp}{igl\_wrapper.hpp}}"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{particle_8hpp}{particle.hpp}}"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{shape__ellipsoid_8hpp}{shape\_ellipsoid.hpp}}"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{shape__level__set_8hpp}{shape\_level\_set.hpp}}"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{shape__poly__super__ellipsoid_8hpp}{shape\_poly\_super\_ellipsoid.hpp}}"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{shape__spherical__harmonics_8hpp}{shape\_spherical\_harmonics.hpp}}"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{shape__trimesh_8hpp}{shape\_trimesh.hpp}}"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{spherical__voronoi_8hpp}{spherical\_voronoi.hpp}}"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{utils__math_8hpp}{utils\_math.hpp}}"{}}}
 \DoxyCodeLine{\textcolor{preprocessor}{\#include\ <filesystem>}}
 \DoxyCodeLine{\textcolor{preprocessor}{\#include\ <fstream>}}
 \DoxyCodeLine{\textcolor{preprocessor}{\#include\ <iostream>}}
@@ -101,7 +101,7 @@ This is an example of how to use the netdem library.
 \DoxyCodeLine{\ \ double(*ds\_SPF)[3]\ =\ \textcolor{keyword}{new}\ \textcolor{keywordtype}{double}[num\_samples][3];}
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ \textcolor{comment}{//\ use\ bound\ sphere\ to\ narrow\ down\ the\ random\ space}}
-\DoxyCodeLine{\ \ \textcolor{keywordtype}{double}\ dist\_max\ =\ obj\_p.shape-\/>bound\_sphere\_radius;}
+\DoxyCodeLine{\ \ \textcolor{keywordtype}{double}\ dist\_max\ =\ obj\_p.\mbox{\hyperlink{classnetdem_1_1_particle_ac63a86094d1dcd92c3a08ddfd1db0103}{shape}}-\/>\mbox{\hyperlink{classnetdem_1_1_shape_aa2544899cc79d4ae84fc700f490a37dc}{bound\_sphere\_radius}};}
 \DoxyCodeLine{\ \ \textcolor{keywordtype}{double}\ dist\_min\{dist\_max\};}
 \DoxyCodeLine{\ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \&vert\ :\ trimesh.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_acde0779520f91ee0596048099ea7b5e8}{vertices}})\ \{}
 \DoxyCodeLine{\ \ \ \ dist\_min\ =\ min(Math::NormL2(vert),\ dist\_min);}
@@ -113,8 +113,8 @@ This is an example of how to use the netdem library.
 \DoxyCodeLine{\ \ \mbox{\hyperlink{classnetdem_1_1_uniform_distribution}{UniformDistribution}}\ uniform\_dist(0.0,\ 1.0);}
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ \textcolor{comment}{//\ use\ spherical\ centroidal\ voronoi\ to\ sample\ uniform\ unit\ VecXT}}
-\DoxyCodeLine{\ \ VecXT<Vec3d>\ vertices\ =\ SphericalVoronoi::Solve(1000,\ 10000,\ 1.0e-\/4);}
-\DoxyCodeLine{\ \ VecXT<Vec3i>\ facets;}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<Vec3d>}}\ vertices\ =\ SphericalVoronoi::Solve(1000,\ 10000,\ 1.0e-\/4);}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<Vec3i>}}\ facets;}
 \DoxyCodeLine{\ \ IGLWrapper::ConvexHull(vertices,\ \&vertices,\ \&facets);}
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ \textcolor{comment}{//\ random\ cases}}
@@ -129,7 +129,7 @@ This is an example of how to use the netdem library.
 \DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{double}\ v\_vert\ =\ uniform\_dist.Get()\ *\ (1\ -\/\ u\_vert);}
 \DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{double}\ w\_vert\ =\ 1\ -\/\ u\_vert\ -\/\ v\_vert;}
 \DoxyCodeLine{}
-\DoxyCodeLine{\ \ \ \ Vec3d\ tmp\_dir;}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ tmp\_dir;}
 \DoxyCodeLine{\ \ \ \ tmp\_dir[0]\ =\ u\_vert\ *\ vert\_0[0]\ +\ v\_vert\ *\ vert\_1[0]\ +\ w\_vert\ *\ vert\_2[0];}
 \DoxyCodeLine{\ \ \ \ tmp\_dir[1]\ =\ u\_vert\ *\ vert\_0[1]\ +\ v\_vert\ *\ vert\_1[1]\ +\ w\_vert\ *\ vert\_2[1];}
 \DoxyCodeLine{\ \ \ \ tmp\_dir[2]\ =\ u\_vert\ *\ vert\_0[2]\ +\ v\_vert\ *\ vert\_1[2]\ +\ w\_vert\ *\ vert\_2[2];}
@@ -139,7 +139,7 @@ This is an example of how to use the netdem library.
 \DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{double}\ tmp\_dist\ =\ dist\_min\ +\ uniform\_dist.Get()\ *\ dist\_range;}
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ query\ point}}
-\DoxyCodeLine{\ \ \ \ Vec3d\ query\_p;}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ query\_p;}
 \DoxyCodeLine{\ \ \ \ query\_p[0]\ =\ tmp\_dist\ *\ tmp\_dir[0];}
 \DoxyCodeLine{\ \ \ \ query\_p[1]\ =\ tmp\_dist\ *\ tmp\_dir[1];}
 \DoxyCodeLine{\ \ \ \ query\_p[2]\ =\ tmp\_dist\ *\ tmp\_dir[2];}

@@ -95,15 +95,15 @@ $(document).ready(function(){initNavTree('03_friction_test_sphere_8cpp-example.h
 </div><!--header-->
 <div class="contents">
 <p>This is an example of how to use the netdem library.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &quot;contact_solver_factory.hpp&quot;</span></div>
-<div class="line"><span class="preprocessor">#include &quot;distribution_uniform.hpp&quot;</span></div>
-<div class="line"><span class="preprocessor">#include &quot;igl_wrapper.hpp&quot;</span></div>
-<div class="line"><span class="preprocessor">#include &quot;model_linear_spring.hpp&quot;</span></div>
-<div class="line"><span class="preprocessor">#include &quot;particle.hpp&quot;</span></div>
-<div class="line"><span class="preprocessor">#include &quot;shape_spherical_harmonics.hpp&quot;</span></div>
-<div class="line"><span class="preprocessor">#include &quot;solver_sdf_pp.hpp&quot;</span></div>
-<div class="line"><span class="preprocessor">#include &quot;spherical_voronoi.hpp&quot;</span></div>
-<div class="line"><span class="preprocessor">#include &quot;utils_math.hpp&quot;</span></div>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &quot;<a class="code" href="contact__solver__factory_8hpp.html">contact_solver_factory.hpp</a>&quot;</span></div>
+<div class="line"><span class="preprocessor">#include &quot;<a class="code" href="distribution__uniform_8hpp.html">distribution_uniform.hpp</a>&quot;</span></div>
+<div class="line"><span class="preprocessor">#include &quot;<a class="code" href="igl__wrapper_8hpp.html">igl_wrapper.hpp</a>&quot;</span></div>
+<div class="line"><span class="preprocessor">#include &quot;<a class="code" href="model__linear__spring_8hpp.html">model_linear_spring.hpp</a>&quot;</span></div>
+<div class="line"><span class="preprocessor">#include &quot;<a class="code" href="particle_8hpp.html">particle.hpp</a>&quot;</span></div>
+<div class="line"><span class="preprocessor">#include &quot;<a class="code" href="shape__spherical__harmonics_8hpp.html">shape_spherical_harmonics.hpp</a>&quot;</span></div>
+<div class="line"><span class="preprocessor">#include &quot;<a class="code" href="solver__sdf__pp_8hpp.html">solver_sdf_pp.hpp</a>&quot;</span></div>
+<div class="line"><span class="preprocessor">#include &quot;<a class="code" href="spherical__voronoi_8hpp.html">spherical_voronoi.hpp</a>&quot;</span></div>
+<div class="line"><span class="preprocessor">#include &quot;<a class="code" href="utils__math_8hpp.html">utils_math.hpp</a>&quot;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;filesystem&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;fstream&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;iostream&gt;</span></div>
@@ -113,26 +113,26 @@ $(document).ready(function(){initNavTree('03_friction_test_sphere_8cpp-example.h
 <div class="line"><span class="keyword">using namespace </span><a class="code hl_namespace" href="namespacenetdem.html">netdem</a>;</div>
 <div class="line"><span class="keyword">using namespace </span>std;</div>
 <div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> SaveDataset(<span class="keywordtype">string</span> filename, VecXT&lt;VecXT&lt;double&gt;&gt; &amp;data);</div>
+<div class="line"><span class="keywordtype">void</span> SaveDataset(<span class="keywordtype">string</span> filename, <a class="code hl_typedef" href="namespacenetdem.html#a088168eeea9e6ce8d0500cdfd7ef9c87">VecXT</a>&lt;<a class="code hl_typedef" href="namespacenetdem.html#a088168eeea9e6ce8d0500cdfd7ef9c87">VecXT&lt;double&gt;</a>&gt; &amp;data);</div>
 <div class="line"> </div>
 <div class="line"><span class="keywordtype">void</span> FrictionTestSphere(<span class="keywordtype">int</span> potential_case) {</div>
 <div class="line">  <span class="comment">// load particle</span></div>
 <div class="line">  <a id="_a0" name="_a0"></a><a class="code hl_class" href="classnetdem_1_1_spherical_harmonics.html">SphericalHarmonics</a> sh;</div>
 <div class="line">  sh.<a id="a1" name="a1"></a><a class="code hl_variable" href="classnetdem_1_1_spherical_harmonics.html#a7048aa9b5a0944e1e7411288b431bd92">a_nm</a>[0] = sqrt(Math::PI);</div>
-<div class="line">  <span class="keyword">auto</span> stl_tmp = sh.<a id="a2" name="a2"></a><a class="code hl_function" href="classnetdem_1_1_spherical_harmonics.html#a636e21871ecf0cd3f59153c285ecbd9e">GetSTLModel</a>(sh.<a id="a3" name="a3"></a>node_num * 2 - 4);</div>
+<div class="line">  <span class="keyword">auto</span> stl_tmp = sh.<a id="a2" name="a2"></a><a class="code hl_function" href="classnetdem_1_1_spherical_harmonics.html#a636e21871ecf0cd3f59153c285ecbd9e">GetSTLModel</a>(sh.<a id="a3" name="a3"></a><a class="code hl_variable" href="classnetdem_1_1_shape.html#a4f5ba046585284a39cb93c6bd83746f7">node_num</a> * 2 - 4);</div>
 <div class="line">  sh.<a id="a4" name="a4"></a><a class="code hl_variable" href="classnetdem_1_1_shape.html#aca813b26eea63d56642829360c7f5a3b">nodes</a> = stl_tmp.vertices;</div>
 <div class="line">  sh.<a id="a5" name="a5"></a><a class="code hl_function" href="classnetdem_1_1_spherical_harmonics.html#a9f84fe652a69751e530000c47fb3930f">UpdateShapeProperties</a>();</div>
-<div class="line">  cout &lt;&lt; <span class="stringliteral">&quot;shape size: &quot;</span> &lt;&lt; sh.<a id="a6" name="a6"></a>size &lt;&lt; endl;</div>
+<div class="line">  cout &lt;&lt; <span class="stringliteral">&quot;shape size: &quot;</span> &lt;&lt; sh.<a id="a6" name="a6"></a><a class="code hl_variable" href="classnetdem_1_1_shape.html#afd08386decfb825ba190c7a2d4e0aac6">size</a> &lt;&lt; endl;</div>
 <div class="line"> </div>
 <div class="line">  <a id="_a7" name="_a7"></a><a class="code hl_class" href="classnetdem_1_1_particle.html">Particle</a> obj_p1 = <a class="code hl_class" href="classnetdem_1_1_particle.html">Particle</a>(&amp;sh);</div>
 <div class="line">  <a class="code hl_class" href="classnetdem_1_1_particle.html">Particle</a> obj_p2 = <a class="code hl_class" href="classnetdem_1_1_particle.html">Particle</a>(&amp;sh);</div>
 <div class="line">  cout &lt;&lt; <span class="stringliteral">&quot;particle created ... &quot;</span> &lt;&lt; endl;</div>
 <div class="line"> </div>
 <div class="line">  <span class="comment">// try another particle configuration</span></div>
-<div class="line">  obj_p1.<a id="a8" name="a8"></a>SetRodrigues(0.4, 0, 1, 0);</div>
-<div class="line">  obj_p2.SetRodrigues(0.6, 0, 1, 0);</div>
-<div class="line">  obj_p2.<a id="a9" name="a9"></a>SetPosition(-0.35 - 0.001, 0, 0.95);</div>
-<div class="line">  obj_p2.<a id="a10" name="a10"></a>SetVelocity(0.001, 0, 0);</div>
+<div class="line">  obj_p1.<a id="a8" name="a8"></a><a class="code hl_function" href="classnetdem_1_1_particle.html#a116ae8a62a290ca23e7d3a48cf45fbef">SetRodrigues</a>(0.4, 0, 1, 0);</div>
+<div class="line">  obj_p2.<a class="code hl_function" href="classnetdem_1_1_particle.html#a116ae8a62a290ca23e7d3a48cf45fbef">SetRodrigues</a>(0.6, 0, 1, 0);</div>
+<div class="line">  obj_p2.<a id="a9" name="a9"></a><a class="code hl_function" href="classnetdem_1_1_particle.html#a3f272179dd1b248f9ea09638c1beecfb">SetPosition</a>(-0.35 - 0.001, 0, 0.95);</div>
+<div class="line">  obj_p2.<a id="a10" name="a10"></a><a class="code hl_function" href="classnetdem_1_1_particle.html#a710b20f430219dda84ffd515e760f157">SetVelocity</a>(0.001, 0, 0);</div>
 <div class="line"> </div>
 <div class="line">  <span class="comment">// solver settings</span></div>
 <div class="line">  <a id="_a11" name="_a11"></a><a class="code hl_class" href="classnetdem_1_1_solver_s_d_f_p_p.html">SolverSDFPP</a> cnt_solver;</div>
@@ -142,17 +142,17 @@ $(document).ready(function(){initNavTree('03_friction_test_sphere_8cpp-example.h
 <div class="line">  <a id="_a14" name="_a14"></a><a class="code hl_class" href="classnetdem_1_1_contact_p_p.html">ContactPP</a> *cnt = <span class="keyword">nullptr</span>;</div>
 <div class="line"> </div>
 <div class="line">  <span class="comment">// gradually push particle 2 onto particle 1</span></div>
-<div class="line">  VecXT&lt;VecXT&lt;double&gt;&gt; cnt_data;</div>
+<div class="line">  <a class="code hl_typedef" href="namespacenetdem.html#a088168eeea9e6ce8d0500cdfd7ef9c87">VecXT&lt;VecXT&lt;double&gt;</a>&gt; cnt_data;</div>
 <div class="line">  <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; 701; i++) {</div>
 <div class="line">    <span class="comment">// clear the particle force and moment</span></div>
-<div class="line">    obj_p1.<a id="a15" name="a15"></a>ClearForce();</div>
-<div class="line">    obj_p1.<a id="a16" name="a16"></a>ClearMoment();</div>
+<div class="line">    obj_p1.<a id="a15" name="a15"></a><a class="code hl_function" href="classnetdem_1_1_particle.html#aab0638163ac7ee8fb1d4a26f77f104c1">ClearForce</a>();</div>
+<div class="line">    obj_p1.<a id="a16" name="a16"></a><a class="code hl_function" href="classnetdem_1_1_particle.html#a064cc04b3a2a97e8f05156d6cc669511">ClearMoment</a>();</div>
 <div class="line"> </div>
-<div class="line">    obj_p2.ClearForce();</div>
-<div class="line">    obj_p2.ClearMoment();</div>
+<div class="line">    obj_p2.<a class="code hl_function" href="classnetdem_1_1_particle.html#aab0638163ac7ee8fb1d4a26f77f104c1">ClearForce</a>();</div>
+<div class="line">    obj_p2.<a class="code hl_function" href="classnetdem_1_1_particle.html#a064cc04b3a2a97e8f05156d6cc669511">ClearMoment</a>();</div>
 <div class="line"> </div>
 <div class="line">    <span class="comment">// translational moving</span></div>
-<div class="line">    obj_p2.<a id="a17" name="a17"></a>UpdateMotion(1);</div>
+<div class="line">    obj_p2.<a id="a17" name="a17"></a><a class="code hl_function" href="classnetdem_1_1_particle.html#a1d52612ad77e5e29a0c07641d93932a4">UpdateMotion</a>(1);</div>
 <div class="line"> </div>
 <div class="line">    <span class="comment">// contact detection and resolution procedure</span></div>
 <div class="line">    cnt_solver.<a id="a18" name="a18"></a><a class="code hl_function" href="classnetdem_1_1_solver_s_d_f_p_p.html#af276bd15b726fdf4b4a66de8c17d2697">Init</a>(&amp;obj_p2, &amp;obj_p1);</div>
@@ -168,10 +168,10 @@ $(document).ready(function(){initNavTree('03_friction_test_sphere_8cpp-example.h
 <div class="line">      cnt-&gt;<a id="a23" name="a23"></a><a class="code hl_function" href="classnetdem_1_1_contact_p_p.html#ae659aec9e4dfa5ae1de393048a4406da">EvaluateForceMoment</a>(1.0);</div>
 <div class="line">      cnt-&gt;<a id="a24" name="a24"></a><a class="code hl_function" href="classnetdem_1_1_contact_p_p.html#a639a2c151ec84122932bc8674c696d94">ApplyToParticle</a>();</div>
 <div class="line"> </div>
-<div class="line">      <span class="keywordtype">double</span> pos_x = obj_p2.<a id="a25" name="a25"></a>pos[0];</div>
+<div class="line">      <span class="keywordtype">double</span> pos_x = obj_p2.<a id="a25" name="a25"></a><a class="code hl_variable" href="classnetdem_1_1_particle.html#a99a725063b17af58b5abda99dc935dd9">pos</a>[0];</div>
 <div class="line"> </div>
-<div class="line">      Vec3d cnt_force{0, 0, 0}, cnt_moment{0, 0, 0};</div>
-<div class="line">      Vec3d dir_n{0, 0, 0}, dir_s{0, 0, 0};</div>
+<div class="line">      <a class="code hl_typedef" href="namespacenetdem.html#aa1676e16ca66301040ee8d50376c72b9">Vec3d</a> cnt_force{0, 0, 0}, cnt_moment{0, 0, 0};</div>
+<div class="line">      <a class="code hl_typedef" href="namespacenetdem.html#aa1676e16ca66301040ee8d50376c72b9">Vec3d</a> dir_n{0, 0, 0}, dir_s{0, 0, 0};</div>
 <div class="line">      <span class="keywordflow">for</span> (<span class="keyword">auto</span> &amp;cnt_entry : cnt-&gt;<a id="a26" name="a26"></a><a class="code hl_variable" href="classnetdem_1_1_contact_p_p.html#aa3acdd9b8fc2ff59edd98a8869047486">collision_entries</a>) {</div>
 <div class="line">        cnt_force[0] += cnt_entry.cnt_forces.force[0];</div>
 <div class="line">        cnt_force[1] += cnt_entry.cnt_forces.force[1];</div>
@@ -197,7 +197,7 @@ $(document).ready(function(){initNavTree('03_friction_test_sphere_8cpp-example.h
 <div class="line">                          cnt_force[0], cnt_force[1], cnt_force[2], dir_n[0],</div>
 <div class="line">                          dir_n[1], dir_n[2], dir_s[0], dir_s[1], dir_s[2]});</div>
 <div class="line">    } <span class="keywordflow">else</span> {</div>
-<div class="line">      <span class="keywordtype">double</span> pos_x = obj_p2.pos[0];</div>
+<div class="line">      <span class="keywordtype">double</span> pos_x = obj_p2.<a class="code hl_variable" href="classnetdem_1_1_particle.html#a99a725063b17af58b5abda99dc935dd9">pos</a>[0];</div>
 <div class="line">      cnt_data.push_back({pos_x, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0});</div>
 <div class="line">    }</div>
 <div class="line">  }</div>
@@ -228,18 +228,38 @@ $(document).ready(function(){initNavTree('03_friction_test_sphere_8cpp-example.h
 <div class="ttc" id="aclassnetdem_1_1_contact_p_p_html_ae659aec9e4dfa5ae1de393048a4406da"><div class="ttname"><a href="classnetdem_1_1_contact_p_p.html#ae659aec9e4dfa5ae1de393048a4406da">netdem::ContactPP::EvaluateForceMoment</a></div><div class="ttdeci">void EvaluateForceMoment(double dt)</div><div class="ttdoc">Calculate and apply the contact forces and moments between particles.</div><div class="ttdef"><b>Definition:</b> contact_pp.cpp:26</div></div>
 <div class="ttc" id="aclassnetdem_1_1_linear_spring_html"><div class="ttname"><a href="classnetdem_1_1_linear_spring.html">netdem::LinearSpring</a></div><div class="ttdoc">Contact model that uses linear spring elements to evaluate contact forces and moments.</div><div class="ttdef"><b>Definition:</b> model_linear_spring.hpp:16</div></div>
 <div class="ttc" id="aclassnetdem_1_1_particle_html"><div class="ttname"><a href="classnetdem_1_1_particle.html">netdem::Particle</a></div><div class="ttdef"><b>Definition:</b> particle.hpp:21</div></div>
+<div class="ttc" id="aclassnetdem_1_1_particle_html_a064cc04b3a2a97e8f05156d6cc669511"><div class="ttname"><a href="classnetdem_1_1_particle.html#a064cc04b3a2a97e8f05156d6cc669511">netdem::Particle::ClearMoment</a></div><div class="ttdeci">virtual void ClearMoment()</div><div class="ttdef"><b>Definition:</b> particle.cpp:179</div></div>
+<div class="ttc" id="aclassnetdem_1_1_particle_html_a116ae8a62a290ca23e7d3a48cf45fbef"><div class="ttname"><a href="classnetdem_1_1_particle.html#a116ae8a62a290ca23e7d3a48cf45fbef">netdem::Particle::SetRodrigues</a></div><div class="ttdeci">virtual void SetRodrigues(double angle, double axis_x, double axis_y, double axis_z)</div><div class="ttdef"><b>Definition:</b> particle.cpp:94</div></div>
+<div class="ttc" id="aclassnetdem_1_1_particle_html_a1d52612ad77e5e29a0c07641d93932a4"><div class="ttname"><a href="classnetdem_1_1_particle.html#a1d52612ad77e5e29a0c07641d93932a4">netdem::Particle::UpdateMotion</a></div><div class="ttdeci">virtual void UpdateMotion(double timestep)</div><div class="ttdef"><b>Definition:</b> particle.cpp:240</div></div>
+<div class="ttc" id="aclassnetdem_1_1_particle_html_a3f272179dd1b248f9ea09638c1beecfb"><div class="ttname"><a href="classnetdem_1_1_particle.html#a3f272179dd1b248f9ea09638c1beecfb">netdem::Particle::SetPosition</a></div><div class="ttdeci">virtual void SetPosition(double pos_x, double pos_y, double pos_z)</div><div class="ttdef"><b>Definition:</b> particle.cpp:82</div></div>
+<div class="ttc" id="aclassnetdem_1_1_particle_html_a710b20f430219dda84ffd515e760f157"><div class="ttname"><a href="classnetdem_1_1_particle.html#a710b20f430219dda84ffd515e760f157">netdem::Particle::SetVelocity</a></div><div class="ttdeci">virtual void SetVelocity(double v_x, double v_y, double v_z)</div><div class="ttdef"><b>Definition:</b> particle.cpp:111</div></div>
+<div class="ttc" id="aclassnetdem_1_1_particle_html_a99a725063b17af58b5abda99dc935dd9"><div class="ttname"><a href="classnetdem_1_1_particle.html#a99a725063b17af58b5abda99dc935dd9">netdem::Particle::pos</a></div><div class="ttdeci">Vec3d pos</div><div class="ttdef"><b>Definition:</b> particle.hpp:36</div></div>
+<div class="ttc" id="aclassnetdem_1_1_particle_html_aab0638163ac7ee8fb1d4a26f77f104c1"><div class="ttname"><a href="classnetdem_1_1_particle.html#aab0638163ac7ee8fb1d4a26f77f104c1">netdem::Particle::ClearForce</a></div><div class="ttdeci">virtual void ClearForce()</div><div class="ttdef"><b>Definition:</b> particle.cpp:173</div></div>
+<div class="ttc" id="aclassnetdem_1_1_shape_html_a4f5ba046585284a39cb93c6bd83746f7"><div class="ttname"><a href="classnetdem_1_1_shape.html#a4f5ba046585284a39cb93c6bd83746f7">netdem::Shape::node_num</a></div><div class="ttdeci">int node_num</div><div class="ttdef"><b>Definition:</b> shape.hpp:84</div></div>
 <div class="ttc" id="aclassnetdem_1_1_shape_html_aca813b26eea63d56642829360c7f5a3b"><div class="ttname"><a href="classnetdem_1_1_shape.html#aca813b26eea63d56642829360c7f5a3b">netdem::Shape::nodes</a></div><div class="ttdeci">VecXT&lt; Vec3d &gt; nodes</div><div class="ttdef"><b>Definition:</b> shape.hpp:86</div></div>
-<div class="ttc" id="aclassnetdem_1_1_solver_s_d_f_p_p_html"><div class="ttname"><a href="classnetdem_1_1_solver_s_d_f_p_p.html">netdem::SolverSDFPP</a></div><div class="ttdoc">Signed distance field-based contact solver.</div><div class="ttdef"><b>Definition:</b> solver_sdf_pp.hpp:24</div></div>
+<div class="ttc" id="aclassnetdem_1_1_shape_html_afd08386decfb825ba190c7a2d4e0aac6"><div class="ttname"><a href="classnetdem_1_1_shape.html#afd08386decfb825ba190c7a2d4e0aac6">netdem::Shape::size</a></div><div class="ttdeci">double size</div><div class="ttdef"><b>Definition:</b> shape.hpp:60</div></div>
+<div class="ttc" id="aclassnetdem_1_1_solver_s_d_f_p_p_html"><div class="ttname"><a href="classnetdem_1_1_solver_s_d_f_p_p.html">netdem::SolverSDFPP</a></div><div class="ttdoc">Signed distance field-based contact solver.</div><div class="ttdef"><b>Definition:</b> solver_sdf_pp.hpp:19</div></div>
 <div class="ttc" id="aclassnetdem_1_1_solver_s_d_f_p_p_html_a16d24254c1ae8e33ce3f0acd4cf036c7"><div class="ttname"><a href="classnetdem_1_1_solver_s_d_f_p_p.html#a16d24254c1ae8e33ce3f0acd4cf036c7">netdem::SolverSDFPP::ResolveUpdate</a></div><div class="ttdeci">void ResolveUpdate(ContactPP *const cnt, double timestep) override</div><div class="ttdoc">Updates the contact resolution for a contact point.</div><div class="ttdef"><b>Definition:</b> solver_sdf_pp.cpp:185</div></div>
-<div class="ttc" id="aclassnetdem_1_1_solver_s_d_f_p_p_html_a17594dfa6cdb0c1a6c46c555c4ef460c"><div class="ttname"><a href="classnetdem_1_1_solver_s_d_f_p_p.html#a17594dfa6cdb0c1a6c46c555c4ef460c">netdem::SolverSDFPP::potential_type</a></div><div class="ttdeci">int potential_type</div><div class="ttdoc">The type of potential used by the solver.</div><div class="ttdef"><b>Definition:</b> solver_sdf_pp.hpp:35</div></div>
+<div class="ttc" id="aclassnetdem_1_1_solver_s_d_f_p_p_html_a17594dfa6cdb0c1a6c46c555c4ef460c"><div class="ttname"><a href="classnetdem_1_1_solver_s_d_f_p_p.html#a17594dfa6cdb0c1a6c46c555c4ef460c">netdem::SolverSDFPP::potential_type</a></div><div class="ttdeci">int potential_type</div><div class="ttdoc">The type of potential used by the solver.</div><div class="ttdef"><b>Definition:</b> solver_sdf_pp.hpp:30</div></div>
 <div class="ttc" id="aclassnetdem_1_1_solver_s_d_f_p_p_html_a8a63a1bf1e54ed1270a7dd8cad0c493e"><div class="ttname"><a href="classnetdem_1_1_solver_s_d_f_p_p.html#a8a63a1bf1e54ed1270a7dd8cad0c493e">netdem::SolverSDFPP::Detect</a></div><div class="ttdeci">bool Detect() override</div><div class="ttdoc">Detects collisions between particles.</div><div class="ttdef"><b>Definition:</b> solver_sdf_pp.cpp:75</div></div>
 <div class="ttc" id="aclassnetdem_1_1_solver_s_d_f_p_p_html_adaefb81742e141f6ec97e61612c3c256"><div class="ttname"><a href="classnetdem_1_1_solver_s_d_f_p_p.html#adaefb81742e141f6ec97e61612c3c256">netdem::SolverSDFPP::ResolveInit</a></div><div class="ttdeci">void ResolveInit(ContactPP *const cnt, double timestep) override</div><div class="ttdoc">Initializes the contact resolution for a contact point.</div><div class="ttdef"><b>Definition:</b> solver_sdf_pp.cpp:172</div></div>
 <div class="ttc" id="aclassnetdem_1_1_solver_s_d_f_p_p_html_af276bd15b726fdf4b4a66de8c17d2697"><div class="ttname"><a href="classnetdem_1_1_solver_s_d_f_p_p.html#af276bd15b726fdf4b4a66de8c17d2697">netdem::SolverSDFPP::Init</a></div><div class="ttdeci">void Init(Particle *const p1, Particle *const p2) override</div><div class="ttdoc">Initializes the collision solver with two particles.</div><div class="ttdef"><b>Definition:</b> solver_sdf_pp.cpp:18</div></div>
-<div class="ttc" id="aclassnetdem_1_1_spherical_harmonics_html"><div class="ttname"><a href="classnetdem_1_1_spherical_harmonics.html">netdem::SphericalHarmonics</a></div><div class="ttdoc">A class representing a spherical harmonics object.</div><div class="ttdef"><b>Definition:</b> shape_spherical_harmonics.hpp:28</div></div>
+<div class="ttc" id="aclassnetdem_1_1_spherical_harmonics_html"><div class="ttname"><a href="classnetdem_1_1_spherical_harmonics.html">netdem::SphericalHarmonics</a></div><div class="ttdoc">A class representing a spherical harmonics object.</div><div class="ttdef"><b>Definition:</b> shape_spherical_harmonics.hpp:24</div></div>
 <div class="ttc" id="aclassnetdem_1_1_spherical_harmonics_html_a636e21871ecf0cd3f59153c285ecbd9e"><div class="ttname"><a href="classnetdem_1_1_spherical_harmonics.html#a636e21871ecf0cd3f59153c285ecbd9e">netdem::SphericalHarmonics::GetSTLModel</a></div><div class="ttdeci">STLModel GetSTLModel(int num_facets=400) override</div><div class="ttdoc">Generate an STL model for the SphericalHarmonics object.</div><div class="ttdef"><b>Definition:</b> shape_spherical_harmonics.cpp:167</div></div>
-<div class="ttc" id="aclassnetdem_1_1_spherical_harmonics_html_a7048aa9b5a0944e1e7411288b431bd92"><div class="ttname"><a href="classnetdem_1_1_spherical_harmonics.html#a7048aa9b5a0944e1e7411288b431bd92">netdem::SphericalHarmonics::a_nm</a></div><div class="ttdeci">VecXT&lt; double &gt; a_nm</div><div class="ttdef"><b>Definition:</b> shape_spherical_harmonics.hpp:31</div></div>
+<div class="ttc" id="aclassnetdem_1_1_spherical_harmonics_html_a7048aa9b5a0944e1e7411288b431bd92"><div class="ttname"><a href="classnetdem_1_1_spherical_harmonics.html#a7048aa9b5a0944e1e7411288b431bd92">netdem::SphericalHarmonics::a_nm</a></div><div class="ttdeci">VecXT&lt; double &gt; a_nm</div><div class="ttdef"><b>Definition:</b> shape_spherical_harmonics.hpp:27</div></div>
 <div class="ttc" id="aclassnetdem_1_1_spherical_harmonics_html_a9f84fe652a69751e530000c47fb3930f"><div class="ttname"><a href="classnetdem_1_1_spherical_harmonics.html#a9f84fe652a69751e530000c47fb3930f">netdem::SphericalHarmonics::UpdateShapeProperties</a></div><div class="ttdeci">void UpdateShapeProperties() override</div><div class="ttdoc">Update the shape properties of the SphericalHarmonics object.</div><div class="ttdef"><b>Definition:</b> shape_spherical_harmonics.cpp:113</div></div>
-<div class="ttc" id="anamespacenetdem_html"><div class="ttname"><a href="namespacenetdem.html">netdem</a></div><div class="ttdoc">A namespace containing classes and functions for the netdem simulation.</div><div class="ttdef"><b>Definition:</b> bond_entry.hpp:7</div></div>
+<div class="ttc" id="acontact__solver__factory_8hpp_html"><div class="ttname"><a href="contact__solver__factory_8hpp.html">contact_solver_factory.hpp</a></div></div>
+<div class="ttc" id="adistribution__uniform_8hpp_html"><div class="ttname"><a href="distribution__uniform_8hpp.html">distribution_uniform.hpp</a></div></div>
+<div class="ttc" id="aigl__wrapper_8hpp_html"><div class="ttname"><a href="igl__wrapper_8hpp.html">igl_wrapper.hpp</a></div></div>
+<div class="ttc" id="amodel__linear__spring_8hpp_html"><div class="ttname"><a href="model__linear__spring_8hpp.html">model_linear_spring.hpp</a></div></div>
+<div class="ttc" id="anamespacenetdem_html"><div class="ttname"><a href="namespacenetdem.html">netdem</a></div><div class="ttdef"><b>Definition:</b> bond_entry.hpp:7</div></div>
+<div class="ttc" id="anamespacenetdem_html_a088168eeea9e6ce8d0500cdfd7ef9c87"><div class="ttname"><a href="namespacenetdem.html#a088168eeea9e6ce8d0500cdfd7ef9c87">netdem::VecXT</a></div><div class="ttdeci">std::vector&lt; T &gt; VecXT</div><div class="ttdef"><b>Definition:</b> utils_macros.hpp:30</div></div>
+<div class="ttc" id="anamespacenetdem_html_aa1676e16ca66301040ee8d50376c72b9"><div class="ttname"><a href="namespacenetdem.html#aa1676e16ca66301040ee8d50376c72b9">netdem::Vec3d</a></div><div class="ttdeci">std::array&lt; double, 3 &gt; Vec3d</div><div class="ttdef"><b>Definition:</b> utils_macros.hpp:17</div></div>
+<div class="ttc" id="aparticle_8hpp_html"><div class="ttname"><a href="particle_8hpp.html">particle.hpp</a></div></div>
+<div class="ttc" id="ashape__spherical__harmonics_8hpp_html"><div class="ttname"><a href="shape__spherical__harmonics_8hpp.html">shape_spherical_harmonics.hpp</a></div></div>
+<div class="ttc" id="asolver__sdf__pp_8hpp_html"><div class="ttname"><a href="solver__sdf__pp_8hpp.html">solver_sdf_pp.hpp</a></div></div>
+<div class="ttc" id="aspherical__voronoi_8hpp_html"><div class="ttname"><a href="spherical__voronoi_8hpp.html">spherical_voronoi.hpp</a></div></div>
+<div class="ttc" id="autils__math_8hpp_html"><div class="ttname"><a href="utils__math_8hpp.html">utils_math.hpp</a></div></div>
 </div><!-- fragment --> </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

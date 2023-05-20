@@ -26,6 +26,18 @@ var classnetdem_1_1_solver_g_j_k_p_p =
     [ "UpdateSimplexLine", "classnetdem_1_1_solver_g_j_k_p_p.html#a28121af7b65d20352965e8f6f352ca05", null ],
     [ "UpdateSimplexTetrahedron", "classnetdem_1_1_solver_g_j_k_p_p.html#af6d9cfa6c52775653cd9411a25abd059", null ],
     [ "UpdateSimplexTriangle", "classnetdem_1_1_solver_g_j_k_p_p.html#af3474d50da13c65c597a60898c9a9380", null ],
+    [ "bound_sphere_radius_1", "classnetdem_1_1_solver_g_j_k_p_p.html#a12d3078fb8aa4b511ea8fb87c02b744e", null ],
+    [ "bound_sphere_radius_2", "classnetdem_1_1_solver_g_j_k_p_p.html#a4525018fe93e99888d95da79797733d7", null ],
+    [ "dpos_12", "classnetdem_1_1_solver_g_j_k_p_p.html#a6c854b0090b828bba5eb42c9999d13de", null ],
+    [ "dpos_12_ref", "classnetdem_1_1_solver_g_j_k_p_p.html#ab644c494e5cf05540d2e9affba6ee6e1", null ],
+    [ "dquat_12", "classnetdem_1_1_solver_g_j_k_p_p.html#a274d63454664b9893fd7ae91dbc1cfb0", null ],
+    [ "dquat_12_conj", "classnetdem_1_1_solver_g_j_k_p_p.html#ad762670c8652be706bebae38454952ad", null ],
     [ "enable_logging", "classnetdem_1_1_solver_g_j_k_p_p.html#abbcfc533b87b58663116db0ced702119", null ],
-    [ "enalbe_debugging", "classnetdem_1_1_solver_g_j_k_p_p.html#ad32ab545189294b53e40698a707fda98", null ]
+    [ "enalbe_debugging", "classnetdem_1_1_solver_g_j_k_p_p.html#ad32ab545189294b53e40698a707fda98", null ],
+    [ "erosion_ratio_increment", "classnetdem_1_1_solver_g_j_k_p_p.html#a536306da89a80cdce8ddf78c641657df", null ],
+    [ "erosion_ratio_initial", "classnetdem_1_1_solver_g_j_k_p_p.html#a84426e1ca5e1158dfebb04ea69b3bf71", null ],
+    [ "shape_1", "classnetdem_1_1_solver_g_j_k_p_p.html#a0343415fa31668aae8386f5f01ba561e", null ],
+    [ "shape_2", "classnetdem_1_1_solver_g_j_k_p_p.html#abc372bd1a894c94259624e80e1216e4b", null ],
+    [ "simplex_after_gjk", "classnetdem_1_1_solver_g_j_k_p_p.html#a74a4781e00f24b2da3f7fd466747fdcb", null ],
+    [ "use_erosion", "classnetdem_1_1_solver_g_j_k_p_p.html#ab509ae070d4f84908e4aedc85e5dc4c4", null ]
 ];

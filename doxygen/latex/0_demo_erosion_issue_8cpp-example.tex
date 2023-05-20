@@ -3,13 +3,13 @@ This is an example of how to use the netdem library.
 
 
 \begin{DoxyCodeInclude}{0}
-\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}contact\_solver\_factory.hpp"{}}}
-\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}particle.hpp"{}}}
-\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}shape\_ellipsoid.hpp"{}}}
-\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}shape\_plane.hpp"{}}}
-\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}solver\_gjk\_pp.hpp"{}}}
-\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}solver\_gjk\_pw.hpp"{}}}
-\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}utils\_math.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{contact__solver__factory_8hpp}{contact\_solver\_factory.hpp}}"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{particle_8hpp}{particle.hpp}}"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{shape__ellipsoid_8hpp}{shape\_ellipsoid.hpp}}"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{shape__plane_8hpp}{shape\_plane.hpp}}"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{solver__gjk__pp_8hpp}{solver\_gjk\_pp.hpp}}"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{solver__gjk__pw_8hpp}{solver\_gjk\_pw.hpp}}"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{utils__math_8hpp}{utils\_math.hpp}}"{}}}
 \DoxyCodeLine{\textcolor{preprocessor}{\#include\ <filesystem>}}
 \DoxyCodeLine{\textcolor{preprocessor}{\#include\ <string>}}
 \DoxyCodeLine{}
@@ -18,7 +18,7 @@ This is an example of how to use the netdem library.
 \DoxyCodeLine{}
 \DoxyCodeLine{\textcolor{keyword}{class\ }SolverGJKPP\_TEST\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classnetdem_1_1_solver_g_j_k_p_p}{SolverGJKPP}}\ \{}
 \DoxyCodeLine{\textcolor{keyword}{public}:}
-\DoxyCodeLine{\ \ Vec3d\ MinkowskiDiff(Vec3d\ \textcolor{keyword}{const}\ \&dir,\ \textcolor{keywordtype}{double}\ erosion\_ratio\ =\ 0)\ \{}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ MinkowskiDiff(\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ \textcolor{keyword}{const}\ \&dir,\ \textcolor{keywordtype}{double}\ erosion\_ratio\ =\ 0)\ \{}
 \DoxyCodeLine{\ \ \ \ \textcolor{keyword}{auto}\ pos\_1\ =\ shape\_1-\/>SupportPoint(-\/1.0\ *\ dir);}
 \DoxyCodeLine{\ \ \ \ \textcolor{keyword}{auto}\ pos\_2\ =\ Math::Rotate(}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ shape\_2-\/>SupportPoint(Math::Rotate(dir,\ dquat\_12\_conj)),\ dquat\_12);}
@@ -33,8 +33,8 @@ This is an example of how to use the netdem library.
 \DoxyCodeLine{\ \ \}}
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ tuple<double,\ Vec3d,\ Vec3d>\ GJK\_EROSION(\textcolor{keywordtype}{double}\ erosion\_ratio)\ \{}
-\DoxyCodeLine{\ \ \ \ Vec3d\ sup\_point;}
-\DoxyCodeLine{\ \ \ \ Vec3d\ sup\_dir\ =\ particle\_2-\/>pos\ -\/\ particle\_1-\/>pos;}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ sup\_point;}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ sup\_dir\ =\ particle\_2-\/>pos\ -\/\ particle\_1-\/>pos;}
 \DoxyCodeLine{\ \ \ \ Math::Normalize(\&sup\_dir);}
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ \ \ sup\_point\ =\ MinkowskiDiff(sup\_dir,\ erosion\_ratio);}
@@ -45,7 +45,7 @@ This is an example of how to use the netdem library.
 \DoxyCodeLine{\ \ \ \ sup\_dir\ =\ -\/1.0\ *\ sup\_point;}
 \DoxyCodeLine{\ \ \ \ Math::Normalize(\&sup\_dir);}
 \DoxyCodeLine{}
-\DoxyCodeLine{\ \ \ \ Vec3d\ cnt\_dir\_n,\ cnt\_pos;}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ cnt\_dir\_n,\ cnt\_pos;}
 \DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{double}\ cnt\_len\_n;}
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{bool}\ is\_collide\{\textcolor{keyword}{false}\};}
@@ -104,7 +104,7 @@ This is an example of how to use the netdem library.
 \DoxyCodeLine{\ \ \ \ \ \ len\_n\_target\{0.1\};}
 \DoxyCodeLine{\ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ 100;\ i++)\ \{}
 \DoxyCodeLine{\ \ \ \ pos\_y\ =\ 0.5\ *\ (pos\_y\_lower\ +\ pos\_y\_upper);}
-\DoxyCodeLine{\ \ \ \ obj\_2.SetPosition(0,\ pos\_y,\ 0.3);}
+\DoxyCodeLine{\ \ \ \ obj\_2.\mbox{\hyperlink{classnetdem_1_1_particle_a3f272179dd1b248f9ea09638c1beecfb}{SetPosition}}(0,\ pos\_y,\ 0.3);}
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ \ \ cnt\_solver.Init(\&obj\_1,\ \&obj\_2);}
 \DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{if}\ (cnt\_solver.Detect())\ \{}
@@ -126,8 +126,8 @@ This is an example of how to use the netdem library.
 \DoxyCodeLine{\ \ \ \ \}}
 \DoxyCodeLine{\ \ \}}
 \DoxyCodeLine{}
-\DoxyCodeLine{\ \ Vec3d\ dir\_sup\ =\ -\/1.0\ *\ cnt\_geoms\_epa.dir\_n;}
-\DoxyCodeLine{\ \ Vec3d\ pos\_sup\ =\ cnt\_solver.MinkowskiDiff(dir\_sup);}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ dir\_sup\ =\ -\/1.0\ *\ cnt\_geoms\_epa.dir\_n;}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ pos\_sup\ =\ cnt\_solver.MinkowskiDiff(dir\_sup);}
 \DoxyCodeLine{\ \ \textcolor{keywordtype}{double}\ pos\_sup\_norm\ =\ Math::NormL2(pos\_sup);}
 \DoxyCodeLine{\ \ cout\ <<\ \textcolor{stringliteral}{"{}result:\ "{}}\ <<\ pos\_sup\_norm\ <<\ \textcolor{stringliteral}{"{}:\ "{}}\ <<\ pos\_sup\ /\ pos\_sup\_norm\ <<\ \textcolor{stringliteral}{"{}:\ "{}}}
 \DoxyCodeLine{\ \ \ \ \ \ \ <<\ cnt\_geoms\_epa.dir\_n\ <<\ endl;}
