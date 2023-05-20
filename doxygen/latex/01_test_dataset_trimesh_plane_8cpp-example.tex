@@ -1,0 +1,241 @@
+\hypertarget{01_test_dataset_trimesh_plane_8cpp-example}{}\doxysection{01\+\_\+test\+\_\+dataset\+\_\+trimesh\+\_\+plane.\+cpp}
+This is an example of how to use the netdem library.
+
+
+\begin{DoxyCodeInclude}{0}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}contact\_solver\_factory.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}model\_volume\_based.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}particle.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}shape\_trimesh.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}solver\_boolean\_pp.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}solver\_boolean\_pw.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}utils\_math.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ <fstream>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ <random>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ <sstream>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{using\ namespace\ }\mbox{\hyperlink{namespacenetdem}{netdem}};}
+\DoxyCodeLine{\textcolor{keyword}{using\ namespace\ }std;}
+\DoxyCodeLine{}
+\DoxyCodeLine{VecXT<VecXT<double>>\ LoadDatasetTrimeshPlane(\textcolor{keywordtype}{string}\ filename)\ \{}
+\DoxyCodeLine{\ \ ifstream\ file\_handle;}
+\DoxyCodeLine{\ \ file\_handle.open(filename,\ ios::binary);}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{if}\ (!file\_handle)\ \{}
+\DoxyCodeLine{\ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Fail\ to\ read\ file:\ "{}}\ <<\ filename\ <<\ endl;}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{return}\ VecXT<VecXT<double>>();}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ file\_handle.seekg(0,\ ios::end);}
+\DoxyCodeLine{\ \ \textcolor{keywordtype}{long}\ context\_size\ =\ file\_handle.tellg();}
+\DoxyCodeLine{\ \ \textcolor{keywordtype}{char}\ *buffer\ =\ \textcolor{keyword}{new}\ \textcolor{keywordtype}{char}[context\_size];}
+\DoxyCodeLine{\ \ file\_handle.seekg(0);}
+\DoxyCodeLine{\ \ file\_handle.read(buffer,\ context\_size);}
+\DoxyCodeLine{\ \ file\_handle.close();}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ stringstream\ ss;}
+\DoxyCodeLine{\ \ ss.str(\textcolor{stringliteral}{"{}"{}});}
+\DoxyCodeLine{\ \ ss.clear();}
+\DoxyCodeLine{\ \ ss.str(buffer);}
+\DoxyCodeLine{\ \ VecXT<VecXT<double>>\ dataset;}
+\DoxyCodeLine{\ \ \textcolor{keywordtype}{string}\ str\_line,\ str\_num;}
+\DoxyCodeLine{\ \ VecXT<double>\ data\_line;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ getline(ss,\ str\_line);}
+\DoxyCodeLine{\ \ istringstream\ readstr(str\_line);}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{while}\ (getline(readstr,\ str\_num,\ \textcolor{charliteral}{','}))\ \{}
+\DoxyCodeLine{\ \ \ \ data\_line.push\_back(atof(str\_num.c\_str()));}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{\ \ getline(readstr,\ str\_num);}
+\DoxyCodeLine{\ \ data\_line.push\_back(atof(str\_num.c\_str()));}
+\DoxyCodeLine{\ \ dataset.push\_back(data\_line);}
+\DoxyCodeLine{\ \ \textcolor{keywordtype}{int}\ num\_data\_per\_line\ =\ data\_line.size();}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{while}\ (getline(ss,\ str\_line))\ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{if}\ (str\_line.find(\textcolor{stringliteral}{"{},"{}})\ ==\ string::npos)}
+\DoxyCodeLine{\ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ data\_line.resize(num\_data\_per\_line);}
+\DoxyCodeLine{\ \ \ \ istringstream\ readstr(str\_line);}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ num\_data\_per\_line\ -\/\ 1;\ i++)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ getline(readstr,\ str\_num,\ \textcolor{charliteral}{','});}
+\DoxyCodeLine{\ \ \ \ \ \ data\_line[i]\ =\ atof(str\_num.c\_str());}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ getline(readstr,\ str\_num);}
+\DoxyCodeLine{\ \ \ \ data\_line[num\_data\_per\_line\ -\/\ 1]\ =\ atof(str\_num.c\_str());}
+\DoxyCodeLine{\ \ \ \ dataset.push\_back(data\_line);}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{\ \ dataset.shrink\_to\_fit();}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{keyword}{delete}[]\ buffer;}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{return}\ dataset;}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ TestDatasetTrimeshPlaneDetection()\ \{}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{classnetdem_1_1_tri_mesh}{TriMesh}}\ tri\_mesh\_1;}
+\DoxyCodeLine{\ \ tri\_mesh\_1.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_a1dc42a1f9439c900d76f213155ebb56d}{InitFromSTL}}(\textcolor{stringliteral}{"{}data/particle\_template.stl"{}});}
+\DoxyCodeLine{\ \ tri\_mesh\_1.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_a6676d86d935edffc85b01191695a60b9}{Decimate}}(400);}
+\DoxyCodeLine{\ \ tri\_mesh\_1.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_aa149712da01e2f068f28b8eba4395e14}{AlignAxes}}();}
+\DoxyCodeLine{\ \ tri\_mesh\_1.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_aa2378c12f277056e112f8e6a0b31669b}{SetSize}}(1.0);}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{classnetdem_1_1_particle}{Particle}}\ obj\_p\ =\ \mbox{\hyperlink{classnetdem_1_1_particle}{Particle}}(\&tri\_mesh\_1);}
+\DoxyCodeLine{\ \ obj\_p.\mbox{\hyperlink{classnetdem_1_1_particle_af762283470f206c8a0797d6ce04f6436}{need\_update\_stl\_model}}\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\ \ cout\ <<\ \textcolor{stringliteral}{"{}particle\ created\ ...\ "{}}\ <<\ endl;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{classnetdem_1_1_tri_mesh}{TriMesh}}\ tri\_mesh\_2;}
+\DoxyCodeLine{\ \ tri\_mesh\_2.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_a1dc42a1f9439c900d76f213155ebb56d}{InitFromSTL}}(\textcolor{stringliteral}{"{}data/plate\_z0.stl"{}});}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{classnetdem_1_1_wall}{Wall}}\ obj\_w\ =\ \mbox{\hyperlink{classnetdem_1_1_wall}{Wall}}(\&tri\_mesh\_2);}
+\DoxyCodeLine{\ \ obj\_w.\mbox{\hyperlink{classnetdem_1_1_wall_a548d8f14d10053794dfdcac6531299df}{need\_update\_stl\_model}}\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\ \ cout\ <<\ \textcolor{stringliteral}{"{}wall\ created\ ...\ "{}}\ <<\ endl;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{keywordtype}{string}\ root\_dir\ =\ \textcolor{stringliteral}{"{}local/examples/netdem/ann\_models/trimesh\_plane/"{}};}
+\DoxyCodeLine{\ \ VecXT<VecXT<double>>\ dataset\ =}
+\DoxyCodeLine{\ \ \ \ \ \ LoadDatasetTrimeshPlane(root\_dir\ +\ \textcolor{stringliteral}{"{}dataset\_detection.txt"{}});}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{comment}{//\ for\ (int\ i\ =\ 0;\ i\ <\ dataset.size();\ i++)\ \{\ //\ for\ debug,\ test\ the\ loadded}}
+\DoxyCodeLine{\ \ \textcolor{comment}{//\ \ \ cout\ <<\ "{}>>\ "{};}}
+\DoxyCodeLine{\ \ \textcolor{comment}{//\ \ \ for\ (int\ j\ =\ 0;\ j\ <\ dataset[0].size();\ j++)\ \{}}
+\DoxyCodeLine{\ \ \textcolor{comment}{//\ \ \ \ \ cout\ <<\ dataset[i][j]\ <<\ "{},\ "{};}}
+\DoxyCodeLine{\ \ \textcolor{comment}{//\ \ \ \}}}
+\DoxyCodeLine{\ \ \textcolor{comment}{//\ \ \ cout\ <<\ endl;}}
+\DoxyCodeLine{\ \ \textcolor{comment}{//\ \}}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{keywordtype}{int}\ num\_samples\ =\ dataset.size();}
+\DoxyCodeLine{\ \ \textcolor{keyword}{auto}\ *ds\_inputs\ =\ \textcolor{keyword}{new}\ Vec4d[num\_samples];}
+\DoxyCodeLine{\ \ \textcolor{keyword}{auto}\ *ds\_cnt\_flags\ =\ \textcolor{keyword}{new}\ \textcolor{keywordtype}{bool}[num\_samples];}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0,\ skip\ =\ 1;\ i\ <\ num\_samples;\ i\ +=\ skip)\ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\_inputs\ =\ 0;\ i\_inputs\ <\ 4;\ i\_inputs++)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ ds\_inputs[i][i\_inputs]\ =\ dataset[i][i\_inputs];}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ ds\_cnt\_flags[i]\ =\ (bool)dataset[i][4];}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{classnetdem_1_1_solver_boolean_p_w}{SolverBooleanPW}}\ cnt\_solver;}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{classnetdem_1_1_volume_based}{VolumeBased}}\ cnt\_model;}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ num\_samples;\ i++)\ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{double}\ dist\_pc\_to\_plane;}
+\DoxyCodeLine{\ \ \ \ Vec3d\ dir\_n;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ unpack\ the\ inputs}}
+\DoxyCodeLine{\ \ \ \ dist\_pc\_to\_plane\ =\ ds\_inputs[i][0];}
+\DoxyCodeLine{\ \ \ \ dir\_n[0]\ =\ ds\_inputs[i][1];}
+\DoxyCodeLine{\ \ \ \ dir\_n[1]\ =\ ds\_inputs[i][2];}
+\DoxyCodeLine{\ \ \ \ dir\_n[2]\ =\ ds\_inputs[i][3];}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ transform\ the\ inputs\ to\ the\ wall\ position\ and\ rotation}}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ this\ is\ only\ for\ verification.\ No\ need\ to\ do\ this\ in\ contact\ solver}}
+\DoxyCodeLine{\ \ \ \ Vec3d\ dir\_n\_ref\{0,\ 0,\ 1\},\ rot\_axis;}
+\DoxyCodeLine{\ \ \ \ rot\_axis\ =\ Math::Cross(dir\_n\_ref,\ dir\_n);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ Vec4d\ quat;}
+\DoxyCodeLine{\ \ \ \ quat[0]\ =\ 1.0\ +\ Math::Dot(dir\_n,\ dir\_n\_ref);}
+\DoxyCodeLine{\ \ \ \ quat[1]\ =\ rot\_axis[0];}
+\DoxyCodeLine{\ \ \ \ quat[2]\ =\ rot\_axis[1];}
+\DoxyCodeLine{\ \ \ \ quat[3]\ =\ rot\_axis[2];}
+\DoxyCodeLine{\ \ \ \ Math::Quaternion::Normalize(\&quat);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ obj\_w.SetPosition(-\/dist\_pc\_to\_plane\ *\ dir\_n[0],}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ -\/dist\_pc\_to\_plane\ *\ dir\_n[1],}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ -\/dist\_pc\_to\_plane\ *\ dir\_n[2]);}
+\DoxyCodeLine{\ \ \ \ obj\_w.SetQuaternion(quat[0],\ quat[1],\ quat[2],\ quat[3]);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ cnt\_solver.\mbox{\hyperlink{classnetdem_1_1_solver_boolean_p_w_a4de5a57ebae1e1525345cdbe137273f2}{Init}}(\&obj\_p,\ \&obj\_w);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{bool}\ cnt\_flag\ =\ cnt\_solver.\mbox{\hyperlink{classnetdem_1_1_solver_boolean_p_w_ad93490a5944f55318242fbcef67c622d}{Detect}}();}
+\DoxyCodeLine{\ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}true\ vs\ data:\ "{}}\ <<\ cnt\_flag\ <<\ \textcolor{stringliteral}{"{},\ "{}}\ <<\ ds\_cnt\_flags[i]\ <<\ endl;}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{keyword}{delete}[]\ ds\_inputs;}
+\DoxyCodeLine{\ \ \textcolor{keyword}{delete}[]\ ds\_cnt\_flags;}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ TestDatasetTrimeshPlaneResolution()\ \{}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{classnetdem_1_1_tri_mesh}{TriMesh}}\ tri\_mesh\_1;}
+\DoxyCodeLine{\ \ tri\_mesh\_1.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_a1dc42a1f9439c900d76f213155ebb56d}{InitFromSTL}}(\textcolor{stringliteral}{"{}data/particle\_template.stl"{}});}
+\DoxyCodeLine{\ \ tri\_mesh\_1.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_a6676d86d935edffc85b01191695a60b9}{Decimate}}(400);}
+\DoxyCodeLine{\ \ tri\_mesh\_1.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_aa149712da01e2f068f28b8eba4395e14}{AlignAxes}}();}
+\DoxyCodeLine{\ \ tri\_mesh\_1.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_aa2378c12f277056e112f8e6a0b31669b}{SetSize}}(1.0);}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{classnetdem_1_1_particle}{Particle}}\ obj\_p\ =\ \mbox{\hyperlink{classnetdem_1_1_particle}{Particle}}(\&tri\_mesh\_1);}
+\DoxyCodeLine{\ \ obj\_p.\mbox{\hyperlink{classnetdem_1_1_particle_af762283470f206c8a0797d6ce04f6436}{need\_update\_stl\_model}}\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\ \ cout\ <<\ \textcolor{stringliteral}{"{}particle\ created\ ...\ "{}}\ <<\ endl;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{classnetdem_1_1_tri_mesh}{TriMesh}}\ tri\_mesh\_2;}
+\DoxyCodeLine{\ \ tri\_mesh\_2.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_a1dc42a1f9439c900d76f213155ebb56d}{InitFromSTL}}(\textcolor{stringliteral}{"{}data/plate\_z0.stl"{}});}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{classnetdem_1_1_wall}{Wall}}\ obj\_w\ =\ \mbox{\hyperlink{classnetdem_1_1_wall}{Wall}}(\&tri\_mesh\_2);}
+\DoxyCodeLine{\ \ obj\_w.\mbox{\hyperlink{classnetdem_1_1_wall_a548d8f14d10053794dfdcac6531299df}{need\_update\_stl\_model}}\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\ \ cout\ <<\ \textcolor{stringliteral}{"{}wall\ created\ ...\ "{}}\ <<\ endl;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{keywordtype}{string}\ root\_dir\ =\ \textcolor{stringliteral}{"{}local/examples/netdem/ann\_models/trimesh\_plane/"{}};}
+\DoxyCodeLine{\ \ VecXT<VecXT<double>>\ dataset\ =}
+\DoxyCodeLine{\ \ \ \ \ \ LoadDatasetTrimeshPlane(root\_dir\ +\ \textcolor{stringliteral}{"{}dataset\_resolution.txt"{}});}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{keywordtype}{int}\ num\_samples\ =\ dataset.size();}
+\DoxyCodeLine{\ \ \textcolor{keyword}{auto}\ *ds\_inputs\ =\ \textcolor{keyword}{new}\ Vec4d[num\_samples];}
+\DoxyCodeLine{\ \ \textcolor{keyword}{auto}\ *ds\_cnt\_flags\ =\ \textcolor{keyword}{new}\ \textcolor{keywordtype}{bool}[num\_samples];}
+\DoxyCodeLine{\ \ \textcolor{keyword}{auto}\ *ds\_cnt\_feats\ =\ \textcolor{keyword}{new}\ VecNT<double,\ 5>[num\_samples];}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0,\ skip\ =\ 1;\ i\ <\ num\_samples;\ i\ +=\ skip)\ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\_inputs\ =\ 0;\ i\_inputs\ <\ 4;\ i\_inputs++)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ ds\_inputs[i][i\_inputs]\ =\ dataset[i][i\_inputs];}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\_outputs\ =\ 0;\ i\_outputs\ <\ 5;\ i\_outputs++)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ ds\_cnt\_feats[i][i\_outputs]\ =\ dataset[i][4\ +\ i\_outputs];}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{classnetdem_1_1_solver_boolean_p_w}{SolverBooleanPW}}\ cnt\_solver;}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{classnetdem_1_1_volume_based}{VolumeBased}}\ cnt\_model;}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ num\_samples;\ i++)\ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{double}\ dist\_pc\_to\_plane;}
+\DoxyCodeLine{\ \ \ \ Vec3d\ dir\_n;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ unpack\ the\ inputs}}
+\DoxyCodeLine{\ \ \ \ dist\_pc\_to\_plane\ =\ ds\_inputs[i][0];}
+\DoxyCodeLine{\ \ \ \ dir\_n[0]\ =\ ds\_inputs[i][1];}
+\DoxyCodeLine{\ \ \ \ dir\_n[1]\ =\ ds\_inputs[i][2];}
+\DoxyCodeLine{\ \ \ \ dir\_n[2]\ =\ ds\_inputs[i][3];}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ transform\ the\ inputs\ to\ the\ wall\ position\ and\ rotation}}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ this\ is\ only\ for\ verification.\ No\ need\ to\ do\ this\ in\ contact\ solver}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ Vec3d\ dir\_n\_ref\{0,\ 0,\ 1\};}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{auto}\ rot\_axis\ =\ Math::Cross(dir\_n\_ref,\ dir\_n);}
+\DoxyCodeLine{\ \ \ \ Math::Normalize(\&rot\_axis);}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{double}\ rot\_angle\ =\ acos(Math::Dot(dir\_n,\ dir\_n\_ref));}
+\DoxyCodeLine{\ \ \ \ Vec4d\ quat\ =\ Math::Quaternion::FromRodrigues(rot\_angle,\ rot\_axis);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ obj\_w.SetPosition(-\/dist\_pc\_to\_plane\ *\ dir\_n[0],}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ -\/dist\_pc\_to\_plane\ *\ dir\_n[1],}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ -\/dist\_pc\_to\_plane\ *\ dir\_n[2]);}
+\DoxyCodeLine{\ \ \ \ obj\_w.SetQuaternion(quat[0],\ quat[1],\ quat[2],\ quat[3]);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ cnt\_solver.\mbox{\hyperlink{classnetdem_1_1_solver_boolean_p_w_a4de5a57ebae1e1525345cdbe137273f2}{Init}}(\&obj\_p,\ \&obj\_w);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ contact\ detection\ and\ resolution}}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{if}\ (cnt\_solver.\mbox{\hyperlink{classnetdem_1_1_solver_boolean_p_w_ad93490a5944f55318242fbcef67c622d}{Detect}}())\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \mbox{\hyperlink{classnetdem_1_1_contact_p_w}{ContactPW}}\ cnt\ =\ \mbox{\hyperlink{classnetdem_1_1_contact_p_w}{ContactPW}}(\&obj\_p,\ \&obj\_w);}
+\DoxyCodeLine{\ \ \ \ \ \ cnt.\mbox{\hyperlink{classnetdem_1_1_contact_p_w_a950d133d3ecd7be1cdc1536b7143c6e8}{SetCollisionModel}}(\&cnt\_model);}
+\DoxyCodeLine{\ \ \ \ \ \ cnt\_solver.\mbox{\hyperlink{classnetdem_1_1_solver_boolean_p_w_abaf25d3cdf2676aaf87c07cd63a58878}{ResolveInit}}(\&cnt,\ 1.0e-\/4);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \textcolor{keyword}{auto}\ \&cnt\_geoms\ =\ cnt.\mbox{\hyperlink{classnetdem_1_1_contact_p_w_a016b7b2a4da87f0015070262afb2879c}{collision\_entries}}[0].cnt\_geoms;}
+\DoxyCodeLine{\ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}>>\ true:\ "{}}\ <<\ cnt\_geoms.vol\ <<\ \textcolor{stringliteral}{"{},\ "{}}\ <<\ cnt\_geoms.sn\ <<\ \textcolor{stringliteral}{"{},\ "{}}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ <<\ cnt\_geoms.pos\ <<\ endl;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}>>\ data:\ "{}}\ <<\ ds\_cnt\_feats[i][0]\ <<\ \textcolor{stringliteral}{"{},\ "{}}\ <<\ ds\_cnt\_feats[i][1]}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{},\ "{}}\ <<\ ds\_cnt\_feats[i][2]\ <<\ \textcolor{stringliteral}{"{},\ "{}}\ <<\ ds\_cnt\_feats[i][3]\ <<\ \textcolor{stringliteral}{"{},\ "{}}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ <<\ ds\_cnt\_feats[i][4]\ <<\ endl;}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{keyword}{delete}[]\ ds\_inputs;}
+\DoxyCodeLine{\ \ \textcolor{keyword}{delete}[]\ ds\_cnt\_feats;}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ TestDatasetTrimeshPlane()\ \{}
+\DoxyCodeLine{\ \ TestDatasetTrimeshPlaneDetection();}
+\DoxyCodeLine{\ \ TestDatasetTrimeshPlaneResolution();}
+\DoxyCodeLine{\}}
+
+\end{DoxyCodeInclude}
+ 

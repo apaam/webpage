@@ -1,0 +1,138 @@
+\hypertarget{pynetdem_6_voronoi_box_8py-example}{}\doxysection{pynetdem\+\_\+6\+\_\+voronoi\+\_\+box.\+py}
+This is an example of how to use the netdem library.
+
+
+\begin{DoxyCodeInclude}{0}
+\DoxyCodeLine{00001\ \textcolor{keyword}{import}\ sys}
+\DoxyCodeLine{00002\ \textcolor{keyword}{import}\ os}
+\DoxyCodeLine{00003\ \textcolor{keyword}{import}\ numpy}
+\DoxyCodeLine{00004\ \textcolor{keyword}{from}\ numpy\ \textcolor{keyword}{import}\ cos,\ sin}
+\DoxyCodeLine{00005\ dir\_path\ =\ os.path.dirname(os.path.realpath(\_\_file\_\_))}
+\DoxyCodeLine{00006\ sys.path.append(dir\_path\ +\ \textcolor{stringliteral}{"{}/../../build/lib/"{}})}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{keyword}{import}\ pynetdem}
+\DoxyCodeLine{00009\ pynetdem.omp\_set\_num\_threads(1)}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{comment}{\#\ import\ the\ box}}
+\DoxyCodeLine{00012\ stl\_box\ =\ pynetdem.STLModel()}
+\DoxyCodeLine{00013\ stl\_box.InitFromSTL(\textcolor{stringliteral}{"{}data/box.stl"{}})}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{comment}{\#\ scale}}
+\DoxyCodeLine{00016\ angle\ =\ 0}
+\DoxyCodeLine{00017\ angle\_rad\ =\ angle\ /\ 3.1415926\ *\ 180}
+\DoxyCodeLine{00018\ quat\ =\ (cos(0.5\ *\ angle\_rad),\ sin(0.5\ *\ angle\_rad),\ 0,\ 0)}
+\DoxyCodeLine{00019\ stl\_box.Rotate(quat)}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ scale\ =\ 2.0}
+\DoxyCodeLine{00022\ tmp\_vertices\ =\ stl\_box.vertices}
+\DoxyCodeLine{00023\ \textcolor{keywordflow}{for}\ i\ \textcolor{keywordflow}{in}\ range(len(tmp\_vertices)):}
+\DoxyCodeLine{00024\ \ \ \ \ tmp\_vertices[i][2]\ =\ tmp\_vertices[i][2]\ /\ scale}
+\DoxyCodeLine{00025\ stl\_box.vertices\ =\ tmp\_vertices}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \textcolor{comment}{\#\ voronoi}}
+\DoxyCodeLine{00028\ num\_p\ =\ 100}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ [vt\_nodes,\ vt\_cells,\ vt\_seeds]\ =\ pynetdem.Voronoi.Solve(}
+\DoxyCodeLine{00031\ \ \ \ \ stl\_box,\ num\_p,\ 1000,\ 1.0e-\/3,\ 1)}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \textcolor{keywordflow}{for}\ i\ \textcolor{keywordflow}{in}\ range(len(vt\_nodes)):}
+\DoxyCodeLine{00034\ \ \ \ \ vt\_nodes[i][2]\ =\ vt\_nodes[i][2]\ *\ scale}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \textcolor{keywordflow}{for}\ i\ \textcolor{keywordflow}{in}\ range(len(vt\_seeds)):}
+\DoxyCodeLine{00037\ \ \ \ \ vt\_seeds[i][2]\ =\ vt\_nodes[i][2]\ *\ scale}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ pynetdem.Voronoi.SaveAsVTK(\textcolor{stringliteral}{"{}local/lin2022\_v2/voronoi\_box.vtk"{}},}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ vt\_nodes,\ vt\_cells,\ vt\_seeds)}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \textcolor{comment}{\#\ insert\ particles}}
+\DoxyCodeLine{00043\ solid\_frac\ =\ 0.05}
+\DoxyCodeLine{00044\ eq\_size\ =\ pow(solid\_frac\ /\ num\_p\ *\ 6.0\ /\ 3.1415926,\ 1.0\ /\ 3.0)}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ stl\_ref\ =\ pynetdem.STLModel()}
+\DoxyCodeLine{00047\ stl\_ref.InitFromSTL(\textcolor{stringliteral}{"{}local/lin2022\_v2/shapes/rocks/ballast\_1.stl"{}})}
+\DoxyCodeLine{00048\ stl\_ref.Standardize()}
+\DoxyCodeLine{00049\ stl\_ref.SetSize(eq\_size)}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ num\_divs\ =\ 50\ \ \textcolor{comment}{\#\ number\ of\ divisions\ in\ each\ dimension\ for\ voxelization}}
+\DoxyCodeLine{00052\ voxel\_values\ =\ numpy.zeros((num\_divs,\ num\_divs,\ num\_divs),\ dtype=numpy.int8)}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ stl\_template\ =\ pynetdem.STLModel()}
+\DoxyCodeLine{00055\ \textcolor{keywordflow}{for}\ i\ \textcolor{keywordflow}{in}\ range(1):}
+\DoxyCodeLine{00056\ \ \ \ \ stl\_template.InitFromSTL(}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}local/lin2022\_v2/shapes/rocks/ballast\_"{}}\ +\ str(i\ +\ 1)\ +\ \textcolor{stringliteral}{"{}.stl"{}})}
+\DoxyCodeLine{00058\ \ \ \ \ stl\_template.Decimate(200)}
+\DoxyCodeLine{00059\ \ \ \ \ stl\_template.Standardize()}
+\DoxyCodeLine{00060\ \ \ \ \ stl\_template.SetSize(eq\_size)}
+\DoxyCodeLine{00061\ \ \ \ \ print(stl\_template.GetVolume()\ *\ num\_p)}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ \ \ \ \ stl\_model\ =\ pynetdem.STLModel()}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keywordflow}{for}\ j\ \textcolor{keywordflow}{in}\ range(num\_p):}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ stl\_tmp\ =\ pynetdem.STLModel(stl\_template.vertices,\ stl\_template.facets)}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ stl\_voro\ =\ pynetdem.STLModel(vt\_nodes,\ vt\_cells[j])}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ stl\_tmp.CopyPoseDev(stl\_voro,\ stl\_ref)}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ quat\ =\ (cos(-\/0.5\ *\ angle\_rad),\ sin(-\/0.5\ *\ angle\_rad),\ 0,\ 0)}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ stl\_tmp.Rotate(quat)}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ save\ individual\ stl}}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ stl\_tmp.SaveAsSTL("{}local/lin2022\_v2/specimen/ballast\_"{}\ +}}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ str(i\ +\ 1)\ +\ "{}\_"{}\ +\ str(j\ +\ 1)\ +\ "{}.stl"{})}}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ stl\_model.MergeSTLModel(stl\_tmp)}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ discretization}}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ trimesh\_tmp\ =\ pynetdem.TriMesh()}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ trimesh\_tmp.InitFromSTL(stl\_tmp)}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ ii\ \textcolor{keywordflow}{in}\ range(num\_divs):}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ jj\ \textcolor{keywordflow}{in}\ range(num\_divs):}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ kk\ \textcolor{keywordflow}{in}\ range(num\_divs):}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pos\ =\ [(ii\ +\ 0.5)\ /\ num\_divs\ -\/\ 0.5,\ (jj\ +\ 0.5)\ /}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ num\_divs\ -\/\ 0.5,\ (kk\ +\ 0.5)\ /\ num\_divs\ -\/\ 0.5]}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ trimesh\_tmp.Enclose(pos):}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ voxel\_values[ii,\ jj,\ kk]\ =\ 1}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ print(\textcolor{stringliteral}{'finished\ particle\ '}\ +\ str(j))}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00093\ \ \ \ \ stl\_model.SaveAsSTL(}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}local/lin2022\_v2/specimen/ballast\_"{}}}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ +\ str(i\ +\ 1)\ +\ \textcolor{stringliteral}{"{}\_r"{}}\ +\ str(angle)\ +\ \textcolor{stringliteral}{"{}.stl"{}})}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00097\ \ \ \ \ hf\ =\ open(}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}local/lin2022\_v2/specimen/ballast\_"{}}}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ +\ str(i\ +\ 1)\ +\ \textcolor{stringliteral}{"{}\_r"{}}\ +\ str(angle)\ +\ \textcolor{stringliteral}{"{}.txt"{}},\ \textcolor{stringliteral}{'w'})}
+\DoxyCodeLine{00100\ \ \ \ \ \textcolor{keywordflow}{for}\ ii\ \textcolor{keywordflow}{in}\ range(num\_divs):}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ jj\ \textcolor{keywordflow}{in}\ range(num\_divs):}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ kk\ \textcolor{keywordflow}{in}\ range(num\_divs):}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ hf.write(str(voxel\_values[ii,\ jj,\ kk]))}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ hf.write(\textcolor{stringliteral}{'\ '})}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \ \ \ \ hf.write(\textcolor{stringliteral}{'\(\backslash\)n'})}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ hf.write(\textcolor{stringliteral}{'\(\backslash\)n'})}
+\DoxyCodeLine{00107\ }
+\DoxyCodeLine{00108\ \ \ \ \ hf.close()}
+\DoxyCodeLine{00109\ }
+\DoxyCodeLine{00110\ \ \ \ \ tecplot\_filename\ =\ \textcolor{stringliteral}{"{}local/lin2022\_v2/specimen/ballast\_"{}}\ +\ \(\backslash\)}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ str(i\ +\ 1)\ +\ \textcolor{stringliteral}{"{}\_r"{}}\ +\ str(angle)\ +\ \textcolor{stringliteral}{"{}.dat"{}}}
+\DoxyCodeLine{00112\ \ \ \ \ hf\ =\ open(tecplot\_filename,\ \textcolor{stringliteral}{'w'})}
+\DoxyCodeLine{00113\ \ \ \ \ hf.write(\textcolor{stringliteral}{'variables=\(\backslash\)"{}x\(\backslash\)"{},\(\backslash\)"{}y\(\backslash\)"{},\(\backslash\)"{}z\(\backslash\)"{},\(\backslash\)"{}is\_solid\(\backslash\)"{}\(\backslash\)n'})}
+\DoxyCodeLine{00114\ \ \ \ \ hf.write(\textcolor{stringliteral}{'zone\ t=\(\backslash\)"{}box\(\backslash\)"{}i='}\ +\ str(num\_divs)\ +\ \textcolor{stringliteral}{',j='}\ +}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \ \ \ \ \ str(num\_divs)\ +\ \textcolor{stringliteral}{',k='}\ +\ str(num\_divs)\ +\ \textcolor{stringliteral}{',f=point\(\backslash\)n'})}
+\DoxyCodeLine{00116\ \ \ \ \ \textcolor{keywordflow}{for}\ ii\ \textcolor{keywordflow}{in}\ range(num\_divs):}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ jj\ \textcolor{keywordflow}{in}\ range(num\_divs):}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ kk\ \textcolor{keywordflow}{in}\ range(num\_divs):}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ hf.write(str((ii\ +\ 0.5)\ /\ num\_divs\ -\/\ 0.5))}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ hf.write(\textcolor{stringliteral}{'\ '})}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ hf.write(str((jj\ +\ 0.5)\ /\ num\_divs\ -\/\ 0.5))}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ hf.write(\textcolor{stringliteral}{'\ '})}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ hf.write(str((kk\ +\ 0.5)\ /\ num\_divs\ -\/\ 0.5))}
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ hf.write(\textcolor{stringliteral}{'\ '})}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ hf.write(str(voxel\_values[ii,\ jj,\ kk]))}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ hf.write(\textcolor{stringliteral}{'\ '})}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ hf.write(\textcolor{stringliteral}{'\(\backslash\)n'})}
+\DoxyCodeLine{00128\ }
+\DoxyCodeLine{00129\ \ \ \ \ hf.close()}
+\DoxyCodeLine{00130\ \ \ \ \ print(\textcolor{stringliteral}{"{}data\ saved\ to:\ "{}}\ +\ tecplot\_filename)}
+
+\end{DoxyCodeInclude}
+ 

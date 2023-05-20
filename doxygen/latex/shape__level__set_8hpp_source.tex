@@ -6,50 +6,51 @@
 \DoxyCodeLine{00002\ }
 \DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}igl\_wrapper.hpp"{}}}
 \DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}level\_set\_function.hpp"{}}}
-\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}shape.hpp"{}}}
-\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}stl\_model.hpp"{}}}
-\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}stl\_reader.hpp"{}}}
-\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <iostream>}}
-\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <string>}}
-\DoxyCodeLine{00010\ }
-\DoxyCodeLine{00015\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacenetdem}{netdem}}\ \{}
-\DoxyCodeLine{00016\ }
-\DoxyCodeLine{00028\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classnetdem_1_1_level_set}{LevelSet}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classnetdem_1_1_level_set_function}{LevelSetFunction}},\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classnetdem_1_1_shape}{Shape}}\ \{}
-\DoxyCodeLine{00029\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00033\ \ \ \mbox{\hyperlink{classnetdem_1_1_level_set_aeb7d78f52f0833eac59f46d61e1484b0}{LevelSet}}();}
-\DoxyCodeLine{00034\ }
-\DoxyCodeLine{00043\ \ \ nlohmann::json\ \mbox{\hyperlink{classnetdem_1_1_level_set_a1b59bc3037e2dcc773b9b45ecf48f984}{PackJson}}()\ \textcolor{keyword}{override};}
-\DoxyCodeLine{00044\ }
-\DoxyCodeLine{00053\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_level_set_a52ea3304b72646b19ac3c41d116b09be}{InitFromJson}}(nlohmann::json\ \textcolor{keyword}{const}\ \&js)\ \textcolor{keyword}{override};}
-\DoxyCodeLine{00054\ }
-\DoxyCodeLine{00065\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_level_set_ae083e9dc341e63375d73114d82512535}{InitFromSTL}}(std::string\ \textcolor{keyword}{const}\ \&file,\ \textcolor{keywordtype}{int}\ mesh\_res\ =\ 25);}
-\DoxyCodeLine{00066\ }
-\DoxyCodeLine{00077\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_level_set_ae083e9dc341e63375d73114d82512535}{InitFromSTL}}(\mbox{\hyperlink{classnetdem_1_1_s_t_l_model}{STLModel}}\ \textcolor{keyword}{const}\ \&stl\_model,\ \textcolor{keywordtype}{int}\ mesh\_res\ =\ 25);}
-\DoxyCodeLine{00078\ }
-\DoxyCodeLine{00094\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_level_set_ae540d456adc2bc839e33887910860d22}{InitFromDistanceMap}}(\textcolor{keywordtype}{double}\ c\_0,\ \textcolor{keywordtype}{double}\ c\_1,\ \textcolor{keywordtype}{double}\ c\_2,\ \textcolor{keywordtype}{double}\ sp,}
-\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ VecXT<VecXT<VecXT<double>>>\ \&dist\_map);}
-\DoxyCodeLine{00096\ }
-\DoxyCodeLine{00103\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_level_set_a1d2d991ec6f1ae581edadfd37e96293e}{Init}}();}
-\DoxyCodeLine{00104\ }
-\DoxyCodeLine{00111\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_level_set_aecbeb44a4f5cb99863ac6e0224410687}{AlignAxes}}();}
-\DoxyCodeLine{00112\ }
-\DoxyCodeLine{00119\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_level_set_ab3e63267b5e1dd178cf24c34c802cfc2}{UpdateNodes}}()\ \textcolor{keyword}{override};}
-\DoxyCodeLine{00120\ }
-\DoxyCodeLine{00127\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_level_set_a72c81d9f43815ae929d778510ce4aef8}{UpdateShapeProperties}}()\ \textcolor{keyword}{override};}
-\DoxyCodeLine{00128\ }
-\DoxyCodeLine{00137\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_level_set_a4bc46bd51d5d9e9fe8c93d0ea5b6b8f1}{SetSize}}(\textcolor{keywordtype}{double}\ d)\ \textcolor{keyword}{override};}
-\DoxyCodeLine{00138\ }
-\DoxyCodeLine{00146\ \ \ \mbox{\hyperlink{classnetdem_1_1_shape}{Shape}}\ *\mbox{\hyperlink{classnetdem_1_1_level_set_a940c5ebf05e9f42c692d236641634787}{Clone}}()\ \textcolor{keyword}{const\ override};}
-\DoxyCodeLine{00147\ }
-\DoxyCodeLine{00158\ \ \ \mbox{\hyperlink{classnetdem_1_1_s_t_l_model}{STLModel}}\ \mbox{\hyperlink{classnetdem_1_1_level_set_a827e8098ca2eed67e0b8fc08f04cc5e2}{GetSTLModel}}(\textcolor{keywordtype}{int}\ num\_facets\ =\ 400)\ \textcolor{keyword}{override};}
-\DoxyCodeLine{00159\ }
-\DoxyCodeLine{00171\ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classnetdem_1_1_level_set_ae7d279b437dd5c7cdea45c24102693ab}{SignedDistance}}(Vec3d\ \textcolor{keyword}{const}\ \&pos)\ \textcolor{keyword}{const\ override};}
-\DoxyCodeLine{00172\ }
-\DoxyCodeLine{00186\ \ \ Vec3d\ \mbox{\hyperlink{classnetdem_1_1_level_set_a37d1f74794698d67a27e0372b42562e9}{SurfacePoint}}(Vec3d\ \textcolor{keyword}{const}\ \&pos)\ \textcolor{keyword}{override};}
-\DoxyCodeLine{00187\ }
-\DoxyCodeLine{00194\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_level_set_afe6d8d9de73d27e70f29f05bab3c434b}{Print}}()\ \textcolor{keyword}{override};}
-\DoxyCodeLine{00195\ \};}
-\DoxyCodeLine{00196\ }
-\DoxyCodeLine{00197\ \}\ \textcolor{comment}{//\ namespace\ netdem}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}sdf\_calculator.hpp"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}shape.hpp"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}stl\_model.hpp"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}stl\_reader.hpp"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00016\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacenetdem}{netdem}}\ \{}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00029\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classnetdem_1_1_level_set}{LevelSet}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classnetdem_1_1_level_set_function}{LevelSetFunction}},\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classnetdem_1_1_shape}{Shape}}\ \{}
+\DoxyCodeLine{00030\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00034\ \ \ \mbox{\hyperlink{classnetdem_1_1_level_set_aeb7d78f52f0833eac59f46d61e1484b0}{LevelSet}}();}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00044\ \ \ nlohmann::json\ \mbox{\hyperlink{classnetdem_1_1_level_set_a1b59bc3037e2dcc773b9b45ecf48f984}{PackJson}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00054\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_level_set_a52ea3304b72646b19ac3c41d116b09be}{InitFromJson}}(nlohmann::json\ \textcolor{keyword}{const}\ \&js)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00066\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_level_set_ae083e9dc341e63375d73114d82512535}{InitFromSTL}}(std::string\ \textcolor{keyword}{const}\ \&file,\ \textcolor{keywordtype}{int}\ mesh\_res\ =\ 25);}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00078\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_level_set_ae083e9dc341e63375d73114d82512535}{InitFromSTL}}(\mbox{\hyperlink{classnetdem_1_1_s_t_l_model}{STLModel}}\ \textcolor{keyword}{const}\ \&stl\_model,\ \textcolor{keywordtype}{int}\ mesh\_res\ =\ 25);}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00095\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_level_set_ae540d456adc2bc839e33887910860d22}{InitFromDistanceMap}}(\textcolor{keywordtype}{double}\ c\_0,\ \textcolor{keywordtype}{double}\ c\_1,\ \textcolor{keywordtype}{double}\ c\_2,\ \textcolor{keywordtype}{double}\ sp,}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ VecXT<VecXT<VecXT<double>>>\ \&dist\_map);}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00104\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_level_set_a1d2d991ec6f1ae581edadfd37e96293e}{Init}}();}
+\DoxyCodeLine{00105\ }
+\DoxyCodeLine{00112\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_level_set_aecbeb44a4f5cb99863ac6e0224410687}{AlignAxes}}();}
+\DoxyCodeLine{00113\ }
+\DoxyCodeLine{00120\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_level_set_ab3e63267b5e1dd178cf24c34c802cfc2}{UpdateNodes}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00121\ }
+\DoxyCodeLine{00128\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_level_set_a72c81d9f43815ae929d778510ce4aef8}{UpdateShapeProperties}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00129\ }
+\DoxyCodeLine{00138\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_level_set_a4bc46bd51d5d9e9fe8c93d0ea5b6b8f1}{SetSize}}(\textcolor{keywordtype}{double}\ d)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00139\ }
+\DoxyCodeLine{00147\ \ \ \mbox{\hyperlink{classnetdem_1_1_shape}{Shape}}\ *\mbox{\hyperlink{classnetdem_1_1_level_set_a940c5ebf05e9f42c692d236641634787}{Clone}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00148\ }
+\DoxyCodeLine{00159\ \ \ \mbox{\hyperlink{classnetdem_1_1_s_t_l_model}{STLModel}}\ \mbox{\hyperlink{classnetdem_1_1_level_set_a827e8098ca2eed67e0b8fc08f04cc5e2}{GetSTLModel}}(\textcolor{keywordtype}{int}\ num\_facets\ =\ 400)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00160\ }
+\DoxyCodeLine{00172\ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classnetdem_1_1_level_set_ae7d279b437dd5c7cdea45c24102693ab}{SignedDistance}}(Vec3d\ \textcolor{keyword}{const}\ \&pos)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00173\ }
+\DoxyCodeLine{00187\ \ \ Vec3d\ \mbox{\hyperlink{classnetdem_1_1_level_set_a37d1f74794698d67a27e0372b42562e9}{SurfacePoint}}(Vec3d\ \textcolor{keyword}{const}\ \&pos)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00188\ }
+\DoxyCodeLine{00195\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_level_set_afe6d8d9de73d27e70f29f05bab3c434b}{Print}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00196\ \};}
+\DoxyCodeLine{00197\ }
+\DoxyCodeLine{00198\ \}\ \textcolor{comment}{//\ namespace\ netdem}}
 
 \end{DoxyCode}

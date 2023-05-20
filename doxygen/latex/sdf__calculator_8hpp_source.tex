@@ -1,0 +1,48 @@
+\hypertarget{sdf__calculator_8hpp_source}{}\doxysection{sdf\+\_\+calculator.\+hpp}
+\label{sdf__calculator_8hpp_source}\index{/Users/lzhshou/Documents/Research/myProjects/apaam/repo/netdem/src/utils/sdf\_calculator.hpp@{/Users/lzhshou/Documents/Research/myProjects/apaam/repo/netdem/src/utils/sdf\_calculator.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}stl\_model.hpp"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}utils\_math.hpp"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <Eigen/Dense>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <igl/signed\_distance.h>}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacenetdem}{netdem}}\ \{}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00020\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classnetdem_1_1_s_d_f_calculator}{SDFCalculator}}\ \{}
+\DoxyCodeLine{00021\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00022\ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classnetdem_1_1_s_d_f_calculator_ae5110336b03e5804fa16efb00e43d8b2}{max\_distance}}\{0.0\};\ }
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00030\ \ \ \mbox{\hyperlink{classnetdem_1_1_s_d_f_calculator_aa8a0cab4d342177cb775edbf692a1b09}{SDFCalculator}}();}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00042\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_s_d_f_calculator_abde55bf4a5f69649136cadc5ace8537a}{InitFromSTL}}(\textcolor{keyword}{const}\ VecXT<Vec3d>\ \&vv,\ \textcolor{keyword}{const}\ VecXT<Vec3i>\ \&ff);}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00053\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_s_d_f_calculator_abde55bf4a5f69649136cadc5ace8537a}{InitFromSTL}}(\mbox{\hyperlink{classnetdem_1_1_s_t_l_model}{STLModel}}\ \textcolor{keyword}{const}\ \&stl\_model);}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00063\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_s_d_f_calculator_ad07355ccd1bb1b590dd258a2de9e3a9c}{Init}}();}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00075\ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classnetdem_1_1_s_d_f_calculator_ac6f6822eccf2696168ad4d376ce528e5}{SignedDistance}}(Vec3d\ \textcolor{keyword}{const}\ \&pos)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00086\ \ \ Vec3d\ \mbox{\hyperlink{classnetdem_1_1_s_d_f_calculator_a1aa5ad48be7c50db1fd9df163494049b}{SurfacePoint}}(Vec3d\ \textcolor{keyword}{const}\ \&pos)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00096\ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classnetdem_1_1_s_d_f_calculator_a1ea283971e65103166b60cb2cedce31b}{ClosestFacet}}(Vec3d\ \textcolor{keyword}{const}\ \&pos)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00098\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00099\ \ \ Eigen::MatrixXd\ vertices;\ }
+\DoxyCodeLine{00100\ \ \ Eigen::MatrixXi\ facets;\ }
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00102\ \ \ Eigen::MatrixXi\ T;\ }
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00104\ \ \ igl::AABB<Eigen::MatrixXd,\ 3>}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ tree;\ }
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00107\ \ \ Eigen::MatrixXd\ FN,\ VN,\ EN;\ }
+\DoxyCodeLine{00109\ \ \ Eigen::MatrixXi\ E;\ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00110\ \ \ Eigen::VectorXi\ EMAP;\ \ \ \ \ \ \ }
+\DoxyCodeLine{00111\ \};}
+\DoxyCodeLine{00112\ }
+\DoxyCodeLine{00113\ \}\ \textcolor{comment}{//\ namespace\ netdem}}
+
+\end{DoxyCode}

@@ -15,5 +15,8 @@ var classnetdem_1_1_external_force =
     [ "SetMoment", "classnetdem_1_1_external_force.html#adb645910e4b9dd97018b98de29e81aef", null ],
     [ "SetMoment", "classnetdem_1_1_external_force.html#a05d37c7512576240d3fb901961d492ff", null ],
     [ "SyncToAllProcessors", "classnetdem_1_1_external_force.html#acd4aac67c8998aa3b20a128900468157", null ],
-    [ "Update", "classnetdem_1_1_external_force.html#a5aa8f256ecf373554e9e2a47a816c0d9", null ]
+    [ "Update", "classnetdem_1_1_external_force.html#a5aa8f256ecf373554e9e2a47a816c0d9", null ],
+    [ "force_list", "classnetdem_1_1_external_force.html#aa8e610968f6bc4c4b5649b06e5aa1abf", null ],
+    [ "particle_id_list", "classnetdem_1_1_external_force.html#a4bc8650fe6ecff750e76e8b0a8de3d3b", null ],
+    [ "particle_list", "classnetdem_1_1_external_force.html#ab43248484c1095bc41091f7c25e24b35", null ]
 ];

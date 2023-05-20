@@ -1,0 +1,288 @@
+\hypertarget{81_voronoi_packing_8cpp-example}{}\doxysection{81\+\_\+voronoi\+\_\+packing.\+cpp}
+This is an example of how to use the netdem library.
+
+
+\begin{DoxyCodeInclude}{0}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}data\_dumper.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}gen\_pack.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}gen\_wall\_box\_plane.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}gen\_wall\_box\_plate.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}gravity.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}model\_linear\_spring.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}shape\_polybezier.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}shape\_sphere.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}shape\_trimesh.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}simulation.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}solver\_gjk\_pp.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ <unordered\_map>}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{using\ namespace\ }\mbox{\hyperlink{namespacenetdem}{netdem}};}
+\DoxyCodeLine{\textcolor{keyword}{using\ namespace\ }std;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\mbox{\hyperlink{classnetdem_1_1_s_t_l_model}{STLModel}}\ GetKernelPolyhedron()\ \{}
+\DoxyCodeLine{\ \ \textcolor{keywordtype}{int}\ num\_verts\{30\ /\ 2\ +\ 2\};\ \textcolor{comment}{//\ V\ =\ E-\/F+2}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{classnetdem_1_1_uniform_distribution}{UniformDistribution}}\ uniform\_dist(0,\ Math::PI);}
+\DoxyCodeLine{\ \ \textcolor{keyword}{auto}\ theta\_list\ =\ uniform\_dist.\mbox{\hyperlink{classnetdem_1_1_uniform_distribution_a7e39cbd0ed813d381022ad61986092bf}{Get}}(num\_verts);}
+\DoxyCodeLine{\ \ \textcolor{keyword}{auto}\ phi\_list\ =\ uniform\_dist.\mbox{\hyperlink{classnetdem_1_1_uniform_distribution_a7e39cbd0ed813d381022ad61986092bf}{Get}}(num\_verts);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ VecXT<Vec3d>\ vertices;}
+\DoxyCodeLine{\ \ VecXT<Vec3i>\ facets;}
+\DoxyCodeLine{\ \ vertices.resize(num\_verts);}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ num\_verts;\ i++)\ \{}
+\DoxyCodeLine{\ \ \ \ vertices[i][0]\ =\ sin(theta\_list[i])\ *\ cos(phi\_list[i]\ *\ 2);}
+\DoxyCodeLine{\ \ \ \ vertices[i][1]\ =\ sin(theta\_list[i])\ *\ sin(phi\_list[i]\ *\ 2);}
+\DoxyCodeLine{\ \ \ \ vertices[i][2]\ =\ cos(theta\_list[i]);}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ IGLWrapper::ConvexHull(vertices,\ \&vertices,\ \&facets);}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{classnetdem_1_1_s_t_l_model}{STLModel}}\ kernel\_stl(vertices,\ facets);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ Vec3d\ origin\{0,\ 0,\ 0\};}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{if}\ (!kernel\_stl.\mbox{\hyperlink{classnetdem_1_1_s_t_l_model_a975e0084ae7699108adc0c12a7d3978b}{Enclose}}(origin))\ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{return}\ GetKernelPolyhedron();}
+\DoxyCodeLine{\ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{return}\ kernel\_stl;}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ PrepareTemplates()\ \{}
+\DoxyCodeLine{\ \ std::filesystem::create\_directories(}
+\DoxyCodeLine{\ \ \ \ \ \ \textcolor{stringliteral}{"{}local/polybezier\_model/voronoi\_packing/kernel\_stl/"{}});}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{keywordtype}{int}\ num\_p\{0\};}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ 1000\ *\ 1000;\ i++)\ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{auto}\ kernel\_stl\ =\ GetKernelPolyhedron();}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{classnetdem_1_1_polybezier}{Polybezier}}\ polybezier;}
+\DoxyCodeLine{\ \ \ \ polybezier.\mbox{\hyperlink{classnetdem_1_1_polybezier_ad6fb2162349c6483a61572326cc405a6}{InitFromKernelSTL}}(kernel\_stl);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{auto}\ bound\_len\ =\ polybezier.\mbox{\hyperlink{classnetdem_1_1_shape_a2abbd207dea9e86d154131624e217b96}{bound\_aabb\_max}}\ -\/\ polybezier.bound\_aabb\_min;}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{auto}\ len\_max\ =\ max(bound\_len[0],\ max(bound\_len[1],\ bound\_len[2]));}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{auto}\ len\_min\ =\ min(bound\_len[0],\ min(bound\_len[1],\ bound\_len[2]));}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{auto}\ len\_mid\ =}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ bound\_len[0]\ +\ bound\_len[1]\ +\ bound\_len[2]\ -\/\ len\_max\ -\/\ len\_min;}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{auto}\ flatness\ =\ len\_min\ /\ len\_mid;}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{auto}\ elongation\ =\ len\_mid\ /\ len\_max;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{if}\ (flatness\ >\ 0.7\ \&\&\ flatness\ <\ 0.9\ \&\&\ elongation\ >\ 0.6\ \&\&}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ elongation\ <\ 0.8)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ num\_p++;}
+\DoxyCodeLine{\ \ \ \ \ \ kernel\_stl.SaveAsSTL(}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}local/polybezier\_model/voronoi\_packing/kernel\_stl/"{}}\ +}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ to\_string(num\_p\ -\/\ 1)\ +\ \textcolor{stringliteral}{"{}.stl"{}});}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{if}\ (num\_p\ >\ 999)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ PolybezierCase()\ \{}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{classnetdem_1_1_simulation}{Simulation}}\ *sim\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{classnetdem_1_1_simulation}{Simulation}}();}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ sim-\/>\mbox{\hyperlink{classnetdem_1_1_simulation_a59b3aaba47a3a50145306b90ce26d049}{domain\_manager}}.\mbox{\hyperlink{classnetdem_1_1_domain_manager_a0da42ac0d44dbc628207a02c0763f978}{SetBound}}(-\/0.6,\ -\/0.6,\ -\/0.6,\ 0.6,\ 0.6,\ 0.6);}
+\DoxyCodeLine{\ \ sim-\/>\mbox{\hyperlink{classnetdem_1_1_simulation_a59b3aaba47a3a50145306b90ce26d049}{domain\_manager}}.\mbox{\hyperlink{classnetdem_1_1_domain_manager_a369081a4f895fc460ef631e5215fb399}{SetCellSpacing}}(0.3,\ 0.3,\ 0.3);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{classnetdem_1_1_linear_spring}{LinearSpring}}\ cnt\_model\ =\ \mbox{\hyperlink{classnetdem_1_1_linear_spring}{LinearSpring}}(2.0e6,\ 1.0e6,\ 0.7,\ 0.5);}
+\DoxyCodeLine{\ \ sim-\/>\mbox{\hyperlink{classnetdem_1_1_simulation_add17bfcd927bd2b7f14f05855c20bea3}{scene}}.\mbox{\hyperlink{classnetdem_1_1_scene_a16e8cd7195ba20a9d0bee14498b69c4f}{InsertContactModel}}(\&cnt\_model);}
+\DoxyCodeLine{\ \ sim-\/>\mbox{\hyperlink{classnetdem_1_1_simulation_add17bfcd927bd2b7f14f05855c20bea3}{scene}}.\mbox{\hyperlink{classnetdem_1_1_scene_a37580ce0b6492c6580c85a999aae8397}{SetNumberOfMaterials}}(1);}
+\DoxyCodeLine{\ \ sim-\/>\mbox{\hyperlink{classnetdem_1_1_simulation_add17bfcd927bd2b7f14f05855c20bea3}{scene}}.SetCollisionModel(0,\ 0,\ cnt\_model.\mbox{\hyperlink{classnetdem_1_1_contact_model_ac452f37ee577eb8e2cefa4156d9c62ab}{label}});}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{comment}{//\ voronoi\ cells}}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{classnetdem_1_1_s_t_l_model}{STLModel}}\ stl\_model;}
+\DoxyCodeLine{\ \ stl\_model.\mbox{\hyperlink{classnetdem_1_1_s_t_l_model_abb01a9583427f88f59d2abdf79b1e981}{InitFromSTL}}(\textcolor{stringliteral}{"{}data/box.stl"{}});}
+\DoxyCodeLine{\ \ \textcolor{keyword}{auto}\ [vt\_nodes,\ vt\_cells,\ vt\_seeds]\ =}
+\DoxyCodeLine{\ \ \ \ \ \ Voronoi::Solve(stl\_model,\ 1000,\ 1000,\ 1.0e-\/3);}
+\DoxyCodeLine{\ \ Voronoi::SaveAsVTK(\textcolor{stringliteral}{"{}local/polybezier\_model/voronoi\_packing/voronoi.vtk"{}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ vt\_nodes,\ vt\_cells,\ vt\_seeds);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ 1000;\ i++)\ \{}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{classnetdem_1_1_s_t_l_model}{STLModel}}\ kernel\_stl;}
+\DoxyCodeLine{\ \ \ \ kernel\_stl.\mbox{\hyperlink{classnetdem_1_1_s_t_l_model_abb01a9583427f88f59d2abdf79b1e981}{InitFromSTL}}(}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}local/polybezier\_model/voronoi\_packing/kernel\_stl/"{}}\ +\ to\_string(i)\ +}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}.stl"{}});}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{classnetdem_1_1_polybezier}{Polybezier}}\ polybezier;}
+\DoxyCodeLine{\ \ \ \ polybezier.\mbox{\hyperlink{classnetdem_1_1_polybezier_ad6fb2162349c6483a61572326cc405a6}{InitFromKernelSTL}}(kernel\_stl);}
+\DoxyCodeLine{\ \ \ \ polybezier.\mbox{\hyperlink{classnetdem_1_1_polybezier_af384e6ec1edaa5375b86971601528080}{SetSize}}(0.08);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{auto}\ shape\_prt\ =\ sim-\/>\mbox{\hyperlink{classnetdem_1_1_simulation_add17bfcd927bd2b7f14f05855c20bea3}{scene}}.\mbox{\hyperlink{classnetdem_1_1_scene_a398e24fbcba078c40b7970edbe44e325}{InsertShape}}(\&polybezier);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{classnetdem_1_1_particle}{Particle}}\ p;}
+\DoxyCodeLine{\ \ \ \ p.SetShape(shape\_prt);}
+\DoxyCodeLine{\ \ \ \ p.SetPosition(vt\_seeds[i][0],\ vt\_seeds[i][1],\ vt\_seeds[i][2]);}
+\DoxyCodeLine{\ \ \ \ sim-\/>\mbox{\hyperlink{classnetdem_1_1_simulation_add17bfcd927bd2b7f14f05855c20bea3}{scene}}.\mbox{\hyperlink{classnetdem_1_1_scene_a9e8ccb020b0ba1b5ab8626448ece42ae}{InsertParticle}}(p);}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{comment}{//\ container}}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{classnetdem_1_1_wall_box_plane}{WallBoxPlane}}\ wall\_box(1,\ 1,\ 1,\ 0,\ 0,\ 0);}
+\DoxyCodeLine{\ \ wall\_box.ImportToScene(\&(sim-\/>\mbox{\hyperlink{classnetdem_1_1_simulation_add17bfcd927bd2b7f14f05855c20bea3}{scene}}));}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{classnetdem_1_1_gravity}{Gravity}}\ grav;}
+\DoxyCodeLine{\ \ grav.\mbox{\hyperlink{classnetdem_1_1_gravity_a9172d8fb018fe1b553b3af50070a5788}{Init}}(sim);}
+\DoxyCodeLine{\ \ sim-\/>\mbox{\hyperlink{classnetdem_1_1_simulation_a918a87f02a78aed6a311bf90d1061e72}{modifier\_manager}}.\mbox{\hyperlink{classnetdem_1_1_modifier_manager_a6748f7dfd9b3e8e9999c4981684a9945}{Insert}}(\&grav);}
+\DoxyCodeLine{\ \ sim-\/>\mbox{\hyperlink{classnetdem_1_1_simulation_a918a87f02a78aed6a311bf90d1061e72}{modifier\_manager}}.\mbox{\hyperlink{classnetdem_1_1_modifier_manager_a75ba1abedb33d45398052ada3177baa2}{Enable}}(grav.label);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{classnetdem_1_1_data_dumper}{DataDumper}}\ data\_dumper;}
+\DoxyCodeLine{\ \ data\_dumper.\mbox{\hyperlink{classnetdem_1_1_data_dumper_a3dba3724732b7159c81366a6cf09720a}{Init}}(sim);}
+\DoxyCodeLine{\ \ data\_dumper.\mbox{\hyperlink{classnetdem_1_1_data_dumper_ae4299f2162ba78ec3fbc0f0bc9e9b2d7}{SetRootPath}}(\textcolor{stringliteral}{"{}local/polybezier\_model/voronoi\_packing/out/"{}});}
+\DoxyCodeLine{\ \ data\_dumper.\mbox{\hyperlink{classnetdem_1_1_data_dumper_ac80bd05d4083227c57b5f6598d53a095}{SetSaveByCycles}}(100);}
+\DoxyCodeLine{\ \ data\_dumper.\mbox{\hyperlink{classnetdem_1_1_data_dumper_a98fa48ac13d93426527022a93e248f3f}{SaveShapeInfoAsSTL}}();}
+\DoxyCodeLine{\ \ data\_dumper.\mbox{\hyperlink{classnetdem_1_1_data_dumper_ab5736a2fbd2ac4977af39b6323bc8aea}{dump\_mesh}}\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\ \ sim-\/>\mbox{\hyperlink{classnetdem_1_1_simulation_a918a87f02a78aed6a311bf90d1061e72}{modifier\_manager}}.\mbox{\hyperlink{classnetdem_1_1_modifier_manager_a6748f7dfd9b3e8e9999c4981684a9945}{Insert}}(\&data\_dumper);}
+\DoxyCodeLine{\ \ sim-\/>\mbox{\hyperlink{classnetdem_1_1_simulation_a918a87f02a78aed6a311bf90d1061e72}{modifier\_manager}}.\mbox{\hyperlink{classnetdem_1_1_modifier_manager_a75ba1abedb33d45398052ada3177baa2}{Enable}}(data\_dumper.label);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ sim-\/>\mbox{\hyperlink{classnetdem_1_1_simulation_a358efcc8d6d906b11ef8fce7a2624943}{Run}}(2.0);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{keyword}{auto}\ cnt\_solver\ =\ sim-\/>\mbox{\hyperlink{classnetdem_1_1_simulation_a072310a2f5600bccce29d2d4157b8c61}{dem\_solver}}.\mbox{\hyperlink{classnetdem_1_1_d_e_m_solver_afacb73a3ad5d0cdb271e71ba518ab545}{contact\_solver\_factory}}.\mbox{\hyperlink{classnetdem_1_1_contact_solver_factory_a15e570ab7f64822dde2621e35c6271c2}{GetCollisionSolver}}(}
+\DoxyCodeLine{\ \ \ \ \ \ sim-\/>\mbox{\hyperlink{classnetdem_1_1_simulation_add17bfcd927bd2b7f14f05855c20bea3}{scene}}.\mbox{\hyperlink{classnetdem_1_1_scene_a58325af0c072f3bd9ca30c457cebde47}{particle\_list}}[0],\ sim-\/>\mbox{\hyperlink{classnetdem_1_1_simulation_add17bfcd927bd2b7f14f05855c20bea3}{scene}}.\mbox{\hyperlink{classnetdem_1_1_scene_a58325af0c072f3bd9ca30c457cebde47}{particle\_list}}[1]);}
+\DoxyCodeLine{\ \ \textcolor{keyword}{auto}\ gjk\_solver\ =\ \textcolor{keyword}{static\_cast<}\mbox{\hyperlink{classnetdem_1_1_solver_g_j_k_p_p}{SolverGJKPP}}\ *\textcolor{keyword}{>}(cnt\_solver);}
+\DoxyCodeLine{\ \ gjk\_solver-\/>\mbox{\hyperlink{classnetdem_1_1_solver_g_j_k_p_p_ad32ab545189294b53e40698a707fda98}{enalbe\_debugging}}\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\ \ omp\_set\_num\_threads(1);}
+\DoxyCodeLine{\ \ sim-\/>\mbox{\hyperlink{classnetdem_1_1_simulation_a072310a2f5600bccce29d2d4157b8c61}{dem\_solver}}.\mbox{\hyperlink{classnetdem_1_1_d_e_m_solver_a4a21b0cd9ee990cee7de35491647927d}{Cycle}}(1);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{keyword}{delete}\ sim;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ MPI\_Finalize();}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ TrimeshCase()\ \{}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{classnetdem_1_1_simulation}{Simulation}}\ *sim\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{classnetdem_1_1_simulation}{Simulation}}();}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ sim-\/>\mbox{\hyperlink{classnetdem_1_1_simulation_a59b3aaba47a3a50145306b90ce26d049}{domain\_manager}}.\mbox{\hyperlink{classnetdem_1_1_domain_manager_a0da42ac0d44dbc628207a02c0763f978}{SetBound}}(-\/0.6,\ -\/0.6,\ -\/0.6,\ 0.6,\ 0.6,\ 0.6);}
+\DoxyCodeLine{\ \ sim-\/>\mbox{\hyperlink{classnetdem_1_1_simulation_a59b3aaba47a3a50145306b90ce26d049}{domain\_manager}}.\mbox{\hyperlink{classnetdem_1_1_domain_manager_a369081a4f895fc460ef631e5215fb399}{SetCellSpacing}}(0.3,\ 0.3,\ 0.3);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{classnetdem_1_1_linear_spring}{LinearSpring}}\ cnt\_model\ =\ \mbox{\hyperlink{classnetdem_1_1_linear_spring}{LinearSpring}}(2.0e6,\ 1.0e6,\ 0.7,\ 0.5);}
+\DoxyCodeLine{\ \ sim-\/>\mbox{\hyperlink{classnetdem_1_1_simulation_add17bfcd927bd2b7f14f05855c20bea3}{scene}}.\mbox{\hyperlink{classnetdem_1_1_scene_a16e8cd7195ba20a9d0bee14498b69c4f}{InsertContactModel}}(\&cnt\_model);}
+\DoxyCodeLine{\ \ sim-\/>\mbox{\hyperlink{classnetdem_1_1_simulation_add17bfcd927bd2b7f14f05855c20bea3}{scene}}.\mbox{\hyperlink{classnetdem_1_1_scene_a37580ce0b6492c6580c85a999aae8397}{SetNumberOfMaterials}}(1);}
+\DoxyCodeLine{\ \ sim-\/>\mbox{\hyperlink{classnetdem_1_1_simulation_add17bfcd927bd2b7f14f05855c20bea3}{scene}}.SetCollisionModel(0,\ 0,\ cnt\_model.\mbox{\hyperlink{classnetdem_1_1_contact_model_ac452f37ee577eb8e2cefa4156d9c62ab}{label}});}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{comment}{//\ voronoi\ cells}}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{classnetdem_1_1_s_t_l_model}{STLModel}}\ stl\_model;}
+\DoxyCodeLine{\ \ stl\_model.\mbox{\hyperlink{classnetdem_1_1_s_t_l_model_abb01a9583427f88f59d2abdf79b1e981}{InitFromSTL}}(\textcolor{stringliteral}{"{}data/box.stl"{}});}
+\DoxyCodeLine{\ \ \textcolor{keyword}{auto}\ [vt\_nodes,\ vt\_cells,\ vt\_seeds]\ =}
+\DoxyCodeLine{\ \ \ \ \ \ Voronoi::Solve(stl\_model,\ 1000,\ 1000,\ 1.0e-\/3);}
+\DoxyCodeLine{\ \ Voronoi::SaveAsVTK(\textcolor{stringliteral}{"{}local/polybezier\_model/voronoi\_packing/voronoi.vtk"{}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ vt\_nodes,\ vt\_cells,\ vt\_seeds);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ 1000;\ i++)\ \{}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{classnetdem_1_1_s_t_l_model}{STLModel}}\ kernel\_stl;}
+\DoxyCodeLine{\ \ \ \ kernel\_stl.\mbox{\hyperlink{classnetdem_1_1_s_t_l_model_abb01a9583427f88f59d2abdf79b1e981}{InitFromSTL}}(}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}local/polybezier\_model/voronoi\_packing/kernel\_stl/"{}}\ +\ to\_string(i)\ +}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}.stl"{}});}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{classnetdem_1_1_polybezier}{Polybezier}}\ polybezier;}
+\DoxyCodeLine{\ \ \ \ polybezier.\mbox{\hyperlink{classnetdem_1_1_polybezier_ad6fb2162349c6483a61572326cc405a6}{InitFromKernelSTL}}(kernel\_stl);}
+\DoxyCodeLine{\ \ \ \ polybezier.\mbox{\hyperlink{classnetdem_1_1_polybezier_af384e6ec1edaa5375b86971601528080}{SetSize}}(0.08);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{classnetdem_1_1_tri_mesh}{TriMesh}}\ trimesh;}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ trimesh.use\_linked\_patches\ =\ true;}}
+\DoxyCodeLine{\ \ \ \ trimesh.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_a1dc42a1f9439c900d76f213155ebb56d}{InitFromSTL}}(polybezier.\mbox{\hyperlink{classnetdem_1_1_polybezier_a063a225810a381792101b8605365cb48}{GetSTLModel}}());}
+\DoxyCodeLine{\ \ \ \ trimesh.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_a028e853ada387b4f8843fd1bb14232ab}{MakeConvex}}();}
+\DoxyCodeLine{\ \ \ \ trimesh.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_aa149712da01e2f068f28b8eba4395e14}{AlignAxes}}();}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{auto}\ shape\_prt\ =\ sim-\/>\mbox{\hyperlink{classnetdem_1_1_simulation_add17bfcd927bd2b7f14f05855c20bea3}{scene}}.\mbox{\hyperlink{classnetdem_1_1_scene_a398e24fbcba078c40b7970edbe44e325}{InsertShape}}(\&trimesh);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{classnetdem_1_1_particle}{Particle}}\ p;}
+\DoxyCodeLine{\ \ \ \ p.SetShape(shape\_prt);}
+\DoxyCodeLine{\ \ \ \ p.SetPosition(vt\_seeds[i][0],\ vt\_seeds[i][1],\ vt\_seeds[i][2]);}
+\DoxyCodeLine{\ \ \ \ sim-\/>\mbox{\hyperlink{classnetdem_1_1_simulation_add17bfcd927bd2b7f14f05855c20bea3}{scene}}.\mbox{\hyperlink{classnetdem_1_1_scene_a9e8ccb020b0ba1b5ab8626448ece42ae}{InsertParticle}}(p);}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{comment}{//\ container}}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{classnetdem_1_1_wall_box_plane}{WallBoxPlane}}\ wall\_box(1,\ 1,\ 1,\ 0,\ 0,\ 0);}
+\DoxyCodeLine{\ \ wall\_box.ImportToScene(\&(sim-\/>\mbox{\hyperlink{classnetdem_1_1_simulation_add17bfcd927bd2b7f14f05855c20bea3}{scene}}));}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{classnetdem_1_1_gravity}{Gravity}}\ grav;}
+\DoxyCodeLine{\ \ grav.\mbox{\hyperlink{classnetdem_1_1_gravity_a9172d8fb018fe1b553b3af50070a5788}{Init}}(sim);}
+\DoxyCodeLine{\ \ sim-\/>\mbox{\hyperlink{classnetdem_1_1_simulation_a918a87f02a78aed6a311bf90d1061e72}{modifier\_manager}}.\mbox{\hyperlink{classnetdem_1_1_modifier_manager_a6748f7dfd9b3e8e9999c4981684a9945}{Insert}}(\&grav);}
+\DoxyCodeLine{\ \ sim-\/>\mbox{\hyperlink{classnetdem_1_1_simulation_a918a87f02a78aed6a311bf90d1061e72}{modifier\_manager}}.\mbox{\hyperlink{classnetdem_1_1_modifier_manager_a75ba1abedb33d45398052ada3177baa2}{Enable}}(grav.label);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{classnetdem_1_1_data_dumper}{DataDumper}}\ data\_dumper;}
+\DoxyCodeLine{\ \ data\_dumper.\mbox{\hyperlink{classnetdem_1_1_data_dumper_a3dba3724732b7159c81366a6cf09720a}{Init}}(sim);}
+\DoxyCodeLine{\ \ data\_dumper.\mbox{\hyperlink{classnetdem_1_1_data_dumper_ae4299f2162ba78ec3fbc0f0bc9e9b2d7}{SetRootPath}}(\textcolor{stringliteral}{"{}local/polybezier\_model/voronoi\_packing/out/"{}});}
+\DoxyCodeLine{\ \ data\_dumper.\mbox{\hyperlink{classnetdem_1_1_data_dumper_ac80bd05d4083227c57b5f6598d53a095}{SetSaveByCycles}}(100);}
+\DoxyCodeLine{\ \ data\_dumper.\mbox{\hyperlink{classnetdem_1_1_data_dumper_a98fa48ac13d93426527022a93e248f3f}{SaveShapeInfoAsSTL}}();}
+\DoxyCodeLine{\ \ data\_dumper.\mbox{\hyperlink{classnetdem_1_1_data_dumper_ab5736a2fbd2ac4977af39b6323bc8aea}{dump\_mesh}}\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\ \ sim-\/>\mbox{\hyperlink{classnetdem_1_1_simulation_a918a87f02a78aed6a311bf90d1061e72}{modifier\_manager}}.\mbox{\hyperlink{classnetdem_1_1_modifier_manager_a6748f7dfd9b3e8e9999c4981684a9945}{Insert}}(\&data\_dumper);}
+\DoxyCodeLine{\ \ sim-\/>\mbox{\hyperlink{classnetdem_1_1_simulation_a918a87f02a78aed6a311bf90d1061e72}{modifier\_manager}}.\mbox{\hyperlink{classnetdem_1_1_modifier_manager_a75ba1abedb33d45398052ada3177baa2}{Enable}}(data\_dumper.label);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ sim-\/>\mbox{\hyperlink{classnetdem_1_1_simulation_a358efcc8d6d906b11ef8fce7a2624943}{Run}}(2.0);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ shape\_it\ :\ sim-\/>\mbox{\hyperlink{classnetdem_1_1_simulation_add17bfcd927bd2b7f14f05855c20bea3}{scene}}.\mbox{\hyperlink{classnetdem_1_1_scene_a2c7e95cca348617f430c5c6ec2e80a18}{shape\_map}})\ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{if}\ (shape\_it.second-\/>shape\_type\ ==\ Shape::trimesh\_convex)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \textcolor{keyword}{auto}\ trimesh\_ptr\ =\ \textcolor{keyword}{static\_cast<}\mbox{\hyperlink{classnetdem_1_1_tri_mesh}{TriMesh}}\ *\textcolor{keyword}{>}(shape\_it.second);}
+\DoxyCodeLine{\ \ \ \ \ \ \textcolor{comment}{//\ trimesh\_ptr-\/>use\_linked\_patches\ =\ true;}}
+\DoxyCodeLine{\ \ \ \ \ \ \textcolor{comment}{//\ trimesh\_ptr-\/>Init();}}
+\DoxyCodeLine{\ \ \ \ \ \ trimesh\_ptr-\/>\mbox{\hyperlink{classnetdem_1_1_tri_mesh_a8dfd726851a9613180e4180276097363}{enable\_investigation}}\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{\ \ \textcolor{keyword}{auto}\ cnt\_solver\ =\ sim-\/>\mbox{\hyperlink{classnetdem_1_1_simulation_a072310a2f5600bccce29d2d4157b8c61}{dem\_solver}}.\mbox{\hyperlink{classnetdem_1_1_d_e_m_solver_afacb73a3ad5d0cdb271e71ba518ab545}{contact\_solver\_factory}}.\mbox{\hyperlink{classnetdem_1_1_contact_solver_factory_a15e570ab7f64822dde2621e35c6271c2}{GetCollisionSolver}}(}
+\DoxyCodeLine{\ \ \ \ \ \ sim-\/>\mbox{\hyperlink{classnetdem_1_1_simulation_add17bfcd927bd2b7f14f05855c20bea3}{scene}}.\mbox{\hyperlink{classnetdem_1_1_scene_a58325af0c072f3bd9ca30c457cebde47}{particle\_list}}[0],\ sim-\/>\mbox{\hyperlink{classnetdem_1_1_simulation_add17bfcd927bd2b7f14f05855c20bea3}{scene}}.\mbox{\hyperlink{classnetdem_1_1_scene_a58325af0c072f3bd9ca30c457cebde47}{particle\_list}}[1]);}
+\DoxyCodeLine{\ \ \textcolor{keyword}{auto}\ gjk\_solver\ =\ \textcolor{keyword}{static\_cast<}\mbox{\hyperlink{classnetdem_1_1_solver_g_j_k_p_p}{SolverGJKPP}}\ *\textcolor{keyword}{>}(cnt\_solver);}
+\DoxyCodeLine{\ \ gjk\_solver-\/>\mbox{\hyperlink{classnetdem_1_1_solver_g_j_k_p_p_ad32ab545189294b53e40698a707fda98}{enalbe\_debugging}}\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\ \ omp\_set\_num\_threads(1);}
+\DoxyCodeLine{\ \ sim-\/>\mbox{\hyperlink{classnetdem_1_1_simulation_a072310a2f5600bccce29d2d4157b8c61}{dem\_solver}}.\mbox{\hyperlink{classnetdem_1_1_d_e_m_solver_a4a21b0cd9ee990cee7de35491647927d}{Cycle}}(1);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{keyword}{delete}\ sim;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ MPI\_Finalize();}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ MeshTemplates()\ \{}
+\DoxyCodeLine{\ \ std::filesystem::create\_directories(}
+\DoxyCodeLine{\ \ \ \ \ \ \textcolor{stringliteral}{"{}local/polybezier\_model/voronoi\_packing/mesh\_stl/"{}});}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ 1000;\ i++)\ \{}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{classnetdem_1_1_s_t_l_model}{STLModel}}\ kernel\_stl;}
+\DoxyCodeLine{\ \ \ \ kernel\_stl.\mbox{\hyperlink{classnetdem_1_1_s_t_l_model_abb01a9583427f88f59d2abdf79b1e981}{InitFromSTL}}(}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}local/polybezier\_model/voronoi\_packing/kernel\_stl/"{}}\ +\ to\_string(i)\ +}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}.stl"{}});}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{classnetdem_1_1_polybezier}{Polybezier}}\ polybezier;}
+\DoxyCodeLine{\ \ \ \ polybezier.\mbox{\hyperlink{classnetdem_1_1_polybezier_ad6fb2162349c6483a61572326cc405a6}{InitFromKernelSTL}}(kernel\_stl);}
+\DoxyCodeLine{\ \ \ \ polybezier.\mbox{\hyperlink{classnetdem_1_1_polybezier_af384e6ec1edaa5375b86971601528080}{SetSize}}(0.08);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ polybezier.\mbox{\hyperlink{classnetdem_1_1_polybezier_a063a225810a381792101b8605365cb48}{GetSTLModel}}(4000).\mbox{\hyperlink{classnetdem_1_1_s_t_l_model_ad63749f1cf41df85a3d7237025200a0b}{SaveAsSTL}}(}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}local/polybezier\_model/voronoi\_packing/mesh\_stl/"{}}\ +\ to\_string(i)\ +}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}.stl"{}});}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ VoronoiPacking(\textcolor{keywordtype}{int}\ argc,\ \textcolor{keywordtype}{char}\ **argv)\ \{}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{if}\ (argc\ <=\ 2)\ \{}
+\DoxyCodeLine{\ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}please\ specify\ the\ id\ of\ the\ task.\ \(\backslash\)n"{}}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}e.g.:\ netdem\_example\_polybezier\_model\ 81\ i"{}}\ <<\ endl;}
+\DoxyCodeLine{\ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}>>\ 1:\ PrepareTemplates"{}}\ <<\ endl;}
+\DoxyCodeLine{\ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}>>\ 2:\ PolybezierCase"{}}\ <<\ endl;}
+\DoxyCodeLine{\ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}>>\ 3:\ TrimeshCase"{}}\ <<\ endl;}
+\DoxyCodeLine{\ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}>>\ 4:\ MeshTemplates"{}}\ <<\ endl;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id}\ =\ atof(argv[2]);}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{switch}\ (\textcolor{keywordtype}{id})\ \{}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{case}\ 1:}
+\DoxyCodeLine{\ \ \ \ PrepareTemplates();}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{case}\ 2:}
+\DoxyCodeLine{\ \ \ \ PolybezierCase();}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{case}\ 3:}
+\DoxyCodeLine{\ \ \ \ TrimeshCase();}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{case}\ 4:}
+\DoxyCodeLine{\ \ \ \ MeshTemplates();}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\}}
+
+\end{DoxyCodeInclude}
+ 

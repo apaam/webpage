@@ -1,0 +1,161 @@
+\hypertarget{00_sdf_demo_8cpp-example}{}\doxysection{00\+\_\+sdf\+\_\+demo.\+cpp}
+This is an example of how to use the netdem library.
+
+
+\begin{DoxyCodeInclude}{0}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}dem\_profiler.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}distribution\_uniform.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}shape\_level\_set.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}shape\_poly\_super\_ellipsoid.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}shape\_poly\_super\_quadrics.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}shape\_spherical\_harmonics.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}shape\_trimesh.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}stl\_model.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}tetmesh.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}utils\_math.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ <filesystem>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ <fstream>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ <sstream>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{using\ namespace\ }\mbox{\hyperlink{namespacenetdem}{netdem}};}
+\DoxyCodeLine{\textcolor{keyword}{using\ namespace\ }std;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ SDFDemo(\textcolor{keywordtype}{int}\ argc,\ \textcolor{keywordtype}{char}\ **argv)\ \{}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{classnetdem_1_1_shape}{Shape}}\ *shape\{\textcolor{keyword}{nullptr}\};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{keywordtype}{int}\ shape\_case;}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{if}\ (argc\ ==\ 2)\ \{}
+\DoxyCodeLine{\ \ \ \ shape\_case\ =\ -\/1;}
+\DoxyCodeLine{\ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\ \ \ \ shape\_case\ =\ atof(argv[2]);}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{switch}\ (shape\_case)\ \{}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{case}\ 0:\ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ convex}}
+\DoxyCodeLine{\ \ \ \ shape\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{classnetdem_1_1_poly_super_ellipsoid}{PolySuperEllipsoid}}(0.5,\ 1,\ 1.5,\ 0.5,\ 1,\ 1.5,\ 1.5,\ 1.5);}
+\DoxyCodeLine{\ \ \}\ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{case}\ 1:\ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ convex}}
+\DoxyCodeLine{\ \ \ \ shape\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{classnetdem_1_1_poly_super_quadrics}{PolySuperQuadrics}}(0.5,\ 1.0,\ 2.5,\ 0.5,\ 1.7,\ 0.5,\ 0.5,\ 1.0,\ 1.5,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 1.0,\ 1.2,\ 0.8);}
+\DoxyCodeLine{\ \ \}\ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{case}\ 10:\ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ non-\/convex}}
+\DoxyCodeLine{\ \ \ \ shape\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{classnetdem_1_1_poly_super_ellipsoid}{PolySuperEllipsoid}}(0.5,\ 1,\ 1.5,\ 0.5,\ 1,\ 1.5,\ 2.5,\ 2.5);}
+\DoxyCodeLine{\ \ \}\ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{case}\ 11:\ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ non-\/convex}}
+\DoxyCodeLine{\ \ \ \ shape\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{classnetdem_1_1_poly_super_quadrics}{PolySuperQuadrics}}(0.5,\ 1.0,\ 2.5,\ 0.5,\ 1.7,\ 0.5,\ 0.5,\ 1.0,\ 1.5,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 2.0,\ 2.2,\ 1.8);}
+\DoxyCodeLine{\ \ \}\ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{case}\ 2:\ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{auto}\ sh\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{classnetdem_1_1_spherical_harmonics}{SphericalHarmonics}}();}
+\DoxyCodeLine{\ \ \ \ sh-\/>InitFromSTL(\textcolor{stringliteral}{"{}data/particle\_template.stl"{}});}
+\DoxyCodeLine{\ \ \ \ sh-\/>SetSize(1.0);}
+\DoxyCodeLine{\ \ \ \ shape\ =\ sh;}
+\DoxyCodeLine{\ \ \}\ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{case}\ 3:\ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{auto}\ trimesh\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{classnetdem_1_1_tri_mesh}{TriMesh}}();}
+\DoxyCodeLine{\ \ \ \ trimesh-\/>InitFromSTL(\textcolor{stringliteral}{"{}data/copyleft/bolt\_nut/bolt.stl"{}});}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ trimesh-\/>Decimate(8000);}}
+\DoxyCodeLine{\ \ \ \ trimesh-\/>AlignAxes();}
+\DoxyCodeLine{\ \ \ \ trimesh-\/>SetSize(1.0);}
+\DoxyCodeLine{\ \ \ \ shape\ =\ trimesh;}
+\DoxyCodeLine{\ \ \}\ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{case}\ 4:\ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{auto}\ level\_set\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{classnetdem_1_1_level_set}{LevelSet}}();}
+\DoxyCodeLine{\ \ \ \ level\_set-\/>InitFromSTL(\textcolor{stringliteral}{"{}data/particle\_template.stl"{}});}
+\DoxyCodeLine{\ \ \ \ level\_set-\/>AlignAxes();}
+\DoxyCodeLine{\ \ \ \ level\_set-\/>SetSize(1.0);}
+\DoxyCodeLine{\ \ \ \ shape\ =\ level\_set;}
+\DoxyCodeLine{\ \ \}\ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{default}:\ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{auto}\ trimesh\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{classnetdem_1_1_tri_mesh}{TriMesh}}();}
+\DoxyCodeLine{\ \ \ \ trimesh-\/>InitFromSTL(\textcolor{stringliteral}{"{}data/copyleft/bolt\_nut/bolt.stl"{}});}
+\DoxyCodeLine{\ \ \ \ trimesh-\/>AlignAxes();}
+\DoxyCodeLine{\ \ \ \ trimesh-\/>SetSize(1.0);}
+\DoxyCodeLine{\ \ \ \ shape\ =\ trimesh;}
+\DoxyCodeLine{\ \ \}\ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{keywordtype}{string}\ root\_dir\ =\ \textcolor{stringliteral}{"{}tmp/examples/sdf\_dem/sdf\_demo/"{}};}
+\DoxyCodeLine{\ \ filesystem::create\_directories(root\_dir);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{keyword}{auto}\ stl\_model\ =\ shape-\/>GetSTLModel(2000);}
+\DoxyCodeLine{\ \ stl\_model.SaveAsSTL(root\_dir\ +\ \textcolor{stringliteral}{"{}surface.stl"{}});}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{keywordtype}{double}\ mesh\_size\ =}
+\DoxyCodeLine{\ \ \ \ \ \ pow(stl\_model.GetVolume()\ /\ Math::PI\ *\ 6.0,\ 1.0\ /\ 3.0)\ /\ 20.0;}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{classnetdem_1_1_tet_mesh}{TetMesh}}\ tetmesh(stl\_model.vertices,\ stl\_model.facets,\ mesh\_size);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ stl\_model.vertices\ =\ tetmesh.\mbox{\hyperlink{classnetdem_1_1_tet_mesh_a5ac85d0c3b8592f598c59b4bbf1218be}{surface\_nodes}};}
+\DoxyCodeLine{\ \ stl\_model.facets\ =\ tetmesh.\mbox{\hyperlink{classnetdem_1_1_tet_mesh_aa2baea46708bebdc706be0ad9bc20c95}{surface\_facets}};}
+\DoxyCodeLine{\ \ stl\_model.SaveAsSTL(root\_dir\ +\ \textcolor{stringliteral}{"{}surface\_mesh.stl"{}});}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{comment}{//\ calculate\ the\ signed\ distance}}
+\DoxyCodeLine{\ \ VecXT<double>\ dist\_list;}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \&node\ :\ tetmesh.\mbox{\hyperlink{classnetdem_1_1_tet_mesh_a851cb634900ec65f4370559106970bfb}{nodes}})\ \{}
+\DoxyCodeLine{\ \ \ \ dist\_list.push\_back(shape-\/>SignedDistance(node));}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{classnetdem_1_1_d_e_m_profiler}{DEMProfiler}}\ dem\_profiler;}
+\DoxyCodeLine{\ \ dem\_profiler.\mbox{\hyperlink{classnetdem_1_1_d_e_m_profiler_a78b51bc67b8a79503f870ee34ac89e76}{Clear}}();}
+\DoxyCodeLine{\ \ dem\_profiler.\mbox{\hyperlink{classnetdem_1_1_d_e_m_profiler_aec4a998774b78edc07c06b148f0b3cf7}{StartTimer}}(TimerType::custom);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{classnetdem_1_1_uniform_distribution}{UniformDistribution}}\ uniform\_dist\_x(shape-\/>bound\_aabb\_min[0],}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ shape-\/>bound\_aabb\_max[0]);}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{classnetdem_1_1_uniform_distribution}{UniformDistribution}}\ uniform\_dist\_y(shape-\/>bound\_aabb\_min[1],}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ shape-\/>bound\_aabb\_max[1]);}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{classnetdem_1_1_uniform_distribution}{UniformDistribution}}\ uniform\_dist\_z(shape-\/>bound\_aabb\_min[2],}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ shape-\/>bound\_aabb\_max[1]);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{keywordtype}{int}\ num\_trials\ =\ 1e3;}
+\DoxyCodeLine{\ \ \textcolor{keyword}{auto}\ pos\_x\_list\ =\ uniform\_dist\_x.\mbox{\hyperlink{classnetdem_1_1_uniform_distribution_a7e39cbd0ed813d381022ad61986092bf}{Get}}(num\_trials);}
+\DoxyCodeLine{\ \ \textcolor{keyword}{auto}\ pos\_y\_list\ =\ uniform\_dist\_y.\mbox{\hyperlink{classnetdem_1_1_uniform_distribution_a7e39cbd0ed813d381022ad61986092bf}{Get}}(num\_trials);}
+\DoxyCodeLine{\ \ \textcolor{keyword}{auto}\ pos\_z\_list\ =\ uniform\_dist\_z.\mbox{\hyperlink{classnetdem_1_1_uniform_distribution_a7e39cbd0ed813d381022ad61986092bf}{Get}}(num\_trials);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ num\_trials;\ i++)\ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \&node\ :\ tetmesh.\mbox{\hyperlink{classnetdem_1_1_tet_mesh_a851cb634900ec65f4370559106970bfb}{nodes}})\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ Vec3d\ pos\{pos\_x\_list[i],\ pos\_y\_list[i],\ pos\_z\_list[i]\};}
+\DoxyCodeLine{\ \ \ \ \ \ shape-\/>SignedDistance(pos);}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{if}\ ((i\ +\ 1)\ \%\ 100\ ==\ 0)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ cout\ <<\ i\ +\ 1\ <<\ endl;}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{\ \ dem\_profiler.\mbox{\hyperlink{classnetdem_1_1_d_e_m_profiler_aac02a7272beacf6e1b5a52fb9cb01d4a}{EndTimer}}(TimerType::custom);}
+\DoxyCodeLine{\ \ cout\ <<\ \textcolor{stringliteral}{"{}no.\ nodes\ queried:\ "{}}\ <<\ tetmesh.\mbox{\hyperlink{classnetdem_1_1_tet_mesh_a851cb634900ec65f4370559106970bfb}{nodes}}.size()\ <<\ endl;}
+\DoxyCodeLine{\ \ printf(\textcolor{stringliteral}{"{}cost:\ \%f\ microsecond\ \(\backslash\)n"{}},\ dem\_profiler.\mbox{\hyperlink{classnetdem_1_1_d_e_m_profiler_a1807f89997ec1340772b0dc4cd99db6c}{timer\_list}}[TimerType::custom]\ /}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 1.0\ /\ num\_trials\ /}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ tetmesh.\mbox{\hyperlink{classnetdem_1_1_tet_mesh_a851cb634900ec65f4370559106970bfb}{nodes}}.size());}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{comment}{//\ save\ results}}
+\DoxyCodeLine{\ \ tetmesh.\mbox{\hyperlink{classnetdem_1_1_tet_mesh_a50395a58e2ead4cdec93932aaa054cd0}{SaveAsVTK}}(root\_dir\ +\ \textcolor{stringliteral}{"{}tetmesh.vtk"{}});}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ stringbuf\ buf;}
+\DoxyCodeLine{\ \ ostream\ os(\&buf);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ os\ <<\ \textcolor{stringliteral}{"{}POINT\_DATA\ "{}}\ <<\ dist\_list.size()\ <<\ endl;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ os\ <<\ \textcolor{stringliteral}{"{}SCALARS\ SDF\ float\ 1"{}}\ <<\ endl;}
+\DoxyCodeLine{\ \ os\ <<\ \textcolor{stringliteral}{"{}LOOKUP\_TABLE\ default"{}}\ <<\ endl;}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ dist\_list.size();\ i++)\ \{}
+\DoxyCodeLine{\ \ \ \ os\ <<\ dist\_list[i]\ <<\ endl;}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ ofstream\ outfile;}
+\DoxyCodeLine{\ \ outfile.open(root\_dir\ +\ \textcolor{stringliteral}{"{}tetmesh.vtk"{}},\ ios::app);}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{if}\ (!outfile)\ \{}
+\DoxyCodeLine{\ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}cannot\ open\ file:\ "{}}\ <<\ root\_dir\ +\ \textcolor{stringliteral}{"{}tetmesh.vtk"{}}\ <<\ endl;}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{\ \ outfile\ <<\ buf.str();}
+\DoxyCodeLine{\ \ outfile.close();}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{keyword}{delete}\ shape;}
+\DoxyCodeLine{\}}
+
+\end{DoxyCodeInclude}
+ 

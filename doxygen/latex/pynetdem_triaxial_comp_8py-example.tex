@@ -1,0 +1,170 @@
+\hypertarget{pynetdem_triaxial_comp_8py-example}{}\doxysection{pynetdem\+\_\+triaxial\+\_\+comp.\+py}
+This is an example of how to use the netdem library.
+
+
+\begin{DoxyCodeInclude}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{\#\ path\ and\ module}}
+\DoxyCodeLine{00002\ \textcolor{keyword}{import}\ sys}
+\DoxyCodeLine{00003\ \textcolor{keyword}{import}\ os}
+\DoxyCodeLine{00004\ dir\_path\ =\ os.path.dirname(os.path.realpath(\_\_file\_\_))}
+\DoxyCodeLine{00005\ sys.path.append(dir\_path\ +\ \textcolor{stringliteral}{"{}/../../build/lib/"{}})}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{keyword}{import}\ pynetdem}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{comment}{\#\ simulation}}
+\DoxyCodeLine{00010\ sim\ =\ pynetdem.Simulation()}
+\DoxyCodeLine{00011\ sim.domain\_manager.SetBound(-\/0.6,\ -\/0.6,\ -\/0.6,\ 0.6,\ 0.6,\ 0.6)}
+\DoxyCodeLine{00012\ sim.domain\_manager.SetCellSpacing(0.01,\ 0.01,\ 0.01)}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{comment}{\#\ \#\ solver}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\#\ sim.dem\_solver.contact\_solver\_factory.settings.solver\_type\ \(\backslash\)}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\#\ \ \ \ \ =\ pynetdem.ContactSolverSettings.SolverType.sdf}}
+\DoxyCodeLine{00017\ \textcolor{comment}{\#\ sim.dem\_solver.contact\_solver\_factory.settings.sdf\_potential\_type\ =\ 0}}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \textcolor{comment}{\#\ material\ model}}
+\DoxyCodeLine{00020\ cnt\_model\ =\ pynetdem.LinearSpring(2.0e5,\ 1.0e5,\ 0.7,\ 0.3)}
+\DoxyCodeLine{00021\ cnt\_model.label\ =\ \textcolor{stringliteral}{"{}particle\_\&\_wall"{}}}
+\DoxyCodeLine{00022\ cnt\_model\_0\_prt\ =\ sim.scene.InsertContactModel(cnt\_model)}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ cnt\_model\ =\ pynetdem.LinearSpring(2.0e4,\ 1.0e4,\ 0.7,\ 0.5)}
+\DoxyCodeLine{00025\ cnt\_model.label\ =\ \textcolor{stringliteral}{"{}membrane"{}}}
+\DoxyCodeLine{00026\ cnt\_model\_1\_prt\ =\ sim.scene.InsertContactModel(cnt\_model)}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ sim.scene.SetNumberOfMaterials(2)}
+\DoxyCodeLine{00029\ sim.scene.SetCollisionModel(0,\ 0,\ cnt\_model\_0\_prt)}
+\DoxyCodeLine{00030\ sim.scene.SetCollisionModel(0,\ 1,\ cnt\_model\_1\_prt)}
+\DoxyCodeLine{00031\ sim.scene.SetCollisionModel(1,\ 1,\ cnt\_model\_1\_prt)}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \textcolor{comment}{\#\ particle\ shape}}
+\DoxyCodeLine{00034\ sphere\ =\ pynetdem.Sphere(0.004)}
+\DoxyCodeLine{00035\ sim.scene.InsertShape(sphere)}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \textcolor{comment}{\#\ pack\ of\ particles\ to\ be\ inserted}}
+\DoxyCodeLine{00038\ shape\_list\ =\ sim.scene.GetShapes()}
+\DoxyCodeLine{00039\ pack\_generator\ =\ pynetdem.PackGenerator()}
+\DoxyCodeLine{00040\ particle\_list\ =\ pack\_generator.GetGridPack(}
+\DoxyCodeLine{00041\ \ \ \ \ 0.035,\ 0.035,\ 0.06,\ 0,\ 0,\ 0.12,\ 5,\ 5,\ 8,\ shape\_list)}
+\DoxyCodeLine{00042\ \textcolor{keywordflow}{for}\ p\ \textcolor{keywordflow}{in}\ particle\_list:}
+\DoxyCodeLine{00043\ \ \ \ \ p.SetDensity(2650e3)}
+\DoxyCodeLine{00044\ \ \ \ \ p.SetVelocity(0,\ 0,\ -\/0.6)}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \textcolor{comment}{\#\ bottom\ wall}}
+\DoxyCodeLine{00047\ plane\ =\ pynetdem.Plane(0,\ 0,\ -\/0.05,\ 0,\ 0,\ 1)}
+\DoxyCodeLine{00048\ plane.SetExtent(0.1)\ \ \textcolor{comment}{\#\ make\ sure\ the\ plane\ is\ inside\ the\ computing\ domain}}
+\DoxyCodeLine{00049\ plane\_ptr\ =\ sim.scene.InsertShape(plane)}
+\DoxyCodeLine{00050\ wall\_bot\ =\ pynetdem.Wall(plane\_ptr)}
+\DoxyCodeLine{00051\ wall\_bot\_ptr\ =\ sim.scene.InsertWall(wall\_bot)}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \textcolor{comment}{\#\ membrane}}
+\DoxyCodeLine{00054\ membrane\_wall\ =\ pynetdem.MembraneWall(0.025,\ 0.2,\ 0.005)}
+\DoxyCodeLine{00055\ membrane\_wall.neo\_k\ =\ 6.94e6}
+\DoxyCodeLine{00056\ membrane\_wall.neo\_mu\ =\ 5.21e6}
+\DoxyCodeLine{00057\ membrane\_wall.density\ =\ 500e2}
+\DoxyCodeLine{00058\ membrane\_wall.damp\_coef\ =\ 0.9}
+\DoxyCodeLine{00059\ membrane\_wall.timestep\ =\ 1.0e-\/5}
+\DoxyCodeLine{00060\ membrane\_wall.enable\_deformation\ =\ \textcolor{keyword}{False}\ \ \textcolor{comment}{\#\ disable\ deformation\ during\ packing}}
+\DoxyCodeLine{00061\ membrane\_wall.dump\_info\ =\ \textcolor{keyword}{True}}
+\DoxyCodeLine{00062\ membrane\_wall.Init(sim)}
+\DoxyCodeLine{00063\ membrane\_wall.SetRootPath(\textcolor{stringliteral}{"{}tmp/out\_tri\_comp/"{}})}
+\DoxyCodeLine{00064\ membrane\_wall.SetSaveByCycles(1000)}
+\DoxyCodeLine{00065\ modifier\_ptr\ =\ sim.modifier\_manager.Insert(membrane\_wall)}
+\DoxyCodeLine{00066\ membrane\_wall\_ptr\ =\ modifier\_ptr.CastToMembraneWall()}
+\DoxyCodeLine{00067\ sim.modifier\_manager.Enable(membrane\_wall.label)}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00069\ \textcolor{comment}{\#\ gravity}}
+\DoxyCodeLine{00070\ sim.scene.gravity\_coef\ =\ [0,\ 0,\ -\/9.81]}
+\DoxyCodeLine{00071\ grav\ =\ pynetdem.Gravity()}
+\DoxyCodeLine{00072\ grav.Init(sim)}
+\DoxyCodeLine{00073\ sim.modifier\_manager.Insert(grav)}
+\DoxyCodeLine{00074\ sim.modifier\_manager.Enable(grav.label)}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00076\ \textcolor{comment}{\#\ out\ particle,\ wall\ and\ contact\ data}}
+\DoxyCodeLine{00077\ data\_dumper\ =\ pynetdem.DataDumper()}
+\DoxyCodeLine{00078\ data\_dumper.Init(sim)}
+\DoxyCodeLine{00079\ data\_dumper.SetRootPath(\textcolor{stringliteral}{"{}tmp/out\_tri\_comp/"{}})}
+\DoxyCodeLine{00080\ data\_dumper.SetSaveByCycles(1000)}
+\DoxyCodeLine{00081\ data\_dumper.dump\_contact\_info\ =\ \textcolor{keyword}{True}}
+\DoxyCodeLine{00082\ data\_dumper.dump\_wall\_info\ =\ \textcolor{keyword}{True}}
+\DoxyCodeLine{00083\ sim.modifier\_manager.Insert(data\_dumper)}
+\DoxyCodeLine{00084\ sim.modifier\_manager.Enable(data\_dumper.label)}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00086\ \textcolor{comment}{\#\ insert\ 20\ packs\ of\ particles}}
+\DoxyCodeLine{00087\ sim.dem\_solver.timestep\ =\ 1.0e-\/5}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00089\ \textcolor{keywordflow}{for}\ i\ \textcolor{keywordflow}{in}\ range(20):}
+\DoxyCodeLine{00090\ \ \ \ \ sim.scene.InsertParticle(particle\_list)}
+\DoxyCodeLine{00091\ \ \ \ \ sim.Run(0.1)}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00093\ \textcolor{comment}{\#\ rest\ for\ 1.0\ s}}
+\DoxyCodeLine{00094\ sim.Run(1.0)}
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00096\ \textcolor{comment}{\#\ remove\ extra\ particles}}
+\DoxyCodeLine{00097\ sim.scene.gravity\_coef\ =\ [0,\ 0,\ 0]}
+\DoxyCodeLine{00098\ \textcolor{keywordflow}{for}\ p\ \textcolor{keywordflow}{in}\ sim.scene.particle\_list:}
+\DoxyCodeLine{00099\ \ \ \ \ \textcolor{keywordflow}{if}\ (p.pos[2]\ >\ 0.05\ -\/\ 0.5\ *\ p.shape.size):}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ sim.scene.RemoveParticle(p)}
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00102\ \textcolor{comment}{\#\ add\ top\ wall}}
+\DoxyCodeLine{00103\ plane\ =\ pynetdem.Plane(0,\ 0,\ 0.05,\ 0,\ 0,\ -\/1)}
+\DoxyCodeLine{00104\ plane.SetExtent(0.1)}
+\DoxyCodeLine{00105\ plane\_ptr\ =\ sim.scene.InsertShape(plane)}
+\DoxyCodeLine{00106\ wall\_top\ =\ pynetdem.Wall(plane\_ptr)}
+\DoxyCodeLine{00107\ wall\_top\_ptr\ =\ sim.scene.InsertWall(wall\_top)}
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00109\ \textcolor{comment}{\#\ reset\ the\ membrane\ dimensions}}
+\DoxyCodeLine{00110\ membrane\_wall\_ptr.SetDimensions(0.025,\ 0.10)}
+\DoxyCodeLine{00111\ }
+\DoxyCodeLine{00112\ \textcolor{comment}{\#\ fix\ the\ bottom\ and\ top\ of\ the\ membrane\ wall}}
+\DoxyCodeLine{00113\ \textcolor{keywordflow}{for}\ i\ \textcolor{keywordflow}{in}\ range(0,\ len(membrane\_wall\_ptr.nodes)):}
+\DoxyCodeLine{00114\ \ \ \ \ \textcolor{keywordflow}{if}\ (abs(membrane\_wall\_ptr.nodes[i][2]}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ +\ 0.5\ *\ membrane\_wall\_ptr.height)\ <\ 1.0e-\/4}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{or}\ abs(membrane\_wall\_ptr.nodes[i][2]}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ -\/\ 0.5\ *\ membrane\_wall\_ptr.height)\ <\ 1.0e-\/4):}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ membrane\_wall\_ptr.SetBCNodalVelocity(i,\ 0,\ 0,\ 0,\ 1,\ 1,\ 1)}
+\DoxyCodeLine{00119\ }
+\DoxyCodeLine{00120\ \textcolor{comment}{\#\ \#\ add\ two\ pedestal\ particles}}
+\DoxyCodeLine{00121\ \textcolor{comment}{\#\ super\_ellipsoid\ =\ pynetdem.PolySuperEllipsoid(}}
+\DoxyCodeLine{00122\ \textcolor{comment}{\#\ \ \ \ \ 0.025,\ 0.025,\ 0.025,\ 0.025,\ 0.005,\ 0.005,\ 1.0,\ 0.25)}}
+\DoxyCodeLine{00123\ \textcolor{comment}{\#\ super\_ellipsoid\_ptr\ =\ sim.scene.InsertShape(super\_ellipsoid)}}
+\DoxyCodeLine{00124\ }
+\DoxyCodeLine{00125\ \textcolor{comment}{\#\ pedestal\_bot\ =\ pynetdem.Particle(super\_ellipsoid\_ptr)}}
+\DoxyCodeLine{00126\ \textcolor{comment}{\#\ pedestal\_bot.SetPosition(0,\ 0,\ -\/0.055)}}
+\DoxyCodeLine{00127\ \textcolor{comment}{\#\ pedestal\_bot\_ptr\ =\ sim.scene.InsertParticle(pedestal\_bot)}}
+\DoxyCodeLine{00128\ \textcolor{comment}{\#\ pedestal\_bot\_ptr.SetDensity(2650e3)}}
+\DoxyCodeLine{00129\ }
+\DoxyCodeLine{00130\ \textcolor{comment}{\#\ pedestal\_top\ =\ pynetdem.Particle(super\_ellipsoid\_ptr)}}
+\DoxyCodeLine{00131\ \textcolor{comment}{\#\ pedestal\_top.SetPosition(0,\ 0,\ 0.055)}}
+\DoxyCodeLine{00132\ \textcolor{comment}{\#\ pedestal\_top\_ptr\ =\ sim.scene.InsertParticle(pedestal\_top)}}
+\DoxyCodeLine{00133\ \textcolor{comment}{\#\ pedestal\_top\_ptr.SetDensity(2650e3)}}
+\DoxyCodeLine{00134\ }
+\DoxyCodeLine{00135\ \textcolor{comment}{\#\ wall\_bot\_ptr.SetPosition(0,\ 0,\ -\/0.01)}}
+\DoxyCodeLine{00136\ \textcolor{comment}{\#\ wall\_top\_ptr.SetPosition(0,\ 0,\ 0.01)}}
+\DoxyCodeLine{00137\ }
+\DoxyCodeLine{00138\ \textcolor{comment}{\#\ gradually\ increase\ confining\ pressure}}
+\DoxyCodeLine{00139\ membrane\_wall\_ptr.enable\_deformation\ =\ \textcolor{keyword}{True}}
+\DoxyCodeLine{00140\ \textcolor{keywordflow}{for}\ w\ \textcolor{keywordflow}{in}\ membrane\_wall\_ptr.wall\_list:}
+\DoxyCodeLine{00141\ \ \ \ \ w.material\_type\ =\ 1}
+\DoxyCodeLine{00142\ }
+\DoxyCodeLine{00143\ \textcolor{keywordflow}{for}\ i\ \textcolor{keywordflow}{in}\ range(10):}
+\DoxyCodeLine{00144\ \ \ \ \ membrane\_wall\_ptr.SetPressure(-\/1.0e4\ *\ (i\ +\ 1))}
+\DoxyCodeLine{00145\ \ \ \ \ sim.Run(0.1)}
+\DoxyCodeLine{00146\ }
+\DoxyCodeLine{00147\ \textcolor{comment}{\#\ add\ deformation\ drived\ loading\ for\ top\ wall}}
+\DoxyCodeLine{00148\ disp\_control\ =\ pynetdem.WallMotionControl()}
+\DoxyCodeLine{00149\ disp\_control.Init(sim)}
+\DoxyCodeLine{00150\ disp\_control.SetWall([wall\_top\_ptr.id])}
+\DoxyCodeLine{00151\ disp\_control.SetVelocity(0,\ 0,\ -\/0.001)}
+\DoxyCodeLine{00152\ sim.modifier\_manager.Insert(disp\_control)}
+\DoxyCodeLine{00153\ sim.modifier\_manager.Enable(disp\_control.label)}
+\DoxyCodeLine{00154\ }
+\DoxyCodeLine{00155\ \textcolor{comment}{\#\ press\ the\ top\ of\ membrane\ to\ move\ with\ the\ compression\ top\ wall}}
+\DoxyCodeLine{00156\ \textcolor{keywordflow}{for}\ i\ \textcolor{keywordflow}{in}\ range(0,\ len(membrane\_wall\_ptr.nodes)):}
+\DoxyCodeLine{00157\ \ \ \ \ \textcolor{keywordflow}{if}\ (abs(membrane\_wall\_ptr.nodes[i][2]}
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ \ \ \ \ -\/\ 0.5\ *\ membrane\_wall\_ptr.height)\ <\ 1.0e-\/4):}
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ membrane\_wall\_ptr.SetBCNodalVelocity(i,\ 0,\ 0,\ -\/0.001,\ 1,\ 1,\ 1)}
+\DoxyCodeLine{00160\ }
+\DoxyCodeLine{00161\ \textcolor{comment}{\#\ sim.Run(2.0)}}
+\DoxyCodeLine{00162\ sim.Run(20.0)}
+
+\end{DoxyCodeInclude}
+ 

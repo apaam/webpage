@@ -1,0 +1,66 @@
+\hypertarget{gjk_erosion_issue_main_8cpp-example}{}\doxysection{gjk\+\_\+erosion\+\_\+issue\+\_\+main.\+cpp}
+This is an example of how to use the netdem library.
+
+
+\begin{DoxyCodeInclude}{0}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{\textcolor{keyword}{using\ namespace\ }std;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ DemoErosionIssue();}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ TestTriaxialComp(\textcolor{keywordtype}{string}\ out\_dir,\ \textcolor{keywordtype}{bool}\ use\_erosion,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ erosion\_ratio\_initial);}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ EvaluateGJKPerformance(\textcolor{keywordtype}{bool}\ save\_results\ =\ \textcolor{keyword}{false});}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{int}\ main(\textcolor{keywordtype}{int}\ argc,\ \textcolor{keywordtype}{char}\ **argv)\ \{}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{if}\ (argc\ ==\ 1)\ \{}
+\DoxyCodeLine{\ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}please\ specify\ the\ id\ of\ the\ task.\ \(\backslash\)n"{}}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}e.g.:\ netdem\_example\_gjk\_erosion\_issue\ i"{}}\ <<\ endl;}
+\DoxyCodeLine{\ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}>>\ 0:\ demo\_erosion\_issue"{}}\ <<\ endl;}
+\DoxyCodeLine{\ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}>>\ 1:\ test\_triaxial\_comp:\ options:\ [out\_dir]\ [use\_erosion]\ "{}}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}[erosion\_ratio\_initial]"{}}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ <<\ endl;}
+\DoxyCodeLine{\ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}>>\ 2:\ ev\_gjk\_performance.\ options:\ [save\_results]"{}}\ <<\ endl;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{return}\ -\/1;}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id}\ =\ atof(argv[1]);}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{switch}\ (\textcolor{keywordtype}{id})\ \{}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{case}\ 0:}
+\DoxyCodeLine{\ \ \ \ DemoErosionIssue();}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{case}\ 1:}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{if}\ (argc\ ==\ 5)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \textcolor{keywordtype}{string}\ out\_dir\ =\ string(argv[2]);}
+\DoxyCodeLine{\ \ \ \ \ \ \textcolor{keywordtype}{bool}\ use\_erosion\ =\ atof(argv[3]);}
+\DoxyCodeLine{\ \ \ \ \ \ \textcolor{keywordtype}{double}\ erosion\_ratio\_initial\ =\ atof(argv[4]);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}out\_dir:\ "{}}\ <<\ out\_dir\ <<\ endl;}
+\DoxyCodeLine{\ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}use\_erosion:\ "{}}\ <<\ use\_erosion\ <<\ endl;}
+\DoxyCodeLine{\ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}erosion\_ratio\_initial:\ "{}}\ <<\ erosion\_ratio\_initial\ <<\ endl;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ TestTriaxialComp(out\_dir,\ use\_erosion,\ erosion\_ratio\_initial);}
+\DoxyCodeLine{\ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}usage:\ netdem\_example\_gjk\_erosion\_issue\ 1\ [out\_dir]\ "{}}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}[use\_erosion]\ [erosion\_ratio\_initial]"{}}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ <<\ endl;}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{case}\ 2:}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{if}\ (argc\ ==\ 3)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \textcolor{keywordtype}{bool}\ save\_results\ =\ atof(argv[2]);}
+\DoxyCodeLine{\ \ \ \ \ \ EvaluateGJKPerformance(save\_results);}
+\DoxyCodeLine{\ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ EvaluateGJKPerformance();}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\}}
+
+\end{DoxyCodeInclude}
+ 

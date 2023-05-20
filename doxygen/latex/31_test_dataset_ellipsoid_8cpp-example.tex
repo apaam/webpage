@@ -1,0 +1,207 @@
+\hypertarget{31_test_dataset_ellipsoid_8cpp-example}{}\doxysection{31\+\_\+test\+\_\+dataset\+\_\+ellipsoid.\+cpp}
+This is an example of how to use the netdem library.
+
+
+\begin{DoxyCodeInclude}{0}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}contact\_solver\_factory.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}distribution\_uniform.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}igl\_wrapper.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}model\_linear\_spring.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}particle.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}shape\_ellipsoid.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}shape\_plane.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}solver\_gjk\_pp.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}spherical\_voronoi.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}utils\_math.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ <fstream>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ <random>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ <sstream>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{using\ namespace\ }\mbox{\hyperlink{namespacenetdem}{netdem}};}
+\DoxyCodeLine{\textcolor{keyword}{using\ namespace\ }std;}
+\DoxyCodeLine{}
+\DoxyCodeLine{VecXT<VecXT<double>>\ LoadDatasetEllipsoid(\textcolor{keywordtype}{string}\ filename)\ \{}
+\DoxyCodeLine{\ \ ifstream\ file\_handle;}
+\DoxyCodeLine{\ \ file\_handle.open(filename,\ ios::binary);}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{if}\ (!file\_handle)\ \{}
+\DoxyCodeLine{\ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Fail\ to\ read\ file:\ "{}}\ <<\ filename\ <<\ endl;}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{return}\ VecXT<VecXT<double>>();}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ file\_handle.seekg(0,\ ios::end);}
+\DoxyCodeLine{\ \ \textcolor{keywordtype}{long}\ context\_size\ =\ file\_handle.tellg();}
+\DoxyCodeLine{\ \ \textcolor{keywordtype}{char}\ *buffer\ =\ \textcolor{keyword}{new}\ \textcolor{keywordtype}{char}[context\_size];}
+\DoxyCodeLine{\ \ file\_handle.seekg(0);}
+\DoxyCodeLine{\ \ file\_handle.read(buffer,\ context\_size);}
+\DoxyCodeLine{\ \ file\_handle.close();}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ stringstream\ ss;}
+\DoxyCodeLine{\ \ ss.str(\textcolor{stringliteral}{"{}"{}});}
+\DoxyCodeLine{\ \ ss.clear();}
+\DoxyCodeLine{\ \ ss.str(buffer);}
+\DoxyCodeLine{\ \ VecXT<VecXT<double>>\ dataset;}
+\DoxyCodeLine{\ \ \textcolor{keywordtype}{string}\ str\_line,\ str\_num;}
+\DoxyCodeLine{\ \ VecXT<double>\ data\_line;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ getline(ss,\ str\_line);}
+\DoxyCodeLine{\ \ istringstream\ readstr(str\_line);}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{while}\ (getline(readstr,\ str\_num,\ \textcolor{charliteral}{','}))\ \{}
+\DoxyCodeLine{\ \ \ \ data\_line.push\_back(atof(str\_num.c\_str()));}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{\ \ getline(readstr,\ str\_num);}
+\DoxyCodeLine{\ \ data\_line.push\_back(atof(str\_num.c\_str()));}
+\DoxyCodeLine{\ \ dataset.push\_back(data\_line);}
+\DoxyCodeLine{\ \ \textcolor{keywordtype}{int}\ num\_data\_per\_line\ =\ data\_line.size();}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{while}\ (getline(ss,\ str\_line))\ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{if}\ (str\_line.find(\textcolor{stringliteral}{"{},"{}})\ ==\ string::npos)}
+\DoxyCodeLine{\ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ data\_line.resize(num\_data\_per\_line);}
+\DoxyCodeLine{\ \ \ \ istringstream\ readstr(str\_line);}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ num\_data\_per\_line\ -\/\ 1;\ i++)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ getline(readstr,\ str\_num,\ \textcolor{charliteral}{','});}
+\DoxyCodeLine{\ \ \ \ \ \ data\_line[i]\ =\ atof(str\_num.c\_str());}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ getline(readstr,\ str\_num);}
+\DoxyCodeLine{\ \ \ \ data\_line[num\_data\_per\_line\ -\/\ 1]\ =\ atof(str\_num.c\_str());}
+\DoxyCodeLine{\ \ \ \ dataset.push\_back(data\_line);}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{\ \ dataset.shrink\_to\_fit();}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{keyword}{delete}[]\ buffer;}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{return}\ dataset;}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ TestDatasetEllipsoidDetection()\ \{}
+\DoxyCodeLine{\ \ \textcolor{comment}{//\ load\ particle}}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{classnetdem_1_1_ellipsoid}{Ellipsoid}}\ ellipsoid\ =\ \mbox{\hyperlink{classnetdem_1_1_ellipsoid}{Ellipsoid}}(1,\ 1,\ 2);}
+\DoxyCodeLine{\ \ ellipsoid.\mbox{\hyperlink{classnetdem_1_1_ellipsoid_aad89ec9c277c7cd402ecd2c40ecfcd5f}{SetSize}}(1.0);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{classnetdem_1_1_particle}{Particle}}\ obj\_p1\ =\ \mbox{\hyperlink{classnetdem_1_1_particle}{Particle}}(\&ellipsoid);}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{classnetdem_1_1_particle}{Particle}}\ obj\_p2\ =\ \mbox{\hyperlink{classnetdem_1_1_particle}{Particle}}(\&ellipsoid);}
+\DoxyCodeLine{\ \ cout\ <<\ \textcolor{stringliteral}{"{}particle\ created\ ...\ "{}}\ <<\ endl;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{classnetdem_1_1_solver_g_j_k_p_p}{SolverGJKPP}}\ cnt\_solver;}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{classnetdem_1_1_linear_spring}{LinearSpring}}\ cnt\_model;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{keywordtype}{string}\ root\_dir\ =\ \textcolor{stringliteral}{"{}local/examples/netdem/ann\_models/ellipsoid\_ellipsoid/"{}};}
+\DoxyCodeLine{\ \ VecXT<VecXT<double>>\ dataset\ =}
+\DoxyCodeLine{\ \ \ \ \ \ LoadDatasetEllipsoid(root\_dir\ +\ \textcolor{stringliteral}{"{}dataset\_detection.txt"{}});}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{keywordtype}{int}\ num\_samples\ =\ dataset.size();}
+\DoxyCodeLine{\ \ double(*ds\_inputs)[7]\ =\ \textcolor{keyword}{new}\ \textcolor{keywordtype}{double}[num\_samples][7];}
+\DoxyCodeLine{\ \ \textcolor{keywordtype}{bool}\ *ds\_cnt\_flags\ =\ \textcolor{keyword}{new}\ \textcolor{keywordtype}{bool}[num\_samples];}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0,\ skip\ =\ 1;\ i\ <\ num\_samples;\ i\ +=\ skip)\ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\_inputs\ =\ 0;\ i\_inputs\ <\ 7;\ i\_inputs++)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ ds\_inputs[i][i\_inputs]\ =\ dataset[i][i\_inputs];}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ ds\_cnt\_flags[i]\ =\ (bool)dataset[i][7];}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ num\_samples;\ i++)\ \{}
+\DoxyCodeLine{\ \ \ \ Vec3d\ pos;}
+\DoxyCodeLine{\ \ \ \ Vec4d\ quat;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ unpack\ the\ inputs}}
+\DoxyCodeLine{\ \ \ \ pos[0]\ =\ ds\_inputs[i][0];}
+\DoxyCodeLine{\ \ \ \ pos[1]\ =\ ds\_inputs[i][1];}
+\DoxyCodeLine{\ \ \ \ pos[2]\ =\ ds\_inputs[i][2];}
+\DoxyCodeLine{\ \ \ \ quat[0]\ =\ ds\_inputs[i][3];}
+\DoxyCodeLine{\ \ \ \ quat[1]\ =\ ds\_inputs[i][4];}
+\DoxyCodeLine{\ \ \ \ quat[2]\ =\ ds\_inputs[i][5];}
+\DoxyCodeLine{\ \ \ \ quat[3]\ =\ ds\_inputs[i][6];}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ obj\_p2.SetPosition(pos[0],\ pos[1],\ pos[2]);}
+\DoxyCodeLine{\ \ \ \ obj\_p2.SetQuaternion(quat[0],\ quat[1],\ quat[2],\ quat[3]);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ cnt\_solver.\mbox{\hyperlink{classnetdem_1_1_solver_g_j_k_p_p_ab651c60ac53f857232372faa3e7d2652}{Init}}(\&obj\_p1,\ \&obj\_p2);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{bool}\ cnt\_flag\ =\ cnt\_solver.\mbox{\hyperlink{classnetdem_1_1_solver_g_j_k_p_p_a961ebc52e242d57fb32cd1a9f95dcf92}{Detect}}();}
+\DoxyCodeLine{\ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}true\ vs\ data:\ "{}}\ <<\ cnt\_flag\ <<\ \textcolor{stringliteral}{"{},\ "{}}\ <<\ ds\_cnt\_flags[i]\ <<\ endl;}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{keyword}{delete}[]\ ds\_inputs;}
+\DoxyCodeLine{\ \ \textcolor{keyword}{delete}[]\ ds\_cnt\_flags;}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ TestDatasetEllipsoidResolution()\ \{}
+\DoxyCodeLine{\ \ \textcolor{comment}{//\ load\ particle}}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{classnetdem_1_1_ellipsoid}{Ellipsoid}}\ ellipsoid\ =\ \mbox{\hyperlink{classnetdem_1_1_ellipsoid}{Ellipsoid}}(1,\ 1,\ 2);}
+\DoxyCodeLine{\ \ ellipsoid.\mbox{\hyperlink{classnetdem_1_1_ellipsoid_aad89ec9c277c7cd402ecd2c40ecfcd5f}{SetSize}}(1.0);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{classnetdem_1_1_particle}{Particle}}\ obj\_p1\ =\ \mbox{\hyperlink{classnetdem_1_1_particle}{Particle}}(\&ellipsoid);}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{classnetdem_1_1_particle}{Particle}}\ obj\_p2\ =\ \mbox{\hyperlink{classnetdem_1_1_particle}{Particle}}(\&ellipsoid);}
+\DoxyCodeLine{\ \ cout\ <<\ \textcolor{stringliteral}{"{}particle\ created\ ...\ "{}}\ <<\ endl;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{classnetdem_1_1_solver_g_j_k_p_p}{SolverGJKPP}}\ cnt\_solver;}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{classnetdem_1_1_linear_spring}{LinearSpring}}\ cnt\_model;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{keywordtype}{string}\ root\_dir\ =\ \textcolor{stringliteral}{"{}local/examples/netdem/ann\_models/ellipsoid\_ellipsoid/"{}};}
+\DoxyCodeLine{\ \ VecXT<VecXT<double>>\ dataset\ =}
+\DoxyCodeLine{\ \ \ \ \ \ LoadDatasetEllipsoid(root\_dir\ +\ \textcolor{stringliteral}{"{}dataset\_resolution.txt"{}});}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{keywordtype}{int}\ num\_samples\ =\ dataset.size();}
+\DoxyCodeLine{\ \ double(*ds\_inputs)[7]\ =\ \textcolor{keyword}{new}\ \textcolor{keywordtype}{double}[num\_samples][7];}
+\DoxyCodeLine{\ \ double(*ds\_cnt\_feats)[7]\ =\ \textcolor{keyword}{new}\ \textcolor{keywordtype}{double}[num\_samples][7];}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0,\ skip\ =\ 1;\ i\ <\ num\_samples;\ i\ +=\ skip)\ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\_inputs\ =\ 0;\ i\_inputs\ <\ 7;\ i\_inputs++)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ ds\_inputs[i][i\_inputs]\ =\ dataset[i][i\_inputs];}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\_outputs\ =\ 0;\ i\_outputs\ <\ 7;\ i\_outputs++)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ ds\_cnt\_feats[i][i\_outputs]\ =\ dataset[i][7\ +\ i\_outputs];}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ num\_samples;\ i++)\ \{}
+\DoxyCodeLine{\ \ \ \ Vec3d\ pos;}
+\DoxyCodeLine{\ \ \ \ Vec4d\ quat;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ unpack\ the\ inputs}}
+\DoxyCodeLine{\ \ \ \ pos[0]\ =\ ds\_inputs[i][0];}
+\DoxyCodeLine{\ \ \ \ pos[1]\ =\ ds\_inputs[i][1];}
+\DoxyCodeLine{\ \ \ \ pos[2]\ =\ ds\_inputs[i][2];}
+\DoxyCodeLine{\ \ \ \ quat[0]\ =\ ds\_inputs[i][3];}
+\DoxyCodeLine{\ \ \ \ quat[1]\ =\ ds\_inputs[i][4];}
+\DoxyCodeLine{\ \ \ \ quat[2]\ =\ ds\_inputs[i][5];}
+\DoxyCodeLine{\ \ \ \ quat[3]\ =\ ds\_inputs[i][6];}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ obj\_p2.SetPosition(pos[0],\ pos[1],\ pos[2]);}
+\DoxyCodeLine{\ \ \ \ obj\_p2.SetQuaternion(quat[0],\ quat[1],\ quat[2],\ quat[3]);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ cnt\_solver.\mbox{\hyperlink{classnetdem_1_1_solver_g_j_k_p_p_ab651c60ac53f857232372faa3e7d2652}{Init}}(\&obj\_p1,\ \&obj\_p2);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ contact\ detection\ and\ resolution}}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{if}\ (cnt\_solver.\mbox{\hyperlink{classnetdem_1_1_solver_g_j_k_p_p_a961ebc52e242d57fb32cd1a9f95dcf92}{Detect}}())\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \textcolor{keyword}{auto}\ cnt\ =\ \mbox{\hyperlink{classnetdem_1_1_contact_p_p}{ContactPP}}(\&obj\_p1,\ \&obj\_p2);}
+\DoxyCodeLine{\ \ \ \ \ \ cnt.SetCollisionModel(\&cnt\_model);}
+\DoxyCodeLine{\ \ \ \ \ \ cnt\_solver.\mbox{\hyperlink{classnetdem_1_1_solver_g_j_k_p_p_ab6cc16826443f7e38a64efe2c136d4fb}{ResolveInit}}(\&cnt,\ 1.0e-\/4);}
+\DoxyCodeLine{\ \ \ \ \ \ \textcolor{keyword}{auto}\ \&cnt\_geoms\ =\ cnt.collision\_entries[0].cnt\_geoms;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}>>\ true:\ "{}}\ <<\ cnt\_geoms.len\_n\ <<\ \textcolor{stringliteral}{"{},\ "{}}\ <<\ cnt\_geoms.dir\_n[0]}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{},\ "{}}\ <<\ cnt\_geoms.dir\_n[1]\ <<\ \textcolor{stringliteral}{"{},\ "{}}\ <<\ cnt\_geoms.dir\_n[2]\ <<\ \textcolor{stringliteral}{"{},\ "{}}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ <<\ cnt\_geoms.pos[0]\ <<\ \textcolor{stringliteral}{"{},\ "{}}\ <<\ cnt\_geoms.pos[1]\ <<\ \textcolor{stringliteral}{"{},\ "{}}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ <<\ cnt\_geoms.pos[2]\ <<\ endl;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}>>\ data:\ "{}}\ <<\ ds\_cnt\_feats[i][0]\ <<\ \textcolor{stringliteral}{"{},\ "{}}\ <<\ ds\_cnt\_feats[i][1]}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{},\ "{}}\ <<\ ds\_cnt\_feats[i][2]\ <<\ \textcolor{stringliteral}{"{},\ "{}}\ <<\ ds\_cnt\_feats[i][3]\ <<\ \textcolor{stringliteral}{"{},\ "{}}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ <<\ ds\_cnt\_feats[i][4]\ <<\ \textcolor{stringliteral}{"{},\ "{}}\ <<\ ds\_cnt\_feats[i][5]\ <<\ \textcolor{stringliteral}{"{},\ "{}}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ <<\ ds\_cnt\_feats[i][6]\ <<\ endl;}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{keyword}{delete}[]\ ds\_inputs;}
+\DoxyCodeLine{\ \ \textcolor{keyword}{delete}[]\ ds\_cnt\_feats;}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ TestDatasetEllipsoid()\ \{}
+\DoxyCodeLine{\ \ TestDatasetEllipsoidDetection();}
+\DoxyCodeLine{\ \ TestDatasetEllipsoidResolution();}
+\DoxyCodeLine{\}}
+
+\end{DoxyCodeInclude}
+ 

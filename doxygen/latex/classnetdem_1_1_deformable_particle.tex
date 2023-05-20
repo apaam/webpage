@@ -194,13 +194,15 @@ int {\bfseries Find\+Contact\+Ref} (\mbox{\hyperlink{classnetdem_1_1_wall}{Wall}
 \doxysubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{classnetdem_1_1_tri_mesh}{Tri\+Mesh}} $\ast$ \mbox{\hyperlink{classnetdem_1_1_deformable_particle_a60bdd11588944a909ef3981b8936a450}{trimesh}}
+\mbox{\Hypertarget{classnetdem_1_1_deformable_particle_a60bdd11588944a909ef3981b8936a450}\label{classnetdem_1_1_deformable_particle_a60bdd11588944a909ef3981b8936a450}} 
+\mbox{\hyperlink{classnetdem_1_1_tri_mesh}{Tri\+Mesh}} $\ast$ {\bfseries trimesh} \{nullptr\}
 \begin{DoxyCompactList}\small\item\em Pointer to the triangular mesh shape of the particle. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classnetdem_1_1_deformable_particle_a68c59e4be9e4faa9eff41c177ccf9c03}\label{classnetdem_1_1_deformable_particle_a68c59e4be9e4faa9eff41c177ccf9c03}} 
 \mbox{\hyperlink{classnetdem_1_1_tet_mesh}{Tet\+Mesh}} {\bfseries tetmesh}
 \begin{DoxyCompactList}\small\item\em The tetrahedral mesh used for the simulation. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{classnetdem_1_1_f_e_m_simulator}{FEMSimulator}} \mbox{\hyperlink{classnetdem_1_1_deformable_particle_ad36ab5d51fbd4a0f3d39bf68a990d47c}{fem\+\_\+simulator}}
-\item 
+\mbox{\Hypertarget{classnetdem_1_1_deformable_particle_ad36ab5d51fbd4a0f3d39bf68a990d47c}\label{classnetdem_1_1_deformable_particle_ad36ab5d51fbd4a0f3d39bf68a990d47c}} 
+\mbox{\hyperlink{classnetdem_1_1_f_e_m_simulator}{FEMSimulator}} {\bfseries fem\+\_\+simulator}
+\begin{DoxyCompactList}\small\item\em The FEM simulator object used to simulate the particle. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classnetdem_1_1_deformable_particle_a7566506d77cdf2a5af1445f6db652334}\label{classnetdem_1_1_deformable_particle_a7566506d77cdf2a5af1445f6db652334}} 
 int {\bfseries mesh\+\_\+res} \{20\}
 \begin{DoxyCompactList}\small\item\em The resolution of the tetrahedral mesh. \end{DoxyCompactList}\end{DoxyCompactItemize}
@@ -307,7 +309,10 @@ bool \mbox{\hyperlink{classnetdem_1_1_particle_af762283470f206c8a0797d6ce04f6436
 \doxysubsection{Detailed Description}
 A class representing a deformable particle simulated using the Finite Element Method (FEM). 
 
-This class inherits from the {\ttfamily \mbox{\hyperlink{classnetdem_1_1_particle}{Particle}}} class and includes additional functionality for simulating deformable particles using FEM. It contains a triangular mesh shape and a tetrahedral mesh used for the simulation, as well as functions to update the motion and shape of the particle, apply contact forces, and save data in VTK format. 
+This class inherits from the {\ttfamily \mbox{\hyperlink{classnetdem_1_1_particle}{Particle}}} class and includes additional functionality for simulating deformable particles using FEM. It contains a triangular mesh shape and a tetrahedral mesh used for the simulation, as well as functions to update the motion and shape of the particle, apply contact forces, and save data in VTK format. \begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{00_hertz_contact_8cpp-example}{00\+\_\+hertz\+\_\+contact.\+cpp}}, and \mbox{\hyperlink{81_golf_ball_impact_8cpp-example}{81\+\_\+golf\+\_\+ball\+\_\+impact.\+cpp}}.\end{Desc}
+
 
 \doxysubsection{Member Function Documentation}
 \mbox{\Hypertarget{classnetdem_1_1_deformable_particle_ad119daee07ad91b901b7d41817189ed4}\label{classnetdem_1_1_deformable_particle_ad119daee07ad91b901b7d41817189ed4}} 
@@ -329,6 +334,9 @@ This function adds a force to a specific node on the particle\textquotesingle{}s
 {\em f} & The force vector to add to the node. \\
 \hline
 \end{DoxyParams}
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{00_hertz_contact_8cpp-example}{00\+\_\+hertz\+\_\+contact.\+cpp}}.\end{Desc}
 \mbox{\Hypertarget{classnetdem_1_1_deformable_particle_a46a937860e9d9e0ac8e25886c8d66053}\label{classnetdem_1_1_deformable_particle_a46a937860e9d9e0ac8e25886c8d66053}} 
 \index{netdem::DeformableParticle@{netdem::DeformableParticle}!ApplyContactForce@{ApplyContactForce}}
 \index{ApplyContactForce@{ApplyContactForce}!netdem::DeformableParticle@{netdem::DeformableParticle}}
@@ -350,6 +358,9 @@ This function applies a contact force between two particles using a point-\/part
 
 Reimplemented from \mbox{\hyperlink{classnetdem_1_1_particle}{netdem\+::\+Particle}}.
 
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{81_golf_ball_impact_8cpp-example}{81\+\_\+golf\+\_\+ball\+\_\+impact.\+cpp}}.\end{Desc}
 \mbox{\Hypertarget{classnetdem_1_1_deformable_particle_a96e28a8588044435c652ac775d6b9073}\label{classnetdem_1_1_deformable_particle_a96e28a8588044435c652ac775d6b9073}} 
 \index{netdem::DeformableParticle@{netdem::DeformableParticle}!ApplyContactForce@{ApplyContactForce}}
 \index{ApplyContactForce@{ApplyContactForce}!netdem::DeformableParticle@{netdem::DeformableParticle}}
@@ -385,6 +396,9 @@ This function clears all forces applied to the nodes on this particle\textquotes
 
 Reimplemented from \mbox{\hyperlink{classnetdem_1_1_particle}{netdem\+::\+Particle}}.
 
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{00_hertz_contact_8cpp-example}{00\+\_\+hertz\+\_\+contact.\+cpp}}, and \mbox{\hyperlink{81_golf_ball_impact_8cpp-example}{81\+\_\+golf\+\_\+ball\+\_\+impact.\+cpp}}.\end{Desc}
 \mbox{\Hypertarget{classnetdem_1_1_deformable_particle_aa09b1a0027e1bc32338473236d2bed5f}\label{classnetdem_1_1_deformable_particle_aa09b1a0027e1bc32338473236d2bed5f}} 
 \index{netdem::DeformableParticle@{netdem::DeformableParticle}!Clone@{Clone}}
 \index{Clone@{Clone}!netdem::DeformableParticle@{netdem::DeformableParticle}}
@@ -449,6 +463,9 @@ This function saves the particle, including its tetrahedral mesh, to a VTK file.
 
 Reimplemented from \mbox{\hyperlink{classnetdem_1_1_particle}{netdem\+::\+Particle}}.
 
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{00_hertz_contact_8cpp-example}{00\+\_\+hertz\+\_\+contact.\+cpp}}, and \mbox{\hyperlink{81_golf_ball_impact_8cpp-example}{81\+\_\+golf\+\_\+ball\+\_\+impact.\+cpp}}.\end{Desc}
 \mbox{\Hypertarget{classnetdem_1_1_deformable_particle_ac4d47fe1ba95931922cbbd2beb48fa26}\label{classnetdem_1_1_deformable_particle_ac4d47fe1ba95931922cbbd2beb48fa26}} 
 \index{netdem::DeformableParticle@{netdem::DeformableParticle}!SaveSurfaceAsVTK@{SaveSurfaceAsVTK}}
 \index{SaveSurfaceAsVTK@{SaveSurfaceAsVTK}!netdem::DeformableParticle@{netdem::DeformableParticle}}
@@ -466,6 +483,9 @@ This function saves the surface of the particle\textquotesingle{}s triangular me
 {\em filename} & The name of the file to save the data in. \\
 \hline
 \end{DoxyParams}
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{81_golf_ball_impact_8cpp-example}{81\+\_\+golf\+\_\+ball\+\_\+impact.\+cpp}}.\end{Desc}
 \mbox{\Hypertarget{classnetdem_1_1_deformable_particle_a7023f5af76ec009d53265bfc6952a77b}\label{classnetdem_1_1_deformable_particle_a7023f5af76ec009d53265bfc6952a77b}} 
 \index{netdem::DeformableParticle@{netdem::DeformableParticle}!SetDensity@{SetDensity}}
 \index{SetDensity@{SetDensity}!netdem::DeformableParticle@{netdem::DeformableParticle}}
@@ -487,6 +507,9 @@ This function sets the density of the particle and updates its mass accordingly.
 
 Reimplemented from \mbox{\hyperlink{classnetdem_1_1_particle}{netdem\+::\+Particle}}.
 
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{81_golf_ball_impact_8cpp-example}{81\+\_\+golf\+\_\+ball\+\_\+impact.\+cpp}}.\end{Desc}
 \mbox{\Hypertarget{classnetdem_1_1_deformable_particle_a38232575e125e7304d82e288734b6a23}\label{classnetdem_1_1_deformable_particle_a38232575e125e7304d82e288734b6a23}} 
 \index{netdem::DeformableParticle@{netdem::DeformableParticle}!SetPosition@{SetPosition}}
 \index{SetPosition@{SetPosition}!netdem::DeformableParticle@{netdem::DeformableParticle}}
@@ -512,6 +535,9 @@ This function sets the position of the particle to a given point in 3D space. It
 
 Reimplemented from \mbox{\hyperlink{classnetdem_1_1_particle}{netdem\+::\+Particle}}.
 
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{81_golf_ball_impact_8cpp-example}{81\+\_\+golf\+\_\+ball\+\_\+impact.\+cpp}}.\end{Desc}
 \mbox{\Hypertarget{classnetdem_1_1_deformable_particle_ae7e8179351846286c9462134be8caa46}\label{classnetdem_1_1_deformable_particle_ae7e8179351846286c9462134be8caa46}} 
 \index{netdem::DeformableParticle@{netdem::DeformableParticle}!SetQuaternion@{SetQuaternion}}
 \index{SetQuaternion@{SetQuaternion}!netdem::DeformableParticle@{netdem::DeformableParticle}}
@@ -587,6 +613,9 @@ This function sets the shape of the particle to a given {\ttfamily \mbox{\hyperl
 
 Reimplemented from \mbox{\hyperlink{classnetdem_1_1_particle}{netdem\+::\+Particle}}.
 
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{00_hertz_contact_8cpp-example}{00\+\_\+hertz\+\_\+contact.\+cpp}}, and \mbox{\hyperlink{81_golf_ball_impact_8cpp-example}{81\+\_\+golf\+\_\+ball\+\_\+impact.\+cpp}}.\end{Desc}
 \mbox{\Hypertarget{classnetdem_1_1_deformable_particle_a208f8160ae055cb97ce851b2ace9fefb}\label{classnetdem_1_1_deformable_particle_a208f8160ae055cb97ce851b2ace9fefb}} 
 \index{netdem::DeformableParticle@{netdem::DeformableParticle}!SetVelocity@{SetVelocity}}
 \index{SetVelocity@{SetVelocity}!netdem::DeformableParticle@{netdem::DeformableParticle}}
@@ -612,6 +641,9 @@ This function sets the velocity of the particle to a given vector in 3D space. I
 
 Reimplemented from \mbox{\hyperlink{classnetdem_1_1_particle}{netdem\+::\+Particle}}.
 
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{81_golf_ball_impact_8cpp-example}{81\+\_\+golf\+\_\+ball\+\_\+impact.\+cpp}}.\end{Desc}
 \mbox{\Hypertarget{classnetdem_1_1_deformable_particle_a9d1ce0d8506a15bd10de786aea53b584}\label{classnetdem_1_1_deformable_particle_a9d1ce0d8506a15bd10de786aea53b584}} 
 \index{netdem::DeformableParticle@{netdem::DeformableParticle}!UpdateBound@{UpdateBound}}
 \index{UpdateBound@{UpdateBound}!netdem::DeformableParticle@{netdem::DeformableParticle}}
@@ -647,6 +679,9 @@ This function updates the motion of the particle using the FEM simulator object.
 
 Reimplemented from \mbox{\hyperlink{classnetdem_1_1_particle}{netdem\+::\+Particle}}.
 
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{00_hertz_contact_8cpp-example}{00\+\_\+hertz\+\_\+contact.\+cpp}}, and \mbox{\hyperlink{81_golf_ball_impact_8cpp-example}{81\+\_\+golf\+\_\+ball\+\_\+impact.\+cpp}}.\end{Desc}
 \mbox{\Hypertarget{classnetdem_1_1_deformable_particle_af15278f7b1950663ac697fcc0232fd33}\label{classnetdem_1_1_deformable_particle_af15278f7b1950663ac697fcc0232fd33}} 
 \index{netdem::DeformableParticle@{netdem::DeformableParticle}!UpdateShape@{UpdateShape}}
 \index{UpdateShape@{UpdateShape}!netdem::DeformableParticle@{netdem::DeformableParticle}}
@@ -658,31 +693,6 @@ Reimplemented from \mbox{\hyperlink{classnetdem_1_1_particle}{netdem\+::\+Partic
 Updates the shape of the particle. 
 
 This function updates the shape of the particle\textquotesingle{}s tetrahedral mesh based on the current state of the triangular mesh shape. It is called automatically by {\ttfamily Update\+Motion}. 
-
-\doxysubsection{Member Data Documentation}
-\mbox{\Hypertarget{classnetdem_1_1_deformable_particle_ad36ab5d51fbd4a0f3d39bf68a990d47c}\label{classnetdem_1_1_deformable_particle_ad36ab5d51fbd4a0f3d39bf68a990d47c}} 
-\index{netdem::DeformableParticle@{netdem::DeformableParticle}!fem\_simulator@{fem\_simulator}}
-\index{fem\_simulator@{fem\_simulator}!netdem::DeformableParticle@{netdem::DeformableParticle}}
-\doxysubsubsection{\texorpdfstring{fem\_simulator}{fem\_simulator}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classnetdem_1_1_f_e_m_simulator}{FEMSimulator}} netdem\+::\+Deformable\+Particle\+::fem\+\_\+simulator}
-
-The FEM simulator object used to simulate the particle. \mbox{\Hypertarget{classnetdem_1_1_deformable_particle_a60bdd11588944a909ef3981b8936a450}\label{classnetdem_1_1_deformable_particle_a60bdd11588944a909ef3981b8936a450}} 
-\index{netdem::DeformableParticle@{netdem::DeformableParticle}!trimesh@{trimesh}}
-\index{trimesh@{trimesh}!netdem::DeformableParticle@{netdem::DeformableParticle}}
-\doxysubsubsection{\texorpdfstring{trimesh}{trimesh}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classnetdem_1_1_tri_mesh}{Tri\+Mesh}}$\ast$ netdem\+::\+Deformable\+Particle\+::trimesh}
-
-{\bfseries Initial value\+:}
-\begin{DoxyCode}{0}
-\DoxyCodeLine{\{}
-\DoxyCodeLine{\ \ \ \ \ \ \textcolor{keyword}{nullptr}\}}
-
-\end{DoxyCode}
-
-
-Pointer to the triangular mesh shape of the particle. 
-
-
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 

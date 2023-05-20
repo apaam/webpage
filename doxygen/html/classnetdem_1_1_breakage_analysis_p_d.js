@@ -6,12 +6,8 @@ var classnetdem_1_1_breakage_analysis_p_d =
     [ "Init", "classnetdem_1_1_breakage_analysis_p_d.html#ac15f60308a15d2b2c371a683c4200c2d", null ],
     [ "SetExecuteByCycles", "classnetdem_1_1_breakage_analysis_p_d.html#a12d8037ac209db77ec38ec9725117d5b", null ],
     [ "SetExecuteByTime", "classnetdem_1_1_breakage_analysis_p_d.html#adffe4c5118ccdff62542d3e600bec88f", null ],
-    [ "SetParticles", "classnetdem_1_1_breakage_analysis_p_d.html#a09429194186bf83bb14029849aeee380", null ],
-    [ "SetParticlesFromScene", "classnetdem_1_1_breakage_analysis_p_d.html#a250c96505ecd034d27120ae0f04cb8bc", null ],
     [ "SetRootPath", "classnetdem_1_1_breakage_analysis_p_d.html#acd6d68ace0fcb57246c22779cd360f34", null ],
     [ "Update", "classnetdem_1_1_breakage_analysis_p_d.html#a68bd9f26797230a15d37187468978908", null ],
-    [ "particle_id_list", "classnetdem_1_1_breakage_analysis_p_d.html#a878d589a36fc9ad1423ac9734c196ba4", null ],
-    [ "particle_list", "classnetdem_1_1_breakage_analysis_p_d.html#af78e7977617e8f0239215fde7f52fb3a", null ],
     [ "pd_dem_coupler", "classnetdem_1_1_breakage_analysis_p_d.html#a14aadf9906ef430553cf00a6c16fe0b0", null ],
     [ "use_particles_in_scene", "classnetdem_1_1_breakage_analysis_p_d.html#a17f836423e31e7a3eb65e3c7db4411a2", null ]
 ];

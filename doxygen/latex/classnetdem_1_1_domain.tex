@@ -63,20 +63,22 @@ void {\bfseries Clear\+Linked\+Lists} ()
 \item 
 \mbox{\Hypertarget{classnetdem_1_1_domain_ae60c4e4e51a9bebee0001ab9898aea39}\label{classnetdem_1_1_domain_ae60c4e4e51a9bebee0001ab9898aea39}} 
 int {\bfseries self\+\_\+rank} \{0\}
-\begin{DoxyCompactList}\small\item\em the rank id and the total number of processes of a mpi run. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em The rank id of a mpi run. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classnetdem_1_1_domain_aa92306cd48bd59a1c3daf90b16cc5cdc}\label{classnetdem_1_1_domain_aa92306cd48bd59a1c3daf90b16cc5cdc}} 
 int {\bfseries total\+\_\+rank} \{0\}
-\item 
-Vec3d \mbox{\hyperlink{classnetdem_1_1_domain_aea1c970434db7a0bf1bc4e3d3f659c52}{bound\+\_\+min}} \{-\/0.\+5, -\/0.\+5, -\/0.\+5\}
-\item 
+\begin{DoxyCompactList}\small\item\em The total number of processes of a mpi run. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classnetdem_1_1_domain_aea1c970434db7a0bf1bc4e3d3f659c52}\label{classnetdem_1_1_domain_aea1c970434db7a0bf1bc4e3d3f659c52}} 
+Vec3d {\bfseries bound\+\_\+min} \{-\/0.\+5, -\/0.\+5, -\/0.\+5\}
+\begin{DoxyCompactList}\small\item\em The lower bounds of the x, y, and z coordinates of the domain. By default, the domain is set to a unit cube centered at origin. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classnetdem_1_1_domain_a45bdb56d579dde8e79ff994831fd38dc}\label{classnetdem_1_1_domain_a45bdb56d579dde8e79ff994831fd38dc}} 
 Vec3d {\bfseries bound\+\_\+max} \{0.\+5, 0.\+5, 0.\+5\}
-\item 
+\begin{DoxyCompactList}\small\item\em The upper bounds of the x, y, and z coordinates of the domain. By default, the domain is set to a unit cube centered at origin. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classnetdem_1_1_domain_aa80301e3bf41e221907acb43e2ee5231}\label{classnetdem_1_1_domain_aa80301e3bf41e221907acb43e2ee5231}} 
 \mbox{\hyperlink{classnetdem_1_1_cell_manager}{Cell\+Manager}} {\bfseries cell\+\_\+manager}
-\begin{DoxyCompactList}\small\item\em manages the cells, which are used in the borad-\/phase contact detection. \end{DoxyCompactList}\item 
-Vec\+XT$<$ std\+::pair$<$ \mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} $\ast$, int $>$ $>$ \mbox{\hyperlink{classnetdem_1_1_domain_a1a8e5bab56c64ad2869d78e456f5ed03}{outer\+\_\+particle\+\_\+list}}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Manages the cells, which are used in the borad-\/phase contact detection. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classnetdem_1_1_domain_a1a8e5bab56c64ad2869d78e456f5ed03}\label{classnetdem_1_1_domain_a1a8e5bab56c64ad2869d78e456f5ed03}} 
+Vec\+XT$<$ std\+::pair$<$ \mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} $\ast$, int $>$ $>$ {\bfseries outer\+\_\+particle\+\_\+list}
+\begin{DoxyCompactList}\small\item\em Manages the particles that overlaps with this domains. Siimlar to the linked-\/list algorithm for cells in dem\+\_\+solver, this list is updated by Update\+Linked\+Domains of particle, and will be used by mpi\+\_\+manager\+: if a particle is linked to a domain, it will be transferred to this domain for contact detection. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
@@ -343,21 +345,6 @@ Sets the cell spacing for the {\ttfamily \mbox{\hyperlink{classnetdem_1_1_cell_m
 \hline
 \end{DoxyParams}
 
-
-\doxysubsection{Member Data Documentation}
-\mbox{\Hypertarget{classnetdem_1_1_domain_aea1c970434db7a0bf1bc4e3d3f659c52}\label{classnetdem_1_1_domain_aea1c970434db7a0bf1bc4e3d3f659c52}} 
-\index{netdem::Domain@{netdem::Domain}!bound\_min@{bound\_min}}
-\index{bound\_min@{bound\_min}!netdem::Domain@{netdem::Domain}}
-\doxysubsubsection{\texorpdfstring{bound\_min}{bound\_min}}
-{\footnotesize\ttfamily Vec3d netdem\+::\+Domain\+::bound\+\_\+min \{-\/0.\+5, -\/0.\+5, -\/0.\+5\}}
-
-the lower and upper bounds of the x, y, and z coordinates of the domain. By default, the domain is set to a unit cube centered at origin. \mbox{\Hypertarget{classnetdem_1_1_domain_a1a8e5bab56c64ad2869d78e456f5ed03}\label{classnetdem_1_1_domain_a1a8e5bab56c64ad2869d78e456f5ed03}} 
-\index{netdem::Domain@{netdem::Domain}!outer\_particle\_list@{outer\_particle\_list}}
-\index{outer\_particle\_list@{outer\_particle\_list}!netdem::Domain@{netdem::Domain}}
-\doxysubsubsection{\texorpdfstring{outer\_particle\_list}{outer\_particle\_list}}
-{\footnotesize\ttfamily Vec\+XT$<$std\+::pair$<$\mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} $\ast$, int$>$ $>$ netdem\+::\+Domain\+::outer\+\_\+particle\+\_\+list}
-
-manages the particles that overlaps with this domains. Siimlar to the linked-\/list algorithm for cells in dem\+\_\+solver, this list is updated by Update\+Linked\+Domains of particle, and will be used by mpi\+\_\+manager\+: if a particle is linked to a domain, it will be transferred to this domain for contact detection. 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 

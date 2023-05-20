@@ -7,41 +7,43 @@
 \DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}distribution.hpp"{}}}
 \DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <random>}}
 \DoxyCodeLine{00005\ }
-\DoxyCodeLine{00011\ \textcolor{keyword}{using\ namespace\ }\mbox{\hyperlink{namespacenetdem}{netdem}};}
-\DoxyCodeLine{00012\ }
-\DoxyCodeLine{00020\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_uniform_distribution}{UniformDistribution}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classnetdem_1_1_distribution}{Distribution}}\ \{}
-\DoxyCodeLine{00021\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00025\ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_uniform_distribution_a8149c07654582ab5bcba05286303c27f}{bound\_min}},\ bound\_max;}
-\DoxyCodeLine{00026\ }
-\DoxyCodeLine{00034\ \ \ \mbox{\hyperlink{class_uniform_distribution_a796cddf2004918526dabdba0037722ed}{UniformDistribution}}()\ :\ \mbox{\hyperlink{class_uniform_distribution_a8149c07654582ab5bcba05286303c27f}{bound\_min}}(0),\ bound\_max(1)\ \{}
-\DoxyCodeLine{00035\ \ \ \ \ std::random\_device\ rd;}
-\DoxyCodeLine{00036\ \ \ \ \ mt\_eng\ =\ std::mt19937(rd());}
-\DoxyCodeLine{00037\ \ \ \ \ real\_dist\ =\ std::uniform\_real\_distribution<double>(0,\ 1);}
-\DoxyCodeLine{00038\ \ \ \}}
-\DoxyCodeLine{00039\ }
-\DoxyCodeLine{00051\ \ \ \mbox{\hyperlink{class_uniform_distribution_a4e9d38caa8826e613f316a16a20f8159}{UniformDistribution}}(\textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_uniform_distribution_a8149c07654582ab5bcba05286303c27f}{bound\_min}},\ \textcolor{keywordtype}{double}\ bound\_max)}
-\DoxyCodeLine{00052\ \ \ \ \ \ \ :\ \mbox{\hyperlink{class_uniform_distribution_a8149c07654582ab5bcba05286303c27f}{bound\_min}}(\mbox{\hyperlink{class_uniform_distribution_a8149c07654582ab5bcba05286303c27f}{bound\_min}}),\ bound\_max(bound\_max)\ \{}
-\DoxyCodeLine{00053\ \ \ \ \ std::random\_device\ rd;}
-\DoxyCodeLine{00054\ \ \ \ \ mt\_eng\ =\ std::mt19937(rd());}
-\DoxyCodeLine{00055\ \ \ \ \ real\_dist\ =\ std::uniform\_real\_distribution<double>(\mbox{\hyperlink{class_uniform_distribution_a8149c07654582ab5bcba05286303c27f}{bound\_min}},\ bound\_max);}
-\DoxyCodeLine{00056\ \ \ \}}
-\DoxyCodeLine{00057\ }
-\DoxyCodeLine{00063\ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_uniform_distribution_aae19bbb1f331465ff67203b8621fac23}{Get}}()\textcolor{keyword}{\ override\ }\{\ \textcolor{keywordflow}{return}\ real\_dist(mt\_eng);\ \}}
-\DoxyCodeLine{00064\ }
-\DoxyCodeLine{00075\ \ \ VecXT<double>\ \mbox{\hyperlink{class_uniform_distribution_ad45593f9674287928452253fc5b84340}{Get}}(\textcolor{keywordtype}{int}\ num)\textcolor{keyword}{\ override\ }\{}
-\DoxyCodeLine{00076\ \ \ \ \ VecXT<double>\ num\_list(num,\ 0);}
-\DoxyCodeLine{00077\ }
-\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ num;\ i++)\ \{}
-\DoxyCodeLine{00079\ \ \ \ \ \ \ num\_list[i]\ =\ real\_dist(mt\_eng);}
-\DoxyCodeLine{00080\ \ \ \ \ \}}
-\DoxyCodeLine{00081\ }
-\DoxyCodeLine{00082\ \ \ \ \ \textcolor{keywordflow}{return}\ num\_list;}
-\DoxyCodeLine{00083\ \ \ \}}
-\DoxyCodeLine{00084\ }
-\DoxyCodeLine{00085\ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00086\ \ \ std::mt19937\ mt\_eng;\ }
-\DoxyCodeLine{00087\ \ \ std::uniform\_real\_distribution<double>}
-\DoxyCodeLine{00088\ \ \ \ \ \ \ real\_dist;\ }
-\DoxyCodeLine{00089\ \};}
+\DoxyCodeLine{00006\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacenetdem}{netdem}}\ \{}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00015\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classnetdem_1_1_uniform_distribution}{UniformDistribution}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classnetdem_1_1_distribution}{Distribution}}\ \{}
+\DoxyCodeLine{00016\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00020\ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classnetdem_1_1_uniform_distribution_a055bf548ae522cfe5be0ec5c832a1af5}{bound\_min}},\ bound\_max;}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00029\ \ \ \mbox{\hyperlink{classnetdem_1_1_uniform_distribution_afbf4ac225ade15aa9d8122a5732c0e31}{UniformDistribution}}()\ :\ \mbox{\hyperlink{classnetdem_1_1_uniform_distribution_a055bf548ae522cfe5be0ec5c832a1af5}{bound\_min}}(0),\ bound\_max(1)\ \{}
+\DoxyCodeLine{00030\ \ \ \ \ std::random\_device\ rd;}
+\DoxyCodeLine{00031\ \ \ \ \ mt\_eng\ =\ std::mt19937(rd());}
+\DoxyCodeLine{00032\ \ \ \ \ real\_dist\ =\ std::uniform\_real\_distribution<double>(0,\ 1);}
+\DoxyCodeLine{00033\ \ \ \}}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00046\ \ \ \mbox{\hyperlink{classnetdem_1_1_uniform_distribution_ae9358a43e23f0e4a8a1f6b714f58888f}{UniformDistribution}}(\textcolor{keywordtype}{double}\ \mbox{\hyperlink{classnetdem_1_1_uniform_distribution_a055bf548ae522cfe5be0ec5c832a1af5}{bound\_min}},\ \textcolor{keywordtype}{double}\ bound\_max)}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ :\ \mbox{\hyperlink{classnetdem_1_1_uniform_distribution_a055bf548ae522cfe5be0ec5c832a1af5}{bound\_min}}(\mbox{\hyperlink{classnetdem_1_1_uniform_distribution_a055bf548ae522cfe5be0ec5c832a1af5}{bound\_min}}),\ bound\_max(bound\_max)\ \{}
+\DoxyCodeLine{00048\ \ \ \ \ std::random\_device\ rd;}
+\DoxyCodeLine{00049\ \ \ \ \ mt\_eng\ =\ std::mt19937(rd());}
+\DoxyCodeLine{00050\ \ \ \ \ real\_dist\ =\ std::uniform\_real\_distribution<double>(\mbox{\hyperlink{classnetdem_1_1_uniform_distribution_a055bf548ae522cfe5be0ec5c832a1af5}{bound\_min}},\ bound\_max);}
+\DoxyCodeLine{00051\ \ \ \}}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00058\ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classnetdem_1_1_uniform_distribution_a7e39cbd0ed813d381022ad61986092bf}{Get}}()\textcolor{keyword}{\ override\ }\{\ \textcolor{keywordflow}{return}\ real\_dist(mt\_eng);\ \}}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00070\ \ \ VecXT<double>\ \mbox{\hyperlink{classnetdem_1_1_uniform_distribution_a36256d99b7eab82cc5165cc555075e0d}{Get}}(\textcolor{keywordtype}{int}\ num)\textcolor{keyword}{\ override\ }\{}
+\DoxyCodeLine{00071\ \ \ \ \ VecXT<double>\ num\_list(num,\ 0);}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ num;\ i++)\ \{}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ num\_list[i]\ =\ real\_dist(mt\_eng);}
+\DoxyCodeLine{00075\ \ \ \ \ \}}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{keywordflow}{return}\ num\_list;}
+\DoxyCodeLine{00078\ \ \ \}}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00081\ \ \ std::mt19937\ mt\_eng;\ }
+\DoxyCodeLine{00082\ \ \ std::uniform\_real\_distribution<double>}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ real\_dist;\ }
+\DoxyCodeLine{00084\ \};}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00086\ \}\ \textcolor{comment}{//\ namespace\ netdem}}
 
 \end{DoxyCode}

@@ -1,0 +1,39 @@
+\hypertarget{03_simplify_cobble_8cpp-example}{}\doxysection{03\+\_\+simplify\+\_\+cobble.\+cpp}
+This is an example of how to use the netdem library.
+
+
+\begin{DoxyCodeInclude}{0}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}data\_dumper.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}gen\_pack.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}gen\_wall\_box\_plane.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}gen\_wall\_box\_plate.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}gravity.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}model\_linear\_spring.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}shape\_polybezier.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}shape\_sphere.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}shape\_trimesh.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}simulation.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ <unordered\_map>}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{using\ namespace\ }\mbox{\hyperlink{namespacenetdem}{netdem}};}
+\DoxyCodeLine{\textcolor{keyword}{using\ namespace\ }std;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ SimplifyCobble(\textcolor{keywordtype}{int}\ argc,\ \textcolor{keywordtype}{char}\ **argv)\ \{}
+\DoxyCodeLine{\ \ filesystem::create\_directories(\textcolor{stringliteral}{"{}simplified/"{}});}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 84;\ i\ <=\ 199;\ i++)\ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{string}\ filename\ =\ to\_string(i)\ +\ \textcolor{stringliteral}{"{}.stl"{}};}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{if}\ (IO::FileExist(filename))\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \mbox{\hyperlink{classnetdem_1_1_s_t_l_model}{STLModel}}\ tmp\_stl;}
+\DoxyCodeLine{\ \ \ \ \ \ tmp\_stl.\mbox{\hyperlink{classnetdem_1_1_s_t_l_model_abb01a9583427f88f59d2abdf79b1e981}{InitFromSTL}}(filename);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ tmp\_stl.\mbox{\hyperlink{classnetdem_1_1_s_t_l_model_a1440c0216cca200c5779968e95face71}{MakeConvex}}();}
+\DoxyCodeLine{\ \ \ \ \ \ tmp\_stl.\mbox{\hyperlink{classnetdem_1_1_s_t_l_model_af6ff34b3666195fd16e7c7b35916ece2}{Decimate}}(2000);}
+\DoxyCodeLine{\ \ \ \ \ \ tmp\_stl.\mbox{\hyperlink{classnetdem_1_1_s_t_l_model_aafbdce68eec88494326403f8302b98a0}{Standardize}}();}
+\DoxyCodeLine{\ \ \ \ \ \ tmp\_stl.\mbox{\hyperlink{classnetdem_1_1_s_t_l_model_ad63749f1cf41df85a3d7237025200a0b}{SaveAsSTL}}(\textcolor{stringliteral}{"{}simplified/"{}}\ +\ filename);}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCodeInclude}
+ 

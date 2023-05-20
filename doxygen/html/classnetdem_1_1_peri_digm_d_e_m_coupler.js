@@ -26,7 +26,7 @@ var classnetdem_1_1_peri_digm_d_e_m_coupler =
     [ "node_size_ave", "classnetdem_1_1_peri_digm_d_e_m_coupler.html#a326aadf5d903ace8f01f7c212008e2a8", null ],
     [ "particle", "classnetdem_1_1_peri_digm_d_e_m_coupler.html#a2893f658e331f4af37e48b51107f00c6", null ],
     [ "pd_sim", "classnetdem_1_1_peri_digm_d_e_m_coupler.html#a0eaf203bfc63afcd3d670c3abbc4aad5", null ],
-    [ "strength_params", "classnetdem_1_1_peri_digm_d_e_m_coupler.html#a71edc56d136c4e8d1eca500f9fd3421a", null ],
+    [ "strength_params", "classnetdem_1_1_peri_digm_d_e_m_coupler.html#a8d00808793f75d40e1bbae1d41de647f", null ],
     [ "sub_dir_index", "classnetdem_1_1_peri_digm_d_e_m_coupler.html#ae1320d269bddf2bdcd084a1f8e27e07a", null ],
     [ "surface_stl", "classnetdem_1_1_peri_digm_d_e_m_coupler.html#af72bb0bd6ce49962b1746c8aea48c8ae", null ],
     [ "unbalanced_force_nodes", "classnetdem_1_1_peri_digm_d_e_m_coupler.html#a132709642870796065ffe5a3cec5be5f", null ],

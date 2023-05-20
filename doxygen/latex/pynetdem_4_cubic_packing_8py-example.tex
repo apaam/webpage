@@ -1,0 +1,79 @@
+\hypertarget{pynetdem_4_cubic_packing_8py-example}{}\doxysection{pynetdem\+\_\+4\+\_\+cubic\+\_\+packing.\+py}
+This is an example of how to use the netdem library.
+
+
+\begin{DoxyCodeInclude}{0}
+\DoxyCodeLine{00001\ \textcolor{keyword}{import}\ sys}
+\DoxyCodeLine{00002\ \textcolor{keyword}{import}\ os}
+\DoxyCodeLine{00003\ dir\_path\ =\ os.path.dirname(os.path.realpath(\_\_file\_\_))}
+\DoxyCodeLine{00004\ sys.path.append(dir\_path\ +\ \textcolor{stringliteral}{"{}/../../build/lib/"{}})}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{keyword}{import}\ pynetdem}
+\DoxyCodeLine{00007\ pynetdem.omp\_set\_num\_threads(1)}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ sim\ =\ pynetdem.Simulation()}
+\DoxyCodeLine{00010\ sim.domain\_manager.SetBound(-\/0.6,\ -\/0.6,\ -\/0.6,\ 0.6,\ 0.6,\ 1.6)}
+\DoxyCodeLine{00011\ sim.domain\_manager.SetCellSpacing(0.3,\ 0.3,\ 0.3)}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ sim.dem\_solver.contact\_solver\_factory.settings.solver\_type\ \(\backslash\)}
+\DoxyCodeLine{00014\ \ \ \ \ =\ pynetdem.ContactSolverSettings.SolverType.sdf}
+\DoxyCodeLine{00015\ sim.dem\_solver.contact\_solver\_factory.settings.sdf\_potential\_type\ =\ 0}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ cnt\_model\ =\ pynetdem.LinearSpring(2.0e4,\ 1.0e4,\ 0.7,\ 0.5)}
+\DoxyCodeLine{00018\ cnt\_model\_prt\ =\ sim.scene.InsertContactModel(cnt\_model)}
+\DoxyCodeLine{00019\ sim.scene.SetNumberOfMaterials(1)}
+\DoxyCodeLine{00020\ sim.scene.SetCollisionModel(0,\ 0,\ cnt\_model\_prt)}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ num\_insertion\ =\ 20}
+\DoxyCodeLine{00023\ scale\ =\ pow(20.0\ /\ num\_insertion,\ 1.0\ /\ 3.0)}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \textcolor{comment}{\#\ tri\_mesh\ =\ pynetdem.TriMesh()}}
+\DoxyCodeLine{00026\ \textcolor{comment}{\#\ for\ i\ in\ range(5):}}
+\DoxyCodeLine{00027\ \textcolor{comment}{\#\ \ \ \ \ tri\_mesh.InitFromSTL("{}data/copyleft/ballast/ballast\_"{}\ +\ str(i\ +\ 1)\ +\ "{}.stl"{})}}
+\DoxyCodeLine{00028\ \textcolor{comment}{\#\ \ \ \ \ tri\_mesh.Decimate(400)}}
+\DoxyCodeLine{00029\ \textcolor{comment}{\#\ \ \ \ \ tri\_mesh.MakeConvex()}}
+\DoxyCodeLine{00030\ \textcolor{comment}{\#\ \ \ \ \ tri\_mesh.AlignAxes()}}
+\DoxyCodeLine{00031\ \textcolor{comment}{\#\ \ \ \ \ tri\_mesh.SetSize(0.017\ *\ scale)}}
+\DoxyCodeLine{00032\ \textcolor{comment}{\#\ \ \ \ \ sim.scene.InsertShape(tri\_mesh)}}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ level\_set\ =\ pynetdem.LevelSet()}
+\DoxyCodeLine{00035\ \textcolor{keywordflow}{for}\ i\ \textcolor{keywordflow}{in}\ range(5):}
+\DoxyCodeLine{00036\ \ \ \ \ level\_set.InitFromSTL(}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}data/copyleft/ballast/ballast\_"{}}\ +\ str(i\ +\ 1)\ +\ \textcolor{stringliteral}{"{}.stl"{}},\ 20)}
+\DoxyCodeLine{00038\ \ \ \ \ level\_set.AlignAxes()}
+\DoxyCodeLine{00039\ \ \ \ \ level\_set.SetSize(0.017\ *\ scale)}
+\DoxyCodeLine{00040\ \ \ \ \ sim.scene.InsertShape(level\_set)}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ shape\_list\ =\ sim.scene.GetShapes()}
+\DoxyCodeLine{00043\ pack\_generator\ =\ pynetdem.PackGenerator()}
+\DoxyCodeLine{00044\ particle\_list\ =\ pack\_generator.GetGridPack(}
+\DoxyCodeLine{00045\ \ \ \ \ 0.098,\ 0.098,\ 0.098,\ 0,\ 0,\ 0.298,\ 2,\ 2,\ 3,\ shape\_list)}
+\DoxyCodeLine{00046\ \textcolor{keywordflow}{for}\ p\ \textcolor{keywordflow}{in}\ particle\_list:}
+\DoxyCodeLine{00047\ \ \ \ \ p.SetVelocity(0,\ 0,\ -\/0.6)}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ wall\_box\ =\ pynetdem.WallBoxPlane(0.098,\ 0.098,\ 0.396,\ 0,\ 0,\ 0.149)}
+\DoxyCodeLine{00050\ wall\_box.ImportToScene(sim.scene)}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ grav\ =\ pynetdem.Gravity()}
+\DoxyCodeLine{00053\ grav.Init(sim)}
+\DoxyCodeLine{00054\ sim.modifier\_manager.Insert(grav)}
+\DoxyCodeLine{00055\ sim.modifier\_manager.Enable(grav.label)}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ data\_dumper\ =\ pynetdem.DataDumper()}
+\DoxyCodeLine{00058\ data\_dumper.Init(sim)}
+\DoxyCodeLine{00059\ data\_dumper.SetRootPath(\textcolor{stringliteral}{"{}tmp/out\_n"{}}\ +\ str(num\_insertion\ *\ 12)\ +\ \textcolor{stringliteral}{"{}/"{}})}
+\DoxyCodeLine{00060\ data\_dumper.SetSaveByCycles(100)}
+\DoxyCodeLine{00061\ data\_dumper.dump\_wall\_info\ =\ \textcolor{keyword}{True}}
+\DoxyCodeLine{00062\ data\_dumper.dump\_contact\_info\ =\ \textcolor{keyword}{True}}
+\DoxyCodeLine{00063\ data\_dumper.SaveShapeInfoAsSTL()}
+\DoxyCodeLine{00064\ sim.modifier\_manager.Insert(data\_dumper)}
+\DoxyCodeLine{00065\ sim.modifier\_manager.Enable(data\_dumper.label)}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ \textcolor{keywordflow}{for}\ i\ \textcolor{keywordflow}{in}\ range(num\_insertion):}
+\DoxyCodeLine{00068\ \ \ \ \ sim.scene.InsertParticle(particle\_list)}
+\DoxyCodeLine{00069\ \ \ \ \ sim.Run(0.1)}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ sim.Run(2.0\ +\ 0.1\ *\ (20\ -\/\ num\_insertion))}
+
+\end{DoxyCodeInclude}
+ 

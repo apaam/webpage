@@ -109,7 +109,10 @@ Inheritance diagram for netdem::ParticleGroup:</div>
  <div class="center">
   <img src="classnetdem_1_1_particle_group.png" usemap="#netdem::ParticleGroup_map" alt=""/>
   <map id="netdem::ParticleGroup_map" name="netdem::ParticleGroup_map">
-<area href="classnetdem_1_1_modifier.html" title="An interface class used to modify a DEM simulation." alt="netdem::Modifier" shape="rect" coords="0,0,136,24"/>
+<area href="classnetdem_1_1_modifier.html" title="An interface class used to modify a DEM simulation." alt="netdem::Modifier" shape="rect" coords="206,0,402,24"/>
+<area href="classnetdem_1_1_breakage_analysis_p_d.html" title="A modifier class for performing breakage analysis on particles." alt="netdem::BreakageAnalysisPD" shape="rect" coords="0,112,196,136"/>
+<area href="classnetdem_1_1_deformation_analysis.html" title="A class used to perform deformation analysis on particles in a DEM simulation. This is a post-modifie..." alt="netdem::DeformationAnalysis" shape="rect" coords="206,112,402,136"/>
+<area href="classnetdem_1_1_particle_energy_evaluator.html" title="A class used to evaluate the energy of particles in a DEM simulation." alt="netdem::ParticleEnergyEvaluator" shape="rect" coords="412,112,608,136"/>
   </map>
 </div></div>
 <table class="memberdecls">
@@ -119,24 +122,37 @@ Public Member Functions</h2></td></tr>
 &#160;</td><td class="memItemRight" valign="bottom"><b>ParticleGroup</b> ()</td></tr>
 <tr class="memdesc:aa04253262a5d464be88d02da29a74b17"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor for <a class="el" href="classnetdem_1_1_particle_group.html" title="A class used to group particles in a DEM simulation.">ParticleGroup</a> class. <br /></td></tr>
 <tr class="separator:aa04253262a5d464be88d02da29a74b17"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ace6542d94ad495684072ad636b90d749"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnetdem_1_1_particle_group.html#ace6542d94ad495684072ad636b90d749">Add</a> (int id)</td></tr>
-<tr class="memdesc:ace6542d94ad495684072ad636b90d749"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a particle to the group.  <br /></td></tr>
-<tr class="separator:ace6542d94ad495684072ad636b90d749"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a87c41fe2deaee3a80242bc24202a66e9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnetdem_1_1_particle_group.html#a87c41fe2deaee3a80242bc24202a66e9">Remove</a> (int id)</td></tr>
-<tr class="memdesc:a87c41fe2deaee3a80242bc24202a66e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes a particle from the group.  <br /></td></tr>
-<tr class="separator:a87c41fe2deaee3a80242bc24202a66e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab7c98d7f7aae213d2bdafc93ebfdb7e8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnetdem_1_1_particle_group.html#ab7c98d7f7aae213d2bdafc93ebfdb7e8">Add</a> (const VecXT&lt; int &gt; &amp;ids)</td></tr>
-<tr class="memdesc:ab7c98d7f7aae213d2bdafc93ebfdb7e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds multiple particles to the group.  <br /></td></tr>
-<tr class="separator:ab7c98d7f7aae213d2bdafc93ebfdb7e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aabf22e781afc1e5254dcde307f51d35f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnetdem_1_1_particle_group.html#aabf22e781afc1e5254dcde307f51d35f">Remove</a> (const VecXT&lt; int &gt; &amp;ids)</td></tr>
-<tr class="memdesc:aabf22e781afc1e5254dcde307f51d35f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes multiple particles from the group.  <br /></td></tr>
-<tr class="separator:aabf22e781afc1e5254dcde307f51d35f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5b170749df6fa9c7fe4a2267105566d2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnetdem_1_1_particle_group.html#a5b170749df6fa9c7fe4a2267105566d2">SetVelocity</a> (double v_x, double v_y, double v_z)</td></tr>
-<tr class="memdesc:a5b170749df6fa9c7fe4a2267105566d2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the velocity properties for all particles in the group.  <br /></td></tr>
-<tr class="separator:a5b170749df6fa9c7fe4a2267105566d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1a8f2553f5e3789dbca4c72531c29580"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnetdem_1_1_particle_group.html#a1a8f2553f5e3789dbca4c72531c29580">SetSpin</a> (double spin_x, double spin_y, double spin_z)</td></tr>
-<tr class="memdesc:a1a8f2553f5e3789dbca4c72531c29580"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the spin properties for all particles in the group.  <br /></td></tr>
-<tr class="separator:a1a8f2553f5e3789dbca4c72531c29580"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa2ae047cec7dad96fd39c0895baca8cc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnetdem_1_1_particle_group.html#aa2ae047cec7dad96fd39c0895baca8cc">AddParticle</a> (int id)</td></tr>
+<tr class="memdesc:aa2ae047cec7dad96fd39c0895baca8cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a particle to the group.  <br /></td></tr>
+<tr class="separator:aa2ae047cec7dad96fd39c0895baca8cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa805edec121c481592925adec8d40870"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnetdem_1_1_particle_group.html#aa805edec121c481592925adec8d40870">RemoveParticle</a> (int id)</td></tr>
+<tr class="memdesc:aa805edec121c481592925adec8d40870"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes a particle from the group.  <br /></td></tr>
+<tr class="separator:aa805edec121c481592925adec8d40870"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeee2f58a7d1a9a2953d3bb02dc2e005c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnetdem_1_1_particle_group.html#aeee2f58a7d1a9a2953d3bb02dc2e005c">AddParticle</a> (const VecXT&lt; int &gt; &amp;ids)</td></tr>
+<tr class="memdesc:aeee2f58a7d1a9a2953d3bb02dc2e005c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds multiple particles to the group.  <br /></td></tr>
+<tr class="separator:aeee2f58a7d1a9a2953d3bb02dc2e005c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a63cb4362bfa55496f51c8b99294d63ca"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnetdem_1_1_particle_group.html#a63cb4362bfa55496f51c8b99294d63ca">RemoveParticle</a> (const VecXT&lt; int &gt; &amp;ids)</td></tr>
+<tr class="memdesc:a63cb4362bfa55496f51c8b99294d63ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes multiple particles from the group.  <br /></td></tr>
+<tr class="separator:a63cb4362bfa55496f51c8b99294d63ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aef4f55628dde5756b70ace9350703120"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnetdem_1_1_particle_group.html#aef4f55628dde5756b70ace9350703120">AddParticle</a> (const std::initializer_list&lt; int &gt; &amp;ids)</td></tr>
+<tr class="memdesc:aef4f55628dde5756b70ace9350703120"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds multiple particles to the group.  <br /></td></tr>
+<tr class="separator:aef4f55628dde5756b70ace9350703120"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a78c568f87a89c0554823b46100c6e20b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnetdem_1_1_particle_group.html#a78c568f87a89c0554823b46100c6e20b">RemoveParticle</a> (const std::initializer_list&lt; int &gt; &amp;ids)</td></tr>
+<tr class="memdesc:a78c568f87a89c0554823b46100c6e20b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes multiple particles from the group.  <br /></td></tr>
+<tr class="separator:a78c568f87a89c0554823b46100c6e20b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa556c70d40a8466b298008f6e2416980"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnetdem_1_1_particle_group.html#aa556c70d40a8466b298008f6e2416980">SetParticle</a> (int id)</td></tr>
+<tr class="memdesc:aa556c70d40a8466b298008f6e2416980"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets a particle to the group.  <br /></td></tr>
+<tr class="separator:aa556c70d40a8466b298008f6e2416980"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a22227039a216142a997dc37723b1948b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnetdem_1_1_particle_group.html#a22227039a216142a997dc37723b1948b">SetParticle</a> (const VecXT&lt; int &gt; &amp;ids)</td></tr>
+<tr class="memdesc:a22227039a216142a997dc37723b1948b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets multiple particles to the group.  <br /></td></tr>
+<tr class="separator:a22227039a216142a997dc37723b1948b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aad8f58f16ea751fb58e17cce025cf232"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnetdem_1_1_particle_group.html#aad8f58f16ea751fb58e17cce025cf232">SetParticle</a> (const std::initializer_list&lt; int &gt; &amp;ids)</td></tr>
+<tr class="memdesc:aad8f58f16ea751fb58e17cce025cf232"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets multiple particles to the group.  <br /></td></tr>
+<tr class="separator:aad8f58f16ea751fb58e17cce025cf232"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afc2c52ea2d46e93ba4eca6a403ee0b29"><td class="memItemLeft" align="right" valign="top"><a id="afc2c52ea2d46e93ba4eca6a403ee0b29" name="afc2c52ea2d46e93ba4eca6a403ee0b29"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>SetParticleFromScene</b> ()</td></tr>
+<tr class="memdesc:afc2c52ea2d46e93ba4eca6a403ee0b29"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the particles to all the particles in the scene scene. <br /></td></tr>
+<tr class="separator:afc2c52ea2d46e93ba4eca6a403ee0b29"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a20a00aa35b80f2fa74e8e86d059c44a4"><td class="memItemLeft" align="right" valign="top"><a id="a20a00aa35b80f2fa74e8e86d059c44a4" name="a20a00aa35b80f2fa74e8e86d059c44a4"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>Clear</b> ()</td></tr>
 <tr class="memdesc:a20a00aa35b80f2fa74e8e86d059c44a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clears all particles from the group. <br /></td></tr>
@@ -161,11 +177,13 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>Clear</b> ()</td></tr
 <tr class="memitem:ad340b35e3d4a44cbb708a522b89eec91 inherit pub_methods_classnetdem_1_1_modifier"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnetdem_1_1_modifier.html#ad340b35e3d4a44cbb708a522b89eec91">Init</a> (<a class="el" href="classnetdem_1_1_simulation.html">Simulation</a> *sim)</td></tr>
 <tr class="memdesc:ad340b35e3d4a44cbb708a522b89eec91 inherit pub_methods_classnetdem_1_1_modifier"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the <a class="el" href="classnetdem_1_1_modifier.html" title="An interface class used to modify a DEM simulation.">Modifier</a> instance.  <br /></td></tr>
 <tr class="separator:ad340b35e3d4a44cbb708a522b89eec91 inherit pub_methods_classnetdem_1_1_modifier"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af24eb11dda7460744ff568ce299bee6f inherit pub_methods_classnetdem_1_1_modifier"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnetdem_1_1_modifier.html#af24eb11dda7460744ff568ce299bee6f">Enable</a> ()</td></tr>
-<tr class="memdesc:af24eb11dda7460744ff568ce299bee6f inherit pub_methods_classnetdem_1_1_modifier"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enables the <a class="el" href="classnetdem_1_1_modifier.html" title="An interface class used to modify a DEM simulation.">Modifier</a> instance.  <br /></td></tr>
+<tr class="memitem:af24eb11dda7460744ff568ce299bee6f inherit pub_methods_classnetdem_1_1_modifier"><td class="memItemLeft" align="right" valign="top"><a id="af24eb11dda7460744ff568ce299bee6f" name="af24eb11dda7460744ff568ce299bee6f"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>Enable</b> ()</td></tr>
+<tr class="memdesc:af24eb11dda7460744ff568ce299bee6f inherit pub_methods_classnetdem_1_1_modifier"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enables the <a class="el" href="classnetdem_1_1_modifier.html" title="An interface class used to modify a DEM simulation.">Modifier</a> instance. <br /></td></tr>
 <tr class="separator:af24eb11dda7460744ff568ce299bee6f inherit pub_methods_classnetdem_1_1_modifier"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aba99c2f91ecd22eb1c88c45b1890aa38 inherit pub_methods_classnetdem_1_1_modifier"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnetdem_1_1_modifier.html#aba99c2f91ecd22eb1c88c45b1890aa38">Disable</a> ()</td></tr>
-<tr class="memdesc:aba99c2f91ecd22eb1c88c45b1890aa38 inherit pub_methods_classnetdem_1_1_modifier"><td class="mdescLeft">&#160;</td><td class="mdescRight">Disables the <a class="el" href="classnetdem_1_1_modifier.html" title="An interface class used to modify a DEM simulation.">Modifier</a> instance.  <br /></td></tr>
+<tr class="memitem:aba99c2f91ecd22eb1c88c45b1890aa38 inherit pub_methods_classnetdem_1_1_modifier"><td class="memItemLeft" align="right" valign="top"><a id="aba99c2f91ecd22eb1c88c45b1890aa38" name="aba99c2f91ecd22eb1c88c45b1890aa38"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>Disable</b> ()</td></tr>
+<tr class="memdesc:aba99c2f91ecd22eb1c88c45b1890aa38 inherit pub_methods_classnetdem_1_1_modifier"><td class="mdescLeft">&#160;</td><td class="mdescRight">Disables the <a class="el" href="classnetdem_1_1_modifier.html" title="An interface class used to modify a DEM simulation.">Modifier</a> instance. <br /></td></tr>
 <tr class="separator:aba99c2f91ecd22eb1c88c45b1890aa38 inherit pub_methods_classnetdem_1_1_modifier"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8ffc62d61052f129a3301278b7cffb2c inherit pub_methods_classnetdem_1_1_modifier"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnetdem_1_1_modifier.html#a8ffc62d61052f129a3301278b7cffb2c">Execute</a> ()</td></tr>
 <tr class="memdesc:a8ffc62d61052f129a3301278b7cffb2c inherit pub_methods_classnetdem_1_1_modifier"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes the <a class="el" href="classnetdem_1_1_modifier.html" title="An interface class used to modify a DEM simulation.">Modifier</a> instance.  <br /></td></tr>
@@ -180,12 +198,18 @@ virtual&#160;</td><td class="memItemRight" valign="bottom"><b>~Modifier</b> ()</
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a83f027dc92fccc5198b73570eed23fd3"><td class="memItemLeft" align="right" valign="top"><a id="a83f027dc92fccc5198b73570eed23fd3" name="a83f027dc92fccc5198b73570eed23fd3"></a>
-std::unordered_set&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>particle_ids</b></td></tr>
-<tr class="separator:a83f027dc92fccc5198b73570eed23fd3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af162319116a7a4d93a1f751f658e022e"><td class="memItemLeft" align="right" valign="top"><a id="af162319116a7a4d93a1f751f658e022e" name="af162319116a7a4d93a1f751f658e022e"></a>
+std::unordered_set&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>particle_id_list</b></td></tr>
+<tr class="memdesc:af162319116a7a4d93a1f751f658e022e"><td class="mdescLeft">&#160;</td><td class="mdescRight">The list of particle IDs. <br /></td></tr>
+<tr class="separator:af162319116a7a4d93a1f751f658e022e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa14893da00d40386076537d870d3ea56"><td class="memItemLeft" align="right" valign="top"><a id="aa14893da00d40386076537d870d3ea56" name="aa14893da00d40386076537d870d3ea56"></a>
 VecXT&lt; <a class="el" href="classnetdem_1_1_particle.html">Particle</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>particle_list</b></td></tr>
+<tr class="memdesc:aa14893da00d40386076537d870d3ea56"><td class="mdescLeft">&#160;</td><td class="mdescRight">The list of particles. <br /></td></tr>
 <tr class="separator:aa14893da00d40386076537d870d3ea56"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adddb17b9cabcc572a887efff526a6b27"><td class="memItemLeft" align="right" valign="top"><a id="adddb17b9cabcc572a887efff526a6b27" name="adddb17b9cabcc572a887efff526a6b27"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>use_particles_in_scene</b> {false}</td></tr>
+<tr class="memdesc:adddb17b9cabcc572a887efff526a6b27"><td class="mdescLeft">&#160;</td><td class="mdescRight">A flag indicating whether to group all particle in the scene. <br /></td></tr>
+<tr class="separator:adddb17b9cabcc572a887efff526a6b27"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_attribs_classnetdem_1_1_modifier"><td colspan="2" onclick="javascript:toggleInherit('pub_attribs_classnetdem_1_1_modifier')"><img src="closed.png" alt="-"/>&#160;Public Attributes inherited from <a class="el" href="classnetdem_1_1_modifier.html">netdem::Modifier</a></td></tr>
 <tr class="memitem:a9ca96d4276e4cb637b0220ab6fbbbbee inherit pub_attribs_classnetdem_1_1_modifier"><td class="memItemLeft" align="right" valign="top"><a id="a9ca96d4276e4cb637b0220ab6fbbbbee" name="a9ca96d4276e4cb637b0220ab6fbbbbee"></a>
 std::string&#160;</td><td class="memItemRight" valign="bottom"><b>label</b> {&quot;default&quot;}</td></tr>
@@ -210,14 +234,40 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>enable_logging</b> {t
 <div class="textblock"><p>A class used to group particles in a DEM simulation. </p>
 <p>The <a class="el" href="classnetdem_1_1_particle_group.html" title="A class used to group particles in a DEM simulation.">ParticleGroup</a> class is used to group particles together for various operations, such as setting their velocity or spin properties. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="ab7c98d7f7aae213d2bdafc93ebfdb7e8" name="ab7c98d7f7aae213d2bdafc93ebfdb7e8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab7c98d7f7aae213d2bdafc93ebfdb7e8">&#9670;&#160;</a></span>Add() <span class="overload">[1/2]</span></h2>
+<a id="aef4f55628dde5756b70ace9350703120" name="aef4f55628dde5756b70ace9350703120"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aef4f55628dde5756b70ace9350703120">&#9670;&#160;</a></span>AddParticle() <span class="overload">[1/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void netdem::ParticleGroup::Add </td>
+          <td class="memname">void netdem::ParticleGroup::AddParticle </td>
+          <td>(</td>
+          <td class="paramtype">const std::initializer_list&lt; int &gt; &amp;&#160;</td>
+          <td class="paramname"><em>ids</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Adds multiple particles to the group. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ids</td><td>A vector of particle IDs to add. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aeee2f58a7d1a9a2953d3bb02dc2e005c" name="aeee2f58a7d1a9a2953d3bb02dc2e005c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeee2f58a7d1a9a2953d3bb02dc2e005c">&#9670;&#160;</a></span>AddParticle() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void netdem::ParticleGroup::AddParticle </td>
           <td>(</td>
           <td class="paramtype">const VecXT&lt; int &gt; &amp;&#160;</td>
           <td class="paramname"><em>ids</em></td><td>)</td>
@@ -236,14 +286,14 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>enable_logging</b> {t
 
 </div>
 </div>
-<a id="ace6542d94ad495684072ad636b90d749" name="ace6542d94ad495684072ad636b90d749"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ace6542d94ad495684072ad636b90d749">&#9670;&#160;</a></span>Add() <span class="overload">[2/2]</span></h2>
+<a id="aa2ae047cec7dad96fd39c0895baca8cc" name="aa2ae047cec7dad96fd39c0895baca8cc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa2ae047cec7dad96fd39c0895baca8cc">&#9670;&#160;</a></span>AddParticle() <span class="overload">[3/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void netdem::ParticleGroup::Add </td>
+          <td class="memname">void netdem::ParticleGroup::AddParticle </td>
           <td>(</td>
           <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>id</em></td><td>)</td>
@@ -321,14 +371,40 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>enable_logging</b> {t
 
 </div>
 </div>
-<a id="aabf22e781afc1e5254dcde307f51d35f" name="aabf22e781afc1e5254dcde307f51d35f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aabf22e781afc1e5254dcde307f51d35f">&#9670;&#160;</a></span>Remove() <span class="overload">[1/2]</span></h2>
+<a id="a78c568f87a89c0554823b46100c6e20b" name="a78c568f87a89c0554823b46100c6e20b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a78c568f87a89c0554823b46100c6e20b">&#9670;&#160;</a></span>RemoveParticle() <span class="overload">[1/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void netdem::ParticleGroup::Remove </td>
+          <td class="memname">void netdem::ParticleGroup::RemoveParticle </td>
+          <td>(</td>
+          <td class="paramtype">const std::initializer_list&lt; int &gt; &amp;&#160;</td>
+          <td class="paramname"><em>ids</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Removes multiple particles from the group. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ids</td><td>A vector of particle IDs to remove. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a63cb4362bfa55496f51c8b99294d63ca" name="a63cb4362bfa55496f51c8b99294d63ca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a63cb4362bfa55496f51c8b99294d63ca">&#9670;&#160;</a></span>RemoveParticle() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void netdem::ParticleGroup::RemoveParticle </td>
           <td>(</td>
           <td class="paramtype">const VecXT&lt; int &gt; &amp;&#160;</td>
           <td class="paramname"><em>ids</em></td><td>)</td>
@@ -347,14 +423,14 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>enable_logging</b> {t
 
 </div>
 </div>
-<a id="a87c41fe2deaee3a80242bc24202a66e9" name="a87c41fe2deaee3a80242bc24202a66e9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a87c41fe2deaee3a80242bc24202a66e9">&#9670;&#160;</a></span>Remove() <span class="overload">[2/2]</span></h2>
+<a id="aa805edec121c481592925adec8d40870" name="aa805edec121c481592925adec8d40870"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa805edec121c481592925adec8d40870">&#9670;&#160;</a></span>RemoveParticle() <span class="overload">[3/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void netdem::ParticleGroup::Remove </td>
+          <td class="memname">void netdem::ParticleGroup::RemoveParticle </td>
           <td>(</td>
           <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>id</em></td><td>)</td>
@@ -373,88 +449,78 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>enable_logging</b> {t
 
 </div>
 </div>
-<a id="a1a8f2553f5e3789dbca4c72531c29580" name="a1a8f2553f5e3789dbca4c72531c29580"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1a8f2553f5e3789dbca4c72531c29580">&#9670;&#160;</a></span>SetSpin()</h2>
+<a id="aad8f58f16ea751fb58e17cce025cf232" name="aad8f58f16ea751fb58e17cce025cf232"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aad8f58f16ea751fb58e17cce025cf232">&#9670;&#160;</a></span>SetParticle() <span class="overload">[1/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void netdem::ParticleGroup::SetSpin </td>
+          <td class="memname">void netdem::ParticleGroup::SetParticle </td>
           <td>(</td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>spin_x</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramtype">const std::initializer_list&lt; int &gt; &amp;&#160;</td>
+          <td class="paramname"><em>ids</em></td><td>)</td>
           <td></td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>spin_y</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>spin_z</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Sets the spin properties for all particles in the group. </p>
+<p>Sets multiple particles to the group. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">spin_x</td><td>The x component of the spin. </td></tr>
-    <tr><td class="paramname">spin_y</td><td>The y component of the spin. </td></tr>
-    <tr><td class="paramname">spin_z</td><td>The z component of the spin. </td></tr>
+    <tr><td class="paramname">ids</td><td>A vector of particle IDs to add. </td></tr>
   </table>
   </dd>
 </dl>
 
 </div>
 </div>
-<a id="a5b170749df6fa9c7fe4a2267105566d2" name="a5b170749df6fa9c7fe4a2267105566d2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5b170749df6fa9c7fe4a2267105566d2">&#9670;&#160;</a></span>SetVelocity()</h2>
+<a id="a22227039a216142a997dc37723b1948b" name="a22227039a216142a997dc37723b1948b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a22227039a216142a997dc37723b1948b">&#9670;&#160;</a></span>SetParticle() <span class="overload">[2/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void netdem::ParticleGroup::SetVelocity </td>
+          <td class="memname">void netdem::ParticleGroup::SetParticle </td>
           <td>(</td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>v_x</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramtype">const VecXT&lt; int &gt; &amp;&#160;</td>
+          <td class="paramname"><em>ids</em></td><td>)</td>
           <td></td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>v_y</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>v_z</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Sets the velocity properties for all particles in the group. </p>
+<p>Sets multiple particles to the group. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">v_x</td><td>The x component of the velocity. </td></tr>
-    <tr><td class="paramname">v_y</td><td>The y component of the velocity. </td></tr>
-    <tr><td class="paramname">v_z</td><td>The z component of the velocity. </td></tr>
+    <tr><td class="paramname">ids</td><td>A vector of particle IDs to add. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aa556c70d40a8466b298008f6e2416980" name="aa556c70d40a8466b298008f6e2416980"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa556c70d40a8466b298008f6e2416980">&#9670;&#160;</a></span>SetParticle() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void netdem::ParticleGroup::SetParticle </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>id</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sets a particle to the group. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">id</td><td>The ID of the particle to add. </td></tr>
   </table>
   </dd>
 </dl>
@@ -485,7 +551,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>enable_logging</b> {t
 </div><div class="memdoc">
 
 <p>Updates the <a class="el" href="classnetdem_1_1_particle_group.html" title="A class used to group particles in a DEM simulation.">ParticleGroup</a> instance. </p>
-<p>Updates the particle_list based on the current particle_ids. </p>
+<p>Updates the particle_list based on the current particle_id_list. </p>
 
 <p>Reimplemented from <a class="el" href="classnetdem_1_1_modifier.html#adb2442a93cd18bc810156aa7275a46b8">netdem::Modifier</a>.</p>
 

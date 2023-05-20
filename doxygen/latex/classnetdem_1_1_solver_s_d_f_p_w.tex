@@ -53,7 +53,7 @@ void \mbox{\hyperlink{classnetdem_1_1_solver_s_d_f_p_w_afc85af9a83a2f6c932901f17
 \begin{DoxyCompactList}\small\item\em Resolves the collision between the particle and the wall based on the initial contact geometries and timestep. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classnetdem_1_1_solver_s_d_f_p_w_a2927f477db76d7c4cc7f687176a3a4d1}{Resolve\+Update\+PToW}} (\mbox{\hyperlink{classnetdem_1_1_collision_geometries}{Collision\+Geometries}} $\ast$const cnt\+\_\+geoms, double timestep)
 \begin{DoxyCompactList}\small\item\em Updates the contact geometries object and resolves the collision based on the updated information and timestep. \end{DoxyCompactList}\item 
-double \mbox{\hyperlink{classnetdem_1_1_solver_s_d_f_p_w_adf426a55527e60ad8a7ee0f20d501a1b}{Potential}} (double dist, \mbox{\hyperlink{classnetdem_1_1_shape}{Shape}} $\ast$shape)
+double \mbox{\hyperlink{classnetdem_1_1_solver_s_d_f_p_w_ad6069f49fe426c71be363b9d92954687}{Get\+Potential}} (double dist, \mbox{\hyperlink{classnetdem_1_1_shape}{Shape}} $\ast$shape)
 \begin{DoxyCompactList}\small\item\em Calculates the potential energy between two shapes based on their distance and type of potential function used. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Public Member Functions inherited from \mbox{\hyperlink{classnetdem_1_1_collision_solver_p_w}{netdem\+::\+Collision\+Solver\+PW}}}
 \begin{DoxyCompactItemize}
@@ -105,7 +105,10 @@ void \mbox{\hyperlink{classnetdem_1_1_collision_solver_p_w_a75563d0f485ce14cca7e
 \doxysubsection{Detailed Description}
 A class used to solve collisions between a particle and a wall using a signed distance field. 
 
-The \mbox{\hyperlink{classnetdem_1_1_solver_s_d_f_p_w}{Solver\+SDFPW}} class is used to solve collisions between a particle and a wall based on the signed distance field of the particles and walls in a particle-\/wall collision detection system. 
+The \mbox{\hyperlink{classnetdem_1_1_solver_s_d_f_p_w}{Solver\+SDFPW}} class is used to solve collisions between a particle and a wall based on the signed distance field of the particles and walls in a particle-\/wall collision detection system. \begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{00_hertz_contact_8cpp-example}{00\+\_\+hertz\+\_\+contact.\+cpp}}, \mbox{\hyperlink{00_nut_in_bolt_8cpp-example}{00\+\_\+nut\+\_\+in\+\_\+bolt.\+cpp}}, \mbox{\hyperlink{81_golf_ball_impact_8cpp-example}{81\+\_\+golf\+\_\+ball\+\_\+impact.\+cpp}}, and \mbox{\hyperlink{92_nut_in_bolt_8cpp-example}{92\+\_\+nut\+\_\+in\+\_\+bolt.\+cpp}}.\end{Desc}
+
 
 \doxysubsection{Constructor \& Destructor Documentation}
 \mbox{\Hypertarget{classnetdem_1_1_solver_s_d_f_p_w_a4ba4654f6d584abfa6c89ed5833e4226}\label{classnetdem_1_1_solver_s_d_f_p_w_a4ba4654f6d584abfa6c89ed5833e4226}} 
@@ -162,6 +165,29 @@ True if there is a collision, false otherwise.
 
 Implements \mbox{\hyperlink{classnetdem_1_1_collision_solver_p_w_a662b4b47765dd9816e1cb46262e8ad32}{netdem\+::\+Collision\+Solver\+PW}}.
 
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{00_hertz_contact_8cpp-example}{00\+\_\+hertz\+\_\+contact.\+cpp}}, \mbox{\hyperlink{00_nut_in_bolt_8cpp-example}{00\+\_\+nut\+\_\+in\+\_\+bolt.\+cpp}}, \mbox{\hyperlink{81_golf_ball_impact_8cpp-example}{81\+\_\+golf\+\_\+ball\+\_\+impact.\+cpp}}, and \mbox{\hyperlink{92_nut_in_bolt_8cpp-example}{92\+\_\+nut\+\_\+in\+\_\+bolt.\+cpp}}.\end{Desc}
+\mbox{\Hypertarget{classnetdem_1_1_solver_s_d_f_p_w_ad6069f49fe426c71be363b9d92954687}\label{classnetdem_1_1_solver_s_d_f_p_w_ad6069f49fe426c71be363b9d92954687}} 
+\index{netdem::SolverSDFPW@{netdem::SolverSDFPW}!GetPotential@{GetPotential}}
+\index{GetPotential@{GetPotential}!netdem::SolverSDFPW@{netdem::SolverSDFPW}}
+\doxysubsubsection{\texorpdfstring{GetPotential()}{GetPotential()}}
+{\footnotesize\ttfamily double netdem\+::\+Solver\+SDFPW\+::\+Get\+Potential (\begin{DoxyParamCaption}\item[{double}]{dist,  }\item[{\mbox{\hyperlink{classnetdem_1_1_shape}{Shape}} $\ast$}]{shape }\end{DoxyParamCaption})}
+
+
+
+Calculates the potential energy between two shapes based on their distance and type of potential function used. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dist} & The distance between the shapes. \\
+\hline
+{\em shape} & A pointer to the shape of one of the objects.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The potential energy between the two shapes. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{classnetdem_1_1_solver_s_d_f_p_w_a63fb7fbf9bd6e3e59643fab40f50676e}\label{classnetdem_1_1_solver_s_d_f_p_w_a63fb7fbf9bd6e3e59643fab40f50676e}} 
 \index{netdem::SolverSDFPW@{netdem::SolverSDFPW}!Init@{Init}}
 \index{Init@{Init}!netdem::SolverSDFPW@{netdem::SolverSDFPW}}
@@ -183,26 +209,9 @@ Initializes the \mbox{\hyperlink{classnetdem_1_1_solver_s_d_f_p_w}{Solver\+SDFPW
 
 Reimplemented from \mbox{\hyperlink{classnetdem_1_1_collision_solver_p_w_a23b3075924f949dfed8a681dbebedc03}{netdem\+::\+Collision\+Solver\+PW}}.
 
-\mbox{\Hypertarget{classnetdem_1_1_solver_s_d_f_p_w_adf426a55527e60ad8a7ee0f20d501a1b}\label{classnetdem_1_1_solver_s_d_f_p_w_adf426a55527e60ad8a7ee0f20d501a1b}} 
-\index{netdem::SolverSDFPW@{netdem::SolverSDFPW}!Potential@{Potential}}
-\index{Potential@{Potential}!netdem::SolverSDFPW@{netdem::SolverSDFPW}}
-\doxysubsubsection{\texorpdfstring{Potential()}{Potential()}}
-{\footnotesize\ttfamily double netdem\+::\+Solver\+SDFPW\+::\+Potential (\begin{DoxyParamCaption}\item[{double}]{dist,  }\item[{\mbox{\hyperlink{classnetdem_1_1_shape}{Shape}} $\ast$}]{shape }\end{DoxyParamCaption})}
-
-
-
-Calculates the potential energy between two shapes based on their distance and type of potential function used. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em dist} & The distance between the shapes. \\
-\hline
-{\em shape} & A pointer to the shape of one of the objects.\\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-The potential energy between the two shapes. 
-\end{DoxyReturn}
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{00_hertz_contact_8cpp-example}{00\+\_\+hertz\+\_\+contact.\+cpp}}, \mbox{\hyperlink{00_nut_in_bolt_8cpp-example}{00\+\_\+nut\+\_\+in\+\_\+bolt.\+cpp}}, \mbox{\hyperlink{81_golf_ball_impact_8cpp-example}{81\+\_\+golf\+\_\+ball\+\_\+impact.\+cpp}}, and \mbox{\hyperlink{92_nut_in_bolt_8cpp-example}{92\+\_\+nut\+\_\+in\+\_\+bolt.\+cpp}}.\end{Desc}
 \mbox{\Hypertarget{classnetdem_1_1_solver_s_d_f_p_w_a9eb7693d27ab007242a02f24ac4a6e81}\label{classnetdem_1_1_solver_s_d_f_p_w_a9eb7693d27ab007242a02f24ac4a6e81}} 
 \index{netdem::SolverSDFPW@{netdem::SolverSDFPW}!ResolveInit@{ResolveInit}}
 \index{ResolveInit@{ResolveInit}!netdem::SolverSDFPW@{netdem::SolverSDFPW}}
@@ -241,6 +250,9 @@ Resolves the collision based on the initial contact information and timestep.
 
 Implements \mbox{\hyperlink{classnetdem_1_1_collision_solver_p_w_a1a4559783964fdb3f7eea71950d88c93}{netdem\+::\+Collision\+Solver\+PW}}.
 
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{00_hertz_contact_8cpp-example}{00\+\_\+hertz\+\_\+contact.\+cpp}}, and \mbox{\hyperlink{81_golf_ball_impact_8cpp-example}{81\+\_\+golf\+\_\+ball\+\_\+impact.\+cpp}}.\end{Desc}
 \mbox{\Hypertarget{classnetdem_1_1_solver_s_d_f_p_w_afc85af9a83a2f6c932901f17fc2960be}\label{classnetdem_1_1_solver_s_d_f_p_w_afc85af9a83a2f6c932901f17fc2960be}} 
 \index{netdem::SolverSDFPW@{netdem::SolverSDFPW}!ResolveInitPToW@{ResolveInitPToW}}
 \index{ResolveInitPToW@{ResolveInitPToW}!netdem::SolverSDFPW@{netdem::SolverSDFPW}}

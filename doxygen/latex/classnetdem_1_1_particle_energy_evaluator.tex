@@ -12,7 +12,7 @@ A class used to evaluate the energy of particles in a DEM simulation.
 Inheritance diagram for netdem\+::Particle\+Energy\+Evaluator\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[height=2.000000cm]{classnetdem_1_1_particle_energy_evaluator}
+\includegraphics[height=3.000000cm]{classnetdem_1_1_particle_energy_evaluator}
 \end{center}
 \end{figure}
 \doxysubsection*{Public Member Functions}
@@ -21,13 +21,6 @@ Inheritance diagram for netdem\+::Particle\+Energy\+Evaluator\+:\begin{figure}[H
 \mbox{\Hypertarget{classnetdem_1_1_particle_energy_evaluator_ac9c82610021414f1daa8dee8340c02ec}\label{classnetdem_1_1_particle_energy_evaluator_ac9c82610021414f1daa8dee8340c02ec}} 
 {\bfseries Particle\+Energy\+Evaluator} ()
 \begin{DoxyCompactList}\small\item\em Default constructor for \mbox{\hyperlink{classnetdem_1_1_particle_energy_evaluator}{Particle\+Energy\+Evaluator}} class. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classnetdem_1_1_particle_energy_evaluator_a637fc49163227d432d36459c6bd85915}\label{classnetdem_1_1_particle_energy_evaluator_a637fc49163227d432d36459c6bd85915}} 
-void {\bfseries Set\+Particles\+From\+Scene} ()
-\begin{DoxyCompactList}\small\item\em Sets the particles to evaluate energy for based on the current scene. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classnetdem_1_1_particle_energy_evaluator_a91bdc8413f99de246475eaf698758222}{Set\+Particles}} (const Vec\+XT$<$ int $>$ \&id\+\_\+list)
-\begin{DoxyCompactList}\small\item\em Sets the particles to evaluate energy for based on a given list of particle IDs. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classnetdem_1_1_particle_energy_evaluator_a37ed2f83b802c58094a5b93f5a71b104}{Set\+Particles}} (int num\+\_\+ids,...)
-\begin{DoxyCompactList}\small\item\em Sets the particles to evaluate energy for based on a variable number of particle IDs. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{structnetdem_1_1_particle_energy}{Particle\+Energy}} \mbox{\hyperlink{classnetdem_1_1_particle_energy_evaluator_a8783e87357faac50175b1f7317577b2a}{Get\+Energy}} ()
 \begin{DoxyCompactList}\small\item\em Calculates the energy for all particles in the particle list. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{structnetdem_1_1_particle_energy}{Particle\+Energy}} \mbox{\hyperlink{classnetdem_1_1_particle_energy_evaluator_a518e8787d6079afe57e40367e7d7e4fd}{Get\+Energy}} (\mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} $\ast$const p)
@@ -36,10 +29,44 @@ void \mbox{\hyperlink{classnetdem_1_1_particle_energy_evaluator_a37ed2f83b802c58
 \begin{DoxyCompactList}\small\item\em Clones the current \mbox{\hyperlink{classnetdem_1_1_particle_energy_evaluator}{Particle\+Energy\+Evaluator}} instance. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classnetdem_1_1_particle_energy_evaluator_a6c46fc3bf34599e35f95e0ab2a30d743}{Execute}} () override
 \begin{DoxyCompactList}\small\item\em Executes the \mbox{\hyperlink{classnetdem_1_1_particle_energy_evaluator}{Particle\+Energy\+Evaluator}} instance. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classnetdem_1_1_particle_energy_evaluator_a5626333d970ad515f81ad06ce35c92e8}{Execute}} (const Vec\+XT$<$ \mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} $\ast$ $>$ \&p\+\_\+list)
-\begin{DoxyCompactList}\small\item\em Executes the \mbox{\hyperlink{classnetdem_1_1_particle_energy_evaluator}{Particle\+Energy\+Evaluator}} instance for a given list of particles. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classnetdem_1_1_particle_energy_evaluator_a99beaf0b9e66e3d8ce68a08ef3c19b16}{Update}} () override
 \begin{DoxyCompactList}\small\item\em Updates the \mbox{\hyperlink{classnetdem_1_1_particle_energy_evaluator}{Particle\+Energy\+Evaluator}} instance. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions inherited from \mbox{\hyperlink{classnetdem_1_1_particle_group}{netdem\+::\+Particle\+Group}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classnetdem_1_1_particle_group_aa04253262a5d464be88d02da29a74b17}\label{classnetdem_1_1_particle_group_aa04253262a5d464be88d02da29a74b17}} 
+{\bfseries Particle\+Group} ()
+\begin{DoxyCompactList}\small\item\em Default constructor for \mbox{\hyperlink{classnetdem_1_1_particle_group}{Particle\+Group}} class. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classnetdem_1_1_particle_group_aa2ae047cec7dad96fd39c0895baca8cc}{Add\+Particle}} (int id)
+\begin{DoxyCompactList}\small\item\em Adds a particle to the group. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classnetdem_1_1_particle_group_aa805edec121c481592925adec8d40870}{Remove\+Particle}} (int id)
+\begin{DoxyCompactList}\small\item\em Removes a particle from the group. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classnetdem_1_1_particle_group_aeee2f58a7d1a9a2953d3bb02dc2e005c}{Add\+Particle}} (const Vec\+XT$<$ int $>$ \&ids)
+\begin{DoxyCompactList}\small\item\em Adds multiple particles to the group. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classnetdem_1_1_particle_group_a63cb4362bfa55496f51c8b99294d63ca}{Remove\+Particle}} (const Vec\+XT$<$ int $>$ \&ids)
+\begin{DoxyCompactList}\small\item\em Removes multiple particles from the group. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classnetdem_1_1_particle_group_aef4f55628dde5756b70ace9350703120}{Add\+Particle}} (const std\+::initializer\+\_\+list$<$ int $>$ \&ids)
+\begin{DoxyCompactList}\small\item\em Adds multiple particles to the group. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classnetdem_1_1_particle_group_a78c568f87a89c0554823b46100c6e20b}{Remove\+Particle}} (const std\+::initializer\+\_\+list$<$ int $>$ \&ids)
+\begin{DoxyCompactList}\small\item\em Removes multiple particles from the group. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classnetdem_1_1_particle_group_aa556c70d40a8466b298008f6e2416980}{Set\+Particle}} (int id)
+\begin{DoxyCompactList}\small\item\em Sets a particle to the group. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classnetdem_1_1_particle_group_a22227039a216142a997dc37723b1948b}{Set\+Particle}} (const Vec\+XT$<$ int $>$ \&ids)
+\begin{DoxyCompactList}\small\item\em Sets multiple particles to the group. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classnetdem_1_1_particle_group_aad8f58f16ea751fb58e17cce025cf232}{Set\+Particle}} (const std\+::initializer\+\_\+list$<$ int $>$ \&ids)
+\begin{DoxyCompactList}\small\item\em Sets multiple particles to the group. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classnetdem_1_1_particle_group_afc2c52ea2d46e93ba4eca6a403ee0b29}\label{classnetdem_1_1_particle_group_afc2c52ea2d46e93ba4eca6a403ee0b29}} 
+void {\bfseries Set\+Particle\+From\+Scene} ()
+\begin{DoxyCompactList}\small\item\em Sets the particles to all the particles in the scene scene. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classnetdem_1_1_particle_group_a20a00aa35b80f2fa74e8e86d059c44a4}\label{classnetdem_1_1_particle_group_a20a00aa35b80f2fa74e8e86d059c44a4}} 
+void {\bfseries Clear} ()
+\begin{DoxyCompactList}\small\item\em Clears all particles from the group. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classnetdem_1_1_modifier}{Modifier}} $\ast$ \mbox{\hyperlink{classnetdem_1_1_particle_group_ac7848958b3f714ccd75a698fc65f6c44}{Clone}} () const override
+\begin{DoxyCompactList}\small\item\em Clones the current \mbox{\hyperlink{classnetdem_1_1_particle_group}{Particle\+Group}} instance. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classnetdem_1_1_particle_group_aedc74b3696668e6ed971b9a3e301318a}{Execute}} () override
+\begin{DoxyCompactList}\small\item\em Executes the \mbox{\hyperlink{classnetdem_1_1_particle_group}{Particle\+Group}} instance. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classnetdem_1_1_particle_group_a3b1f8bdddb7187904cae14031a12f1b3}{Update}} () override
+\begin{DoxyCompactList}\small\item\em Updates the \mbox{\hyperlink{classnetdem_1_1_particle_group}{Particle\+Group}} instance. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Public Member Functions inherited from \mbox{\hyperlink{classnetdem_1_1_modifier}{netdem\+::\+Modifier}}}
 \begin{DoxyCompactItemize}
 \item 
@@ -50,9 +77,11 @@ virtual \mbox{\hyperlink{classnetdem_1_1_modifier}{Modifier}} $\ast$ \mbox{\hype
 \begin{DoxyCompactList}\small\item\em Clones the current \mbox{\hyperlink{classnetdem_1_1_modifier}{Modifier}} instance. \end{DoxyCompactList}\item 
 virtual void \mbox{\hyperlink{classnetdem_1_1_modifier_ad340b35e3d4a44cbb708a522b89eec91}{Init}} (\mbox{\hyperlink{classnetdem_1_1_simulation}{Simulation}} $\ast$sim)
 \begin{DoxyCompactList}\small\item\em Initializes the \mbox{\hyperlink{classnetdem_1_1_modifier}{Modifier}} instance. \end{DoxyCompactList}\item 
-virtual void \mbox{\hyperlink{classnetdem_1_1_modifier_af24eb11dda7460744ff568ce299bee6f}{Enable}} ()
+\mbox{\Hypertarget{classnetdem_1_1_modifier_af24eb11dda7460744ff568ce299bee6f}\label{classnetdem_1_1_modifier_af24eb11dda7460744ff568ce299bee6f}} 
+virtual void {\bfseries Enable} ()
 \begin{DoxyCompactList}\small\item\em Enables the \mbox{\hyperlink{classnetdem_1_1_modifier}{Modifier}} instance. \end{DoxyCompactList}\item 
-virtual void \mbox{\hyperlink{classnetdem_1_1_modifier_aba99c2f91ecd22eb1c88c45b1890aa38}{Disable}} ()
+\mbox{\Hypertarget{classnetdem_1_1_modifier_aba99c2f91ecd22eb1c88c45b1890aa38}\label{classnetdem_1_1_modifier_aba99c2f91ecd22eb1c88c45b1890aa38}} 
+virtual void {\bfseries Disable} ()
 \begin{DoxyCompactList}\small\item\em Disables the \mbox{\hyperlink{classnetdem_1_1_modifier}{Modifier}} instance. \end{DoxyCompactList}\item 
 virtual void \mbox{\hyperlink{classnetdem_1_1_modifier_a8ffc62d61052f129a3301278b7cffb2c}{Execute}} ()
 \begin{DoxyCompactList}\small\item\em Executes the \mbox{\hyperlink{classnetdem_1_1_modifier}{Modifier}} instance. \end{DoxyCompactList}\item 
@@ -61,21 +90,29 @@ virtual void \mbox{\hyperlink{classnetdem_1_1_modifier_adb2442a93cd18bc810156aa7
 \mbox{\Hypertarget{classnetdem_1_1_modifier_a370a42d8715caec46e4d4d241667d053}\label{classnetdem_1_1_modifier_a370a42d8715caec46e4d4d241667d053}} 
 virtual {\bfseries $\sim$\+Modifier} ()
 \begin{DoxyCompactList}\small\item\em Destructor for \mbox{\hyperlink{classnetdem_1_1_modifier}{Modifier}} class. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static Vec\+XT$<$ \mbox{\hyperlink{structnetdem_1_1_particle_energy}{Particle\+Energy}} $>$ \mbox{\hyperlink{classnetdem_1_1_particle_energy_evaluator_a9a5767b921809d5b50e0d18f922ae2dd}{Execute}} (const Vec\+XT$<$ \mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} $\ast$ $>$ \&p\+\_\+list, Vec3d gravity\+\_\+coef)
+\begin{DoxyCompactList}\small\item\em Executes the \mbox{\hyperlink{classnetdem_1_1_particle_energy_evaluator}{Particle\+Energy\+Evaluator}} instance for a given list of particles. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classnetdem_1_1_particle_energy_evaluator_aec34e19205c8e1b8b5c72d1f2339f551}\label{classnetdem_1_1_particle_energy_evaluator_aec34e19205c8e1b8b5c72d1f2339f551}} 
-Vec\+XT$<$ int $>$ {\bfseries particle\+\_\+id\+\_\+list}
-\item 
-\mbox{\Hypertarget{classnetdem_1_1_particle_energy_evaluator_a41ccef55149af58ba5c478afe773325c}\label{classnetdem_1_1_particle_energy_evaluator_a41ccef55149af58ba5c478afe773325c}} 
-Vec\+XT$<$ \mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} $\ast$ $>$ {\bfseries particle\+\_\+list}
-\item 
 \mbox{\Hypertarget{classnetdem_1_1_particle_energy_evaluator_a6e4e33188918391e6be2948c2a4bdfcc}\label{classnetdem_1_1_particle_energy_evaluator_a6e4e33188918391e6be2948c2a4bdfcc}} 
 Vec\+XT$<$ \mbox{\hyperlink{structnetdem_1_1_particle_energy}{Particle\+Energy}} $>$ {\bfseries particle\+\_\+energy\+\_\+list}
-\item 
-\mbox{\Hypertarget{classnetdem_1_1_particle_energy_evaluator_a9d3d8f1b367409f678e7f7df2929e51d}\label{classnetdem_1_1_particle_energy_evaluator_a9d3d8f1b367409f678e7f7df2929e51d}} 
-bool {\bfseries use\+\_\+particles\+\_\+in\+\_\+scene} \{false\}
 \end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes inherited from \mbox{\hyperlink{classnetdem_1_1_particle_group}{netdem\+::\+Particle\+Group}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classnetdem_1_1_particle_group_af162319116a7a4d93a1f751f658e022e}\label{classnetdem_1_1_particle_group_af162319116a7a4d93a1f751f658e022e}} 
+std\+::unordered\+\_\+set$<$ int $>$ {\bfseries particle\+\_\+id\+\_\+list}
+\begin{DoxyCompactList}\small\item\em The list of particle IDs. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classnetdem_1_1_particle_group_aa14893da00d40386076537d870d3ea56}\label{classnetdem_1_1_particle_group_aa14893da00d40386076537d870d3ea56}} 
+Vec\+XT$<$ \mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} $\ast$ $>$ {\bfseries particle\+\_\+list}
+\begin{DoxyCompactList}\small\item\em The list of particles. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classnetdem_1_1_particle_group_adddb17b9cabcc572a887efff526a6b27}\label{classnetdem_1_1_particle_group_adddb17b9cabcc572a887efff526a6b27}} 
+bool {\bfseries use\+\_\+particles\+\_\+in\+\_\+scene} \{false\}
+\begin{DoxyCompactList}\small\item\em A flag indicating whether to group all particle in the scene. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Public Attributes inherited from \mbox{\hyperlink{classnetdem_1_1_modifier}{netdem\+::\+Modifier}}}
 \begin{DoxyCompactItemize}
 \item 
@@ -102,7 +139,10 @@ bool {\bfseries enable\+\_\+logging} \{true\}
 \doxysubsection{Detailed Description}
 A class used to evaluate the energy of particles in a DEM simulation. 
 
-The \mbox{\hyperlink{classnetdem_1_1_particle_energy_evaluator}{Particle\+Energy\+Evaluator}} class calculates the energy of a specified set of particles, and stores this information in a list of \mbox{\hyperlink{structnetdem_1_1_particle_energy}{Particle\+Energy}} structs. 
+The \mbox{\hyperlink{classnetdem_1_1_particle_energy_evaluator}{Particle\+Energy\+Evaluator}} class calculates the energy of a specified set of particles, and stores this information in a list of \mbox{\hyperlink{structnetdem_1_1_particle_energy}{Particle\+Energy}} structs. \begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{02_energy_test_8cpp-example}{02\+\_\+energy\+\_\+test.\+cpp}}.\end{Desc}
+
 
 \doxysubsection{Member Function Documentation}
 \mbox{\Hypertarget{classnetdem_1_1_particle_energy_evaluator_aab2645d6a1d7a81a7a5a4f3cfe3a95bd}\label{classnetdem_1_1_particle_energy_evaluator_aab2645d6a1d7a81a7a5a4f3cfe3a95bd}} 
@@ -136,11 +176,11 @@ Calls Execute(particle\+\_\+list) if use\+\_\+particles\+\_\+in\+\_\+scene is tr
 
 Reimplemented from \mbox{\hyperlink{classnetdem_1_1_modifier_a8ffc62d61052f129a3301278b7cffb2c}{netdem\+::\+Modifier}}.
 
-\mbox{\Hypertarget{classnetdem_1_1_particle_energy_evaluator_a5626333d970ad515f81ad06ce35c92e8}\label{classnetdem_1_1_particle_energy_evaluator_a5626333d970ad515f81ad06ce35c92e8}} 
+\mbox{\Hypertarget{classnetdem_1_1_particle_energy_evaluator_a9a5767b921809d5b50e0d18f922ae2dd}\label{classnetdem_1_1_particle_energy_evaluator_a9a5767b921809d5b50e0d18f922ae2dd}} 
 \index{netdem::ParticleEnergyEvaluator@{netdem::ParticleEnergyEvaluator}!Execute@{Execute}}
 \index{Execute@{Execute}!netdem::ParticleEnergyEvaluator@{netdem::ParticleEnergyEvaluator}}
 \doxysubsubsection{\texorpdfstring{Execute()}{Execute()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily void netdem\+::\+Particle\+Energy\+Evaluator\+::\+Execute (\begin{DoxyParamCaption}\item[{const Vec\+XT$<$ \mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} $\ast$ $>$ \&}]{p\+\_\+list }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily Vec\+XT$<$ \mbox{\hyperlink{structnetdem_1_1_particle_energy}{Particle\+Energy}} $>$ netdem\+::\+Particle\+Energy\+Evaluator\+::\+Execute (\begin{DoxyParamCaption}\item[{const Vec\+XT$<$ \mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} $\ast$ $>$ \&}]{p\+\_\+list,  }\item[{Vec3d}]{gravity\+\_\+coef }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
 
 
@@ -150,7 +190,12 @@ Executes the \mbox{\hyperlink{classnetdem_1_1_particle_energy_evaluator}{Particl
 \begin{DoxyParams}{Parameters}
 {\em p\+\_\+list} & The list of particles to evaluate energy for. \\
 \hline
+{\em gravity\+\_\+coef} & The gravitational coefficient. \\
+\hline
 \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The list of particle energy. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{classnetdem_1_1_particle_energy_evaluator_a8783e87357faac50175b1f7317577b2a}\label{classnetdem_1_1_particle_energy_evaluator_a8783e87357faac50175b1f7317577b2a}} 
 \index{netdem::ParticleEnergyEvaluator@{netdem::ParticleEnergyEvaluator}!GetEnergy@{GetEnergy}}
 \index{GetEnergy@{GetEnergy}!netdem::ParticleEnergyEvaluator@{netdem::ParticleEnergyEvaluator}}
@@ -182,38 +227,6 @@ Calculates the energy for a specific particle.
 \begin{DoxyReturn}{Returns}
 A \mbox{\hyperlink{structnetdem_1_1_particle_energy}{Particle\+Energy}} struct containing the energy for the specified particle. 
 \end{DoxyReturn}
-\mbox{\Hypertarget{classnetdem_1_1_particle_energy_evaluator_a91bdc8413f99de246475eaf698758222}\label{classnetdem_1_1_particle_energy_evaluator_a91bdc8413f99de246475eaf698758222}} 
-\index{netdem::ParticleEnergyEvaluator@{netdem::ParticleEnergyEvaluator}!SetParticles@{SetParticles}}
-\index{SetParticles@{SetParticles}!netdem::ParticleEnergyEvaluator@{netdem::ParticleEnergyEvaluator}}
-\doxysubsubsection{\texorpdfstring{SetParticles()}{SetParticles()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily void netdem\+::\+Particle\+Energy\+Evaluator\+::\+Set\+Particles (\begin{DoxyParamCaption}\item[{const Vec\+XT$<$ int $>$ \&}]{id\+\_\+list }\end{DoxyParamCaption})}
-
-
-
-Sets the particles to evaluate energy for based on a given list of particle IDs. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em id\+\_\+list} & The list of particle IDs to evaluate energy for. \\
-\hline
-\end{DoxyParams}
-\mbox{\Hypertarget{classnetdem_1_1_particle_energy_evaluator_a37ed2f83b802c58094a5b93f5a71b104}\label{classnetdem_1_1_particle_energy_evaluator_a37ed2f83b802c58094a5b93f5a71b104}} 
-\index{netdem::ParticleEnergyEvaluator@{netdem::ParticleEnergyEvaluator}!SetParticles@{SetParticles}}
-\index{SetParticles@{SetParticles}!netdem::ParticleEnergyEvaluator@{netdem::ParticleEnergyEvaluator}}
-\doxysubsubsection{\texorpdfstring{SetParticles()}{SetParticles()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily void netdem\+::\+Particle\+Energy\+Evaluator\+::\+Set\+Particles (\begin{DoxyParamCaption}\item[{int}]{num\+\_\+ids,  }\item[{}]{... }\end{DoxyParamCaption})}
-
-
-
-Sets the particles to evaluate energy for based on a variable number of particle IDs. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em num\+\_\+ids} & The number of particle IDs passed as arguments. \\
-\hline
-{\em ...} & The particle IDs to evaluate energy for. \\
-\hline
-\end{DoxyParams}
 \mbox{\Hypertarget{classnetdem_1_1_particle_energy_evaluator_a99beaf0b9e66e3d8ce68a08ef3c19b16}\label{classnetdem_1_1_particle_energy_evaluator_a99beaf0b9e66e3d8ce68a08ef3c19b16}} 
 \index{netdem::ParticleEnergyEvaluator@{netdem::ParticleEnergyEvaluator}!Update@{Update}}
 \index{Update@{Update}!netdem::ParticleEnergyEvaluator@{netdem::ParticleEnergyEvaluator}}

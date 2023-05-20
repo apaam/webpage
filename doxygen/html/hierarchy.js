@@ -8,14 +8,9 @@ var hierarchy =
     [ "netdem::BondGeometries", "classnetdem_1_1_bond_geometries.html", null ],
     [ "netdem::BondSolverPP", "classnetdem_1_1_bond_solver_p_p.html", null ],
     [ "netdem::BondSolverPW", "classnetdem_1_1_bond_solver_p_w.html", null ],
-    [ "BoolTriangleData", null, [
-      [ "CorkTriangle", "struct_cork_triangle.html", null ]
-    ] ],
-    [ "BoolVertexData", null, [
-      [ "CorkVertex", "struct_cork_vertex.html", null ]
-    ] ],
     [ "netdem::Cell", "classnetdem_1_1_cell.html", null ],
     [ "netdem::CellManager", "classnetdem_1_1_cell_manager.html", null ],
+    [ "netdem::CGALWrapper", "classnetdem_1_1_c_g_a_l_wrapper.html", null ],
     [ "netdem::CollisionEntry", "classnetdem_1_1_collision_entry.html", null ],
     [ "netdem::CollisionEntryData", "structnetdem_1_1_collision_entry_data.html", null ],
     [ "netdem::CollisionEntryParser", "classnetdem_1_1_collision_entry_parser.html", null ],
@@ -55,13 +50,13 @@ var hierarchy =
     [ "netdem::ContactPWParser", "classnetdem_1_1_contact_p_w_parser.html", null ],
     [ "netdem::ContactSolverFactory", "classnetdem_1_1_contact_solver_factory.html", null ],
     [ "netdem::ContactSolverSettings", "classnetdem_1_1_contact_solver_settings.html", null ],
-    [ "netdem::Cork", "classnetdem_1_1_cork.html", null ],
+    [ "netdem::CorkWrapper", "classnetdem_1_1_cork_wrapper.html", null ],
     [ "netdem::DEMFragment", "classnetdem_1_1_d_e_m_fragment.html", null ],
     [ "netdem::DEMObjectPool", "classnetdem_1_1_d_e_m_object_pool.html", null ],
     [ "netdem::DEMProfiler", "classnetdem_1_1_d_e_m_profiler.html", null ],
     [ "netdem::DEMSolver", "classnetdem_1_1_d_e_m_solver.html", null ],
     [ "netdem::Distribution", "classnetdem_1_1_distribution.html", [
-      [ "UniformDistribution", "class_uniform_distribution.html", null ]
+      [ "netdem::UniformDistribution", "classnetdem_1_1_uniform_distribution.html", null ]
     ] ],
     [ "netdem::Domain", "classnetdem_1_1_domain.html", null ],
     [ "netdem::DomainManager", "classnetdem_1_1_domain_manager.html", null ],
@@ -69,69 +64,57 @@ var hierarchy =
       [ "netdem::LevelSetSplittor", "classnetdem_1_1_level_set_splittor.html", null ],
       [ "netdem::TetMeshSplittor", "classnetdem_1_1_tet_mesh_splittor.html", null ]
     ] ],
+    [ "netdem::EigenWrapper", "classnetdem_1_1_eigen_wrapper.html", null ],
     [ "netdem::FEMSimulator", "classnetdem_1_1_f_e_m_simulator.html", null ],
     [ "netdem::GeneralNet", "classnetdem_1_1_general_net.html", null ],
+    [ "netdem::IGLWrapper", "classnetdem_1_1_i_g_l_wrapper.html", null ],
     [ "netdem::InputProcessor", "classnetdem_1_1_input_processor.html", null ],
-    [ "IsctTriangleData", null, [
-      [ "CorkTriangle", "struct_cork_triangle.html", null ]
-    ] ],
-    [ "IsctVertexData", null, [
-      [ "CorkVertex", "struct_cork_vertex.html", null ]
-    ] ],
     [ "netdem::LevelSetFunction", "classnetdem_1_1_level_set_function.html", [
       [ "netdem::LevelSet", "classnetdem_1_1_level_set.html", null ],
       [ "netdem::LevelSetSplittor", "classnetdem_1_1_level_set_splittor.html", null ]
     ] ],
+    [ "netdem::Math", "classnetdem_1_1_math.html", null ],
     [ "netdem::Membrane", "classnetdem_1_1_membrane.html", [
       [ "netdem::MembraneWall", "classnetdem_1_1_membrane_wall.html", null ]
-    ] ],
-    [ "MinimalTriangleData", null, [
-      [ "CorkTriangle", "struct_cork_triangle.html", null ]
-    ] ],
-    [ "MinimalVertexData", null, [
-      [ "CorkVertex", "struct_cork_vertex.html", null ]
     ] ],
     [ "netdem::MiniMap< T_key, T_val >", "classnetdem_1_1_mini_map.html", null ],
     [ "netdem::MiniMap< int, netdem::ContactModel * >", "classnetdem_1_1_mini_map.html", null ],
     [ "netdem::MiniMap< int, VecXT< Vec3d > >", "classnetdem_1_1_mini_map.html", null ],
     [ "netdem::MiniMap< std::string, double >", "classnetdem_1_1_mini_map.html", null ],
+    [ "netdem::MLPackUtils", "classnetdem_1_1_m_l_pack_utils.html", null ],
     [ "netdem::Modifier", "classnetdem_1_1_modifier.html", [
-      [ "PyModifier", "class_py_modifier.html", null ],
-      [ "netdem::BreakageAnalysisPD", "classnetdem_1_1_breakage_analysis_p_d.html", null ],
       [ "netdem::DataDumper", "classnetdem_1_1_data_dumper.html", null ],
-      [ "netdem::DeformationAnalysis", "classnetdem_1_1_deformation_analysis.html", null ],
       [ "netdem::ExternalForce", "classnetdem_1_1_external_force.html", null ],
       [ "netdem::Gravity", "classnetdem_1_1_gravity.html", null ],
       [ "netdem::MembraneWall", "classnetdem_1_1_membrane_wall.html", null ],
-      [ "netdem::ParticleEnergyEvaluator", "classnetdem_1_1_particle_energy_evaluator.html", null ],
-      [ "netdem::ParticleGroup", "classnetdem_1_1_particle_group.html", null ],
+      [ "netdem::ParticleGroup", "classnetdem_1_1_particle_group.html", [
+        [ "netdem::BreakageAnalysisPD", "classnetdem_1_1_breakage_analysis_p_d.html", null ],
+        [ "netdem::DeformationAnalysis", "classnetdem_1_1_deformation_analysis.html", null ],
+        [ "netdem::ParticleEnergyEvaluator", "classnetdem_1_1_particle_energy_evaluator.html", null ]
+      ] ],
       [ "netdem::ParticleMotionControl", "classnetdem_1_1_particle_motion_control.html", null ],
       [ "netdem::UnbalancedForceRatioEvaluator", "classnetdem_1_1_unbalanced_force_ratio_evaluator.html", null ],
-      [ "netdem::WallDispControl", "classnetdem_1_1_wall_disp_control.html", null ],
       [ "netdem::WallGroup", "classnetdem_1_1_wall_group.html", [
-        [ "netdem::WallMotionIntegrator", "classnetdem_1_1_wall_motion_integrator.html", null ]
-      ] ],
-      [ "netdem::WallServoControl", "classnetdem_1_1_wall_servo_control.html", null ]
-    ] ],
-    [ "CGAL::Modifier_base", null, [
-      [ "PolyhedronBuilder< HDS >", "class_polyhedron_builder.html", null ]
+        [ "netdem::WallMotionControl", "classnetdem_1_1_wall_motion_control.html", null ],
+        [ "netdem::WallMotionIntegrator", "classnetdem_1_1_wall_motion_integrator.html", null ],
+        [ "netdem::WallServoControl", "classnetdem_1_1_wall_servo_control.html", null ]
+      ] ]
     ] ],
     [ "netdem::ModifierManager", "classnetdem_1_1_modifier_manager.html", null ],
     [ "netdem::MPIDataDefine", "classnetdem_1_1_m_p_i_data_define.html", null ],
     [ "netdem::MPIManager", "classnetdem_1_1_m_p_i_manager.html", null ],
-    [ "netdem::my_pair< T_key, T_val >", "structnetdem_1_1my__pair.html", null ],
     [ "netdem::NeighPofP", "classnetdem_1_1_neigh_pof_p.html", null ],
     [ "netdem::NeighPofW", "classnetdem_1_1_neigh_pof_w.html", null ],
     [ "netdem::NeighWofP", "classnetdem_1_1_neigh_wof_p.html", null ],
     [ "netdem::PackGenerator", "classnetdem_1_1_pack_generator.html", null ],
-    [ "netdem::pair_hash", "structnetdem_1_1pair__hash.html", null ],
+    [ "netdem::Pair< T_key, T_val >", "structnetdem_1_1_pair.html", null ],
+    [ "netdem::PairHash", "structnetdem_1_1_pair_hash.html", null ],
     [ "netdem::Particle", "classnetdem_1_1_particle.html", [
       [ "netdem::DeformableParticle", "classnetdem_1_1_deformable_particle.html", null ]
     ] ],
     [ "netdem::ParticleData", "structnetdem_1_1_particle_data.html", null ],
     [ "netdem::ParticleEnergy", "structnetdem_1_1_particle_energy.html", null ],
     [ "netdem::ParticleParser", "classnetdem_1_1_particle_parser.html", null ],
-    [ "netdem::ParticleStrengthParameters", "classnetdem_1_1_particle_strength_parameters.html", null ],
     [ "netdem::PeriDigmBlock", "classnetdem_1_1_peri_digm_block.html", null ],
     [ "netdem::PeriDigmBoundaryCondition", "classnetdem_1_1_peri_digm_boundary_condition.html", null ],
     [ "netdem::PeriDigmDamageModel", "classnetdem_1_1_peri_digm_damage_model.html", null ],
@@ -140,14 +123,10 @@ var hierarchy =
     [ "netdem::PeriDigmMaterial", "classnetdem_1_1_peri_digm_material.html", null ],
     [ "netdem::PeriDigmSettings", "classnetdem_1_1_peri_digm_settings.html", null ],
     [ "netdem::PeriDigmSimulator", "classnetdem_1_1_peri_digm_simulator.html", null ],
-    [ "netdem::Math::RandomEngine", "classnetdem_1_1_math_1_1_random_engine.html", null ],
+    [ "netdem::PeriDigmStrength", "classnetdem_1_1_peri_digm_strength.html", null ],
+    [ "netdem::Math::Quaternion", "classnetdem_1_1_math_1_1_quaternion.html", null ],
+    [ "netdem::RandomEngine", "classnetdem_1_1_random_engine.html", null ],
     [ "netdem::RegressionNet", "classnetdem_1_1_regression_net.html", null ],
-    [ "RemeshTriangleData", null, [
-      [ "CorkTriangle", "struct_cork_triangle.html", null ]
-    ] ],
-    [ "RemeshVertexData", null, [
-      [ "CorkVertex", "struct_cork_vertex.html", null ]
-    ] ],
     [ "netdem::Scene", "classnetdem_1_1_scene.html", null ],
     [ "netdem::SDFCalculator", "classnetdem_1_1_s_d_f_calculator.html", null ],
     [ "netdem::DeformationAnalysis::Settings", "classnetdem_1_1_deformation_analysis_1_1_settings.html", null ],

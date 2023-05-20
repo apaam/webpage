@@ -164,9 +164,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:af2c18fef7b5e05165ddc3d82e33b3fb9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnetdem_1_1_solver_s_d_f_p_p.html#af2c18fef7b5e05165ddc3d82e33b3fb9">ResolveUpdateP1ToP2</a> (<a class="el" href="classnetdem_1_1_collision_geometries.html">CollisionGeometries</a> *const cnt_geoms, double timestep)</td></tr>
 <tr class="memdesc:af2c18fef7b5e05165ddc3d82e33b3fb9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates the contact resolution from particle 1 to particle 2.  <br /></td></tr>
 <tr class="separator:af2c18fef7b5e05165ddc3d82e33b3fb9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6a56cdf0d11609a97bff00474c5c861f"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnetdem_1_1_solver_s_d_f_p_p.html#a6a56cdf0d11609a97bff00474c5c861f">Potential</a> (double dist, <a class="el" href="classnetdem_1_1_shape.html">Shape</a> *shape)</td></tr>
-<tr class="memdesc:a6a56cdf0d11609a97bff00474c5c861f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the potential energy of a contact point.  <br /></td></tr>
-<tr class="separator:a6a56cdf0d11609a97bff00474c5c861f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a90b75907021b0b89c15c93ac0600f7d6"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnetdem_1_1_solver_s_d_f_p_p.html#a90b75907021b0b89c15c93ac0600f7d6">GetPotential</a> (double dist, <a class="el" href="classnetdem_1_1_shape.html">Shape</a> *shape)</td></tr>
+<tr class="memdesc:a90b75907021b0b89c15c93ac0600f7d6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the potential energy of a contact point.  <br /></td></tr>
+<tr class="separator:a90b75907021b0b89c15c93ac0600f7d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classnetdem_1_1_collision_solver_p_p"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classnetdem_1_1_collision_solver_p_p')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classnetdem_1_1_collision_solver_p_p.html">netdem::CollisionSolverPP</a></td></tr>
 <tr class="memitem:a33a86774dbcf0c0d3c4626cad0ef35bc inherit pub_methods_classnetdem_1_1_collision_solver_p_p"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnetdem_1_1_collision_solver_p_p.html#a33a86774dbcf0c0d3c4626cad0ef35bc">CollisionSolverPP</a> ()</td></tr>
 <tr class="separator:a33a86774dbcf0c0d3c4626cad0ef35bc inherit pub_methods_classnetdem_1_1_collision_solver_p_p"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -213,6 +213,8 @@ Additional Inherited Members</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Signed distance field-based contact solver. </p>
 <p>This class is a collision solver that uses signed distance fields to detect and resolve collisions between particles with different shapes. It extends the <a class="el" href="classnetdem_1_1_collision_solver_p_p.html" title="An abstract base class for particle-particle collision solvers.">CollisionSolverPP</a> class. </p>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="00_contact_test_sphere_8cpp-example.html#_a8">00_contact_test_sphere.cpp</a>, <a class="el" href="01_contact_test_trimesh_8cpp-example.html#_a13">01_contact_test_trimesh.cpp</a>, <a class="el" href="03_friction_test_sphere_8cpp-example.html#_a11">03_friction_test_sphere.cpp</a>, <a class="el" href="04_friction_test_trimesh_8cpp-example.html#_a11">04_friction_test_trimesh.cpp</a>, <a class="el" href="10_contact_test_sphere_8cpp-example.html#_a8">10_contact_test_sphere.cpp</a>, and <a class="el" href="11_contact_test_trimesh_8cpp-example.html#_a13">11_contact_test_trimesh.cpp</a>.</dd>
+</dl>
 </div><h2 class="groupheader">Member Enumeration Documentation</h2>
 <a id="a402e8a5a585ee301bc4f356d0ac61d39" name="a402e8a5a585ee301bc4f356d0ac61d39"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a402e8a5a585ee301bc4f356d0ac61d39">&#9670;&#160;</a></span>PotentialType</h2>
@@ -327,6 +329,46 @@ Additional Inherited Members</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>True if a collision is detected, false otherwise. </dd></dl>
 
 <p>Implements <a class="el" href="classnetdem_1_1_collision_solver_p_p.html#a6eced6d2533770bdca8d440e8f515432">netdem::CollisionSolverPP</a>.</p>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="00_contact_test_sphere_8cpp-example.html#a16">00_contact_test_sphere.cpp</a>, <a class="el" href="01_contact_test_trimesh_8cpp-example.html#a21">01_contact_test_trimesh.cpp</a>, <a class="el" href="03_friction_test_sphere_8cpp-example.html#a19">03_friction_test_sphere.cpp</a>, <a class="el" href="04_friction_test_trimesh_8cpp-example.html#a19">04_friction_test_trimesh.cpp</a>, <a class="el" href="10_contact_test_sphere_8cpp-example.html#a16">10_contact_test_sphere.cpp</a>, and <a class="el" href="11_contact_test_trimesh_8cpp-example.html#a21">11_contact_test_trimesh.cpp</a>.</dd>
+</dl>
+
+</div>
+</div>
+<a id="a90b75907021b0b89c15c93ac0600f7d6" name="a90b75907021b0b89c15c93ac0600f7d6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a90b75907021b0b89c15c93ac0600f7d6">&#9670;&#160;</a></span>GetPotential()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double netdem::SolverSDFPP::GetPotential </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>dist</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classnetdem_1_1_shape.html">Shape</a> *&#160;</td>
+          <td class="paramname"><em>shape</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Calculates the potential energy of a contact point. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dist</td><td>The signed distance between the particles at the contact point. </td></tr>
+    <tr><td class="paramname">shape</td><td>The shape of the contact point. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The potential energy of the contact point. </dd></dl>
 
 </div>
 </div>
@@ -374,44 +416,8 @@ Additional Inherited Members</h2></td></tr>
 </dl>
 
 <p>Reimplemented from <a class="el" href="classnetdem_1_1_collision_solver_p_p.html#a6dad96a983437f20ddae5a39af14d73b">netdem::CollisionSolverPP</a>.</p>
-
-</div>
-</div>
-<a id="a6a56cdf0d11609a97bff00474c5c861f" name="a6a56cdf0d11609a97bff00474c5c861f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6a56cdf0d11609a97bff00474c5c861f">&#9670;&#160;</a></span>Potential()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">double netdem::SolverSDFPP::Potential </td>
-          <td>(</td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>dist</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="classnetdem_1_1_shape.html">Shape</a> *&#160;</td>
-          <td class="paramname"><em>shape</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Calculates the potential energy of a contact point. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">dist</td><td>The signed distance between the particles at the contact point. </td></tr>
-    <tr><td class="paramname">shape</td><td>The shape of the contact point. </td></tr>
-  </table>
-  </dd>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="00_contact_test_sphere_8cpp-example.html#a15">00_contact_test_sphere.cpp</a>, <a class="el" href="01_contact_test_trimesh_8cpp-example.html#a20">01_contact_test_trimesh.cpp</a>, <a class="el" href="03_friction_test_sphere_8cpp-example.html#a18">03_friction_test_sphere.cpp</a>, <a class="el" href="04_friction_test_trimesh_8cpp-example.html#a18">04_friction_test_trimesh.cpp</a>, <a class="el" href="10_contact_test_sphere_8cpp-example.html#a15">10_contact_test_sphere.cpp</a>, and <a class="el" href="11_contact_test_trimesh_8cpp-example.html#a20">11_contact_test_trimesh.cpp</a>.</dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>The potential energy of the contact point. </dd></dl>
 
 </div>
 </div>
@@ -496,6 +502,8 @@ Additional Inherited Members</h2></td></tr>
 </dl>
 
 <p>Implements <a class="el" href="classnetdem_1_1_collision_solver_p_p.html#a415abfb524cee7579a1883d7be4a704c">netdem::CollisionSolverPP</a>.</p>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="00_contact_test_sphere_8cpp-example.html#a18">00_contact_test_sphere.cpp</a>, <a class="el" href="01_contact_test_trimesh_8cpp-example.html#a23">01_contact_test_trimesh.cpp</a>, <a class="el" href="03_friction_test_sphere_8cpp-example.html#a21">03_friction_test_sphere.cpp</a>, <a class="el" href="04_friction_test_trimesh_8cpp-example.html#a21">04_friction_test_trimesh.cpp</a>, <a class="el" href="10_contact_test_sphere_8cpp-example.html#a18">10_contact_test_sphere.cpp</a>, and <a class="el" href="11_contact_test_trimesh_8cpp-example.html#a23">11_contact_test_trimesh.cpp</a>.</dd>
+</dl>
 
 </div>
 </div>
@@ -654,6 +662,8 @@ Additional Inherited Members</h2></td></tr>
 </dl>
 
 <p>Implements <a class="el" href="classnetdem_1_1_collision_solver_p_p.html#a771c9c6936e759a71e2205d0a7ce39cb">netdem::CollisionSolverPP</a>.</p>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="00_contact_test_sphere_8cpp-example.html#a19">00_contact_test_sphere.cpp</a>, <a class="el" href="01_contact_test_trimesh_8cpp-example.html#a24">01_contact_test_trimesh.cpp</a>, <a class="el" href="03_friction_test_sphere_8cpp-example.html#a22">03_friction_test_sphere.cpp</a>, <a class="el" href="04_friction_test_trimesh_8cpp-example.html#a22">04_friction_test_trimesh.cpp</a>, <a class="el" href="10_contact_test_sphere_8cpp-example.html#a19">10_contact_test_sphere.cpp</a>, and <a class="el" href="11_contact_test_trimesh_8cpp-example.html#a24">11_contact_test_trimesh.cpp</a>.</dd>
+</dl>
 
 </div>
 </div>
@@ -747,6 +757,8 @@ Additional Inherited Members</h2></td></tr>
 <div class="line">      PotentialType::linear}</div>
 </div><!-- fragment -->
 <p>The type of potential used by the solver. </p>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="00_contact_test_sphere_8cpp-example.html#a9">00_contact_test_sphere.cpp</a>, <a class="el" href="01_contact_test_trimesh_8cpp-example.html#a14">01_contact_test_trimesh.cpp</a>, <a class="el" href="03_friction_test_sphere_8cpp-example.html#a12">03_friction_test_sphere.cpp</a>, <a class="el" href="04_friction_test_trimesh_8cpp-example.html#a12">04_friction_test_trimesh.cpp</a>, <a class="el" href="10_contact_test_sphere_8cpp-example.html#a9">10_contact_test_sphere.cpp</a>, and <a class="el" href="11_contact_test_trimesh_8cpp-example.html#a14">11_contact_test_trimesh.cpp</a>.</dd>
+</dl>
 
 </div>
 </div>

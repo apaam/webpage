@@ -1,0 +1,46 @@
+\hypertarget{04_test_netspf_8cpp-example}{}\doxysection{04\+\_\+test\+\_\+netspf.\+cpp}
+This is an example of how to use the netdem library.
+
+
+\begin{DoxyCodeInclude}{0}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}general\_net.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}mlpack\_utils.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}regression\_net.hpp"{}}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{using\ namespace\ }\mbox{\hyperlink{namespacenetdem}{netdem}};}
+\DoxyCodeLine{\textcolor{keyword}{using\ namespace\ }std;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ TestNetSPF()\ \{}
+\DoxyCodeLine{\ \ arma::mat\ dataset;}
+\DoxyCodeLine{\ \ \textcolor{keywordtype}{bool}\ loadedDataset\ =\ mlpack::data::Load(\textcolor{stringliteral}{"{}dataset\_SPF.txt"{}},\ dataset,\ \textcolor{keyword}{true});}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{if}\ (!loadedDataset)\ \{}
+\DoxyCodeLine{\ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}loading\ data\ erros\ ..."{}}\ <<\ endl;}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{\ \ cout\ <<\ \textcolor{stringliteral}{"{}finished\ loading\ data\ ..."{}}\ <<\ endl;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ arma::mat\ test\_data\ =\ dataset;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{keywordtype}{int}\ num\_x\{3\},\ num\_y\{3\};}
+\DoxyCodeLine{\ \ arma::mat\ test\_x\ =\ test\_data.rows(0,\ num\_x\ -\/\ 1);}
+\DoxyCodeLine{\ \ arma::mat\ test\_y\ =\ test\_data.rows(num\_x,\ num\_x\ +\ num\_y\ -\/\ 1);}
+\DoxyCodeLine{\ \ cout\ <<\ \textcolor{stringliteral}{"{}finished\ preparing\ training\ and\ testing\ data\ ..."{}}\ <<\ endl;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{classnetdem_1_1_regression_net}{RegressionNet}}\ model;}
+\DoxyCodeLine{\ \ model.\mbox{\hyperlink{classnetdem_1_1_regression_net_a4802cc4f75ad194e3a1136ee85bdb8e6}{Load}}(\textcolor{stringliteral}{"{}ann\_SPF.xml"{}},\ \textcolor{stringliteral}{"{}SPF"{}});}
+\DoxyCodeLine{\ \ cout\ <<\ \textcolor{stringliteral}{"{}finished\ loading\ ann\ model\ ..."{}}\ <<\ endl;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{keyword}{auto}\ pred\_y\ =\ model.\mbox{\hyperlink{classnetdem_1_1_regression_net_ad0a454915d74f397ea4b6ce40c46f84e}{Predict}}(test\_x);}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ num\_y;\ i++)\ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{double}\ test\_accuracy\ =\ MLPackUtils::GetMAE(pred\_y.row(i),\ test\_y.row(i));}
+\DoxyCodeLine{\ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}test\ mae:\ "{}}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}comp\ "{}}\ <<\ i\ <<\ \textcolor{stringliteral}{"{}:\ "{}}\ <<\ test\_accuracy\ <<\ endl;}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ arma::mat\ joined\_yy\ =\ std::move(arma::join\_cols(pred\_y,\ test\_y));}
+\DoxyCodeLine{\ \ mlpack::data::Save(\textcolor{stringliteral}{"{}pred\_vs\_true\_SPF.txt"{}},\ joined\_yy,\ \textcolor{keyword}{false},\ \textcolor{keyword}{true},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mlpack::data::FileType::CSVASCII);}
+\DoxyCodeLine{\}}
+
+\end{DoxyCodeInclude}
+ 

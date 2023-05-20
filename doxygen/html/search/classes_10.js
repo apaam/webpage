@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['volumebased_0',['VolumeBased',['../classnetdem_1_1_volume_based.html',1,'netdem']]],
-  ['voronoi_1',['Voronoi',['../classnetdem_1_1_voronoi.html',1,'netdem']]]
+  ['unbalancedforceratioevaluator_0',['UnbalancedForceRatioEvaluator',['../classnetdem_1_1_unbalanced_force_ratio_evaluator.html',1,'netdem']]],
+  ['uniformdistribution_1',['UniformDistribution',['../classnetdem_1_1_uniform_distribution.html',1,'netdem']]]
 ];
