@@ -17,5 +17,7 @@ var classnetdem_1_1_solver_s_d_f_p_w =
     [ "ResolveUpdate", "classnetdem_1_1_solver_s_d_f_p_w.html#a91663bb5dc65da1eeaf16f90d7e1b6e2", null ],
     [ "ResolveUpdate", "classnetdem_1_1_solver_s_d_f_p_w.html#a1c1fd6e474289240892763599a267f12", null ],
     [ "ResolveUpdatePToW", "classnetdem_1_1_solver_s_d_f_p_w.html#a2927f477db76d7c4cc7f687176a3a4d1", null ],
-    [ "ResolveUpdateWToP", "classnetdem_1_1_solver_s_d_f_p_w.html#a53250f3c6c5c2af2f9bfdd3c35ffc050", null ]
+    [ "ResolveUpdateWToP", "classnetdem_1_1_solver_s_d_f_p_w.html#a53250f3c6c5c2af2f9bfdd3c35ffc050", null ],
+    [ "potential_type", "classnetdem_1_1_solver_s_d_f_p_w.html#a7b4a89276056a7f48dc150048352e46e", null ],
+    [ "solve_two_sides", "classnetdem_1_1_solver_s_d_f_p_w.html#ab69111df02ba58c0959e526fee3c0e89", null ]
 ];

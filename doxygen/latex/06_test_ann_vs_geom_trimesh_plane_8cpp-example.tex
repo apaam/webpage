@@ -3,19 +3,19 @@ This is an example of how to use the netdem library.
 
 
 \begin{DoxyCodeInclude}{0}
-\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}contact\_solver\_factory.hpp"{}}}
-\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}distribution\_uniform.hpp"{}}}
-\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}general\_net.hpp"{}}}
-\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}igl\_wrapper.hpp"{}}}
-\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}mlpack\_utils.hpp"{}}}
-\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}model\_volume\_based.hpp"{}}}
-\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}particle.hpp"{}}}
-\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}regression\_net.hpp"{}}}
-\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}shape\_trimesh.hpp"{}}}
-\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}solver\_boolean\_pp.hpp"{}}}
-\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}solver\_boolean\_pw.hpp"{}}}
-\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}spherical\_voronoi.hpp"{}}}
-\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}utils\_math.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{contact__solver__factory_8hpp}{contact\_solver\_factory.hpp}}"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{distribution__uniform_8hpp}{distribution\_uniform.hpp}}"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{general__net_8hpp}{general\_net.hpp}}"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{igl__wrapper_8hpp}{igl\_wrapper.hpp}}"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{mlpack__utils_8hpp}{mlpack\_utils.hpp}}"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{model__volume__based_8hpp}{model\_volume\_based.hpp}}"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{particle_8hpp}{particle.hpp}}"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{regression__net_8hpp}{regression\_net.hpp}}"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{shape__trimesh_8hpp}{shape\_trimesh.hpp}}"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{solver__boolean__pp_8hpp}{solver\_boolean\_pp.hpp}}"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{solver__boolean__pw_8hpp}{solver\_boolean\_pw.hpp}}"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{spherical__voronoi_8hpp}{spherical\_voronoi.hpp}}"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{utils__math_8hpp}{utils\_math.hpp}}"{}}}
 \DoxyCodeLine{\textcolor{preprocessor}{\#include\ <fstream>}}
 \DoxyCodeLine{\textcolor{preprocessor}{\#include\ <iostream>}}
 \DoxyCodeLine{\textcolor{preprocessor}{\#include\ <random>}}
@@ -51,7 +51,7 @@ This is an example of how to use the netdem library.
 \DoxyCodeLine{\ \ regressor.\mbox{\hyperlink{classnetdem_1_1_regression_net_a4802cc4f75ad194e3a1136ee85bdb8e6}{Load}}(root\_dir\ +\ \textcolor{stringliteral}{"{}ann\_regressor.xml"{}},\ \textcolor{stringliteral}{"{}resolution"{}});}
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ \textcolor{comment}{//\ use\ bound\ sphere\ to\ narrow\ down\ the\ random\ space}}
-\DoxyCodeLine{\ \ \textcolor{keywordtype}{double}\ dist\_max\ =\ obj\_p.shape-\/>bound\_sphere\_radius;}
+\DoxyCodeLine{\ \ \textcolor{keywordtype}{double}\ dist\_max\ =\ obj\_p.\mbox{\hyperlink{classnetdem_1_1_particle_ac63a86094d1dcd92c3a08ddfd1db0103}{shape}}-\/>\mbox{\hyperlink{classnetdem_1_1_shape_aa2544899cc79d4ae84fc700f490a37dc}{bound\_sphere\_radius}};}
 \DoxyCodeLine{\ \ \textcolor{keywordtype}{double}\ dist\_min\{dist\_max\};}
 \DoxyCodeLine{\ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \&vert\ :\ tri\_mesh\_1.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_acde0779520f91ee0596048099ea7b5e8}{vertices}})\ \{}
 \DoxyCodeLine{\ \ \ \ dist\_min\ =\ min(Math::NormL2(vert),\ dist\_min);}
@@ -63,8 +63,8 @@ This is an example of how to use the netdem library.
 \DoxyCodeLine{\ \ \mbox{\hyperlink{classnetdem_1_1_uniform_distribution}{UniformDistribution}}\ uniform\_dist(0.0,\ 1.0);}
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ \textcolor{comment}{//\ use\ spherical\ centroidal\ voronoi\ to\ sample\ uniform\ unit\ VecXT}}
-\DoxyCodeLine{\ \ VecXT<Vec3d>\ vertices\ =\ SphericalVoronoi::Solve(1000,\ 10000,\ 1.0e-\/4);}
-\DoxyCodeLine{\ \ VecXT<Vec3i>\ facets;}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<Vec3d>}}\ vertices\ =\ SphericalVoronoi::Solve(1000,\ 10000,\ 1.0e-\/4);}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<Vec3i>}}\ facets;}
 \DoxyCodeLine{\ \ IGLWrapper::ConvexHull(vertices,\ \&vertices,\ \&facets);}
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ trial\ =\ 0;\ trial\ <\ 100;\ trial++)\ \{}
@@ -78,7 +78,7 @@ This is an example of how to use the netdem library.
 \DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{double}\ v\_vert\ =\ uniform\_dist.\mbox{\hyperlink{classnetdem_1_1_uniform_distribution_a7e39cbd0ed813d381022ad61986092bf}{Get}}()\ *\ (1\ -\/\ u\_vert);}
 \DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{double}\ w\_vert\ =\ 1\ -\/\ u\_vert\ -\/\ v\_vert;}
 \DoxyCodeLine{}
-\DoxyCodeLine{\ \ \ \ Vec3d\ dir\_n;}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ dir\_n;}
 \DoxyCodeLine{\ \ \ \ dir\_n[0]\ =\ u\_vert\ *\ vert\_0[0]\ +\ v\_vert\ *\ vert\_1[0]\ +\ w\_vert\ *\ vert\_2[0];}
 \DoxyCodeLine{\ \ \ \ dir\_n[1]\ =\ u\_vert\ *\ vert\_0[1]\ +\ v\_vert\ *\ vert\_1[1]\ +\ w\_vert\ *\ vert\_2[1];}
 \DoxyCodeLine{\ \ \ \ dir\_n[2]\ =\ u\_vert\ *\ vert\_0[2]\ +\ v\_vert\ *\ vert\_1[2]\ +\ w\_vert\ *\ vert\_2[2];}
@@ -91,10 +91,10 @@ This is an example of how to use the netdem library.
 \DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ represented\ by\ trimesh,\ thus\ need\ to\ convert\ dir\_n\ and\ dist\ to\ the}}
 \DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ rotation\ quaternion\ of\ the\ wall.\ The\ benchmark\ solution\ is\ based\ on}}
 \DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ boolean\ operation.)}}
-\DoxyCodeLine{\ \ \ \ Vec3d\ dir\_n\_ref\{0,\ 0,\ 1\};}
-\DoxyCodeLine{\ \ \ \ Vec3d\ rot\_axis\ =\ Math::Cross(dir\_n\_ref,\ dir\_n);}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ dir\_n\_ref\{0,\ 0,\ 1\};}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ rot\_axis\ =\ Math::Cross(dir\_n\_ref,\ dir\_n);}
 \DoxyCodeLine{}
-\DoxyCodeLine{\ \ \ \ Vec4d\ quat;}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{namespacenetdem_a13d5371f99b252a70fd5a5081b910370}{Vec4d}}\ quat;}
 \DoxyCodeLine{\ \ \ \ quat[0]\ =\ 1\ +\ Math::Dot(dir\_n,\ dir\_n\_ref);}
 \DoxyCodeLine{\ \ \ \ quat[1]\ =\ rot\_axis[0];}
 \DoxyCodeLine{\ \ \ \ quat[2]\ =\ rot\_axis[1];}
@@ -102,13 +102,13 @@ This is an example of how to use the netdem library.
 \DoxyCodeLine{\ \ \ \ Math::Quaternion::Normalize(\&quat);}
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ update\ the\ wall\ with\ random\ position\ and\ rotation}}
-\DoxyCodeLine{\ \ \ \ obj\_w.SetPosition(-\/dist\_pc\_to\_plane\ *\ dir\_n[0],}
+\DoxyCodeLine{\ \ \ \ obj\_w.\mbox{\hyperlink{classnetdem_1_1_wall_a72260b6cfb980c6a53aaf716cff0e57e}{SetPosition}}(-\/dist\_pc\_to\_plane\ *\ dir\_n[0],}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ -\/dist\_pc\_to\_plane\ *\ dir\_n[1],}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ -\/dist\_pc\_to\_plane\ *\ dir\_n[2]);}
-\DoxyCodeLine{\ \ \ \ obj\_w.SetQuaternion(quat[0],\ quat[1],\ quat[2],\ quat[3]);}
+\DoxyCodeLine{\ \ \ \ obj\_w.\mbox{\hyperlink{classnetdem_1_1_wall_a01dde413501ffddde0ee31434ca5f9fe}{SetQuaternion}}(quat[0],\ quat[1],\ quat[2],\ quat[3]);}
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ contact\ detection\ and\ resolution}}
-\DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{double}\ scale\ =\ 1.0\ /\ obj\_p.shape-\/>size;}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{double}\ scale\ =\ 1.0\ /\ obj\_p.\mbox{\hyperlink{classnetdem_1_1_particle_ac63a86094d1dcd92c3a08ddfd1db0103}{shape}}-\/>\mbox{\hyperlink{classnetdem_1_1_shape_afd08386decfb825ba190c7a2d4e0aac6}{size}};}
 \DoxyCodeLine{\ \ \ \ arma::mat\ input(4,\ 1,\ arma::fill::zeros);}
 \DoxyCodeLine{\ \ \ \ input(0,\ 0)\ =\ dist\_pc\_to\_plane\ *\ scale;}
 \DoxyCodeLine{\ \ \ \ input(1,\ 0)\ =\ dir\_n[0];}

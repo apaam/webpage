@@ -34,6 +34,7 @@ var classnetdem_1_1_membrane =
     [ "nodes", "classnetdem_1_1_membrane.html#a53dbcfb8fed5335f6cad97a56299f910", null ],
     [ "radius", "classnetdem_1_1_membrane.html#a014b92179c66331ff939cdb39417dc8b", null ],
     [ "ref_ele_area", "classnetdem_1_1_membrane.html#a7757cbb69ddcc82d4b2f2b15d69f622d", null ],
+    [ "ref_ele_height", "classnetdem_1_1_membrane.html#ace61a68d26be69e024a29eef88788fc8", null ],
     [ "ref_ele_width", "classnetdem_1_1_membrane.html#abe48dc5e53a269666710afc3414a3bc2", null ],
     [ "thickness", "classnetdem_1_1_membrane.html#abd4916216d8759b1bce6d572cfe60411", null ],
     [ "timestep", "classnetdem_1_1_membrane.html#a74d1b0aac20c846f97c0b62a6387948d", null ]

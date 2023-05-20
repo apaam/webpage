@@ -13,5 +13,8 @@ var classnetdem_1_1_net_s_d_f =
     [ "SignedDistance", "classnetdem_1_1_net_s_d_f.html#abab4607eb4464521db8d23a8116c193d", null ],
     [ "SurfacePoint", "classnetdem_1_1_net_s_d_f.html#a25edcd2978be444f07833e56df241af0", null ],
     [ "UpdateNodes", "classnetdem_1_1_net_s_d_f.html#a8259b471eef4a23c2990da59f158cf3d", null ],
-    [ "UpdateShapeProperties", "classnetdem_1_1_net_s_d_f.html#a04d3fcfffa9ac78c76d1958890f0f1f4", null ]
+    [ "UpdateShapeProperties", "classnetdem_1_1_net_s_d_f.html#a04d3fcfffa9ac78c76d1958890f0f1f4", null ],
+    [ "alpha", "classnetdem_1_1_net_s_d_f.html#a4954784f21661d09bbff61accdcbc724", null ],
+    [ "net_sdf_model", "classnetdem_1_1_net_s_d_f.html#a3150dba2b1d6c7c26530a7916ade29b8", null ],
+    [ "net_spf_model", "classnetdem_1_1_net_s_d_f.html#a05c9242782a28dfda5771d6e9ab80b02", null ]
 ];

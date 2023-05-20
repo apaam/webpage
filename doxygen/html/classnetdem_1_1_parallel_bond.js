@@ -10,6 +10,8 @@ var classnetdem_1_1_parallel_bond =
     [ "Print", "classnetdem_1_1_parallel_bond.html#ab5c5d1dae772f5aab1e6353a01feb2c5", null ],
     [ "SetProperty", "classnetdem_1_1_parallel_bond.html#afedeef8a214c03c7d89c45cb9f727297", null ],
     [ "SetRadius", "classnetdem_1_1_parallel_bond.html#a9ecd8f257c99607cb7734dc9e9253498", null ],
+    [ "kn", "classnetdem_1_1_parallel_bond.html#ab4c058cc8545278e936311546d4c8b71", null ],
     [ "kt", "classnetdem_1_1_parallel_bond.html#a4423055cd5983f2d661d2a0e1eba924b", null ],
+    [ "max_sig_n", "classnetdem_1_1_parallel_bond.html#ae6096390858f2fcd6cb9d01780463c6a", null ],
     [ "max_sig_t", "classnetdem_1_1_parallel_bond.html#ae8d0e1fb7ca7d71112ec5256be0b4bcd", null ]
 ];

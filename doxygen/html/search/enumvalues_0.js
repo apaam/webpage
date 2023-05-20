@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['elu_0',['ELU',['../classnetdem_1_1_m_l_pack_utils.html#a0b5ec585965c69a24ecbdea993fa1577a5b44c930bf0ddeef48b50ef11e5ddd58',1,'netdem::MLPackUtils']]]
+  ['automatic_0',['automatic',['../classnetdem_1_1_contact_solver_settings.html#adff2184170befa136fdaedd56a048170aa29705e887c1874c038c3820d9471e57',1,'netdem::ContactSolverSettings']]]
 ];

@@ -94,9 +94,9 @@ $(document).ready(function(){initNavTree('utils__distributions_8hpp_source.html'
   <div class="headertitle"><div class="title">utils_distributions.hpp</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
+<a href="utils__distributions_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &quot;distribution.hpp&quot;</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &quot;<a class="code" href="distribution_8hpp.html">distribution.hpp</a>&quot;</span></div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;random&gt;</span></div>
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacenetdem.html">netdem</a> {</div>
@@ -120,13 +120,13 @@ $(document).ready(function(){initNavTree('utils__distributions_8hpp_source.html'
 <div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    <span class="keywordflow">return</span> real_dist(mt_eng);</div>
 <div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>  }</div>
 <div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno"><a class="line" href="classnetdem_1_1_random_engine.html#ad0d48fd76799350b3bf2a4de5bdbd96d">   71</a></span>  VecXT&lt;double&gt; <a class="code hl_function" href="classnetdem_1_1_random_engine.html#ad0d48fd76799350b3bf2a4de5bdbd96d">GetUniformDistribution</a>(<span class="keywordtype">double</span> bound_min, <span class="keywordtype">double</span> bound_max,</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno"><a class="line" href="classnetdem_1_1_random_engine.html#ad0d48fd76799350b3bf2a4de5bdbd96d">   71</a></span>  <a class="code hl_typedef" href="namespacenetdem.html#a088168eeea9e6ce8d0500cdfd7ef9c87">VecXT&lt;double&gt;</a> <a class="code hl_function" href="classnetdem_1_1_random_engine.html#ad0d48fd76799350b3bf2a4de5bdbd96d">GetUniformDistribution</a>(<span class="keywordtype">double</span> bound_min, <span class="keywordtype">double</span> bound_max,</div>
 <div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>                                       <span class="keywordtype">int</span> num) {</div>
 <div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    std::random_device rd;</div>
 <div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    std::mt19937 mt_eng = std::mt19937(rd());</div>
 <div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    std::uniform_real_distribution&lt;double&gt; real_dist(bound_min, bound_max);</div>
 <div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    VecXT&lt;double&gt; num_list(num, 0);</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    <a class="code hl_typedef" href="namespacenetdem.html#a088168eeea9e6ce8d0500cdfd7ef9c87">VecXT&lt;double&gt;</a> num_list(num, 0);</div>
 <div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
 <div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; num; i++) {</div>
 <div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>      num_list[i] = real_dist(mt_eng);</div>
@@ -146,13 +146,15 @@ $(document).ready(function(){initNavTree('utils__distributions_8hpp_source.html'
 <div class="ttc" id="aclassnetdem_1_1_random_engine_html_a6e1a58e248b638f30e92a4c2e4b544b8"><div class="ttname"><a href="classnetdem_1_1_random_engine.html#a6e1a58e248b638f30e92a4c2e4b544b8">netdem::RandomEngine::RandomEngine</a></div><div class="ttdeci">RandomEngine(const RandomEngine &amp;)=delete</div><div class="ttdoc">Delete copy constructor.</div></div>
 <div class="ttc" id="aclassnetdem_1_1_random_engine_html_ad0d48fd76799350b3bf2a4de5bdbd96d"><div class="ttname"><a href="classnetdem_1_1_random_engine.html#ad0d48fd76799350b3bf2a4de5bdbd96d">netdem::RandomEngine::GetUniformDistribution</a></div><div class="ttdeci">VecXT&lt; double &gt; GetUniformDistribution(double bound_min, double bound_max, int num)</div><div class="ttdoc">Generate a list of random numbers from a uniform distribution.</div><div class="ttdef"><b>Definition:</b> utils_distributions.hpp:71</div></div>
 <div class="ttc" id="aclassnetdem_1_1_random_engine_html_ae08d5f4fb7a2727b6324e9e6afc9ff2b"><div class="ttname"><a href="classnetdem_1_1_random_engine.html#ae08d5f4fb7a2727b6324e9e6afc9ff2b">netdem::RandomEngine::operator=</a></div><div class="ttdeci">RandomEngine &amp; operator=(const RandomEngine &amp;)=delete</div><div class="ttdoc">Delete copy assignment operator.</div></div>
-<div class="ttc" id="anamespacenetdem_html"><div class="ttname"><a href="namespacenetdem.html">netdem</a></div><div class="ttdoc">A namespace containing classes and functions for the netdem simulation.</div><div class="ttdef"><b>Definition:</b> bond_entry.hpp:7</div></div>
+<div class="ttc" id="adistribution_8hpp_html"><div class="ttname"><a href="distribution_8hpp.html">distribution.hpp</a></div></div>
+<div class="ttc" id="anamespacenetdem_html"><div class="ttname"><a href="namespacenetdem.html">netdem</a></div><div class="ttdef"><b>Definition:</b> bond_entry.hpp:7</div></div>
+<div class="ttc" id="anamespacenetdem_html_a088168eeea9e6ce8d0500cdfd7ef9c87"><div class="ttname"><a href="namespacenetdem.html#a088168eeea9e6ce8d0500cdfd7ef9c87">netdem::VecXT</a></div><div class="ttdeci">std::vector&lt; T &gt; VecXT</div><div class="ttdef"><b>Definition:</b> utils_macros.hpp:30</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_1f2a9fe58f9a6358aa24a6d1516340da.html">netdem</a></li><li class="navelem"><a class="el" href="dir_04176275722661bc84c11bcbe74288bf.html">src</a></li><li class="navelem"><a class="el" href="dir_b957ce71d4cec3aa1e6b9f7647e1edd6.html">utils</a></li><li class="navelem"><b>utils_distributions.hpp</b></li>
+    <li class="navelem"><a class="el" href="dir_1f2a9fe58f9a6358aa24a6d1516340da.html">netdem</a></li><li class="navelem"><a class="el" href="dir_04176275722661bc84c11bcbe74288bf.html">src</a></li><li class="navelem"><a class="el" href="dir_b957ce71d4cec3aa1e6b9f7647e1edd6.html">utils</a></li><li class="navelem"><a class="el" href="utils__distributions_8hpp.html">utils_distributions.hpp</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.6 </li>
   </ul>
 </div>

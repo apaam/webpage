@@ -31,6 +31,7 @@ var classnetdem_1_1_f_e_m_simulator =
     [ "neo_k", "classnetdem_1_1_f_e_m_simulator.html#a291383735d6a869d3cd16c24d68b63e0", null ],
     [ "neo_mu", "classnetdem_1_1_f_e_m_simulator.html#a8b794c72c7c611d9a1fe5d16d2f616e2", null ],
     [ "nodal_forces_ext", "classnetdem_1_1_f_e_m_simulator.html#a8078bc8966d1bb86552edcf417cb859c", null ],
+    [ "nodal_forces_int", "classnetdem_1_1_f_e_m_simulator.html#a7c297abc302044a158953c0d92ce235f", null ],
     [ "nodal_vels", "classnetdem_1_1_f_e_m_simulator.html#a0984ca9bb0e3ded032331dbb896eee85", null ],
     [ "nodal_vels_ave", "classnetdem_1_1_f_e_m_simulator.html#a32575cd147728fc4181ee2a6f946f49d", null ],
     [ "nodal_vols", "classnetdem_1_1_f_e_m_simulator.html#a2fe368b9d5837c583e65ecdc45023e4c", null ],
