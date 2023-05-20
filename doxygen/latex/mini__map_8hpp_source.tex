@@ -9,26 +9,26 @@
 \DoxyCodeLine{00005\ }
 \DoxyCodeLine{00006\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacenetdem}{netdem}}\ \{}
 \DoxyCodeLine{00007\ }
-\DoxyCodeLine{00008\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T\_key,\ \textcolor{keyword}{typename}\ T\_val>\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structnetdem_1_1my__pair}{my\_pair}}\ \{}
+\DoxyCodeLine{00008\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T\_key,\ \textcolor{keyword}{typename}\ T\_val>\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structnetdem_1_1_pair}{Pair}}\ \{}
 \DoxyCodeLine{00009\ \textcolor{keyword}{public}:}
 \DoxyCodeLine{00010\ \ \ T\_key\ first;}
 \DoxyCodeLine{00011\ \ \ T\_val\ second;}
 \DoxyCodeLine{00012\ }
-\DoxyCodeLine{00013\ \ \ \mbox{\hyperlink{structnetdem_1_1my__pair}{my\_pair}}()\ \{\}}
-\DoxyCodeLine{00014\ \ \ \mbox{\hyperlink{structnetdem_1_1my__pair}{my\_pair}}(\textcolor{keyword}{const}\ T\_key\ \&key,\ \textcolor{keyword}{const}\ T\_key\ \&val)\ :\ first(key),\ second(val)\ \{\}}
+\DoxyCodeLine{00013\ \ \ \mbox{\hyperlink{structnetdem_1_1_pair}{Pair}}()\ \{\}}
+\DoxyCodeLine{00014\ \ \ \mbox{\hyperlink{structnetdem_1_1_pair}{Pair}}(\textcolor{keyword}{const}\ T\_key\ \&key,\ \textcolor{keyword}{const}\ T\_key\ \&val)\ :\ first(key),\ second(val)\ \{\}}
 \DoxyCodeLine{00015\ \};}
 \DoxyCodeLine{00016\ }
 \DoxyCodeLine{00017\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T\_key,\ \textcolor{keyword}{typename}\ T\_val>\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classnetdem_1_1_mini_map}{MiniMap}}\ \{}
 \DoxyCodeLine{00018\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00019\ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{structnetdem_1_1my__pair}{my\_pair<T\_key,\ T\_val>}}\ *begin()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \&(pair\_list.front());\ \}}
+\DoxyCodeLine{00019\ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{structnetdem_1_1_pair}{Pair<T\_key,\ T\_val>}}\ *begin()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \&(pair\_list.front());\ \}}
 \DoxyCodeLine{00020\ }
-\DoxyCodeLine{00021\ \ \ \mbox{\hyperlink{structnetdem_1_1my__pair}{my\_pair<T\_key,\ T\_val>}}\ *begin()\ \{\ \textcolor{keywordflow}{return}\ \&(pair\_list.front());\ \}}
+\DoxyCodeLine{00021\ \ \ \mbox{\hyperlink{structnetdem_1_1_pair}{Pair<T\_key,\ T\_val>}}\ *begin()\ \{\ \textcolor{keywordflow}{return}\ \&(pair\_list.front());\ \}}
 \DoxyCodeLine{00022\ }
-\DoxyCodeLine{00023\ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{structnetdem_1_1my__pair}{my\_pair<T\_key,\ T\_val>}}\ *end()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \&(pair\_list.back())\ +\ 1;\ \}}
+\DoxyCodeLine{00023\ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{structnetdem_1_1_pair}{Pair<T\_key,\ T\_val>}}\ *end()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \&(pair\_list.back())\ +\ 1;\ \}}
 \DoxyCodeLine{00024\ }
-\DoxyCodeLine{00025\ \ \ \mbox{\hyperlink{structnetdem_1_1my__pair}{my\_pair<T\_key,\ T\_val>}}\ *end()\ \{\ \textcolor{keywordflow}{return}\ \&(pair\_list.back())\ +\ 1;\ \}}
+\DoxyCodeLine{00025\ \ \ \mbox{\hyperlink{structnetdem_1_1_pair}{Pair<T\_key,\ T\_val>}}\ *end()\ \{\ \textcolor{keywordflow}{return}\ \&(pair\_list.back())\ +\ 1;\ \}}
 \DoxyCodeLine{00026\ }
-\DoxyCodeLine{00027\ \ \ \textcolor{keywordtype}{void}\ erase(\mbox{\hyperlink{structnetdem_1_1my__pair}{my\_pair<T\_key,\ T\_val>}}\ *it)\ \{}
+\DoxyCodeLine{00027\ \ \ \textcolor{keywordtype}{void}\ erase(\mbox{\hyperlink{structnetdem_1_1_pair}{Pair<T\_key,\ T\_val>}}\ *it)\ \{}
 \DoxyCodeLine{00028\ \ \ \ \ *it\ =\ pair\_list.back();}
 \DoxyCodeLine{00029\ \ \ \ \ pair\_list.pop\_back();}
 \DoxyCodeLine{00030\ \ \ \}}
@@ -38,7 +38,7 @@
 \DoxyCodeLine{00034\ \ \ \ \ erase(it);}
 \DoxyCodeLine{00035\ \ \ \}}
 \DoxyCodeLine{00036\ }
-\DoxyCodeLine{00037\ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{structnetdem_1_1my__pair}{my\_pair<T\_key,\ T\_val>}}\ *find(\textcolor{keyword}{const}\ T\_key\ \&key)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00037\ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{structnetdem_1_1_pair}{Pair<T\_key,\ T\_val>}}\ *find(\textcolor{keyword}{const}\ T\_key\ \&key)\textcolor{keyword}{\ const\ }\{}
 \DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \&pair\_item\ :\ pair\_list)\ \{}
 \DoxyCodeLine{00039\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (pair\_item.first\ ==\ key)\ \{}
 \DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \&pair\_item;}
@@ -47,7 +47,7 @@
 \DoxyCodeLine{00043\ \ \ \ \ \textcolor{keywordflow}{return}\ end();}
 \DoxyCodeLine{00044\ \ \ \}}
 \DoxyCodeLine{00045\ }
-\DoxyCodeLine{00046\ \ \ \mbox{\hyperlink{structnetdem_1_1my__pair}{my\_pair<T\_key,\ T\_val>}}\ *find(\textcolor{keyword}{const}\ T\_key\ \&key)\ \{}
+\DoxyCodeLine{00046\ \ \ \mbox{\hyperlink{structnetdem_1_1_pair}{Pair<T\_key,\ T\_val>}}\ *find(\textcolor{keyword}{const}\ T\_key\ \&key)\ \{}
 \DoxyCodeLine{00047\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \&pair\_item\ :\ pair\_list)\ \{}
 \DoxyCodeLine{00048\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (pair\_item.first\ ==\ key)\ \{}
 \DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \&pair\_item;}
@@ -105,7 +105,7 @@
 \DoxyCodeLine{00101\ \ \ \textcolor{keywordtype}{void}\ clear()\ \{\ pair\_list.clear();\ \}}
 \DoxyCodeLine{00102\ }
 \DoxyCodeLine{00103\ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00104\ \ \ VecXT<my\_pair<T\_key,\ T\_val>>\ pair\_list;}
+\DoxyCodeLine{00104\ \ \ VecXT<Pair<T\_key,\ T\_val>>\ pair\_list;}
 \DoxyCodeLine{00105\ \};}
 \DoxyCodeLine{00106\ }
 \DoxyCodeLine{00107\ \}\ \textcolor{comment}{//\ namespace\ netdem}}

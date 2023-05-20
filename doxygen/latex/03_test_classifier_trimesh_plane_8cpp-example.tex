@@ -1,0 +1,47 @@
+\hypertarget{03_test_classifier_trimesh_plane_8cpp-example}{}\doxysection{03\+\_\+test\+\_\+classifier\+\_\+trimesh\+\_\+plane.\+cpp}
+This is an example of how to use the netdem library.
+
+
+\begin{DoxyCodeInclude}{0}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}general\_net.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}mlpack\_utils.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}regression\_net.hpp"{}}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{using\ namespace\ }\mbox{\hyperlink{namespacenetdem}{netdem}};}
+\DoxyCodeLine{\textcolor{keyword}{using\ namespace\ }std;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ TestClassifierTrimeshPlane()\ \{}
+\DoxyCodeLine{\ \ \textcolor{keywordtype}{string}\ root\_dir\ =\ \textcolor{stringliteral}{"{}local/examples/netdem/ann\_models/trimesh\_plane/"{}};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ arma::mat\ dataset;}
+\DoxyCodeLine{\ \ \textcolor{keywordtype}{bool}\ loadedDataset\ =}
+\DoxyCodeLine{\ \ \ \ \ \ mlpack::data::Load(root\_dir\ +\ \textcolor{stringliteral}{"{}dataset\_detection.txt"{}},\ dataset,\ \textcolor{keyword}{true});}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{if}\ (!loadedDataset)\ \{}
+\DoxyCodeLine{\ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}loading\ data\ erros\ ..."{}}\ <<\ endl;}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{\ \ cout\ <<\ \textcolor{stringliteral}{"{}finished\ loading\ data\ ..."{}}\ <<\ endl;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ arma::mat\ test\_data\ =\ dataset;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{keywordtype}{int}\ num\_x\{4\},\ num\_y\{1\};}
+\DoxyCodeLine{\ \ arma::mat\ test\_x\ =\ test\_data.rows(0,\ num\_x\ -\/\ 1);}
+\DoxyCodeLine{\ \ arma::mat\ test\_y\ =\ test\_data.row(num\_x);}
+\DoxyCodeLine{\ \ cout\ <<\ \textcolor{stringliteral}{"{}finished\ preparing\ training\ and\ testing\ data\ ..."{}}\ <<\ endl;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{classnetdem_1_1_general_net}{GeneralNet}}\ model;}
+\DoxyCodeLine{\ \ model.\mbox{\hyperlink{classnetdem_1_1_general_net_a0a7b122315dff46529463a46d8d180a0}{Load}}(root\_dir\ +\ \textcolor{stringliteral}{"{}ann\_classifier.xml"{}},\ \textcolor{stringliteral}{"{}detection"{}});}
+\DoxyCodeLine{\ \ cout\ <<\ \textcolor{stringliteral}{"{}finished\ loading\ ann\ model\ ..."{}}\ <<\ endl;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{keyword}{auto}\ pred\_y\ =\ model.\mbox{\hyperlink{classnetdem_1_1_general_net_af2fc4261724d922ce5723f9d977bd21e}{Classify}}(test\_x);}
+\DoxyCodeLine{\ \ \textcolor{keywordtype}{double}\ test\_accuracy\ =}
+\DoxyCodeLine{\ \ \ \ \ \ arma::accu(pred\_y\ ==\ test\_y)\ *\ 1.0\ /\ test\_y.n\_elem\ *\ 100.0;}
+\DoxyCodeLine{\ \ cout\ <<\ \textcolor{stringliteral}{"{}test\ accuracy:\ "{}}\ <<\ test\_accuracy\ <<\ \textcolor{stringliteral}{"{}\ \%"{}}\ <<\ endl;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ arma::mat\ joined\_yy\ =\ std::move(arma::join\_cols(pred\_y,\ test\_y));}
+\DoxyCodeLine{\ \ mlpack::data::Save(root\_dir\ +\ \textcolor{stringliteral}{"{}pred\_vs\_true\_detection.txt"{}},\ joined\_yy,\ \textcolor{keyword}{false},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{true},\ mlpack::data::FileType::CSVASCII);}
+\DoxyCodeLine{\}}
+
+\end{DoxyCodeInclude}
+ 

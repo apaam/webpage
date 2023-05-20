@@ -1,0 +1,73 @@
+\hypertarget{01_sdf_error_8cpp-example}{}\doxysection{01\+\_\+sdf\+\_\+error.\+cpp}
+This is an example of how to use the netdem library.
+
+
+\begin{DoxyCodeInclude}{0}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}shape\_level\_set.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}shape\_poly\_super\_ellipsoid.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}shape\_poly\_super\_quadrics.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}shape\_spherical\_harmonics.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}shape\_trimesh.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}stl\_model.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}tetmesh.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}utils\_math.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ <filesystem>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ <fstream>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ <sstream>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{using\ namespace\ }\mbox{\hyperlink{namespacenetdem}{netdem}};}
+\DoxyCodeLine{\textcolor{keyword}{using\ namespace\ }std;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ SDFError(\textcolor{keywordtype}{int}\ argc,\ \textcolor{keywordtype}{char}\ **argv)\ \{}
+\DoxyCodeLine{\ \ \textcolor{keywordtype}{string}\ root\_dir\ =\ \textcolor{stringliteral}{"{}tmp/examples/sdf\_dem/sdf\_error/"{}};}
+\DoxyCodeLine{\ \ filesystem::create\_directories(root\_dir);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{classnetdem_1_1_poly_super_ellipsoid}{PolySuperEllipsoid}}\ ellipsoid(0.5,\ 1,\ 1.5,\ 0.5,\ 1,\ 1.5,\ 1.5,\ 1.5);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{keyword}{auto}\ stl\_model\ =\ ellipsoid.\mbox{\hyperlink{classnetdem_1_1_poly_super_ellipsoid_ae34a02199025196d3aae832875238eb8}{GetSTLModel}}(2000);}
+\DoxyCodeLine{\ \ stl\_model.\mbox{\hyperlink{classnetdem_1_1_s_t_l_model_a16b1af93894c69aadb94b861c5508514}{SaveAsVTK}}(root\_dir\ +\ \textcolor{stringliteral}{"{}surface.vtk"{}});}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{classnetdem_1_1_tri_mesh}{TriMesh}}\ trimesh;}
+\DoxyCodeLine{\ \ trimesh.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_a1dc42a1f9439c900d76f213155ebb56d}{InitFromSTL}}(stl\_model);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{keywordtype}{double}\ mesh\_size\ =}
+\DoxyCodeLine{\ \ \ \ \ \ pow(stl\_model.GetVolume()\ /\ Math::PI\ *\ 6.0,\ 1.0\ /\ 3.0)\ /\ 30.0;}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{classnetdem_1_1_tet_mesh}{TetMesh}}\ tetmesh(stl\_model.vertices,\ stl\_model.facets,\ mesh\_size);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{comment}{//\ calculate\ the\ signed\ distance}}
+\DoxyCodeLine{\ \ VecXT<Vec3d>\ dist\_list;}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \&node\ :\ tetmesh.\mbox{\hyperlink{classnetdem_1_1_tet_mesh_a851cb634900ec65f4370559106970bfb}{nodes}})\ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{auto}\ dist\_ellipsoid\ =\ ellipsoid.\mbox{\hyperlink{classnetdem_1_1_poly_super_ellipsoid_a003d830f6564dfb68bce0d4ad54c9168}{SignedDistance}}(node);}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{auto}\ dist\_trimesh\ =\ trimesh.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_a2a436b32d16a22e3bc1c1502f2bae4d1}{SignedDistance}}(node);}
+\DoxyCodeLine{\ \ \ \ dist\_list.push\_back(}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{dist\_ellipsoid,\ dist\_trimesh,\ abs(dist\_ellipsoid\ -\/\ dist\_trimesh)\});}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{comment}{//\ save\ the\ results}}
+\DoxyCodeLine{\ \ tetmesh.\mbox{\hyperlink{classnetdem_1_1_tet_mesh_a50395a58e2ead4cdec93932aaa054cd0}{SaveAsVTK}}(root\_dir\ +\ \textcolor{stringliteral}{"{}tetmesh.vtk"{}});}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ stringbuf\ buf;}
+\DoxyCodeLine{\ \ ostream\ os(\&buf);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ os\ <<\ \textcolor{stringliteral}{"{}POINT\_DATA\ "{}}\ <<\ dist\_list.size()\ <<\ endl;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ os\ <<\ \textcolor{stringliteral}{"{}SCALARS\ SDF\ float\ 3"{}}\ <<\ endl;}
+\DoxyCodeLine{\ \ os\ <<\ \textcolor{stringliteral}{"{}LOOKUP\_TABLE\ default"{}}\ <<\ endl;}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ dist\_list.size();\ i++)\ \{}
+\DoxyCodeLine{\ \ \ \ os\ <<\ dist\_list[i][0]\ <<\ \textcolor{stringliteral}{"{}\ "{}}\ <<\ dist\_list[i][1]\ <<\ \textcolor{stringliteral}{"{}\ "{}}\ <<\ dist\_list[i][2]}
+\DoxyCodeLine{\ \ \ \ \ \ \ <<\ endl;}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ ofstream\ outfile;}
+\DoxyCodeLine{\ \ outfile.open(root\_dir\ +\ \textcolor{stringliteral}{"{}tetmesh.vtk"{}},\ ios::app);}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{if}\ (!outfile)\ \{}
+\DoxyCodeLine{\ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}cannot\ open\ file:\ "{}}\ <<\ root\_dir\ +\ \textcolor{stringliteral}{"{}tetmesh.vtk"{}}\ <<\ endl;}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{\ \ outfile\ <<\ buf.str();}
+\DoxyCodeLine{\ \ outfile.close();}
+\DoxyCodeLine{\}}
+
+\end{DoxyCodeInclude}
+ 

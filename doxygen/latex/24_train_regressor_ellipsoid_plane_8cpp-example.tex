@@ -1,0 +1,89 @@
+\hypertarget{24_train_regressor_ellipsoid_plane_8cpp-example}{}\doxysection{24\+\_\+train\+\_\+regressor\+\_\+ellipsoid\+\_\+plane.\+cpp}
+This is an example of how to use the netdem library.
+
+
+\begin{DoxyCodeInclude}{0}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}general\_net.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}mlpack\_utils.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}regression\_net.hpp"{}}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{using\ namespace\ }\mbox{\hyperlink{namespacenetdem}{netdem}};}
+\DoxyCodeLine{\textcolor{keyword}{using\ namespace\ }std;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ TrainRegressorEllipsoidPlane()\ \{}
+\DoxyCodeLine{\ \ \textcolor{keywordtype}{string}\ root\_dir\ =\ \textcolor{stringliteral}{"{}local/examples/netdem/ann\_models/ellipsoid\_plane/"{}};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{comment}{//\ notes:\ rows\ represent\ features,\ columns\ represent\ data\ points.}}
+\DoxyCodeLine{\ \ arma::mat\ dataset;}
+\DoxyCodeLine{\ \ \textcolor{keywordtype}{bool}\ loadedDataset\ =\ mlpack::data::Load(}
+\DoxyCodeLine{\ \ \ \ \ \ root\_dir\ +\ \textcolor{stringliteral}{"{}archived/dataset\_resolution.txt"{}},\ dataset,\ \textcolor{keyword}{true});}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{if}\ (!loadedDataset)\ \{}
+\DoxyCodeLine{\ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}loading\ data\ erros\ ..."{}}\ <<\ endl;}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{\ \ \textcolor{comment}{//\ element\ 4\ and\ 5\ are\ the\ volume\ and\ equivalent\ cross-\/section\ area}}
+\DoxyCodeLine{\ \ \textcolor{comment}{//\ scale\ so\ that\ they\ are\ in\ the\ same\ unit\ space\ as\ particle\ size}}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ dataset.n\_cols;\ i++)\ \{}
+\DoxyCodeLine{\ \ \ \ dataset(4,\ i)\ =\ dataset(4,\ i)\ *\ 40.0;}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{\ \ cout\ <<\ \textcolor{stringliteral}{"{}finished\ loading\ data\ ..."{}}\ <<\ endl;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{comment}{//\ split\ traning\ and\ testing\ data,\ prepare\ inputs\ and\ outputs}}
+\DoxyCodeLine{\ \ arma::mat\ train\_data,\ test\_data;}
+\DoxyCodeLine{\ \ mlpack::data::Split(dataset,\ train\_data,\ test\_data,\ 0.1);}
+\DoxyCodeLine{\ \ \textcolor{keywordtype}{int}\ num\_trains\ =\ train\_data.n\_cols;}
+\DoxyCodeLine{\ \ \textcolor{keywordtype}{int}\ num\_tests\ =\ test\_data.n\_cols;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{keywordtype}{int}\ num\_x\{4\},\ num\_y\{4\};}
+\DoxyCodeLine{\ \ arma::mat\ train\_x\ =\ train\_data.rows(0,\ num\_x\ -\/\ 1);}
+\DoxyCodeLine{\ \ arma::mat\ test\_x\ =\ test\_data.rows(0,\ num\_x\ -\/\ 1);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ arma::mat\ train\_y\ =\ train\_data.rows(num\_x,\ num\_x\ +\ num\_y\ -\/\ 1);}
+\DoxyCodeLine{\ \ arma::mat\ test\_y\ =\ test\_data.rows(num\_x,\ num\_x\ +\ num\_y\ -\/\ 1);}
+\DoxyCodeLine{\ \ cout\ <<\ \textcolor{stringliteral}{"{}finished\ preparing\ training\ and\ testing\ data\ ..."{}}\ <<\ endl;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{comment}{//\ create\ the\ ann\ model}}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{classnetdem_1_1_regression_net}{RegressionNet}}\ model;}
+\DoxyCodeLine{\ \ \textcolor{keywordtype}{int}\ num\_nodes\ =\ 25,\ num\_hidden\_layers\ =\ 5;}
+\DoxyCodeLine{\ \ model.\mbox{\hyperlink{classnetdem_1_1_regression_net_aafa8571adee4fd708a9179d40cf632aa}{AddLayer}}(MLPackUtils::LayerType::Linear,\ num\_nodes);}
+\DoxyCodeLine{\ \ model.\mbox{\hyperlink{classnetdem_1_1_regression_net_aafa8571adee4fd708a9179d40cf632aa}{AddLayer}}(MLPackUtils::LayerType::LeakyReLU);}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ num\_hidden\_layers\ -\/\ 1;\ i++)\ \{}
+\DoxyCodeLine{\ \ \ \ model.\mbox{\hyperlink{classnetdem_1_1_regression_net_aafa8571adee4fd708a9179d40cf632aa}{AddLayer}}(MLPackUtils::LayerType::Linear,\ num\_nodes);}
+\DoxyCodeLine{\ \ \ \ model.\mbox{\hyperlink{classnetdem_1_1_regression_net_aafa8571adee4fd708a9179d40cf632aa}{AddLayer}}(MLPackUtils::LayerType::LeakyReLU);}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{\ \ model.\mbox{\hyperlink{classnetdem_1_1_regression_net_aafa8571adee4fd708a9179d40cf632aa}{AddLayer}}(MLPackUtils::LayerType::Linear,\ train\_y.n\_rows);}
+\DoxyCodeLine{\ \ cout\ <<\ \textcolor{stringliteral}{"{}finished\ creating\ ann\ model\ ..."{}}\ <<\ endl;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{comment}{//\ set\ training\ parameters}}
+\DoxyCodeLine{\ \ model.\mbox{\hyperlink{classnetdem_1_1_regression_net_a0dc8e89c7b9472b37a30dfd37c8e0bd8}{epochs}}\ =\ 100;}
+\DoxyCodeLine{\ \ model.\mbox{\hyperlink{classnetdem_1_1_regression_net_a758c000426a7fb15c7b97d24a6738fa9}{step\_size}}\ =\ 0.001;}
+\DoxyCodeLine{\ \ model.\mbox{\hyperlink{classnetdem_1_1_regression_net_a3ca962e545ed2af4603983956de02d26}{batch\_size}}\ =\ 128;}
+\DoxyCodeLine{\ \ model.\mbox{\hyperlink{classnetdem_1_1_regression_net_a1cae0bfa2c645438d554c8cecf50a069}{stop\_tol}}\ =\ 1.0e-\/10;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{keywordtype}{double}\ test\_accuracy\_best\{1.0e8\};}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ 10;\ i++)\ \{}
+\DoxyCodeLine{\ \ \ \ model.\mbox{\hyperlink{classnetdem_1_1_regression_net_ab20e93179fa0215bf6d07e71d58da101}{Train}}(train\_x,\ train\_y);}
+\DoxyCodeLine{\ \ \ \ cout\ <<\ endl\ <<\ \textcolor{stringliteral}{"{}finished\ training\ ..."{}}\ <<\ i\ <<\ endl;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ check\ the\ training\ and\ testing\ results}}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{auto}\ pred\_y\ =\ model.\mbox{\hyperlink{classnetdem_1_1_regression_net_ad0a454915d74f397ea4b6ce40c46f84e}{Predict}}(train\_x);}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{double}\ train\_accuracy\ =\ MLPackUtils::GetMAE(train\_y,\ pred\_y);}
+\DoxyCodeLine{\ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}train\ accuracy:\ "{}}\ <<\ train\_accuracy\ <<\ endl;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ pred\_y\ =\ model.\mbox{\hyperlink{classnetdem_1_1_regression_net_ad0a454915d74f397ea4b6ce40c46f84e}{Predict}}(test\_x);}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{double}\ test\_accuracy\ =\ MLPackUtils::GetMAE(pred\_y,\ test\_y);}
+\DoxyCodeLine{\ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}test\ accuracy:\ "{}}\ <<\ test\_accuracy\ <<\ endl\ <<\ endl;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ save\ the\ model}}
+\DoxyCodeLine{\ \ \ \ model.\mbox{\hyperlink{classnetdem_1_1_regression_net_a2e770b0c27b3dff14401815e762b2713}{Save}}(root\_dir\ +\ \textcolor{stringliteral}{"{}training/ann\_regressor"{}}\ +\ to\_string(i)\ +\ \textcolor{stringliteral}{"{}.xml"{}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}resolution"{}});}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{if}\ (test\_accuracy\ <\ test\_accuracy\_best)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ test\_accuracy\_best\ =\ test\_accuracy;}
+\DoxyCodeLine{\ \ \ \ \ \ model.\mbox{\hyperlink{classnetdem_1_1_regression_net_a2e770b0c27b3dff14401815e762b2713}{Save}}(root\_dir\ +\ \textcolor{stringliteral}{"{}ann\_regressor.xml"{}},\ \textcolor{stringliteral}{"{}resolution"{}});}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCodeInclude}
+ 

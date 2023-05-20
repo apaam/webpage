@@ -2,158 +2,148 @@
 \label{classnetdem_1_1_m_p_i_manager}\index{netdem::MPIManager@{netdem::MPIManager}}
 
 
+Manages the data exchange in a DEM simulation.  
+
+
+
+
 {\ttfamily \#include $<$mpi\+\_\+manager.\+hpp$>$}
 
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classnetdem_1_1_m_p_i_manager_a651ed6f0c38a0ea64192b1f66d25ff2f}\label{classnetdem_1_1_m_p_i_manager_a651ed6f0c38a0ea64192b1f66d25ff2f}} 
-void {\bfseries Init} (\mbox{\hyperlink{classnetdem_1_1_simulation}{Simulation}} $\ast$sim)
-\item 
+\mbox{\Hypertarget{classnetdem_1_1_m_p_i_manager_a5044a6667e5426c7691dfe22a8e82521}\label{classnetdem_1_1_m_p_i_manager_a5044a6667e5426c7691dfe22a8e82521}} 
+{\bfseries MPIManager} ()
+\begin{DoxyCompactList}\small\item\em Default constructor for \mbox{\hyperlink{classnetdem_1_1_m_p_i_manager}{MPIManager}} class. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classnetdem_1_1_m_p_i_manager_a651ed6f0c38a0ea64192b1f66d25ff2f}{Init}} (\mbox{\hyperlink{classnetdem_1_1_simulation}{Simulation}} $\ast$sim)
+\begin{DoxyCompactList}\small\item\em Initialize the \mbox{\hyperlink{classnetdem_1_1_m_p_i_manager}{MPIManager}} with a \mbox{\hyperlink{classnetdem_1_1_simulation}{Simulation}} object. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classnetdem_1_1_m_p_i_manager_a73163f474116ca71ba4cae9482e1f979}\label{classnetdem_1_1_m_p_i_manager_a73163f474116ca71ba4cae9482e1f979}} 
 void {\bfseries Commit\+MPIData\+Type} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Commit the MPI data type for particle exchange. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classnetdem_1_1_m_p_i_manager_aa12a57c9b5a6138beb3a854d9e6a213f}\label{classnetdem_1_1_m_p_i_manager_aa12a57c9b5a6138beb3a854d9e6a213f}} 
 void {\bfseries Build\+Contact\+Look\+Up\+Table} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Build a look-\/up table for contacts between particles. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classnetdem_1_1_m_p_i_manager_af4c8115a7cd6720dd9df65d07d8228a4}\label{classnetdem_1_1_m_p_i_manager_af4c8115a7cd6720dd9df65d07d8228a4}} 
 void {\bfseries Recycle\+Particle\+Proxy} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Recycle a particle proxy. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classnetdem_1_1_m_p_i_manager_a9a980b77397f4630984e1b5e439cf940}\label{classnetdem_1_1_m_p_i_manager_a9a980b77397f4630984e1b5e439cf940}} 
 void {\bfseries Exchange\+Data\+Transfer} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Exchange data between processors using ghost particles as proxies. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classnetdem_1_1_m_p_i_manager_a1e4cff8e844c94326307103e10bde385}\label{classnetdem_1_1_m_p_i_manager_a1e4cff8e844c94326307103e10bde385}} 
 void {\bfseries Exchange\+Data\+Proxy} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Exchange data between processors using particle proxies. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classnetdem_1_1_m_p_i_manager_a366db3882c19dcec8925e755a3d234ba}\label{classnetdem_1_1_m_p_i_manager_a366db3882c19dcec8925e755a3d234ba}} 
 void {\bfseries Exchange\+Data\+Back} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Send exchanged data to original processors using ghost particles as proxies. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classnetdem_1_1_m_p_i_manager_af0f7d4d270cf516e6b0ff7d5c2b33680}\label{classnetdem_1_1_m_p_i_manager_af0f7d4d270cf516e6b0ff7d5c2b33680}} 
 void {\bfseries Recycle\+Particle\+Ghost} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Recycle ghost particles. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classnetdem_1_1_m_p_i_manager_af4c315df9beea27dbee9d96f63361b73}\label{classnetdem_1_1_m_p_i_manager_af4c315df9beea27dbee9d96f63361b73}} 
 void {\bfseries Clear\+Contact\+Look\+Up\+Table} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Clear the contact look-\/up table. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classnetdem_1_1_m_p_i_manager_a6ef70dc03ee2a8ca82fba14e6038bee0}\label{classnetdem_1_1_m_p_i_manager_a6ef70dc03ee2a8ca82fba14e6038bee0}} 
 void {\bfseries Sync\+Shape\+To\+All\+Processors} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Synchronize shape information between all processors. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classnetdem_1_1_m_p_i_manager_a814707039c87e377f2c34e891d3c9c0f}\label{classnetdem_1_1_m_p_i_manager_a814707039c87e377f2c34e891d3c9c0f}} 
 void {\bfseries Sync\+Particle\+To\+Ghost\+Sub\+Domains} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Synchronize particle information with ghost sub-\/domains. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classnetdem_1_1_m_p_i_manager_a5d8f5a0a2763682918e7a51350d6b219}\label{classnetdem_1_1_m_p_i_manager_a5d8f5a0a2763682918e7a51350d6b219}} 
 void {\bfseries Sync\+Contact\+To\+Ghost\+Sub\+Domains} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Synchronize contact information with ghost sub-\/domains. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classnetdem_1_1_m_p_i_manager_a66131405901191af35a59b0f991bd77f}\label{classnetdem_1_1_m_p_i_manager_a66131405901191af35a59b0f991bd77f}} 
 void {\bfseries Sync\+Wall\+To\+Ghost\+Sub\+Domains} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Synchronize wall information with ghost sub-\/domains. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classnetdem_1_1_m_p_i_manager_a52b3de711ed63d86b8e935c5eb4c409e}\label{classnetdem_1_1_m_p_i_manager_a52b3de711ed63d86b8e935c5eb4c409e}} 
 void {\bfseries Gather\+Data\+Proxy} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Gather exchanged data using particle proxies. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classnetdem_1_1_m_p_i_manager_a00c36c98ebd4c82710efd6288721a328}\label{classnetdem_1_1_m_p_i_manager_a00c36c98ebd4c82710efd6288721a328}} 
 void {\bfseries Gather\+Data\+Back} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Gather exchanged data from original processors using ghost particles as proxies. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classnetdem_1_1_m_p_i_manager_a26cdd7f1096170a9455ef3cad266d149}\label{classnetdem_1_1_m_p_i_manager_a26cdd7f1096170a9455ef3cad266d149}} 
 void {\bfseries Gather\+Data\+Transfer} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Gather data for exchanging particles between processors. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classnetdem_1_1_m_p_i_manager_a6b6f39df340021120fe0bc9fa9741a38}\label{classnetdem_1_1_m_p_i_manager_a6b6f39df340021120fe0bc9fa9741a38}} 
 void {\bfseries Send\+Data\+Proxy} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Send exchanged data using particle proxies. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classnetdem_1_1_m_p_i_manager_a12b4c17312fd86db56ef7046515a12c0}\label{classnetdem_1_1_m_p_i_manager_a12b4c17312fd86db56ef7046515a12c0}} 
 void {\bfseries Send\+Data\+Back} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Send exchanged data to original processors using ghost particles as proxies. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classnetdem_1_1_m_p_i_manager_ad729deca7c58007e1a15fc9ebbe91bf7}\label{classnetdem_1_1_m_p_i_manager_ad729deca7c58007e1a15fc9ebbe91bf7}} 
 void {\bfseries Send\+Data\+Transfer} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Send data for exchanging particles between processors. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classnetdem_1_1_m_p_i_manager_a4ca8acbd3877bbfe533cd06376063c30}\label{classnetdem_1_1_m_p_i_manager_a4ca8acbd3877bbfe533cd06376063c30}} 
 void {\bfseries Send\+Particle\+Sync} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Send particle synchronization data. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classnetdem_1_1_m_p_i_manager_a46f611a5ab3dbe7a3cf70abfed5f0c57}\label{classnetdem_1_1_m_p_i_manager_a46f611a5ab3dbe7a3cf70abfed5f0c57}} 
 void {\bfseries Send\+Contact\+Sync} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Send contact synchronization data. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classnetdem_1_1_m_p_i_manager_a592d99b3611e7c3a2b8699cdf67105a4}\label{classnetdem_1_1_m_p_i_manager_a592d99b3611e7c3a2b8699cdf67105a4}} 
 void {\bfseries Recv\+Data\+Proxy} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Receive exchanged data using particle proxies. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classnetdem_1_1_m_p_i_manager_a486b06e923e4a7e4f6a6f6c249241c6d}\label{classnetdem_1_1_m_p_i_manager_a486b06e923e4a7e4f6a6f6c249241c6d}} 
 void {\bfseries Recv\+Data\+Back} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Receive exchanged data from original processors using ghost particles as proxies. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classnetdem_1_1_m_p_i_manager_ae40a12cbb759971e1f11b3cd0a9babaf}\label{classnetdem_1_1_m_p_i_manager_ae40a12cbb759971e1f11b3cd0a9babaf}} 
 void {\bfseries Recv\+Data\+Transfer} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Receive data for exchanging particles between processors. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classnetdem_1_1_m_p_i_manager_ae9cc7d50cca933e2f16936a8d93dc189}\label{classnetdem_1_1_m_p_i_manager_ae9cc7d50cca933e2f16936a8d93dc189}} 
 void {\bfseries Recv\+Particle\+Sync} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Receive particle synchronization data. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classnetdem_1_1_m_p_i_manager_ae20350e2d56817c977ce7512562305cf}\label{classnetdem_1_1_m_p_i_manager_ae20350e2d56817c977ce7512562305cf}} 
 void {\bfseries Recv\+Contact\+Sync} ()
+\begin{DoxyCompactList}\small\item\em Receive contact synchronization data. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classnetdem_1_1_m_p_i_manager_a4c9ab60a7410b3b3dcdfa4b370688237}{Merge\+Particle\+Proxy}} (int source\+\_\+rank)
+\begin{DoxyCompactList}\small\item\em Merge a particle proxy from a given source rank. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classnetdem_1_1_m_p_i_manager_aa84a30aa12900d252d62c37466b229a7}{Merge\+Contact\+PPProxy}} (int source\+\_\+rank)
+\begin{DoxyCompactList}\small\item\em Merge a point-\/point contact proxy from a given source rank. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classnetdem_1_1_m_p_i_manager_a7a2fee3ce649cbc39bb94f62f4032c9c}{Merge\+Contact\+PWProxy}} (int source\+\_\+rank)
+\begin{DoxyCompactList}\small\item\em Merge a point-\/wall contact proxy from a given source rank. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classnetdem_1_1_m_p_i_manager_a0cb340337764b4e1e3f778577ff122d2}{Merge\+Contact\+PPBack}} (int source\+\_\+rank)
+\begin{DoxyCompactList}\small\item\em Merge a point-\/point contact back from a given source rank. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classnetdem_1_1_m_p_i_manager_af12a92c3bbc51428a401564af54b4a29}{Merge\+Contact\+PWBack}} (int source\+\_\+rank)
+\begin{DoxyCompactList}\small\item\em Merge a point-\/wall contact back from a given source rank. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classnetdem_1_1_m_p_i_manager_a6ff06a78c3992dde88b19af26bdb276b}{Merge\+Shape\+Transfer}} (int source\+\_\+rank)
+\begin{DoxyCompactList}\small\item\em Merge shape transfer data from a given source rank. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classnetdem_1_1_m_p_i_manager_a00f36d7c6256ac1071d411c5374860a0}{Merge\+Particle\+Transfer}} (int source\+\_\+rank)
+\begin{DoxyCompactList}\small\item\em Merge particle transfer data from a given source rank. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classnetdem_1_1_m_p_i_manager_ab5ad4a7e6504d9cbc0638cae6f5a13e9}{Merge\+Particle\+Prop\+Transfer}} (int source\+\_\+rank)
+\begin{DoxyCompactList}\small\item\em Merge particle property transfer data from a given source rank. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classnetdem_1_1_m_p_i_manager_a6fcae1c01511556597db4aa1518e60eb}{Merge\+Contact\+PPTransfer}} (int source\+\_\+rank)
+\begin{DoxyCompactList}\small\item\em Merge point-\/point contact transfer data from a given source rank. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classnetdem_1_1_m_p_i_manager_a9d1b5344f9b56b1aaca8adee6d041243}{Merge\+Contact\+PWTransfer}} (int source\+\_\+rank)
 \item 
-\mbox{\Hypertarget{classnetdem_1_1_m_p_i_manager_a4c9ab60a7410b3b3dcdfa4b370688237}\label{classnetdem_1_1_m_p_i_manager_a4c9ab60a7410b3b3dcdfa4b370688237}} 
-void {\bfseries Merge\+Particle\+Proxy} (int source\+\_\+rank)
+void \mbox{\hyperlink{classnetdem_1_1_m_p_i_manager_a3df5a68cc1af470691b4db56ac62ab00}{Merge\+Shape\+Sync}} (int source\+\_\+rank)
 \item 
-\mbox{\Hypertarget{classnetdem_1_1_m_p_i_manager_aa84a30aa12900d252d62c37466b229a7}\label{classnetdem_1_1_m_p_i_manager_aa84a30aa12900d252d62c37466b229a7}} 
-void {\bfseries Merge\+Contact\+PPProxy} (int source\+\_\+rank)
+void \mbox{\hyperlink{classnetdem_1_1_m_p_i_manager_ad5dfd5e7a190cdd07a1064f1b9daacbd}{Merge\+Particle\+Sync}} (int source\+\_\+rank)
 \item 
-\mbox{\Hypertarget{classnetdem_1_1_m_p_i_manager_a7a2fee3ce649cbc39bb94f62f4032c9c}\label{classnetdem_1_1_m_p_i_manager_a7a2fee3ce649cbc39bb94f62f4032c9c}} 
-void {\bfseries Merge\+Contact\+PWProxy} (int source\+\_\+rank)
+void \mbox{\hyperlink{classnetdem_1_1_m_p_i_manager_a48a9670ff185b677b8d7321825377bc4}{Merge\+Particle\+Prop\+Sync}} (int source\+\_\+rank)
 \item 
-\mbox{\Hypertarget{classnetdem_1_1_m_p_i_manager_a0cb340337764b4e1e3f778577ff122d2}\label{classnetdem_1_1_m_p_i_manager_a0cb340337764b4e1e3f778577ff122d2}} 
-void {\bfseries Merge\+Contact\+PPBack} (int source\+\_\+rank)
+void \mbox{\hyperlink{classnetdem_1_1_m_p_i_manager_a3182c61f73a492c21d005ce6f6314ab0}{Merge\+Contact\+PPSync}} (int source\+\_\+rank)
 \item 
-\mbox{\Hypertarget{classnetdem_1_1_m_p_i_manager_af12a92c3bbc51428a401564af54b4a29}\label{classnetdem_1_1_m_p_i_manager_af12a92c3bbc51428a401564af54b4a29}} 
-void {\bfseries Merge\+Contact\+PWBack} (int source\+\_\+rank)
+void \mbox{\hyperlink{classnetdem_1_1_m_p_i_manager_a4f2be4218ad8add92bfee1c0253a1db0}{Merge\+Contact\+PWSync}} (int source\+\_\+rank)
 \item 
-\mbox{\Hypertarget{classnetdem_1_1_m_p_i_manager_a6ff06a78c3992dde88b19af26bdb276b}\label{classnetdem_1_1_m_p_i_manager_a6ff06a78c3992dde88b19af26bdb276b}} 
-void {\bfseries Merge\+Shape\+Transfer} (int source\+\_\+rank)
-\item 
-\mbox{\Hypertarget{classnetdem_1_1_m_p_i_manager_a00f36d7c6256ac1071d411c5374860a0}\label{classnetdem_1_1_m_p_i_manager_a00f36d7c6256ac1071d411c5374860a0}} 
-void {\bfseries Merge\+Particle\+Transfer} (int source\+\_\+rank)
-\item 
-\mbox{\Hypertarget{classnetdem_1_1_m_p_i_manager_ab5ad4a7e6504d9cbc0638cae6f5a13e9}\label{classnetdem_1_1_m_p_i_manager_ab5ad4a7e6504d9cbc0638cae6f5a13e9}} 
-void {\bfseries Merge\+Particle\+Prop\+Transfer} (int source\+\_\+rank)
-\item 
-\mbox{\Hypertarget{classnetdem_1_1_m_p_i_manager_a6fcae1c01511556597db4aa1518e60eb}\label{classnetdem_1_1_m_p_i_manager_a6fcae1c01511556597db4aa1518e60eb}} 
-void {\bfseries Merge\+Contact\+PPTransfer} (int source\+\_\+rank)
-\item 
-\mbox{\Hypertarget{classnetdem_1_1_m_p_i_manager_a9d1b5344f9b56b1aaca8adee6d041243}\label{classnetdem_1_1_m_p_i_manager_a9d1b5344f9b56b1aaca8adee6d041243}} 
-void {\bfseries Merge\+Contact\+PWTransfer} (int source\+\_\+rank)
-\item 
-\mbox{\Hypertarget{classnetdem_1_1_m_p_i_manager_a3df5a68cc1af470691b4db56ac62ab00}\label{classnetdem_1_1_m_p_i_manager_a3df5a68cc1af470691b4db56ac62ab00}} 
-void {\bfseries Merge\+Shape\+Sync} (int source\+\_\+rank)
-\item 
-\mbox{\Hypertarget{classnetdem_1_1_m_p_i_manager_ad5dfd5e7a190cdd07a1064f1b9daacbd}\label{classnetdem_1_1_m_p_i_manager_ad5dfd5e7a190cdd07a1064f1b9daacbd}} 
-void {\bfseries Merge\+Particle\+Sync} (int source\+\_\+rank)
-\item 
-\mbox{\Hypertarget{classnetdem_1_1_m_p_i_manager_a48a9670ff185b677b8d7321825377bc4}\label{classnetdem_1_1_m_p_i_manager_a48a9670ff185b677b8d7321825377bc4}} 
-void {\bfseries Merge\+Particle\+Prop\+Sync} (int source\+\_\+rank)
-\item 
-\mbox{\Hypertarget{classnetdem_1_1_m_p_i_manager_a3182c61f73a492c21d005ce6f6314ab0}\label{classnetdem_1_1_m_p_i_manager_a3182c61f73a492c21d005ce6f6314ab0}} 
-void {\bfseries Merge\+Contact\+PPSync} (int source\+\_\+rank)
-\item 
-\mbox{\Hypertarget{classnetdem_1_1_m_p_i_manager_a4f2be4218ad8add92bfee1c0253a1db0}\label{classnetdem_1_1_m_p_i_manager_a4f2be4218ad8add92bfee1c0253a1db0}} 
-void {\bfseries Merge\+Contact\+PWSync} (int source\+\_\+rank)
+\mbox{\hyperlink{classnetdem_1_1_m_p_i_manager_ab946367c48e6e367f47408e6ee5e1294}{$\sim$\+MPIManager}} ()
 \end{DoxyCompactItemize}
 \doxysubsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classnetdem_1_1_m_p_i_manager_a1763b5afae04f45f5f02cfa7d90e9008}\label{classnetdem_1_1_m_p_i_manager_a1763b5afae04f45f5f02cfa7d90e9008}} 
-static int {\bfseries Get\+Self\+Rank} ()
+static int \mbox{\hyperlink{classnetdem_1_1_m_p_i_manager_a1763b5afae04f45f5f02cfa7d90e9008}{Get\+Self\+Rank}} ()
 \item 
-\mbox{\Hypertarget{classnetdem_1_1_m_p_i_manager_a4c3af7308568f745d5494e41df666c4c}\label{classnetdem_1_1_m_p_i_manager_a4c3af7308568f745d5494e41df666c4c}} 
-static int {\bfseries Get\+Total\+Rank} ()
+static int \mbox{\hyperlink{classnetdem_1_1_m_p_i_manager_a4c3af7308568f745d5494e41df666c4c}{Get\+Total\+Rank}} ()
 \item 
-\mbox{\Hypertarget{classnetdem_1_1_m_p_i_manager_a1b0a5b0c7dfd3213d2eb82db6c104f68}\label{classnetdem_1_1_m_p_i_manager_a1b0a5b0c7dfd3213d2eb82db6c104f68}} 
-static void {\bfseries Sync\+Data\+Among\+Processors} (Vec\+XT$<$ int $>$ $\ast$const data)
+static void \mbox{\hyperlink{classnetdem_1_1_m_p_i_manager_a1b0a5b0c7dfd3213d2eb82db6c104f68}{Sync\+Data\+Among\+Processors}} (Vec\+XT$<$ int $>$ $\ast$const data)
 \item 
-\mbox{\Hypertarget{classnetdem_1_1_m_p_i_manager_a9fdc0910c6617893d115c9e35a3abf11}\label{classnetdem_1_1_m_p_i_manager_a9fdc0910c6617893d115c9e35a3abf11}} 
-static void {\bfseries Sync\+Data\+Among\+Processors} (Vec\+XT$<$ double $>$ $\ast$const data)
+static void \mbox{\hyperlink{classnetdem_1_1_m_p_i_manager_a9fdc0910c6617893d115c9e35a3abf11}{Sync\+Data\+Among\+Processors}} (Vec\+XT$<$ double $>$ $\ast$const data)
 \end{DoxyCompactItemize}
 \doxysubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\Hypertarget{classnetdem_1_1_m_p_i_manager_a0657353b2cad1d6b9e4491ae056e4704}\label{classnetdem_1_1_m_p_i_manager_a0657353b2cad1d6b9e4491ae056e4704}} 
 \mbox{\hyperlink{classnetdem_1_1_m_p_i_data_define}{MPIData\+Define}} {\bfseries mpi\+\_\+data\+\_\+def}
-\begin{DoxyCompactList}\small\item\em defines the data structure of the classes to transfer \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Defines the data structure of the classes to transfer. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classnetdem_1_1_m_p_i_manager_a595f702b35a768d39f873dec6ec6f185}\label{classnetdem_1_1_m_p_i_manager_a595f702b35a768d39f873dec6ec6f185}} 
 int {\bfseries self\+\_\+rank}
-\begin{DoxyCompactList}\small\item\em self rank and total number of processors \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Self rank and total number of processors. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classnetdem_1_1_m_p_i_manager_a10e2672119d87e4443b126e9931ff8ec}\label{classnetdem_1_1_m_p_i_manager_a10e2672119d87e4443b126e9931ff8ec}} 
 int {\bfseries total\+\_\+rank}
 \item 
@@ -161,10 +151,10 @@ Vec\+XT$<$ \mbox{\hyperlink{classnetdem_1_1_shape}{Shape}} $\ast$ $>$ \mbox{\hyp
 \item 
 \mbox{\Hypertarget{classnetdem_1_1_m_p_i_manager_add5bb3190276fbae4478e6fef3424611}\label{classnetdem_1_1_m_p_i_manager_add5bb3190276fbae4478e6fef3424611}} 
 Vec\+XT$<$ Vec\+XT$<$ \mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} $\ast$ $>$ $>$ {\bfseries particle\+\_\+proxy\+\_\+out\+\_\+list}
-\begin{DoxyCompactList}\small\item\em particles that overlaps with other sub-\/domains \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} that overlap with other sub-\/domains. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classnetdem_1_1_m_p_i_manager_a56e129ea031a5780267d345ac565d92e}\label{classnetdem_1_1_m_p_i_manager_a56e129ea031a5780267d345ac565d92e}} 
 Vec\+XT$<$ Vec\+XT$<$ \mbox{\hyperlink{classnetdem_1_1_contact_p_p}{Contact\+PP}} $\ast$ $>$ $>$ {\bfseries contact\+\_\+pp\+\_\+proxy\+\_\+out\+\_\+list}
-\begin{DoxyCompactList}\small\item\em particle-\/particle contacts of the particle proxies \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Particle-\/particle contacts of the particle proxies. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classnetdem_1_1_m_p_i_manager_adc879bc2b7d8c4375cee752a3e4391de}\label{classnetdem_1_1_m_p_i_manager_adc879bc2b7d8c4375cee752a3e4391de}} 
 Vec\+XT$<$ Vec\+XT$<$ \mbox{\hyperlink{classnetdem_1_1_bond_entry}{Bond\+Entry}} $\ast$ $>$ $>$ {\bfseries bond\+\_\+entry\+\_\+pp\+\_\+proxy\+\_\+out\+\_\+list}
 \item 
@@ -173,7 +163,7 @@ Vec\+XT$<$ Vec\+XT$<$ \mbox{\hyperlink{classnetdem_1_1_collision_entry}{Collisio
 \item 
 \mbox{\Hypertarget{classnetdem_1_1_m_p_i_manager_a32f03d9109715b71eba9b350aeeb799a}\label{classnetdem_1_1_m_p_i_manager_a32f03d9109715b71eba9b350aeeb799a}} 
 Vec\+XT$<$ Vec\+XT$<$ \mbox{\hyperlink{classnetdem_1_1_contact_p_w}{Contact\+PW}} $\ast$ $>$ $>$ {\bfseries contact\+\_\+pw\+\_\+proxy\+\_\+out\+\_\+list}
-\begin{DoxyCompactList}\small\item\em particle-\/wall contacts of the particle proxies \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Particle-\/wall contacts of the particle proxies. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classnetdem_1_1_m_p_i_manager_a04629ec1fb50f96ccb05e6605b452b1f}\label{classnetdem_1_1_m_p_i_manager_a04629ec1fb50f96ccb05e6605b452b1f}} 
 Vec\+XT$<$ Vec\+XT$<$ \mbox{\hyperlink{classnetdem_1_1_bond_entry}{Bond\+Entry}} $\ast$ $>$ $>$ {\bfseries bond\+\_\+entry\+\_\+pw\+\_\+proxy\+\_\+out\+\_\+list}
 \item 
@@ -182,10 +172,9 @@ Vec\+XT$<$ Vec\+XT$<$ \mbox{\hyperlink{classnetdem_1_1_collision_entry}{Collisio
 \item 
 \mbox{\Hypertarget{classnetdem_1_1_m_p_i_manager_a7ee098e5697cf6e01dfd6028460c5741}\label{classnetdem_1_1_m_p_i_manager_a7ee098e5697cf6e01dfd6028460c5741}} 
 Vec\+XT$<$ Vec\+XT$<$ \mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} $\ast$ $>$ $>$ {\bfseries particle\+\_\+proxy\+\_\+in\+\_\+list}
-\begin{DoxyCompactList}\small\item\em particles transfered from other sub-\/domains as proxies \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classnetdem_1_1_m_p_i_manager_a4faa14a7ec5cac9b08014e5490de8008}\label{classnetdem_1_1_m_p_i_manager_a4faa14a7ec5cac9b08014e5490de8008}} 
-Vec\+XT$<$ Vec\+XT$<$ \mbox{\hyperlink{classnetdem_1_1_contact_p_p}{Contact\+PP}} $\ast$ $>$ $>$ {\bfseries contact\+\_\+pp\+\_\+back\+\_\+out\+\_\+list}
-\begin{DoxyCompactList}\small\item\em particle-\/particle contacts that need to send back to its original domain \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} transferred from other sub-\/domains as proxies. \end{DoxyCompactList}\item 
+Vec\+XT$<$ Vec\+XT$<$ \mbox{\hyperlink{classnetdem_1_1_contact_p_p}{Contact\+PP}} $\ast$ $>$ $>$ \mbox{\hyperlink{classnetdem_1_1_m_p_i_manager_a4faa14a7ec5cac9b08014e5490de8008}{contact\+\_\+pp\+\_\+back\+\_\+out\+\_\+list}}
+\item 
 \mbox{\Hypertarget{classnetdem_1_1_m_p_i_manager_ad90d274c886686fe46dcf1a388f696b9}\label{classnetdem_1_1_m_p_i_manager_ad90d274c886686fe46dcf1a388f696b9}} 
 Vec\+XT$<$ Vec\+XT$<$ \mbox{\hyperlink{classnetdem_1_1_bond_entry}{Bond\+Entry}} $\ast$ $>$ $>$ {\bfseries bond\+\_\+entry\+\_\+pp\+\_\+back\+\_\+out\+\_\+list}
 \item 
@@ -194,7 +183,7 @@ Vec\+XT$<$ Vec\+XT$<$ \mbox{\hyperlink{classnetdem_1_1_collision_entry}{Collisio
 \item 
 \mbox{\Hypertarget{classnetdem_1_1_m_p_i_manager_abdbfbe99bf446d438103625e25289e54}\label{classnetdem_1_1_m_p_i_manager_abdbfbe99bf446d438103625e25289e54}} 
 Vec\+XT$<$ Vec\+XT$<$ \mbox{\hyperlink{classnetdem_1_1_contact_p_w}{Contact\+PW}} $\ast$ $>$ $>$ {\bfseries contact\+\_\+pw\+\_\+back\+\_\+out\+\_\+list}
-\begin{DoxyCompactList}\small\item\em particle-\/wall contacts that need to send back to its original domain \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Particle-\/wall contacts that need to be sent back to its original domain. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classnetdem_1_1_m_p_i_manager_a42fff510a6d96bfd468deb363317cbc8}\label{classnetdem_1_1_m_p_i_manager_a42fff510a6d96bfd468deb363317cbc8}} 
 Vec\+XT$<$ Vec\+XT$<$ \mbox{\hyperlink{classnetdem_1_1_bond_entry}{Bond\+Entry}} $\ast$ $>$ $>$ {\bfseries bond\+\_\+entry\+\_\+pw\+\_\+back\+\_\+out\+\_\+list}
 \item 
@@ -203,10 +192,10 @@ Vec\+XT$<$ Vec\+XT$<$ \mbox{\hyperlink{classnetdem_1_1_collision_entry}{Collisio
 \item 
 \mbox{\Hypertarget{classnetdem_1_1_m_p_i_manager_a1105630e63c67a9b6e124144b5089f9b}\label{classnetdem_1_1_m_p_i_manager_a1105630e63c67a9b6e124144b5089f9b}} 
 Vec\+XT$<$ Vec\+XT$<$ \mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} $\ast$ $>$ $>$ {\bfseries particle\+\_\+transfer\+\_\+out\+\_\+list}
-\begin{DoxyCompactList}\small\item\em particles that transfer out of the domain \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} that transfer out of the domain. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classnetdem_1_1_m_p_i_manager_aba825f99701a0f046e384c2b61a2078f}\label{classnetdem_1_1_m_p_i_manager_aba825f99701a0f046e384c2b61a2078f}} 
 Vec\+XT$<$ Vec\+XT$<$ \mbox{\hyperlink{classnetdem_1_1_contact_p_p}{Contact\+PP}} $\ast$ $>$ $>$ {\bfseries contact\+\_\+pp\+\_\+transfer\+\_\+out\+\_\+list}
-\begin{DoxyCompactList}\small\item\em particle-\/particle contacts of the particles to be transferred \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Particle-\/particle contacts of the particles to be transferred. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classnetdem_1_1_m_p_i_manager_aa291f738638e20653a49aaec4b6737ae}\label{classnetdem_1_1_m_p_i_manager_aa291f738638e20653a49aaec4b6737ae}} 
 Vec\+XT$<$ Vec\+XT$<$ \mbox{\hyperlink{classnetdem_1_1_bond_entry}{Bond\+Entry}} $\ast$ $>$ $>$ {\bfseries bond\+\_\+entry\+\_\+pp\+\_\+transfer\+\_\+out\+\_\+list}
 \item 
@@ -215,7 +204,7 @@ Vec\+XT$<$ Vec\+XT$<$ \mbox{\hyperlink{classnetdem_1_1_collision_entry}{Collisio
 \item 
 \mbox{\Hypertarget{classnetdem_1_1_m_p_i_manager_af434fde3923299abee9129a0518a142d}\label{classnetdem_1_1_m_p_i_manager_af434fde3923299abee9129a0518a142d}} 
 Vec\+XT$<$ Vec\+XT$<$ \mbox{\hyperlink{classnetdem_1_1_contact_p_w}{Contact\+PW}} $\ast$ $>$ $>$ {\bfseries contact\+\_\+pw\+\_\+transfer\+\_\+out\+\_\+list}
-\begin{DoxyCompactList}\small\item\em particle-\/wall contacts of the particles to be transferred \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Particle-\/wall contacts of the particles to be transferred. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classnetdem_1_1_m_p_i_manager_af0263d339762df65c080fb04e2d9185e}\label{classnetdem_1_1_m_p_i_manager_af0263d339762df65c080fb04e2d9185e}} 
 Vec\+XT$<$ Vec\+XT$<$ \mbox{\hyperlink{classnetdem_1_1_bond_entry}{Bond\+Entry}} $\ast$ $>$ $>$ {\bfseries bond\+\_\+entry\+\_\+pw\+\_\+transfer\+\_\+out\+\_\+list}
 \item 
@@ -231,24 +220,324 @@ Vec\+XT$<$ Vec\+XT$<$ \mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} $\as
 
 
 \doxysubsection{Detailed Description}
-Manage the data exchange in a DEM simulation. Basicly, a DEM cycle would involve three rounds of data exchange.
+Manages the data exchange in a DEM simulation. 
+
+Basicly, a DEM cycle would involve three rounds of data exchange\+:
 \begin{DoxyItemize}
-\item round one\+: exchange particles as proxies and their corresponding contacts. A partical will be sent as a proxy as its surface exceeds the domain boundary (such that it could potentially contact with particles in other domains). If a particle needs to be sent to other domains as a proxy, its contacts need also to be sent.
-\item round two\+: exchange the contacts of particle proxies back to its original domain, so that the contact forces could be applied onto the original particles.
-\item round three\+: excange particles and their corresponding contacts if particle get out of the domain (i.\+e., the particle turn to belong to another domain after updating its positions at the end of a DEM cycle). Terminologies\+:
-\item particle proxy or contact proxy\+: particle belongs to one domain, whereas if it overlaps with other domain, it needs to seed out as a proxy for contact detection and resolution. Thus, proxy means a real object but not belongs to one domain.
-\item particle ghost\+: if a particle is gone (e.\+g., removed or migirated to another domain), it will left a ghost copy of itself (to prevent the nullptr particle in the contacts). Thus, ghost means a virtual object.
-\item Note\+: proxy and ghost may excange, which has facilitated the programing and computational efficiency. 
+\item Round one\+: exchange particles as proxies and their corresponding contacts. A particle will be sent as a proxy as its surface exceeds the domain boundary (such that it could potentially contact with particles in other domains). If a particle needs to be sent to other domains as a proxy, its contacts need also to be sent.
+\item Round two\+: exchange the contacts of particle proxies back to its original domain, so that the contact forces could be applied onto the original particles.
+\item Round three\+: excange particles and their corresponding contacts if particle get out of the domain (i.\+e., the particle turn to belong to another domain after updating its positions at the end of a DEM cycle).
 \end{DoxyItemize}
 
+Terminologies\+:
+\begin{DoxyItemize}
+\item \mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} proxy or contact proxy\+: \mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} belongs to one domain, whereas if it overlaps with other domain, it needs to seed out as a proxy for contact detection and resolution. Thus, proxy means a real object but not belongs to one domain.
+\item \mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} ghost\+: If a particle is gone (e.\+g., removed or migrated to another domain), it will leave a ghost copy of itself (to prevent the nullptr particle in the contacts). Thus, ghost means a virtual object.
+\item Note\+: proxy and ghost may exchange, which has facilitated the programming and computational efficiency. 
+\end{DoxyItemize}
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classnetdem_1_1_m_p_i_manager_ab946367c48e6e367f47408e6ee5e1294}\label{classnetdem_1_1_m_p_i_manager_ab946367c48e6e367f47408e6ee5e1294}} 
+\index{netdem::MPIManager@{netdem::MPIManager}!````~MPIManager@{$\sim$MPIManager}}
+\index{````~MPIManager@{$\sim$MPIManager}!netdem::MPIManager@{netdem::MPIManager}}
+\doxysubsubsection{\texorpdfstring{$\sim$MPIManager()}{~MPIManager()}}
+{\footnotesize\ttfamily netdem\+::\+MPIManager\+::$\sim$\+MPIManager (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Destructor for \mbox{\hyperlink{classnetdem_1_1_m_p_i_manager}{MPIManager}} object 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classnetdem_1_1_m_p_i_manager_a1763b5afae04f45f5f02cfa7d90e9008}\label{classnetdem_1_1_m_p_i_manager_a1763b5afae04f45f5f02cfa7d90e9008}} 
+\index{netdem::MPIManager@{netdem::MPIManager}!GetSelfRank@{GetSelfRank}}
+\index{GetSelfRank@{GetSelfRank}!netdem::MPIManager@{netdem::MPIManager}}
+\doxysubsubsection{\texorpdfstring{GetSelfRank()}{GetSelfRank()}}
+{\footnotesize\ttfamily int netdem\+::\+MPIManager\+::\+Get\+Self\+Rank (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Gets the rank of the current process
+
+\begin{DoxyReturn}{Returns}
+The rank of the current process 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classnetdem_1_1_m_p_i_manager_a4c3af7308568f745d5494e41df666c4c}\label{classnetdem_1_1_m_p_i_manager_a4c3af7308568f745d5494e41df666c4c}} 
+\index{netdem::MPIManager@{netdem::MPIManager}!GetTotalRank@{GetTotalRank}}
+\index{GetTotalRank@{GetTotalRank}!netdem::MPIManager@{netdem::MPIManager}}
+\doxysubsubsection{\texorpdfstring{GetTotalRank()}{GetTotalRank()}}
+{\footnotesize\ttfamily int netdem\+::\+MPIManager\+::\+Get\+Total\+Rank (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Gets the total number of ranks
+
+\begin{DoxyReturn}{Returns}
+The total number of ranks 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classnetdem_1_1_m_p_i_manager_a651ed6f0c38a0ea64192b1f66d25ff2f}\label{classnetdem_1_1_m_p_i_manager_a651ed6f0c38a0ea64192b1f66d25ff2f}} 
+\index{netdem::MPIManager@{netdem::MPIManager}!Init@{Init}}
+\index{Init@{Init}!netdem::MPIManager@{netdem::MPIManager}}
+\doxysubsubsection{\texorpdfstring{Init()}{Init()}}
+{\footnotesize\ttfamily void netdem\+::\+MPIManager\+::\+Init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_simulation}{Simulation}} $\ast$}]{sim }\end{DoxyParamCaption})}
+
+
+
+Initialize the \mbox{\hyperlink{classnetdem_1_1_m_p_i_manager}{MPIManager}} with a \mbox{\hyperlink{classnetdem_1_1_simulation}{Simulation}} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sim} & Pointer to a \mbox{\hyperlink{classnetdem_1_1_simulation}{Simulation}} object \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classnetdem_1_1_m_p_i_manager_a0cb340337764b4e1e3f778577ff122d2}\label{classnetdem_1_1_m_p_i_manager_a0cb340337764b4e1e3f778577ff122d2}} 
+\index{netdem::MPIManager@{netdem::MPIManager}!MergeContactPPBack@{MergeContactPPBack}}
+\index{MergeContactPPBack@{MergeContactPPBack}!netdem::MPIManager@{netdem::MPIManager}}
+\doxysubsubsection{\texorpdfstring{MergeContactPPBack()}{MergeContactPPBack()}}
+{\footnotesize\ttfamily void netdem\+::\+MPIManager\+::\+Merge\+Contact\+PPBack (\begin{DoxyParamCaption}\item[{int}]{source\+\_\+rank }\end{DoxyParamCaption})}
+
+
+
+Merge a point-\/point contact back from a given source rank. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em source\+\_\+rank} & Rank of the source processor \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classnetdem_1_1_m_p_i_manager_aa84a30aa12900d252d62c37466b229a7}\label{classnetdem_1_1_m_p_i_manager_aa84a30aa12900d252d62c37466b229a7}} 
+\index{netdem::MPIManager@{netdem::MPIManager}!MergeContactPPProxy@{MergeContactPPProxy}}
+\index{MergeContactPPProxy@{MergeContactPPProxy}!netdem::MPIManager@{netdem::MPIManager}}
+\doxysubsubsection{\texorpdfstring{MergeContactPPProxy()}{MergeContactPPProxy()}}
+{\footnotesize\ttfamily void netdem\+::\+MPIManager\+::\+Merge\+Contact\+PPProxy (\begin{DoxyParamCaption}\item[{int}]{source\+\_\+rank }\end{DoxyParamCaption})}
+
+
+
+Merge a point-\/point contact proxy from a given source rank. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em source\+\_\+rank} & Rank of the source processor \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classnetdem_1_1_m_p_i_manager_a3182c61f73a492c21d005ce6f6314ab0}\label{classnetdem_1_1_m_p_i_manager_a3182c61f73a492c21d005ce6f6314ab0}} 
+\index{netdem::MPIManager@{netdem::MPIManager}!MergeContactPPSync@{MergeContactPPSync}}
+\index{MergeContactPPSync@{MergeContactPPSync}!netdem::MPIManager@{netdem::MPIManager}}
+\doxysubsubsection{\texorpdfstring{MergeContactPPSync()}{MergeContactPPSync()}}
+{\footnotesize\ttfamily void netdem\+::\+MPIManager\+::\+Merge\+Contact\+PPSync (\begin{DoxyParamCaption}\item[{int}]{source\+\_\+rank }\end{DoxyParamCaption})}
+
+Synchronizes contact data among all processes for penalty-\/particles from source\+\_\+rank
+
+
+\begin{DoxyParams}{Parameters}
+{\em source\+\_\+rank} & The rank of the process to synchronize data from \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classnetdem_1_1_m_p_i_manager_a6fcae1c01511556597db4aa1518e60eb}\label{classnetdem_1_1_m_p_i_manager_a6fcae1c01511556597db4aa1518e60eb}} 
+\index{netdem::MPIManager@{netdem::MPIManager}!MergeContactPPTransfer@{MergeContactPPTransfer}}
+\index{MergeContactPPTransfer@{MergeContactPPTransfer}!netdem::MPIManager@{netdem::MPIManager}}
+\doxysubsubsection{\texorpdfstring{MergeContactPPTransfer()}{MergeContactPPTransfer()}}
+{\footnotesize\ttfamily void netdem\+::\+MPIManager\+::\+Merge\+Contact\+PPTransfer (\begin{DoxyParamCaption}\item[{int}]{source\+\_\+rank }\end{DoxyParamCaption})}
+
+
+
+Merge point-\/point contact transfer data from a given source rank. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em source\+\_\+rank} & Rank of the source processor \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classnetdem_1_1_m_p_i_manager_af12a92c3bbc51428a401564af54b4a29}\label{classnetdem_1_1_m_p_i_manager_af12a92c3bbc51428a401564af54b4a29}} 
+\index{netdem::MPIManager@{netdem::MPIManager}!MergeContactPWBack@{MergeContactPWBack}}
+\index{MergeContactPWBack@{MergeContactPWBack}!netdem::MPIManager@{netdem::MPIManager}}
+\doxysubsubsection{\texorpdfstring{MergeContactPWBack()}{MergeContactPWBack()}}
+{\footnotesize\ttfamily void netdem\+::\+MPIManager\+::\+Merge\+Contact\+PWBack (\begin{DoxyParamCaption}\item[{int}]{source\+\_\+rank }\end{DoxyParamCaption})}
+
+
+
+Merge a point-\/wall contact back from a given source rank. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em source\+\_\+rank} & Rank of the source processor \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classnetdem_1_1_m_p_i_manager_a7a2fee3ce649cbc39bb94f62f4032c9c}\label{classnetdem_1_1_m_p_i_manager_a7a2fee3ce649cbc39bb94f62f4032c9c}} 
+\index{netdem::MPIManager@{netdem::MPIManager}!MergeContactPWProxy@{MergeContactPWProxy}}
+\index{MergeContactPWProxy@{MergeContactPWProxy}!netdem::MPIManager@{netdem::MPIManager}}
+\doxysubsubsection{\texorpdfstring{MergeContactPWProxy()}{MergeContactPWProxy()}}
+{\footnotesize\ttfamily void netdem\+::\+MPIManager\+::\+Merge\+Contact\+PWProxy (\begin{DoxyParamCaption}\item[{int}]{source\+\_\+rank }\end{DoxyParamCaption})}
+
+
+
+Merge a point-\/wall contact proxy from a given source rank. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em source\+\_\+rank} & Rank of the source processor \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classnetdem_1_1_m_p_i_manager_a4f2be4218ad8add92bfee1c0253a1db0}\label{classnetdem_1_1_m_p_i_manager_a4f2be4218ad8add92bfee1c0253a1db0}} 
+\index{netdem::MPIManager@{netdem::MPIManager}!MergeContactPWSync@{MergeContactPWSync}}
+\index{MergeContactPWSync@{MergeContactPWSync}!netdem::MPIManager@{netdem::MPIManager}}
+\doxysubsubsection{\texorpdfstring{MergeContactPWSync()}{MergeContactPWSync()}}
+{\footnotesize\ttfamily void netdem\+::\+MPIManager\+::\+Merge\+Contact\+PWSync (\begin{DoxyParamCaption}\item[{int}]{source\+\_\+rank }\end{DoxyParamCaption})}
+
+Merges contact data for penalty-\/walls from source\+\_\+rank into current process
+
+
+\begin{DoxyParams}{Parameters}
+{\em source\+\_\+rank} & The rank of the process to merge data from \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classnetdem_1_1_m_p_i_manager_a9d1b5344f9b56b1aaca8adee6d041243}\label{classnetdem_1_1_m_p_i_manager_a9d1b5344f9b56b1aaca8adee6d041243}} 
+\index{netdem::MPIManager@{netdem::MPIManager}!MergeContactPWTransfer@{MergeContactPWTransfer}}
+\index{MergeContactPWTransfer@{MergeContactPWTransfer}!netdem::MPIManager@{netdem::MPIManager}}
+\doxysubsubsection{\texorpdfstring{MergeContactPWTransfer()}{MergeContactPWTransfer()}}
+{\footnotesize\ttfamily void netdem\+::\+MPIManager\+::\+Merge\+Contact\+PWTransfer (\begin{DoxyParamCaption}\item[{int}]{source\+\_\+rank }\end{DoxyParamCaption})}
+
+Merges contact data for penalty-\/walls from source\+\_\+rank into current process
+
+
+\begin{DoxyParams}{Parameters}
+{\em source\+\_\+rank} & The rank of the process to merge data from \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classnetdem_1_1_m_p_i_manager_a48a9670ff185b677b8d7321825377bc4}\label{classnetdem_1_1_m_p_i_manager_a48a9670ff185b677b8d7321825377bc4}} 
+\index{netdem::MPIManager@{netdem::MPIManager}!MergeParticlePropSync@{MergeParticlePropSync}}
+\index{MergeParticlePropSync@{MergeParticlePropSync}!netdem::MPIManager@{netdem::MPIManager}}
+\doxysubsubsection{\texorpdfstring{MergeParticlePropSync()}{MergeParticlePropSync()}}
+{\footnotesize\ttfamily void netdem\+::\+MPIManager\+::\+Merge\+Particle\+Prop\+Sync (\begin{DoxyParamCaption}\item[{int}]{source\+\_\+rank }\end{DoxyParamCaption})}
+
+Synchronizes particle property data among all processes from source\+\_\+rank
+
+
+\begin{DoxyParams}{Parameters}
+{\em source\+\_\+rank} & The rank of the process to synchronize data from \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classnetdem_1_1_m_p_i_manager_ab5ad4a7e6504d9cbc0638cae6f5a13e9}\label{classnetdem_1_1_m_p_i_manager_ab5ad4a7e6504d9cbc0638cae6f5a13e9}} 
+\index{netdem::MPIManager@{netdem::MPIManager}!MergeParticlePropTransfer@{MergeParticlePropTransfer}}
+\index{MergeParticlePropTransfer@{MergeParticlePropTransfer}!netdem::MPIManager@{netdem::MPIManager}}
+\doxysubsubsection{\texorpdfstring{MergeParticlePropTransfer()}{MergeParticlePropTransfer()}}
+{\footnotesize\ttfamily void netdem\+::\+MPIManager\+::\+Merge\+Particle\+Prop\+Transfer (\begin{DoxyParamCaption}\item[{int}]{source\+\_\+rank }\end{DoxyParamCaption})}
+
+
+
+Merge particle property transfer data from a given source rank. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em source\+\_\+rank} & Rank of the source processor \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classnetdem_1_1_m_p_i_manager_a4c9ab60a7410b3b3dcdfa4b370688237}\label{classnetdem_1_1_m_p_i_manager_a4c9ab60a7410b3b3dcdfa4b370688237}} 
+\index{netdem::MPIManager@{netdem::MPIManager}!MergeParticleProxy@{MergeParticleProxy}}
+\index{MergeParticleProxy@{MergeParticleProxy}!netdem::MPIManager@{netdem::MPIManager}}
+\doxysubsubsection{\texorpdfstring{MergeParticleProxy()}{MergeParticleProxy()}}
+{\footnotesize\ttfamily void netdem\+::\+MPIManager\+::\+Merge\+Particle\+Proxy (\begin{DoxyParamCaption}\item[{int}]{source\+\_\+rank }\end{DoxyParamCaption})}
+
+
+
+Merge a particle proxy from a given source rank. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em source\+\_\+rank} & Rank of the source processor \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classnetdem_1_1_m_p_i_manager_ad5dfd5e7a190cdd07a1064f1b9daacbd}\label{classnetdem_1_1_m_p_i_manager_ad5dfd5e7a190cdd07a1064f1b9daacbd}} 
+\index{netdem::MPIManager@{netdem::MPIManager}!MergeParticleSync@{MergeParticleSync}}
+\index{MergeParticleSync@{MergeParticleSync}!netdem::MPIManager@{netdem::MPIManager}}
+\doxysubsubsection{\texorpdfstring{MergeParticleSync()}{MergeParticleSync()}}
+{\footnotesize\ttfamily void netdem\+::\+MPIManager\+::\+Merge\+Particle\+Sync (\begin{DoxyParamCaption}\item[{int}]{source\+\_\+rank }\end{DoxyParamCaption})}
+
+Synchronizes particle data among all processes from source\+\_\+rank
+
+
+\begin{DoxyParams}{Parameters}
+{\em source\+\_\+rank} & The rank of the process to synchronize data from \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classnetdem_1_1_m_p_i_manager_a00f36d7c6256ac1071d411c5374860a0}\label{classnetdem_1_1_m_p_i_manager_a00f36d7c6256ac1071d411c5374860a0}} 
+\index{netdem::MPIManager@{netdem::MPIManager}!MergeParticleTransfer@{MergeParticleTransfer}}
+\index{MergeParticleTransfer@{MergeParticleTransfer}!netdem::MPIManager@{netdem::MPIManager}}
+\doxysubsubsection{\texorpdfstring{MergeParticleTransfer()}{MergeParticleTransfer()}}
+{\footnotesize\ttfamily void netdem\+::\+MPIManager\+::\+Merge\+Particle\+Transfer (\begin{DoxyParamCaption}\item[{int}]{source\+\_\+rank }\end{DoxyParamCaption})}
+
+
+
+Merge particle transfer data from a given source rank. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em source\+\_\+rank} & Rank of the source processor \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classnetdem_1_1_m_p_i_manager_a3df5a68cc1af470691b4db56ac62ab00}\label{classnetdem_1_1_m_p_i_manager_a3df5a68cc1af470691b4db56ac62ab00}} 
+\index{netdem::MPIManager@{netdem::MPIManager}!MergeShapeSync@{MergeShapeSync}}
+\index{MergeShapeSync@{MergeShapeSync}!netdem::MPIManager@{netdem::MPIManager}}
+\doxysubsubsection{\texorpdfstring{MergeShapeSync()}{MergeShapeSync()}}
+{\footnotesize\ttfamily void netdem\+::\+MPIManager\+::\+Merge\+Shape\+Sync (\begin{DoxyParamCaption}\item[{int}]{source\+\_\+rank }\end{DoxyParamCaption})}
+
+Synchronizes shape data among all processes from source\+\_\+rank
+
+
+\begin{DoxyParams}{Parameters}
+{\em source\+\_\+rank} & The rank of the process to synchronize data from \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classnetdem_1_1_m_p_i_manager_a6ff06a78c3992dde88b19af26bdb276b}\label{classnetdem_1_1_m_p_i_manager_a6ff06a78c3992dde88b19af26bdb276b}} 
+\index{netdem::MPIManager@{netdem::MPIManager}!MergeShapeTransfer@{MergeShapeTransfer}}
+\index{MergeShapeTransfer@{MergeShapeTransfer}!netdem::MPIManager@{netdem::MPIManager}}
+\doxysubsubsection{\texorpdfstring{MergeShapeTransfer()}{MergeShapeTransfer()}}
+{\footnotesize\ttfamily void netdem\+::\+MPIManager\+::\+Merge\+Shape\+Transfer (\begin{DoxyParamCaption}\item[{int}]{source\+\_\+rank }\end{DoxyParamCaption})}
+
+
+
+Merge shape transfer data from a given source rank. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em source\+\_\+rank} & Rank of the source processor \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classnetdem_1_1_m_p_i_manager_a9fdc0910c6617893d115c9e35a3abf11}\label{classnetdem_1_1_m_p_i_manager_a9fdc0910c6617893d115c9e35a3abf11}} 
+\index{netdem::MPIManager@{netdem::MPIManager}!SyncDataAmongProcessors@{SyncDataAmongProcessors}}
+\index{SyncDataAmongProcessors@{SyncDataAmongProcessors}!netdem::MPIManager@{netdem::MPIManager}}
+\doxysubsubsection{\texorpdfstring{SyncDataAmongProcessors()}{SyncDataAmongProcessors()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void netdem\+::\+MPIManager\+::\+Sync\+Data\+Among\+Processors (\begin{DoxyParamCaption}\item[{Vec\+XT$<$ double $>$ $\ast$const}]{data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Synchronizes data among all processes for a double vector
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & Pointer to the double vector to synchronize \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classnetdem_1_1_m_p_i_manager_a1b0a5b0c7dfd3213d2eb82db6c104f68}\label{classnetdem_1_1_m_p_i_manager_a1b0a5b0c7dfd3213d2eb82db6c104f68}} 
+\index{netdem::MPIManager@{netdem::MPIManager}!SyncDataAmongProcessors@{SyncDataAmongProcessors}}
+\index{SyncDataAmongProcessors@{SyncDataAmongProcessors}!netdem::MPIManager@{netdem::MPIManager}}
+\doxysubsubsection{\texorpdfstring{SyncDataAmongProcessors()}{SyncDataAmongProcessors()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void netdem\+::\+MPIManager\+::\+Sync\+Data\+Among\+Processors (\begin{DoxyParamCaption}\item[{Vec\+XT$<$ int $>$ $\ast$const}]{data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Synchronizes data among all processes for an integer vector
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & Pointer to the integer vector to synchronize \\
+\hline
+\end{DoxyParams}
+
+
 \doxysubsection{Member Data Documentation}
-\mbox{\Hypertarget{classnetdem_1_1_m_p_i_manager_a171b2bb24d0ca7212a7cdcc63701da37}\label{classnetdem_1_1_m_p_i_manager_a171b2bb24d0ca7212a7cdcc63701da37}} 
+\mbox{\Hypertarget{classnetdem_1_1_m_p_i_manager_a4faa14a7ec5cac9b08014e5490de8008}\label{classnetdem_1_1_m_p_i_manager_a4faa14a7ec5cac9b08014e5490de8008}} 
+\index{netdem::MPIManager@{netdem::MPIManager}!contact\_pp\_back\_out\_list@{contact\_pp\_back\_out\_list}}
+\index{contact\_pp\_back\_out\_list@{contact\_pp\_back\_out\_list}!netdem::MPIManager@{netdem::MPIManager}}
+\doxysubsubsection{\texorpdfstring{contact\_pp\_back\_out\_list}{contact\_pp\_back\_out\_list}}
+{\footnotesize\ttfamily Vec\+XT$<$Vec\+XT$<$\mbox{\hyperlink{classnetdem_1_1_contact_p_p}{Contact\+PP}} $\ast$$>$ $>$ netdem\+::\+MPIManager\+::contact\+\_\+pp\+\_\+back\+\_\+out\+\_\+list}
+
+Particle-\/particle contacts that need to be sent back to its original domain. \mbox{\Hypertarget{classnetdem_1_1_m_p_i_manager_a171b2bb24d0ca7212a7cdcc63701da37}\label{classnetdem_1_1_m_p_i_manager_a171b2bb24d0ca7212a7cdcc63701da37}} 
 \index{netdem::MPIManager@{netdem::MPIManager}!shape\_to\_sync\_list@{shape\_to\_sync\_list}}
 \index{shape\_to\_sync\_list@{shape\_to\_sync\_list}!netdem::MPIManager@{netdem::MPIManager}}
 \doxysubsubsection{\texorpdfstring{shape\_to\_sync\_list}{shape\_to\_sync\_list}}
 {\footnotesize\ttfamily Vec\+XT$<$\mbox{\hyperlink{classnetdem_1_1_shape}{Shape}} $\ast$$>$ netdem\+::\+MPIManager\+::shape\+\_\+to\+\_\+sync\+\_\+list}
 
-using json serilization and de-\/serilization (i.\+e., parameters -\/-\/\texorpdfstring{$>$}{>} json string -\/-\/\texorpdfstring{$>$}{>} parameters). 
+Using json serialization and de-\/serialization (i.\+e., parameters -\/-\/\texorpdfstring{$>$}{>} json string -\/-\/\texorpdfstring{$>$}{>} parameters). A list of shapes to synchronize between subdomains. 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 

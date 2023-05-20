@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['elu_0',['ELU',['../namespacenetdem.html#a06635636eca09676377d47de7cb4c02ca5b44c930bf0ddeef48b50ef11e5ddd58',1,'netdem']]]
+  ['elu_0',['ELU',['../classnetdem_1_1_m_l_pack_utils.html#a0b5ec585965c69a24ecbdea993fa1577a5b44c930bf0ddeef48b50ef11e5ddd58',1,'netdem::MLPackUtils']]]
 ];

@@ -1,0 +1,79 @@
+\hypertarget{02_ev_morphology_8cpp-example}{}\doxysection{02\+\_\+ev\+\_\+morphology.\+cpp}
+This is an example of how to use the netdem library.
+
+
+\begin{DoxyCodeInclude}{0}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}data\_dumper.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}gen\_pack.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}gen\_wall\_box\_plane.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}gen\_wall\_box\_plate.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}gravity.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}model\_linear\_spring.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}shape\_polybezier.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}shape\_sphere.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}shape\_trimesh.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}simulation.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ <unordered\_map>}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{using\ namespace\ }\mbox{\hyperlink{namespacenetdem}{netdem}};}
+\DoxyCodeLine{\textcolor{keyword}{using\ namespace\ }std;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ EvaluateMorphology(\textcolor{keywordtype}{int}\ argc,\ \textcolor{keywordtype}{char}\ **argv)\ \{}
+\DoxyCodeLine{\ \ \textcolor{keywordtype}{int}\ num\_particles\ =\ atof(argv[2]);}
+\DoxyCodeLine{\ \ \textcolor{keywordtype}{int}\ num\_patches\ =\ atof(argv[3]);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ stringbuf\ buf;}
+\DoxyCodeLine{\ \ ostream\ os(\&buf);}
+\DoxyCodeLine{\ \ \textcolor{keywordtype}{int}\ os\_width\ =\ 24;}
+\DoxyCodeLine{\ \ os.setf(ios::scientific);}
+\DoxyCodeLine{\ \ os.precision(15);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ num\_particles;\ i++)\ \{}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{classnetdem_1_1_s_t_l_model}{STLModel}}\ tmp\_stl;}
+\DoxyCodeLine{\ \ \ \ tmp\_stl.\mbox{\hyperlink{classnetdem_1_1_s_t_l_model_abb01a9583427f88f59d2abdf79b1e981}{InitFromSTL}}(\textcolor{stringliteral}{"{}local/polybezier\_model/random\_generation/n"{}}\ +}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ to\_string(num\_patches)\ +\ \textcolor{stringliteral}{"{}/p"{}}\ +\ to\_string(i)\ +\ \textcolor{stringliteral}{"{}.stl"{}});}
+\DoxyCodeLine{\ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}local/polybezier\_model/n"{}}\ +\ to\_string(num\_patches)\ +\ \textcolor{stringliteral}{"{}/p"{}}\ +}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ to\_string(i)\ +\ \textcolor{stringliteral}{"{}.stl"{}}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ <<\ endl;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ tmp\_stl.\mbox{\hyperlink{classnetdem_1_1_s_t_l_model_aafbdce68eec88494326403f8302b98a0}{Standardize}}();}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{auto}\ [bound\_min,\ bound\_max]\ =\ tmp\_stl.\mbox{\hyperlink{classnetdem_1_1_s_t_l_model_ad4d3ddf3883ab1584bc0cb72a5cae800}{GetBoundAABB}}();}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{auto}\ bound\_len\ =\ bound\_max\ -\/\ bound\_min;}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{auto}\ len\_max\ =\ max(bound\_len[0],\ max(bound\_len[1],\ bound\_len[2]));}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{auto}\ len\_min\ =\ min(bound\_len[0],\ min(bound\_len[1],\ bound\_len[2]));}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{auto}\ len\_mid\ =}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ bound\_len[0]\ +\ bound\_len[1]\ +\ bound\_len[2]\ -\/\ len\_max\ -\/\ len\_min;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{auto}\ flatness\ =\ len\_min\ /\ len\_mid;}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{auto}\ elongation\ =\ len\_mid\ /\ len\_max;}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{auto}\ sphericity\ =}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ pow(36.0\ *\ Math::PI\ *\ tmp\_stl.\mbox{\hyperlink{classnetdem_1_1_s_t_l_model_a4dbefaa48b7306f5dee1a7f0d143528d}{GetVolume}}()\ *\ tmp\_stl.\mbox{\hyperlink{classnetdem_1_1_s_t_l_model_a4dbefaa48b7306f5dee1a7f0d143528d}{GetVolume}}(),}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ 1.0\ /\ 3.0)\ /}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ tmp\_stl.\mbox{\hyperlink{classnetdem_1_1_s_t_l_model_a878885a531edd2d723d9508879edd96f}{GetSurfaceArea}}();}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ os.width(os\_width);}
+\DoxyCodeLine{\ \ \ \ os\ <<\ flatness\ <<\ \textcolor{stringliteral}{"{},\ "{}};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ os.width(os\_width);}
+\DoxyCodeLine{\ \ \ \ os\ <<\ elongation\ <<\ \textcolor{stringliteral}{"{},\ "{}};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ os.width(os\_width);}
+\DoxyCodeLine{\ \ \ \ os\ <<\ sphericity\ <<\ endl;}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ ofstream\ outfile;}
+\DoxyCodeLine{\ \ \textcolor{keyword}{auto}\ filename\ =\ \textcolor{stringliteral}{"{}local/polybezier\_model/random\_generation/n"{}}\ +}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ to\_string(num\_patches)\ +\ \textcolor{stringliteral}{"{}.txt"{}};}
+\DoxyCodeLine{\ \ outfile.open(filename);}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{if}\ (!outfile)\ \{}
+\DoxyCodeLine{\ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}cannot\ open\ file:\ "{}}\ <<\ filename\ <<\ endl;}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{\ \ outfile\ <<\ buf.str();}
+\DoxyCodeLine{\ \ outfile.close();}
+\DoxyCodeLine{\ \ cout\ <<\ \textcolor{stringliteral}{"{}data\ saved\ to:\ "{}}\ <<\ filename\ <<\ endl;}
+\DoxyCodeLine{\}}
+
+\end{DoxyCodeInclude}
+ 

@@ -1,0 +1,116 @@
+\hypertarget{sdf_dem_main_8cpp-example}{}\doxysection{sdf\+\_\+dem\+\_\+main.\+cpp}
+This is an example of how to use the netdem library.
+
+
+\begin{DoxyCodeInclude}{0}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ <filesystem>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{\textcolor{keyword}{using\ namespace\ }std;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ SDFDemo(\textcolor{keywordtype}{int}\ argc,\ \textcolor{keywordtype}{char}\ **argv);}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ SDFError(\textcolor{keywordtype}{int}\ argc,\ \textcolor{keywordtype}{char}\ **argv);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ ContactTestSphere(\textcolor{keywordtype}{int}\ potential\_case,\ \textcolor{keywordtype}{int}\ node\_num);}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ ContactTestTrimesh(\textcolor{keywordtype}{int}\ potential\_case,\ \textcolor{keywordtype}{int}\ node\_num);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ NutInBolt(\textcolor{keywordtype}{int}\ argc,\ \textcolor{keywordtype}{char}\ **argv);}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ PackingDemo(\textcolor{keywordtype}{int}\ argc,\ \textcolor{keywordtype}{char}\ **argv);}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ PackingEllipsoid(\textcolor{keywordtype}{int}\ argc,\ \textcolor{keywordtype}{char}\ **argv);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ TriaxialComp(\textcolor{keywordtype}{bool}\ need\_make\_convex,\ \textcolor{keywordtype}{double}\ pressure,\ \textcolor{keywordtype}{string}\ root\_dir);}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ AngleRepose(\textcolor{keywordtype}{bool}\ need\_make\_convex,\ \textcolor{keywordtype}{double}\ friction,\ \textcolor{keywordtype}{string}\ root\_dir);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{int}\ main(\textcolor{keywordtype}{int}\ argc,\ \textcolor{keywordtype}{char}\ **argv)\ \{}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{if}\ (argc\ ==\ 1)\ \{}
+\DoxyCodeLine{\ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}please\ specify\ the\ id\ of\ the\ task.\ \(\backslash\)n"{}}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}e.g.:\ netdem\_example\_sdf\_dem\ i"{}}\ <<\ endl;}
+\DoxyCodeLine{\ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}>>\ \ 0:\ signed\ distance\ field\ demo"{}}\ <<\ endl;}
+\DoxyCodeLine{\ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}>>\ \ 1:\ signed\ distance\ field\ error\ investigation"{}}\ <<\ endl;}
+\DoxyCodeLine{\ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}>>\ 10:\ contact\ potential\ test\ of\ sphere.\ option:\ [potential\_case]\ "{}}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}[node\_num]"{}}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ <<\ endl;}
+\DoxyCodeLine{\ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}>>\ 11:\ contact\ potential\ test\ of\ trimesh.\ option:\ "{}}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}[potential\_case]\ [node\_num]"{}}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ <<\ endl;}
+\DoxyCodeLine{\ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}>>\ 90:\ random\ packing"{}}\ <<\ endl;}
+\DoxyCodeLine{\ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}>>\ 91:\ ellipsoid\ with\ parametric\ shape\ parameters"{}}\ <<\ endl;}
+\DoxyCodeLine{\ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}>>\ 92:\ nut\ in\ bolt"{}}\ <<\ endl;}
+\DoxyCodeLine{\ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}>>\ 93:\ triaxial\ compression"{}}\ <<\ endl;}
+\DoxyCodeLine{\ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}>>\ 94:\ column\ collapse"{}}\ <<\ endl;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{return}\ -\/1;}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id}\ =\ atof(argv[1]);}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{switch}\ (\textcolor{keywordtype}{id})\ \{}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{case}\ 0:}
+\DoxyCodeLine{\ \ \ \ SDFDemo(argc,\ argv);}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{case}\ 1:}
+\DoxyCodeLine{\ \ \ \ SDFError(argc,\ argv);}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{case}\ 10:}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{if}\ (argc\ ==\ 4)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \textcolor{keywordtype}{int}\ potential\_case\ =\ atof(argv[2]);}
+\DoxyCodeLine{\ \ \ \ \ \ \textcolor{keywordtype}{int}\ node\_num\ =\ atof(argv[3]);}
+\DoxyCodeLine{\ \ \ \ \ \ ContactTestSphere(potential\_case,\ node\_num);}
+\DoxyCodeLine{\ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}potential\ case:\ "{}}\ <<\ potential\_case\ <<\ \textcolor{stringliteral}{"{},\ "{}}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}node\ num:\ "{}}\ <<\ node\_num\ <<\ endl;}
+\DoxyCodeLine{\ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ ContactTestSphere(1,\ 1000);}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{case}\ 11:}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{if}\ (argc\ ==\ 4)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \textcolor{keywordtype}{int}\ potential\_case\ =\ atof(argv[2]);}
+\DoxyCodeLine{\ \ \ \ \ \ \textcolor{keywordtype}{int}\ node\_num\ =\ atof(argv[3]);}
+\DoxyCodeLine{\ \ \ \ \ \ ContactTestTrimesh(potential\_case,\ node\_num);}
+\DoxyCodeLine{\ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}potential\ case:\ "{}}\ <<\ potential\_case\ <<\ \textcolor{stringliteral}{"{},\ "{}}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}node\ num:\ "{}}\ <<\ node\_num\ <<\ endl;}
+\DoxyCodeLine{\ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ ContactTestTrimesh(1,\ 1000);}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{case}\ 90:}
+\DoxyCodeLine{\ \ \ \ PackingDemo(argc,\ argv);}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{case}\ 91:}
+\DoxyCodeLine{\ \ \ \ PackingEllipsoid(argc,\ argv);}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{case}\ 92:}
+\DoxyCodeLine{\ \ \ \ NutInBolt(argc,\ argv);}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{case}\ 93:}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{if}\ (argc\ ==\ 5)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \textcolor{keywordtype}{bool}\ need\_make\_convex\ =\ atof(argv[2]);}
+\DoxyCodeLine{\ \ \ \ \ \ \textcolor{keywordtype}{double}\ pressure\ =\ atof(argv[3]);}
+\DoxyCodeLine{\ \ \ \ \ \ \textcolor{keywordtype}{string}\ root\_dir\ =\ string(argv[4]);}
+\DoxyCodeLine{\ \ \ \ \ \ filesystem::create\_directories(root\_dir);}
+\DoxyCodeLine{\ \ \ \ \ \ TriaxialComp(need\_make\_convex,\ pressure,\ root\_dir);}
+\DoxyCodeLine{\ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ filesystem::create\_directories(\textcolor{stringliteral}{"{}tmp/examples/sdf\_contact/triaxial\_comp/"{}});}
+\DoxyCodeLine{\ \ \ \ \ \ TriaxialComp(\textcolor{keyword}{false},\ 1.0e5,\ \textcolor{stringliteral}{"{}tmp/examples/sdf\_contact/triaxial\_comp/"{}});}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{case}\ 94:}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{if}\ (argc\ ==\ 5)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \textcolor{keywordtype}{bool}\ need\_make\_convex\ =\ atof(argv[2]);}
+\DoxyCodeLine{\ \ \ \ \ \ \textcolor{keywordtype}{double}\ friction\ =\ atof(argv[3]);}
+\DoxyCodeLine{\ \ \ \ \ \ \textcolor{keywordtype}{string}\ root\_dir\ =\ string(argv[4]);}
+\DoxyCodeLine{\ \ \ \ \ \ filesystem::create\_directories(root\_dir);}
+\DoxyCodeLine{\ \ \ \ \ \ AngleRepose(need\_make\_convex,\ friction,\ root\_dir);}
+\DoxyCodeLine{\ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ filesystem::create\_directories(\textcolor{stringliteral}{"{}tmp/examples/sdf\_contact/angle\_repose/"{}});}
+\DoxyCodeLine{\ \ \ \ \ \ AngleRepose(\textcolor{keyword}{false},\ 0.3,\ \textcolor{stringliteral}{"{}tmp/examples/sdf\_contact/angle\_repose/"{}});}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\}}
+
+\end{DoxyCodeInclude}
+ 

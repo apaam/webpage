@@ -109,9 +109,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a6931ff47063fccee2dbe2109b9184e86"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnetdem_1_1_regression_net.html#a6931ff47063fccee2dbe2109b9184e86">ResetModel</a> ()</td></tr>
 <tr class="memdesc:a6931ff47063fccee2dbe2109b9184e86"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resets the neural network model.  <br /></td></tr>
 <tr class="separator:a6931ff47063fccee2dbe2109b9184e86"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a50664a34e7c9df9d7bd20238d1a4032f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnetdem_1_1_regression_net.html#a50664a34e7c9df9d7bd20238d1a4032f">AddLayer</a> (<a class="el" href="namespacenetdem.html#a06635636eca09676377d47de7cb4c02c">LayerType</a> layer_name,...)</td></tr>
-<tr class="memdesc:a50664a34e7c9df9d7bd20238d1a4032f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a layer to the neural network model.  <br /></td></tr>
-<tr class="separator:a50664a34e7c9df9d7bd20238d1a4032f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aafa8571adee4fd708a9179d40cf632aa"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnetdem_1_1_regression_net.html#aafa8571adee4fd708a9179d40cf632aa">AddLayer</a> (<a class="el" href="classnetdem_1_1_m_l_pack_utils.html#a0b5ec585965c69a24ecbdea993fa1577">MLPackUtils::LayerType</a> layer_name,...)</td></tr>
+<tr class="memdesc:aafa8571adee4fd708a9179d40cf632aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a layer to the neural network model.  <br /></td></tr>
+<tr class="separator:aafa8571adee4fd708a9179d40cf632aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab20e93179fa0215bf6d07e71d58da101"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnetdem_1_1_regression_net.html#ab20e93179fa0215bf6d07e71d58da101">Train</a> (const arma::mat &amp;data_x, const arma::mat &amp;data_y)</td></tr>
 <tr class="memdesc:ab20e93179fa0215bf6d07e71d58da101"><td class="mdescLeft">&#160;</td><td class="mdescRight">Trains the neural network model with data.  <br /></td></tr>
 <tr class="separator:ab20e93179fa0215bf6d07e71d58da101"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -150,7 +150,9 @@ double&#160;</td><td class="memItemRight" valign="bottom"><b>decay_rate_moment</
 double&#160;</td><td class="memItemRight" valign="bottom"><b>decay_rate_norm</b> {0.9}</td></tr>
 <tr class="memdesc:a9678df579e50d45e2a2f090384dfdc2f"><td class="mdescLeft">&#160;</td><td class="mdescRight">The decay rate used for weight normalization during training. <br /></td></tr>
 <tr class="separator:a9678df579e50d45e2a2f090384dfdc2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0406a76411df7880fc0efa6583ab9ff0"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnetdem_1_1_regression_net.html#a0406a76411df7880fc0efa6583ab9ff0">gradient_init_param</a> {1e-8}</td></tr>
+<tr class="memitem:a0406a76411df7880fc0efa6583ab9ff0"><td class="memItemLeft" align="right" valign="top"><a id="a0406a76411df7880fc0efa6583ab9ff0" name="a0406a76411df7880fc0efa6583ab9ff0"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>gradient_init_param</b> {1e-8}</td></tr>
+<tr class="memdesc:a0406a76411df7880fc0efa6583ab9ff0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initial parameter value used for weight initialization during training. <br /></td></tr>
 <tr class="separator:a0406a76411df7880fc0efa6583ab9ff0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0dc8e89c7b9472b37a30dfd37c8e0bd8"><td class="memItemLeft" align="right" valign="top"><a id="a0dc8e89c7b9472b37a30dfd37c8e0bd8" name="a0dc8e89c7b9472b37a30dfd37c8e0bd8"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>epochs</b> {100}</td></tr>
@@ -168,9 +170,11 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>enable_logging</b> {t
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A class that represents a feedforward neural network for regression. </p>
 <p>The <code><a class="el" href="classnetdem_1_1_regression_net.html" title="A class that represents a feedforward neural network for regression.">RegressionNet</a></code> class is a specific implementation of a feedforward neural network for regression. It provides functionality to reset the model, add layers to the model, train the model with data, predict with the model, calculate the gradient of the model with respect to the input data, and load/save the model to disk. </p>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="01_train_netsdf_8cpp-example.html#_a0">01_train_netsdf.cpp</a>, <a class="el" href="02_test_netsdf_8cpp-example.html#_a0">02_test_netsdf.cpp</a>, <a class="el" href="03_train_netspf_8cpp-example.html#_a0">03_train_netspf.cpp</a>, <a class="el" href="04_test_netspf_8cpp-example.html#_a0">04_test_netspf.cpp</a>, <a class="el" href="04_train_regressor_trimesh_plane_8cpp-example.html#_a0">04_train_regressor_trimesh_plane.cpp</a>, <a class="el" href="05_test_regressor_trimesh_plane_8cpp-example.html#_a0">05_test_regressor_trimesh_plane.cpp</a>, <a class="el" href="06_test_ann_vs_geom_trimesh_plane_8cpp-example.html#_a13">06_test_ann_vs_geom_trimesh_plane.cpp</a>, <a class="el" href="11_train_coded_netsdf_8cpp-example.html#_a0">11_train_coded_netsdf.cpp</a>, <a class="el" href="12_test_coded_netsdf_8cpp-example.html#_a0">12_test_coded_netsdf.cpp</a>, <a class="el" href="14_train_regressor_trimesh_8cpp-example.html#_a0">14_train_regressor_trimesh.cpp</a>, <a class="el" href="15_test_coded_shape_8cpp-example.html#_a0">15_test_coded_shape.cpp</a>, <a class="el" href="15_test_regressor_trimesh_8cpp-example.html#_a0">15_test_regressor_trimesh.cpp</a>, <a class="el" href="16_test_ann_vs_geom_trimesh_8cpp-example.html#_a11">16_test_ann_vs_geom_trimesh.cpp</a>, <a class="el" href="16_test_latent_space_8cpp-example.html#_a0">16_test_latent_space.cpp</a>, <a class="el" href="17_test_ann_vs_geom_trimesh_8cpp-example.html#_a13">17_test_ann_vs_geom_trimesh.cpp</a>, <a class="el" href="24_train_regressor_ellipsoid_plane_8cpp-example.html#_a0">24_train_regressor_ellipsoid_plane.cpp</a>, <a class="el" href="25_test_regressor_ellipsoid_plane_8cpp-example.html#_a0">25_test_regressor_ellipsoid_plane.cpp</a>, <a class="el" href="26_test_ann_vs_geom_ellipsoid_plane_8cpp-example.html#_a9">26_test_ann_vs_geom_ellipsoid_plane.cpp</a>, <a class="el" href="34_train_regressor_ellipsoid_8cpp-example.html#_a0">34_train_regressor_ellipsoid.cpp</a>, <a class="el" href="35_test_regressor_ellipsoid_8cpp-example.html#_a0">35_test_regressor_ellipsoid.cpp</a>, <a class="el" href="36_test_ann_vs_geom_ellipsoid_8cpp-example.html#_a7">36_test_ann_vs_geom_ellipsoid.cpp</a>, and <a class="el" href="37_test_ann_vs_geom_ellipsoid_8cpp-example.html#_a7">37_test_ann_vs_geom_ellipsoid.cpp</a>.</dd>
+</dl>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="a50664a34e7c9df9d7bd20238d1a4032f" name="a50664a34e7c9df9d7bd20238d1a4032f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a50664a34e7c9df9d7bd20238d1a4032f">&#9670;&#160;</a></span>AddLayer()</h2>
+<a id="aafa8571adee4fd708a9179d40cf632aa" name="aafa8571adee4fd708a9179d40cf632aa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aafa8571adee4fd708a9179d40cf632aa">&#9670;&#160;</a></span>AddLayer()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -178,7 +182,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>enable_logging</b> {t
         <tr>
           <td class="memname">void netdem::RegressionNet::AddLayer </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="namespacenetdem.html#a06635636eca09676377d47de7cb4c02c">LayerType</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="classnetdem_1_1_m_l_pack_utils.html#a0b5ec585965c69a24ecbdea993fa1577">MLPackUtils::LayerType</a>&#160;</td>
           <td class="paramname"><em>layer_name</em>, </td>
         </tr>
         <tr>
@@ -200,9 +204,12 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>enable_logging</b> {t
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">layer_name</td><td>The type of layer to add. </td></tr>
-    <tr><td class="paramname">...</td><td>Additional arguments depending on the type of layer being added. </td></tr>
+    <tr><td class="paramname">...</td><td>Additional arguments depending on the type of layer being added.</td></tr>
   </table>
   </dd>
+</dl>
+<p>For <code><a class="el" href="classnetdem_1_1_m_l_pack_utils.html#a0b5ec585965c69a24ecbdea993fa1577a32a843da6ea40ab3b17a3421ccdf671b" title="The linear layer type.">MLPackUtils::LayerType::Linear</a></code>, an additional parameter indicating the dimension of outputs is required. </p>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="01_train_netsdf_8cpp-example.html#a1">01_train_netsdf.cpp</a>, <a class="el" href="03_train_netspf_8cpp-example.html#a1">03_train_netspf.cpp</a>, <a class="el" href="04_train_regressor_trimesh_plane_8cpp-example.html#a1">04_train_regressor_trimesh_plane.cpp</a>, <a class="el" href="11_train_coded_netsdf_8cpp-example.html#a1">11_train_coded_netsdf.cpp</a>, <a class="el" href="14_train_regressor_trimesh_8cpp-example.html#a1">14_train_regressor_trimesh.cpp</a>, <a class="el" href="24_train_regressor_ellipsoid_plane_8cpp-example.html#a1">24_train_regressor_ellipsoid_plane.cpp</a>, and <a class="el" href="34_train_regressor_ellipsoid_8cpp-example.html#a1">34_train_regressor_ellipsoid.cpp</a>.</dd>
 </dl>
 
 </div>
@@ -232,6 +239,8 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>enable_logging</b> {t
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The gradient of the neural network model with respect to the input data as a matrix of size (input_dim x num_samples). </dd></dl>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="11_train_coded_netsdf_8cpp-example.html#a9">11_train_coded_netsdf.cpp</a>, <a class="el" href="15_test_coded_shape_8cpp-example.html#a3">15_test_coded_shape.cpp</a>, and <a class="el" href="16_test_latent_space_8cpp-example.html#a3">16_test_latent_space.cpp</a>.</dd>
+</dl>
 
 </div>
 </div>
@@ -270,6 +279,8 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>enable_logging</b> {t
   </table>
   </dd>
 </dl>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="02_test_netsdf_8cpp-example.html#a1">02_test_netsdf.cpp</a>, <a class="el" href="04_test_netspf_8cpp-example.html#a1">04_test_netspf.cpp</a>, <a class="el" href="05_test_regressor_trimesh_plane_8cpp-example.html#a1">05_test_regressor_trimesh_plane.cpp</a>, <a class="el" href="06_test_ann_vs_geom_trimesh_plane_8cpp-example.html#a14">06_test_ann_vs_geom_trimesh_plane.cpp</a>, <a class="el" href="12_test_coded_netsdf_8cpp-example.html#a1">12_test_coded_netsdf.cpp</a>, <a class="el" href="15_test_coded_shape_8cpp-example.html#a1">15_test_coded_shape.cpp</a>, <a class="el" href="15_test_regressor_trimesh_8cpp-example.html#a1">15_test_regressor_trimesh.cpp</a>, <a class="el" href="16_test_ann_vs_geom_trimesh_8cpp-example.html#a12">16_test_ann_vs_geom_trimesh.cpp</a>, <a class="el" href="16_test_latent_space_8cpp-example.html#a1">16_test_latent_space.cpp</a>, <a class="el" href="17_test_ann_vs_geom_trimesh_8cpp-example.html#a14">17_test_ann_vs_geom_trimesh.cpp</a>, <a class="el" href="25_test_regressor_ellipsoid_plane_8cpp-example.html#a1">25_test_regressor_ellipsoid_plane.cpp</a>, <a class="el" href="26_test_ann_vs_geom_ellipsoid_plane_8cpp-example.html#a10">26_test_ann_vs_geom_ellipsoid_plane.cpp</a>, <a class="el" href="35_test_regressor_ellipsoid_8cpp-example.html#a1">35_test_regressor_ellipsoid.cpp</a>, <a class="el" href="36_test_ann_vs_geom_ellipsoid_8cpp-example.html#a8">36_test_ann_vs_geom_ellipsoid.cpp</a>, and <a class="el" href="37_test_ann_vs_geom_ellipsoid_8cpp-example.html#a8">37_test_ann_vs_geom_ellipsoid.cpp</a>.</dd>
+</dl>
 
 </div>
 </div>
@@ -298,6 +309,8 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>enable_logging</b> {t
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The predicted output data as a matrix of size (output_dim x num_samples). </dd></dl>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="01_train_netsdf_8cpp-example.html#a8">01_train_netsdf.cpp</a>, <a class="el" href="02_test_netsdf_8cpp-example.html#a2">02_test_netsdf.cpp</a>, <a class="el" href="03_train_netspf_8cpp-example.html#a8">03_train_netspf.cpp</a>, <a class="el" href="04_test_netspf_8cpp-example.html#a2">04_test_netspf.cpp</a>, <a class="el" href="04_train_regressor_trimesh_plane_8cpp-example.html#a7">04_train_regressor_trimesh_plane.cpp</a>, <a class="el" href="05_test_regressor_trimesh_plane_8cpp-example.html#a2">05_test_regressor_trimesh_plane.cpp</a>, <a class="el" href="06_test_ann_vs_geom_trimesh_plane_8cpp-example.html#a28">06_test_ann_vs_geom_trimesh_plane.cpp</a>, <a class="el" href="11_train_coded_netsdf_8cpp-example.html#a8">11_train_coded_netsdf.cpp</a>, <a class="el" href="12_test_coded_netsdf_8cpp-example.html#a2">12_test_coded_netsdf.cpp</a>, <a class="el" href="14_train_regressor_trimesh_8cpp-example.html#a7">14_train_regressor_trimesh.cpp</a>, <a class="el" href="15_test_coded_shape_8cpp-example.html#a2">15_test_coded_shape.cpp</a>, <a class="el" href="15_test_regressor_trimesh_8cpp-example.html#a2">15_test_regressor_trimesh.cpp</a>, <a class="el" href="16_test_ann_vs_geom_trimesh_8cpp-example.html#a27">16_test_ann_vs_geom_trimesh.cpp</a>, <a class="el" href="16_test_latent_space_8cpp-example.html#a2">16_test_latent_space.cpp</a>, <a class="el" href="17_test_ann_vs_geom_trimesh_8cpp-example.html#a25">17_test_ann_vs_geom_trimesh.cpp</a>, <a class="el" href="24_train_regressor_ellipsoid_plane_8cpp-example.html#a7">24_train_regressor_ellipsoid_plane.cpp</a>, <a class="el" href="25_test_regressor_ellipsoid_plane_8cpp-example.html#a2">25_test_regressor_ellipsoid_plane.cpp</a>, <a class="el" href="26_test_ann_vs_geom_ellipsoid_plane_8cpp-example.html#a23">26_test_ann_vs_geom_ellipsoid_plane.cpp</a>, <a class="el" href="34_train_regressor_ellipsoid_8cpp-example.html#a9">34_train_regressor_ellipsoid.cpp</a>, <a class="el" href="35_test_regressor_ellipsoid_8cpp-example.html#a2">35_test_regressor_ellipsoid.cpp</a>, <a class="el" href="36_test_ann_vs_geom_ellipsoid_8cpp-example.html#a22">36_test_ann_vs_geom_ellipsoid.cpp</a>, and <a class="el" href="37_test_ann_vs_geom_ellipsoid_8cpp-example.html#a23">37_test_ann_vs_geom_ellipsoid.cpp</a>.</dd>
+</dl>
 
 </div>
 </div>
@@ -356,6 +369,8 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>enable_logging</b> {t
   </table>
   </dd>
 </dl>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="01_train_netsdf_8cpp-example.html#a9">01_train_netsdf.cpp</a>, <a class="el" href="03_train_netspf_8cpp-example.html#a9">03_train_netspf.cpp</a>, <a class="el" href="04_train_regressor_trimesh_plane_8cpp-example.html#a8">04_train_regressor_trimesh_plane.cpp</a>, <a class="el" href="11_train_coded_netsdf_8cpp-example.html#a10">11_train_coded_netsdf.cpp</a>, <a class="el" href="14_train_regressor_trimesh_8cpp-example.html#a8">14_train_regressor_trimesh.cpp</a>, <a class="el" href="24_train_regressor_ellipsoid_plane_8cpp-example.html#a8">24_train_regressor_ellipsoid_plane.cpp</a>, and <a class="el" href="34_train_regressor_ellipsoid_8cpp-example.html#a10">34_train_regressor_ellipsoid.cpp</a>.</dd>
+</dl>
 
 </div>
 </div>
@@ -394,22 +409,8 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>enable_logging</b> {t
   </table>
   </dd>
 </dl>
-
-</div>
-</div>
-<h2 class="groupheader">Member Data Documentation</h2>
-<a id="a0406a76411df7880fc0efa6583ab9ff0" name="a0406a76411df7880fc0efa6583ab9ff0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0406a76411df7880fc0efa6583ab9ff0">&#9670;&#160;</a></span>gradient_init_param</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">double netdem::RegressionNet::gradient_init_param {1e-8}</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>The initial parameter value used for weight initialization during training. </p>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="01_train_netsdf_8cpp-example.html#a7">01_train_netsdf.cpp</a>, <a class="el" href="03_train_netspf_8cpp-example.html#a7">03_train_netspf.cpp</a>, <a class="el" href="04_train_regressor_trimesh_plane_8cpp-example.html#a6">04_train_regressor_trimesh_plane.cpp</a>, <a class="el" href="11_train_coded_netsdf_8cpp-example.html#a7">11_train_coded_netsdf.cpp</a>, <a class="el" href="14_train_regressor_trimesh_8cpp-example.html#a6">14_train_regressor_trimesh.cpp</a>, <a class="el" href="24_train_regressor_ellipsoid_plane_8cpp-example.html#a6">24_train_regressor_ellipsoid_plane.cpp</a>, and <a class="el" href="34_train_regressor_ellipsoid_8cpp-example.html#a8">34_train_regressor_ellipsoid.cpp</a>.</dd>
+</dl>
 
 </div>
 </div>

@@ -1,0 +1,275 @@
+\hypertarget{netdem_main_8cpp-example}{}\doxysection{netdem\+\_\+main.\+cpp}
+This is an example of how to use the netdem library.
+
+
+\begin{DoxyCodeInclude}{0}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ <filesystem>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{\textcolor{keyword}{using\ namespace\ }std;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ trimesh\ plane\ case}}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ GenDatasetTrimeshPlane(\textcolor{keywordtype}{int}\ num\_samples\ =\ 100);}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ TestDatasetTrimeshPlane();}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ TrainClassifierTrimeshPlane();}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ TestClassifierTrimeshPlane();}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ TrainRegressorTrimeshPlane();}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ TestRegressorTrimeshPlane(\textcolor{keywordtype}{int}\ id\_comp\ =\ 0);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ TestANNvsGeometricTrimeshPlane();}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ trimesh\ trimesh\ case}}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ GenDatasetTrimesh(\textcolor{keywordtype}{int}\ num\_samples\ =\ 100);}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ TestDatasetTrimesh();}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ TrainClassifierTrimesh();}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ TestClassifierTrimesh();}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ TrainRegressorTrimesh();}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ TestRegressorTrimesh(\textcolor{keywordtype}{int}\ id\_comp\ =\ 0);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ TestANNvsGeometricTrimesh();}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ TestANNvsGeometricTrimesh\_v2();}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ ellipsoid\ plane\ case}}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ GenDatasetEllipsoidPlane(\textcolor{keywordtype}{int}\ num\_samples\ =\ 100);}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ TestDatasetEllipsoidPlane();}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ TrainClassifierEllipsoidPlane();}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ TestClassifierEllipsoidPlane();}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ TrainRegressorEllipsoidPlane();}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ TestRegressorEllipsoidPlane(\textcolor{keywordtype}{int}\ id\_comp\ =\ 0);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ TestANNvsGeometricEllipsoidPlane();}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ trimesh\ trimesh\ case}}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ GenDatasetEllipsoid(\textcolor{keywordtype}{int}\ num\_samples\ =\ 100);}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ TestDatasetEllipsoid();}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ TrainClassifierEllipsoid();}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ TestClassifierEllipsoid();}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ TrainRegressorEllipsoid();}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ TestRegressorEllipsoid(\textcolor{keywordtype}{int}\ id\_comp\ =\ 0);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ TestANNvsGeometricEllipsoid();}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ TestANNvsGeometricEllipsoid\_v2();}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ DEM\ simulations}}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ RandomPackingTrimesh(\textcolor{keywordtype}{int}\ argc,\ \textcolor{keywordtype}{char}\ **argv);}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ TriaxialComp();}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ AngleOfRepose(\textcolor{keywordtype}{int}\ argc,\ \textcolor{keywordtype}{char}\ **argv);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ RandomPackingEllipsoid(\textcolor{keywordtype}{int}\ argc,\ \textcolor{keywordtype}{char}\ **argv);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{int}\ main(\textcolor{keywordtype}{int}\ argc,\ \textcolor{keywordtype}{char}\ **argv)\ \{}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{if}\ (argc\ ==\ 1)\ \{}
+\DoxyCodeLine{\ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}please\ specify\ the\ id\ of\ the\ task.\ \(\backslash\)n"{}}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}e.g.:\ netdem\_example\_netdem\ i"{}}\ <<\ endl;}
+\DoxyCodeLine{\ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}>>\ 00:\ genertate\ dataset\ for\ trimesh\ plane\ case"{}}\ <<\ endl;}
+\DoxyCodeLine{\ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}>>\ 01:\ test\ dataset\ for\ trimesh\ plane\ case"{}}\ <<\ endl;}
+\DoxyCodeLine{\ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}>>\ 02:\ train\ classifier\ for\ trimesh\ plane\ case"{}}\ <<\ endl;}
+\DoxyCodeLine{\ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}>>\ 03:\ test\ classifier\ for\ trimesh\ plane\ case"{}}\ <<\ endl;}
+\DoxyCodeLine{\ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}>>\ 04:\ train\ regressor\ for\ trimesh\ plane\ case"{}}\ <<\ endl;}
+\DoxyCodeLine{\ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}>>\ 05:\ test\ regressor\ for\ trimesh\ plane\ case"{}}\ <<\ endl;}
+\DoxyCodeLine{\ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}>>\ 06:\ test\ ann\ vs\ geometric\ for\ trimesh\ plane\ case"{}}\ <<\ endl;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}>>\ 10:\ genertate\ dataset\ for\ trimesh\ trimesh\ case"{}}\ <<\ endl;}
+\DoxyCodeLine{\ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}>>\ 11:\ test\ dataset\ for\ trimesh\ trimesh\ case"{}}\ <<\ endl;}
+\DoxyCodeLine{\ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}>>\ 12:\ train\ classifier\ for\ trimesh\ trimesh\ case"{}}\ <<\ endl;}
+\DoxyCodeLine{\ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}>>\ 13:\ test\ classifier\ for\ trimesh\ trimesh\ case"{}}\ <<\ endl;}
+\DoxyCodeLine{\ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}>>\ 14:\ train\ regressor\ for\ trimesh\ trimesh\ case"{}}\ <<\ endl;}
+\DoxyCodeLine{\ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}>>\ 15:\ test\ regressor\ for\ trimesh\ trimesh\ case"{}}\ <<\ endl;}
+\DoxyCodeLine{\ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}>>\ 16:\ test\ ann\ vs\ geometric\ for\ trimesh\ trimesh\ case"{}}\ <<\ endl;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}>>\ 20:\ genertate\ dataset\ for\ ellipsoid\ plane\ case"{}}\ <<\ endl;}
+\DoxyCodeLine{\ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}>>\ 21:\ test\ dataset\ for\ ellipsoid\ plane\ case"{}}\ <<\ endl;}
+\DoxyCodeLine{\ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}>>\ 22:\ train\ classifier\ for\ ellipsoid\ plane\ case"{}}\ <<\ endl;}
+\DoxyCodeLine{\ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}>>\ 23:\ test\ classifier\ for\ ellipsoid\ plane\ case"{}}\ <<\ endl;}
+\DoxyCodeLine{\ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}>>\ 24:\ train\ regressor\ for\ ellipsoid\ plane\ case"{}}\ <<\ endl;}
+\DoxyCodeLine{\ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}>>\ 25:\ test\ regressor\ for\ ellipsoid\ plane\ case"{}}\ <<\ endl;}
+\DoxyCodeLine{\ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}>>\ 26:\ test\ ann\ vs\ geometric\ for\ ellipsoid\ plane\ case"{}}\ <<\ endl;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}>>\ 30:\ genertate\ dataset\ for\ ellipsoid\ ellipsoid\ case"{}}\ <<\ endl;}
+\DoxyCodeLine{\ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}>>\ 31:\ test\ dataset\ for\ ellipsoid\ ellipsoid\ case"{}}\ <<\ endl;}
+\DoxyCodeLine{\ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}>>\ 32:\ train\ classifier\ for\ ellipsoid\ ellipsoid\ case"{}}\ <<\ endl;}
+\DoxyCodeLine{\ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}>>\ 33:\ test\ classifier\ for\ ellipsoid\ ellipsoid\ case"{}}\ <<\ endl;}
+\DoxyCodeLine{\ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}>>\ 34:\ train\ regressor\ for\ ellipsoid\ ellipsoid\ case"{}}\ <<\ endl;}
+\DoxyCodeLine{\ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}>>\ 35:\ test\ regressor\ for\ ellipsoid\ ellipsoid\ case"{}}\ <<\ endl;}
+\DoxyCodeLine{\ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}>>\ 36:\ test\ ann\ vs\ geometric\ for\ ellipsoid\ ellipsoid\ case"{}}\ <<\ endl;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}>>\ 90:\ random\ packing"{}}\ <<\ endl;}
+\DoxyCodeLine{\ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}>>\ 91:\ triaxial\ compression"{}}\ <<\ endl;}
+\DoxyCodeLine{\ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}>>\ 92:\ angle\ of\ repose"{}}\ <<\ endl;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{return}\ -\/1;}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{keywordtype}{string}\ root\_dir\ =\ \textcolor{stringliteral}{"{}local/examples/netdem/ann\_models/"{}};}
+\DoxyCodeLine{\ \ filesystem::create\_directories(root\_dir\ +\ \textcolor{stringliteral}{"{}trimesh\_plane/training/"{}});}
+\DoxyCodeLine{\ \ filesystem::create\_directories(root\_dir\ +\ \textcolor{stringliteral}{"{}trimesh\_trimesh/training/"{}});}
+\DoxyCodeLine{\ \ filesystem::create\_directories(root\_dir\ +\ \textcolor{stringliteral}{"{}ellipsoid\_plane/training/"{}});}
+\DoxyCodeLine{\ \ filesystem::create\_directories(root\_dir\ +\ \textcolor{stringliteral}{"{}ellipsoid\_ellipsoid/training/"{}});}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id}\ =\ atof(argv[1]);}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{switch}\ (\textcolor{keywordtype}{id})\ \{}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{case}\ 0:}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{if}\ (argc\ ==\ 2)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ GenDatasetTrimeshPlane();}
+\DoxyCodeLine{\ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \textcolor{keywordtype}{int}\ num\_samples\ =\ atof(argv[2]);}
+\DoxyCodeLine{\ \ \ \ \ \ GenDatasetTrimeshPlane(num\_samples);}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{case}\ 1:}
+\DoxyCodeLine{\ \ \ \ TestDatasetTrimeshPlane();}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{case}\ 2:}
+\DoxyCodeLine{\ \ \ \ TrainClassifierTrimeshPlane();}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{case}\ 3:}
+\DoxyCodeLine{\ \ \ \ TestClassifierTrimeshPlane();}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{case}\ 4:}
+\DoxyCodeLine{\ \ \ \ TrainRegressorTrimeshPlane();}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{case}\ 5:}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{if}\ (argc\ ==\ 2)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ TestRegressorTrimeshPlane();}
+\DoxyCodeLine{\ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \textcolor{keywordtype}{int}\ id\_comp\ =\ atof(argv[2]);}
+\DoxyCodeLine{\ \ \ \ \ \ TestRegressorTrimeshPlane(id\_comp);}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{case}\ 6:}
+\DoxyCodeLine{\ \ \ \ TestANNvsGeometricTrimeshPlane();}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{case}\ 10:}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{if}\ (argc\ ==\ 2)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ GenDatasetTrimesh();}
+\DoxyCodeLine{\ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \textcolor{keywordtype}{int}\ num\_samples\ =\ atof(argv[2]);}
+\DoxyCodeLine{\ \ \ \ \ \ GenDatasetTrimesh(num\_samples);}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{case}\ 11:}
+\DoxyCodeLine{\ \ \ \ TestDatasetTrimesh();}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{case}\ 12:}
+\DoxyCodeLine{\ \ \ \ TrainClassifierTrimesh();}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{case}\ 13:}
+\DoxyCodeLine{\ \ \ \ TestClassifierTrimesh();}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{case}\ 14:}
+\DoxyCodeLine{\ \ \ \ TrainRegressorTrimesh();}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{case}\ 15:}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{if}\ (argc\ ==\ 2)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ TestRegressorTrimesh();}
+\DoxyCodeLine{\ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \textcolor{keywordtype}{int}\ id\_comp\ =\ atof(argv[2]);}
+\DoxyCodeLine{\ \ \ \ \ \ TestRegressorTrimesh(id\_comp);}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{case}\ 16:}
+\DoxyCodeLine{\ \ \ \ TestANNvsGeometricTrimesh();}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{case}\ 17:}
+\DoxyCodeLine{\ \ \ \ TestANNvsGeometricTrimesh\_v2();}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{case}\ 20:}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{if}\ (argc\ ==\ 2)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ GenDatasetEllipsoidPlane();}
+\DoxyCodeLine{\ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \textcolor{keywordtype}{int}\ num\_samples\ =\ atof(argv[2]);}
+\DoxyCodeLine{\ \ \ \ \ \ GenDatasetEllipsoidPlane(num\_samples);}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{case}\ 21:}
+\DoxyCodeLine{\ \ \ \ TestDatasetEllipsoidPlane();}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{case}\ 22:}
+\DoxyCodeLine{\ \ \ \ TrainClassifierEllipsoidPlane();}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{case}\ 23:}
+\DoxyCodeLine{\ \ \ \ TestClassifierEllipsoidPlane();}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{case}\ 24:}
+\DoxyCodeLine{\ \ \ \ TrainRegressorEllipsoidPlane();}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{case}\ 25:}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{if}\ (argc\ ==\ 2)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ TestRegressorEllipsoidPlane();}
+\DoxyCodeLine{\ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \textcolor{keywordtype}{int}\ id\_comp\ =\ atof(argv[2]);}
+\DoxyCodeLine{\ \ \ \ \ \ TestRegressorEllipsoidPlane(id\_comp);}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{case}\ 26:}
+\DoxyCodeLine{\ \ \ \ TestANNvsGeometricEllipsoidPlane();}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{case}\ 30:}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{if}\ (argc\ ==\ 2)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ GenDatasetEllipsoid();}
+\DoxyCodeLine{\ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \textcolor{keywordtype}{int}\ num\_samples\ =\ atof(argv[2]);}
+\DoxyCodeLine{\ \ \ \ \ \ GenDatasetEllipsoid(num\_samples);}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{case}\ 31:}
+\DoxyCodeLine{\ \ \ \ TestDatasetEllipsoid();}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{case}\ 32:}
+\DoxyCodeLine{\ \ \ \ TrainClassifierEllipsoid();}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{case}\ 33:}
+\DoxyCodeLine{\ \ \ \ TestClassifierEllipsoid();}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{case}\ 34:}
+\DoxyCodeLine{\ \ \ \ TrainRegressorEllipsoid();}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{case}\ 35:}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{if}\ (argc\ ==\ 2)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ TestRegressorEllipsoid();}
+\DoxyCodeLine{\ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \textcolor{keywordtype}{int}\ id\_comp\ =\ atof(argv[2]);}
+\DoxyCodeLine{\ \ \ \ \ \ TestRegressorEllipsoid(id\_comp);}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{case}\ 36:}
+\DoxyCodeLine{\ \ \ \ TestANNvsGeometricEllipsoid();}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{case}\ 37:}
+\DoxyCodeLine{\ \ \ \ TestANNvsGeometricEllipsoid\_v2();}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{case}\ 90:}
+\DoxyCodeLine{\ \ \ \ RandomPackingTrimesh(argc,\ argv);}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{case}\ 91:}
+\DoxyCodeLine{\ \ \ \ TriaxialComp();}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{case}\ 92:}
+\DoxyCodeLine{\ \ \ \ AngleOfRepose(argc,\ argv);}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{case}\ 96:}
+\DoxyCodeLine{\ \ \ \ RandomPackingEllipsoid(argc,\ argv);}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\}}
+
+\end{DoxyCodeInclude}
+ 

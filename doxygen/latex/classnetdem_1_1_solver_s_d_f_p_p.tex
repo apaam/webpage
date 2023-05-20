@@ -52,7 +52,7 @@ void \mbox{\hyperlink{classnetdem_1_1_solver_s_d_f_p_p_a433870c332d743bef8b9c262
 \begin{DoxyCompactList}\small\item\em Initializes the contact resolution from particle 1 to particle 2. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classnetdem_1_1_solver_s_d_f_p_p_af2c18fef7b5e05165ddc3d82e33b3fb9}{Resolve\+Update\+P1\+To\+P2}} (\mbox{\hyperlink{classnetdem_1_1_collision_geometries}{Collision\+Geometries}} $\ast$const cnt\+\_\+geoms, double timestep)
 \begin{DoxyCompactList}\small\item\em Updates the contact resolution from particle 1 to particle 2. \end{DoxyCompactList}\item 
-double \mbox{\hyperlink{classnetdem_1_1_solver_s_d_f_p_p_a6a56cdf0d11609a97bff00474c5c861f}{Potential}} (double dist, \mbox{\hyperlink{classnetdem_1_1_shape}{Shape}} $\ast$shape)
+double \mbox{\hyperlink{classnetdem_1_1_solver_s_d_f_p_p_a90b75907021b0b89c15c93ac0600f7d6}{Get\+Potential}} (double dist, \mbox{\hyperlink{classnetdem_1_1_shape}{Shape}} $\ast$shape)
 \begin{DoxyCompactList}\small\item\em Calculates the potential energy of a contact point. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Public Member Functions inherited from \mbox{\hyperlink{classnetdem_1_1_collision_solver_p_p}{netdem\+::\+Collision\+Solver\+PP}}}
 \begin{DoxyCompactItemize}
@@ -102,7 +102,10 @@ void \mbox{\hyperlink{classnetdem_1_1_collision_solver_p_p_acbd9d1cbc9698b5b4d37
 \doxysubsection{Detailed Description}
 Signed distance field-\/based contact solver. 
 
-This class is a collision solver that uses signed distance fields to detect and resolve collisions between particles with different shapes. It extends the \mbox{\hyperlink{classnetdem_1_1_collision_solver_p_p}{Collision\+Solver\+PP}} class. 
+This class is a collision solver that uses signed distance fields to detect and resolve collisions between particles with different shapes. It extends the \mbox{\hyperlink{classnetdem_1_1_collision_solver_p_p}{Collision\+Solver\+PP}} class. \begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{00_contact_test_sphere_8cpp-example}{00\+\_\+contact\+\_\+test\+\_\+sphere.\+cpp}}, \mbox{\hyperlink{01_contact_test_trimesh_8cpp-example}{01\+\_\+contact\+\_\+test\+\_\+trimesh.\+cpp}}, \mbox{\hyperlink{03_friction_test_sphere_8cpp-example}{03\+\_\+friction\+\_\+test\+\_\+sphere.\+cpp}}, \mbox{\hyperlink{04_friction_test_trimesh_8cpp-example}{04\+\_\+friction\+\_\+test\+\_\+trimesh.\+cpp}}, \mbox{\hyperlink{10_contact_test_sphere_8cpp-example}{10\+\_\+contact\+\_\+test\+\_\+sphere.\+cpp}}, and \mbox{\hyperlink{11_contact_test_trimesh_8cpp-example}{11\+\_\+contact\+\_\+test\+\_\+trimesh.\+cpp}}.\end{Desc}
+
 
 \doxysubsection{Member Enumeration Documentation}
 \mbox{\Hypertarget{classnetdem_1_1_solver_s_d_f_p_p_a402e8a5a585ee301bc4f356d0ac61d39}\label{classnetdem_1_1_solver_s_d_f_p_p_a402e8a5a585ee301bc4f356d0ac61d39}} 
@@ -172,6 +175,29 @@ True if a collision is detected, false otherwise.
 
 Implements \mbox{\hyperlink{classnetdem_1_1_collision_solver_p_p_a6eced6d2533770bdca8d440e8f515432}{netdem\+::\+Collision\+Solver\+PP}}.
 
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{00_contact_test_sphere_8cpp-example}{00\+\_\+contact\+\_\+test\+\_\+sphere.\+cpp}}, \mbox{\hyperlink{01_contact_test_trimesh_8cpp-example}{01\+\_\+contact\+\_\+test\+\_\+trimesh.\+cpp}}, \mbox{\hyperlink{03_friction_test_sphere_8cpp-example}{03\+\_\+friction\+\_\+test\+\_\+sphere.\+cpp}}, \mbox{\hyperlink{04_friction_test_trimesh_8cpp-example}{04\+\_\+friction\+\_\+test\+\_\+trimesh.\+cpp}}, \mbox{\hyperlink{10_contact_test_sphere_8cpp-example}{10\+\_\+contact\+\_\+test\+\_\+sphere.\+cpp}}, and \mbox{\hyperlink{11_contact_test_trimesh_8cpp-example}{11\+\_\+contact\+\_\+test\+\_\+trimesh.\+cpp}}.\end{Desc}
+\mbox{\Hypertarget{classnetdem_1_1_solver_s_d_f_p_p_a90b75907021b0b89c15c93ac0600f7d6}\label{classnetdem_1_1_solver_s_d_f_p_p_a90b75907021b0b89c15c93ac0600f7d6}} 
+\index{netdem::SolverSDFPP@{netdem::SolverSDFPP}!GetPotential@{GetPotential}}
+\index{GetPotential@{GetPotential}!netdem::SolverSDFPP@{netdem::SolverSDFPP}}
+\doxysubsubsection{\texorpdfstring{GetPotential()}{GetPotential()}}
+{\footnotesize\ttfamily double netdem\+::\+Solver\+SDFPP\+::\+Get\+Potential (\begin{DoxyParamCaption}\item[{double}]{dist,  }\item[{\mbox{\hyperlink{classnetdem_1_1_shape}{Shape}} $\ast$}]{shape }\end{DoxyParamCaption})}
+
+
+
+Calculates the potential energy of a contact point. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dist} & The signed distance between the particles at the contact point. \\
+\hline
+{\em shape} & The shape of the contact point. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The potential energy of the contact point. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{classnetdem_1_1_solver_s_d_f_p_p_af276bd15b726fdf4b4a66de8c17d2697}\label{classnetdem_1_1_solver_s_d_f_p_p_af276bd15b726fdf4b4a66de8c17d2697}} 
 \index{netdem::SolverSDFPP@{netdem::SolverSDFPP}!Init@{Init}}
 \index{Init@{Init}!netdem::SolverSDFPP@{netdem::SolverSDFPP}}
@@ -193,26 +219,9 @@ Initializes the collision solver with two particles.
 
 Reimplemented from \mbox{\hyperlink{classnetdem_1_1_collision_solver_p_p_a6dad96a983437f20ddae5a39af14d73b}{netdem\+::\+Collision\+Solver\+PP}}.
 
-\mbox{\Hypertarget{classnetdem_1_1_solver_s_d_f_p_p_a6a56cdf0d11609a97bff00474c5c861f}\label{classnetdem_1_1_solver_s_d_f_p_p_a6a56cdf0d11609a97bff00474c5c861f}} 
-\index{netdem::SolverSDFPP@{netdem::SolverSDFPP}!Potential@{Potential}}
-\index{Potential@{Potential}!netdem::SolverSDFPP@{netdem::SolverSDFPP}}
-\doxysubsubsection{\texorpdfstring{Potential()}{Potential()}}
-{\footnotesize\ttfamily double netdem\+::\+Solver\+SDFPP\+::\+Potential (\begin{DoxyParamCaption}\item[{double}]{dist,  }\item[{\mbox{\hyperlink{classnetdem_1_1_shape}{Shape}} $\ast$}]{shape }\end{DoxyParamCaption})}
-
-
-
-Calculates the potential energy of a contact point. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em dist} & The signed distance between the particles at the contact point. \\
-\hline
-{\em shape} & The shape of the contact point. \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-The potential energy of the contact point. 
-\end{DoxyReturn}
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{00_contact_test_sphere_8cpp-example}{00\+\_\+contact\+\_\+test\+\_\+sphere.\+cpp}}, \mbox{\hyperlink{01_contact_test_trimesh_8cpp-example}{01\+\_\+contact\+\_\+test\+\_\+trimesh.\+cpp}}, \mbox{\hyperlink{03_friction_test_sphere_8cpp-example}{03\+\_\+friction\+\_\+test\+\_\+sphere.\+cpp}}, \mbox{\hyperlink{04_friction_test_trimesh_8cpp-example}{04\+\_\+friction\+\_\+test\+\_\+trimesh.\+cpp}}, \mbox{\hyperlink{10_contact_test_sphere_8cpp-example}{10\+\_\+contact\+\_\+test\+\_\+sphere.\+cpp}}, and \mbox{\hyperlink{11_contact_test_trimesh_8cpp-example}{11\+\_\+contact\+\_\+test\+\_\+trimesh.\+cpp}}.\end{Desc}
 \mbox{\Hypertarget{classnetdem_1_1_solver_s_d_f_p_p_a284f433e254aa5feb2dc1eec1ff041a2}\label{classnetdem_1_1_solver_s_d_f_p_p_a284f433e254aa5feb2dc1eec1ff041a2}} 
 \index{netdem::SolverSDFPP@{netdem::SolverSDFPP}!ResolveInit@{ResolveInit}}
 \index{ResolveInit@{ResolveInit}!netdem::SolverSDFPP@{netdem::SolverSDFPP}}
@@ -251,6 +260,9 @@ Initializes the contact resolution for a contact point.
 
 Implements \mbox{\hyperlink{classnetdem_1_1_collision_solver_p_p_a415abfb524cee7579a1883d7be4a704c}{netdem\+::\+Collision\+Solver\+PP}}.
 
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{00_contact_test_sphere_8cpp-example}{00\+\_\+contact\+\_\+test\+\_\+sphere.\+cpp}}, \mbox{\hyperlink{01_contact_test_trimesh_8cpp-example}{01\+\_\+contact\+\_\+test\+\_\+trimesh.\+cpp}}, \mbox{\hyperlink{03_friction_test_sphere_8cpp-example}{03\+\_\+friction\+\_\+test\+\_\+sphere.\+cpp}}, \mbox{\hyperlink{04_friction_test_trimesh_8cpp-example}{04\+\_\+friction\+\_\+test\+\_\+trimesh.\+cpp}}, \mbox{\hyperlink{10_contact_test_sphere_8cpp-example}{10\+\_\+contact\+\_\+test\+\_\+sphere.\+cpp}}, and \mbox{\hyperlink{11_contact_test_trimesh_8cpp-example}{11\+\_\+contact\+\_\+test\+\_\+trimesh.\+cpp}}.\end{Desc}
 \mbox{\Hypertarget{classnetdem_1_1_solver_s_d_f_p_p_a433870c332d743bef8b9c26222a85809}\label{classnetdem_1_1_solver_s_d_f_p_p_a433870c332d743bef8b9c26222a85809}} 
 \index{netdem::SolverSDFPP@{netdem::SolverSDFPP}!ResolveInitP1ToP2@{ResolveInitP1ToP2}}
 \index{ResolveInitP1ToP2@{ResolveInitP1ToP2}!netdem::SolverSDFPP@{netdem::SolverSDFPP}}
@@ -323,6 +335,9 @@ Updates the contact resolution for a contact point.
 
 Implements \mbox{\hyperlink{classnetdem_1_1_collision_solver_p_p_a771c9c6936e759a71e2205d0a7ce39cb}{netdem\+::\+Collision\+Solver\+PP}}.
 
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{00_contact_test_sphere_8cpp-example}{00\+\_\+contact\+\_\+test\+\_\+sphere.\+cpp}}, \mbox{\hyperlink{01_contact_test_trimesh_8cpp-example}{01\+\_\+contact\+\_\+test\+\_\+trimesh.\+cpp}}, \mbox{\hyperlink{03_friction_test_sphere_8cpp-example}{03\+\_\+friction\+\_\+test\+\_\+sphere.\+cpp}}, \mbox{\hyperlink{04_friction_test_trimesh_8cpp-example}{04\+\_\+friction\+\_\+test\+\_\+trimesh.\+cpp}}, \mbox{\hyperlink{10_contact_test_sphere_8cpp-example}{10\+\_\+contact\+\_\+test\+\_\+sphere.\+cpp}}, and \mbox{\hyperlink{11_contact_test_trimesh_8cpp-example}{11\+\_\+contact\+\_\+test\+\_\+trimesh.\+cpp}}.\end{Desc}
 \mbox{\Hypertarget{classnetdem_1_1_solver_s_d_f_p_p_af2c18fef7b5e05165ddc3d82e33b3fb9}\label{classnetdem_1_1_solver_s_d_f_p_p_af2c18fef7b5e05165ddc3d82e33b3fb9}} 
 \index{netdem::SolverSDFPP@{netdem::SolverSDFPP}!ResolveUpdateP1ToP2@{ResolveUpdateP1ToP2}}
 \index{ResolveUpdateP1ToP2@{ResolveUpdateP1ToP2}!netdem::SolverSDFPP@{netdem::SolverSDFPP}}
@@ -376,6 +391,9 @@ Updates the contact resolution from particle 2 to particle 1.
 
 The type of potential used by the solver. 
 
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{00_contact_test_sphere_8cpp-example}{00\+\_\+contact\+\_\+test\+\_\+sphere.\+cpp}}, \mbox{\hyperlink{01_contact_test_trimesh_8cpp-example}{01\+\_\+contact\+\_\+test\+\_\+trimesh.\+cpp}}, \mbox{\hyperlink{03_friction_test_sphere_8cpp-example}{03\+\_\+friction\+\_\+test\+\_\+sphere.\+cpp}}, \mbox{\hyperlink{04_friction_test_trimesh_8cpp-example}{04\+\_\+friction\+\_\+test\+\_\+trimesh.\+cpp}}, \mbox{\hyperlink{10_contact_test_sphere_8cpp-example}{10\+\_\+contact\+\_\+test\+\_\+sphere.\+cpp}}, and \mbox{\hyperlink{11_contact_test_trimesh_8cpp-example}{11\+\_\+contact\+\_\+test\+\_\+trimesh.\+cpp}}.\end{Desc}
 \mbox{\Hypertarget{classnetdem_1_1_solver_s_d_f_p_p_ac6cfebc36e02763afe5b442a26e7fe3a}\label{classnetdem_1_1_solver_s_d_f_p_p_ac6cfebc36e02763afe5b442a26e7fe3a}} 
 \index{netdem::SolverSDFPP@{netdem::SolverSDFPP}!solve\_two\_sides@{solve\_two\_sides}}
 \index{solve\_two\_sides@{solve\_two\_sides}!netdem::SolverSDFPP@{netdem::SolverSDFPP}}
