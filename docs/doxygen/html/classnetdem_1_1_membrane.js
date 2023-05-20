@@ -20,9 +20,13 @@ var classnetdem_1_1_membrane =
     [ "bc_nodal_vels", "classnetdem_1_1_membrane.html#a4890392a26d26675aedd4c03c795f3a4", null ],
     [ "center", "classnetdem_1_1_membrane.html#abf0179a0c97f60069bc0b935d812a50f", null ],
     [ "damp_coef", "classnetdem_1_1_membrane.html#a425f6006797bd1cade2678bcb10789e9", null ],
+    [ "density", "classnetdem_1_1_membrane.html#a03635c5fa6a0aba5c14c1350d61a73c6", null ],
     [ "elemental_stress", "classnetdem_1_1_membrane.html#a970cf4e3c26c6dcc97d74f8f5a932c35", null ],
+    [ "elements", "classnetdem_1_1_membrane.html#a9b746e959a88fddad2fd95d91dae1b9d", null ],
+    [ "height", "classnetdem_1_1_membrane.html#a92f387e7749a9d6661c999c028a966b3", null ],
     [ "mesh_size", "classnetdem_1_1_membrane.html#a5aa8c46249345a940620cd529976de33", null ],
     [ "neo_k", "classnetdem_1_1_membrane.html#ab9c63af52dbfd3d06ad493996a57e5fb", null ],
+    [ "neo_mu", "classnetdem_1_1_membrane.html#a5a374bde0a8881183aad942464d79fbb", null ],
     [ "nodal_forces_ext", "classnetdem_1_1_membrane.html#ab4e822d5cd89935e6d155d04ef2104a1", null ],
     [ "nodal_forces_int", "classnetdem_1_1_membrane.html#ad5a782f17dd03f187c5a36e5d9876998", null ],
     [ "nodal_vels", "classnetdem_1_1_membrane.html#a2675bdcba40c6f40dc32b82e19628391", null ],
@@ -31,5 +35,6 @@ var classnetdem_1_1_membrane =
     [ "radius", "classnetdem_1_1_membrane.html#a014b92179c66331ff939cdb39417dc8b", null ],
     [ "ref_ele_area", "classnetdem_1_1_membrane.html#a7757cbb69ddcc82d4b2f2b15d69f622d", null ],
     [ "ref_ele_width", "classnetdem_1_1_membrane.html#abe48dc5e53a269666710afc3414a3bc2", null ],
+    [ "thickness", "classnetdem_1_1_membrane.html#abd4916216d8759b1bce6d572cfe60411", null ],
     [ "timestep", "classnetdem_1_1_membrane.html#a74d1b0aac20c846f97c0b62a6387948d", null ]
 ];

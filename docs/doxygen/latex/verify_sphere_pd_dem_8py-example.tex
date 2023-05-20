@@ -1,0 +1,100 @@
+\hypertarget{verify_sphere_pd_dem_8py-example}{}\doxysection{verify\+\_\+sphere\+\_\+pd\+\_\+dem.\+py}
+This is an example of how to use the netdem library.
+
+
+\begin{DoxyCodeInclude}{0}
+\DoxyCodeLine{00001\ \textcolor{keyword}{import}\ sys}
+\DoxyCodeLine{00002\ \textcolor{keyword}{import}\ os}
+\DoxyCodeLine{00003\ dir\_path\ =\ os.path.dirname(os.path.realpath(\_\_file\_\_))}
+\DoxyCodeLine{00004\ sys.path.append(dir\_path\ +\ \textcolor{stringliteral}{"{}/../../build/lib/"{}})}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{keyword}{import}\ pynetdem}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{comment}{\#\ simulation\ settings.\ units:\ mm,\ 1000\ kg,\ N,\ s}}
+\DoxyCodeLine{00009\ sim\ =\ pynetdem.Simulation()}
+\DoxyCodeLine{00010\ sim.domain\_manager.SetBound(-\/16,\ -\/16,\ -\/16,\ 16,\ 16,\ 16)}
+\DoxyCodeLine{00011\ sim.domain\_manager.SetCellSpacing(0.6,\ 0.6,\ 0.6)}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{comment}{\#\ contact\ settings}}
+\DoxyCodeLine{00014\ sim.dem\_solver.contact\_solver\_factory.settings.solver\_type\ \(\backslash\)}
+\DoxyCodeLine{00015\ \ \ \ \ =\ pynetdem.ContactSolverSettings.SolverType.sdf}
+\DoxyCodeLine{00016\ sim.dem\_solver.contact\_solver\_factory.settings.sdf\_potential\_type\ =\ 0}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ cnt\_model\ =\ pynetdem.LinearSpring(2.0e4,\ 1.0e4,\ 0.7,\ 0.5)}
+\DoxyCodeLine{00019\ cnt\_model\_ptr\ =\ sim.scene.InsertContactModel(cnt\_model)}
+\DoxyCodeLine{00020\ sim.scene.SetNumberOfMaterials(1)}
+\DoxyCodeLine{00021\ sim.scene.SetCollisionModel(0,\ 0,\ cnt\_model\_ptr)}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \textcolor{comment}{\#\ create\ a\ particle\ and\ two\ walls}}
+\DoxyCodeLine{00024\ trimesh\ =\ pynetdem.TriMesh()}
+\DoxyCodeLine{00025\ trimesh.InitFromSTL(\textcolor{stringliteral}{"{}data/sphere.stl"{}})}
+\DoxyCodeLine{00026\ trimesh.AlignAxes()}
+\DoxyCodeLine{00027\ trimesh.SetSize(2.0)}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ plane\_1\ =\ pynetdem.Plane(0,\ 0,\ 1.0,\ 0,\ 0,\ -\/1)}
+\DoxyCodeLine{00030\ plane\_2\ =\ pynetdem.Plane(0,\ 0,\ -\/1.0,\ 0,\ 0,\ 1)}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ trimesh\_ptr\ =\ sim.scene.InsertShape(trimesh)}
+\DoxyCodeLine{00033\ plane\_1\_ptr\ =\ sim.scene.InsertShape(plane\_1)}
+\DoxyCodeLine{00034\ plane\_2\_ptr\ =\ sim.scene.InsertShape(plane\_2)}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ p\ =\ pynetdem.Particle(trimesh\_ptr)}
+\DoxyCodeLine{00037\ p.SetDensity(2650e-\/6)}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ w\_1\ =\ pynetdem.Wall(plane\_1\_ptr)}
+\DoxyCodeLine{00040\ w\_2\ =\ pynetdem.Wall(plane\_2\_ptr)}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ sim.scene.InsertParticle(p)}
+\DoxyCodeLine{00043\ sim.scene.InsertWall(w\_1)}
+\DoxyCodeLine{00044\ sim.scene.InsertWall(w\_2)}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \textcolor{comment}{\#\ save\ results}}
+\DoxyCodeLine{00047\ data\_dumper\ =\ pynetdem.DataDumper()}
+\DoxyCodeLine{00048\ data\_dumper.Init(sim)}
+\DoxyCodeLine{00049\ data\_dumper.SetRootPath(\textcolor{stringliteral}{"{}tmp/out/"{}})}
+\DoxyCodeLine{00050\ data\_dumper.SetSaveByCycles(100)}
+\DoxyCodeLine{00051\ data\_dumper.SaveShapeInfoAsSTL()}
+\DoxyCodeLine{00052\ data\_dumper.dump\_shape\_info\ =\ \textcolor{keyword}{True}}
+\DoxyCodeLine{00053\ data\_dumper.dump\_wall\_info\ =\ \textcolor{keyword}{True}}
+\DoxyCodeLine{00054\ data\_dumper.dump\_contact\_info\ =\ \textcolor{keyword}{True}}
+\DoxyCodeLine{00055\ sim.modifier\_manager.Insert(data\_dumper)}
+\DoxyCodeLine{00056\ sim.modifier\_manager.Enable(data\_dumper.label)}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \textcolor{comment}{\#\ breakage\ modifier}}
+\DoxyCodeLine{00059\ breakage\_analysis\ =\ pynetdem.BreakageAnalysisPD()}
+\DoxyCodeLine{00060\ breakage\_analysis.Init(sim)}
+\DoxyCodeLine{00061\ breakage\_analysis.SetRootPath(\textcolor{stringliteral}{"{}tmp/out/"{}})}
+\DoxyCodeLine{00062\ breakage\_analysis.SetParticleFromScene()}
+\DoxyCodeLine{00063\ breakage\_analysis.SetExecuteByCycles(1000)}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ breakage\_analysis.pd\_dem\_coupler.mesh\_res\ =\ 30}
+\DoxyCodeLine{00066\ breakage\_analysis.pd\_dem\_coupler.loading\_steps\ =\ 1000}
+\DoxyCodeLine{00067\ breakage\_analysis.pd\_dem\_coupler.fragment\_vol\_limit\ =\ 0.001}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00069\ strength\_params\ =\ breakage\_analysis.pd\_dem\_coupler.strength\_params}
+\DoxyCodeLine{00070\ strength\_params.ref\_size\ =\ 2.0}
+\DoxyCodeLine{00071\ strength\_params.ref\_energy\_release\_rate\ =\ 30e-\/3}
+\DoxyCodeLine{00072\ strength\_params.min\_breakable\_size\ =\ 1.9}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00074\ material\_params\ =\ breakage\_analysis.pd\_dem\_coupler.material\_params}
+\DoxyCodeLine{00075\ material\_params.density\ =\ 2650e-\/6}
+\DoxyCodeLine{00076\ material\_params.youngs\_modulus\ =\ 100e3}
+\DoxyCodeLine{00077\ material\_params.poissons\_ratio\ =\ 0.15}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00079\ sim.modifier\_manager.Insert(breakage\_analysis)}
+\DoxyCodeLine{00080\ sim.modifier\_manager.Enable(breakage\_analysis.label)}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00082\ \textcolor{comment}{\#\ add\ deformation\ drived\ loading\ for\ top\ wall}}
+\DoxyCodeLine{00083\ disp\_control\ =\ pynetdem.WallMotionControl()}
+\DoxyCodeLine{00084\ disp\_control.Init(sim)}
+\DoxyCodeLine{00085\ disp\_control.SetWall([0])}
+\DoxyCodeLine{00086\ disp\_control.SetVelocity(0,\ 0,\ -\/0.02)}
+\DoxyCodeLine{00087\ sim.modifier\_manager.Insert(disp\_control)}
+\DoxyCodeLine{00088\ sim.modifier\_manager.Enable(disp\_control.label)}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00090\ \textcolor{comment}{\#\ run\ the\ simulation}}
+\DoxyCodeLine{00091\ sim.dem\_solver.timestep\ =\ 1.0e-\/4}
+\DoxyCodeLine{00092\ sim.Run(1.0)}
+
+\end{DoxyCodeInclude}
+ 

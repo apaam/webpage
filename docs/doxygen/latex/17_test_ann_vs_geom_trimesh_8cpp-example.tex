@@ -1,0 +1,119 @@
+\hypertarget{17_test_ann_vs_geom_trimesh_8cpp-example}{}\doxysection{17\+\_\+test\+\_\+ann\+\_\+vs\+\_\+geom\+\_\+trimesh.\+cpp}
+This is an example of how to use the netdem library.
+
+
+\begin{DoxyCodeInclude}{0}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}contact\_solver\_factory.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}distribution\_uniform.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}general\_net.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}igl\_wrapper.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}mlpack\_utils.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}model\_volume\_based.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}particle.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}regression\_net.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}shape\_trimesh.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}solver\_boolean\_pp.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}solver\_boolean\_pw.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}spherical\_voronoi.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}utils\_math.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ <fstream>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ <random>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ <sstream>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{using\ namespace\ }\mbox{\hyperlink{namespacenetdem}{netdem}};}
+\DoxyCodeLine{\textcolor{keyword}{using\ namespace\ }std;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ TestANNvsGeometricTrimesh\_v2()\ \{}
+\DoxyCodeLine{\ \ \textcolor{comment}{//\ load\ particle}}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{classnetdem_1_1_tri_mesh}{TriMesh}}\ tri\_mesh\_1;}
+\DoxyCodeLine{\ \ tri\_mesh\_1.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_a1dc42a1f9439c900d76f213155ebb56d}{InitFromSTL}}(\textcolor{stringliteral}{"{}data/particle\_template.stl"{}});}
+\DoxyCodeLine{\ \ tri\_mesh\_1.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_a6676d86d935edffc85b01191695a60b9}{Decimate}}(400);}
+\DoxyCodeLine{\ \ tri\_mesh\_1.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_aa149712da01e2f068f28b8eba4395e14}{AlignAxes}}();}
+\DoxyCodeLine{\ \ tri\_mesh\_1.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_aa2378c12f277056e112f8e6a0b31669b}{SetSize}}(1.0);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{classnetdem_1_1_particle}{Particle}}\ obj\_p1\ =\ \mbox{\hyperlink{classnetdem_1_1_particle}{Particle}}(\&tri\_mesh\_1);}
+\DoxyCodeLine{\ \ obj\_p1.\mbox{\hyperlink{classnetdem_1_1_particle_af762283470f206c8a0797d6ce04f6436}{need\_update\_stl\_model}}\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{classnetdem_1_1_particle}{Particle}}\ obj\_p2\ =\ \mbox{\hyperlink{classnetdem_1_1_particle}{Particle}}(\&tri\_mesh\_1);}
+\DoxyCodeLine{\ \ obj\_p2.\mbox{\hyperlink{classnetdem_1_1_particle_af762283470f206c8a0797d6ce04f6436}{need\_update\_stl\_model}}\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\ \ cout\ <<\ \textcolor{stringliteral}{"{}particle\ created\ ...\ "{}}\ <<\ endl;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ obj\_p2.SetRodrigues(1.2,\ 0,\ 1,\ 0);}
+\DoxyCodeLine{\ \ obj\_p2.SetPosition(0,\ 0,\ 0.94);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{classnetdem_1_1_solver_boolean_p_p}{SolverBooleanPP}}\ cnt\_solver;}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{classnetdem_1_1_volume_based}{VolumeBased}}\ cnt\_model;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{keywordtype}{string}\ root\_dir\ =\ \textcolor{stringliteral}{"{}local/examples/netdem/ann\_models/trimesh\_trimesh/"{}};}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{classnetdem_1_1_general_net}{GeneralNet}}\ classifier;}
+\DoxyCodeLine{\ \ classifier.\mbox{\hyperlink{classnetdem_1_1_general_net_a0a7b122315dff46529463a46d8d180a0}{Load}}(root\_dir\ +\ \textcolor{stringliteral}{"{}ann\_classifier.xml"{}},\ \textcolor{stringliteral}{"{}detection"{}});}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{classnetdem_1_1_regression_net}{RegressionNet}}\ regressor;}
+\DoxyCodeLine{\ \ regressor.\mbox{\hyperlink{classnetdem_1_1_regression_net_a4802cc4f75ad194e3a1136ee85bdb8e6}{Load}}(root\_dir\ +\ \textcolor{stringliteral}{"{}ann\_regressor.xml"{}},\ \textcolor{stringliteral}{"{}resolution"{}});}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{comment}{//\ random\ generator}}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{classnetdem_1_1_uniform_distribution}{UniformDistribution}}\ uniform\_dist(0.0,\ 1.0);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{comment}{//\ random\ cases}}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ trial\ =\ 0;\ trial\ <\ 100;\ trial++)\ \{}
+\DoxyCodeLine{\ \ \ \ Vec3d\ pos;}
+\DoxyCodeLine{\ \ \ \ pos[0]\ =\ obj\_p2.pos[0]\ +\ (uniform\_dist.\mbox{\hyperlink{classnetdem_1_1_uniform_distribution_a7e39cbd0ed813d381022ad61986092bf}{Get}}()\ -\/\ 0.5)\ *\ 0.001;}
+\DoxyCodeLine{\ \ \ \ pos[1]\ =\ obj\_p2.pos[1]\ +\ (uniform\_dist.\mbox{\hyperlink{classnetdem_1_1_uniform_distribution_a7e39cbd0ed813d381022ad61986092bf}{Get}}()\ -\/\ 0.5)\ *\ 0.001;}
+\DoxyCodeLine{\ \ \ \ pos[2]\ =\ obj\_p2.pos[2]\ +\ (uniform\_dist.\mbox{\hyperlink{classnetdem_1_1_uniform_distribution_a7e39cbd0ed813d381022ad61986092bf}{Get}}()\ -\/\ 0.5)\ *\ 0.001;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{double}\ rot\_angle\{1.0e-\/4\};}
+\DoxyCodeLine{\ \ \ \ Vec3d\ rot\_axis;}
+\DoxyCodeLine{\ \ \ \ rot\_axis[0]\ =\ uniform\_dist.\mbox{\hyperlink{classnetdem_1_1_uniform_distribution_a7e39cbd0ed813d381022ad61986092bf}{Get}}()\ *\ 2.0\ -\/\ 1.0;}
+\DoxyCodeLine{\ \ \ \ rot\_axis[1]\ =\ uniform\_dist.\mbox{\hyperlink{classnetdem_1_1_uniform_distribution_a7e39cbd0ed813d381022ad61986092bf}{Get}}()\ *\ 2.0\ -\/\ 1.0;}
+\DoxyCodeLine{\ \ \ \ rot\_axis[2]\ =\ uniform\_dist.\mbox{\hyperlink{classnetdem_1_1_uniform_distribution_a7e39cbd0ed813d381022ad61986092bf}{Get}}()\ *\ 2.0\ -\/\ 1.0;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{auto}\ dquat\ =\ Math::Quaternion::FromRodrigues(rot\_angle,\ rot\_axis);}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{auto}\ quat\ =\ Math::Quaternion::Multiply(dquat,\ obj\_p2.quaternion);}
+\DoxyCodeLine{\ \ \ \ Math::Quaternion::Normalize(\&quat);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ apply\ to\ particle}}
+\DoxyCodeLine{\ \ \ \ obj\_p2.SetPosition(pos[0],\ pos[1],\ pos[2]);}
+\DoxyCodeLine{\ \ \ \ obj\_p2.SetQuaternion(quat[0],\ quat[1],\ quat[2],\ quat[3]);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ contact\ detection\ and\ resolution}}
+\DoxyCodeLine{\ \ \ \ arma::mat\ input(7,\ 1,\ arma::fill::zeros);}
+\DoxyCodeLine{\ \ \ \ input(0,\ 0)\ =\ obj\_p2.pos[0];}
+\DoxyCodeLine{\ \ \ \ input(1,\ 0)\ =\ obj\_p2.pos[1];}
+\DoxyCodeLine{\ \ \ \ input(2,\ 0)\ =\ obj\_p2.pos[2];}
+\DoxyCodeLine{\ \ \ \ input(3,\ 0)\ =\ obj\_p2.quaternion[0]\ *\ Math::Sign(obj\_p2.quaternion[0]);}
+\DoxyCodeLine{\ \ \ \ input(4,\ 0)\ =\ obj\_p2.quaternion[1]\ *\ Math::Sign(obj\_p2.quaternion[0]);}
+\DoxyCodeLine{\ \ \ \ input(5,\ 0)\ =\ obj\_p2.quaternion[2]\ *\ Math::Sign(obj\_p2.quaternion[0]);}
+\DoxyCodeLine{\ \ \ \ input(6,\ 0)\ =\ obj\_p2.quaternion[3]\ *\ Math::Sign(obj\_p2.quaternion[0]);}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{auto}\ output\ =\ classifier.\mbox{\hyperlink{classnetdem_1_1_general_net_af2fc4261724d922ce5723f9d977bd21e}{Classify}}(input);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ cnt\_solver.\mbox{\hyperlink{classnetdem_1_1_solver_boolean_p_p_a95d5fd4728888e1179367b180757859b}{Init}}(\&obj\_p1,\ \&obj\_p2);}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{auto}\ cnt\_flag\_geo\ =\ cnt\_solver.\mbox{\hyperlink{classnetdem_1_1_solver_boolean_p_p_a29f51c989ca7862fd199ce98a9aab1c8}{Detect}}();}
+\DoxyCodeLine{\ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}ann\ vs\ geometric:\ "{}}\ <<\ output(0)\ <<\ \textcolor{stringliteral}{"{},\ "{}}\ <<\ cnt\_flag\_geo\ <<\ endl;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{if}\ (cnt\_flag\_geo)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \textcolor{keyword}{auto}\ cnt\ =\ \mbox{\hyperlink{classnetdem_1_1_contact_p_p}{ContactPP}}(\&obj\_p1,\ \&obj\_p2);}
+\DoxyCodeLine{\ \ \ \ \ \ cnt.SetCollisionModel(\&cnt\_model);}
+\DoxyCodeLine{\ \ \ \ \ \ cnt\_solver.\mbox{\hyperlink{classnetdem_1_1_solver_boolean_p_p_a5942bacabf5ee221d0a0fd93118e7d54}{ResolveInit}}(\&cnt,\ 1.0e-\/4);}
+\DoxyCodeLine{\ \ \ \ \ \ \textcolor{keyword}{auto}\ \&cnt\_geoms\ =\ cnt.collision\_entries[0].cnt\_geoms;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \textcolor{comment}{//\ skip\ the\ contact\ if\ overlap\ is\ too\ large}}
+\DoxyCodeLine{\ \ \ \ \ \ \textcolor{keywordflow}{if}\ (cnt\_geoms.vol\ *\ cnt\_geoms.sn\ >\ 6.0e-\/4)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \textcolor{keyword}{auto}\ output\ =\ regressor.\mbox{\hyperlink{classnetdem_1_1_regression_net_ad0a454915d74f397ea4b6ce40c46f84e}{Predict}}(input);}
+\DoxyCodeLine{\ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}>>\ ann:\ "{}}\ <<\ pow(output(0,\ 0)\ /\ 40.0,\ 2.0)\ <<\ \textcolor{stringliteral}{"{},\ "{}}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ <<\ output(1,\ 0)\ /\ 40.0\ <<\ \textcolor{stringliteral}{"{},\ "{}}\ <<\ output(2,\ 0)\ <<\ \textcolor{stringliteral}{"{},\ "{}}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ <<\ output(3,\ 0)\ <<\ \textcolor{stringliteral}{"{},\ "{}}\ <<\ output(4,\ 0)\ <<\ \textcolor{stringliteral}{"{},\ "{}}\ <<\ output(5,\ 0)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{},\ "{}}\ <<\ output(6,\ 0)\ <<\ \textcolor{stringliteral}{"{},\ "{}}\ <<\ output(7,\ 0)\ <<\ endl;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}>>\ geo:\ "{}}\ <<\ cnt\_geoms.vol\ <<\ \textcolor{stringliteral}{"{},\ "{}}\ <<\ cnt\_geoms.sn\ <<\ \textcolor{stringliteral}{"{},\ "{}}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ <<\ cnt\_geoms.dir\_n[0]\ <<\ \textcolor{stringliteral}{"{},\ "{}}\ <<\ cnt\_geoms.dir\_n[1]\ <<\ \textcolor{stringliteral}{"{},\ "{}}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ <<\ cnt\_geoms.dir\_n[2]\ <<\ \textcolor{stringliteral}{"{},\ "{}}\ <<\ cnt\_geoms.pos[0]\ <<\ \textcolor{stringliteral}{"{},\ "{}}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ <<\ cnt\_geoms.pos[1]\ <<\ \textcolor{stringliteral}{"{},\ "{}}\ <<\ cnt\_geoms.pos[2]\ <<\ endl;}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCodeInclude}
+ 

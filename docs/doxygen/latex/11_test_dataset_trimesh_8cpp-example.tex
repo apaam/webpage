@@ -1,0 +1,214 @@
+\hypertarget{11_test_dataset_trimesh_8cpp-example}{}\doxysection{11\+\_\+test\+\_\+dataset\+\_\+trimesh.\+cpp}
+This is an example of how to use the netdem library.
+
+
+\begin{DoxyCodeInclude}{0}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}contact\_solver\_factory.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}model\_volume\_based.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}particle.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}shape\_trimesh.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}solver\_boolean\_pp.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}solver\_boolean\_pw.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}utils\_math.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ <fstream>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ <random>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ <sstream>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{using\ namespace\ }\mbox{\hyperlink{namespacenetdem}{netdem}};}
+\DoxyCodeLine{\textcolor{keyword}{using\ namespace\ }std;}
+\DoxyCodeLine{}
+\DoxyCodeLine{VecXT<VecXT<double>>\ LoadDatasetTrimesh(\textcolor{keywordtype}{string}\ filename)\ \{}
+\DoxyCodeLine{\ \ ifstream\ file\_handle;}
+\DoxyCodeLine{\ \ file\_handle.open(filename,\ ios::binary);}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{if}\ (!file\_handle)\ \{}
+\DoxyCodeLine{\ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Fail\ to\ read\ file:\ "{}}\ <<\ filename\ <<\ endl;}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{return}\ VecXT<VecXT<double>>();}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ file\_handle.seekg(0,\ ios::end);}
+\DoxyCodeLine{\ \ \textcolor{keywordtype}{long}\ context\_size\ =\ file\_handle.tellg();}
+\DoxyCodeLine{\ \ \textcolor{keywordtype}{char}\ *buffer\ =\ \textcolor{keyword}{new}\ \textcolor{keywordtype}{char}[context\_size];}
+\DoxyCodeLine{\ \ file\_handle.seekg(0);}
+\DoxyCodeLine{\ \ file\_handle.read(buffer,\ context\_size);}
+\DoxyCodeLine{\ \ file\_handle.close();}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ stringstream\ ss;}
+\DoxyCodeLine{\ \ ss.str(\textcolor{stringliteral}{"{}"{}});}
+\DoxyCodeLine{\ \ ss.clear();}
+\DoxyCodeLine{\ \ ss.str(buffer);}
+\DoxyCodeLine{\ \ VecXT<VecXT<double>>\ dataset;}
+\DoxyCodeLine{\ \ \textcolor{keywordtype}{string}\ str\_line,\ str\_num;}
+\DoxyCodeLine{\ \ VecXT<double>\ data\_line;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ getline(ss,\ str\_line);}
+\DoxyCodeLine{\ \ istringstream\ readstr(str\_line);}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{while}\ (getline(readstr,\ str\_num,\ \textcolor{charliteral}{','}))\ \{}
+\DoxyCodeLine{\ \ \ \ data\_line.push\_back(atof(str\_num.c\_str()));}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{\ \ getline(readstr,\ str\_num);}
+\DoxyCodeLine{\ \ data\_line.push\_back(atof(str\_num.c\_str()));}
+\DoxyCodeLine{\ \ dataset.push\_back(data\_line);}
+\DoxyCodeLine{\ \ \textcolor{keywordtype}{int}\ num\_data\_per\_line\ =\ data\_line.size();}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{while}\ (getline(ss,\ str\_line))\ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{if}\ (str\_line.find(\textcolor{stringliteral}{"{},"{}})\ ==\ string::npos)}
+\DoxyCodeLine{\ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ data\_line.resize(num\_data\_per\_line);}
+\DoxyCodeLine{\ \ \ \ istringstream\ readstr(str\_line);}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ num\_data\_per\_line\ -\/\ 1;\ i++)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ getline(readstr,\ str\_num,\ \textcolor{charliteral}{','});}
+\DoxyCodeLine{\ \ \ \ \ \ data\_line[i]\ =\ atof(str\_num.c\_str());}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ getline(readstr,\ str\_num);}
+\DoxyCodeLine{\ \ \ \ data\_line[num\_data\_per\_line\ -\/\ 1]\ =\ atof(str\_num.c\_str());}
+\DoxyCodeLine{\ \ \ \ dataset.push\_back(data\_line);}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{\ \ dataset.shrink\_to\_fit();}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{keyword}{delete}[]\ buffer;}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{return}\ dataset;}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ TestDatasetTrimeshDetection()\ \{}
+\DoxyCodeLine{\ \ \textcolor{comment}{//\ load\ particle}}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{classnetdem_1_1_tri_mesh}{TriMesh}}\ tri\_mesh\_1;}
+\DoxyCodeLine{\ \ tri\_mesh\_1.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_a1dc42a1f9439c900d76f213155ebb56d}{InitFromSTL}}(\textcolor{stringliteral}{"{}data/particle\_template.stl"{}});}
+\DoxyCodeLine{\ \ tri\_mesh\_1.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_a6676d86d935edffc85b01191695a60b9}{Decimate}}(400);}
+\DoxyCodeLine{\ \ tri\_mesh\_1.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_aa149712da01e2f068f28b8eba4395e14}{AlignAxes}}();}
+\DoxyCodeLine{\ \ tri\_mesh\_1.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_aa2378c12f277056e112f8e6a0b31669b}{SetSize}}(1.0);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{classnetdem_1_1_particle}{Particle}}\ obj\_p1\ =\ \mbox{\hyperlink{classnetdem_1_1_particle}{Particle}}(\&tri\_mesh\_1);}
+\DoxyCodeLine{\ \ obj\_p1.\mbox{\hyperlink{classnetdem_1_1_particle_af762283470f206c8a0797d6ce04f6436}{need\_update\_stl\_model}}\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{classnetdem_1_1_particle}{Particle}}\ obj\_p2\ =\ \mbox{\hyperlink{classnetdem_1_1_particle}{Particle}}(\&tri\_mesh\_1);}
+\DoxyCodeLine{\ \ obj\_p2.\mbox{\hyperlink{classnetdem_1_1_particle_af762283470f206c8a0797d6ce04f6436}{need\_update\_stl\_model}}\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\ \ cout\ <<\ \textcolor{stringliteral}{"{}particle\ created\ ...\ "{}}\ <<\ endl;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{keywordtype}{string}\ root\_dir\ =\ \textcolor{stringliteral}{"{}local/examples/netdem/ann\_models/trimesh\_trimesh/"{}};}
+\DoxyCodeLine{\ \ VecXT<VecXT<double>>\ dataset\ =}
+\DoxyCodeLine{\ \ \ \ \ \ LoadDatasetTrimesh(root\_dir\ +\ \textcolor{stringliteral}{"{}dataset\_detection.txt"{}});}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{keywordtype}{int}\ num\_samples\ =\ dataset.size();}
+\DoxyCodeLine{\ \ double(*ds\_inputs)[7]\ =\ \textcolor{keyword}{new}\ \textcolor{keywordtype}{double}[num\_samples][7];}
+\DoxyCodeLine{\ \ \textcolor{keywordtype}{bool}\ *ds\_cnt\_flags\ =\ \textcolor{keyword}{new}\ \textcolor{keywordtype}{bool}[num\_samples];}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0,\ skip\ =\ 1;\ i\ <\ num\_samples;\ i\ +=\ skip)\ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\_inputs\ =\ 0;\ i\_inputs\ <\ 7;\ i\_inputs++)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ ds\_inputs[i][i\_inputs]\ =\ dataset[i][i\_inputs];}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ ds\_cnt\_flags[i]\ =\ (bool)dataset[i][7];}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{classnetdem_1_1_solver_boolean_p_p}{SolverBooleanPP}}\ cnt\_solver;}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{classnetdem_1_1_volume_based}{VolumeBased}}\ cnt\_model;}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ num\_samples;\ i++)\ \{}
+\DoxyCodeLine{\ \ \ \ Vec3d\ pos;}
+\DoxyCodeLine{\ \ \ \ Vec4d\ quat;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ unpack\ the\ inputs}}
+\DoxyCodeLine{\ \ \ \ pos[0]\ =\ ds\_inputs[i][0];}
+\DoxyCodeLine{\ \ \ \ pos[1]\ =\ ds\_inputs[i][1];}
+\DoxyCodeLine{\ \ \ \ pos[2]\ =\ ds\_inputs[i][2];}
+\DoxyCodeLine{\ \ \ \ quat[0]\ =\ ds\_inputs[i][3];}
+\DoxyCodeLine{\ \ \ \ quat[1]\ =\ ds\_inputs[i][4];}
+\DoxyCodeLine{\ \ \ \ quat[2]\ =\ ds\_inputs[i][5];}
+\DoxyCodeLine{\ \ \ \ quat[3]\ =\ ds\_inputs[i][6];}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ obj\_p2.SetPosition(pos[0],\ pos[1],\ pos[2]);}
+\DoxyCodeLine{\ \ \ \ obj\_p2.SetQuaternion(quat[0],\ quat[1],\ quat[2],\ quat[3]);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ cnt\_solver.\mbox{\hyperlink{classnetdem_1_1_solver_boolean_p_p_a95d5fd4728888e1179367b180757859b}{Init}}(\&obj\_p1,\ \&obj\_p2);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{bool}\ cnt\_flag\ =\ cnt\_solver.\mbox{\hyperlink{classnetdem_1_1_solver_boolean_p_p_a29f51c989ca7862fd199ce98a9aab1c8}{Detect}}();}
+\DoxyCodeLine{\ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}true\ vs\ data:\ "{}}\ <<\ cnt\_flag\ <<\ \textcolor{stringliteral}{"{},\ "{}}\ <<\ ds\_cnt\_flags[i]\ <<\ endl;}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{keyword}{delete}[]\ ds\_inputs;}
+\DoxyCodeLine{\ \ \textcolor{keyword}{delete}[]\ ds\_cnt\_flags;}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ TestDatasetTrimeshResolution()\ \{}
+\DoxyCodeLine{\ \ \textcolor{comment}{//\ load\ particle}}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{classnetdem_1_1_tri_mesh}{TriMesh}}\ tri\_mesh\_1;}
+\DoxyCodeLine{\ \ tri\_mesh\_1.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_a1dc42a1f9439c900d76f213155ebb56d}{InitFromSTL}}(\textcolor{stringliteral}{"{}data/particle\_template.stl"{}});}
+\DoxyCodeLine{\ \ tri\_mesh\_1.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_a6676d86d935edffc85b01191695a60b9}{Decimate}}(400);}
+\DoxyCodeLine{\ \ tri\_mesh\_1.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_aa149712da01e2f068f28b8eba4395e14}{AlignAxes}}();}
+\DoxyCodeLine{\ \ tri\_mesh\_1.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_aa2378c12f277056e112f8e6a0b31669b}{SetSize}}(1.0);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{classnetdem_1_1_particle}{Particle}}\ obj\_p1\ =\ \mbox{\hyperlink{classnetdem_1_1_particle}{Particle}}(\&tri\_mesh\_1);}
+\DoxyCodeLine{\ \ obj\_p1.\mbox{\hyperlink{classnetdem_1_1_particle_af762283470f206c8a0797d6ce04f6436}{need\_update\_stl\_model}}\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{classnetdem_1_1_particle}{Particle}}\ obj\_p2\ =\ \mbox{\hyperlink{classnetdem_1_1_particle}{Particle}}(\&tri\_mesh\_1);}
+\DoxyCodeLine{\ \ obj\_p2.\mbox{\hyperlink{classnetdem_1_1_particle_af762283470f206c8a0797d6ce04f6436}{need\_update\_stl\_model}}\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\ \ cout\ <<\ \textcolor{stringliteral}{"{}particle\ created\ ...\ "{}}\ <<\ endl;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{keywordtype}{string}\ root\_dir\ =\ \textcolor{stringliteral}{"{}local/examples/netdem/ann\_models/trimesh\_trimesh/"{}};}
+\DoxyCodeLine{\ \ VecXT<VecXT<double>>\ dataset\ =}
+\DoxyCodeLine{\ \ \ \ \ \ LoadDatasetTrimesh(root\_dir\ +\ \textcolor{stringliteral}{"{}dataset\_resolution.txt"{}});}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{keywordtype}{int}\ num\_samples\ =\ dataset.size();}
+\DoxyCodeLine{\ \ double(*ds\_inputs)[7]\ =\ \textcolor{keyword}{new}\ \textcolor{keywordtype}{double}[num\_samples][7];}
+\DoxyCodeLine{\ \ double(*ds\_cnt\_feats)[8]\ =\ \textcolor{keyword}{new}\ \textcolor{keywordtype}{double}[num\_samples][8];}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0,\ skip\ =\ 1;\ i\ <\ num\_samples;\ i\ +=\ skip)\ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\_inputs\ =\ 0;\ i\_inputs\ <\ 7;\ i\_inputs++)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ ds\_inputs[i][i\_inputs]\ =\ dataset[i][i\_inputs];}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\_outputs\ =\ 0;\ i\_outputs\ <\ 8;\ i\_outputs++)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ ds\_cnt\_feats[i][i\_outputs]\ =\ dataset[i][7\ +\ i\_outputs];}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{classnetdem_1_1_solver_boolean_p_p}{SolverBooleanPP}}\ cnt\_solver;}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{classnetdem_1_1_volume_based}{VolumeBased}}\ cnt\_model;}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ num\_samples;\ i++)\ \{}
+\DoxyCodeLine{\ \ \ \ Vec3d\ pos;}
+\DoxyCodeLine{\ \ \ \ Vec4d\ quat;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ unpack\ the\ inputs}}
+\DoxyCodeLine{\ \ \ \ pos[0]\ =\ ds\_inputs[i][0];}
+\DoxyCodeLine{\ \ \ \ pos[1]\ =\ ds\_inputs[i][1];}
+\DoxyCodeLine{\ \ \ \ pos[2]\ =\ ds\_inputs[i][2];}
+\DoxyCodeLine{\ \ \ \ quat[0]\ =\ ds\_inputs[i][3];}
+\DoxyCodeLine{\ \ \ \ quat[1]\ =\ ds\_inputs[i][4];}
+\DoxyCodeLine{\ \ \ \ quat[2]\ =\ ds\_inputs[i][5];}
+\DoxyCodeLine{\ \ \ \ quat[3]\ =\ ds\_inputs[i][6];}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ obj\_p2.SetPosition(pos[0],\ pos[1],\ pos[2]);}
+\DoxyCodeLine{\ \ \ \ obj\_p2.SetQuaternion(quat[0],\ quat[1],\ quat[2],\ quat[3]);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ cnt\_solver.\mbox{\hyperlink{classnetdem_1_1_solver_boolean_p_p_a95d5fd4728888e1179367b180757859b}{Init}}(\&obj\_p1,\ \&obj\_p2);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ contact\ detection\ and\ resolution}}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{if}\ (cnt\_solver.\mbox{\hyperlink{classnetdem_1_1_solver_boolean_p_p_a29f51c989ca7862fd199ce98a9aab1c8}{Detect}}())\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \textcolor{keyword}{auto}\ cnt\ =\ \mbox{\hyperlink{classnetdem_1_1_contact_p_p}{ContactPP}}(\&obj\_p1,\ \&obj\_p2);}
+\DoxyCodeLine{\ \ \ \ \ \ cnt.SetCollisionModel(\&cnt\_model);}
+\DoxyCodeLine{\ \ \ \ \ \ cnt\_solver.\mbox{\hyperlink{classnetdem_1_1_solver_boolean_p_p_a5942bacabf5ee221d0a0fd93118e7d54}{ResolveInit}}(\&cnt,\ 1.0e-\/4);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \textcolor{keyword}{auto}\ \&cnt\_geoms\ =\ cnt.collision\_entries[0].cnt\_geoms;}
+\DoxyCodeLine{\ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}>>\ true:\ "{}}\ <<\ cnt\_geoms.vol\ <<\ \textcolor{stringliteral}{"{},\ "{}}\ <<\ cnt\_geoms.sn\ <<\ \textcolor{stringliteral}{"{},\ "{}}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ <<\ cnt\_geoms.dir\_n[0]\ <<\ \textcolor{stringliteral}{"{},\ "{}}\ <<\ cnt\_geoms.dir\_n[1]\ <<\ \textcolor{stringliteral}{"{},\ "{}}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ <<\ cnt\_geoms.dir\_n[2]\ <<\ \textcolor{stringliteral}{"{},\ "{}}\ <<\ cnt\_geoms.pos[0]\ <<\ \textcolor{stringliteral}{"{},\ "{}}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ <<\ cnt\_geoms.pos[1]\ <<\ \textcolor{stringliteral}{"{},\ "{}}\ <<\ cnt\_geoms.pos[2]\ <<\ endl;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}>>\ data:\ "{}}\ <<\ ds\_cnt\_feats[i][0]\ <<\ \textcolor{stringliteral}{"{},\ "{}}\ <<\ ds\_cnt\_feats[i][1]}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{},\ "{}}\ <<\ ds\_cnt\_feats[i][2]\ <<\ \textcolor{stringliteral}{"{},\ "{}}\ <<\ ds\_cnt\_feats[i][3]\ <<\ \textcolor{stringliteral}{"{},\ "{}}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ <<\ ds\_cnt\_feats[i][4]\ <<\ \textcolor{stringliteral}{"{},\ "{}}\ <<\ ds\_cnt\_feats[i][5]\ <<\ \textcolor{stringliteral}{"{},\ "{}}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ <<\ ds\_cnt\_feats[i][6]\ <<\ \textcolor{stringliteral}{"{},\ "{}}\ <<\ ds\_cnt\_feats[i][7]\ <<\ endl;}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{keyword}{delete}[]\ ds\_inputs;}
+\DoxyCodeLine{\ \ \textcolor{keyword}{delete}[]\ ds\_cnt\_feats;}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ TestDatasetTrimesh()\ \{}
+\DoxyCodeLine{\ \ TestDatasetTrimeshDetection();}
+\DoxyCodeLine{\ \ TestDatasetTrimeshResolution();}
+\DoxyCodeLine{\}}
+
+\end{DoxyCodeInclude}
+ 

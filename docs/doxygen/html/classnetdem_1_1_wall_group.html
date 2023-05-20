@@ -109,8 +109,10 @@ Inheritance diagram for netdem::WallGroup:</div>
  <div class="center">
   <img src="classnetdem_1_1_wall_group.png" usemap="#netdem::WallGroup_map" alt=""/>
   <map id="netdem::WallGroup_map" name="netdem::WallGroup_map">
-<area href="classnetdem_1_1_modifier.html" title="An interface class used to modify a DEM simulation." alt="netdem::Modifier" shape="rect" coords="0,0,174,24"/>
-<area href="classnetdem_1_1_wall_motion_integrator.html" title="A class used to integrate the motion of walls in a DEM simulation." alt="netdem::WallMotionIntegrator" shape="rect" coords="0,112,174,136"/>
+<area href="classnetdem_1_1_modifier.html" title="An interface class used to modify a DEM simulation." alt="netdem::Modifier" shape="rect" coords="184,0,358,24"/>
+<area href="classnetdem_1_1_wall_motion_control.html" title="A class used to control the displacement of walls in a DEM simulation." alt="netdem::WallMotionControl" shape="rect" coords="0,112,174,136"/>
+<area href="classnetdem_1_1_wall_motion_integrator.html" title="A class used to integrate the motion of walls in a DEM simulation." alt="netdem::WallMotionIntegrator" shape="rect" coords="184,112,358,136"/>
+<area href="classnetdem_1_1_wall_servo_control.html" title="A class used to control the pressure of walls in a DEM simulation." alt="netdem::WallServoControl" shape="rect" coords="368,112,542,136"/>
   </map>
 </div></div>
 <table class="memberdecls">
@@ -120,24 +122,36 @@ Public Member Functions</h2></td></tr>
 &#160;</td><td class="memItemRight" valign="bottom"><b>WallGroup</b> ()</td></tr>
 <tr class="memdesc:a491e0f53aeb375ac3fe50a743d095415"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor for <a class="el" href="classnetdem_1_1_wall_group.html" title="A class used to group walls in a DEM simulation.">WallGroup</a> class. <br /></td></tr>
 <tr class="separator:a491e0f53aeb375ac3fe50a743d095415"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a361c1c6185faa5b353d5759ceaa76147"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnetdem_1_1_wall_group.html#a361c1c6185faa5b353d5759ceaa76147">Add</a> (int id)</td></tr>
-<tr class="memdesc:a361c1c6185faa5b353d5759ceaa76147"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a wall to the group.  <br /></td></tr>
-<tr class="separator:a361c1c6185faa5b353d5759ceaa76147"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a28328fa26249e93fd507666caa48513d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnetdem_1_1_wall_group.html#a28328fa26249e93fd507666caa48513d">Remove</a> (int id)</td></tr>
-<tr class="memdesc:a28328fa26249e93fd507666caa48513d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes a wall from the group.  <br /></td></tr>
-<tr class="separator:a28328fa26249e93fd507666caa48513d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a970daf7b31d9fe756f4ebcf65a43161f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnetdem_1_1_wall_group.html#a970daf7b31d9fe756f4ebcf65a43161f">Add</a> (const VecXT&lt; int &gt; &amp;ids)</td></tr>
-<tr class="memdesc:a970daf7b31d9fe756f4ebcf65a43161f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds multiple walls to the group.  <br /></td></tr>
-<tr class="separator:a970daf7b31d9fe756f4ebcf65a43161f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6ee35d3efaf7c0afa016910cc8ef5a27"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnetdem_1_1_wall_group.html#a6ee35d3efaf7c0afa016910cc8ef5a27">Remove</a> (const VecXT&lt; int &gt; &amp;ids)</td></tr>
-<tr class="memdesc:a6ee35d3efaf7c0afa016910cc8ef5a27"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes multiple walls from the group.  <br /></td></tr>
-<tr class="separator:a6ee35d3efaf7c0afa016910cc8ef5a27"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a77bf39c9de439b197d640f0f3b6e3833"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnetdem_1_1_wall_group.html#a77bf39c9de439b197d640f0f3b6e3833">SetVelocity</a> (double v_x, double v_y, double v_z)</td></tr>
-<tr class="memdesc:a77bf39c9de439b197d640f0f3b6e3833"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the velocity properties for all walls in the group.  <br /></td></tr>
-<tr class="separator:a77bf39c9de439b197d640f0f3b6e3833"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7d41419d33624982347afad5ce76339e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnetdem_1_1_wall_group.html#a7d41419d33624982347afad5ce76339e">SetSpin</a> (double spin_x, double spin_y, double spin_z)</td></tr>
-<tr class="memdesc:a7d41419d33624982347afad5ce76339e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the spin properties for all walls in the group.  <br /></td></tr>
-<tr class="separator:a7d41419d33624982347afad5ce76339e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2f175f1aca80fd0c3deb0221a347a0d4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnetdem_1_1_wall_group.html#a2f175f1aca80fd0c3deb0221a347a0d4">AddWall</a> (int id)</td></tr>
+<tr class="memdesc:a2f175f1aca80fd0c3deb0221a347a0d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a wall to the group.  <br /></td></tr>
+<tr class="separator:a2f175f1aca80fd0c3deb0221a347a0d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0ab1673f0092ed9c0968167c41893801"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnetdem_1_1_wall_group.html#a0ab1673f0092ed9c0968167c41893801">RemoveWall</a> (int id)</td></tr>
+<tr class="memdesc:a0ab1673f0092ed9c0968167c41893801"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes a wall from the group.  <br /></td></tr>
+<tr class="separator:a0ab1673f0092ed9c0968167c41893801"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa5e0b8cbb99fc21a3200c02fd03300db"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnetdem_1_1_wall_group.html#aa5e0b8cbb99fc21a3200c02fd03300db">AddWall</a> (const VecXT&lt; int &gt; &amp;ids)</td></tr>
+<tr class="memdesc:aa5e0b8cbb99fc21a3200c02fd03300db"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds multiple walls to the group.  <br /></td></tr>
+<tr class="separator:aa5e0b8cbb99fc21a3200c02fd03300db"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a83ff0808e0949dea7b1e69270bcd1dd3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnetdem_1_1_wall_group.html#a83ff0808e0949dea7b1e69270bcd1dd3">RemoveWall</a> (const VecXT&lt; int &gt; &amp;ids)</td></tr>
+<tr class="memdesc:a83ff0808e0949dea7b1e69270bcd1dd3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes multiple walls from the group.  <br /></td></tr>
+<tr class="separator:a83ff0808e0949dea7b1e69270bcd1dd3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4a09fe85156113d9eca35c22a6068d5d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnetdem_1_1_wall_group.html#a4a09fe85156113d9eca35c22a6068d5d">AddWall</a> (const std::initializer_list&lt; int &gt; &amp;ids)</td></tr>
+<tr class="memdesc:a4a09fe85156113d9eca35c22a6068d5d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds multiple walls to the group.  <br /></td></tr>
+<tr class="separator:a4a09fe85156113d9eca35c22a6068d5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae31b1d10531cb721ccfe9a1e3ee4388b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnetdem_1_1_wall_group.html#ae31b1d10531cb721ccfe9a1e3ee4388b">RemoveWall</a> (const std::initializer_list&lt; int &gt; &amp;ids)</td></tr>
+<tr class="memdesc:ae31b1d10531cb721ccfe9a1e3ee4388b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes multiple walls from the group.  <br /></td></tr>
+<tr class="separator:ae31b1d10531cb721ccfe9a1e3ee4388b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:accb5c20f50a34cb163b77a818759720f"><td class="memItemLeft" align="right" valign="top"><a id="accb5c20f50a34cb163b77a818759720f" name="accb5c20f50a34cb163b77a818759720f"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>SetWall</b> (int id)</td></tr>
+<tr class="memdesc:accb5c20f50a34cb163b77a818759720f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the walls based on a wall ID. <br /></td></tr>
+<tr class="separator:accb5c20f50a34cb163b77a818759720f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a313278e7ee0c4a89bc8935cde2ae9d6d"><td class="memItemLeft" align="right" valign="top"><a id="a313278e7ee0c4a89bc8935cde2ae9d6d" name="a313278e7ee0c4a89bc8935cde2ae9d6d"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>SetWall</b> (const VecXT&lt; int &gt; &amp;id_list)</td></tr>
+<tr class="memdesc:a313278e7ee0c4a89bc8935cde2ae9d6d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the walls based on a variable number of wall IDs. <br /></td></tr>
+<tr class="separator:a313278e7ee0c4a89bc8935cde2ae9d6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a53a7d80d906f8184c2da7c8f394aae33"><td class="memItemLeft" align="right" valign="top"><a id="a53a7d80d906f8184c2da7c8f394aae33" name="a53a7d80d906f8184c2da7c8f394aae33"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>SetWall</b> (const std::initializer_list&lt; int &gt; &amp;id_list)</td></tr>
+<tr class="memdesc:a53a7d80d906f8184c2da7c8f394aae33"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the walls based on a variable number of wall IDs. <br /></td></tr>
+<tr class="separator:a53a7d80d906f8184c2da7c8f394aae33"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a74876a798031afa3d19e8db672dced94"><td class="memItemLeft" align="right" valign="top"><a id="a74876a798031afa3d19e8db672dced94" name="a74876a798031afa3d19e8db672dced94"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>Clear</b> ()</td></tr>
 <tr class="memdesc:a74876a798031afa3d19e8db672dced94"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clears all walls from the group. <br /></td></tr>
@@ -162,11 +176,13 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>Clear</b> ()</td></tr
 <tr class="memitem:ad340b35e3d4a44cbb708a522b89eec91 inherit pub_methods_classnetdem_1_1_modifier"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnetdem_1_1_modifier.html#ad340b35e3d4a44cbb708a522b89eec91">Init</a> (<a class="el" href="classnetdem_1_1_simulation.html">Simulation</a> *sim)</td></tr>
 <tr class="memdesc:ad340b35e3d4a44cbb708a522b89eec91 inherit pub_methods_classnetdem_1_1_modifier"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the <a class="el" href="classnetdem_1_1_modifier.html" title="An interface class used to modify a DEM simulation.">Modifier</a> instance.  <br /></td></tr>
 <tr class="separator:ad340b35e3d4a44cbb708a522b89eec91 inherit pub_methods_classnetdem_1_1_modifier"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af24eb11dda7460744ff568ce299bee6f inherit pub_methods_classnetdem_1_1_modifier"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnetdem_1_1_modifier.html#af24eb11dda7460744ff568ce299bee6f">Enable</a> ()</td></tr>
-<tr class="memdesc:af24eb11dda7460744ff568ce299bee6f inherit pub_methods_classnetdem_1_1_modifier"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enables the <a class="el" href="classnetdem_1_1_modifier.html" title="An interface class used to modify a DEM simulation.">Modifier</a> instance.  <br /></td></tr>
+<tr class="memitem:af24eb11dda7460744ff568ce299bee6f inherit pub_methods_classnetdem_1_1_modifier"><td class="memItemLeft" align="right" valign="top"><a id="af24eb11dda7460744ff568ce299bee6f" name="af24eb11dda7460744ff568ce299bee6f"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>Enable</b> ()</td></tr>
+<tr class="memdesc:af24eb11dda7460744ff568ce299bee6f inherit pub_methods_classnetdem_1_1_modifier"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enables the <a class="el" href="classnetdem_1_1_modifier.html" title="An interface class used to modify a DEM simulation.">Modifier</a> instance. <br /></td></tr>
 <tr class="separator:af24eb11dda7460744ff568ce299bee6f inherit pub_methods_classnetdem_1_1_modifier"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aba99c2f91ecd22eb1c88c45b1890aa38 inherit pub_methods_classnetdem_1_1_modifier"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnetdem_1_1_modifier.html#aba99c2f91ecd22eb1c88c45b1890aa38">Disable</a> ()</td></tr>
-<tr class="memdesc:aba99c2f91ecd22eb1c88c45b1890aa38 inherit pub_methods_classnetdem_1_1_modifier"><td class="mdescLeft">&#160;</td><td class="mdescRight">Disables the <a class="el" href="classnetdem_1_1_modifier.html" title="An interface class used to modify a DEM simulation.">Modifier</a> instance.  <br /></td></tr>
+<tr class="memitem:aba99c2f91ecd22eb1c88c45b1890aa38 inherit pub_methods_classnetdem_1_1_modifier"><td class="memItemLeft" align="right" valign="top"><a id="aba99c2f91ecd22eb1c88c45b1890aa38" name="aba99c2f91ecd22eb1c88c45b1890aa38"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>Disable</b> ()</td></tr>
+<tr class="memdesc:aba99c2f91ecd22eb1c88c45b1890aa38 inherit pub_methods_classnetdem_1_1_modifier"><td class="mdescLeft">&#160;</td><td class="mdescRight">Disables the <a class="el" href="classnetdem_1_1_modifier.html" title="An interface class used to modify a DEM simulation.">Modifier</a> instance. <br /></td></tr>
 <tr class="separator:aba99c2f91ecd22eb1c88c45b1890aa38 inherit pub_methods_classnetdem_1_1_modifier"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8ffc62d61052f129a3301278b7cffb2c inherit pub_methods_classnetdem_1_1_modifier"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnetdem_1_1_modifier.html#a8ffc62d61052f129a3301278b7cffb2c">Execute</a> ()</td></tr>
 <tr class="memdesc:a8ffc62d61052f129a3301278b7cffb2c inherit pub_methods_classnetdem_1_1_modifier"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes the <a class="el" href="classnetdem_1_1_modifier.html" title="An interface class used to modify a DEM simulation.">Modifier</a> instance.  <br /></td></tr>
@@ -181,11 +197,13 @@ virtual&#160;</td><td class="memItemRight" valign="bottom"><b>~Modifier</b> ()</
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a710857097a4b4b2f4723d07c457b928c"><td class="memItemLeft" align="right" valign="top"><a id="a710857097a4b4b2f4723d07c457b928c" name="a710857097a4b4b2f4723d07c457b928c"></a>
-std::unordered_set&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>wall_ids</b></td></tr>
-<tr class="separator:a710857097a4b4b2f4723d07c457b928c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa84e21ad6febf05d60f75e8e65db19b5"><td class="memItemLeft" align="right" valign="top"><a id="aa84e21ad6febf05d60f75e8e65db19b5" name="aa84e21ad6febf05d60f75e8e65db19b5"></a>
+std::unordered_set&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>wall_id_list</b></td></tr>
+<tr class="memdesc:aa84e21ad6febf05d60f75e8e65db19b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">The list of wall ids. <br /></td></tr>
+<tr class="separator:aa84e21ad6febf05d60f75e8e65db19b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac9eb8db5c62c2f66a6994d0764b59bad"><td class="memItemLeft" align="right" valign="top"><a id="ac9eb8db5c62c2f66a6994d0764b59bad" name="ac9eb8db5c62c2f66a6994d0764b59bad"></a>
 VecXT&lt; <a class="el" href="classnetdem_1_1_wall.html">Wall</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>wall_list</b></td></tr>
+<tr class="memdesc:ac9eb8db5c62c2f66a6994d0764b59bad"><td class="mdescLeft">&#160;</td><td class="mdescRight">The list of wall. <br /></td></tr>
 <tr class="separator:ac9eb8db5c62c2f66a6994d0764b59bad"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_attribs_classnetdem_1_1_modifier"><td colspan="2" onclick="javascript:toggleInherit('pub_attribs_classnetdem_1_1_modifier')"><img src="closed.png" alt="-"/>&#160;Public Attributes inherited from <a class="el" href="classnetdem_1_1_modifier.html">netdem::Modifier</a></td></tr>
 <tr class="memitem:a9ca96d4276e4cb637b0220ab6fbbbbee inherit pub_attribs_classnetdem_1_1_modifier"><td class="memItemLeft" align="right" valign="top"><a id="a9ca96d4276e4cb637b0220ab6fbbbbee" name="a9ca96d4276e4cb637b0220ab6fbbbbee"></a>
@@ -211,14 +229,40 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>enable_logging</b> {t
 <div class="textblock"><p>A class used to group walls in a DEM simulation. </p>
 <p>The <a class="el" href="classnetdem_1_1_wall_group.html" title="A class used to group walls in a DEM simulation.">WallGroup</a> class is used to group walls together for various operations, such as setting their velocity or spin properties. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="a970daf7b31d9fe756f4ebcf65a43161f" name="a970daf7b31d9fe756f4ebcf65a43161f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a970daf7b31d9fe756f4ebcf65a43161f">&#9670;&#160;</a></span>Add() <span class="overload">[1/2]</span></h2>
+<a id="a4a09fe85156113d9eca35c22a6068d5d" name="a4a09fe85156113d9eca35c22a6068d5d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4a09fe85156113d9eca35c22a6068d5d">&#9670;&#160;</a></span>AddWall() <span class="overload">[1/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void netdem::WallGroup::Add </td>
+          <td class="memname">void netdem::WallGroup::AddWall </td>
+          <td>(</td>
+          <td class="paramtype">const std::initializer_list&lt; int &gt; &amp;&#160;</td>
+          <td class="paramname"><em>ids</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Adds multiple walls to the group. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ids</td><td>A vector of wall IDs to add. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aa5e0b8cbb99fc21a3200c02fd03300db" name="aa5e0b8cbb99fc21a3200c02fd03300db"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa5e0b8cbb99fc21a3200c02fd03300db">&#9670;&#160;</a></span>AddWall() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void netdem::WallGroup::AddWall </td>
           <td>(</td>
           <td class="paramtype">const VecXT&lt; int &gt; &amp;&#160;</td>
           <td class="paramname"><em>ids</em></td><td>)</td>
@@ -237,14 +281,14 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>enable_logging</b> {t
 
 </div>
 </div>
-<a id="a361c1c6185faa5b353d5759ceaa76147" name="a361c1c6185faa5b353d5759ceaa76147"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a361c1c6185faa5b353d5759ceaa76147">&#9670;&#160;</a></span>Add() <span class="overload">[2/2]</span></h2>
+<a id="a2f175f1aca80fd0c3deb0221a347a0d4" name="a2f175f1aca80fd0c3deb0221a347a0d4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2f175f1aca80fd0c3deb0221a347a0d4">&#9670;&#160;</a></span>AddWall() <span class="overload">[3/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void netdem::WallGroup::Add </td>
+          <td class="memname">void netdem::WallGroup::AddWall </td>
           <td>(</td>
           <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>id</em></td><td>)</td>
@@ -291,7 +335,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>enable_logging</b> {t
 
 <p>Reimplemented from <a class="el" href="classnetdem_1_1_modifier.html#a0c808763e3e8052cbd446cb7d910f843">netdem::Modifier</a>.</p>
 
-<p>Reimplemented in <a class="el" href="classnetdem_1_1_wall_motion_integrator.html#a5c73f70dae3d80fe2f0b3228c33ee291">netdem::WallMotionIntegrator</a>.</p>
+<p>Reimplemented in <a class="el" href="classnetdem_1_1_wall_motion_control.html#afa0b1888502859635ff2f2949d2090cb">netdem::WallMotionControl</a>, <a class="el" href="classnetdem_1_1_wall_motion_integrator.html#a5c73f70dae3d80fe2f0b3228c33ee291">netdem::WallMotionIntegrator</a>, and <a class="el" href="classnetdem_1_1_wall_servo_control.html#ae1549fc64e87f8f36b6b2e3f331cde8e">netdem::WallServoControl</a>.</p>
 
 </div>
 </div>
@@ -322,18 +366,44 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>enable_logging</b> {t
 
 <p>Reimplemented from <a class="el" href="classnetdem_1_1_modifier.html#a8ffc62d61052f129a3301278b7cffb2c">netdem::Modifier</a>.</p>
 
-<p>Reimplemented in <a class="el" href="classnetdem_1_1_wall_motion_integrator.html#a0b56586d66ed75c128a32a4244c257ce">netdem::WallMotionIntegrator</a>.</p>
+<p>Reimplemented in <a class="el" href="classnetdem_1_1_wall_motion_control.html#a58a1db5d1de55d03de0d939608d6fb92">netdem::WallMotionControl</a>, <a class="el" href="classnetdem_1_1_wall_motion_integrator.html#a0b56586d66ed75c128a32a4244c257ce">netdem::WallMotionIntegrator</a>, and <a class="el" href="classnetdem_1_1_wall_servo_control.html#a4218c3526acf63e40d9eaf69c1fac615">netdem::WallServoControl</a>.</p>
 
 </div>
 </div>
-<a id="a6ee35d3efaf7c0afa016910cc8ef5a27" name="a6ee35d3efaf7c0afa016910cc8ef5a27"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6ee35d3efaf7c0afa016910cc8ef5a27">&#9670;&#160;</a></span>Remove() <span class="overload">[1/2]</span></h2>
+<a id="ae31b1d10531cb721ccfe9a1e3ee4388b" name="ae31b1d10531cb721ccfe9a1e3ee4388b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae31b1d10531cb721ccfe9a1e3ee4388b">&#9670;&#160;</a></span>RemoveWall() <span class="overload">[1/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void netdem::WallGroup::Remove </td>
+          <td class="memname">void netdem::WallGroup::RemoveWall </td>
+          <td>(</td>
+          <td class="paramtype">const std::initializer_list&lt; int &gt; &amp;&#160;</td>
+          <td class="paramname"><em>ids</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Removes multiple walls from the group. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ids</td><td>A vector of wall IDs to remove. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a83ff0808e0949dea7b1e69270bcd1dd3" name="a83ff0808e0949dea7b1e69270bcd1dd3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a83ff0808e0949dea7b1e69270bcd1dd3">&#9670;&#160;</a></span>RemoveWall() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void netdem::WallGroup::RemoveWall </td>
           <td>(</td>
           <td class="paramtype">const VecXT&lt; int &gt; &amp;&#160;</td>
           <td class="paramname"><em>ids</em></td><td>)</td>
@@ -352,14 +422,14 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>enable_logging</b> {t
 
 </div>
 </div>
-<a id="a28328fa26249e93fd507666caa48513d" name="a28328fa26249e93fd507666caa48513d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a28328fa26249e93fd507666caa48513d">&#9670;&#160;</a></span>Remove() <span class="overload">[2/2]</span></h2>
+<a id="a0ab1673f0092ed9c0968167c41893801" name="a0ab1673f0092ed9c0968167c41893801"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0ab1673f0092ed9c0968167c41893801">&#9670;&#160;</a></span>RemoveWall() <span class="overload">[3/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void netdem::WallGroup::Remove </td>
+          <td class="memname">void netdem::WallGroup::RemoveWall </td>
           <td>(</td>
           <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>id</em></td><td>)</td>
@@ -372,94 +442,6 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>enable_logging</b> {t
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">id</td><td>The ID of the wall to remove. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a7d41419d33624982347afad5ce76339e" name="a7d41419d33624982347afad5ce76339e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7d41419d33624982347afad5ce76339e">&#9670;&#160;</a></span>SetSpin()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void netdem::WallGroup::SetSpin </td>
-          <td>(</td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>spin_x</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>spin_y</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>spin_z</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Sets the spin properties for all walls in the group. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">spin_x</td><td>The x component of the spin. </td></tr>
-    <tr><td class="paramname">spin_y</td><td>The y component of the spin. </td></tr>
-    <tr><td class="paramname">spin_z</td><td>The z component of the spin. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a77bf39c9de439b197d640f0f3b6e3833" name="a77bf39c9de439b197d640f0f3b6e3833"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a77bf39c9de439b197d640f0f3b6e3833">&#9670;&#160;</a></span>SetVelocity()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void netdem::WallGroup::SetVelocity </td>
-          <td>(</td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>v_x</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>v_y</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>v_z</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Sets the velocity properties for all walls in the group. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">v_x</td><td>The x component of the velocity. </td></tr>
-    <tr><td class="paramname">v_y</td><td>The y component of the velocity. </td></tr>
-    <tr><td class="paramname">v_z</td><td>The z component of the velocity. </td></tr>
   </table>
   </dd>
 </dl>
@@ -490,9 +472,11 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>enable_logging</b> {t
 </div><div class="memdoc">
 
 <p>Updates the <a class="el" href="classnetdem_1_1_wall_group.html" title="A class used to group walls in a DEM simulation.">WallGroup</a> instance. </p>
-<p>Updates the wall_list based on the current wall_ids. </p>
+<p>Updates the wall_list based on the current wall_id_list. </p>
 
 <p>Reimplemented from <a class="el" href="classnetdem_1_1_modifier.html#adb2442a93cd18bc810156aa7275a46b8">netdem::Modifier</a>.</p>
+
+<p>Reimplemented in <a class="el" href="classnetdem_1_1_wall_servo_control.html#a62fc743dd763bf0136c00726acd740fc">netdem::WallServoControl</a>.</p>
 
 </div>
 </div>

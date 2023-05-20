@@ -7,48 +7,48 @@
 \DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}utils\_macros.hpp"{}}}
 \DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <string>}}
 \DoxyCodeLine{00005\ }
-\DoxyCodeLine{00011\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacenetdem}{netdem}}\ \{}
-\DoxyCodeLine{00012\ }
-\DoxyCodeLine{00022\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classnetdem_1_1_spherical_voronoi}{SphericalVoronoi}}\ \{}
-\DoxyCodeLine{00023\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00033\ \ \ \textcolor{keyword}{static}\ std::tuple<VecXT<Vec3d>,\ VecXT<VecXT<int>>>}
-\DoxyCodeLine{00034\ \ \ \mbox{\hyperlink{classnetdem_1_1_spherical_voronoi_abc37eca6d8ad5e64b8bfc93ec9473645}{Solve}}(VecXT<Vec3d>\ \textcolor{keyword}{const}\ \&vt\_seeds);}
-\DoxyCodeLine{00035\ }
-\DoxyCodeLine{00047\ \ \ \textcolor{keyword}{static}\ std::tuple<VecXT<Vec3d>,\ VecXT<VecXT<int>>>}
-\DoxyCodeLine{00048\ \ \ \mbox{\hyperlink{classnetdem_1_1_spherical_voronoi_abc37eca6d8ad5e64b8bfc93ec9473645}{Solve}}(VecXT<Vec3d>\ \textcolor{keyword}{const}\ \&vt\_seeds,\ VecXT<double>\ \textcolor{keyword}{const}\ \&vt\_weights);}
-\DoxyCodeLine{00049\ }
-\DoxyCodeLine{00061\ \ \ \textcolor{keyword}{static}\ VecXT<Vec3d>\ \mbox{\hyperlink{classnetdem_1_1_spherical_voronoi_abc37eca6d8ad5e64b8bfc93ec9473645}{Solve}}(\textcolor{keywordtype}{int}\ num\_seeds,\ \textcolor{keywordtype}{int}\ max\_iter\ =\ 10000,}
-\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ tol\ =\ 1.0e-\/4);}
-\DoxyCodeLine{00063\ }
-\DoxyCodeLine{00078\ \ \ \textcolor{keyword}{static}\ VecXT<Vec3d>\ \mbox{\hyperlink{classnetdem_1_1_spherical_voronoi_abc37eca6d8ad5e64b8bfc93ec9473645}{Solve}}(\textcolor{keywordtype}{int}\ num\_seeds,\ VecXT<double>\ \textcolor{keyword}{const}\ \&weights\_sh\_coff,}
-\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ max\_iter,\ \textcolor{keywordtype}{double}\ tol);}
-\DoxyCodeLine{00080\ }
-\DoxyCodeLine{00092\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_spherical_voronoi_ac45f1ba02bd1bebb0c021789562d1939}{SaveAsVTK}}(std::string\ \textcolor{keyword}{const}\ \&file,\ VecXT<Vec3d>\ \textcolor{keyword}{const}\ \&vt\_nodes,}
-\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ VecXT<VecXT<int>>\ \textcolor{keyword}{const}\ \&vt\_cells,}
-\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ VecXT<Vec3d>\ \textcolor{keyword}{const}\ \&vt\_seeds);}
-\DoxyCodeLine{00095\ }
-\DoxyCodeLine{00096\ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00107\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ Find(VecXT<int>\ \textcolor{keyword}{const}\ \&ids,\ \textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id});}
-\DoxyCodeLine{00108\ }
-\DoxyCodeLine{00119\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ Find(Vec3i\ \textcolor{keyword}{const}\ \&ids,\ \textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id});}
-\DoxyCodeLine{00120\ }
-\DoxyCodeLine{00130\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ IsSharingEdge(Vec3i\ \textcolor{keyword}{const}\ \&facet\_i,\ Vec3i\ \textcolor{keyword}{const}\ \&facet\_j);}
-\DoxyCodeLine{00131\ }
-\DoxyCodeLine{00143\ \ \ \textcolor{keyword}{static}\ VecXT<int>\ FacetsContainVertex(VecXT<Vec3i>\ \textcolor{keyword}{const}\ \&facets,\ \textcolor{keywordtype}{int}\ vid);}
-\DoxyCodeLine{00144\ }
-\DoxyCodeLine{00157\ \ \ \textcolor{keyword}{static}\ Vec3d\ WeightedMiddle(Vec3d\ \textcolor{keyword}{const}\ \&v1,\ Vec3d\ \textcolor{keyword}{const}\ \&v2,\ \textcolor{keywordtype}{double}\ w1,}
-\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ w2);}
-\DoxyCodeLine{00159\ }
-\DoxyCodeLine{00172\ \ \ \textcolor{keyword}{static}\ Vec3d\ LineIntersection(Vec3d\ \textcolor{keyword}{const}\ \&v1,\ Vec3d\ \textcolor{keyword}{const}\ \&n1,}
-\DoxyCodeLine{00173\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Vec3d\ \textcolor{keyword}{const}\ \&v2,\ Vec3d\ \textcolor{keyword}{const}\ \&n2);}
-\DoxyCodeLine{00174\ }
-\DoxyCodeLine{00187\ \ \ \textcolor{keyword}{static}\ Vec3d\ WeightedCentroid(VecXT<Vec3d>\ \textcolor{keyword}{const}\ \&vertices,}
-\DoxyCodeLine{00188\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ VecXT<double>\ \textcolor{keyword}{const}\ \&weights,}
-\DoxyCodeLine{00189\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Vec3i\ \textcolor{keyword}{const}\ \&facet);}
-\DoxyCodeLine{00190\ }
-\DoxyCodeLine{00201\ \ \ \textcolor{keyword}{static}\ Vec3d\ PolyCentroid(VecXT<Vec3d>\ \textcolor{keyword}{const}\ \&verts,\ VecXT<int>\ \textcolor{keyword}{const}\ \&facet);}
-\DoxyCodeLine{00202\ \};}
-\DoxyCodeLine{00203\ }
-\DoxyCodeLine{00204\ \}\ \textcolor{comment}{//\ namespace\ netdem}}
+\DoxyCodeLine{00006\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacenetdem}{netdem}}\ \{}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00017\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classnetdem_1_1_spherical_voronoi}{SphericalVoronoi}}\ \{}
+\DoxyCodeLine{00018\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00028\ \ \ \textcolor{keyword}{static}\ std::tuple<VecXT<Vec3d>,\ VecXT<VecXT<int>>>}
+\DoxyCodeLine{00029\ \ \ \mbox{\hyperlink{classnetdem_1_1_spherical_voronoi_abc37eca6d8ad5e64b8bfc93ec9473645}{Solve}}(VecXT<Vec3d>\ \textcolor{keyword}{const}\ \&vt\_seeds);}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00042\ \ \ \textcolor{keyword}{static}\ std::tuple<VecXT<Vec3d>,\ VecXT<VecXT<int>>>}
+\DoxyCodeLine{00043\ \ \ \mbox{\hyperlink{classnetdem_1_1_spherical_voronoi_abc37eca6d8ad5e64b8bfc93ec9473645}{Solve}}(VecXT<Vec3d>\ \textcolor{keyword}{const}\ \&vt\_seeds,\ VecXT<double>\ \textcolor{keyword}{const}\ \&vt\_weights);}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00056\ \ \ \textcolor{keyword}{static}\ VecXT<Vec3d>\ \mbox{\hyperlink{classnetdem_1_1_spherical_voronoi_abc37eca6d8ad5e64b8bfc93ec9473645}{Solve}}(\textcolor{keywordtype}{int}\ num\_seeds,\ \textcolor{keywordtype}{int}\ max\_iter\ =\ 10000,}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ tol\ =\ 1.0e-\/4);}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00073\ \ \ \textcolor{keyword}{static}\ VecXT<Vec3d>\ \mbox{\hyperlink{classnetdem_1_1_spherical_voronoi_abc37eca6d8ad5e64b8bfc93ec9473645}{Solve}}(\textcolor{keywordtype}{int}\ num\_seeds,\ VecXT<double>\ \textcolor{keyword}{const}\ \&weights\_sh\_coff,}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ max\_iter,\ \textcolor{keywordtype}{double}\ tol);}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00087\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_spherical_voronoi_ac45f1ba02bd1bebb0c021789562d1939}{SaveAsVTK}}(std::string\ \textcolor{keyword}{const}\ \&file,\ VecXT<Vec3d>\ \textcolor{keyword}{const}\ \&vt\_nodes,}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ VecXT<VecXT<int>>\ \textcolor{keyword}{const}\ \&vt\_cells,}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ VecXT<Vec3d>\ \textcolor{keyword}{const}\ \&vt\_seeds);}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00091\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00102\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ Find(VecXT<int>\ \textcolor{keyword}{const}\ \&ids,\ \textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id});}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00114\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ Find(Vec3i\ \textcolor{keyword}{const}\ \&ids,\ \textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id});}
+\DoxyCodeLine{00115\ }
+\DoxyCodeLine{00125\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ IsSharingEdge(Vec3i\ \textcolor{keyword}{const}\ \&facet\_i,\ Vec3i\ \textcolor{keyword}{const}\ \&facet\_j);}
+\DoxyCodeLine{00126\ }
+\DoxyCodeLine{00138\ \ \ \textcolor{keyword}{static}\ VecXT<int>\ FacetsContainVertex(VecXT<Vec3i>\ \textcolor{keyword}{const}\ \&facets,\ \textcolor{keywordtype}{int}\ vid);}
+\DoxyCodeLine{00139\ }
+\DoxyCodeLine{00152\ \ \ \textcolor{keyword}{static}\ Vec3d\ WeightedMiddle(Vec3d\ \textcolor{keyword}{const}\ \&v1,\ Vec3d\ \textcolor{keyword}{const}\ \&v2,\ \textcolor{keywordtype}{double}\ w1,}
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ w2);}
+\DoxyCodeLine{00154\ }
+\DoxyCodeLine{00167\ \ \ \textcolor{keyword}{static}\ Vec3d\ LineIntersection(Vec3d\ \textcolor{keyword}{const}\ \&v1,\ Vec3d\ \textcolor{keyword}{const}\ \&n1,}
+\DoxyCodeLine{00168\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Vec3d\ \textcolor{keyword}{const}\ \&v2,\ Vec3d\ \textcolor{keyword}{const}\ \&n2);}
+\DoxyCodeLine{00169\ }
+\DoxyCodeLine{00182\ \ \ \textcolor{keyword}{static}\ Vec3d\ WeightedCentroid(VecXT<Vec3d>\ \textcolor{keyword}{const}\ \&vertices,}
+\DoxyCodeLine{00183\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ VecXT<double>\ \textcolor{keyword}{const}\ \&weights,}
+\DoxyCodeLine{00184\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Vec3i\ \textcolor{keyword}{const}\ \&facet);}
+\DoxyCodeLine{00185\ }
+\DoxyCodeLine{00196\ \ \ \textcolor{keyword}{static}\ Vec3d\ PolyCentroid(VecXT<Vec3d>\ \textcolor{keyword}{const}\ \&verts,\ VecXT<int>\ \textcolor{keyword}{const}\ \&facet);}
+\DoxyCodeLine{00197\ \};}
+\DoxyCodeLine{00198\ }
+\DoxyCodeLine{00199\ \}\ \textcolor{comment}{//\ namespace\ netdem}}
 
 \end{DoxyCode}

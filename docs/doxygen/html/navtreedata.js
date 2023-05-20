@@ -37,12 +37,7 @@ var NAVTREE =
     ] ],
     [ "Support", "index.html#autotoc_md9", null ],
     [ "Namespaces", "namespaces.html", [
-      [ "Namespace List", "namespaces.html", "namespaces_dup" ],
-      [ "Namespace Members", "namespacemembers.html", [
-        [ "All", "namespacemembers.html", null ],
-        [ "Functions", "namespacemembers_func.html", null ],
-        [ "Enumerations", "namespacemembers_enum.html", null ]
-      ] ]
+      [ "Namespace List", "namespaces.html", "namespaces_dup" ]
     ] ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
@@ -66,22 +61,23 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"0_geometric_solver_8cpp-example.html",
-"classnetdem_1_1_breakage_analysis_p_d.html#ad051c4c0c2d537fdc0aaa434f6cfd8b2",
-"classnetdem_1_1_contact_model.html#a191a737b001313dd8a39d5f1dc1d6a78",
-"classnetdem_1_1_d_e_m_fragment.html#a65255e84793e3559a539d0fbfb2647b4",
-"classnetdem_1_1_deformation_analysis.html#afc6bbd7046fd0cd377e6d67f659b12e3",
-"classnetdem_1_1_f_e_m_simulator.html#af8b9e96b01d415c7c767947598eaacf7",
-"classnetdem_1_1_membrane.html#a53dbcfb8fed5335f6cad97a56299f910",
-"classnetdem_1_1_particle_group.html#a3b1f8bdddb7187904cae14031a12f1b3",
-"classnetdem_1_1_peri_digm_settings.html#ab95abcb304d4b28809d22c3412cc7c37",
-"classnetdem_1_1_regression_net.html#ad0a454915d74f397ea4b6ce40c46f84e",
-"classnetdem_1_1_simplex.html#ac81f7eaec0ee14f43df6a958924e2a8f",
-"classnetdem_1_1_solver_g_j_k_p_p.html#aa751d5cb5deb9b2c0cceaa716a6f2b99",
-"classnetdem_1_1_sphere.html#a8e52d6c77c06cb6f1f194006e707ce50",
-"classnetdem_1_1_volume_based.html#af63e965787f179a4325306200d464cc6",
-"igl__wrapper_8hpp_source.html",
-"structnetdem_1_1_particle_data.html#afd03d38c1ad8334a3830bafe4a7756ce"
+"00_contact_test_sphere_8cpp-example.html",
+"classnetdem_1_1_bonded_voronois.html#a08dbac4387391e32a4de32e2e672e76d",
+"classnetdem_1_1_collision_solver_p_w.html#a75563d0f485ce14cca7eef636099b546",
+"classnetdem_1_1_contact_solver_settings.html#adff2184170befa136fdaedd56a048170aa29705e887c1874c038c3820d9471e57",
+"classnetdem_1_1_deformable_particle.html#a208f8160ae055cb97ce851b2ace9fefb",
+"classnetdem_1_1_f_e_m_simulator.html",
+"classnetdem_1_1_linear_spring.html#a345c06c0d6855ff688f242c824bf13dc",
+"classnetdem_1_1_membrane_wall.html#a471ed5293d813605984163a459439a01",
+"classnetdem_1_1_particle_motion_control.html#ac68ff2d7066fe9cb7b71b513e2caab6b",
+"classnetdem_1_1_peri_digm_simulator.html#a947a689863242e889b11abf08d6a01ae",
+"classnetdem_1_1_s_d_f_calculator.html#aa8a0cab4d342177cb775edbf692a1b09",
+"classnetdem_1_1_simulation.html#a096ddc0ac2a273c662c77cc1ace957d3",
+"classnetdem_1_1_solver_g_j_k_p_p.html#abbcfc533b87b58663116db0ced702119",
+"classnetdem_1_1_spherical_harmonics.html",
+"classnetdem_1_1_volume_based.html#ac69b7ecb791d653ca64c516824095537",
+"functions_r.html",
+"structnetdem_1_1_contact_p_p_data.html#a6996dc0a02313071ec636a934882f488"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

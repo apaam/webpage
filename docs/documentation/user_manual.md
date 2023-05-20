@@ -12,7 +12,7 @@
 
 [CFD-DEM simulation](cfddem_simulation.md): coupled CFD-DEM simulation using OpenFOAM NetDEM.
 
-### Class reference
+### Python API reference
 
 [dem](ref_dem.md): defines the basic classes for dem calculations, including contact model, contact solver, etc.
 

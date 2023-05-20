@@ -308,14 +308,17 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>FindContactRef</b> (<a
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a60bdd11588944a909ef3981b8936a450"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classnetdem_1_1_tri_mesh.html">TriMesh</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnetdem_1_1_deformable_particle.html#a60bdd11588944a909ef3981b8936a450">trimesh</a></td></tr>
-<tr class="memdesc:a60bdd11588944a909ef3981b8936a450"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to the triangular mesh shape of the particle.  <br /></td></tr>
+<tr class="memitem:a60bdd11588944a909ef3981b8936a450"><td class="memItemLeft" align="right" valign="top"><a id="a60bdd11588944a909ef3981b8936a450" name="a60bdd11588944a909ef3981b8936a450"></a>
+<a class="el" href="classnetdem_1_1_tri_mesh.html">TriMesh</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>trimesh</b> {nullptr}</td></tr>
+<tr class="memdesc:a60bdd11588944a909ef3981b8936a450"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to the triangular mesh shape of the particle. <br /></td></tr>
 <tr class="separator:a60bdd11588944a909ef3981b8936a450"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a68c59e4be9e4faa9eff41c177ccf9c03"><td class="memItemLeft" align="right" valign="top"><a id="a68c59e4be9e4faa9eff41c177ccf9c03" name="a68c59e4be9e4faa9eff41c177ccf9c03"></a>
 <a class="el" href="classnetdem_1_1_tet_mesh.html">TetMesh</a>&#160;</td><td class="memItemRight" valign="bottom"><b>tetmesh</b></td></tr>
 <tr class="memdesc:a68c59e4be9e4faa9eff41c177ccf9c03"><td class="mdescLeft">&#160;</td><td class="mdescRight">The tetrahedral mesh used for the simulation. <br /></td></tr>
 <tr class="separator:a68c59e4be9e4faa9eff41c177ccf9c03"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad36ab5d51fbd4a0f3d39bf68a990d47c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classnetdem_1_1_f_e_m_simulator.html">FEMSimulator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnetdem_1_1_deformable_particle.html#ad36ab5d51fbd4a0f3d39bf68a990d47c">fem_simulator</a></td></tr>
+<tr class="memitem:ad36ab5d51fbd4a0f3d39bf68a990d47c"><td class="memItemLeft" align="right" valign="top"><a id="ad36ab5d51fbd4a0f3d39bf68a990d47c" name="ad36ab5d51fbd4a0f3d39bf68a990d47c"></a>
+<a class="el" href="classnetdem_1_1_f_e_m_simulator.html">FEMSimulator</a>&#160;</td><td class="memItemRight" valign="bottom"><b>fem_simulator</b></td></tr>
+<tr class="memdesc:ad36ab5d51fbd4a0f3d39bf68a990d47c"><td class="mdescLeft">&#160;</td><td class="mdescRight">The FEM simulator object used to simulate the particle. <br /></td></tr>
 <tr class="separator:ad36ab5d51fbd4a0f3d39bf68a990d47c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7566506d77cdf2a5af1445f6db652334"><td class="memItemLeft" align="right" valign="top"><a id="a7566506d77cdf2a5af1445f6db652334" name="a7566506d77cdf2a5af1445f6db652334"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>mesh_res</b> {20}</td></tr>
@@ -422,6 +425,8 @@ VecXT&lt; std::pair&lt; <a class="el" href="classnetdem_1_1_domain.html">Domain<
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A class representing a deformable particle simulated using the Finite Element Method (FEM). </p>
 <p>This class inherits from the <code><a class="el" href="classnetdem_1_1_particle.html">Particle</a></code> class and includes additional functionality for simulating deformable particles using FEM. It contains a triangular mesh shape and a tetrahedral mesh used for the simulation, as well as functions to update the motion and shape of the particle, apply contact forces, and save data in VTK format. </p>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="00_hertz_contact_8cpp-example.html#_a3">00_hertz_contact.cpp</a>, and <a class="el" href="81_golf_ball_impact_8cpp-example.html#_a4">81_golf_ball_impact.cpp</a>.</dd>
+</dl>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="ad119daee07ad91b901b7d41817189ed4" name="ad119daee07ad91b901b7d41817189ed4"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad119daee07ad91b901b7d41817189ed4">&#9670;&#160;</a></span>AddForce()</h2>
@@ -457,6 +462,8 @@ VecXT&lt; std::pair&lt; <a class="el" href="classnetdem_1_1_domain.html">Domain<
     <tr><td class="paramname">f</td><td>The force vector to add to the node. </td></tr>
   </table>
   </dd>
+</dl>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="00_hertz_contact_8cpp-example.html#a22">00_hertz_contact.cpp</a>.</dd>
 </dl>
 
 </div>
@@ -495,6 +502,8 @@ VecXT&lt; std::pair&lt; <a class="el" href="classnetdem_1_1_domain.html">Domain<
 </dl>
 
 <p>Reimplemented from <a class="el" href="classnetdem_1_1_particle.html">netdem::Particle</a>.</p>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="81_golf_ball_impact_8cpp-example.html#a30">81_golf_ball_impact.cpp</a>.</dd>
+</dl>
 
 </div>
 </div>
@@ -562,6 +571,8 @@ VecXT&lt; std::pair&lt; <a class="el" href="classnetdem_1_1_domain.html">Domain<
 <p>This function clears all forces applied to the nodes on this particle's tetrahedral mesh. It overrides the <code>ClearForce</code> method from the <code><a class="el" href="classnetdem_1_1_particle.html">Particle</a></code> class. </p>
 
 <p>Reimplemented from <a class="el" href="classnetdem_1_1_particle.html">netdem::Particle</a>.</p>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="00_hertz_contact_8cpp-example.html#a14">00_hertz_contact.cpp</a>, and <a class="el" href="81_golf_ball_impact_8cpp-example.html#a23">81_golf_ball_impact.cpp</a>.</dd>
+</dl>
 
 </div>
 </div>
@@ -668,6 +679,8 @@ VecXT&lt; std::pair&lt; <a class="el" href="classnetdem_1_1_domain.html">Domain<
 </dl>
 
 <p>Reimplemented from <a class="el" href="classnetdem_1_1_particle.html">netdem::Particle</a>.</p>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="00_hertz_contact_8cpp-example.html#a13">00_hertz_contact.cpp</a>, and <a class="el" href="81_golf_ball_impact_8cpp-example.html#a21">81_golf_ball_impact.cpp</a>.</dd>
+</dl>
 
 </div>
 </div>
@@ -694,6 +707,8 @@ VecXT&lt; std::pair&lt; <a class="el" href="classnetdem_1_1_domain.html">Domain<
     <tr><td class="paramname">filename</td><td>The name of the file to save the data in. </td></tr>
   </table>
   </dd>
+</dl>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="81_golf_ball_impact_8cpp-example.html#a22">81_golf_ball_impact.cpp</a>.</dd>
 </dl>
 
 </div>
@@ -732,6 +747,8 @@ VecXT&lt; std::pair&lt; <a class="el" href="classnetdem_1_1_domain.html">Domain<
 </dl>
 
 <p>Reimplemented from <a class="el" href="classnetdem_1_1_particle.html">netdem::Particle</a>.</p>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="81_golf_ball_impact_8cpp-example.html#a7">81_golf_ball_impact.cpp</a>.</dd>
+</dl>
 
 </div>
 </div>
@@ -787,6 +804,8 @@ VecXT&lt; std::pair&lt; <a class="el" href="classnetdem_1_1_domain.html">Domain<
 </dl>
 
 <p>Reimplemented from <a class="el" href="classnetdem_1_1_particle.html">netdem::Particle</a>.</p>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="81_golf_ball_impact_8cpp-example.html#a13">81_golf_ball_impact.cpp</a>.</dd>
+</dl>
 
 </div>
 </div>
@@ -948,6 +967,8 @@ VecXT&lt; std::pair&lt; <a class="el" href="classnetdem_1_1_domain.html">Domain<
 </dl>
 
 <p>Reimplemented from <a class="el" href="classnetdem_1_1_particle.html">netdem::Particle</a>.</p>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="00_hertz_contact_8cpp-example.html#a4">00_hertz_contact.cpp</a>, and <a class="el" href="81_golf_ball_impact_8cpp-example.html#a6">81_golf_ball_impact.cpp</a>.</dd>
+</dl>
 
 </div>
 </div>
@@ -1003,6 +1024,8 @@ VecXT&lt; std::pair&lt; <a class="el" href="classnetdem_1_1_domain.html">Domain<
 </dl>
 
 <p>Reimplemented from <a class="el" href="classnetdem_1_1_particle.html">netdem::Particle</a>.</p>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="81_golf_ball_impact_8cpp-example.html#a14">81_golf_ball_impact.cpp</a>.</dd>
+</dl>
 
 </div>
 </div>
@@ -1070,6 +1093,8 @@ VecXT&lt; std::pair&lt; <a class="el" href="classnetdem_1_1_domain.html">Domain<
 </dl>
 
 <p>Reimplemented from <a class="el" href="classnetdem_1_1_particle.html">netdem::Particle</a>.</p>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="00_hertz_contact_8cpp-example.html#a23">00_hertz_contact.cpp</a>, and <a class="el" href="81_golf_ball_impact_8cpp-example.html#a31">81_golf_ball_impact.cpp</a>.</dd>
+</dl>
 
 </div>
 </div>
@@ -1090,40 +1115,6 @@ VecXT&lt; std::pair&lt; <a class="el" href="classnetdem_1_1_domain.html">Domain<
 
 <p>Updates the shape of the particle. </p>
 <p>This function updates the shape of the particle's tetrahedral mesh based on the current state of the triangular mesh shape. It is called automatically by <code>UpdateMotion</code>. </p>
-
-</div>
-</div>
-<h2 class="groupheader">Member Data Documentation</h2>
-<a id="ad36ab5d51fbd4a0f3d39bf68a990d47c" name="ad36ab5d51fbd4a0f3d39bf68a990d47c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad36ab5d51fbd4a0f3d39bf68a990d47c">&#9670;&#160;</a></span>fem_simulator</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classnetdem_1_1_f_e_m_simulator.html">FEMSimulator</a> netdem::DeformableParticle::fem_simulator</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>The FEM simulator object used to simulate the particle. </p>
-
-</div>
-</div>
-<a id="a60bdd11588944a909ef3981b8936a450" name="a60bdd11588944a909ef3981b8936a450"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a60bdd11588944a909ef3981b8936a450">&#9670;&#160;</a></span>trimesh</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classnetdem_1_1_tri_mesh.html">TriMesh</a>* netdem::DeformableParticle::trimesh</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">{</div>
-<div class="line">      <span class="keyword">nullptr</span>}</div>
-</div><!-- fragment -->
-<p>Pointer to the triangular mesh shape of the particle. </p>
 
 </div>
 </div>

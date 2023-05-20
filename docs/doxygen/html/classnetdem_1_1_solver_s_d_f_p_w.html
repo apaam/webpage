@@ -164,9 +164,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a2927f477db76d7c4cc7f687176a3a4d1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnetdem_1_1_solver_s_d_f_p_w.html#a2927f477db76d7c4cc7f687176a3a4d1">ResolveUpdatePToW</a> (<a class="el" href="classnetdem_1_1_collision_geometries.html">CollisionGeometries</a> *const cnt_geoms, double timestep)</td></tr>
 <tr class="memdesc:a2927f477db76d7c4cc7f687176a3a4d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates the contact geometries object and resolves the collision based on the updated information and timestep.  <br /></td></tr>
 <tr class="separator:a2927f477db76d7c4cc7f687176a3a4d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adf426a55527e60ad8a7ee0f20d501a1b"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnetdem_1_1_solver_s_d_f_p_w.html#adf426a55527e60ad8a7ee0f20d501a1b">Potential</a> (double dist, <a class="el" href="classnetdem_1_1_shape.html">Shape</a> *shape)</td></tr>
-<tr class="memdesc:adf426a55527e60ad8a7ee0f20d501a1b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the potential energy between two shapes based on their distance and type of potential function used.  <br /></td></tr>
-<tr class="separator:adf426a55527e60ad8a7ee0f20d501a1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad6069f49fe426c71be363b9d92954687"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnetdem_1_1_solver_s_d_f_p_w.html#ad6069f49fe426c71be363b9d92954687">GetPotential</a> (double dist, <a class="el" href="classnetdem_1_1_shape.html">Shape</a> *shape)</td></tr>
+<tr class="memdesc:ad6069f49fe426c71be363b9d92954687"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the potential energy between two shapes based on their distance and type of potential function used.  <br /></td></tr>
+<tr class="separator:ad6069f49fe426c71be363b9d92954687"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classnetdem_1_1_collision_solver_p_w"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classnetdem_1_1_collision_solver_p_w')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classnetdem_1_1_collision_solver_p_w.html">netdem::CollisionSolverPW</a></td></tr>
 <tr class="memitem:a139ea00ec1a6e50754d4e514efd23865 inherit pub_methods_classnetdem_1_1_collision_solver_p_w"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnetdem_1_1_collision_solver_p_w.html#a139ea00ec1a6e50754d4e514efd23865">CollisionSolverPW</a> ()</td></tr>
 <tr class="separator:a139ea00ec1a6e50754d4e514efd23865 inherit pub_methods_classnetdem_1_1_collision_solver_p_w"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -212,6 +212,8 @@ Additional Inherited Members</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A class used to solve collisions between a particle and a wall using a signed distance field. </p>
 <p>The <a class="el" href="classnetdem_1_1_solver_s_d_f_p_w.html" title="A class used to solve collisions between a particle and a wall using a signed distance field.">SolverSDFPW</a> class is used to solve collisions between a particle and a wall based on the signed distance field of the particles and walls in a particle-wall collision detection system. </p>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="00_hertz_contact_8cpp-example.html#_a8">00_hertz_contact.cpp</a>, <a class="el" href="00_nut_in_bolt_8cpp-example.html#_a23">00_nut_in_bolt.cpp</a>, <a class="el" href="81_golf_ball_impact_8cpp-example.html#_a18">81_golf_ball_impact.cpp</a>, and <a class="el" href="92_nut_in_bolt_8cpp-example.html#_a23">92_nut_in_bolt.cpp</a>.</dd>
+</dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a4ba4654f6d584abfa6c89ed5833e4226" name="a4ba4654f6d584abfa6c89ed5833e4226"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a4ba4654f6d584abfa6c89ed5833e4226">&#9670;&#160;</a></span>SolverSDFPW()</h2>
@@ -308,6 +310,46 @@ Additional Inherited Members</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>True if there is a collision, false otherwise. </dd></dl>
 
 <p>Implements <a class="el" href="classnetdem_1_1_collision_solver_p_w.html#a662b4b47765dd9816e1cb46262e8ad32">netdem::CollisionSolverPW</a>.</p>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="00_hertz_contact_8cpp-example.html#a16">00_hertz_contact.cpp</a>, <a class="el" href="00_nut_in_bolt_8cpp-example.html#a27">00_nut_in_bolt.cpp</a>, <a class="el" href="81_golf_ball_impact_8cpp-example.html#a25">81_golf_ball_impact.cpp</a>, and <a class="el" href="92_nut_in_bolt_8cpp-example.html#a28">92_nut_in_bolt.cpp</a>.</dd>
+</dl>
+
+</div>
+</div>
+<a id="ad6069f49fe426c71be363b9d92954687" name="ad6069f49fe426c71be363b9d92954687"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad6069f49fe426c71be363b9d92954687">&#9670;&#160;</a></span>GetPotential()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double netdem::SolverSDFPW::GetPotential </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>dist</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classnetdem_1_1_shape.html">Shape</a> *&#160;</td>
+          <td class="paramname"><em>shape</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Calculates the potential energy between two shapes based on their distance and type of potential function used. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dist</td><td>The distance between the shapes. </td></tr>
+    <tr><td class="paramname">shape</td><td>A pointer to the shape of one of the objects.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The potential energy between the two shapes. </dd></dl>
 
 </div>
 </div>
@@ -355,44 +397,8 @@ Additional Inherited Members</h2></td></tr>
 </dl>
 
 <p>Reimplemented from <a class="el" href="classnetdem_1_1_collision_solver_p_w.html#a23b3075924f949dfed8a681dbebedc03">netdem::CollisionSolverPW</a>.</p>
-
-</div>
-</div>
-<a id="adf426a55527e60ad8a7ee0f20d501a1b" name="adf426a55527e60ad8a7ee0f20d501a1b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adf426a55527e60ad8a7ee0f20d501a1b">&#9670;&#160;</a></span>Potential()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">double netdem::SolverSDFPW::Potential </td>
-          <td>(</td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>dist</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="classnetdem_1_1_shape.html">Shape</a> *&#160;</td>
-          <td class="paramname"><em>shape</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Calculates the potential energy between two shapes based on their distance and type of potential function used. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">dist</td><td>The distance between the shapes. </td></tr>
-    <tr><td class="paramname">shape</td><td>A pointer to the shape of one of the objects.</td></tr>
-  </table>
-  </dd>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="00_hertz_contact_8cpp-example.html#a15">00_hertz_contact.cpp</a>, <a class="el" href="00_nut_in_bolt_8cpp-example.html#a26">00_nut_in_bolt.cpp</a>, <a class="el" href="81_golf_ball_impact_8cpp-example.html#a24">81_golf_ball_impact.cpp</a>, and <a class="el" href="92_nut_in_bolt_8cpp-example.html#a27">92_nut_in_bolt.cpp</a>.</dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>The potential energy between the two shapes. </dd></dl>
 
 </div>
 </div>
@@ -477,6 +483,8 @@ Additional Inherited Members</h2></td></tr>
 </dl>
 
 <p>Implements <a class="el" href="classnetdem_1_1_collision_solver_p_w.html#a1a4559783964fdb3f7eea71950d88c93">netdem::CollisionSolverPW</a>.</p>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="00_hertz_contact_8cpp-example.html#a19">00_hertz_contact.cpp</a>, and <a class="el" href="81_golf_ball_impact_8cpp-example.html#a28">81_golf_ball_impact.cpp</a>.</dd>
+</dl>
 
 </div>
 </div>

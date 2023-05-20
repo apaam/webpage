@@ -6,573 +6,173 @@
 \DoxyCodeLine{00002\ }
 \DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}utils\_distributions.hpp"{}}}
 \DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}utils\_macros.hpp"{}}}
-\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <cmath>}}
-\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <ctime>}}
-\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <iostream>}}
-\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <tuple>}}
-\DoxyCodeLine{00009\ }
-\DoxyCodeLine{00010\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacenetdem}{netdem}}\ \{}
-\DoxyCodeLine{00011\ }
-\DoxyCodeLine{00012\ \textcolor{keyword}{inline}\ std::ostream\ \&operator<<(std::ostream\ \&os,\ Vec3i\ \textcolor{keyword}{const}\ \&obj)\ \{}
-\DoxyCodeLine{00013\ \ \ os\ <<\ obj[0]\ <<\ \textcolor{stringliteral}{"{},\ "{}}\ <<\ obj[1]\ <<\ \textcolor{stringliteral}{"{},\ "{}}\ <<\ obj[2];}
-\DoxyCodeLine{00014\ \ \ \textcolor{keywordflow}{return}\ os;}
-\DoxyCodeLine{00015\ \}}
-\DoxyCodeLine{00016\ }
-\DoxyCodeLine{00017\ \textcolor{keyword}{inline}\ std::ostream\ \&operator<<(std::ostream\ \&os,\ Vec3d\ \textcolor{keyword}{const}\ \&obj)\ \{}
-\DoxyCodeLine{00018\ \ \ os\ <<\ obj[0]\ <<\ \textcolor{stringliteral}{"{},\ "{}}\ <<\ obj[1]\ <<\ \textcolor{stringliteral}{"{},\ "{}}\ <<\ obj[2];}
-\DoxyCodeLine{00019\ \ \ \textcolor{keywordflow}{return}\ os;}
-\DoxyCodeLine{00020\ \}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}utils\_operators.hpp"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <cmath>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <ctime>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <tuple>}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacenetdem}{netdem}}\ \{}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classnetdem_1_1_math}{Math}}\ \{}
+\DoxyCodeLine{00014\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00015\ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{double}\ PI\ =\ 3.1415926535897932384626433832795028841971;}
+\DoxyCodeLine{00016\ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{double}\ Infinity\ =\ 1.0e15;}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ Sign(T\ val);}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{double}\ NormL2(Vec2d\ \textcolor{keyword}{const}\ \&val);}
 \DoxyCodeLine{00021\ }
-\DoxyCodeLine{00022\ \textcolor{keyword}{template}\ <\textcolor{keywordtype}{size\_t}\ N>}
-\DoxyCodeLine{00023\ \textcolor{keyword}{inline}\ std::ostream\ \&operator<<(std::ostream\ \&os,\ VecNd<N>\ \textcolor{keyword}{const}\ \&obj)\ \{}
-\DoxyCodeLine{00024\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ N\ -\/\ 1;\ i++)\ \{}
-\DoxyCodeLine{00025\ \ \ \ \ os\ <<\ obj[i]\ <<\ \textcolor{stringliteral}{"{},\ "{}};}
-\DoxyCodeLine{00026\ \ \ \}}
-\DoxyCodeLine{00027\ \ \ os\ <<\ obj[N\ -\/\ 1];}
-\DoxyCodeLine{00028\ \ \ \textcolor{keywordflow}{return}\ os;}
-\DoxyCodeLine{00029\ \}}
-\DoxyCodeLine{00030\ }
-\DoxyCodeLine{00031\ \textcolor{keyword}{inline}\ std::ostream\ \&operator<<(std::ostream\ \&os,\ VecXd\ \textcolor{keyword}{const}\ \&obj)\ \{}
-\DoxyCodeLine{00032\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ obj.size()\ -\/\ 1;\ i++)\ \{}
-\DoxyCodeLine{00033\ \ \ \ \ os\ <<\ obj[i]\ <<\ \textcolor{stringliteral}{"{},\ "{}};}
-\DoxyCodeLine{00034\ \ \ \}}
-\DoxyCodeLine{00035\ \ \ os\ <<\ obj[obj.size()\ -\/\ 1];}
-\DoxyCodeLine{00036\ \ \ \textcolor{keywordflow}{return}\ os;}
-\DoxyCodeLine{00037\ \}}
-\DoxyCodeLine{00038\ }
-\DoxyCodeLine{00039\ \textcolor{keyword}{inline}\ std::ostream\ \&operator<<(std::ostream\ \&os,\ Vec4d\ \textcolor{keyword}{const}\ \&obj)\ \{}
-\DoxyCodeLine{00040\ \ \ os\ <<\ obj[0]\ <<\ \textcolor{stringliteral}{"{},\ "{}}\ <<\ obj[1]\ <<\ \textcolor{stringliteral}{"{},\ "{}}\ <<\ obj[2]\ <<\ \textcolor{stringliteral}{"{},\ "{}}\ <<\ obj[3];}
-\DoxyCodeLine{00041\ \ \ \textcolor{keywordflow}{return}\ os;}
-\DoxyCodeLine{00042\ \}}
-\DoxyCodeLine{00043\ }
-\DoxyCodeLine{00044\ \textcolor{keyword}{inline}\ std::ostream\ \&operator<<(std::ostream\ \&os,\ Mat3d\ \textcolor{keyword}{const}\ \&obj)\ \{}
-\DoxyCodeLine{00045\ \ \ os\ <<\ obj[0]\ <<\ std::endl\ <<\ obj[1]\ <<\ std::endl\ <<\ obj[2];}
-\DoxyCodeLine{00046\ \ \ \textcolor{keywordflow}{return}\ os;}
-\DoxyCodeLine{00047\ \}}
+\DoxyCodeLine{00022\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{double}\ NormL2(Vec3d\ \textcolor{keyword}{const}\ \&val);}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{double}\ NormL2(\textcolor{keywordtype}{double}\ val\_0,\ \textcolor{keywordtype}{double}\ val\_1);}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{double}\ NormL2(\textcolor{keywordtype}{double}\ val\_0,\ \textcolor{keywordtype}{double}\ val\_1,\ \textcolor{keywordtype}{double}\ val\_2);}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{double}\ NormL2(\textcolor{keywordtype}{double}\ val\_0,\ \textcolor{keywordtype}{double}\ val\_1,\ \textcolor{keywordtype}{double}\ val\_2,\ \textcolor{keywordtype}{double}\ val\_3);}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \ \ \textcolor{keyword}{template}\ <\textcolor{keywordtype}{size\_t}\ N>\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{double}\ NormL2(VecNd<N>\ \textcolor{keyword}{const}\ \&val);}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{double}\ NormL2(VecXd\ \textcolor{keyword}{const}\ \&val);}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{double}\ Determinant(Mat2d\ \textcolor{keyword}{const}\ \&mat);}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{double}\ Determinant(Mat3d\ \textcolor{keyword}{const}\ \&mat);}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \ \ \textcolor{keyword}{static}\ Mat2d\ Inverse(Mat2d\ \textcolor{keyword}{const}\ \&m\_val);}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \ \ \textcolor{keyword}{static}\ Mat3d\ Inverse(Mat3d\ \textcolor{keyword}{const}\ \&m\_val);}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \ \ \textcolor{keyword}{template}\ <\textcolor{keywordtype}{size\_t}\ r,\ \textcolor{keywordtype}{size\_t}\ cr,\ \textcolor{keywordtype}{size\_t}\ c>}
+\DoxyCodeLine{00043\ \ \ \textcolor{keyword}{static}\ MatNd<r,\ c>\ Dot(MatNd<r,\ cr>\ \textcolor{keyword}{const}\ \&m\_1,\ MatNd<cr,\ c>\ \textcolor{keyword}{const}\ \&m\_2);}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \ \ \textcolor{keyword}{template}\ <\textcolor{keywordtype}{size\_t}\ r,\ \textcolor{keywordtype}{size\_t}\ cr,\ \textcolor{keywordtype}{size\_t}\ c>}
+\DoxyCodeLine{00046\ \ \ \textcolor{keyword}{static}\ MatNd<r,\ c>\ DotTransportLHS(MatNd<cr,\ r>\ \textcolor{keyword}{const}\ \&m\_1,}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ MatNd<cr,\ c>\ \textcolor{keyword}{const}\ \&m\_2);}
 \DoxyCodeLine{00048\ }
-\DoxyCodeLine{00049\ \textcolor{keyword}{inline}\ Vec3d\ operator+(Vec3d\ \textcolor{keyword}{const}\ \&lhs,\ \textcolor{keywordtype}{double}\ rhs)\ \{}
-\DoxyCodeLine{00050\ \ \ Vec3d\ res;}
-\DoxyCodeLine{00051\ \ \ res[0]\ =\ lhs[0]\ +\ rhs;}
-\DoxyCodeLine{00052\ \ \ res[1]\ =\ lhs[1]\ +\ rhs;}
-\DoxyCodeLine{00053\ \ \ res[2]\ =\ lhs[2]\ +\ rhs;}
-\DoxyCodeLine{00054\ \ \ \textcolor{keywordflow}{return}\ res;}
-\DoxyCodeLine{00055\ \}}
+\DoxyCodeLine{00049\ \ \ \textcolor{keyword}{template}\ <\textcolor{keywordtype}{size\_t}\ r,\ \textcolor{keywordtype}{size\_t}\ cr,\ \textcolor{keywordtype}{size\_t}\ c>}
+\DoxyCodeLine{00050\ \ \ \textcolor{keyword}{static}\ MatNd<r,\ c>\ DotTransportRHS(MatNd<r,\ cr>\ \textcolor{keyword}{const}\ \&m\_1,}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ MatNd<c,\ cr>\ \textcolor{keyword}{const}\ \&m\_2);}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \ \ \textcolor{keyword}{static}\ Vec3d\ Cross(Vec3d\ \textcolor{keyword}{const}\ \&val\_1,\ Vec3d\ \textcolor{keyword}{const}\ \&val\_2);}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{double}\ Dot(Vec3d\ \textcolor{keyword}{const}\ \&val\_1,\ Vec3d\ \textcolor{keyword}{const}\ \&val\_2);}
 \DoxyCodeLine{00056\ }
-\DoxyCodeLine{00057\ \textcolor{keyword}{inline}\ Vec3d\ operator+(\textcolor{keywordtype}{double}\ lhs,\ Vec3d\ \textcolor{keyword}{const}\ \&rhs)\ \{}
-\DoxyCodeLine{00058\ \ \ Vec3d\ res;}
-\DoxyCodeLine{00059\ \ \ res[0]\ =\ lhs\ +\ rhs[0];}
-\DoxyCodeLine{00060\ \ \ res[1]\ =\ lhs\ +\ rhs[1];}
-\DoxyCodeLine{00061\ \ \ res[2]\ =\ lhs\ +\ rhs[2];}
-\DoxyCodeLine{00062\ \ \ \textcolor{keywordflow}{return}\ res;}
-\DoxyCodeLine{00063\ \}}
-\DoxyCodeLine{00064\ }
-\DoxyCodeLine{00065\ \textcolor{keyword}{inline}\ Vec3i\ operator+(Vec3i\ \textcolor{keyword}{const}\ \&lhs,\ \textcolor{keywordtype}{int}\ rhs)\ \{}
-\DoxyCodeLine{00066\ \ \ Vec3i\ res;}
-\DoxyCodeLine{00067\ \ \ res[0]\ =\ lhs[0]\ +\ rhs;}
-\DoxyCodeLine{00068\ \ \ res[1]\ =\ lhs[1]\ +\ rhs;}
-\DoxyCodeLine{00069\ \ \ res[2]\ =\ lhs[2]\ +\ rhs;}
-\DoxyCodeLine{00070\ \ \ \textcolor{keywordflow}{return}\ res;}
-\DoxyCodeLine{00071\ \}}
+\DoxyCodeLine{00057\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{double}\ Dot(VecXT<double>\ \textcolor{keyword}{const}\ \&val\_1,\ VecXT<double>\ \textcolor{keyword}{const}\ \&val\_2);}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ Normalize(Vec3d\ *\textcolor{keyword}{const}\ val);}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \ \ \textcolor{keyword}{static}\ Vec3d\ Rotate(Vec3d\ \textcolor{keyword}{const}\ \&val\_old,\ \textcolor{keywordtype}{double}\ rot\_angle\_cos,}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ rot\_angle\_sin,\ Vec3d\ \textcolor{keyword}{const}\ \&rot\_axis);}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \ \ \textcolor{keyword}{static}\ Vec3d\ Rotate(Vec3d\ \textcolor{keyword}{const}\ \&val\_old,\ \textcolor{keywordtype}{double}\ rot\_angle,}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Vec3d\ \textcolor{keyword}{const}\ \&rot\_axis);}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ \ \ \textcolor{keyword}{static}\ Vec3d\ Rotate(Vec3d\ \textcolor{keyword}{const}\ \&val\_old,\ Vec4d\ \textcolor{keyword}{const}\ \&quat);}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00069\ \ \ \textcolor{keyword}{static}\ Vec3d\ Rotate(Vec3d\ \textcolor{keyword}{const}\ \&val\_old,\ Mat3d\ \textcolor{keyword}{const}\ \&rot\_mat);}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ \ \ \textcolor{keyword}{static}\ Vec3d\ CartesianToSpherical(Vec3d\ \textcolor{keyword}{const}\ \&vert\_cart);}
 \DoxyCodeLine{00072\ }
-\DoxyCodeLine{00073\ \textcolor{keyword}{inline}\ Vec3i\ operator+(\textcolor{keywordtype}{int}\ lhs,\ Vec3i\ \textcolor{keyword}{const}\ \&rhs)\ \{}
-\DoxyCodeLine{00074\ \ \ Vec3i\ res;}
-\DoxyCodeLine{00075\ \ \ res[0]\ =\ lhs\ +\ rhs[0];}
-\DoxyCodeLine{00076\ \ \ res[1]\ =\ lhs\ +\ rhs[1];}
-\DoxyCodeLine{00077\ \ \ res[2]\ =\ lhs\ +\ rhs[2];}
-\DoxyCodeLine{00078\ \ \ \textcolor{keywordflow}{return}\ res;}
-\DoxyCodeLine{00079\ \}}
+\DoxyCodeLine{00073\ \ \ \textcolor{keyword}{static}\ Vec3d\ SphericalToCartesian(Vec3d\ \textcolor{keyword}{const}\ \&vert\_sph);}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classnetdem_1_1_math_1_1_quaternion}{Quaternion}}\ \{}
+\DoxyCodeLine{00076\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{keyword}{static}\ Vec4d\ FromRodrigues(\textcolor{keywordtype}{double}\ rot\_angle,\ Vec3d\ \textcolor{keyword}{const}\ \&rot\_axis);}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{keyword}{static}\ std::tuple<double,\ Vec3d>\ ToRodrigues(Vec4d\ \textcolor{keyword}{const}\ \&quat);}
 \DoxyCodeLine{00080\ }
-\DoxyCodeLine{00081\ \textcolor{keyword}{inline}\ Vec3d\ operator-\/(Vec3d\ \textcolor{keyword}{const}\ \&lhs,\ \textcolor{keywordtype}{double}\ rhs)\ \{}
-\DoxyCodeLine{00082\ \ \ Vec3d\ res;}
-\DoxyCodeLine{00083\ \ \ res[0]\ =\ lhs[0]\ -\/\ rhs;}
-\DoxyCodeLine{00084\ \ \ res[1]\ =\ lhs[1]\ -\/\ rhs;}
-\DoxyCodeLine{00085\ \ \ res[2]\ =\ lhs[2]\ -\/\ rhs;}
-\DoxyCodeLine{00086\ \ \ \textcolor{keywordflow}{return}\ res;}
-\DoxyCodeLine{00087\ \}}
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{keyword}{static}\ Vec4d\ FromMatrix(Mat3d\ \textcolor{keyword}{const}\ \&rot\_mat);}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00083\ \ \ \ \ \textcolor{keyword}{static}\ Mat3d\ ToMatrix(Vec4d\ \textcolor{keyword}{const}\ \&quat);}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00085\ \ \ \ \ \textcolor{keyword}{static}\ Vec4d\ Multiply(Vec4d\ \textcolor{keyword}{const}\ \&p,\ Vec4d\ \textcolor{keyword}{const}\ \&q);}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00087\ \ \ \ \ \textcolor{keyword}{static}\ Vec4d\ Add(Vec4d\ \textcolor{keyword}{const}\ \&p,\ Vec4d\ \textcolor{keyword}{const}\ \&q);}
 \DoxyCodeLine{00088\ }
-\DoxyCodeLine{00089\ \textcolor{keyword}{inline}\ Vec3d\ operator-\/(\textcolor{keywordtype}{double}\ lhs,\ Vec3d\ \textcolor{keyword}{const}\ \&rhs)\ \{}
-\DoxyCodeLine{00090\ \ \ Vec3d\ res;}
-\DoxyCodeLine{00091\ \ \ res[0]\ =\ lhs\ -\/\ rhs[0];}
-\DoxyCodeLine{00092\ \ \ res[1]\ =\ lhs\ -\/\ rhs[1];}
-\DoxyCodeLine{00093\ \ \ res[2]\ =\ lhs\ -\/\ rhs[2];}
-\DoxyCodeLine{00094\ \ \ \textcolor{keywordflow}{return}\ res;}
-\DoxyCodeLine{00095\ \}}
-\DoxyCodeLine{00096\ }
-\DoxyCodeLine{00097\ \textcolor{keyword}{inline}\ Vec3d\ operator*(Vec3d\ \textcolor{keyword}{const}\ \&lhs,\ \textcolor{keywordtype}{double}\ rhs)\ \{}
-\DoxyCodeLine{00098\ \ \ Vec3d\ res;}
-\DoxyCodeLine{00099\ \ \ res[0]\ =\ lhs[0]\ *\ rhs;}
-\DoxyCodeLine{00100\ \ \ res[1]\ =\ lhs[1]\ *\ rhs;}
-\DoxyCodeLine{00101\ \ \ res[2]\ =\ lhs[2]\ *\ rhs;}
-\DoxyCodeLine{00102\ \ \ \textcolor{keywordflow}{return}\ res;}
-\DoxyCodeLine{00103\ \}}
-\DoxyCodeLine{00104\ }
-\DoxyCodeLine{00105\ \textcolor{keyword}{inline}\ Vec3d\ operator*(\textcolor{keywordtype}{double}\ lhs,\ Vec3d\ \textcolor{keyword}{const}\ \&rhs)\ \{}
-\DoxyCodeLine{00106\ \ \ Vec3d\ res;}
-\DoxyCodeLine{00107\ \ \ res[0]\ =\ lhs\ *\ rhs[0];}
-\DoxyCodeLine{00108\ \ \ res[1]\ =\ lhs\ *\ rhs[1];}
-\DoxyCodeLine{00109\ \ \ res[2]\ =\ lhs\ *\ rhs[2];}
-\DoxyCodeLine{00110\ \ \ \textcolor{keywordflow}{return}\ res;}
-\DoxyCodeLine{00111\ \}}
-\DoxyCodeLine{00112\ }
-\DoxyCodeLine{00113\ \textcolor{keyword}{inline}\ Vec3d\ operator/(Vec3d\ \textcolor{keyword}{const}\ \&lhs,\ \textcolor{keywordtype}{double}\ rhs)\ \{}
-\DoxyCodeLine{00114\ \ \ Vec3d\ res;}
-\DoxyCodeLine{00115\ \ \ res[0]\ =\ lhs[0]\ /\ rhs;}
-\DoxyCodeLine{00116\ \ \ res[1]\ =\ lhs[1]\ /\ rhs;}
-\DoxyCodeLine{00117\ \ \ res[2]\ =\ lhs[2]\ /\ rhs;}
-\DoxyCodeLine{00118\ \ \ \textcolor{keywordflow}{return}\ res;}
-\DoxyCodeLine{00119\ \}}
-\DoxyCodeLine{00120\ }
-\DoxyCodeLine{00121\ \textcolor{keyword}{inline}\ Vec3d\ operator/(\textcolor{keywordtype}{double}\ lhs,\ Vec3d\ \textcolor{keyword}{const}\ \&rhs)\ \{}
-\DoxyCodeLine{00122\ \ \ Vec3d\ res;}
-\DoxyCodeLine{00123\ \ \ res[0]\ =\ lhs\ /\ rhs[0];}
-\DoxyCodeLine{00124\ \ \ res[1]\ =\ lhs\ /\ rhs[1];}
-\DoxyCodeLine{00125\ \ \ res[2]\ =\ lhs\ /\ rhs[2];}
-\DoxyCodeLine{00126\ \ \ \textcolor{keywordflow}{return}\ res;}
-\DoxyCodeLine{00127\ \}}
-\DoxyCodeLine{00128\ }
-\DoxyCodeLine{00129\ \textcolor{keyword}{inline}\ Vec3d\ operator+(Vec3d\ \textcolor{keyword}{const}\ \&lhs,\ Vec3d\ \textcolor{keyword}{const}\ \&rhs)\ \{}
-\DoxyCodeLine{00130\ \ \ Vec3d\ res;}
-\DoxyCodeLine{00131\ \ \ res[0]\ =\ lhs[0]\ +\ rhs[0];}
-\DoxyCodeLine{00132\ \ \ res[1]\ =\ lhs[1]\ +\ rhs[1];}
-\DoxyCodeLine{00133\ \ \ res[2]\ =\ lhs[2]\ +\ rhs[2];}
-\DoxyCodeLine{00134\ \ \ \textcolor{keywordflow}{return}\ res;}
-\DoxyCodeLine{00135\ \}}
-\DoxyCodeLine{00136\ }
-\DoxyCodeLine{00137\ \textcolor{keyword}{inline}\ Vec3d\ operator-\/(Vec3d\ \textcolor{keyword}{const}\ \&lhs,\ Vec3d\ \textcolor{keyword}{const}\ \&rhs)\ \{}
-\DoxyCodeLine{00138\ \ \ Vec3d\ res;}
-\DoxyCodeLine{00139\ \ \ res[0]\ =\ lhs[0]\ -\/\ rhs[0];}
-\DoxyCodeLine{00140\ \ \ res[1]\ =\ lhs[1]\ -\/\ rhs[1];}
-\DoxyCodeLine{00141\ \ \ res[2]\ =\ lhs[2]\ -\/\ rhs[2];}
-\DoxyCodeLine{00142\ \ \ \textcolor{keywordflow}{return}\ res;}
-\DoxyCodeLine{00143\ \}}
-\DoxyCodeLine{00144\ }
-\DoxyCodeLine{00145\ \textcolor{keyword}{inline}\ Vec3d\ operator*(Vec3d\ \textcolor{keyword}{const}\ \&lhs,\ Vec3d\ \textcolor{keyword}{const}\ \&rhs)\ \{}
-\DoxyCodeLine{00146\ \ \ Vec3d\ res;}
-\DoxyCodeLine{00147\ \ \ res[0]\ =\ lhs[0]\ *\ rhs[0];}
-\DoxyCodeLine{00148\ \ \ res[1]\ =\ lhs[1]\ *\ rhs[1];}
-\DoxyCodeLine{00149\ \ \ res[2]\ =\ lhs[2]\ *\ rhs[2];}
-\DoxyCodeLine{00150\ \ \ \textcolor{keywordflow}{return}\ res;}
-\DoxyCodeLine{00151\ \}}
-\DoxyCodeLine{00152\ }
-\DoxyCodeLine{00153\ \textcolor{keyword}{inline}\ Vec3d\ operator/(Vec3d\ \textcolor{keyword}{const}\ \&lhs,\ Vec3d\ \textcolor{keyword}{const}\ \&rhs)\ \{}
-\DoxyCodeLine{00154\ \ \ Vec3d\ res;}
-\DoxyCodeLine{00155\ \ \ res[0]\ =\ lhs[0]\ /\ rhs[0];}
-\DoxyCodeLine{00156\ \ \ res[1]\ =\ lhs[1]\ /\ rhs[1];}
-\DoxyCodeLine{00157\ \ \ res[2]\ =\ lhs[2]\ /\ rhs[2];}
-\DoxyCodeLine{00158\ \ \ \textcolor{keywordflow}{return}\ res;}
-\DoxyCodeLine{00159\ \}}
+\DoxyCodeLine{00089\ \ \ \ \ \textcolor{keyword}{static}\ Vec4d\ Conjugate(Vec4d\ \textcolor{keyword}{const}\ \&p);}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00091\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ Normalize(Vec4d\ *\textcolor{keyword}{const}\ q);}
+\DoxyCodeLine{00092\ \ \ \};}
+\DoxyCodeLine{00093\ \};}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00095\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>\ \textcolor{keywordtype}{int}\ Math::Sign(T\ val)\ \{}
+\DoxyCodeLine{00096\ \ \ \textcolor{keywordflow}{return}\ (T(0)\ <\ val)\ -\/\ (val\ <\ T(0));}
+\DoxyCodeLine{00097\ \}}
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00099\ \textcolor{keyword}{template}\ <\textcolor{keywordtype}{size\_t}\ N>\ \textcolor{keywordtype}{double}\ Math::NormL2(VecNd<N>\ \textcolor{keyword}{const}\ \&val)\ \{}
+\DoxyCodeLine{00100\ \ \ \textcolor{keywordtype}{double}\ res\{0.0\};}
+\DoxyCodeLine{00101\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ N;\ i++)\ \{}
+\DoxyCodeLine{00102\ \ \ \ \ res\ +=\ val[i]\ *\ val[i];}
+\DoxyCodeLine{00103\ \ \ \}}
+\DoxyCodeLine{00104\ \ \ \textcolor{keywordflow}{return}\ std::sqrt(res);}
+\DoxyCodeLine{00105\ \}}
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00107\ \textcolor{keyword}{template}\ <\textcolor{keywordtype}{size\_t}\ r,\ \textcolor{keywordtype}{size\_t}\ cr,\ \textcolor{keywordtype}{size\_t}\ c>}
+\DoxyCodeLine{00108\ MatNd<r,\ c>\ Math::Dot(MatNd<r,\ cr>\ \textcolor{keyword}{const}\ \&m\_1,\ MatNd<cr,\ c>\ \textcolor{keyword}{const}\ \&m\_2)\ \{}
+\DoxyCodeLine{00109\ \ \ MatNd<r,\ c>\ m\_res;}
+\DoxyCodeLine{00110\ }
+\DoxyCodeLine{00111\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ r;\ i++)\ \{}
+\DoxyCodeLine{00112\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ j\ =\ 0;\ j\ <\ c;\ j++)\ \{}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ m\_res[i][j]\ =\ 0;}
+\DoxyCodeLine{00114\ \ \ \ \ \}}
+\DoxyCodeLine{00115\ \ \ \}}
+\DoxyCodeLine{00116\ }
+\DoxyCodeLine{00117\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ r;\ i++)\ \{}
+\DoxyCodeLine{00118\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ k\ =\ 0;\ k\ <\ cr;\ k++)\ \{}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ j\ =\ 0;\ j\ <\ c;\ j++)\ \{}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ m\_res[i][j]\ +=\ m\_1[i][k]\ *\ m\_2[k][j];}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00122\ \ \ \ \ \}}
+\DoxyCodeLine{00123\ \ \ \}}
+\DoxyCodeLine{00124\ }
+\DoxyCodeLine{00125\ \ \ \textcolor{keywordflow}{return}\ m\_res;}
+\DoxyCodeLine{00126\ \}}
+\DoxyCodeLine{00127\ }
+\DoxyCodeLine{00128\ \textcolor{keyword}{template}\ <\textcolor{keywordtype}{size\_t}\ r,\ \textcolor{keywordtype}{size\_t}\ cr,\ \textcolor{keywordtype}{size\_t}\ c>}
+\DoxyCodeLine{00129\ MatNd<r,\ c>\ Math::DotTransportLHS(MatNd<cr,\ r>\ \textcolor{keyword}{const}\ \&m\_1,}
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ MatNd<cr,\ c>\ \textcolor{keyword}{const}\ \&m\_2)\ \{}
+\DoxyCodeLine{00131\ \ \ MatNd<r,\ c>\ m\_res;}
+\DoxyCodeLine{00132\ }
+\DoxyCodeLine{00133\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ r;\ i++)\ \{}
+\DoxyCodeLine{00134\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ j\ =\ 0;\ j\ <\ c;\ j++)\ \{}
+\DoxyCodeLine{00135\ \ \ \ \ \ \ m\_res[i][j]\ =\ 0;}
+\DoxyCodeLine{00136\ \ \ \ \ \}}
+\DoxyCodeLine{00137\ \ \ \}}
+\DoxyCodeLine{00138\ }
+\DoxyCodeLine{00139\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ r;\ i++)\ \{}
+\DoxyCodeLine{00140\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ k\ =\ 0;\ k\ <\ cr;\ k++)\ \{}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ j\ =\ 0;\ j\ <\ c;\ j++)\ \{}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ m\_res[i][j]\ +=\ m\_1[k][i]\ *\ m\_2[k][j];}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00144\ \ \ \ \ \}}
+\DoxyCodeLine{00145\ \ \ \}}
+\DoxyCodeLine{00146\ }
+\DoxyCodeLine{00147\ \ \ \textcolor{keywordflow}{return}\ m\_res;}
+\DoxyCodeLine{00148\ \}}
+\DoxyCodeLine{00149\ }
+\DoxyCodeLine{00150\ \textcolor{keyword}{template}\ <\textcolor{keywordtype}{size\_t}\ r,\ \textcolor{keywordtype}{size\_t}\ cr,\ \textcolor{keywordtype}{size\_t}\ c>}
+\DoxyCodeLine{00151\ MatNd<r,\ c>\ Math::DotTransportRHS(MatNd<r,\ cr>\ \textcolor{keyword}{const}\ \&m\_1,}
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ MatNd<c,\ cr>\ \textcolor{keyword}{const}\ \&m\_2)\ \{}
+\DoxyCodeLine{00153\ \ \ MatNd<r,\ c>\ m\_res;}
+\DoxyCodeLine{00154\ }
+\DoxyCodeLine{00155\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ r;\ i++)\ \{}
+\DoxyCodeLine{00156\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ j\ =\ 0;\ j\ <\ c;\ j++)\ \{}
+\DoxyCodeLine{00157\ \ \ \ \ \ \ m\_res[i][j]\ =\ 0;}
+\DoxyCodeLine{00158\ \ \ \ \ \}}
+\DoxyCodeLine{00159\ \ \ \}}
 \DoxyCodeLine{00160\ }
-\DoxyCodeLine{00161\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_math}{Math}}\ \{}
-\DoxyCodeLine{00162\ }
-\DoxyCodeLine{00163\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{int}\ Sign(T\ val)\ \{}
-\DoxyCodeLine{00164\ \ \ \textcolor{keywordflow}{return}\ (T(0)\ <\ val)\ -\/\ (val\ <\ T(0));}
-\DoxyCodeLine{00165\ \}}
-\DoxyCodeLine{00166\ }
-\DoxyCodeLine{00167\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{double}\ NormL2(Vec2d\ \textcolor{keyword}{const}\ \&val)\ \{}
-\DoxyCodeLine{00168\ \ \ \textcolor{keywordflow}{return}\ std::sqrt((\textcolor{keywordtype}{long}\ \textcolor{keywordtype}{double})(val[0])\ *\ (\textcolor{keywordtype}{long}\ \textcolor{keywordtype}{double})(val[0])\ +}
-\DoxyCodeLine{00169\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (\textcolor{keywordtype}{long}\ \textcolor{keywordtype}{double})(val[1])\ *\ (\textcolor{keywordtype}{long}\ \textcolor{keywordtype}{double})(val[1]));}
+\DoxyCodeLine{00161\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ r;\ i++)\ \{}
+\DoxyCodeLine{00162\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ j\ =\ 0;\ j\ <\ c;\ j++)\ \{}
+\DoxyCodeLine{00163\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ k\ =\ 0;\ k\ <\ cr;\ k++)\ \{}
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ m\_res[i][j]\ +=\ m\_1[i][k]\ *\ m\_2[j][k];}
+\DoxyCodeLine{00165\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00166\ \ \ \ \ \}}
+\DoxyCodeLine{00167\ \ \ \}}
+\DoxyCodeLine{00168\ }
+\DoxyCodeLine{00169\ \ \ \textcolor{keywordflow}{return}\ m\_res;}
 \DoxyCodeLine{00170\ \}}
 \DoxyCodeLine{00171\ }
-\DoxyCodeLine{00172\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{double}\ NormL2(Vec3d\ \textcolor{keyword}{const}\ \&val)\ \{}
-\DoxyCodeLine{00173\ \ \ \textcolor{keywordflow}{return}\ std::sqrt((\textcolor{keywordtype}{long}\ \textcolor{keywordtype}{double})(val[0])\ *\ (\textcolor{keywordtype}{long}\ \textcolor{keywordtype}{double})(val[0])\ +}
-\DoxyCodeLine{00174\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (\textcolor{keywordtype}{long}\ \textcolor{keywordtype}{double})(val[1])\ *\ (\textcolor{keywordtype}{long}\ \textcolor{keywordtype}{double})(val[1])\ +}
-\DoxyCodeLine{00175\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (\textcolor{keywordtype}{long}\ \textcolor{keywordtype}{double})(val[2])\ *\ (\textcolor{keywordtype}{long}\ \textcolor{keywordtype}{double})(val[2]));}
-\DoxyCodeLine{00176\ \}}
-\DoxyCodeLine{00177\ }
-\DoxyCodeLine{00178\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{double}\ NormL2(\textcolor{keywordtype}{double}\ val\_0,\ \textcolor{keywordtype}{double}\ val\_1)\ \{}
-\DoxyCodeLine{00179\ \ \ \textcolor{keywordflow}{return}\ std::sqrt((\textcolor{keywordtype}{long}\ \textcolor{keywordtype}{double})val\_0\ *\ (\textcolor{keywordtype}{long}\ \textcolor{keywordtype}{double})val\_0\ +}
-\DoxyCodeLine{00180\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (\textcolor{keywordtype}{long}\ \textcolor{keywordtype}{double})val\_1\ *\ (\textcolor{keywordtype}{long}\ \textcolor{keywordtype}{double})val\_1);}
-\DoxyCodeLine{00181\ \}}
-\DoxyCodeLine{00182\ }
-\DoxyCodeLine{00183\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{double}\ NormL2(\textcolor{keywordtype}{double}\ val\_0,\ \textcolor{keywordtype}{double}\ val\_1,\ \textcolor{keywordtype}{double}\ val\_2)\ \{}
-\DoxyCodeLine{00184\ \ \ \textcolor{keywordflow}{return}\ std::sqrt((\textcolor{keywordtype}{long}\ \textcolor{keywordtype}{double})val\_0\ *\ (\textcolor{keywordtype}{long}\ \textcolor{keywordtype}{double})val\_0\ +}
-\DoxyCodeLine{00185\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (\textcolor{keywordtype}{long}\ \textcolor{keywordtype}{double})val\_1\ *\ (\textcolor{keywordtype}{long}\ \textcolor{keywordtype}{double})val\_1\ +}
-\DoxyCodeLine{00186\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (\textcolor{keywordtype}{long}\ \textcolor{keywordtype}{double})val\_2\ *\ (\textcolor{keywordtype}{long}\ \textcolor{keywordtype}{double})val\_2);}
-\DoxyCodeLine{00187\ \}}
-\DoxyCodeLine{00188\ }
-\DoxyCodeLine{00189\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{double}\ NormL2(\textcolor{keywordtype}{double}\ val\_0,\ \textcolor{keywordtype}{double}\ val\_1,\ \textcolor{keywordtype}{double}\ val\_2,\ \textcolor{keywordtype}{double}\ val\_3)\ \{}
-\DoxyCodeLine{00190\ \ \ \textcolor{keywordflow}{return}\ std::sqrt((\textcolor{keywordtype}{long}\ \textcolor{keywordtype}{double})val\_0\ *\ (\textcolor{keywordtype}{long}\ \textcolor{keywordtype}{double})val\_0\ +}
-\DoxyCodeLine{00191\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (\textcolor{keywordtype}{long}\ \textcolor{keywordtype}{double})val\_1\ *\ (\textcolor{keywordtype}{long}\ \textcolor{keywordtype}{double})val\_1\ +}
-\DoxyCodeLine{00192\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (\textcolor{keywordtype}{long}\ \textcolor{keywordtype}{double})val\_2\ *\ (\textcolor{keywordtype}{long}\ \textcolor{keywordtype}{double})val\_2\ +}
-\DoxyCodeLine{00193\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (\textcolor{keywordtype}{long}\ \textcolor{keywordtype}{double})val\_3\ *\ (\textcolor{keywordtype}{long}\ \textcolor{keywordtype}{double})val\_3);}
-\DoxyCodeLine{00194\ \}}
-\DoxyCodeLine{00195\ }
-\DoxyCodeLine{00196\ \textcolor{keyword}{template}\ <\textcolor{keywordtype}{size\_t}\ N>\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{double}\ NormL2(VecNd<N>\ \textcolor{keyword}{const}\ \&val)\ \{}
-\DoxyCodeLine{00197\ \ \ \textcolor{keywordtype}{double}\ res\{0.0\};}
-\DoxyCodeLine{00198\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ N;\ i++)\ \{}
-\DoxyCodeLine{00199\ \ \ \ \ res\ +=\ val[i]\ *\ val[i];}
-\DoxyCodeLine{00200\ \ \ \}}
-\DoxyCodeLine{00201\ \ \ \textcolor{keywordflow}{return}\ std::sqrt(res);}
-\DoxyCodeLine{00202\ \}}
-\DoxyCodeLine{00203\ }
-\DoxyCodeLine{00204\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{double}\ NormL2(VecXd\ \textcolor{keyword}{const}\ \&val)\ \{}
-\DoxyCodeLine{00205\ \ \ \textcolor{keywordtype}{double}\ res\{0.0\};}
-\DoxyCodeLine{00206\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ val.size();\ i++)\ \{}
-\DoxyCodeLine{00207\ \ \ \ \ res\ +=\ val[i]\ *\ val[i];}
-\DoxyCodeLine{00208\ \ \ \}}
-\DoxyCodeLine{00209\ \ \ \textcolor{keywordflow}{return}\ std::sqrt(res);}
-\DoxyCodeLine{00210\ \}}
-\DoxyCodeLine{00211\ }
-\DoxyCodeLine{00212\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{double}\ Determinant(Mat2d\ \textcolor{keyword}{const}\ \&mat)\ \{}
-\DoxyCodeLine{00213\ \ \ \textcolor{keywordflow}{return}\ mat[0][0]\ *\ mat[1][1]\ -\/\ mat[0][1]\ *\ mat[1][0];}
-\DoxyCodeLine{00214\ \}}
-\DoxyCodeLine{00215\ }
-\DoxyCodeLine{00216\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{double}\ Determinant(Mat3d\ \textcolor{keyword}{const}\ \&mat)\ \{}
-\DoxyCodeLine{00217\ \ \ \textcolor{keywordflow}{return}\ mat[0][0]\ *\ mat[1][1]\ *\ mat[2][2]\ +\ mat[0][1]\ *\ mat[1][2]\ *\ mat[2][0]\ +}
-\DoxyCodeLine{00218\ \ \ \ \ \ \ \ \ \ mat[0][2]\ *\ mat[1][0]\ *\ mat[2][1]\ -\/\ mat[0][0]\ *\ mat[1][2]\ *\ mat[2][1]\ -\/}
-\DoxyCodeLine{00219\ \ \ \ \ \ \ \ \ \ mat[0][1]\ *\ mat[1][0]\ *\ mat[2][2]\ -\/\ mat[0][2]\ *\ mat[1][1]\ *\ mat[2][0];}
-\DoxyCodeLine{00220\ \}}
-\DoxyCodeLine{00221\ }
-\DoxyCodeLine{00222\ \textcolor{keyword}{inline}\ Mat2d\ Inverse(Mat2d\ \textcolor{keyword}{const}\ \&m\_val)\ \{}
-\DoxyCodeLine{00223\ \ \ \textcolor{keywordtype}{double}\ m\_det\ =\ Determinant(m\_val);}
-\DoxyCodeLine{00224\ \ \ \textcolor{keywordflow}{if}\ (std::abs(m\_det)\ <\ 1.0e-\/24)\ \{}
-\DoxyCodeLine{00225\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}in\ Math::Inverse:\ mat\ determinant\ less\ than\ 1.0e-\/24"{}}}
-\DoxyCodeLine{00226\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ std::endl;}
-\DoxyCodeLine{00227\ \ \ \}}
-\DoxyCodeLine{00228\ }
-\DoxyCodeLine{00229\ \ \ Mat2d\ m\_res;}
-\DoxyCodeLine{00230\ }
-\DoxyCodeLine{00231\ \ \ m\_res[0][0]\ =\ m\_val[1][1]\ /\ m\_det;}
-\DoxyCodeLine{00232\ \ \ m\_res[0][1]\ =\ -\/m\_val[0][1]\ /\ m\_det;}
-\DoxyCodeLine{00233\ }
-\DoxyCodeLine{00234\ \ \ m\_res[1][0]\ =\ -\/m\_val[1][0]\ /\ m\_det;}
-\DoxyCodeLine{00235\ \ \ m\_res[1][1]\ =\ m\_val[0][0]\ /\ m\_det;}
-\DoxyCodeLine{00236\ }
-\DoxyCodeLine{00237\ \ \ \textcolor{keywordflow}{return}\ m\_res;}
-\DoxyCodeLine{00238\ \}}
-\DoxyCodeLine{00239\ }
-\DoxyCodeLine{00240\ \textcolor{keyword}{inline}\ Mat3d\ Inverse(Mat3d\ \textcolor{keyword}{const}\ \&m\_val)\ \{}
-\DoxyCodeLine{00241\ \ \ \textcolor{keywordtype}{double}\ m\_det\ =\ Determinant(m\_val);}
-\DoxyCodeLine{00242\ \ \ \textcolor{keywordflow}{if}\ (std::abs(m\_det)\ <\ 1.0e-\/24)\ \{}
-\DoxyCodeLine{00243\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}in\ Math::Inverse:\ mat\ determinant\ less\ than\ 1.0e-\/24"{}}}
-\DoxyCodeLine{00244\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ std::endl;}
-\DoxyCodeLine{00245\ \ \ \}}
-\DoxyCodeLine{00246\ }
-\DoxyCodeLine{00247\ \ \ Mat3d\ m\_res;}
-\DoxyCodeLine{00248\ }
-\DoxyCodeLine{00249\ \ \ m\_res[0][0]\ =\ (m\_val[1][1]\ *\ m\_val[2][2]\ -\/\ m\_val[2][1]\ *\ m\_val[1][2])\ /\ m\_det;}
-\DoxyCodeLine{00250\ \ \ m\_res[0][1]\ =\ (m\_val[2][1]\ *\ m\_val[0][2]\ -\/\ m\_val[0][1]\ *\ m\_val[2][2])\ /\ m\_det;}
-\DoxyCodeLine{00251\ \ \ m\_res[0][2]\ =\ (m\_val[0][1]\ *\ m\_val[1][2]\ -\/\ m\_val[1][1]\ *\ m\_val[0][2])\ /\ m\_det;}
-\DoxyCodeLine{00252\ }
-\DoxyCodeLine{00253\ \ \ m\_res[1][0]\ =\ (m\_val[1][2]\ *\ m\_val[2][0]\ -\/\ m\_val[2][2]\ *\ m\_val[1][0])\ /\ m\_det;}
-\DoxyCodeLine{00254\ \ \ m\_res[1][1]\ =\ (m\_val[2][2]\ *\ m\_val[0][0]\ -\/\ m\_val[0][2]\ *\ m\_val[2][0])\ /\ m\_det;}
-\DoxyCodeLine{00255\ \ \ m\_res[1][2]\ =\ (m\_val[0][2]\ *\ m\_val[1][0]\ -\/\ m\_val[1][2]\ *\ m\_val[0][0])\ /\ m\_det;}
-\DoxyCodeLine{00256\ }
-\DoxyCodeLine{00257\ \ \ m\_res[2][0]\ =\ (m\_val[1][0]\ *\ m\_val[2][1]\ -\/\ m\_val[2][0]\ *\ m\_val[1][1])\ /\ m\_det;}
-\DoxyCodeLine{00258\ \ \ m\_res[2][1]\ =\ (m\_val[2][0]\ *\ m\_val[0][1]\ -\/\ m\_val[0][0]\ *\ m\_val[2][1])\ /\ m\_det;}
-\DoxyCodeLine{00259\ \ \ m\_res[2][2]\ =\ (m\_val[0][0]\ *\ m\_val[1][1]\ -\/\ m\_val[1][0]\ *\ m\_val[0][1])\ /\ m\_det;}
-\DoxyCodeLine{00260\ }
-\DoxyCodeLine{00261\ \ \ \textcolor{keywordflow}{return}\ m\_res;}
-\DoxyCodeLine{00262\ \}}
-\DoxyCodeLine{00263\ }
-\DoxyCodeLine{00264\ \textcolor{keyword}{template}\ <\textcolor{keywordtype}{size\_t}\ r,\ \textcolor{keywordtype}{size\_t}\ cr,\ \textcolor{keywordtype}{size\_t}\ c>}
-\DoxyCodeLine{00265\ \textcolor{keyword}{inline}\ MatNd<r,\ c>\ Dot(MatNd<r,\ cr>\ \textcolor{keyword}{const}\ \&m\_1,\ MatNd<cr,\ c>\ \textcolor{keyword}{const}\ \&m\_2)\ \{}
-\DoxyCodeLine{00266\ \ \ MatNd<r,\ c>\ m\_res;}
-\DoxyCodeLine{00267\ }
-\DoxyCodeLine{00268\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ r;\ i++)\ \{}
-\DoxyCodeLine{00269\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ j\ =\ 0;\ j\ <\ c;\ j++)\ \{}
-\DoxyCodeLine{00270\ \ \ \ \ \ \ m\_res[i][j]\ =\ 0;}
-\DoxyCodeLine{00271\ \ \ \ \ \}}
-\DoxyCodeLine{00272\ \ \ \}}
-\DoxyCodeLine{00273\ }
-\DoxyCodeLine{00274\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ r;\ i++)\ \{}
-\DoxyCodeLine{00275\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ k\ =\ 0;\ k\ <\ cr;\ k++)\ \{}
-\DoxyCodeLine{00276\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ j\ =\ 0;\ j\ <\ c;\ j++)\ \{}
-\DoxyCodeLine{00277\ \ \ \ \ \ \ \ \ m\_res[i][j]\ +=\ m\_1[i][k]\ *\ m\_2[k][j];}
-\DoxyCodeLine{00278\ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00279\ \ \ \ \ \}}
-\DoxyCodeLine{00280\ \ \ \}}
-\DoxyCodeLine{00281\ }
-\DoxyCodeLine{00282\ \ \ \textcolor{keywordflow}{return}\ m\_res;}
-\DoxyCodeLine{00283\ \}}
-\DoxyCodeLine{00284\ }
-\DoxyCodeLine{00285\ \textcolor{keyword}{template}\ <\textcolor{keywordtype}{size\_t}\ r,\ \textcolor{keywordtype}{size\_t}\ cr,\ \textcolor{keywordtype}{size\_t}\ c>}
-\DoxyCodeLine{00286\ \textcolor{keyword}{inline}\ MatNd<r,\ c>\ DotTransportLHS(MatNd<cr,\ r>\ \textcolor{keyword}{const}\ \&m\_1,}
-\DoxyCodeLine{00287\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ MatNd<cr,\ c>\ \textcolor{keyword}{const}\ \&m\_2)\ \{}
-\DoxyCodeLine{00288\ \ \ MatNd<r,\ c>\ m\_res;}
-\DoxyCodeLine{00289\ }
-\DoxyCodeLine{00290\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ r;\ i++)\ \{}
-\DoxyCodeLine{00291\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ j\ =\ 0;\ j\ <\ c;\ j++)\ \{}
-\DoxyCodeLine{00292\ \ \ \ \ \ \ m\_res[i][j]\ =\ 0;}
-\DoxyCodeLine{00293\ \ \ \ \ \}}
-\DoxyCodeLine{00294\ \ \ \}}
-\DoxyCodeLine{00295\ }
-\DoxyCodeLine{00296\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ r;\ i++)\ \{}
-\DoxyCodeLine{00297\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ k\ =\ 0;\ k\ <\ cr;\ k++)\ \{}
-\DoxyCodeLine{00298\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ j\ =\ 0;\ j\ <\ c;\ j++)\ \{}
-\DoxyCodeLine{00299\ \ \ \ \ \ \ \ \ m\_res[i][j]\ +=\ m\_1[k][i]\ *\ m\_2[k][j];}
-\DoxyCodeLine{00300\ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00301\ \ \ \ \ \}}
-\DoxyCodeLine{00302\ \ \ \}}
-\DoxyCodeLine{00303\ }
-\DoxyCodeLine{00304\ \ \ \textcolor{keywordflow}{return}\ m\_res;}
-\DoxyCodeLine{00305\ \}}
-\DoxyCodeLine{00306\ }
-\DoxyCodeLine{00307\ \textcolor{keyword}{template}\ <\textcolor{keywordtype}{size\_t}\ r,\ \textcolor{keywordtype}{size\_t}\ cr,\ \textcolor{keywordtype}{size\_t}\ c>}
-\DoxyCodeLine{00308\ \textcolor{keyword}{inline}\ MatNd<r,\ c>\ DotTransportRHS(MatNd<r,\ cr>\ \textcolor{keyword}{const}\ \&m\_1,}
-\DoxyCodeLine{00309\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ MatNd<c,\ cr>\ \textcolor{keyword}{const}\ \&m\_2)\ \{}
-\DoxyCodeLine{00310\ \ \ MatNd<r,\ c>\ m\_res;}
-\DoxyCodeLine{00311\ }
-\DoxyCodeLine{00312\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ r;\ i++)\ \{}
-\DoxyCodeLine{00313\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ j\ =\ 0;\ j\ <\ c;\ j++)\ \{}
-\DoxyCodeLine{00314\ \ \ \ \ \ \ m\_res[i][j]\ =\ 0;}
-\DoxyCodeLine{00315\ \ \ \ \ \}}
-\DoxyCodeLine{00316\ \ \ \}}
-\DoxyCodeLine{00317\ }
-\DoxyCodeLine{00318\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ r;\ i++)\ \{}
-\DoxyCodeLine{00319\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ j\ =\ 0;\ j\ <\ c;\ j++)\ \{}
-\DoxyCodeLine{00320\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ k\ =\ 0;\ k\ <\ cr;\ k++)\ \{}
-\DoxyCodeLine{00321\ \ \ \ \ \ \ \ \ m\_res[i][j]\ +=\ m\_1[i][k]\ *\ m\_2[j][k];}
-\DoxyCodeLine{00322\ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00323\ \ \ \ \ \}}
-\DoxyCodeLine{00324\ \ \ \}}
-\DoxyCodeLine{00325\ }
-\DoxyCodeLine{00326\ \ \ \textcolor{keywordflow}{return}\ m\_res;}
-\DoxyCodeLine{00327\ \}}
-\DoxyCodeLine{00328\ }
-\DoxyCodeLine{00329\ \textcolor{keyword}{inline}\ Vec3d\ Cross(Vec3d\ \textcolor{keyword}{const}\ \&val\_1,\ Vec3d\ \textcolor{keyword}{const}\ \&val\_2)\ \{}
-\DoxyCodeLine{00330\ \ \ Vec3d\ val\_res;}
-\DoxyCodeLine{00331\ \ \ val\_res[0]\ =\ val\_1[1]\ *\ val\_2[2]\ -\/\ val\_1[2]\ *\ val\_2[1];}
-\DoxyCodeLine{00332\ \ \ val\_res[1]\ =\ val\_1[2]\ *\ val\_2[0]\ -\/\ val\_1[0]\ *\ val\_2[2];}
-\DoxyCodeLine{00333\ \ \ val\_res[2]\ =\ val\_1[0]\ *\ val\_2[1]\ -\/\ val\_1[1]\ *\ val\_2[0];}
-\DoxyCodeLine{00334\ \ \ \textcolor{keywordflow}{return}\ val\_res;}
-\DoxyCodeLine{00335\ \}}
-\DoxyCodeLine{00336\ }
-\DoxyCodeLine{00337\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{double}\ Dot(Vec3d\ \textcolor{keyword}{const}\ \&val\_1,\ Vec3d\ \textcolor{keyword}{const}\ \&val\_2)\ \{}
-\DoxyCodeLine{00338\ \ \ \textcolor{keywordflow}{return}\ val\_1[0]\ *\ val\_2[0]\ +\ val\_1[1]\ *\ val\_2[1]\ +\ val\_1[2]\ *\ val\_2[2];}
-\DoxyCodeLine{00339\ \}}
-\DoxyCodeLine{00340\ }
-\DoxyCodeLine{00341\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{double}\ Dot(VecXT<double>\ \textcolor{keyword}{const}\ \&val\_1,\ VecXT<double>\ \textcolor{keyword}{const}\ \&val\_2)\ \{}
-\DoxyCodeLine{00342\ \ \ \textcolor{keywordflow}{if}\ (val\_1.size()\ !=\ val\_2.size())\ \{}
-\DoxyCodeLine{00343\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}in\ Math::Dot,\ vector\ size\ not\ equal:\ "{}}\ <<\ std::endl;}
-\DoxyCodeLine{00344\ \ \ \ \ std::abort();}
-\DoxyCodeLine{00345\ \ \ \}}
-\DoxyCodeLine{00346\ }
-\DoxyCodeLine{00347\ \ \ \textcolor{keywordtype}{double}\ res\ =\ 0.0;}
-\DoxyCodeLine{00348\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ val\_1.size();\ i++)\ \{}
-\DoxyCodeLine{00349\ \ \ \ \ res\ +=\ val\_1[i]\ *\ val\_2[i];}
-\DoxyCodeLine{00350\ \ \ \}}
-\DoxyCodeLine{00351\ \ \ \textcolor{keywordflow}{return}\ res;}
-\DoxyCodeLine{00352\ \}}
-\DoxyCodeLine{00353\ }
-\DoxyCodeLine{00354\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ Normalize(Vec3d\ *\textcolor{keyword}{const}\ val)\ \{}
-\DoxyCodeLine{00355\ \ \ \textcolor{keywordtype}{double}\ tmp\_norm\ =\ NormL2(*val);}
-\DoxyCodeLine{00356\ \ \ \textcolor{keywordflow}{if}\ (tmp\_norm\ >\ 0.0)\ \{}
-\DoxyCodeLine{00357\ \ \ \ \ \textcolor{keywordtype}{double}\ by\_val\_norm\ =\ 1.0\ /\ tmp\_norm;}
-\DoxyCodeLine{00358\ \ \ \ \ (*val)[0]\ *=\ by\_val\_norm;}
-\DoxyCodeLine{00359\ \ \ \ \ (*val)[1]\ *=\ by\_val\_norm;}
-\DoxyCodeLine{00360\ \ \ \ \ (*val)[2]\ *=\ by\_val\_norm;}
-\DoxyCodeLine{00361\ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
-\DoxyCodeLine{00362\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}in\ Math::Normalize,\ vector\ is\ of\ zero\ norm\ len"{}}\ <<\ std::endl;}
-\DoxyCodeLine{00363\ \ \ \ \ (*val)[0]\ =\ 1.0;}
-\DoxyCodeLine{00364\ \ \ \ \ (*val)[1]\ =\ 0.0;}
-\DoxyCodeLine{00365\ \ \ \ \ (*val)[2]\ =\ 0.0;}
-\DoxyCodeLine{00366\ \ \ \}}
-\DoxyCodeLine{00367\ \}}
-\DoxyCodeLine{00368\ }
-\DoxyCodeLine{00369\ \textcolor{keyword}{namespace\ }Quaternion\ \{}
-\DoxyCodeLine{00370\ }
-\DoxyCodeLine{00371\ \textcolor{keyword}{inline}\ Vec4d\ FromRodrigues(\textcolor{keywordtype}{double}\ rot\_angle,\ Vec3d\ \textcolor{keyword}{const}\ \&rot\_axis)\ \{}
-\DoxyCodeLine{00372\ \ \ Vec4d\ quat;}
-\DoxyCodeLine{00373\ }
-\DoxyCodeLine{00374\ \ \ quat[0]\ =\ std::cos(0.5\ *\ rot\_angle);}
-\DoxyCodeLine{00375\ \ \ \textcolor{keywordtype}{double}\ sin\_half\_angle\_by\_axis\_norm\ =}
-\DoxyCodeLine{00376\ \ \ \ \ \ \ std::sin(0.5\ *\ rot\_angle)\ /\ NormL2(rot\_axis);}
-\DoxyCodeLine{00377\ }
-\DoxyCodeLine{00378\ \ \ quat[1]\ =\ rot\_axis[0]\ *\ sin\_half\_angle\_by\_axis\_norm;}
-\DoxyCodeLine{00379\ \ \ quat[2]\ =\ rot\_axis[1]\ *\ sin\_half\_angle\_by\_axis\_norm;}
-\DoxyCodeLine{00380\ \ \ quat[3]\ =\ rot\_axis[2]\ *\ sin\_half\_angle\_by\_axis\_norm;}
-\DoxyCodeLine{00381\ }
-\DoxyCodeLine{00382\ \ \ \textcolor{keywordflow}{return}\ quat;}
-\DoxyCodeLine{00383\ \}}
-\DoxyCodeLine{00384\ }
-\DoxyCodeLine{00385\ \textcolor{keyword}{inline}\ std::tuple<double,\ Vec3d>\ ToRodrigues(Vec4d\ \textcolor{keyword}{const}\ \&quat)\ \{}
-\DoxyCodeLine{00386\ \ \ \textcolor{keywordtype}{double}\ rot\_angle\ =}
-\DoxyCodeLine{00387\ \ \ \ \ \ \ 2.0\ *\ std::atan2(NormL2(quat[1],\ quat[2],\ quat[3]),\ quat[0]);}
-\DoxyCodeLine{00388\ \ \ Vec3d\ rot\_axis;}
-\DoxyCodeLine{00389\ }
-\DoxyCodeLine{00390\ \ \ \textcolor{keywordtype}{double}\ sin\_half\_angle\ =\ std::sin(0.5\ *\ rot\_angle);}
-\DoxyCodeLine{00391\ \ \ \textcolor{keywordflow}{if}\ (std::abs(sin\_half\_angle)\ >\ 1.0e-\/15)\ \{}
-\DoxyCodeLine{00392\ \ \ \ \ \textcolor{keywordtype}{double}\ term\_norm\ =}
-\DoxyCodeLine{00393\ \ \ \ \ \ \ \ \ 1.0\ /\ sin\_half\_angle\ /\ NormL2(quat[0],\ quat[1],\ quat[2],\ quat[3]);}
-\DoxyCodeLine{00394\ \ \ \ \ rot\_axis[0]\ =\ quat[1]\ *\ term\_norm;}
-\DoxyCodeLine{00395\ \ \ \ \ rot\_axis[1]\ =\ quat[2]\ *\ term\_norm;}
-\DoxyCodeLine{00396\ \ \ \ \ rot\_axis[2]\ =\ quat[3]\ *\ term\_norm;}
-\DoxyCodeLine{00397\ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
-\DoxyCodeLine{00398\ \ \ \ \ rot\_axis[0]\ =\ 1.0;}
-\DoxyCodeLine{00399\ \ \ \ \ rot\_axis[1]\ =\ 0.0;}
-\DoxyCodeLine{00400\ \ \ \ \ rot\_axis[2]\ =\ 0.0;}
-\DoxyCodeLine{00401\ \ \ \}}
-\DoxyCodeLine{00402\ }
-\DoxyCodeLine{00403\ \ \ \textcolor{keywordflow}{return}\ std::tie(rot\_angle,\ rot\_axis);}
-\DoxyCodeLine{00404\ \}}
-\DoxyCodeLine{00405\ }
-\DoxyCodeLine{00406\ \textcolor{keyword}{inline}\ Vec4d\ FromMatrix(Mat3d\ \textcolor{keyword}{const}\ \&rot\_mat)\ \{}
-\DoxyCodeLine{00407\ \ \ Vec4d\ quat;}
-\DoxyCodeLine{00408\ }
-\DoxyCodeLine{00409\ \ \ quat[0]\ =}
-\DoxyCodeLine{00410\ \ \ \ \ \ \ 0.5\ *\ std::sqrt(std::max(1.0e-\/24,\ 1.0\ +\ rot\_mat[0][0]\ +\ rot\_mat[1][1]\ +}
-\DoxyCodeLine{00411\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ rot\_mat[2][2]));}
-\DoxyCodeLine{00412\ \ \ quat[1]\ =\ 0.25\ *\ (rot\_mat[2][1]\ -\/\ rot\_mat[1][2])\ /\ quat[0];}
-\DoxyCodeLine{00413\ \ \ quat[2]\ =\ 0.25\ *\ (rot\_mat[0][2]\ -\/\ rot\_mat[2][0])\ /\ quat[0];}
-\DoxyCodeLine{00414\ \ \ quat[3]\ =\ 0.25\ *\ (rot\_mat[1][0]\ -\/\ rot\_mat[0][1])\ /\ quat[0];}
-\DoxyCodeLine{00415\ }
-\DoxyCodeLine{00416\ \ \ \textcolor{comment}{//\ double\ by\_q\_norm\ =\ 1.0\ /\ NormL2(quat[0],\ quat[1],\ quat[2],\ quat[3]);}}
-\DoxyCodeLine{00417\ \ \ \textcolor{comment}{//\ quat[0]\ *=\ by\_q\_norm;}}
-\DoxyCodeLine{00418\ \ \ \textcolor{comment}{//\ quat[1]\ *=\ by\_q\_norm;}}
-\DoxyCodeLine{00419\ \ \ \textcolor{comment}{//\ quat[2]\ *=\ by\_q\_norm;}}
-\DoxyCodeLine{00420\ \ \ \textcolor{comment}{//\ quat[3]\ *=\ by\_q\_norm;}}
-\DoxyCodeLine{00421\ }
-\DoxyCodeLine{00422\ \ \ \textcolor{keywordflow}{return}\ quat;}
-\DoxyCodeLine{00423\ \}}
-\DoxyCodeLine{00424\ }
-\DoxyCodeLine{00425\ \textcolor{keyword}{inline}\ Mat3d\ ToMatrix(Vec4d\ \textcolor{keyword}{const}\ \&quat)\ \{}
-\DoxyCodeLine{00426\ \ \ Mat3d\ rot\_mat;}
-\DoxyCodeLine{00427\ }
-\DoxyCodeLine{00428\ \ \ rot\_mat[0][0]\ =\ 1\ -\/\ 2\ *\ quat[2]\ *\ quat[2]\ -\/\ 2\ *\ quat[3]\ *\ quat[3];}
-\DoxyCodeLine{00429\ \ \ rot\_mat[0][1]\ =\ 2\ *\ quat[1]\ *\ quat[2]\ -\/\ 2\ *\ quat[0]\ *\ quat[3];}
-\DoxyCodeLine{00430\ \ \ rot\_mat[0][2]\ =\ 2\ *\ quat[1]\ *\ quat[3]\ +\ 2\ *\ quat[0]\ *\ quat[2];}
-\DoxyCodeLine{00431\ }
-\DoxyCodeLine{00432\ \ \ rot\_mat[1][0]\ =\ 2\ *\ quat[1]\ *\ quat[2]\ +\ 2\ *\ quat[0]\ *\ quat[3];}
-\DoxyCodeLine{00433\ \ \ rot\_mat[1][1]\ =\ 1\ -\/\ 2\ *\ quat[1]\ *\ quat[1]\ -\/\ 2\ *\ quat[3]\ *\ quat[3];}
-\DoxyCodeLine{00434\ \ \ rot\_mat[1][2]\ =\ 2\ *\ quat[2]\ *\ quat[3]\ -\/\ 2\ *\ quat[0]\ *\ quat[1];}
-\DoxyCodeLine{00435\ }
-\DoxyCodeLine{00436\ \ \ rot\_mat[2][0]\ =\ 2\ *\ quat[1]\ *\ quat[3]\ -\/\ 2\ *\ quat[0]\ *\ quat[2];}
-\DoxyCodeLine{00437\ \ \ rot\_mat[2][1]\ =\ 2\ *\ quat[2]\ *\ quat[3]\ +\ 2\ *\ quat[0]\ *\ quat[1];}
-\DoxyCodeLine{00438\ \ \ rot\_mat[2][2]\ =\ 1\ -\/\ 2\ *\ quat[1]\ *\ quat[1]\ -\/\ 2\ *\ quat[2]\ *\ quat[2];}
-\DoxyCodeLine{00439\ }
-\DoxyCodeLine{00440\ \ \ \textcolor{keywordflow}{return}\ rot\_mat;}
-\DoxyCodeLine{00441\ \}}
-\DoxyCodeLine{00442\ }
-\DoxyCodeLine{00443\ \textcolor{keyword}{inline}\ Vec4d\ Multiply(Vec4d\ \textcolor{keyword}{const}\ \&p,\ Vec4d\ \textcolor{keyword}{const}\ \&q)\ \{}
-\DoxyCodeLine{00444\ \ \ Vec4d\ res;}
-\DoxyCodeLine{00445\ }
-\DoxyCodeLine{00446\ \ \ Vec3d\ p\_vec\{p[1],\ p[2],\ p[3]\};}
-\DoxyCodeLine{00447\ \ \ Vec3d\ q\_vec\{q[1],\ q[2],\ q[3]\};}
-\DoxyCodeLine{00448\ \ \ Vec3d\ p\_cross\_q\ =\ Cross(p\_vec,\ q\_vec);}
-\DoxyCodeLine{00449\ }
-\DoxyCodeLine{00450\ \ \ res[0]\ =\ p[0]\ *\ q[0]\ -\/\ Dot(p\_vec,\ q\_vec);}
-\DoxyCodeLine{00451\ \ \ res[1]\ =\ p[0]\ *\ q\_vec[0]\ +\ q[0]\ *\ p\_vec[0]\ +\ p\_cross\_q[0];}
-\DoxyCodeLine{00452\ \ \ res[2]\ =\ p[0]\ *\ q\_vec[1]\ +\ q[0]\ *\ p\_vec[1]\ +\ p\_cross\_q[1];}
-\DoxyCodeLine{00453\ \ \ res[3]\ =\ p[0]\ *\ q\_vec[2]\ +\ q[0]\ *\ p\_vec[2]\ +\ p\_cross\_q[2];}
-\DoxyCodeLine{00454\ }
-\DoxyCodeLine{00455\ \ \ \textcolor{keywordflow}{return}\ res;}
-\DoxyCodeLine{00456\ \}}
-\DoxyCodeLine{00457\ }
-\DoxyCodeLine{00458\ \textcolor{keyword}{inline}\ Vec4d\ Add(Vec4d\ \textcolor{keyword}{const}\ \&p,\ Vec4d\ \textcolor{keyword}{const}\ \&q)\ \{}
-\DoxyCodeLine{00459\ \ \ Vec4d\ res;}
-\DoxyCodeLine{00460\ }
-\DoxyCodeLine{00461\ \ \ res[0]\ =\ p[0]\ +\ q[0];}
-\DoxyCodeLine{00462\ \ \ res[1]\ =\ p[1]\ +\ q[1];}
-\DoxyCodeLine{00463\ \ \ res[2]\ =\ p[2]\ +\ q[2];}
-\DoxyCodeLine{00464\ \ \ res[3]\ =\ p[3]\ +\ q[3];}
-\DoxyCodeLine{00465\ }
-\DoxyCodeLine{00466\ \ \ \textcolor{keywordflow}{return}\ res;}
-\DoxyCodeLine{00467\ \}}
-\DoxyCodeLine{00468\ }
-\DoxyCodeLine{00469\ \textcolor{keyword}{inline}\ Vec4d\ Conjugate(Vec4d\ \textcolor{keyword}{const}\ \&p)\ \{}
-\DoxyCodeLine{00470\ \ \ Vec4d\ res;}
-\DoxyCodeLine{00471\ }
-\DoxyCodeLine{00472\ \ \ res[0]\ =\ p[0];}
-\DoxyCodeLine{00473\ \ \ res[1]\ =\ -\/p[1];}
-\DoxyCodeLine{00474\ \ \ res[2]\ =\ -\/p[2];}
-\DoxyCodeLine{00475\ \ \ res[3]\ =\ -\/p[3];}
-\DoxyCodeLine{00476\ }
-\DoxyCodeLine{00477\ \ \ \textcolor{keywordflow}{return}\ res;}
-\DoxyCodeLine{00478\ \}}
-\DoxyCodeLine{00479\ }
-\DoxyCodeLine{00480\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ Normalize(Vec4d\ *\textcolor{keyword}{const}\ q)\ \{}
-\DoxyCodeLine{00481\ \ \ \textcolor{keywordtype}{double}\ by\_q\_norm\ =\ 1.0\ /\ NormL2((*q)[0],\ (*q)[1],\ (*q)[2],\ (*q)[3]);}
-\DoxyCodeLine{00482\ \ \ (*q)[0]\ *=\ by\_q\_norm;}
-\DoxyCodeLine{00483\ \ \ (*q)[1]\ *=\ by\_q\_norm;}
-\DoxyCodeLine{00484\ \ \ (*q)[2]\ *=\ by\_q\_norm;}
-\DoxyCodeLine{00485\ \ \ (*q)[3]\ *=\ by\_q\_norm;}
-\DoxyCodeLine{00486\ \}}
-\DoxyCodeLine{00487\ }
-\DoxyCodeLine{00488\ \}\ \textcolor{comment}{//\ namespace\ Quaternion}}
-\DoxyCodeLine{00489\ }
-\DoxyCodeLine{00490\ \textcolor{keyword}{inline}\ Vec3d\ Rotate(Vec3d\ \textcolor{keyword}{const}\ \&val\_old,\ \textcolor{keywordtype}{double}\ rot\_angle\_cos,}
-\DoxyCodeLine{00491\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ rot\_angle\_sin,\ Vec3d\ \textcolor{keyword}{const}\ \&rot\_axis)\ \{}
-\DoxyCodeLine{00492\ \ \ Vec3d\ val\_new;}
-\DoxyCodeLine{00493\ }
-\DoxyCodeLine{00494\ \ \ \textcolor{keywordtype}{double}\ by\_axis\_norm\ =\ 1.0\ /\ NormL2(rot\_axis);}
-\DoxyCodeLine{00495\ \ \ Vec3d\ rot\_axis\_unit\{rot\_axis[0]\ *\ by\_axis\_norm,\ rot\_axis[1]\ *\ by\_axis\_norm,}
-\DoxyCodeLine{00496\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ rot\_axis[2]\ *\ by\_axis\_norm\};}
-\DoxyCodeLine{00497\ }
-\DoxyCodeLine{00498\ \ \ \textcolor{keyword}{auto}\ axis\_cross\_val\ =\ Cross(rot\_axis\_unit,\ val\_old);}
-\DoxyCodeLine{00499\ \ \ \textcolor{keywordtype}{double}\ axis\_dot\_val\ =\ Dot(rot\_axis\_unit,\ val\_old);}
-\DoxyCodeLine{00500\ }
-\DoxyCodeLine{00501\ \ \ val\_new[0]\ =\ val\_old[0]\ *\ rot\_angle\_cos\ +\ axis\_cross\_val[0]\ *\ rot\_angle\_sin\ +}
-\DoxyCodeLine{00502\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ rot\_axis\_unit[0]\ *\ axis\_dot\_val\ *\ (1.0\ -\/\ rot\_angle\_cos);}
-\DoxyCodeLine{00503\ \ \ val\_new[1]\ =\ val\_old[1]\ *\ rot\_angle\_cos\ +\ axis\_cross\_val[1]\ *\ rot\_angle\_sin\ +}
-\DoxyCodeLine{00504\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ rot\_axis\_unit[1]\ *\ axis\_dot\_val\ *\ (1.0\ -\/\ rot\_angle\_cos);}
-\DoxyCodeLine{00505\ \ \ val\_new[2]\ =\ val\_old[2]\ *\ rot\_angle\_cos\ +\ axis\_cross\_val[2]\ *\ rot\_angle\_sin\ +}
-\DoxyCodeLine{00506\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ rot\_axis\_unit[2]\ *\ axis\_dot\_val\ *\ (1.0\ -\/\ rot\_angle\_cos);}
-\DoxyCodeLine{00507\ }
-\DoxyCodeLine{00508\ \ \ \textcolor{keywordflow}{return}\ val\_new;}
-\DoxyCodeLine{00509\ \}}
-\DoxyCodeLine{00510\ }
-\DoxyCodeLine{00511\ \textcolor{keyword}{inline}\ Vec3d\ Rotate(Vec3d\ \textcolor{keyword}{const}\ \&val\_old,\ \textcolor{keywordtype}{double}\ rot\_angle,}
-\DoxyCodeLine{00512\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Vec3d\ \textcolor{keyword}{const}\ \&rot\_axis)\ \{}
-\DoxyCodeLine{00513\ \ \ \textcolor{keywordflow}{return}\ Rotate(val\_old,\ std::cos(rot\_angle),\ std::sin(rot\_angle),\ rot\_axis);}
-\DoxyCodeLine{00514\ \}}
-\DoxyCodeLine{00515\ }
-\DoxyCodeLine{00516\ \textcolor{keyword}{inline}\ Vec3d\ Rotate(Vec3d\ \textcolor{keyword}{const}\ \&val\_old,\ Vec4d\ \textcolor{keyword}{const}\ \&quat)\ \{}
-\DoxyCodeLine{00517\ \ \ Vec3d\ val\_new;}
-\DoxyCodeLine{00518\ }
-\DoxyCodeLine{00519\ \ \ \textcolor{keywordtype}{double}\ val\_norm\ =\ NormL2(val\_old);}
-\DoxyCodeLine{00520\ \ \ \textcolor{keywordflow}{if}\ (val\_norm\ >\ 1.0e-\/15)\ \{}
-\DoxyCodeLine{00521\ \ \ \ \ \textcolor{keyword}{auto}\ quat\_conj\ =\ Quaternion::Conjugate(quat);}
-\DoxyCodeLine{00522\ \ \ \ \ Vec4d\ quat\_val\_old\{0,\ val\_old[0],\ val\_old[1],\ val\_old[2]\};}
-\DoxyCodeLine{00523\ }
-\DoxyCodeLine{00524\ \ \ \ \ \textcolor{keyword}{auto}\ quat\_val\_tmp\ =\ Quaternion::Multiply(quat\_val\_old,\ quat\_conj);}
-\DoxyCodeLine{00525\ \ \ \ \ \textcolor{keyword}{auto}\ quat\_val\_new\ =\ Quaternion::Multiply(quat,\ quat\_val\_tmp);}
-\DoxyCodeLine{00526\ }
-\DoxyCodeLine{00527\ \ \ \ \ \textcolor{keywordtype}{double}\ renorm\_factor\ =}
-\DoxyCodeLine{00528\ \ \ \ \ \ \ \ \ val\_norm\ /\ NormL2(quat\_val\_new[1],\ quat\_val\_new[2],\ quat\_val\_new[3]);}
-\DoxyCodeLine{00529\ \ \ \ \ val\_new[0]\ =\ quat\_val\_new[1]\ *\ renorm\_factor;}
-\DoxyCodeLine{00530\ \ \ \ \ val\_new[1]\ =\ quat\_val\_new[2]\ *\ renorm\_factor;}
-\DoxyCodeLine{00531\ \ \ \ \ val\_new[2]\ =\ quat\_val\_new[3]\ *\ renorm\_factor;}
-\DoxyCodeLine{00532\ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
-\DoxyCodeLine{00533\ \ \ \ \ val\_new[0]\ =\ 0;}
-\DoxyCodeLine{00534\ \ \ \ \ val\_new[1]\ =\ 0;}
-\DoxyCodeLine{00535\ \ \ \ \ val\_new[2]\ =\ 0;}
-\DoxyCodeLine{00536\ \ \ \}}
-\DoxyCodeLine{00537\ }
-\DoxyCodeLine{00538\ \ \ \textcolor{keywordflow}{return}\ val\_new;}
-\DoxyCodeLine{00539\ \}}
-\DoxyCodeLine{00540\ }
-\DoxyCodeLine{00541\ \textcolor{keyword}{inline}\ Vec3d\ Rotate(Vec3d\ \textcolor{keyword}{const}\ \&val\_old,\ Mat3d\ \textcolor{keyword}{const}\ \&rot\_mat)\ \{}
-\DoxyCodeLine{00542\ \ \ Vec3d\ val\_new;}
-\DoxyCodeLine{00543\ }
-\DoxyCodeLine{00544\ \ \ val\_new[0]\ =\ rot\_mat[0][0]\ *\ val\_old[0]\ +\ rot\_mat[0][1]\ *\ val\_old[1]\ +}
-\DoxyCodeLine{00545\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ rot\_mat[0][2]\ *\ val\_old[2];}
-\DoxyCodeLine{00546\ \ \ val\_new[1]\ =\ rot\_mat[1][0]\ *\ val\_old[0]\ +\ rot\_mat[1][1]\ *\ val\_old[1]\ +}
-\DoxyCodeLine{00547\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ rot\_mat[1][2]\ *\ val\_old[2];}
-\DoxyCodeLine{00548\ \ \ val\_new[2]\ =\ rot\_mat[2][0]\ *\ val\_old[0]\ +\ rot\_mat[2][1]\ *\ val\_old[1]\ +}
-\DoxyCodeLine{00549\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ rot\_mat[2][2]\ *\ val\_old[2];}
-\DoxyCodeLine{00550\ }
-\DoxyCodeLine{00551\ \ \ \textcolor{keywordflow}{return}\ val\_new;}
-\DoxyCodeLine{00552\ \}}
-\DoxyCodeLine{00553\ }
-\DoxyCodeLine{00554\ \textcolor{keyword}{inline}\ Vec3d\ CartesianToSpherical(Vec3d\ \textcolor{keyword}{const}\ \&vert\_cart)\ \{}
-\DoxyCodeLine{00555\ \ \ Vec3d\ vert\_sph;}
-\DoxyCodeLine{00556\ \ \ vert\_sph[0]\ =\ NormL2(vert\_cart);}
-\DoxyCodeLine{00557\ \ \ vert\_sph[1]\ =\ std::acos(vert\_cart[2]\ /\ vert\_sph[0]);}
-\DoxyCodeLine{00558\ \ \ vert\_sph[2]\ =\ std::atan2(vert\_cart[1],\ vert\_cart[0]);}
-\DoxyCodeLine{00559\ \ \ \textcolor{keywordflow}{return}\ vert\_sph;}
-\DoxyCodeLine{00560\ \}}
-\DoxyCodeLine{00561\ }
-\DoxyCodeLine{00562\ \textcolor{keyword}{inline}\ Vec3d\ SphericalToCartesian(Vec3d\ \textcolor{keyword}{const}\ \&vert\_sph)\ \{}
-\DoxyCodeLine{00563\ \ \ Vec3d\ vert\_cart;}
-\DoxyCodeLine{00564\ \ \ vert\_cart[0]\ =\ vert\_sph[0]\ *\ std::sin(vert\_sph[1])\ *\ std::cos(vert\_sph[2]);}
-\DoxyCodeLine{00565\ \ \ vert\_cart[1]\ =\ vert\_sph[0]\ *\ std::sin(vert\_sph[1])\ *\ std::sin(vert\_sph[2]);}
-\DoxyCodeLine{00566\ \ \ vert\_cart[2]\ =\ vert\_sph[0]\ *\ std::cos(vert\_sph[1]);}
-\DoxyCodeLine{00567\ \ \ \textcolor{keywordflow}{return}\ vert\_cart;}
-\DoxyCodeLine{00568\ \}}
-\DoxyCodeLine{00569\ }
-\DoxyCodeLine{00570\ \}\ \textcolor{comment}{//\ namespace\ Math}}
-\DoxyCodeLine{00571\ }
-\DoxyCodeLine{00572\ \}\ \textcolor{comment}{//\ namespace\ netdem}}
+\DoxyCodeLine{00172\ \}\ \textcolor{comment}{//\ namespace\ netdem}}
 
 \end{DoxyCode}

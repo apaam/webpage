@@ -1,0 +1,68 @@
+\hypertarget{eg_vase_falling_8py-example}{}\doxysection{eg\+\_\+vase\+\_\+falling.\+py}
+This is an example of how to use the netdem library.
+
+
+\begin{DoxyCodeInclude}{0}
+\DoxyCodeLine{00001\ \textcolor{keyword}{import}\ sys}
+\DoxyCodeLine{00002\ \textcolor{keyword}{import}\ os}
+\DoxyCodeLine{00003\ dir\_path\ =\ os.path.dirname(os.path.realpath(\_\_file\_\_))}
+\DoxyCodeLine{00004\ sys.path.append(dir\_path\ +\ \textcolor{stringliteral}{"{}/../../build/lib/"{}})}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{keyword}{import}\ pynetdem}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ sim\ =\ pynetdem.Simulation()}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ sim.domain\_manager.SetBound(-\/12,\ -\/12,\ -\/12,\ 12,\ 12,\ 12)}
+\DoxyCodeLine{00011\ sim.domain\_manager.GetSelfSubDomain().cell\_manager.SetSpacing(0.3,\ 0.3,\ 0.3)}
+\DoxyCodeLine{00012\ sim.dem\_solver.contact\_solver\_factory.settings.gjk\_use\_erosion\ =\ \textcolor{keyword}{True}}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ collision\_model\ =\ pynetdem.LinearSpring(2.0e6,\ 1.0e6,\ 0.7,\ 0.5)}
+\DoxyCodeLine{00015\ collision\_model\_ptr\ =\ sim.scene.InsertContactModel(collision\_model)}
+\DoxyCodeLine{00016\ sim.scene.SetNumberOfMaterials(1)}
+\DoxyCodeLine{00017\ sim.scene.SetCollisionModel(0,\ 0,\ collision\_model\_ptr)}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ bond\_model\ =\ pynetdem.ParallelBond(1.0e9,\ 1.0e9,\ 1.0e6,\ 1.0e6)}
+\DoxyCodeLine{00020\ bond\_model.label\ =\ \textcolor{stringliteral}{"{}bond\_model"{}}}
+\DoxyCodeLine{00021\ bond\_model\_ptr\ =\ sim.scene.InsertContactModel(bond\_model)}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ stl\_vase\ =\ pynetdem.STLModel()}
+\DoxyCodeLine{00024\ stl\_vase.InitFromSTL(\textcolor{stringliteral}{"{}data/vase.stl"{}})}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ tetmesh\ =\ pynetdem.TetMesh()}
+\DoxyCodeLine{00027\ tetmesh\ =\ TetMesh(stl\_vase,\ 0.02)}
+\DoxyCodeLine{00028\ stl\_vase\ =\ tetmesh.GetSurfaceSTL()}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ bonded\_voronois\ =\ pynetdem.BondedVoronois()}
+\DoxyCodeLine{00031\ bonded\_voronois.SetBondModel(bond\_model\_ptr)}
+\DoxyCodeLine{00032\ bonded\_voronois.InitFromSTL(stl\_vase,\ 1000)}
+\DoxyCodeLine{00033\ bonded\_voronois.SaveAsVTK(\textcolor{stringliteral}{"{}tmp/out/shape/bonded\_voronois.vtk"{}})}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ particle\_list\ =\ pynetdem.PackGenerator().GetGridPack(}
+\DoxyCodeLine{00036\ \ \ \ \ 1,\ 1,\ 1,\ 0,\ 0,\ 1,\ 1,\ 1,\ 1,\ bonded\_voronois)}
+\DoxyCodeLine{00037\ sim.scene.InsertParticle(particle\_list)}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ plane\ =\ pynetdem.Plane(0,\ 0,\ -\/0.5,\ 0,\ 0,\ 1)}
+\DoxyCodeLine{00040\ plane\_ptr\ =\ sim.scene.InsertShape(plane)}
+\DoxyCodeLine{00041\ wall\ =\ pynetdem.Wall(plane\_ptr)}
+\DoxyCodeLine{00042\ sim.scene.InsertWall(wall)}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ grav\ =\ pynetdem.Gravity()}
+\DoxyCodeLine{00045\ grav.Init(sim)}
+\DoxyCodeLine{00046\ sim.modifier\_manager.Insert(grav)}
+\DoxyCodeLine{00047\ sim.modifier\_manager.Enable(grav.label)}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ data\_dumper\ =\ pynetdem.DataDumper()}
+\DoxyCodeLine{00050\ data\_dumper.Init(sim)}
+\DoxyCodeLine{00051\ data\_dumper.SetRootPath(\textcolor{stringliteral}{"{}tmp/out/"{}})}
+\DoxyCodeLine{00052\ data\_dumper.SetSaveByCycles(1000)}
+\DoxyCodeLine{00053\ data\_dumper.dump\_wall\_info\ =\ \textcolor{keyword}{True}}
+\DoxyCodeLine{00054\ data\_dumper.dump\_contact\_info\ =\ \textcolor{keyword}{True}}
+\DoxyCodeLine{00055\ data\_dumper.SaveShapeInfoAsSTL()}
+\DoxyCodeLine{00056\ sim.modifier\_manager.Insert(data\_dumper)}
+\DoxyCodeLine{00057\ sim.modifier\_manager.Enable(data\_dumper.label)}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ sim.dem\_solver.timestep\ =\ 1.0e-\/5}
+\DoxyCodeLine{00060\ sim.Run(2.0)}
+
+\end{DoxyCodeInclude}
+ 

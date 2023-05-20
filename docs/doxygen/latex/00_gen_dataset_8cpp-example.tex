@@ -1,0 +1,196 @@
+\hypertarget{00_gen_dataset_8cpp-example}{}\doxysection{00\+\_\+gen\+\_\+dataset.\+cpp}
+This is an example of how to use the netdem library.
+
+
+\begin{DoxyCodeInclude}{0}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}distribution\_uniform.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}igl\_wrapper.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}particle.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}shape\_ellipsoid.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}shape\_level\_set.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}shape\_poly\_super\_ellipsoid.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}shape\_spherical\_harmonics.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}shape\_trimesh.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}spherical\_voronoi.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}utils\_math.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ <filesystem>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ <fstream>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ <random>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ <sstream>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{\textcolor{keyword}{using\ namespace\ }\mbox{\hyperlink{namespacenetdem}{netdem}};}
+\DoxyCodeLine{\textcolor{keyword}{using\ namespace\ }std;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ SaveDatasetSDF(\textcolor{keywordtype}{int}\ num\_samples,\ \textcolor{keywordtype}{double}\ (*ds\_inputs)[3],}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ (*ds\_SDF)[1],\ \textcolor{keywordtype}{string}\ filename)\ \{}
+\DoxyCodeLine{\ \ stringbuf\ buf;}
+\DoxyCodeLine{\ \ ostream\ os(\&buf);}
+\DoxyCodeLine{\ \ \textcolor{keywordtype}{int}\ os\_width\ =\ 24;}
+\DoxyCodeLine{\ \ os.setf(ios::scientific);}
+\DoxyCodeLine{\ \ os.precision(15);}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ num\_samples;\ i++)\ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ write\ the\ data\ as\ one\ sample\ one\ row}}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\_inputs\ =\ 0;\ i\_inputs\ <\ 3;\ i\_inputs++)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ os.width(os\_width);}
+\DoxyCodeLine{\ \ \ \ \ \ os\ <<\ ds\_inputs[i][i\_inputs]\ <<\ \textcolor{stringliteral}{"{},\ "{}};}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ os.width(os\_width);}
+\DoxyCodeLine{\ \ \ \ os\ <<\ ds\_SDF[i][0]\ <<\ endl;}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ ofstream\ outfile;}
+\DoxyCodeLine{\ \ outfile.open(filename);}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{if}\ (!outfile)\ \{}
+\DoxyCodeLine{\ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}cannot\ open\ file:\ "{}}\ <<\ filename\ <<\ endl;}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{\ \ outfile\ <<\ buf.str();}
+\DoxyCodeLine{\ \ outfile.close();}
+\DoxyCodeLine{\ \ cout\ <<\ \textcolor{stringliteral}{"{}data\ saved\ to:\ "{}}\ <<\ filename\ <<\ endl;}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ SaveDatasetSPF(\textcolor{keywordtype}{int}\ num\_samples,\ \textcolor{keywordtype}{double}\ (*ds\_inputs)[3],}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ (*ds\_SPF)[3],\ \textcolor{keywordtype}{string}\ filename)\ \{}
+\DoxyCodeLine{\ \ stringbuf\ buf;}
+\DoxyCodeLine{\ \ ostream\ os(\&buf);}
+\DoxyCodeLine{\ \ \textcolor{keywordtype}{int}\ os\_width\ =\ 24;}
+\DoxyCodeLine{\ \ os.setf(ios::scientific);}
+\DoxyCodeLine{\ \ os.precision(15);}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ num\_samples;\ i++)\ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ skip\ the\ non-\/contact\ data}}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{if}\ (ds\_SPF[i][0]\ ==\ 10)}
+\DoxyCodeLine{\ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ write\ the\ data\ as\ one\ sample\ one\ row}}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\_inputs\ =\ 0;\ i\_inputs\ <\ 3;\ i\_inputs++)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ os.width(os\_width);}
+\DoxyCodeLine{\ \ \ \ \ \ os\ <<\ ds\_inputs[i][i\_inputs]\ <<\ \textcolor{stringliteral}{"{},\ "{}};}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\_outputs\ =\ 0;\ i\_outputs\ <\ 2;\ i\_outputs++)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ os.width(os\_width);}
+\DoxyCodeLine{\ \ \ \ \ \ os\ <<\ ds\_SPF[i][i\_outputs]\ <<\ \textcolor{stringliteral}{"{},\ "{}};}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ os.width(os\_width);}
+\DoxyCodeLine{\ \ \ \ os\ <<\ ds\_SPF[i][2]\ <<\ endl;}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ ofstream\ outfile;}
+\DoxyCodeLine{\ \ outfile.open(filename);}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{if}\ (!outfile)\ \{}
+\DoxyCodeLine{\ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}cannot\ open\ file:\ "{}}\ <<\ filename\ <<\ endl;}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{\ \ outfile\ <<\ buf.str();}
+\DoxyCodeLine{\ \ outfile.close();}
+\DoxyCodeLine{\ \ cout\ <<\ \textcolor{stringliteral}{"{}data\ saved\ to:\ "{}}\ <<\ filename\ <<\ endl;}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ GenDataset(\textcolor{keywordtype}{int}\ num\_samples\ =\ 100)\ \{}
+\DoxyCodeLine{\ \ \textcolor{comment}{//\ load\ particle}}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{classnetdem_1_1_tri_mesh}{TriMesh}}\ trimesh;}
+\DoxyCodeLine{\ \ trimesh.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_a1dc42a1f9439c900d76f213155ebb56d}{InitFromSTL}}(\textcolor{stringliteral}{"{}shape\_template.stl"{}});}
+\DoxyCodeLine{\ \ trimesh.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_a6676d86d935edffc85b01191695a60b9}{Decimate}}(1000);}
+\DoxyCodeLine{\ \ trimesh.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_aa149712da01e2f068f28b8eba4395e14}{AlignAxes}}();}
+\DoxyCodeLine{\ \ trimesh.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_aa2378c12f277056e112f8e6a0b31669b}{SetSize}}(1.0);}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{classnetdem_1_1_particle}{Particle}}\ obj\_p\ =\ \mbox{\hyperlink{classnetdem_1_1_particle}{Particle}}(\&trimesh);}
+\DoxyCodeLine{\ \ obj\_p.\mbox{\hyperlink{classnetdem_1_1_particle_af762283470f206c8a0797d6ce04f6436}{need\_update\_stl\_model}}\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\ \ cout\ <<\ \textcolor{stringliteral}{"{}particle\ created\ ...\ "{}}\ <<\ endl;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{comment}{//\ allocate\ memory}}
+\DoxyCodeLine{\ \ double(*ds\_inputs)[3]\ =\ \textcolor{keyword}{new}\ \textcolor{keywordtype}{double}[num\_samples][3];}
+\DoxyCodeLine{\ \ double(*ds\_SDF)[1]\ =\ \textcolor{keyword}{new}\ \textcolor{keywordtype}{double}[num\_samples][1];}
+\DoxyCodeLine{\ \ double(*ds\_SPF)[3]\ =\ \textcolor{keyword}{new}\ \textcolor{keywordtype}{double}[num\_samples][3];}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{comment}{//\ use\ bound\ sphere\ to\ narrow\ down\ the\ random\ space}}
+\DoxyCodeLine{\ \ \textcolor{keywordtype}{double}\ dist\_max\ =\ obj\_p.shape-\/>bound\_sphere\_radius;}
+\DoxyCodeLine{\ \ \textcolor{keywordtype}{double}\ dist\_min\{dist\_max\};}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \&vert\ :\ trimesh.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_acde0779520f91ee0596048099ea7b5e8}{vertices}})\ \{}
+\DoxyCodeLine{\ \ \ \ dist\_min\ =\ min(Math::NormL2(vert),\ dist\_min);}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{\ \ dist\_min\ *=\ 0.9;}
+\DoxyCodeLine{\ \ \textcolor{keywordtype}{double}\ dist\_range\ =\ dist\_max\ -\/\ dist\_min;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{comment}{//\ random\ generator}}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{classnetdem_1_1_uniform_distribution}{UniformDistribution}}\ uniform\_dist(0.0,\ 1.0);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{comment}{//\ use\ spherical\ centroidal\ voronoi\ to\ sample\ uniform\ unit\ VecXT}}
+\DoxyCodeLine{\ \ VecXT<Vec3d>\ vertices\ =\ SphericalVoronoi::Solve(1000,\ 10000,\ 1.0e-\/4);}
+\DoxyCodeLine{\ \ VecXT<Vec3i>\ facets;}
+\DoxyCodeLine{\ \ IGLWrapper::ConvexHull(vertices,\ \&vertices,\ \&facets);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{comment}{//\ random\ cases}}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ trial\ =\ 0,\ i\ =\ 0;\ trial\ <\ num\_samples\ *\ 100;\ trial++)\ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ random\ direction}}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{int}\ id\_facet\ =\ floor(uniform\_dist.Get()\ *\ facets.size());}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{auto}\ vert\_0\ =\ vertices[facets[id\_facet][0]];}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{auto}\ vert\_1\ =\ vertices[facets[id\_facet][1]];}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{auto}\ vert\_2\ =\ vertices[facets[id\_facet][2]];}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{double}\ u\_vert\ =\ uniform\_dist.Get();}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{double}\ v\_vert\ =\ uniform\_dist.Get()\ *\ (1\ -\/\ u\_vert);}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{double}\ w\_vert\ =\ 1\ -\/\ u\_vert\ -\/\ v\_vert;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ Vec3d\ tmp\_dir;}
+\DoxyCodeLine{\ \ \ \ tmp\_dir[0]\ =\ u\_vert\ *\ vert\_0[0]\ +\ v\_vert\ *\ vert\_1[0]\ +\ w\_vert\ *\ vert\_2[0];}
+\DoxyCodeLine{\ \ \ \ tmp\_dir[1]\ =\ u\_vert\ *\ vert\_0[1]\ +\ v\_vert\ *\ vert\_1[1]\ +\ w\_vert\ *\ vert\_2[1];}
+\DoxyCodeLine{\ \ \ \ tmp\_dir[2]\ =\ u\_vert\ *\ vert\_0[2]\ +\ v\_vert\ *\ vert\_1[2]\ +\ w\_vert\ *\ vert\_2[2];}
+\DoxyCodeLine{\ \ \ \ Math::Normalize(\&tmp\_dir);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ random\ radial\ distance}}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{double}\ tmp\_dist\ =\ dist\_min\ +\ uniform\_dist.Get()\ *\ dist\_range;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ query\ point}}
+\DoxyCodeLine{\ \ \ \ Vec3d\ query\_p;}
+\DoxyCodeLine{\ \ \ \ query\_p[0]\ =\ tmp\_dist\ *\ tmp\_dir[0];}
+\DoxyCodeLine{\ \ \ \ query\_p[1]\ =\ tmp\_dist\ *\ tmp\_dir[1];}
+\DoxyCodeLine{\ \ \ \ query\_p[2]\ =\ tmp\_dist\ *\ tmp\_dir[2];}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{double}\ SDF\_P\ =\ trimesh.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_a2a436b32d16a22e3bc1c1502f2bae4d1}{SignedDistance}}(query\_p);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{if}\ (SDF\_P\ <\ 0)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \textcolor{comment}{//\ use\ query\ point\ as\ inputs}}
+\DoxyCodeLine{\ \ \ \ \ \ ds\_inputs[i][0]\ =\ query\_p[0];}
+\DoxyCodeLine{\ \ \ \ \ \ ds\_inputs[i][1]\ =\ query\_p[1];}
+\DoxyCodeLine{\ \ \ \ \ \ ds\_inputs[i][2]\ =\ query\_p[2];}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \textcolor{comment}{//\ use\ signed\ distance\ field\ as\ output}}
+\DoxyCodeLine{\ \ \ \ \ \ ds\_SDF[i][0]\ =\ SDF\_P;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ ds\_SPF[i][0]\ =\ 10;}
+\DoxyCodeLine{\ \ \ \ \ \ ds\_SPF[i][1]\ =\ 10;}
+\DoxyCodeLine{\ \ \ \ \ \ ds\_SPF[i][2]\ =\ 10;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ i++;}
+\DoxyCodeLine{\ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \textcolor{keyword}{auto}\ peoject\_q\ =\ trimesh.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_a7f86c3eb4da8a4e6991c9a442a12acdc}{SurfacePoint}}(query\_p);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \textcolor{comment}{//\ use\ query\ point\ as\ inputs}}
+\DoxyCodeLine{\ \ \ \ \ \ ds\_inputs[i][0]\ =\ query\_p[0];}
+\DoxyCodeLine{\ \ \ \ \ \ ds\_inputs[i][1]\ =\ query\_p[1];}
+\DoxyCodeLine{\ \ \ \ \ \ ds\_inputs[i][2]\ =\ query\_p[2];}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ ds\_SDF[i][0]\ =\ SDF\_P;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \textcolor{comment}{//\ use\ surface\ project\ point\ as\ output}}
+\DoxyCodeLine{\ \ \ \ \ \ ds\_SPF[i][0]\ =\ peoject\_q[0];}
+\DoxyCodeLine{\ \ \ \ \ \ ds\_SPF[i][1]\ =\ peoject\_q[1];}
+\DoxyCodeLine{\ \ \ \ \ \ ds\_SPF[i][2]\ =\ peoject\_q[2];}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ i++;}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{if}\ (i\ >=\ num\_samples)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ trimesh.\mbox{\hyperlink{classnetdem_1_1_shape_a2eaa2d4c2021a7963cbfcc65d0f6cd41}{SaveAsSTL}}(\textcolor{stringliteral}{"{}shape\_standardized.stl"{}});}
+\DoxyCodeLine{\ \ SaveDatasetSDF(num\_samples,\ ds\_inputs,\ ds\_SDF,\ \textcolor{stringliteral}{"{}dataset\_SDF.txt"{}});}
+\DoxyCodeLine{\ \ SaveDatasetSPF(num\_samples,\ ds\_inputs,\ ds\_SPF,\ \textcolor{stringliteral}{"{}dataset\_SPF.txt"{}});}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{keyword}{delete}[]\ ds\_inputs;}
+\DoxyCodeLine{\ \ \textcolor{keyword}{delete}[]\ ds\_SDF;}
+\DoxyCodeLine{\ \ \textcolor{keyword}{delete}[]\ ds\_SPF;}
+\DoxyCodeLine{\}}
+
+\end{DoxyCodeInclude}
+ 

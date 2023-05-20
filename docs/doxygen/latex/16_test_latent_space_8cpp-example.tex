@@ -1,0 +1,110 @@
+\hypertarget{16_test_latent_space_8cpp-example}{}\doxysection{16\+\_\+test\+\_\+latent\+\_\+space.\+cpp}
+This is an example of how to use the netdem library.
+
+
+\begin{DoxyCodeInclude}{0}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}cgal\_wrapper.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}contact\_solver\_factory.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}data\_dumper.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}gen\_pack.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}gen\_wall\_box\_plane.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}gravity.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}model\_linear\_spring.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}model\_volume\_based.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}shape\_netsdf.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}shape\_plane.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}shape\_spherical\_harmonics.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}shape\_trimesh.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}simulation.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}spherical\_voronoi.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}stl\_model.hpp"{}}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ <unordered\_map>}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{using\ namespace\ }\mbox{\hyperlink{namespacenetdem}{netdem}};}
+\DoxyCodeLine{\textcolor{keyword}{using\ namespace\ }std;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ TestLatentSpace()\ \{}
+\DoxyCodeLine{\ \ \textcolor{comment}{//\ imporat\ the\ name\ list\ of\ templates}}
+\DoxyCodeLine{\ \ vector<string>\ template\_names;}
+\DoxyCodeLine{\ \ ifstream\ file(\textcolor{stringliteral}{"{}template\_dict.txt"{}});}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{if}\ (file.is\_open())\ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{string}\ line;}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{while}\ (getline(file,\ line))\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ template\_names.push\_back(line);}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ file.close();}
+\DoxyCodeLine{\ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}file\ template\_dict.txt\ not\ exist"{}}\ <<\ endl;}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{\ \ \textcolor{keywordtype}{int}\ num\_templates\ =\ template\_names.size();}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{comment}{//\ loading\ latent\ code}}
+\DoxyCodeLine{\ \ arma::mat\ latent\_code;}
+\DoxyCodeLine{\ \ mlpack::data::Load(\textcolor{stringliteral}{"{}latent\_code.txt"{}},\ latent\_code,\ \textcolor{keyword}{false},\ \textcolor{keyword}{false});}
+\DoxyCodeLine{\ \ \textcolor{keywordtype}{int}\ num\_latent\_code\ =\ latent\_code.n\_cols;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{comment}{//\ loading\ ann\ model}}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{classnetdem_1_1_regression_net}{RegressionNet}}\ model;}
+\DoxyCodeLine{\ \ model.\mbox{\hyperlink{classnetdem_1_1_regression_net_a4802cc4f75ad194e3a1136ee85bdb8e6}{Load}}(\textcolor{stringliteral}{"{}ann\_SDF.xml"{}},\ \textcolor{stringliteral}{"{}SDF"{}});}
+\DoxyCodeLine{\ \ cout\ <<\ \textcolor{stringliteral}{"{}finished\ loading\ ann\ model\ ..."{}}\ <<\ endl;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ VecXT<Vec3d>\ searching\_points\ =\ SphericalVoronoi::Solve(1000,\ 10000,\ 1.0e-\/4);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{comment}{//\ loop\ over\ all\ templates}}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ ii\ =\ 0;\ ii\ <\ num\_templates;\ ii++)\ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{int}\ num\_intervals\ =\ 100;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ jj\ =\ 0;\ jj\ <=\ num\_intervals;\ jj++)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \textcolor{keywordtype}{double}\ weight\ =\ jj\ *\ 1.0\ /\ num\_intervals;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ VecXT<Vec3d>\ surf\_vertices;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ vert\ :\ searching\_points)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ vert\ =\ vert\ *\ 0.5;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ iter\ =\ 0;\ iter\ <\ 10;\ iter++)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ arma::mat\ test\_x\_coded(num\_latent\_code\ +\ vert.size(),\ 1);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ num\_latent\_code;\ i++)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ test\_x\_coded(i,\ 0)\ =}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ latent\_code(ii,\ i)\ *\ (1.0\ -\/\ weight)\ +}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ latent\_code((ii\ +\ 1)\ \%\ num\_templates,\ i)\ *\ weight;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ num\_latent\_code;\ i\ <\ test\_x\_coded.n\_rows;\ i++)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ test\_x\_coded(i,\ 0)\ =\ vert[i\ -\/\ num\_latent\_code];}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ sdf\ =\ model.\mbox{\hyperlink{classnetdem_1_1_regression_net_ad0a454915d74f397ea4b6ce40c46f84e}{Predict}}(test\_x\_coded);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (abs(sdf(0,\ 0))\ >\ 0.001)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ dydx\ =\ model.\mbox{\hyperlink{classnetdem_1_1_regression_net_a20b97ff96a288d2d0468fb494ae6e8af}{Gradient}}(test\_x\_coded);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ vert[0]\ -\/=\ sdf(0,\ 0)\ *\ dydx(0,\ 0\ +\ num\_latent\_code);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ vert[1]\ -\/=\ sdf(0,\ 0)\ *\ dydx(0,\ 1\ +\ num\_latent\_code);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ vert[2]\ -\/=\ sdf(0,\ 0)\ *\ dydx(0,\ 2\ +\ num\_latent\_code);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ surf\_vertices.emplace\_back(vert);}
+\DoxyCodeLine{\ \ \ \ \ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \textcolor{comment}{//\ using\ spherical\ harmonics\ approach}}
+\DoxyCodeLine{\ \ \ \ \ \ \mbox{\hyperlink{classnetdem_1_1_spherical_harmonics}{SphericalHarmonics}}\ sph;}
+\DoxyCodeLine{\ \ \ \ \ \ sph.\mbox{\hyperlink{classnetdem_1_1_spherical_harmonics_aff0aab3dedcfe8a1dfa44bf868575fd2}{InitFromSurfacePoints}}(surf\_vertices);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \textcolor{keywordtype}{string}\ root\_dir\ =\ \textcolor{stringliteral}{"{}shape\_netsdf\_"{}}\ +\ IO::ToString(ii)\ +\ \textcolor{stringliteral}{"{}\_"{}}\ +}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IO::ToString((ii\ +\ 1)\ \%\ num\_templates);}
+\DoxyCodeLine{\ \ \ \ \ \ filesystem::create\_directory(root\_dir);}
+\DoxyCodeLine{\ \ \ \ \ \ sph.\mbox{\hyperlink{classnetdem_1_1_spherical_harmonics_a636e21871ecf0cd3f59153c285ecbd9e}{GetSTLModel}}(1000).\mbox{\hyperlink{classnetdem_1_1_s_t_l_model_ad63749f1cf41df85a3d7237025200a0b}{SaveAsSTL}}(root\_dir\ +\ \textcolor{stringliteral}{"{}/shape\_netsdf\_"{}}\ +}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IO::ToString(ii)\ +\ \textcolor{stringliteral}{"{}\_"{}}\ +}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IO::ToString((ii\ +\ 1)\ \%\ num\_templates)\ +}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\_"{}}\ +\ IO::ToString(jj)\ +\ \textcolor{stringliteral}{"{}.stl"{}});}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCodeInclude}
+ 

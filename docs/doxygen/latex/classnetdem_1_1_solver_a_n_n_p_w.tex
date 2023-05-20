@@ -46,7 +46,7 @@ void \mbox{\hyperlink{classnetdem_1_1_solver_a_n_n_p_w_acbebaaf70d14bde5b252c8ca
 \begin{DoxyCompactList}\small\item\em Resolves the collision using a potential-\/based method at initialization time. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classnetdem_1_1_solver_a_n_n_p_w_a9933eaccd0b3266a07dc9b7d26f98b6e}{Resolve\+Update\+\_\+\+Potential\+Based}} (\mbox{\hyperlink{classnetdem_1_1_collision_geometries}{Collision\+Geometries}} $\ast$const cnt\+\_\+geoms, double timestep)
 \begin{DoxyCompactList}\small\item\em Resolves the collision using a potential-\/based method during update time. \end{DoxyCompactList}\item 
-std\+::tuple$<$ double, Vec3d $>$ \mbox{\hyperlink{classnetdem_1_1_solver_a_n_n_p_w_aa52d72d511bac2290b7c454324d6ae01}{Potential}} (Vec3d const \&pos, Vec4d const \&quat)
+std\+::tuple$<$ double, Vec3d $>$ \mbox{\hyperlink{classnetdem_1_1_solver_a_n_n_p_w_a048dcca4ff5dfed45901c9c3d603d0d6}{Get\+Potential}} (Vec3d const \&pos, Vec4d const \&quat)
 \begin{DoxyCompactList}\small\item\em Calculates the potential energy and contact position for the collision. \end{DoxyCompactList}\item 
 std\+::tuple$<$ Vec3d, Vec3d, Vec3d $>$ \mbox{\hyperlink{classnetdem_1_1_solver_a_n_n_p_w_a0e60fe21eecbf1128bcbf9d5c197aa14}{Evaluate\+Contact\+Forces}} ()
 \begin{DoxyCompactList}\small\item\em Evaluates the contact forces for the collision. \end{DoxyCompactList}\end{DoxyCompactItemize}
@@ -193,6 +193,28 @@ This function evaluates the contact forces for the collision and returns them as
 \begin{DoxyReturn}{Returns}
 A tuple containing the force, moment, and position vectors. 
 \end{DoxyReturn}
+\mbox{\Hypertarget{classnetdem_1_1_solver_a_n_n_p_w_a048dcca4ff5dfed45901c9c3d603d0d6}\label{classnetdem_1_1_solver_a_n_n_p_w_a048dcca4ff5dfed45901c9c3d603d0d6}} 
+\index{netdem::SolverANNPW@{netdem::SolverANNPW}!GetPotential@{GetPotential}}
+\index{GetPotential@{GetPotential}!netdem::SolverANNPW@{netdem::SolverANNPW}}
+\doxysubsubsection{\texorpdfstring{GetPotential()}{GetPotential()}}
+{\footnotesize\ttfamily std\+::tuple$<$ double, Vec3d $>$ netdem\+::\+Solver\+ANNPW\+::\+Get\+Potential (\begin{DoxyParamCaption}\item[{Vec3d const \&}]{pos,  }\item[{Vec4d const \&}]{quat }\end{DoxyParamCaption})}
+
+
+
+Calculates the potential energy and contact position for the collision. 
+
+This function calculates the potential energy and contact position for the collision given the positions and orientations of the two particles.
+
+
+\begin{DoxyParams}{Parameters}
+{\em pos} & The position of the first particle. \\
+\hline
+{\em quat} & The orientation of the first particle. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A tuple containing the potential energy and contact position. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{classnetdem_1_1_solver_a_n_n_p_w_a41060f395ffabaf861f8270a6b3878fa}\label{classnetdem_1_1_solver_a_n_n_p_w_a41060f395ffabaf861f8270a6b3878fa}} 
 \index{netdem::SolverANNPW@{netdem::SolverANNPW}!Init@{Init}}
 \index{Init@{Init}!netdem::SolverANNPW@{netdem::SolverANNPW}}
@@ -235,28 +257,6 @@ This function initializes the collision solver with neural network models loaded
 {\em regressor\+\_\+file} & The name of the file containing the regression model data. \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{classnetdem_1_1_solver_a_n_n_p_w_aa52d72d511bac2290b7c454324d6ae01}\label{classnetdem_1_1_solver_a_n_n_p_w_aa52d72d511bac2290b7c454324d6ae01}} 
-\index{netdem::SolverANNPW@{netdem::SolverANNPW}!Potential@{Potential}}
-\index{Potential@{Potential}!netdem::SolverANNPW@{netdem::SolverANNPW}}
-\doxysubsubsection{\texorpdfstring{Potential()}{Potential()}}
-{\footnotesize\ttfamily std\+::tuple$<$ double, Vec3d $>$ netdem\+::\+Solver\+ANNPW\+::\+Potential (\begin{DoxyParamCaption}\item[{Vec3d const \&}]{pos,  }\item[{Vec4d const \&}]{quat }\end{DoxyParamCaption})}
-
-
-
-Calculates the potential energy and contact position for the collision. 
-
-This function calculates the potential energy and contact position for the collision given the positions and orientations of the two particles.
-
-
-\begin{DoxyParams}{Parameters}
-{\em pos} & The position of the first particle. \\
-\hline
-{\em quat} & The orientation of the first particle. \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-A tuple containing the potential energy and contact position. 
-\end{DoxyReturn}
 \mbox{\Hypertarget{classnetdem_1_1_solver_a_n_n_p_w_ad407769d0187edba73707bd05abb513f}\label{classnetdem_1_1_solver_a_n_n_p_w_ad407769d0187edba73707bd05abb513f}} 
 \index{netdem::SolverANNPW@{netdem::SolverANNPW}!ResolveInit@{ResolveInit}}
 \index{ResolveInit@{ResolveInit}!netdem::SolverANNPW@{netdem::SolverANNPW}}

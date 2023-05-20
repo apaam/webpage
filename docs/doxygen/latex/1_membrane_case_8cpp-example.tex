@@ -1,0 +1,179 @@
+\hypertarget{1_membrane_case_8cpp-example}{}\doxysection{1\+\_\+membrane\+\_\+case.\+cpp}
+This is an example of how to use the netdem library.
+
+
+\begin{DoxyCodeInclude}{0}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}data\_dumper.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}gen\_pack.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}gen\_wall\_box\_plane.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}gravity.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}membrane\_wall.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}model\_linear\_spring.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}shape\_sphere.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}simulation.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}wall\_motion\_control.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ <unordered\_map>}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{using\ namespace\ }\mbox{\hyperlink{namespacenetdem}{netdem}};}
+\DoxyCodeLine{\textcolor{keyword}{using\ namespace\ }std;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{int}\ MembraneCase(\textcolor{keywordtype}{int}\ argc,\ \textcolor{keywordtype}{char}\ **argv)\ \{}
+\DoxyCodeLine{\ \ \textcolor{keywordtype}{int}\ self\_rank,\ total\_rank;}
+\DoxyCodeLine{\ \ MPI\_Init(\&argc,\ \&argv);}
+\DoxyCodeLine{\ \ MPI\_Comm\_rank(MPI\_COMM\_WORLD,\ \&self\_rank);}
+\DoxyCodeLine{\ \ MPI\_Comm\_size(MPI\_COMM\_WORLD,\ \&total\_rank);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{classnetdem_1_1_simulation}{Simulation}}\ *sim\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{classnetdem_1_1_simulation}{Simulation}}();}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ sim-\/>\mbox{\hyperlink{classnetdem_1_1_simulation_a59b3aaba47a3a50145306b90ce26d049}{domain\_manager}}.\mbox{\hyperlink{classnetdem_1_1_domain_manager_a0da42ac0d44dbc628207a02c0763f978}{SetBound}}(-\/0.6,\ -\/0.6,\ -\/0.6,\ 0.6,\ 0.6,\ 0.6);}
+\DoxyCodeLine{\ \ sim-\/>\mbox{\hyperlink{classnetdem_1_1_simulation_a59b3aaba47a3a50145306b90ce26d049}{domain\_manager}}.\mbox{\hyperlink{classnetdem_1_1_domain_manager_aac775c6f9e0d6d8a63c55029c0aa638e}{SetDecomposition}}(total\_rank,\ 1,\ 1);}
+\DoxyCodeLine{\ \ sim-\/>\mbox{\hyperlink{classnetdem_1_1_simulation_a59b3aaba47a3a50145306b90ce26d049}{domain\_manager}}.\mbox{\hyperlink{classnetdem_1_1_domain_manager_a369081a4f895fc460ef631e5215fb399}{SetCellSpacing}}(0.01,\ 0.01,\ 0.01);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{comment}{//\ //\ solver}}
+\DoxyCodeLine{\ \ \textcolor{comment}{//\ sim-\/>dem\_solver.contact\_solver\_factory.settings.solver\_type\ =}}
+\DoxyCodeLine{\ \ \textcolor{comment}{//\ \ \ \ \ ContactSolverSettings::SolverType::sdf;}}
+\DoxyCodeLine{\ \ \textcolor{comment}{//\ sim-\/>dem\_solver.contact\_solver\_factory.settings.sdf\_potential\_type\ =\ 0;}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{comment}{//\ material\ model}}
+\DoxyCodeLine{\ \ \textcolor{keyword}{auto}\ cnt\_model\_0\ =\ \mbox{\hyperlink{classnetdem_1_1_linear_spring}{LinearSpring}}(2.0e5,\ 1.0e5,\ 0.7,\ 0.3);}
+\DoxyCodeLine{\ \ cnt\_model\_0.label\ =\ \textcolor{stringliteral}{"{}particle\_\&\_wall"{}};}
+\DoxyCodeLine{\ \ \textcolor{keyword}{auto}\ cnt\_model\_0\_prt\ =\ sim-\/>\mbox{\hyperlink{classnetdem_1_1_simulation_add17bfcd927bd2b7f14f05855c20bea3}{scene}}.\mbox{\hyperlink{classnetdem_1_1_scene_a16e8cd7195ba20a9d0bee14498b69c4f}{InsertContactModel}}(\&cnt\_model\_0);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{keyword}{auto}\ cnt\_model\_1\ =\ \mbox{\hyperlink{classnetdem_1_1_linear_spring}{LinearSpring}}(2.0e5,\ 1.0e5,\ 0.7,\ 0.5);}
+\DoxyCodeLine{\ \ cnt\_model\_1.label\ =\ \textcolor{stringliteral}{"{}membrane"{}};}
+\DoxyCodeLine{\ \ \textcolor{keyword}{auto}\ cnt\_model\_1\_prt\ =\ sim-\/>\mbox{\hyperlink{classnetdem_1_1_simulation_add17bfcd927bd2b7f14f05855c20bea3}{scene}}.\mbox{\hyperlink{classnetdem_1_1_scene_a16e8cd7195ba20a9d0bee14498b69c4f}{InsertContactModel}}(\&cnt\_model\_1);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ sim-\/>\mbox{\hyperlink{classnetdem_1_1_simulation_add17bfcd927bd2b7f14f05855c20bea3}{scene}}.\mbox{\hyperlink{classnetdem_1_1_scene_a37580ce0b6492c6580c85a999aae8397}{SetNumberOfMaterials}}(2);}
+\DoxyCodeLine{\ \ sim-\/>\mbox{\hyperlink{classnetdem_1_1_simulation_add17bfcd927bd2b7f14f05855c20bea3}{scene}}.SetCollisionModel(0,\ 0,\ cnt\_model\_0\_prt);}
+\DoxyCodeLine{\ \ sim-\/>\mbox{\hyperlink{classnetdem_1_1_simulation_add17bfcd927bd2b7f14f05855c20bea3}{scene}}.SetCollisionModel(0,\ 1,\ cnt\_model\_1\_prt);}
+\DoxyCodeLine{\ \ sim-\/>\mbox{\hyperlink{classnetdem_1_1_simulation_add17bfcd927bd2b7f14f05855c20bea3}{scene}}.SetCollisionModel(1,\ 1,\ cnt\_model\_1\_prt);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{comment}{//\ particle\ shape}}
+\DoxyCodeLine{\ \ \textcolor{keyword}{auto}\ sphere\ =\ \mbox{\hyperlink{classnetdem_1_1_sphere}{Sphere}}(0.004);}
+\DoxyCodeLine{\ \ sim-\/>\mbox{\hyperlink{classnetdem_1_1_simulation_add17bfcd927bd2b7f14f05855c20bea3}{scene}}.\mbox{\hyperlink{classnetdem_1_1_scene_a398e24fbcba078c40b7970edbe44e325}{InsertShape}}(\&sphere);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{comment}{//\ pack\ of\ particles\ to\ be\ inserted}}
+\DoxyCodeLine{\ \ \textcolor{keyword}{auto}\ particle\_list\ =\ PackGenerator::GetGridPack(}
+\DoxyCodeLine{\ \ \ \ \ \ 0.035,\ 0.035,\ 0.06,\ 0,\ 0,\ 0.12,\ 5,\ 5,\ 8,\ sim-\/>\mbox{\hyperlink{classnetdem_1_1_simulation_add17bfcd927bd2b7f14f05855c20bea3}{scene}}.\mbox{\hyperlink{classnetdem_1_1_scene_aaaf2e298f7e7bbd9dc8e34ec683a23f4}{GetShapes}}());}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \&p\ :\ particle\_list)\ \{}
+\DoxyCodeLine{\ \ \ \ p.SetDensity(2650e3);}
+\DoxyCodeLine{\ \ \ \ p.SetVelocity(0,\ 0,\ -\/0.6);}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{comment}{//\ bottom\ wall}}
+\DoxyCodeLine{\ \ \textcolor{keyword}{auto}\ plane\_bot\ =\ \mbox{\hyperlink{classnetdem_1_1_plane}{Plane}}(0,\ 0,\ -\/0.05,\ 0,\ 0,\ 1);}
+\DoxyCodeLine{\ \ plane\_bot.SetExtent(0.1);\ \textcolor{comment}{//\ make\ sure\ the\ plane\ extent\ is\ inside\ the\ domain}}
+\DoxyCodeLine{\ \ \textcolor{keyword}{auto}\ plane\_bot\_ptr\ =\ sim-\/>\mbox{\hyperlink{classnetdem_1_1_simulation_add17bfcd927bd2b7f14f05855c20bea3}{scene}}.\mbox{\hyperlink{classnetdem_1_1_scene_a398e24fbcba078c40b7970edbe44e325}{InsertShape}}(\&plane\_bot);}
+\DoxyCodeLine{\ \ \textcolor{keyword}{auto}\ wall\_bot\ =\ \mbox{\hyperlink{classnetdem_1_1_wall}{Wall}}(plane\_bot\_ptr);}
+\DoxyCodeLine{\ \ \textcolor{keyword}{auto}\ wall\_bot\_ptr\ =\ sim-\/>\mbox{\hyperlink{classnetdem_1_1_simulation_add17bfcd927bd2b7f14f05855c20bea3}{scene}}.\mbox{\hyperlink{classnetdem_1_1_scene_ad0c28b5e5de3a1f8e785faa1a40c26b3}{InsertWall}}(wall\_bot);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{comment}{//\ membrane}}
+\DoxyCodeLine{\ \ \textcolor{keyword}{auto}\ membrane\_wall\ =\ \mbox{\hyperlink{classnetdem_1_1_membrane_wall}{MembraneWall}}(0.025,\ 0.2,\ 0.0025);}
+\DoxyCodeLine{\ \ membrane\_wall.neo\_k\ =\ 6.94e6;}
+\DoxyCodeLine{\ \ membrane\_wall.neo\_mu\ =\ 5.21e6;}
+\DoxyCodeLine{\ \ membrane\_wall.density\ =\ 500e3;}
+\DoxyCodeLine{\ \ membrane\_wall.damp\_coef\ =\ 0.7;}
+\DoxyCodeLine{\ \ membrane\_wall.timestep\ =\ 1.0e-\/5;}
+\DoxyCodeLine{\ \ membrane\_wall.enable\_deformation\ =\ \textcolor{keyword}{false};\ \textcolor{comment}{//\ no\ deformation\ during\ packing}}
+\DoxyCodeLine{\ \ membrane\_wall.dump\_info\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\ \ membrane\_wall.Init(sim);}
+\DoxyCodeLine{\ \ membrane\_wall.SetRootPath(\textcolor{stringliteral}{"{}tmp/out\_tri\_comp/"{}});}
+\DoxyCodeLine{\ \ membrane\_wall.SetSaveByCycles(100);}
+\DoxyCodeLine{\ \ \textcolor{keyword}{auto}\ modifier\_ptr\ =\ sim-\/>\mbox{\hyperlink{classnetdem_1_1_simulation_a918a87f02a78aed6a311bf90d1061e72}{modifier\_manager}}.\mbox{\hyperlink{classnetdem_1_1_modifier_manager_a6748f7dfd9b3e8e9999c4981684a9945}{Insert}}(\&membrane\_wall);}
+\DoxyCodeLine{\ \ \textcolor{keyword}{auto}\ membrane\_wall\_ptr\ =\ \textcolor{keyword}{static\_cast<}\mbox{\hyperlink{classnetdem_1_1_membrane_wall}{MembraneWall}}\ *\textcolor{keyword}{>}(modifier\_ptr);}
+\DoxyCodeLine{\ \ sim-\/>\mbox{\hyperlink{classnetdem_1_1_simulation_a918a87f02a78aed6a311bf90d1061e72}{modifier\_manager}}.\mbox{\hyperlink{classnetdem_1_1_modifier_manager_a75ba1abedb33d45398052ada3177baa2}{Enable}}(membrane\_wall.label);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \&w\ :\ membrane\_wall\_ptr-\/>wall\_list)\ \{}
+\DoxyCodeLine{\ \ \ \ w-\/>material\_type\ =\ 1;}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{comment}{//\ gravity}}
+\DoxyCodeLine{\ \ sim-\/>\mbox{\hyperlink{classnetdem_1_1_simulation_add17bfcd927bd2b7f14f05855c20bea3}{scene}}.\mbox{\hyperlink{classnetdem_1_1_scene_a1faeff238f51b614fef8bf97063a4e5c}{gravity\_coef}}[2]\ =\ -\/9.81;}
+\DoxyCodeLine{\ \ \textcolor{keyword}{auto}\ grav\ =\ \mbox{\hyperlink{classnetdem_1_1_gravity}{Gravity}}();}
+\DoxyCodeLine{\ \ grav.Init(sim);}
+\DoxyCodeLine{\ \ sim-\/>\mbox{\hyperlink{classnetdem_1_1_simulation_a918a87f02a78aed6a311bf90d1061e72}{modifier\_manager}}.\mbox{\hyperlink{classnetdem_1_1_modifier_manager_a6748f7dfd9b3e8e9999c4981684a9945}{Insert}}(\&grav);}
+\DoxyCodeLine{\ \ sim-\/>\mbox{\hyperlink{classnetdem_1_1_simulation_a918a87f02a78aed6a311bf90d1061e72}{modifier\_manager}}.\mbox{\hyperlink{classnetdem_1_1_modifier_manager_a75ba1abedb33d45398052ada3177baa2}{Enable}}(grav.label);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{comment}{//\ out\ particle,\ wall\ and\ contact\ data}}
+\DoxyCodeLine{\ \ \textcolor{keyword}{auto}\ data\_dumper\ =\ \mbox{\hyperlink{classnetdem_1_1_data_dumper}{DataDumper}}();}
+\DoxyCodeLine{\ \ data\_dumper.Init(sim);}
+\DoxyCodeLine{\ \ data\_dumper.SetRootPath(\textcolor{stringliteral}{"{}tmp/out\_tri\_comp/"{}});}
+\DoxyCodeLine{\ \ data\_dumper.SetSaveByCycles(100);}
+\DoxyCodeLine{\ \ data\_dumper.dump\_contact\_info\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\ \ data\_dumper.dump\_wall\_info\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\ \ sim-\/>\mbox{\hyperlink{classnetdem_1_1_simulation_a918a87f02a78aed6a311bf90d1061e72}{modifier\_manager}}.\mbox{\hyperlink{classnetdem_1_1_modifier_manager_a6748f7dfd9b3e8e9999c4981684a9945}{Insert}}(\&data\_dumper);}
+\DoxyCodeLine{\ \ sim-\/>\mbox{\hyperlink{classnetdem_1_1_simulation_a918a87f02a78aed6a311bf90d1061e72}{modifier\_manager}}.\mbox{\hyperlink{classnetdem_1_1_modifier_manager_a75ba1abedb33d45398052ada3177baa2}{Enable}}(data\_dumper.label);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{comment}{//\ insert\ 20\ packs\ of\ particles}}
+\DoxyCodeLine{\ \ sim-\/>\mbox{\hyperlink{classnetdem_1_1_simulation_a072310a2f5600bccce29d2d4157b8c61}{dem\_solver}}.\mbox{\hyperlink{classnetdem_1_1_d_e_m_solver_a425c71e883bed7ce636ce51f50f42f7f}{timestep}}\ =\ 1.0e-\/4;}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ 20;\ i++)\ \{}
+\DoxyCodeLine{\ \ \ \ sim-\/>\mbox{\hyperlink{classnetdem_1_1_simulation_add17bfcd927bd2b7f14f05855c20bea3}{scene}}.\mbox{\hyperlink{classnetdem_1_1_scene_a9e8ccb020b0ba1b5ab8626448ece42ae}{InsertParticle}}(particle\_list);}
+\DoxyCodeLine{\ \ \ \ sim-\/>\mbox{\hyperlink{classnetdem_1_1_simulation_a358efcc8d6d906b11ef8fce7a2624943}{Run}}(0.1);}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{comment}{//\ rest\ for\ 1.0\ s}}
+\DoxyCodeLine{\ \ sim-\/>\mbox{\hyperlink{classnetdem_1_1_simulation_a358efcc8d6d906b11ef8fce7a2624943}{Run}}(1.0);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{comment}{//\ remove\ extra\ particles}}
+\DoxyCodeLine{\ \ sim-\/>\mbox{\hyperlink{classnetdem_1_1_simulation_add17bfcd927bd2b7f14f05855c20bea3}{scene}}.\mbox{\hyperlink{classnetdem_1_1_scene_a1faeff238f51b614fef8bf97063a4e5c}{gravity\_coef}}[2]\ =\ 0.0;}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ p\_ptr\ :\ sim-\/>\mbox{\hyperlink{classnetdem_1_1_simulation_add17bfcd927bd2b7f14f05855c20bea3}{scene}}.\mbox{\hyperlink{classnetdem_1_1_scene_a58325af0c072f3bd9ca30c457cebde47}{particle\_list}})\ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{if}\ (p\_ptr-\/>pos[2]\ >\ 0.05\ -\/\ 0.5\ *\ p\_ptr-\/>shape-\/>size)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ sim-\/>\mbox{\hyperlink{classnetdem_1_1_simulation_add17bfcd927bd2b7f14f05855c20bea3}{scene}}.\mbox{\hyperlink{classnetdem_1_1_scene_ad84f92c441e049e7b4ee65338e2bcf14}{RemoveParticle}}(p\_ptr);}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{comment}{//\ add\ top\ wall}}
+\DoxyCodeLine{\ \ \textcolor{keyword}{auto}\ plane\_top\ =\ \mbox{\hyperlink{classnetdem_1_1_plane}{Plane}}(0,\ 0,\ 0.05,\ 0,\ 0,\ -\/1);}
+\DoxyCodeLine{\ \ plane\_top.SetExtent(0.1);}
+\DoxyCodeLine{\ \ \textcolor{keyword}{auto}\ plane\_top\_ptr\ =\ sim-\/>\mbox{\hyperlink{classnetdem_1_1_simulation_add17bfcd927bd2b7f14f05855c20bea3}{scene}}.\mbox{\hyperlink{classnetdem_1_1_scene_a398e24fbcba078c40b7970edbe44e325}{InsertShape}}(\&plane\_top);}
+\DoxyCodeLine{\ \ \textcolor{keyword}{auto}\ wall\_top\ =\ \mbox{\hyperlink{classnetdem_1_1_wall}{Wall}}(plane\_top\_ptr);}
+\DoxyCodeLine{\ \ \textcolor{keyword}{auto}\ wall\_top\_ptr\ =\ sim-\/>\mbox{\hyperlink{classnetdem_1_1_simulation_add17bfcd927bd2b7f14f05855c20bea3}{scene}}.\mbox{\hyperlink{classnetdem_1_1_scene_ad0c28b5e5de3a1f8e785faa1a40c26b3}{InsertWall}}(wall\_top);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{comment}{//\ reset\ the\ membrane\ dimensions}}
+\DoxyCodeLine{\ \ membrane\_wall\_ptr-\/>SetDimensions(0.025,\ 0.10);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{comment}{//\ fix\ the\ bottom\ and\ top\ of\ the\ membrane\ wall}}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ membrane\_wall\_ptr-\/>nodes.size();\ i++)\ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{if}\ (abs(membrane\_wall\_ptr-\/>nodes[i][2]\ +\ 0.5\ *\ membrane\_wall\_ptr-\/>height)\ <}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ 1.0e-\/4\ ||}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ abs(membrane\_wall\_ptr-\/>nodes[i][2]\ -\/\ 0.5\ *\ membrane\_wall\_ptr-\/>height)\ <}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ 1.0e-\/4)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ membrane\_wall\_ptr-\/>SetBCNodalVelocity(i,\ 0,\ 0,\ 0,\ 1,\ 1,\ 1);}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{comment}{//\ gradually\ increase\ confining\ pressure}}
+\DoxyCodeLine{\ \ membrane\_wall\_ptr-\/>enable\_deformation\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ 10;\ i++)\ \{}
+\DoxyCodeLine{\ \ \ \ membrane\_wall\_ptr-\/>SetPressure(-\/1.0e4\ *\ (i\ +\ 1));}
+\DoxyCodeLine{\ \ \ \ sim-\/>\mbox{\hyperlink{classnetdem_1_1_simulation_a358efcc8d6d906b11ef8fce7a2624943}{Run}}(0.1);}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{comment}{//\ add\ deformation\ drived\ loading\ for\ top\ wall}}
+\DoxyCodeLine{\ \ \textcolor{keyword}{auto}\ disp\_control\ =\ \mbox{\hyperlink{classnetdem_1_1_wall_motion_control}{WallMotionControl}}();}
+\DoxyCodeLine{\ \ disp\_control.Init(sim);}
+\DoxyCodeLine{\ \ disp\_control.SetWall(\{wall\_top\_ptr-\/>id\});}
+\DoxyCodeLine{\ \ disp\_control.SetVelocity(0,\ 0,\ -\/0.001);}
+\DoxyCodeLine{\ \ sim-\/>\mbox{\hyperlink{classnetdem_1_1_simulation_a918a87f02a78aed6a311bf90d1061e72}{modifier\_manager}}.\mbox{\hyperlink{classnetdem_1_1_modifier_manager_a6748f7dfd9b3e8e9999c4981684a9945}{Insert}}(\&disp\_control);}
+\DoxyCodeLine{\ \ sim-\/>\mbox{\hyperlink{classnetdem_1_1_simulation_a918a87f02a78aed6a311bf90d1061e72}{modifier\_manager}}.\mbox{\hyperlink{classnetdem_1_1_modifier_manager_a75ba1abedb33d45398052ada3177baa2}{Enable}}(disp\_control.label);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{comment}{//\ press\ the\ top\ of\ membrane\ to\ move\ with\ the\ compression\ top\ wall}}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ membrane\_wall\_ptr-\/>nodes.size();\ i++)\ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{if}\ (abs(membrane\_wall\_ptr-\/>nodes[i][2]\ -\/\ 0.5\ *\ membrane\_wall\_ptr-\/>height)\ <}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ 1.0e-\/4)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ membrane\_wall\_ptr-\/>SetBCNodalVelocity(i,\ 0,\ 0,\ -\/0.001,\ 1,\ 1,\ 1);}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{comment}{//\ sim-\/>Run(2.0);}}
+\DoxyCodeLine{\ \ sim-\/>\mbox{\hyperlink{classnetdem_1_1_simulation_a358efcc8d6d906b11ef8fce7a2624943}{Run}}(20.0);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{keyword}{delete}\ sim;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ MPI\_Finalize();}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\}}
+
+\end{DoxyCodeInclude}
+ 

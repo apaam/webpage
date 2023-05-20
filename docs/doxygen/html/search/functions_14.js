@@ -14,8 +14,9 @@ var searchData=
   ['_7emembrane_11',['~Membrane',['../classnetdem_1_1_membrane.html#a02c0b5ee50e9c00555d21de3843e2ad7',1,'netdem::Membrane']]],
   ['_7emodifier_12',['~Modifier',['../classnetdem_1_1_modifier.html#a370a42d8715caec46e4d4d241667d053',1,'netdem::Modifier']]],
   ['_7emodifiermanager_13',['~ModifierManager',['../classnetdem_1_1_modifier_manager.html#a40befdf4101570942907589f377f2ccb',1,'netdem::ModifierManager']]],
-  ['_7enetsdf_14',['~NetSDF',['../classnetdem_1_1_net_s_d_f.html#aa2a8b101a992c5b369760a129d3058dd',1,'netdem::NetSDF']]],
-  ['_7eperidigmdiscretization_15',['~PeriDigmDiscretization',['../classnetdem_1_1_peri_digm_discretization.html#ad3e8445b24ce0dcbe0aa47c159f69a9f',1,'netdem::PeriDigmDiscretization']]],
-  ['_7eshape_16',['~Shape',['../classnetdem_1_1_shape.html#a935afc9e576015f967d90de56977167d',1,'netdem::Shape']]],
-  ['_7esimulation_17',['~Simulation',['../classnetdem_1_1_simulation.html#a80fad3f57dfaf195a36f7bc49bc88279',1,'netdem::Simulation']]]
+  ['_7empimanager_14',['~MPIManager',['../classnetdem_1_1_m_p_i_manager.html#ab946367c48e6e367f47408e6ee5e1294',1,'netdem::MPIManager']]],
+  ['_7enetsdf_15',['~NetSDF',['../classnetdem_1_1_net_s_d_f.html#aa2a8b101a992c5b369760a129d3058dd',1,'netdem::NetSDF']]],
+  ['_7eperidigmdiscretization_16',['~PeriDigmDiscretization',['../classnetdem_1_1_peri_digm_discretization.html#ad3e8445b24ce0dcbe0aa47c159f69a9f',1,'netdem::PeriDigmDiscretization']]],
+  ['_7eshape_17',['~Shape',['../classnetdem_1_1_shape.html#a935afc9e576015f967d90de56977167d',1,'netdem::Shape']]],
+  ['_7esimulation_18',['~Simulation',['../classnetdem_1_1_simulation.html#a80fad3f57dfaf195a36f7bc49bc88279',1,'netdem::Simulation']]]
 ];

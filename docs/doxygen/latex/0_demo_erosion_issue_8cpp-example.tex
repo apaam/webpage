@@ -1,0 +1,155 @@
+\hypertarget{0_demo_erosion_issue_8cpp-example}{}\doxysection{0\+\_\+demo\+\_\+erosion\+\_\+issue.\+cpp}
+This is an example of how to use the netdem library.
+
+
+\begin{DoxyCodeInclude}{0}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}contact\_solver\_factory.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}particle.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}shape\_ellipsoid.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}shape\_plane.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}solver\_gjk\_pp.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}solver\_gjk\_pw.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}utils\_math.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ <filesystem>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{using\ namespace\ }\mbox{\hyperlink{namespacenetdem}{netdem}};}
+\DoxyCodeLine{\textcolor{keyword}{using\ namespace\ }std;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{class\ }SolverGJKPP\_TEST\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classnetdem_1_1_solver_g_j_k_p_p}{SolverGJKPP}}\ \{}
+\DoxyCodeLine{\textcolor{keyword}{public}:}
+\DoxyCodeLine{\ \ Vec3d\ MinkowskiDiff(Vec3d\ \textcolor{keyword}{const}\ \&dir,\ \textcolor{keywordtype}{double}\ erosion\_ratio\ =\ 0)\ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{auto}\ pos\_1\ =\ shape\_1-\/>SupportPoint(-\/1.0\ *\ dir);}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{auto}\ pos\_2\ =\ Math::Rotate(}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ shape\_2-\/>SupportPoint(Math::Rotate(dir,\ dquat\_12\_conj)),\ dquat\_12);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{return}\ (1\ -\/\ erosion\_ratio)\ *\ (pos\_2\ -\/\ pos\_1)\ +\ dpos\_12\_ref;}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ tuple<double,\ Vec3d,\ Vec3d>\ EPA()\ \{\ \textcolor{keywordflow}{return}\ SolverGJKPP::EPA();\ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ tuple<double,\ Vec3d,\ Vec3d>\ GJK\_EROSION()\ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{return}\ SolverGJKPP::GJK\_EROSION();}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ tuple<double,\ Vec3d,\ Vec3d>\ GJK\_EROSION(\textcolor{keywordtype}{double}\ erosion\_ratio)\ \{}
+\DoxyCodeLine{\ \ \ \ Vec3d\ sup\_point;}
+\DoxyCodeLine{\ \ \ \ Vec3d\ sup\_dir\ =\ particle\_2-\/>pos\ -\/\ particle\_1-\/>pos;}
+\DoxyCodeLine{\ \ \ \ Math::Normalize(\&sup\_dir);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ sup\_point\ =\ MinkowskiDiff(sup\_dir,\ erosion\_ratio);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{auto}\ simplex\ =\ \mbox{\hyperlink{classnetdem_1_1_simplex}{Simplex}}();}
+\DoxyCodeLine{\ \ \ \ simplex.PushBack(sup\_point);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ sup\_dir\ =\ -\/1.0\ *\ sup\_point;}
+\DoxyCodeLine{\ \ \ \ Math::Normalize(\&sup\_dir);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ Vec3d\ cnt\_dir\_n,\ cnt\_pos;}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{double}\ cnt\_len\_n;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{bool}\ is\_collide\{\textcolor{keyword}{false}\};}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{int}\ iter,\ iter\_max\ =\ 100;}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{double}\ min\_dist\_mink\ =\ -\/1e8,\ min\_dist\_simp\ =\ Math::NormL2(sup\_point);}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{for}\ (iter\ =\ 0;\ iter\ <\ iter\_max;\ iter++)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ sup\_point\ =\ MinkowskiDiff(sup\_dir,\ erosion\_ratio);}
+\DoxyCodeLine{\ \ \ \ \ \ min\_dist\_mink\ =\ max(-\/Math::Dot(sup\_point,\ sup\_dir),\ min\_dist\_mink);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \textcolor{comment}{//\ cout\ <<\ "{}debug\ min\_dist\ pp:\ "{}\ <<\ iter\ <<\ "{},\ "{}\ <<\ min\_dist\_mink\ <<\ "{},\ "{}}}
+\DoxyCodeLine{\ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ <<\ min\_dist\_simp\ -\/\ min\_dist\_mink\ <<\ "{},\ "{}\ <<\ sup\_point\ <<\ endl;}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \textcolor{keywordflow}{if}\ (min\_dist\_simp\ -\/\ min\_dist\_mink\ <\ 1e-\/10)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{comment}{//\ gather\ contact\ geometric\ features}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ sup\_point\ =\ MinkowskiDiff(sup\_dir);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ cnt\_len\_n\ =\ Math::Dot(sup\_point,\ sup\_dir);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (cnt\_len\_n\ >\ 0)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ cnt\_dir\_n\ =\ -\/1.0\ *\ sup\_dir;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ find\_cnt\_pos;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ tie(cnt\_pos,\ find\_cnt\_pos)\ =\ GetContactPoint(sup\_dir);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ cnt\_len\_n\ =\ 0;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ cnt\_dir\_n\ =\ -\/1.0\ *\ sup\_dir;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\ \ \ \ \ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ simplex.PushBack(sup\_point);}
+\DoxyCodeLine{\ \ \ \ \ \ UpdateSimplex(\&simplex,\ \&sup\_dir,\ \&min\_dist\_simp,\ \&is\_collide);}
+\DoxyCodeLine{\ \ \ \ \ \ \textcolor{keywordflow}{if}\ (is\_collide)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ cnt\_len\_n\ =\ 0;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ cnt\_dir\_n[0]\ =\ 0;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ cnt\_dir\_n[1]\ =\ 0;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ cnt\_dir\_n[2]\ =\ 0;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\ \ \ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{if}\ (iter\ >=\ iter\_max\ -\/\ 1)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}warning:\ git\_erosion\ pp\ not\ converged"{}}\ <<\ endl;}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{return}\ make\_tuple(cnt\_len\_n,\ cnt\_dir\_n,\ cnt\_pos);}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{\};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ DemoErosionIssue()\ \{}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{classnetdem_1_1_ellipsoid}{Ellipsoid}}\ ellipsoid\ =\ \mbox{\hyperlink{classnetdem_1_1_ellipsoid}{Ellipsoid}}(0.5,\ 1,\ 0.5);}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{classnetdem_1_1_particle}{Particle}}\ obj\_1\ =\ \mbox{\hyperlink{classnetdem_1_1_particle}{Particle}}(\&ellipsoid);}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{classnetdem_1_1_particle}{Particle}}\ obj\_2\ =\ \mbox{\hyperlink{classnetdem_1_1_particle}{Particle}}(\&ellipsoid);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{keyword}{auto}\ cnt\_solver\ =\ SolverGJKPP\_TEST();}
+\DoxyCodeLine{\ \ \textcolor{keyword}{auto}\ cnt\_geoms\_epa\ =\ \mbox{\hyperlink{classnetdem_1_1_collision_geometries}{CollisionGeometries}}();}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{keywordtype}{double}\ pos\_y,\ pos\_y\_upper\{ellipsoid.\mbox{\hyperlink{classnetdem_1_1_ellipsoid_a05502dc7aac4897f26fbae1f75ab655d}{axis\_b}}\ *\ 2\},\ pos\_y\_lower\{0\},}
+\DoxyCodeLine{\ \ \ \ \ \ len\_n\_target\{0.1\};}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ 100;\ i++)\ \{}
+\DoxyCodeLine{\ \ \ \ pos\_y\ =\ 0.5\ *\ (pos\_y\_lower\ +\ pos\_y\_upper);}
+\DoxyCodeLine{\ \ \ \ obj\_2.SetPosition(0,\ pos\_y,\ 0.3);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ cnt\_solver.Init(\&obj\_1,\ \&obj\_2);}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{if}\ (cnt\_solver.Detect())\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ tie(cnt\_geoms\_epa.len\_n,\ cnt\_geoms\_epa.dir\_n,\ cnt\_geoms\_epa.pos)\ =}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ cnt\_solver.EPA();}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}iter:\ "{}}\ <<\ i\ <<\ \textcolor{stringliteral}{"{},\ "{}}\ <<\ pos\_y\ <<\ \textcolor{stringliteral}{"{},\ "{}}\ <<\ cnt\_geoms\_epa.len\_n}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ <<\ endl;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \textcolor{keywordflow}{if}\ (abs(cnt\_geoms\_epa.len\_n\ -\/\ len\_n\_target)\ <\ 1e-\/8)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (cnt\_geoms\_epa.len\_n\ <\ len\_n\_target)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ pos\_y\_upper\ =\ pos\_y;}
+\DoxyCodeLine{\ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ pos\_y\_lower\ =\ pos\_y;}
+\DoxyCodeLine{\ \ \ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ pos\_y\_upper\ =\ pos\_y;}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ Vec3d\ dir\_sup\ =\ -\/1.0\ *\ cnt\_geoms\_epa.dir\_n;}
+\DoxyCodeLine{\ \ Vec3d\ pos\_sup\ =\ cnt\_solver.MinkowskiDiff(dir\_sup);}
+\DoxyCodeLine{\ \ \textcolor{keywordtype}{double}\ pos\_sup\_norm\ =\ Math::NormL2(pos\_sup);}
+\DoxyCodeLine{\ \ cout\ <<\ \textcolor{stringliteral}{"{}result:\ "{}}\ <<\ pos\_sup\_norm\ <<\ \textcolor{stringliteral}{"{}:\ "{}}\ <<\ pos\_sup\ /\ pos\_sup\_norm\ <<\ \textcolor{stringliteral}{"{}:\ "{}}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <<\ cnt\_geoms\_epa.dir\_n\ <<\ endl;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{comment}{//\ filesystem::create\_directories("{}tmp/tests/"{});}}
+\DoxyCodeLine{\ \ \textcolor{comment}{//\ obj\_1.SaveAsVTK("{}tmp/tests/obj\_1.vtk"{});}}
+\DoxyCodeLine{\ \ \textcolor{comment}{//\ obj\_2.SaveAsVTK("{}tmp/tests/obj\_2.vtk"{});}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{keywordtype}{double}\ erosion\_ratio\{0\};}
+\DoxyCodeLine{\ \ \textcolor{keyword}{auto}\ cnt\_geoms\_erosion\ =\ \mbox{\hyperlink{classnetdem_1_1_collision_geometries}{CollisionGeometries}}();}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ 200;\ i++)\ \{}
+\DoxyCodeLine{\ \ \ \ erosion\_ratio\ +=\ len\_n\_target\ /\ 100;}
+\DoxyCodeLine{\ \ \ \ tie(cnt\_geoms\_erosion.len\_n,\ cnt\_geoms\_erosion.dir\_n,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ cnt\_geoms\_erosion.pos)\ =\ cnt\_solver.GJK\_EROSION(erosion\_ratio);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}iter:\ "{}}\ <<\ i\ <<\ \textcolor{stringliteral}{"{};\ erosion\ rate:\ "{}}\ <<\ erosion\_ratio}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{};\ overlap:\ "{}}\ <<\ cnt\_geoms\_erosion.len\_n\ <<\ endl}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\ \ "{}}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}erosion\ dir\_n:\ "{}}\ <<\ cnt\_geoms\_erosion.dir\_n}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{};\ epa\ dir\_n:\ "{}}\ <<\ cnt\_geoms\_epa.dir\_n\ <<\ endl;}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCodeInclude}
+ 

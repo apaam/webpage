@@ -12,8 +12,8 @@ var dir_c541b056411db48a7d1442791b573641 =
     [ "particle_group.hpp", "particle__group_8hpp_source.html", null ],
     [ "particle_motion_control.hpp", "particle__motion__control_8hpp_source.html", null ],
     [ "unbal_force_ratio_evaluator.hpp", "unbal__force__ratio__evaluator_8hpp_source.html", null ],
-    [ "wall_disp_control.hpp", "wall__disp__control_8hpp_source.html", null ],
     [ "wall_group.hpp", "wall__group_8hpp_source.html", null ],
+    [ "wall_motion_control.hpp", "wall__motion__control_8hpp_source.html", null ],
     [ "wall_motion_integrator.hpp", "wall__motion__integrator_8hpp_source.html", null ],
     [ "wall_servo_control.hpp", "wall__servo__control_8hpp_source.html", null ]
 ];

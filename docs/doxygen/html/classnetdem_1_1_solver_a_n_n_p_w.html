@@ -157,9 +157,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a9933eaccd0b3266a07dc9b7d26f98b6e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnetdem_1_1_solver_a_n_n_p_w.html#a9933eaccd0b3266a07dc9b7d26f98b6e">ResolveUpdate_PotentialBased</a> (<a class="el" href="classnetdem_1_1_collision_geometries.html">CollisionGeometries</a> *const cnt_geoms, double timestep)</td></tr>
 <tr class="memdesc:a9933eaccd0b3266a07dc9b7d26f98b6e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resolves the collision using a potential-based method during update time.  <br /></td></tr>
 <tr class="separator:a9933eaccd0b3266a07dc9b7d26f98b6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa52d72d511bac2290b7c454324d6ae01"><td class="memItemLeft" align="right" valign="top">std::tuple&lt; double, Vec3d &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnetdem_1_1_solver_a_n_n_p_w.html#aa52d72d511bac2290b7c454324d6ae01">Potential</a> (Vec3d const &amp;pos, Vec4d const &amp;quat)</td></tr>
-<tr class="memdesc:aa52d72d511bac2290b7c454324d6ae01"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the potential energy and contact position for the collision.  <br /></td></tr>
-<tr class="separator:aa52d72d511bac2290b7c454324d6ae01"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a048dcca4ff5dfed45901c9c3d603d0d6"><td class="memItemLeft" align="right" valign="top">std::tuple&lt; double, Vec3d &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnetdem_1_1_solver_a_n_n_p_w.html#a048dcca4ff5dfed45901c9c3d603d0d6">GetPotential</a> (Vec3d const &amp;pos, Vec4d const &amp;quat)</td></tr>
+<tr class="memdesc:a048dcca4ff5dfed45901c9c3d603d0d6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the potential energy and contact position for the collision.  <br /></td></tr>
+<tr class="separator:a048dcca4ff5dfed45901c9c3d603d0d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0e60fe21eecbf1128bcbf9d5c197aa14"><td class="memItemLeft" align="right" valign="top">std::tuple&lt; Vec3d, Vec3d, Vec3d &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnetdem_1_1_solver_a_n_n_p_w.html#a0e60fe21eecbf1128bcbf9d5c197aa14">EvaluateContactForces</a> ()</td></tr>
 <tr class="memdesc:a0e60fe21eecbf1128bcbf9d5c197aa14"><td class="mdescLeft">&#160;</td><td class="mdescRight">Evaluates the contact forces for the collision.  <br /></td></tr>
 <tr class="separator:a0e60fe21eecbf1128bcbf9d5c197aa14"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -358,6 +358,45 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
+<a id="a048dcca4ff5dfed45901c9c3d603d0d6" name="a048dcca4ff5dfed45901c9c3d603d0d6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a048dcca4ff5dfed45901c9c3d603d0d6">&#9670;&#160;</a></span>GetPotential()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::tuple&lt; double, Vec3d &gt; netdem::SolverANNPW::GetPotential </td>
+          <td>(</td>
+          <td class="paramtype">Vec3d const &amp;&#160;</td>
+          <td class="paramname"><em>pos</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Vec4d const &amp;&#160;</td>
+          <td class="paramname"><em>quat</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Calculates the potential energy and contact position for the collision. </p>
+<p>This function calculates the potential energy and contact position for the collision given the positions and orientations of the two particles.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pos</td><td>The position of the first particle. </td></tr>
+    <tr><td class="paramname">quat</td><td>The orientation of the first particle. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A tuple containing the potential energy and contact position. </dd></dl>
+
+</div>
+</div>
 <a id="a41060f395ffabaf861f8270a6b3878fa" name="a41060f395ffabaf861f8270a6b3878fa"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a41060f395ffabaf861f8270a6b3878fa">&#9670;&#160;</a></span>Init() <span class="overload">[1/2]</span></h2>
 
@@ -441,45 +480,6 @@ Additional Inherited Members</h2></td></tr>
   </table>
   </dd>
 </dl>
-
-</div>
-</div>
-<a id="aa52d72d511bac2290b7c454324d6ae01" name="aa52d72d511bac2290b7c454324d6ae01"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa52d72d511bac2290b7c454324d6ae01">&#9670;&#160;</a></span>Potential()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::tuple&lt; double, Vec3d &gt; netdem::SolverANNPW::Potential </td>
-          <td>(</td>
-          <td class="paramtype">Vec3d const &amp;&#160;</td>
-          <td class="paramname"><em>pos</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">Vec4d const &amp;&#160;</td>
-          <td class="paramname"><em>quat</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Calculates the potential energy and contact position for the collision. </p>
-<p>This function calculates the potential energy and contact position for the collision given the positions and orientations of the two particles.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">pos</td><td>The position of the first particle. </td></tr>
-    <tr><td class="paramname">quat</td><td>The orientation of the first particle. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>A tuple containing the potential energy and contact position. </dd></dl>
 
 </div>
 </div>

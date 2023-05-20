@@ -1,0 +1,53 @@
+\hypertarget{25_test_regressor_ellipsoid_plane_8cpp-example}{}\doxysection{25\+\_\+test\+\_\+regressor\+\_\+ellipsoid\+\_\+plane.\+cpp}
+This is an example of how to use the netdem library.
+
+
+\begin{DoxyCodeInclude}{0}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}general\_net.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}mlpack\_utils.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}regression\_net.hpp"{}}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{using\ namespace\ }\mbox{\hyperlink{namespacenetdem}{netdem}};}
+\DoxyCodeLine{\textcolor{keyword}{using\ namespace\ }std;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ TestRegressorEllipsoidPlane(\textcolor{keywordtype}{int}\ id\_comp\ =\ 0)\ \{}
+\DoxyCodeLine{\ \ \textcolor{keywordtype}{string}\ root\_dir\ =\ \textcolor{stringliteral}{"{}local/examples/netdem/ann\_models/ellipsoid\_plane/"{}};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ arma::mat\ dataset;}
+\DoxyCodeLine{\ \ \textcolor{keywordtype}{bool}\ loadedDataset\ =}
+\DoxyCodeLine{\ \ \ \ \ \ mlpack::data::Load(root\_dir\ +\ \textcolor{stringliteral}{"{}dataset\_resolution.txt"{}},\ dataset,\ \textcolor{keyword}{true});}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{if}\ (!loadedDataset)\ \{}
+\DoxyCodeLine{\ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}loading\ data\ erros\ ..."{}}\ <<\ endl;}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{\ \ \textcolor{comment}{//\ element\ 4\ and\ 5\ are\ the\ volume\ and\ equivalent\ cross-\/section\ area}}
+\DoxyCodeLine{\ \ \textcolor{comment}{//\ scale\ so\ that\ they\ are\ in\ the\ same\ unit\ space\ as\ particle\ size}}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ dataset.n\_cols;\ i++)\ \{}
+\DoxyCodeLine{\ \ \ \ dataset(4,\ i)\ =\ dataset(4,\ i)\ *\ 40.0;}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{\ \ cout\ <<\ \textcolor{stringliteral}{"{}finished\ loading\ data\ ..."{}}\ <<\ endl;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ arma::mat\ test\_data\ =\ dataset;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{keywordtype}{int}\ num\_x\{4\},\ num\_y\{4\};}
+\DoxyCodeLine{\ \ arma::mat\ test\_x\ =\ test\_data.rows(0,\ num\_x\ -\/\ 1);}
+\DoxyCodeLine{\ \ arma::mat\ test\_y\ =\ test\_data.rows(num\_x,\ num\_x\ +\ num\_y\ -\/\ 1);}
+\DoxyCodeLine{\ \ cout\ <<\ \textcolor{stringliteral}{"{}finished\ preparing\ training\ and\ testing\ data\ ..."{}}\ <<\ endl;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{classnetdem_1_1_regression_net}{RegressionNet}}\ model;}
+\DoxyCodeLine{\ \ model.\mbox{\hyperlink{classnetdem_1_1_regression_net_a4802cc4f75ad194e3a1136ee85bdb8e6}{Load}}(root\_dir\ +\ \textcolor{stringliteral}{"{}/ann\_regressor.xml"{}},\ \textcolor{stringliteral}{"{}resolution"{}});}
+\DoxyCodeLine{\ \ cout\ <<\ \textcolor{stringliteral}{"{}finished\ loading\ ann\ model\ ..."{}}\ <<\ endl;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{keyword}{auto}\ pred\_y\ =\ model.\mbox{\hyperlink{classnetdem_1_1_regression_net_ad0a454915d74f397ea4b6ce40c46f84e}{Predict}}(test\_x);}
+\DoxyCodeLine{\ \ \textcolor{keywordtype}{double}\ test\_accuracy\ =}
+\DoxyCodeLine{\ \ \ \ \ \ MLPackUtils::GetMAE(pred\_y.rows(id\_comp,\ id\_comp),\ test\_y.rows(id\_comp,\ id\_comp));}
+\DoxyCodeLine{\ \ cout\ <<\ \textcolor{stringliteral}{"{}test\ mae:\ "{}}\ <<\ test\_accuracy\ <<\ endl;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ arma::mat\ joined\_yy\ =\ std::move(arma::join\_cols(pred\_y,\ test\_y));}
+\DoxyCodeLine{\ \ mlpack::data::Save(root\_dir\ +\ \textcolor{stringliteral}{"{}pred\_vs\_true\_resolution.txt"{}},\ joined\_yy,\ \textcolor{keyword}{false},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{true},\ mlpack::data::FileType::CSVASCII);}
+\DoxyCodeLine{\}}
+
+\end{DoxyCodeInclude}
+ 

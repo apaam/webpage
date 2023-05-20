@@ -1,0 +1,227 @@
+\hypertarget{2_ev_gjk_performance_8cpp-example}{}\doxysection{2\+\_\+ev\+\_\+gjk\+\_\+performance.\+cpp}
+This is an example of how to use the netdem library.
+
+
+\begin{DoxyCodeInclude}{0}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}dem\_profiler.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}distribution\_uniform.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}particle.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}shape\_ellipsoid.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}shape\_sphere.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}solver\_gjk\_pp.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}utils\_math.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ <filesystem>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ <fstream>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ <sstream>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{\textcolor{keyword}{using\ namespace\ }\mbox{\hyperlink{namespacenetdem}{netdem}};}
+\DoxyCodeLine{\textcolor{keyword}{using\ namespace\ }std;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{int}\ num\_samples\ =\ 1000000;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{auto}\ *ds\_q\_pos\ =\ \textcolor{keyword}{new}\ Vec3d[num\_samples];}
+\DoxyCodeLine{\textcolor{keyword}{auto}\ *ds\_q\_quat\ =\ \textcolor{keyword}{new}\ Vec4d[num\_samples];}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{auto}\ *ds\_len\_n\ =\ \textcolor{keyword}{new}\ \textcolor{keywordtype}{double}[num\_samples];}
+\DoxyCodeLine{\textcolor{keyword}{auto}\ *ds\_dir\_n\ =\ \textcolor{keyword}{new}\ Vec3d[num\_samples];}
+\DoxyCodeLine{\textcolor{keyword}{auto}\ *ds\_pos\ =\ \textcolor{keyword}{new}\ Vec3d[num\_samples];}
+\DoxyCodeLine{}
+\DoxyCodeLine{\mbox{\hyperlink{classnetdem_1_1_ellipsoid}{Ellipsoid}}\ ellipsoid\ =\ \mbox{\hyperlink{classnetdem_1_1_ellipsoid}{Ellipsoid}}(0.5,\ 1.0,\ 0.5);}
+\DoxyCodeLine{\mbox{\hyperlink{classnetdem_1_1_particle}{Particle}}\ p1\ =\ \mbox{\hyperlink{classnetdem_1_1_particle}{Particle}}(\&ellipsoid);}
+\DoxyCodeLine{\mbox{\hyperlink{classnetdem_1_1_particle}{Particle}}\ p2\ =\ \mbox{\hyperlink{classnetdem_1_1_particle}{Particle}}(\&ellipsoid);}
+\DoxyCodeLine{\mbox{\hyperlink{classnetdem_1_1_solver_g_j_k_p_p}{SolverGJKPP}}\ cnt\_solver;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ GenDataset(\textcolor{keywordtype}{double}\ len\_n\_min,\ \textcolor{keywordtype}{double}\ len\_n\_max)\ \{}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{classnetdem_1_1_uniform_distribution}{UniformDistribution}}\ uniform\_dist;}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ num\_samples;\ i++)\ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ particle\ rotation}}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{double}\ rot\_axis\_theta\ =\ uniform\_dist.\mbox{\hyperlink{classnetdem_1_1_uniform_distribution_a7e39cbd0ed813d381022ad61986092bf}{Get}}()\ *\ Math::PI;}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{double}\ rot\_axis\_phi\ =\ uniform\_dist.\mbox{\hyperlink{classnetdem_1_1_uniform_distribution_a7e39cbd0ed813d381022ad61986092bf}{Get}}()\ *\ 2.0\ *\ Math::PI;}
+\DoxyCodeLine{\ \ \ \ Vec3d\ rot\_axis\_sph\{1.0,\ rot\_axis\_theta,\ rot\_axis\_phi\};}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{double}\ rot\_angle\ =\ uniform\_dist.\mbox{\hyperlink{classnetdem_1_1_uniform_distribution_a7e39cbd0ed813d381022ad61986092bf}{Get}}()\ *\ 2.0\ *\ Math::PI;}
+\DoxyCodeLine{\ \ \ \ Vec3d\ rot\_axis\ =\ Math::SphericalToCartesian(rot\_axis\_sph);}
+\DoxyCodeLine{\ \ \ \ ds\_q\_quat[i]\ =\ Math::Quaternion::FromRodrigues(rot\_angle,\ rot\_axis);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ target\ overlap}}
+\DoxyCodeLine{\ \ \ \ ds\_len\_n[i]\ =\ len\_n\_min\ +\ uniform\_dist.\mbox{\hyperlink{classnetdem_1_1_uniform_distribution_a7e39cbd0ed813d381022ad61986092bf}{Get}}()\ *\ (len\_n\_max\ -\/\ len\_n\_min);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ target\ contact\ normal}}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{double}\ dir\_theta\ =\ uniform\_dist.\mbox{\hyperlink{classnetdem_1_1_uniform_distribution_a7e39cbd0ed813d381022ad61986092bf}{Get}}()\ *\ Math::PI;}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{double}\ dir\_phi\ =\ uniform\_dist.\mbox{\hyperlink{classnetdem_1_1_uniform_distribution_a7e39cbd0ed813d381022ad61986092bf}{Get}}()\ *\ 2.0\ *\ Math::PI;}
+\DoxyCodeLine{\ \ \ \ Vec3d\ dir\_sph\{1.0,\ dir\_theta,\ dir\_phi\};}
+\DoxyCodeLine{\ \ \ \ ds\_dir\_n[i]\ =\ Math::SphericalToCartesian(dir\_sph);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ get\ the\ support\ points}}
+\DoxyCodeLine{\ \ \ \ Vec3d\ sup\_pos\_1,\ sup\_pos\_2;}
+\DoxyCodeLine{\ \ \ \ Vec3d\ dir\_n\_inv\ =\ -\/1.0\ *\ ds\_dir\_n[i];}
+\DoxyCodeLine{\ \ \ \ sup\_pos\_1\ =\ ellipsoid.\mbox{\hyperlink{classnetdem_1_1_ellipsoid_aff41be1941a2b21dcdab49bfaae55ad5}{SupportPoint}}(dir\_n\_inv);}
+\DoxyCodeLine{\ \ \ \ sup\_pos\_2\ =\ sup\_pos\_1\ +\ ds\_len\_n[i]\ *\ ds\_dir\_n[i];}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ ds\_pos[i]\ =\ sup\_pos\_1\ +\ 0.5\ *\ ds\_len\_n[i]\ *\ ds\_dir\_n[i];}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ Vec4d\ quat\_conj\ =\ Math::Quaternion::Conjugate(ds\_q\_quat[i]);}
+\DoxyCodeLine{\ \ \ \ Vec3d\ dir\_n\_ref\ =\ Math::Rotate(ds\_dir\_n[i],\ quat\_conj);}
+\DoxyCodeLine{\ \ \ \ Vec3d\ sup\_pos\_2\_ref\ =\ ellipsoid.\mbox{\hyperlink{classnetdem_1_1_ellipsoid_aff41be1941a2b21dcdab49bfaae55ad5}{SupportPoint}}(dir\_n\_ref);}
+\DoxyCodeLine{\ \ \ \ Vec3d\ sup\_pos\_2\_rot\ =\ Math::Rotate(sup\_pos\_2\_ref,\ ds\_q\_quat[i]);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ calculate\ the\ particle\ position}}
+\DoxyCodeLine{\ \ \ \ ds\_q\_pos[i]\ =\ sup\_pos\_2\ -\/\ sup\_pos\_2\_rot;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{if}\ (((i\ +\ 1)\ \%\ 100000)\ ==\ 0)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}data\ generated:\ "{}}\ <<\ i\ +\ 1\ <<\ \textcolor{stringliteral}{"{}\ ..."{}}\ <<\ endl;}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ SaveReferenceResult(\textcolor{keywordtype}{string}\ filename)\ \{}
+\DoxyCodeLine{\ \ stringbuf\ buf;}
+\DoxyCodeLine{\ \ ostream\ os(\&buf);}
+\DoxyCodeLine{\ \ \textcolor{keywordtype}{int}\ os\_width\ =\ 24;}
+\DoxyCodeLine{\ \ os.setf(ios::scientific);}
+\DoxyCodeLine{\ \ os.precision(15);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ num\_samples;\ i++)\ \{}
+\DoxyCodeLine{\ \ \ \ os\ <<\ ds\_q\_pos[i][0]\ <<\ \textcolor{stringliteral}{"{},\ "{}}\ <<\ ds\_q\_pos[i][1]\ <<\ \textcolor{stringliteral}{"{},\ "{}}\ <<\ ds\_q\_pos[i][2]}
+\DoxyCodeLine{\ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{},\ "{}}\ <<\ ds\_q\_quat[i][0]\ <<\ \textcolor{stringliteral}{"{},\ "{}}\ <<\ ds\_q\_quat[i][1]\ <<\ \textcolor{stringliteral}{"{},\ "{}}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <<\ ds\_q\_quat[i][2]\ <<\ \textcolor{stringliteral}{"{},\ "{}}\ <<\ ds\_q\_quat[i][3]\ <<\ \textcolor{stringliteral}{"{},\ "{}}\ <<\ ds\_len\_n[i]}
+\DoxyCodeLine{\ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{},\ "{}}\ <<\ ds\_dir\_n[i][0]\ <<\ \textcolor{stringliteral}{"{},\ "{}}\ <<\ ds\_dir\_n[i][1]\ <<\ \textcolor{stringliteral}{"{},\ "{}}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <<\ ds\_dir\_n[i][2]\ <<\ \textcolor{stringliteral}{"{},\ "{}}\ <<\ ds\_pos[i][0]\ <<\ \textcolor{stringliteral}{"{},\ "{}}\ <<\ ds\_pos[i][1]\ <<\ \textcolor{stringliteral}{"{},\ "{}}}
+\DoxyCodeLine{\ \ \ \ \ \ \ <<\ ds\_pos[i][2]\ <<\ endl;}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ ofstream\ outfile;}
+\DoxyCodeLine{\ \ outfile.open(filename);}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{if}\ (!outfile)\ \{}
+\DoxyCodeLine{\ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}cannot\ open\ file:\ "{}}\ <<\ filename\ <<\ endl;}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{\ \ outfile\ <<\ buf.str();}
+\DoxyCodeLine{\ \ outfile.close();}
+\DoxyCodeLine{\ \ cout\ <<\ \textcolor{stringliteral}{"{}data\ saved\ to:\ "{}}\ <<\ filename\ <<\ endl;}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ SaveGJKResult(\textcolor{keywordtype}{string}\ filename,\ \textcolor{keywordtype}{bool}\ use\_erosion,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ erosion\_ratio\_initial)\ \{}
+\DoxyCodeLine{\ \ stringbuf\ buf;}
+\DoxyCodeLine{\ \ ostream\ os(\&buf);}
+\DoxyCodeLine{\ \ \textcolor{keywordtype}{int}\ os\_width\ =\ 24;}
+\DoxyCodeLine{\ \ os.setf(ios::scientific);}
+\DoxyCodeLine{\ \ os.precision(15);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ cnt\_solver.use\_erosion\ =\ use\_erosion;}
+\DoxyCodeLine{\ \ cnt\_solver.erosion\_ratio\_initial\ =\ erosion\_ratio\_initial;}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ num\_samples;\ i++)\ \{}
+\DoxyCodeLine{\ \ \ \ p2.SetPosition(ds\_q\_pos[i][0],\ ds\_q\_pos[i][1],\ ds\_q\_pos[i][2]);}
+\DoxyCodeLine{\ \ \ \ p2.SetQuaternion(ds\_q\_quat[i][0],\ ds\_q\_quat[i][1],\ ds\_q\_quat[i][2],}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ds\_q\_quat[i][3]);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ cnt\_solver.\mbox{\hyperlink{classnetdem_1_1_solver_g_j_k_p_p_ab651c60ac53f857232372faa3e7d2652}{Init}}(\&p1,\ \&p2);}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{if}\ (cnt\_solver.\mbox{\hyperlink{classnetdem_1_1_solver_g_j_k_p_p_a961ebc52e242d57fb32cd1a9f95dcf92}{Detect}}())\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \textcolor{keyword}{auto}\ cnt\ =\ \mbox{\hyperlink{classnetdem_1_1_contact_p_p}{ContactPP}}();}
+\DoxyCodeLine{\ \ \ \ \ \ cnt\_solver.\mbox{\hyperlink{classnetdem_1_1_solver_g_j_k_p_p_ab6cc16826443f7e38a64efe2c136d4fb}{ResolveInit}}(\&cnt,\ 1e-\/4);}
+\DoxyCodeLine{\ \ \ \ \ \ \textcolor{keyword}{auto}\ cnt\_geoms\ =\ cnt.collision\_entries[0].cnt\_geoms;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ os\ <<\ ds\_q\_pos[i][0]\ <<\ \textcolor{stringliteral}{"{},\ "{}}\ <<\ ds\_q\_pos[i][1]\ <<\ \textcolor{stringliteral}{"{},\ "{}}\ <<\ ds\_q\_pos[i][2]}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{},\ "{}}\ <<\ ds\_q\_quat[i][0]\ <<\ \textcolor{stringliteral}{"{},\ "{}}\ <<\ ds\_q\_quat[i][1]\ <<\ \textcolor{stringliteral}{"{},\ "{}}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ <<\ ds\_q\_quat[i][2]\ <<\ \textcolor{stringliteral}{"{},\ "{}}\ <<\ ds\_q\_quat[i][3]\ <<\ \textcolor{stringliteral}{"{},\ "{}}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ <<\ cnt\_geoms.len\_n\ <<\ \textcolor{stringliteral}{"{},\ "{}}\ <<\ cnt\_geoms.dir\_n[0]\ <<\ \textcolor{stringliteral}{"{},\ "{}}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ <<\ cnt\_geoms.dir\_n[1]\ <<\ \textcolor{stringliteral}{"{},\ "{}}\ <<\ cnt\_geoms.dir\_n[2]\ <<\ \textcolor{stringliteral}{"{},\ "{}}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ <<\ cnt\_geoms.pos[0]\ <<\ \textcolor{stringliteral}{"{},\ "{}}\ <<\ cnt\_geoms.pos[1]\ <<\ \textcolor{stringliteral}{"{},\ "{}}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ <<\ cnt\_geoms.pos[2]\ <<\ endl;}
+\DoxyCodeLine{\ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ os\ <<\ ds\_q\_pos[i][0]\ <<\ \textcolor{stringliteral}{"{},\ "{}}\ <<\ ds\_q\_pos[i][1]\ <<\ \textcolor{stringliteral}{"{},\ "{}}\ <<\ ds\_q\_pos[i][2]}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{},\ "{}}\ <<\ ds\_q\_quat[i][0]\ <<\ \textcolor{stringliteral}{"{},\ "{}}\ <<\ ds\_q\_quat[i][1]\ <<\ \textcolor{stringliteral}{"{},\ "{}}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ <<\ ds\_q\_quat[i][2]\ <<\ \textcolor{stringliteral}{"{},\ "{}}\ <<\ ds\_q\_quat[i][3]\ <<\ \textcolor{stringliteral}{"{},\ "{}}\ <<\ 0\ <<\ \textcolor{stringliteral}{"{},\ "{}}\ <<\ 0}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{},\ "{}}\ <<\ 0\ <<\ \textcolor{stringliteral}{"{},\ "{}}\ <<\ 0\ <<\ \textcolor{stringliteral}{"{},\ "{}}\ <<\ 0\ <<\ \textcolor{stringliteral}{"{},\ "{}}\ <<\ 0\ <<\ \textcolor{stringliteral}{"{},\ "{}}\ <<\ 0}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ <<\ endl;}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ ofstream\ outfile;}
+\DoxyCodeLine{\ \ outfile.open(filename);}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{if}\ (!outfile)\ \{}
+\DoxyCodeLine{\ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}cannot\ open\ file:\ "{}}\ <<\ filename\ <<\ endl;}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{\ \ outfile\ <<\ buf.str();}
+\DoxyCodeLine{\ \ outfile.close();}
+\DoxyCodeLine{\ \ cout\ <<\ \textcolor{stringliteral}{"{}data\ saved\ to:\ "{}}\ <<\ filename\ <<\ endl;}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ EvaluateGJK(\textcolor{keywordtype}{bool}\ use\_erosion,\ \textcolor{keywordtype}{double}\ erosion\_ratio\_initial)\ \{}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{classnetdem_1_1_d_e_m_profiler}{DEMProfiler}}\ dem\_profiler;}
+\DoxyCodeLine{\ \ dem\_profiler.\mbox{\hyperlink{classnetdem_1_1_d_e_m_profiler_a78b51bc67b8a79503f870ee34ac89e76}{Clear}}();}
+\DoxyCodeLine{\ \ dem\_profiler.\mbox{\hyperlink{classnetdem_1_1_d_e_m_profiler_aec4a998774b78edc07c06b148f0b3cf7}{StartTimer}}(TimerType::custom);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ cnt\_solver.use\_erosion\ =\ use\_erosion;}
+\DoxyCodeLine{\ \ cnt\_solver.erosion\_ratio\_initial\ =\ erosion\_ratio\_initial;}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ num\_samples;\ i++)\ \{}
+\DoxyCodeLine{\ \ \ \ p2.SetPosition(ds\_q\_pos[i][0],\ ds\_q\_pos[i][1],\ ds\_q\_pos[i][2]);}
+\DoxyCodeLine{\ \ \ \ p2.SetQuaternion(ds\_q\_quat[i][0],\ ds\_q\_quat[i][1],\ ds\_q\_quat[i][2],}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ds\_q\_quat[i][3]);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ cnt\_solver.\mbox{\hyperlink{classnetdem_1_1_solver_g_j_k_p_p_ab651c60ac53f857232372faa3e7d2652}{Init}}(\&p1,\ \&p2);}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{if}\ (cnt\_solver.\mbox{\hyperlink{classnetdem_1_1_solver_g_j_k_p_p_a961ebc52e242d57fb32cd1a9f95dcf92}{Detect}}())\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \textcolor{keyword}{auto}\ cnt\ =\ \mbox{\hyperlink{classnetdem_1_1_contact_p_p}{ContactPP}}();}
+\DoxyCodeLine{\ \ \ \ \ \ cnt\_solver.\mbox{\hyperlink{classnetdem_1_1_solver_g_j_k_p_p_ab6cc16826443f7e38a64efe2c136d4fb}{ResolveInit}}(\&cnt,\ 1e-\/4);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{\textcolor{comment}{\ \ \ \ \ \ if\ (abs(cnt.collision\_entries[0].cnt\_geoms.len\_n\ -\/\ ds\_len\_n[i])\ >}}
+\DoxyCodeLine{\textcolor{comment}{\ \ \ \ \ \ \ \ \ \ 1.0e-\/4)\ \{}}
+\DoxyCodeLine{\textcolor{comment}{\ \ \ \ \ \ \ \ cout\ <<\ "{}debug0:\ "{}\ <<\ cnt.collision\_entries[0].cnt\_geoms.len\_n\ <<\ "{},\ "{}}}
+\DoxyCodeLine{\textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ <<\ ds\_len\_n[i]\ <<\ endl;}}
+\DoxyCodeLine{\textcolor{comment}{\ \ \ \ \ \ \}}}
+\DoxyCodeLine{\textcolor{comment}{\ \ \ \ \ \ //\ */}}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{\ \ dem\_profiler.\mbox{\hyperlink{classnetdem_1_1_d_e_m_profiler_aac02a7272beacf6e1b5a52fb9cb01d4a}{EndTimer}}(TimerType::custom);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{if}\ (use\_erosion)\ \{}
+\DoxyCodeLine{\ \ \ \ printf(\textcolor{stringliteral}{"{}erosion:\ \%f\ s\ \(\backslash\)n"{}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ dem\_profiler.\mbox{\hyperlink{classnetdem_1_1_d_e_m_profiler_a1807f89997ec1340772b0dc4cd99db6c}{timer\_list}}[TimerType::custom]\ /\ 1000000.0);}
+\DoxyCodeLine{\ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\ \ \ \ printf(\textcolor{stringliteral}{"{}epa:\ \%f\ s\ \(\backslash\)n"{}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ dem\_profiler.\mbox{\hyperlink{classnetdem_1_1_d_e_m_profiler_a1807f89997ec1340772b0dc4cd99db6c}{timer\_list}}[TimerType::custom]\ /\ 1000000.0);}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ ClearDataset()\ \{}
+\DoxyCodeLine{\ \ \textcolor{keyword}{delete}[]\ ds\_len\_n;}
+\DoxyCodeLine{\ \ \textcolor{keyword}{delete}[]\ ds\_dir\_n;}
+\DoxyCodeLine{\ \ \textcolor{keyword}{delete}[]\ ds\_pos;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{keyword}{delete}[]\ ds\_q\_quat;}
+\DoxyCodeLine{\ \ \textcolor{keyword}{delete}[]\ ds\_q\_pos;}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ EvaluateGJKPerformance(\textcolor{keywordtype}{bool}\ save\_results)\ \{}
+\DoxyCodeLine{\ \ \textcolor{keywordtype}{string}\ out\_dir\ =\ \textcolor{stringliteral}{"{}tmp/examples/gjk\_erosion\_issue/result\_data/ev\_perf/"{}};}
+\DoxyCodeLine{\ \ filesystem::create\_directories(out\_dir);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{comment}{//\ contact\ case}}
+\DoxyCodeLine{\ \ \textcolor{keywordtype}{double}\ erosion\_ratio\_initial\ =\ 0.05;}
+\DoxyCodeLine{\ \ GenDataset(0,\ erosion\_ratio\_initial);}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{if}\ (save\_results)\ \{}
+\DoxyCodeLine{\ \ \ \ SaveReferenceResult(out\_dir\ +\ \textcolor{stringliteral}{"{}contact\_ref.txt"{}});}
+\DoxyCodeLine{\ \ \ \ SaveGJKResult(out\_dir\ +\ \textcolor{stringliteral}{"{}contact\_epa.txt"{}},\ \textcolor{keyword}{false},\ erosion\_ratio\_initial);}
+\DoxyCodeLine{\ \ \ \ SaveGJKResult(out\_dir\ +\ \textcolor{stringliteral}{"{}contact\_ero.txt"{}},\ \textcolor{keyword}{true},\ erosion\_ratio\_initial);}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ EvaluateGJK(\textcolor{keyword}{false},\ erosion\_ratio\_initial);}
+\DoxyCodeLine{\ \ EvaluateGJK(\textcolor{keyword}{true},\ erosion\_ratio\_initial);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{comment}{//\ non-\/contact\ case}}
+\DoxyCodeLine{\ \ GenDataset(-\/1,\ 0);}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{if}\ (save\_results)\ \{}
+\DoxyCodeLine{\ \ \ \ SaveReferenceResult(out\_dir\ +\ \textcolor{stringliteral}{"{}noncontact\_ref.txt"{}});}
+\DoxyCodeLine{\ \ \ \ SaveGJKResult(out\_dir\ +\ \textcolor{stringliteral}{"{}noncontact\_epa.txt"{}},\ \textcolor{keyword}{false},\ erosion\_ratio\_initial);}
+\DoxyCodeLine{\ \ \ \ SaveGJKResult(out\_dir\ +\ \textcolor{stringliteral}{"{}noncontact\_ero.txt"{}},\ \textcolor{keyword}{true},\ erosion\_ratio\_initial);}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ EvaluateGJK(\textcolor{keyword}{false},\ erosion\_ratio\_initial);}
+\DoxyCodeLine{\ \ EvaluateGJK(\textcolor{keyword}{true},\ erosion\_ratio\_initial);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ ClearDataset();}
+\DoxyCodeLine{\}}
+
+\end{DoxyCodeInclude}
+ 

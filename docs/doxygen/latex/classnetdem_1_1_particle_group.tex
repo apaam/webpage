@@ -12,7 +12,7 @@ A class used to group particles in a DEM simulation.
 Inheritance diagram for netdem\+::Particle\+Group\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[height=2.000000cm]{classnetdem_1_1_particle_group}
+\includegraphics[height=2.745098cm]{classnetdem_1_1_particle_group}
 \end{center}
 \end{figure}
 \doxysubsection*{Public Member Functions}
@@ -21,18 +21,27 @@ Inheritance diagram for netdem\+::Particle\+Group\+:\begin{figure}[H]
 \mbox{\Hypertarget{classnetdem_1_1_particle_group_aa04253262a5d464be88d02da29a74b17}\label{classnetdem_1_1_particle_group_aa04253262a5d464be88d02da29a74b17}} 
 {\bfseries Particle\+Group} ()
 \begin{DoxyCompactList}\small\item\em Default constructor for \mbox{\hyperlink{classnetdem_1_1_particle_group}{Particle\+Group}} class. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classnetdem_1_1_particle_group_ace6542d94ad495684072ad636b90d749}{Add}} (int id)
+void \mbox{\hyperlink{classnetdem_1_1_particle_group_aa2ae047cec7dad96fd39c0895baca8cc}{Add\+Particle}} (int id)
 \begin{DoxyCompactList}\small\item\em Adds a particle to the group. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classnetdem_1_1_particle_group_a87c41fe2deaee3a80242bc24202a66e9}{Remove}} (int id)
+void \mbox{\hyperlink{classnetdem_1_1_particle_group_aa805edec121c481592925adec8d40870}{Remove\+Particle}} (int id)
 \begin{DoxyCompactList}\small\item\em Removes a particle from the group. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classnetdem_1_1_particle_group_ab7c98d7f7aae213d2bdafc93ebfdb7e8}{Add}} (const Vec\+XT$<$ int $>$ \&ids)
+void \mbox{\hyperlink{classnetdem_1_1_particle_group_aeee2f58a7d1a9a2953d3bb02dc2e005c}{Add\+Particle}} (const Vec\+XT$<$ int $>$ \&ids)
 \begin{DoxyCompactList}\small\item\em Adds multiple particles to the group. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classnetdem_1_1_particle_group_aabf22e781afc1e5254dcde307f51d35f}{Remove}} (const Vec\+XT$<$ int $>$ \&ids)
+void \mbox{\hyperlink{classnetdem_1_1_particle_group_a63cb4362bfa55496f51c8b99294d63ca}{Remove\+Particle}} (const Vec\+XT$<$ int $>$ \&ids)
 \begin{DoxyCompactList}\small\item\em Removes multiple particles from the group. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classnetdem_1_1_particle_group_a5b170749df6fa9c7fe4a2267105566d2}{Set\+Velocity}} (double v\+\_\+x, double v\+\_\+y, double v\+\_\+z)
-\begin{DoxyCompactList}\small\item\em Sets the velocity properties for all particles in the group. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classnetdem_1_1_particle_group_a1a8f2553f5e3789dbca4c72531c29580}{Set\+Spin}} (double spin\+\_\+x, double spin\+\_\+y, double spin\+\_\+z)
-\begin{DoxyCompactList}\small\item\em Sets the spin properties for all particles in the group. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classnetdem_1_1_particle_group_aef4f55628dde5756b70ace9350703120}{Add\+Particle}} (const std\+::initializer\+\_\+list$<$ int $>$ \&ids)
+\begin{DoxyCompactList}\small\item\em Adds multiple particles to the group. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classnetdem_1_1_particle_group_a78c568f87a89c0554823b46100c6e20b}{Remove\+Particle}} (const std\+::initializer\+\_\+list$<$ int $>$ \&ids)
+\begin{DoxyCompactList}\small\item\em Removes multiple particles from the group. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classnetdem_1_1_particle_group_aa556c70d40a8466b298008f6e2416980}{Set\+Particle}} (int id)
+\begin{DoxyCompactList}\small\item\em Sets a particle to the group. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classnetdem_1_1_particle_group_a22227039a216142a997dc37723b1948b}{Set\+Particle}} (const Vec\+XT$<$ int $>$ \&ids)
+\begin{DoxyCompactList}\small\item\em Sets multiple particles to the group. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classnetdem_1_1_particle_group_aad8f58f16ea751fb58e17cce025cf232}{Set\+Particle}} (const std\+::initializer\+\_\+list$<$ int $>$ \&ids)
+\begin{DoxyCompactList}\small\item\em Sets multiple particles to the group. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classnetdem_1_1_particle_group_afc2c52ea2d46e93ba4eca6a403ee0b29}\label{classnetdem_1_1_particle_group_afc2c52ea2d46e93ba4eca6a403ee0b29}} 
+void {\bfseries Set\+Particle\+From\+Scene} ()
+\begin{DoxyCompactList}\small\item\em Sets the particles to all the particles in the scene scene. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classnetdem_1_1_particle_group_a20a00aa35b80f2fa74e8e86d059c44a4}\label{classnetdem_1_1_particle_group_a20a00aa35b80f2fa74e8e86d059c44a4}} 
 void {\bfseries Clear} ()
 \begin{DoxyCompactList}\small\item\em Clears all particles from the group. \end{DoxyCompactList}\item 
@@ -52,9 +61,11 @@ virtual \mbox{\hyperlink{classnetdem_1_1_modifier}{Modifier}} $\ast$ \mbox{\hype
 \begin{DoxyCompactList}\small\item\em Clones the current \mbox{\hyperlink{classnetdem_1_1_modifier}{Modifier}} instance. \end{DoxyCompactList}\item 
 virtual void \mbox{\hyperlink{classnetdem_1_1_modifier_ad340b35e3d4a44cbb708a522b89eec91}{Init}} (\mbox{\hyperlink{classnetdem_1_1_simulation}{Simulation}} $\ast$sim)
 \begin{DoxyCompactList}\small\item\em Initializes the \mbox{\hyperlink{classnetdem_1_1_modifier}{Modifier}} instance. \end{DoxyCompactList}\item 
-virtual void \mbox{\hyperlink{classnetdem_1_1_modifier_af24eb11dda7460744ff568ce299bee6f}{Enable}} ()
+\mbox{\Hypertarget{classnetdem_1_1_modifier_af24eb11dda7460744ff568ce299bee6f}\label{classnetdem_1_1_modifier_af24eb11dda7460744ff568ce299bee6f}} 
+virtual void {\bfseries Enable} ()
 \begin{DoxyCompactList}\small\item\em Enables the \mbox{\hyperlink{classnetdem_1_1_modifier}{Modifier}} instance. \end{DoxyCompactList}\item 
-virtual void \mbox{\hyperlink{classnetdem_1_1_modifier_aba99c2f91ecd22eb1c88c45b1890aa38}{Disable}} ()
+\mbox{\Hypertarget{classnetdem_1_1_modifier_aba99c2f91ecd22eb1c88c45b1890aa38}\label{classnetdem_1_1_modifier_aba99c2f91ecd22eb1c88c45b1890aa38}} 
+virtual void {\bfseries Disable} ()
 \begin{DoxyCompactList}\small\item\em Disables the \mbox{\hyperlink{classnetdem_1_1_modifier}{Modifier}} instance. \end{DoxyCompactList}\item 
 virtual void \mbox{\hyperlink{classnetdem_1_1_modifier_a8ffc62d61052f129a3301278b7cffb2c}{Execute}} ()
 \begin{DoxyCompactList}\small\item\em Executes the \mbox{\hyperlink{classnetdem_1_1_modifier}{Modifier}} instance. \end{DoxyCompactList}\item 
@@ -66,12 +77,15 @@ virtual {\bfseries $\sim$\+Modifier} ()
 \doxysubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classnetdem_1_1_particle_group_a83f027dc92fccc5198b73570eed23fd3}\label{classnetdem_1_1_particle_group_a83f027dc92fccc5198b73570eed23fd3}} 
-std\+::unordered\+\_\+set$<$ int $>$ {\bfseries particle\+\_\+ids}
-\item 
+\mbox{\Hypertarget{classnetdem_1_1_particle_group_af162319116a7a4d93a1f751f658e022e}\label{classnetdem_1_1_particle_group_af162319116a7a4d93a1f751f658e022e}} 
+std\+::unordered\+\_\+set$<$ int $>$ {\bfseries particle\+\_\+id\+\_\+list}
+\begin{DoxyCompactList}\small\item\em The list of particle IDs. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classnetdem_1_1_particle_group_aa14893da00d40386076537d870d3ea56}\label{classnetdem_1_1_particle_group_aa14893da00d40386076537d870d3ea56}} 
 Vec\+XT$<$ \mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} $\ast$ $>$ {\bfseries particle\+\_\+list}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em The list of particles. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classnetdem_1_1_particle_group_adddb17b9cabcc572a887efff526a6b27}\label{classnetdem_1_1_particle_group_adddb17b9cabcc572a887efff526a6b27}} 
+bool {\bfseries use\+\_\+particles\+\_\+in\+\_\+scene} \{false\}
+\begin{DoxyCompactList}\small\item\em A flag indicating whether to group all particle in the scene. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Public Attributes inherited from \mbox{\hyperlink{classnetdem_1_1_modifier}{netdem\+::\+Modifier}}}
 \begin{DoxyCompactItemize}
 \item 
@@ -101,11 +115,11 @@ A class used to group particles in a DEM simulation.
 The \mbox{\hyperlink{classnetdem_1_1_particle_group}{Particle\+Group}} class is used to group particles together for various operations, such as setting their velocity or spin properties. 
 
 \doxysubsection{Member Function Documentation}
-\mbox{\Hypertarget{classnetdem_1_1_particle_group_ab7c98d7f7aae213d2bdafc93ebfdb7e8}\label{classnetdem_1_1_particle_group_ab7c98d7f7aae213d2bdafc93ebfdb7e8}} 
-\index{netdem::ParticleGroup@{netdem::ParticleGroup}!Add@{Add}}
-\index{Add@{Add}!netdem::ParticleGroup@{netdem::ParticleGroup}}
-\doxysubsubsection{\texorpdfstring{Add()}{Add()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily void netdem\+::\+Particle\+Group\+::\+Add (\begin{DoxyParamCaption}\item[{const Vec\+XT$<$ int $>$ \&}]{ids }\end{DoxyParamCaption})}
+\mbox{\Hypertarget{classnetdem_1_1_particle_group_aef4f55628dde5756b70ace9350703120}\label{classnetdem_1_1_particle_group_aef4f55628dde5756b70ace9350703120}} 
+\index{netdem::ParticleGroup@{netdem::ParticleGroup}!AddParticle@{AddParticle}}
+\index{AddParticle@{AddParticle}!netdem::ParticleGroup@{netdem::ParticleGroup}}
+\doxysubsubsection{\texorpdfstring{AddParticle()}{AddParticle()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily void netdem\+::\+Particle\+Group\+::\+Add\+Particle (\begin{DoxyParamCaption}\item[{const std\+::initializer\+\_\+list$<$ int $>$ \&}]{ids }\end{DoxyParamCaption})}
 
 
 
@@ -116,11 +130,26 @@ Adds multiple particles to the group.
 {\em ids} & A vector of particle IDs to add. \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{classnetdem_1_1_particle_group_ace6542d94ad495684072ad636b90d749}\label{classnetdem_1_1_particle_group_ace6542d94ad495684072ad636b90d749}} 
-\index{netdem::ParticleGroup@{netdem::ParticleGroup}!Add@{Add}}
-\index{Add@{Add}!netdem::ParticleGroup@{netdem::ParticleGroup}}
-\doxysubsubsection{\texorpdfstring{Add()}{Add()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily void netdem\+::\+Particle\+Group\+::\+Add (\begin{DoxyParamCaption}\item[{int}]{id }\end{DoxyParamCaption})}
+\mbox{\Hypertarget{classnetdem_1_1_particle_group_aeee2f58a7d1a9a2953d3bb02dc2e005c}\label{classnetdem_1_1_particle_group_aeee2f58a7d1a9a2953d3bb02dc2e005c}} 
+\index{netdem::ParticleGroup@{netdem::ParticleGroup}!AddParticle@{AddParticle}}
+\index{AddParticle@{AddParticle}!netdem::ParticleGroup@{netdem::ParticleGroup}}
+\doxysubsubsection{\texorpdfstring{AddParticle()}{AddParticle()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily void netdem\+::\+Particle\+Group\+::\+Add\+Particle (\begin{DoxyParamCaption}\item[{const Vec\+XT$<$ int $>$ \&}]{ids }\end{DoxyParamCaption})}
+
+
+
+Adds multiple particles to the group. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ids} & A vector of particle IDs to add. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classnetdem_1_1_particle_group_aa2ae047cec7dad96fd39c0895baca8cc}\label{classnetdem_1_1_particle_group_aa2ae047cec7dad96fd39c0895baca8cc}} 
+\index{netdem::ParticleGroup@{netdem::ParticleGroup}!AddParticle@{AddParticle}}
+\index{AddParticle@{AddParticle}!netdem::ParticleGroup@{netdem::ParticleGroup}}
+\doxysubsubsection{\texorpdfstring{AddParticle()}{AddParticle()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily void netdem\+::\+Particle\+Group\+::\+Add\+Particle (\begin{DoxyParamCaption}\item[{int}]{id }\end{DoxyParamCaption})}
 
 
 
@@ -162,11 +191,11 @@ Executes the \mbox{\hyperlink{classnetdem_1_1_particle_group}{Particle\+Group}} 
 
 Reimplemented from \mbox{\hyperlink{classnetdem_1_1_modifier_a8ffc62d61052f129a3301278b7cffb2c}{netdem\+::\+Modifier}}.
 
-\mbox{\Hypertarget{classnetdem_1_1_particle_group_aabf22e781afc1e5254dcde307f51d35f}\label{classnetdem_1_1_particle_group_aabf22e781afc1e5254dcde307f51d35f}} 
-\index{netdem::ParticleGroup@{netdem::ParticleGroup}!Remove@{Remove}}
-\index{Remove@{Remove}!netdem::ParticleGroup@{netdem::ParticleGroup}}
-\doxysubsubsection{\texorpdfstring{Remove()}{Remove()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily void netdem\+::\+Particle\+Group\+::\+Remove (\begin{DoxyParamCaption}\item[{const Vec\+XT$<$ int $>$ \&}]{ids }\end{DoxyParamCaption})}
+\mbox{\Hypertarget{classnetdem_1_1_particle_group_a78c568f87a89c0554823b46100c6e20b}\label{classnetdem_1_1_particle_group_a78c568f87a89c0554823b46100c6e20b}} 
+\index{netdem::ParticleGroup@{netdem::ParticleGroup}!RemoveParticle@{RemoveParticle}}
+\index{RemoveParticle@{RemoveParticle}!netdem::ParticleGroup@{netdem::ParticleGroup}}
+\doxysubsubsection{\texorpdfstring{RemoveParticle()}{RemoveParticle()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily void netdem\+::\+Particle\+Group\+::\+Remove\+Particle (\begin{DoxyParamCaption}\item[{const std\+::initializer\+\_\+list$<$ int $>$ \&}]{ids }\end{DoxyParamCaption})}
 
 
 
@@ -177,11 +206,26 @@ Removes multiple particles from the group.
 {\em ids} & A vector of particle IDs to remove. \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{classnetdem_1_1_particle_group_a87c41fe2deaee3a80242bc24202a66e9}\label{classnetdem_1_1_particle_group_a87c41fe2deaee3a80242bc24202a66e9}} 
-\index{netdem::ParticleGroup@{netdem::ParticleGroup}!Remove@{Remove}}
-\index{Remove@{Remove}!netdem::ParticleGroup@{netdem::ParticleGroup}}
-\doxysubsubsection{\texorpdfstring{Remove()}{Remove()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily void netdem\+::\+Particle\+Group\+::\+Remove (\begin{DoxyParamCaption}\item[{int}]{id }\end{DoxyParamCaption})}
+\mbox{\Hypertarget{classnetdem_1_1_particle_group_a63cb4362bfa55496f51c8b99294d63ca}\label{classnetdem_1_1_particle_group_a63cb4362bfa55496f51c8b99294d63ca}} 
+\index{netdem::ParticleGroup@{netdem::ParticleGroup}!RemoveParticle@{RemoveParticle}}
+\index{RemoveParticle@{RemoveParticle}!netdem::ParticleGroup@{netdem::ParticleGroup}}
+\doxysubsubsection{\texorpdfstring{RemoveParticle()}{RemoveParticle()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily void netdem\+::\+Particle\+Group\+::\+Remove\+Particle (\begin{DoxyParamCaption}\item[{const Vec\+XT$<$ int $>$ \&}]{ids }\end{DoxyParamCaption})}
+
+
+
+Removes multiple particles from the group. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ids} & A vector of particle IDs to remove. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classnetdem_1_1_particle_group_aa805edec121c481592925adec8d40870}\label{classnetdem_1_1_particle_group_aa805edec121c481592925adec8d40870}} 
+\index{netdem::ParticleGroup@{netdem::ParticleGroup}!RemoveParticle@{RemoveParticle}}
+\index{RemoveParticle@{RemoveParticle}!netdem::ParticleGroup@{netdem::ParticleGroup}}
+\doxysubsubsection{\texorpdfstring{RemoveParticle()}{RemoveParticle()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily void netdem\+::\+Particle\+Group\+::\+Remove\+Particle (\begin{DoxyParamCaption}\item[{int}]{id }\end{DoxyParamCaption})}
 
 
 
@@ -192,42 +236,49 @@ Removes a particle from the group.
 {\em id} & The ID of the particle to remove. \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{classnetdem_1_1_particle_group_a1a8f2553f5e3789dbca4c72531c29580}\label{classnetdem_1_1_particle_group_a1a8f2553f5e3789dbca4c72531c29580}} 
-\index{netdem::ParticleGroup@{netdem::ParticleGroup}!SetSpin@{SetSpin}}
-\index{SetSpin@{SetSpin}!netdem::ParticleGroup@{netdem::ParticleGroup}}
-\doxysubsubsection{\texorpdfstring{SetSpin()}{SetSpin()}}
-{\footnotesize\ttfamily void netdem\+::\+Particle\+Group\+::\+Set\+Spin (\begin{DoxyParamCaption}\item[{double}]{spin\+\_\+x,  }\item[{double}]{spin\+\_\+y,  }\item[{double}]{spin\+\_\+z }\end{DoxyParamCaption})}
+\mbox{\Hypertarget{classnetdem_1_1_particle_group_aad8f58f16ea751fb58e17cce025cf232}\label{classnetdem_1_1_particle_group_aad8f58f16ea751fb58e17cce025cf232}} 
+\index{netdem::ParticleGroup@{netdem::ParticleGroup}!SetParticle@{SetParticle}}
+\index{SetParticle@{SetParticle}!netdem::ParticleGroup@{netdem::ParticleGroup}}
+\doxysubsubsection{\texorpdfstring{SetParticle()}{SetParticle()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily void netdem\+::\+Particle\+Group\+::\+Set\+Particle (\begin{DoxyParamCaption}\item[{const std\+::initializer\+\_\+list$<$ int $>$ \&}]{ids }\end{DoxyParamCaption})}
 
 
 
-Sets the spin properties for all particles in the group. 
+Sets multiple particles to the group. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em spin\+\_\+x} & The x component of the spin. \\
-\hline
-{\em spin\+\_\+y} & The y component of the spin. \\
-\hline
-{\em spin\+\_\+z} & The z component of the spin. \\
+{\em ids} & A vector of particle IDs to add. \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{classnetdem_1_1_particle_group_a5b170749df6fa9c7fe4a2267105566d2}\label{classnetdem_1_1_particle_group_a5b170749df6fa9c7fe4a2267105566d2}} 
-\index{netdem::ParticleGroup@{netdem::ParticleGroup}!SetVelocity@{SetVelocity}}
-\index{SetVelocity@{SetVelocity}!netdem::ParticleGroup@{netdem::ParticleGroup}}
-\doxysubsubsection{\texorpdfstring{SetVelocity()}{SetVelocity()}}
-{\footnotesize\ttfamily void netdem\+::\+Particle\+Group\+::\+Set\+Velocity (\begin{DoxyParamCaption}\item[{double}]{v\+\_\+x,  }\item[{double}]{v\+\_\+y,  }\item[{double}]{v\+\_\+z }\end{DoxyParamCaption})}
+\mbox{\Hypertarget{classnetdem_1_1_particle_group_a22227039a216142a997dc37723b1948b}\label{classnetdem_1_1_particle_group_a22227039a216142a997dc37723b1948b}} 
+\index{netdem::ParticleGroup@{netdem::ParticleGroup}!SetParticle@{SetParticle}}
+\index{SetParticle@{SetParticle}!netdem::ParticleGroup@{netdem::ParticleGroup}}
+\doxysubsubsection{\texorpdfstring{SetParticle()}{SetParticle()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily void netdem\+::\+Particle\+Group\+::\+Set\+Particle (\begin{DoxyParamCaption}\item[{const Vec\+XT$<$ int $>$ \&}]{ids }\end{DoxyParamCaption})}
 
 
 
-Sets the velocity properties for all particles in the group. 
+Sets multiple particles to the group. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em v\+\_\+x} & The x component of the velocity. \\
+{\em ids} & A vector of particle IDs to add. \\
 \hline
-{\em v\+\_\+y} & The y component of the velocity. \\
-\hline
-{\em v\+\_\+z} & The z component of the velocity. \\
+\end{DoxyParams}
+\mbox{\Hypertarget{classnetdem_1_1_particle_group_aa556c70d40a8466b298008f6e2416980}\label{classnetdem_1_1_particle_group_aa556c70d40a8466b298008f6e2416980}} 
+\index{netdem::ParticleGroup@{netdem::ParticleGroup}!SetParticle@{SetParticle}}
+\index{SetParticle@{SetParticle}!netdem::ParticleGroup@{netdem::ParticleGroup}}
+\doxysubsubsection{\texorpdfstring{SetParticle()}{SetParticle()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily void netdem\+::\+Particle\+Group\+::\+Set\+Particle (\begin{DoxyParamCaption}\item[{int}]{id }\end{DoxyParamCaption})}
+
+
+
+Sets a particle to the group. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & The ID of the particle to add. \\
 \hline
 \end{DoxyParams}
 \mbox{\Hypertarget{classnetdem_1_1_particle_group_a3b1f8bdddb7187904cae14031a12f1b3}\label{classnetdem_1_1_particle_group_a3b1f8bdddb7187904cae14031a12f1b3}} 
@@ -240,7 +291,7 @@ Sets the velocity properties for all particles in the group.
 
 Updates the \mbox{\hyperlink{classnetdem_1_1_particle_group}{Particle\+Group}} instance. 
 
-Updates the particle\+\_\+list based on the current particle\+\_\+ids. 
+Updates the particle\+\_\+list based on the current particle\+\_\+id\+\_\+list. 
 
 Reimplemented from \mbox{\hyperlink{classnetdem_1_1_modifier_adb2442a93cd18bc810156aa7275a46b8}{netdem\+::\+Modifier}}.
 

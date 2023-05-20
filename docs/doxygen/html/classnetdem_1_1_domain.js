@@ -20,8 +20,10 @@ var classnetdem_1_1_domain =
     [ "Print", "classnetdem_1_1_domain.html#abfde1b768bc19b3c2cc2c578b46f6486", null ],
     [ "SetBound", "classnetdem_1_1_domain.html#a94e0a497303bd6ca07007cb7836d374c", null ],
     [ "SetCellSpacing", "classnetdem_1_1_domain.html#a6101bc81ae0793dd8505057445a50c37", null ],
+    [ "bound_max", "classnetdem_1_1_domain.html#a45bdb56d579dde8e79ff994831fd38dc", null ],
     [ "bound_min", "classnetdem_1_1_domain.html#aea1c970434db7a0bf1bc4e3d3f659c52", null ],
     [ "cell_manager", "classnetdem_1_1_domain.html#aa80301e3bf41e221907acb43e2ee5231", null ],
     [ "outer_particle_list", "classnetdem_1_1_domain.html#a1a8e5bab56c64ad2869d78e456f5ed03", null ],
-    [ "self_rank", "classnetdem_1_1_domain.html#ae60c4e4e51a9bebee0001ab9898aea39", null ]
+    [ "self_rank", "classnetdem_1_1_domain.html#ae60c4e4e51a9bebee0001ab9898aea39", null ],
+    [ "total_rank", "classnetdem_1_1_domain.html#aa92306cd48bd59a1c3daf90b16cc5cdc", null ]
 ];

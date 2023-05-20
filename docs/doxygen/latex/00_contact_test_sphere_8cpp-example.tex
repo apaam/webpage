@@ -1,0 +1,175 @@
+\hypertarget{00_contact_test_sphere_8cpp-example}{}\doxysection{00\+\_\+contact\+\_\+test\+\_\+sphere.\+cpp}
+This is an example of how to use the netdem library.
+
+
+\begin{DoxyCodeInclude}{0}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}contact\_solver\_factory.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}distribution\_uniform.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}igl\_wrapper.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}model\_linear\_spring.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}particle.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}shape\_spherical\_harmonics.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}solver\_sdf\_pp.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}spherical\_voronoi.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}utils\_math.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ <filesystem>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ <fstream>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ <random>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ <sstream>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{\textcolor{keyword}{using\ namespace\ }\mbox{\hyperlink{namespacenetdem}{netdem}};}
+\DoxyCodeLine{\textcolor{keyword}{using\ namespace\ }std;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ SaveDataset(\textcolor{keywordtype}{string}\ filename,\ VecXT<VecXT<double>>\ \&data)\ \{}
+\DoxyCodeLine{\ \ stringbuf\ buf;}
+\DoxyCodeLine{\ \ ostream\ os(\&buf);}
+\DoxyCodeLine{\ \ \textcolor{keywordtype}{int}\ os\_width\ =\ 24;}
+\DoxyCodeLine{\ \ os.setf(ios::scientific);}
+\DoxyCodeLine{\ \ os.precision(15);}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \&data\_row\ :\ data)\ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ data\_row.size()\ -\/\ 1;\ j++)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ os.width(os\_width);}
+\DoxyCodeLine{\ \ \ \ \ \ os\ <<\ data\_row[j]\ <<\ \textcolor{stringliteral}{"{},\ "{}};}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ os.width(os\_width);}
+\DoxyCodeLine{\ \ \ \ os\ <<\ data\_row.back()\ <<\ endl;}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ ofstream\ outfile;}
+\DoxyCodeLine{\ \ outfile.open(filename);}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{if}\ (!outfile)\ \{}
+\DoxyCodeLine{\ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}cannot\ open\ or\ create\ file:\ "{}}\ <<\ filename\ <<\ endl;}
+\DoxyCodeLine{\ \ \ \ abort();}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{\ \ outfile\ <<\ buf.str();}
+\DoxyCodeLine{\ \ outfile.close();}
+\DoxyCodeLine{\ \ cout\ <<\ \textcolor{stringliteral}{"{}data\ saved\ to:\ "{}}\ <<\ filename\ <<\ endl;}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ ContactTestSphere(\textcolor{keywordtype}{int}\ potential\_case,\ \textcolor{keywordtype}{int}\ node\_num)\ \{}
+\DoxyCodeLine{\ \ \textcolor{comment}{//\ load\ particle}}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{classnetdem_1_1_spherical_harmonics}{SphericalHarmonics}}\ sh;}
+\DoxyCodeLine{\ \ sh.\mbox{\hyperlink{classnetdem_1_1_spherical_harmonics_a7048aa9b5a0944e1e7411288b431bd92}{a\_nm}}[0]\ =\ sqrt(Math::PI);}
+\DoxyCodeLine{\ \ sh.node\_num\ =\ node\_num;}
+\DoxyCodeLine{\ \ sh.\mbox{\hyperlink{classnetdem_1_1_spherical_harmonics_ac31b1ff3f480f74d1adfa26a5a7938ff}{UpdateNodes}}();}
+\DoxyCodeLine{\ \ sh.\mbox{\hyperlink{classnetdem_1_1_spherical_harmonics_a9f84fe652a69751e530000c47fb3930f}{UpdateShapeProperties}}();}
+\DoxyCodeLine{\ \ cout\ <<\ \textcolor{stringliteral}{"{}shape\ size:\ "{}}\ <<\ sh.size\ <<\ endl;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{classnetdem_1_1_particle}{Particle}}\ obj\_p1\ =\ \mbox{\hyperlink{classnetdem_1_1_particle}{Particle}}(\&sh);}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{classnetdem_1_1_particle}{Particle}}\ obj\_p2\ =\ \mbox{\hyperlink{classnetdem_1_1_particle}{Particle}}(\&sh);}
+\DoxyCodeLine{\ \ cout\ <<\ \textcolor{stringliteral}{"{}particle\ created\ ...\ "{}}\ <<\ endl;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{comment}{//\ try\ another\ particle\ configuration}}
+\DoxyCodeLine{\ \ obj\_p1.SetRodrigues(0.4,\ 0,\ 1,\ 0);}
+\DoxyCodeLine{\ \ obj\_p2.SetRodrigues(0.6,\ 0,\ 1,\ 0);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{comment}{//\ solver\ settings}}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{classnetdem_1_1_solver_s_d_f_p_p}{SolverSDFPP}}\ cnt\_solver;}
+\DoxyCodeLine{\ \ cnt\_solver.\mbox{\hyperlink{classnetdem_1_1_solver_s_d_f_p_p_a17594dfa6cdb0c1a6c46c555c4ef460c}{potential\_type}}\ =\ potential\_case;}
+\DoxyCodeLine{\ \ \textcolor{keywordtype}{double}\ dt\ =\ 1.0e-\/4;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{classnetdem_1_1_linear_spring}{LinearSpring}}\ cnt\_model(1,\ 1,\ 0,\ 0);}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{classnetdem_1_1_contact_p_p}{ContactPP}}\ *cnt\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{comment}{//\ gradually\ push\ particle\ 2\ onto\ particle\ 1}}
+\DoxyCodeLine{\ \ VecXT<VecXT<double>>\ cnt\_data;}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ 61;\ i++)\ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ clear\ the\ particle\ force\ and\ moment}}
+\DoxyCodeLine{\ \ \ \ obj\_p1.ClearForce();}
+\DoxyCodeLine{\ \ \ \ obj\_p1.ClearMoment();}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ obj\_p2.ClearForce();}
+\DoxyCodeLine{\ \ \ \ obj\_p2.ClearMoment();}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ push\ down\ particle\ 2}}
+\DoxyCodeLine{\ \ \ \ obj\_p2.SetPosition(0,\ 0,\ 1.01\ -\/\ i\ *\ 0.001);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ contact\ detection\ and\ resolution\ procedure}}
+\DoxyCodeLine{\ \ \ \ cnt\_solver.\mbox{\hyperlink{classnetdem_1_1_solver_s_d_f_p_p_af276bd15b726fdf4b4a66de8c17d2697}{Init}}(\&obj\_p2,\ \&obj\_p1);}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{if}\ (cnt\_solver.\mbox{\hyperlink{classnetdem_1_1_solver_s_d_f_p_p_a8a63a1bf1e54ed1270a7dd8cad0c493e}{Detect}}())\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \textcolor{keywordflow}{if}\ (cnt\ ==\ \textcolor{keyword}{nullptr})\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ cnt\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{classnetdem_1_1_contact_p_p}{ContactPP}}(\&obj\_p2,\ \&obj\_p1);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ cnt-\/>\mbox{\hyperlink{classnetdem_1_1_contact_p_p_a407e8b3f0cbb630e38b3b347efa975e9}{SetCollisionModel}}(\&cnt\_model);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ cnt\_solver.\mbox{\hyperlink{classnetdem_1_1_solver_s_d_f_p_p_adaefb81742e141f6ec97e61612c3c256}{ResolveInit}}(cnt,\ dt);}
+\DoxyCodeLine{\ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ cnt\_solver.\mbox{\hyperlink{classnetdem_1_1_solver_s_d_f_p_p_a16d24254c1ae8e33ce3f0acd4cf036c7}{ResolveUpdate}}(cnt,\ dt);}
+\DoxyCodeLine{\ \ \ \ \ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ cnt-\/>\mbox{\hyperlink{classnetdem_1_1_contact_p_p_ae659aec9e4dfa5ae1de393048a4406da}{EvaluateForceMoment}}(dt);}
+\DoxyCodeLine{\ \ \ \ \ \ cnt-\/>\mbox{\hyperlink{classnetdem_1_1_contact_p_p_a639a2c151ec84122932bc8674c696d94}{ApplyToParticle}}();}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \textcolor{keywordtype}{double}\ len\_n\ =\ 1.0\ -\/\ obj\_p2.pos[2];}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ cout\ <<\ len\_n\ <<\ \textcolor{stringliteral}{"{},\ "{}}\ <<\ cnt-\/>\mbox{\hyperlink{classnetdem_1_1_contact_p_p_aa3acdd9b8fc2ff59edd98a8869047486}{collision\_entries}}.size()\ <<\ \textcolor{stringliteral}{"{},\ "{}}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ <<\ obj\_p2.force[0]\ <<\ \textcolor{stringliteral}{"{},\ "{}}\ <<\ obj\_p2.force[1]\ <<\ \textcolor{stringliteral}{"{},\ "{}}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ <<\ obj\_p2.force[2]\ <<\ \textcolor{stringliteral}{"{},\ "{}}\ <<\ obj\_p2.moment[0]\ <<\ \textcolor{stringliteral}{"{},\ "{}}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ <<\ obj\_p2.moment[1]\ <<\ \textcolor{stringliteral}{"{},\ "{}}\ <<\ obj\_p2.moment[2]\ <<\ endl;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ cnt\_data.push\_back(\{len\_n,\ double(cnt-\/>\mbox{\hyperlink{classnetdem_1_1_contact_p_p_aa3acdd9b8fc2ff59edd98a8869047486}{collision\_entries}}.size()),}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ obj\_p2.force[0],\ obj\_p2.force[1],\ obj\_p2.force[2],}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ obj\_p2.moment[0],\ obj\_p2.moment[1],}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ obj\_p2.moment[2]\});}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{comment}{//\ gradually\ move\ particle\ 2\ away\ particle\ 1}}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ 61;\ i++)\ \{}
+\DoxyCodeLine{\ \ \ \ obj\_p1.ClearForce();}
+\DoxyCodeLine{\ \ \ \ obj\_p1.ClearMoment();}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ obj\_p2.ClearForce();}
+\DoxyCodeLine{\ \ \ \ obj\_p2.ClearMoment();}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ obj\_p2.SetPosition(0,\ 0,\ 1.01\ -\/\ 60\ *\ 0.001\ +\ i\ *\ 0.001);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ cnt\_solver.\mbox{\hyperlink{classnetdem_1_1_solver_s_d_f_p_p_af276bd15b726fdf4b4a66de8c17d2697}{Init}}(\&obj\_p2,\ \&obj\_p1);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{if}\ (cnt\_solver.\mbox{\hyperlink{classnetdem_1_1_solver_s_d_f_p_p_a8a63a1bf1e54ed1270a7dd8cad0c493e}{Detect}}())\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \textcolor{keywordflow}{if}\ (cnt\ ==\ \textcolor{keyword}{nullptr})\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ cnt\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{classnetdem_1_1_contact_p_p}{ContactPP}}(\&obj\_p2,\ \&obj\_p1);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ cnt-\/>\mbox{\hyperlink{classnetdem_1_1_contact_p_p_a407e8b3f0cbb630e38b3b347efa975e9}{SetCollisionModel}}(\&cnt\_model);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ cnt\_solver.\mbox{\hyperlink{classnetdem_1_1_solver_s_d_f_p_p_adaefb81742e141f6ec97e61612c3c256}{ResolveInit}}(cnt,\ dt);}
+\DoxyCodeLine{\ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ cnt\_solver.\mbox{\hyperlink{classnetdem_1_1_solver_s_d_f_p_p_a16d24254c1ae8e33ce3f0acd4cf036c7}{ResolveUpdate}}(cnt,\ dt);}
+\DoxyCodeLine{\ \ \ \ \ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ cnt-\/>\mbox{\hyperlink{classnetdem_1_1_contact_p_p_ae659aec9e4dfa5ae1de393048a4406da}{EvaluateForceMoment}}(dt);}
+\DoxyCodeLine{\ \ \ \ \ \ cnt-\/>\mbox{\hyperlink{classnetdem_1_1_contact_p_p_a639a2c151ec84122932bc8674c696d94}{ApplyToParticle}}();}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \textcolor{keywordtype}{double}\ len\_n\ =\ 1.0\ -\/\ obj\_p2.pos[2];}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ cout\ <<\ len\_n\ <<\ \textcolor{stringliteral}{"{},\ "{}}\ <<\ cnt-\/>\mbox{\hyperlink{classnetdem_1_1_contact_p_p_aa3acdd9b8fc2ff59edd98a8869047486}{collision\_entries}}.size()\ <<\ \textcolor{stringliteral}{"{},\ "{}}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ <<\ obj\_p2.force[0]\ <<\ \textcolor{stringliteral}{"{},\ "{}}\ <<\ obj\_p2.force[1]\ <<\ \textcolor{stringliteral}{"{},\ "{}}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ <<\ obj\_p2.force[2]\ <<\ \textcolor{stringliteral}{"{},\ "{}}\ <<\ obj\_p2.moment[0]\ <<\ \textcolor{stringliteral}{"{},\ "{}}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ <<\ obj\_p2.moment[1]\ <<\ \textcolor{stringliteral}{"{},\ "{}}\ <<\ obj\_p2.moment[2]\ <<\ endl;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ cnt\_data.push\_back(\{len\_n,\ double(cnt-\/>\mbox{\hyperlink{classnetdem_1_1_contact_p_p_aa3acdd9b8fc2ff59edd98a8869047486}{collision\_entries}}.size()),}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ obj\_p2.force[0],\ obj\_p2.force[1],\ obj\_p2.force[2],}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ obj\_p2.moment[0],\ obj\_p2.moment[1],}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ obj\_p2.moment[2]\});}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{keywordtype}{string}\ root\_dir\ =\ \textcolor{stringliteral}{"{}tmp/examples/sdf\_contact/contact\_test/"{}};}
+\DoxyCodeLine{\ \ filesystem::create\_directories(root\_dir);}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{switch}\ (potential\_case)\ \{}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{case}\ SolverSDFPP::PotentialType::linear:}
+\DoxyCodeLine{\ \ \ \ SaveDataset(root\_dir\ +\ \textcolor{stringliteral}{"{}sphere\_linear.txt"{}},\ cnt\_data);}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{case}\ SolverSDFPP::PotentialType::hertz:}
+\DoxyCodeLine{\ \ \ \ SaveDataset(root\_dir\ +\ \textcolor{stringliteral}{"{}sphere\_hertz.txt"{}},\ cnt\_data);}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\ \ \ \ SaveDataset(root\_dir\ +\ \textcolor{stringliteral}{"{}sphere\_hertz.txt"{}},\ cnt\_data);}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{if}\ (cnt\ !=\ \textcolor{keyword}{nullptr})\ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{delete}\ cnt;}
+\DoxyCodeLine{\ \ \ \ cnt\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCodeInclude}
+ 

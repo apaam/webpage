@@ -1,0 +1,41 @@
+\hypertarget{05_test_shape_netsdf_8cpp-example}{}\doxysection{05\+\_\+test\+\_\+shape\+\_\+netsdf.\+cpp}
+This is an example of how to use the netdem library.
+
+
+\begin{DoxyCodeInclude}{0}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}contact\_solver\_factory.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}data\_dumper.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}gen\_pack.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}gen\_wall\_box\_plane.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}gravity.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}model\_linear\_spring.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}model\_volume\_based.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}shape\_netsdf.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}shape\_plane.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}shape\_trimesh.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}simulation.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}stl\_model.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ <unordered\_map>}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{using\ namespace\ }\mbox{\hyperlink{namespacenetdem}{netdem}};}
+\DoxyCodeLine{\textcolor{keyword}{using\ namespace\ }std;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ TestShapeNetSDF()\ \{}
+\DoxyCodeLine{\ \ \textcolor{comment}{//\ case1\ trimesh}}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{classnetdem_1_1_tri_mesh}{TriMesh}}\ trimesh;}
+\DoxyCodeLine{\ \ trimesh.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_a1dc42a1f9439c900d76f213155ebb56d}{InitFromSTL}}(\textcolor{stringliteral}{"{}shape\_template.stl"{}});}
+\DoxyCodeLine{\ \ trimesh.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_a6676d86d935edffc85b01191695a60b9}{Decimate}}(1000);}
+\DoxyCodeLine{\ \ trimesh.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_aa149712da01e2f068f28b8eba4395e14}{AlignAxes}}();}
+\DoxyCodeLine{\ \ trimesh.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_aa2378c12f277056e112f8e6a0b31669b}{SetSize}}(1.0);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{comment}{//\ shape\ template\ and\ particles}}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{classnetdem_1_1_net_s_d_f}{NetSDF}}\ netsdf;}
+\DoxyCodeLine{\ \ netsdf.\mbox{\hyperlink{classnetdem_1_1_net_s_d_f_ac3db09b7694336dd9de5df8f06ac535b}{InitFromModelFiles}}(\textcolor{stringliteral}{"{}ann\_SDF.xml"{}},\ \textcolor{stringliteral}{"{}ann\_SPF.xml"{}});}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ trimesh.\mbox{\hyperlink{classnetdem_1_1_shape_a2eaa2d4c2021a7963cbfcc65d0f6cd41}{SaveAsSTL}}(\textcolor{stringliteral}{"{}test\_shape\_original.stl"{}});}
+\DoxyCodeLine{\ \ netsdf.\mbox{\hyperlink{classnetdem_1_1_shape_a2eaa2d4c2021a7963cbfcc65d0f6cd41}{SaveAsSTL}}(\textcolor{stringliteral}{"{}test\_shape\_netsdf.stl"{}});}
+\DoxyCodeLine{\}}
+
+\end{DoxyCodeInclude}
+ 

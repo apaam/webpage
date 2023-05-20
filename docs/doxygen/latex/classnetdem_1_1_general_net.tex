@@ -15,7 +15,7 @@ A class representing a general neural network.
 \mbox{\Hypertarget{classnetdem_1_1_general_net_a1165fbcdceed3836bb65d07d2d5b2196}\label{classnetdem_1_1_general_net_a1165fbcdceed3836bb65d07d2d5b2196}} 
 void {\bfseries Reset\+Model} ()
 \begin{DoxyCompactList}\small\item\em Resets the current neural network model. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classnetdem_1_1_general_net_a19e9ec754597a43951d46ba3597300b5}{Add\+Layer}} (\mbox{\hyperlink{namespacenetdem_a06635636eca09676377d47de7cb4c02c}{Layer\+Type}} layer\+\_\+name,...)
+void \mbox{\hyperlink{classnetdem_1_1_general_net_a2d4980cad526308c53c5ce3beda6da91}{Add\+Layer}} (\mbox{\hyperlink{classnetdem_1_1_m_l_pack_utils_a0b5ec585965c69a24ecbdea993fa1577}{MLPack\+Utils\+::\+Layer\+Type}} layer\+\_\+name,...)
 \begin{DoxyCompactList}\small\item\em Adds a layer to the current neural network model. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classnetdem_1_1_general_net_a0c31c725dea72fe4a05faaf990407ac5}{Train}} (const arma\+::mat \&data\+\_\+x, const arma\+::mat \&data\+\_\+y)
 \begin{DoxyCompactList}\small\item\em Trains the current neural network model using the given input and output data. \end{DoxyCompactList}\item 
@@ -34,44 +34,47 @@ void \mbox{\hyperlink{classnetdem_1_1_general_net_a17354db1181787f46187d01ba5ed6
 \item 
 \mbox{\Hypertarget{classnetdem_1_1_general_net_a505a47ef9bb6c2aa734c500de7497c66}\label{classnetdem_1_1_general_net_a505a47ef9bb6c2aa734c500de7497c66}} 
 mlpack\+::\+FFN {\bfseries model}
-\item 
+\begin{DoxyCompactList}\small\item\em The ANN model. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classnetdem_1_1_general_net_acf8f8bfa2b6f06b038b787e50d22dd3a}\label{classnetdem_1_1_general_net_acf8f8bfa2b6f06b038b787e50d22dd3a}} 
 double {\bfseries step\+\_\+size} \{0.\+01\}
-\item 
+\begin{DoxyCompactList}\small\item\em Machine learning hyper-\/parameters. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classnetdem_1_1_general_net_a574f0358138db10dbaa6f5bfe12872af}\label{classnetdem_1_1_general_net_a574f0358138db10dbaa6f5bfe12872af}} 
 int {\bfseries batch\+\_\+size} \{32\}
-\item 
+\begin{DoxyCompactList}\small\item\em Machine learning hyper-\/parameters. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classnetdem_1_1_general_net_a8ab2d3a899e4f38a35016d4ea7f1c6be}\label{classnetdem_1_1_general_net_a8ab2d3a899e4f38a35016d4ea7f1c6be}} 
 double {\bfseries decay\+\_\+rate\+\_\+moment} \{0.\+9\}
-\item 
+\begin{DoxyCompactList}\small\item\em Machine learning hyper-\/parameters. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classnetdem_1_1_general_net_a6d693856ed3098a1a73bf4d4eb3edeb0}\label{classnetdem_1_1_general_net_a6d693856ed3098a1a73bf4d4eb3edeb0}} 
 double {\bfseries decay\+\_\+rate\+\_\+norm} \{0.\+9\}
-\item 
+\begin{DoxyCompactList}\small\item\em Machine learning hyper-\/parameters. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classnetdem_1_1_general_net_a472de1286aa2158dfdcdfacab4db9ead}\label{classnetdem_1_1_general_net_a472de1286aa2158dfdcdfacab4db9ead}} 
 double {\bfseries gradient\+\_\+init\+\_\+param} \{1e-\/8\}
-\item 
+\begin{DoxyCompactList}\small\item\em Machine learning hyper-\/parameters. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classnetdem_1_1_general_net_a670e27ee9ec7b2cbb97da6fd6168ae80}\label{classnetdem_1_1_general_net_a670e27ee9ec7b2cbb97da6fd6168ae80}} 
 int {\bfseries epochs} \{100\}
-\item 
+\begin{DoxyCompactList}\small\item\em Machine learning hyper-\/parameters. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classnetdem_1_1_general_net_abd908e5afc4e9215511c28471da2e52f}\label{classnetdem_1_1_general_net_abd908e5afc4e9215511c28471da2e52f}} 
 double {\bfseries stop\+\_\+tol} \{1e-\/8\}
-\item 
+\begin{DoxyCompactList}\small\item\em Machine learning hyper-\/parameters. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classnetdem_1_1_general_net_a12b761ddea693146d7d4357a708650ac}\label{classnetdem_1_1_general_net_a12b761ddea693146d7d4357a708650ac}} 
 bool {\bfseries enable\+\_\+logging} \{true\}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em A flag indicating whether to log info. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
 A class representing a general neural network. 
 
-The \mbox{\hyperlink{classnetdem_1_1_general_net}{General\+Net}} class is used to represent a general neural network, and provides methods for adding layers, training the network, and making predictions. 
+The \mbox{\hyperlink{classnetdem_1_1_general_net}{General\+Net}} class is used to represent a general neural network, and provides methods for adding layers, training the network, and making predictions. \begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{02_train_classifier_trimesh_plane_8cpp-example}{02\+\_\+train\+\_\+classifier\+\_\+trimesh\+\_\+plane.\+cpp}}, \mbox{\hyperlink{03_test_classifier_trimesh_plane_8cpp-example}{03\+\_\+test\+\_\+classifier\+\_\+trimesh\+\_\+plane.\+cpp}}, \mbox{\hyperlink{06_test_ann_vs_geom_trimesh_plane_8cpp-example}{06\+\_\+test\+\_\+ann\+\_\+vs\+\_\+geom\+\_\+trimesh\+\_\+plane.\+cpp}}, \mbox{\hyperlink{12_train_classifier_trimesh_8cpp-example}{12\+\_\+train\+\_\+classifier\+\_\+trimesh.\+cpp}}, \mbox{\hyperlink{13_test_classifier_trimesh_8cpp-example}{13\+\_\+test\+\_\+classifier\+\_\+trimesh.\+cpp}}, \mbox{\hyperlink{16_test_ann_vs_geom_trimesh_8cpp-example}{16\+\_\+test\+\_\+ann\+\_\+vs\+\_\+geom\+\_\+trimesh.\+cpp}}, \mbox{\hyperlink{17_test_ann_vs_geom_trimesh_8cpp-example}{17\+\_\+test\+\_\+ann\+\_\+vs\+\_\+geom\+\_\+trimesh.\+cpp}}, \mbox{\hyperlink{22_train_classifier_ellipsoid_plane_8cpp-example}{22\+\_\+train\+\_\+classifier\+\_\+ellipsoid\+\_\+plane.\+cpp}}, \mbox{\hyperlink{23_test_classifier_ellipsoid_plane_8cpp-example}{23\+\_\+test\+\_\+classifier\+\_\+ellipsoid\+\_\+plane.\+cpp}}, \mbox{\hyperlink{26_test_ann_vs_geom_ellipsoid_plane_8cpp-example}{26\+\_\+test\+\_\+ann\+\_\+vs\+\_\+geom\+\_\+ellipsoid\+\_\+plane.\+cpp}}, \mbox{\hyperlink{32_train_classifier_ellipsoid_8cpp-example}{32\+\_\+train\+\_\+classifier\+\_\+ellipsoid.\+cpp}}, \mbox{\hyperlink{33_test_classifier_ellipsoid_8cpp-example}{33\+\_\+test\+\_\+classifier\+\_\+ellipsoid.\+cpp}}, \mbox{\hyperlink{36_test_ann_vs_geom_ellipsoid_8cpp-example}{36\+\_\+test\+\_\+ann\+\_\+vs\+\_\+geom\+\_\+ellipsoid.\+cpp}}, and \mbox{\hyperlink{37_test_ann_vs_geom_ellipsoid_8cpp-example}{37\+\_\+test\+\_\+ann\+\_\+vs\+\_\+geom\+\_\+ellipsoid.\+cpp}}.\end{Desc}
+
 
 \doxysubsection{Member Function Documentation}
-\mbox{\Hypertarget{classnetdem_1_1_general_net_a19e9ec754597a43951d46ba3597300b5}\label{classnetdem_1_1_general_net_a19e9ec754597a43951d46ba3597300b5}} 
+\mbox{\Hypertarget{classnetdem_1_1_general_net_a2d4980cad526308c53c5ce3beda6da91}\label{classnetdem_1_1_general_net_a2d4980cad526308c53c5ce3beda6da91}} 
 \index{netdem::GeneralNet@{netdem::GeneralNet}!AddLayer@{AddLayer}}
 \index{AddLayer@{AddLayer}!netdem::GeneralNet@{netdem::GeneralNet}}
 \doxysubsubsection{\texorpdfstring{AddLayer()}{AddLayer()}}
-{\footnotesize\ttfamily void netdem\+::\+General\+Net\+::\+Add\+Layer (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacenetdem_a06635636eca09676377d47de7cb4c02c}{Layer\+Type}}}]{layer\+\_\+name,  }\item[{}]{... }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void netdem\+::\+General\+Net\+::\+Add\+Layer (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_m_l_pack_utils_a0b5ec585965c69a24ecbdea993fa1577}{MLPack\+Utils\+::\+Layer\+Type}}}]{layer\+\_\+name,  }\item[{}]{... }\end{DoxyParamCaption})}
 
 
 
@@ -81,9 +84,12 @@ Adds a layer to the current neural network model.
 \begin{DoxyParams}{Parameters}
 {\em layer\+\_\+name} & The type of layer to add. \\
 \hline
-{\em ...} & Additional parameters required for the layer to be added. \\
+{\em ...} & Additional parameters required for the layer to be added.\\
 \hline
 \end{DoxyParams}
+For {\ttfamily \mbox{\hyperlink{classnetdem_1_1_m_l_pack_utils_a0b5ec585965c69a24ecbdea993fa1577a32a843da6ea40ab3b17a3421ccdf671b}{MLPack\+Utils\+::\+Layer\+Type\+::\+Linear}}}, an additional parameter indicating the dimension of outputs is required. \begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{02_train_classifier_trimesh_plane_8cpp-example}{02\+\_\+train\+\_\+classifier\+\_\+trimesh\+\_\+plane.\+cpp}}, \mbox{\hyperlink{12_train_classifier_trimesh_8cpp-example}{12\+\_\+train\+\_\+classifier\+\_\+trimesh.\+cpp}}, \mbox{\hyperlink{22_train_classifier_ellipsoid_plane_8cpp-example}{22\+\_\+train\+\_\+classifier\+\_\+ellipsoid\+\_\+plane.\+cpp}}, and \mbox{\hyperlink{32_train_classifier_ellipsoid_8cpp-example}{32\+\_\+train\+\_\+classifier\+\_\+ellipsoid.\+cpp}}.\end{Desc}
 \mbox{\Hypertarget{classnetdem_1_1_general_net_af2fc4261724d922ce5723f9d977bd21e}\label{classnetdem_1_1_general_net_af2fc4261724d922ce5723f9d977bd21e}} 
 \index{netdem::GeneralNet@{netdem::GeneralNet}!Classify@{Classify}}
 \index{Classify@{Classify}!netdem::GeneralNet@{netdem::GeneralNet}}
@@ -102,6 +108,9 @@ Classifies input data based on the current neural network model.
 \begin{DoxyReturn}{Returns}
 The classification results. 
 \end{DoxyReturn}
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{02_train_classifier_trimesh_plane_8cpp-example}{02\+\_\+train\+\_\+classifier\+\_\+trimesh\+\_\+plane.\+cpp}}, \mbox{\hyperlink{03_test_classifier_trimesh_plane_8cpp-example}{03\+\_\+test\+\_\+classifier\+\_\+trimesh\+\_\+plane.\+cpp}}, \mbox{\hyperlink{06_test_ann_vs_geom_trimesh_plane_8cpp-example}{06\+\_\+test\+\_\+ann\+\_\+vs\+\_\+geom\+\_\+trimesh\+\_\+plane.\+cpp}}, \mbox{\hyperlink{12_train_classifier_trimesh_8cpp-example}{12\+\_\+train\+\_\+classifier\+\_\+trimesh.\+cpp}}, \mbox{\hyperlink{13_test_classifier_trimesh_8cpp-example}{13\+\_\+test\+\_\+classifier\+\_\+trimesh.\+cpp}}, \mbox{\hyperlink{16_test_ann_vs_geom_trimesh_8cpp-example}{16\+\_\+test\+\_\+ann\+\_\+vs\+\_\+geom\+\_\+trimesh.\+cpp}}, \mbox{\hyperlink{17_test_ann_vs_geom_trimesh_8cpp-example}{17\+\_\+test\+\_\+ann\+\_\+vs\+\_\+geom\+\_\+trimesh.\+cpp}}, \mbox{\hyperlink{22_train_classifier_ellipsoid_plane_8cpp-example}{22\+\_\+train\+\_\+classifier\+\_\+ellipsoid\+\_\+plane.\+cpp}}, \mbox{\hyperlink{23_test_classifier_ellipsoid_plane_8cpp-example}{23\+\_\+test\+\_\+classifier\+\_\+ellipsoid\+\_\+plane.\+cpp}}, \mbox{\hyperlink{26_test_ann_vs_geom_ellipsoid_plane_8cpp-example}{26\+\_\+test\+\_\+ann\+\_\+vs\+\_\+geom\+\_\+ellipsoid\+\_\+plane.\+cpp}}, \mbox{\hyperlink{32_train_classifier_ellipsoid_8cpp-example}{32\+\_\+train\+\_\+classifier\+\_\+ellipsoid.\+cpp}}, \mbox{\hyperlink{33_test_classifier_ellipsoid_8cpp-example}{33\+\_\+test\+\_\+classifier\+\_\+ellipsoid.\+cpp}}, \mbox{\hyperlink{36_test_ann_vs_geom_ellipsoid_8cpp-example}{36\+\_\+test\+\_\+ann\+\_\+vs\+\_\+geom\+\_\+ellipsoid.\+cpp}}, and \mbox{\hyperlink{37_test_ann_vs_geom_ellipsoid_8cpp-example}{37\+\_\+test\+\_\+ann\+\_\+vs\+\_\+geom\+\_\+ellipsoid.\+cpp}}.\end{Desc}
 \mbox{\Hypertarget{classnetdem_1_1_general_net_a0a7b122315dff46529463a46d8d180a0}\label{classnetdem_1_1_general_net_a0a7b122315dff46529463a46d8d180a0}} 
 \index{netdem::GeneralNet@{netdem::GeneralNet}!Load@{Load}}
 \index{Load@{Load}!netdem::GeneralNet@{netdem::GeneralNet}}
@@ -119,6 +128,9 @@ Loads a previously saved neural network model from a file.
 {\em label} & The label for the saved model. \\
 \hline
 \end{DoxyParams}
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{03_test_classifier_trimesh_plane_8cpp-example}{03\+\_\+test\+\_\+classifier\+\_\+trimesh\+\_\+plane.\+cpp}}, \mbox{\hyperlink{06_test_ann_vs_geom_trimesh_plane_8cpp-example}{06\+\_\+test\+\_\+ann\+\_\+vs\+\_\+geom\+\_\+trimesh\+\_\+plane.\+cpp}}, \mbox{\hyperlink{13_test_classifier_trimesh_8cpp-example}{13\+\_\+test\+\_\+classifier\+\_\+trimesh.\+cpp}}, \mbox{\hyperlink{16_test_ann_vs_geom_trimesh_8cpp-example}{16\+\_\+test\+\_\+ann\+\_\+vs\+\_\+geom\+\_\+trimesh.\+cpp}}, \mbox{\hyperlink{17_test_ann_vs_geom_trimesh_8cpp-example}{17\+\_\+test\+\_\+ann\+\_\+vs\+\_\+geom\+\_\+trimesh.\+cpp}}, \mbox{\hyperlink{23_test_classifier_ellipsoid_plane_8cpp-example}{23\+\_\+test\+\_\+classifier\+\_\+ellipsoid\+\_\+plane.\+cpp}}, \mbox{\hyperlink{26_test_ann_vs_geom_ellipsoid_plane_8cpp-example}{26\+\_\+test\+\_\+ann\+\_\+vs\+\_\+geom\+\_\+ellipsoid\+\_\+plane.\+cpp}}, \mbox{\hyperlink{33_test_classifier_ellipsoid_8cpp-example}{33\+\_\+test\+\_\+classifier\+\_\+ellipsoid.\+cpp}}, \mbox{\hyperlink{36_test_ann_vs_geom_ellipsoid_8cpp-example}{36\+\_\+test\+\_\+ann\+\_\+vs\+\_\+geom\+\_\+ellipsoid.\+cpp}}, and \mbox{\hyperlink{37_test_ann_vs_geom_ellipsoid_8cpp-example}{37\+\_\+test\+\_\+ann\+\_\+vs\+\_\+geom\+\_\+ellipsoid.\+cpp}}.\end{Desc}
 \mbox{\Hypertarget{classnetdem_1_1_general_net_a1a0f3c83138854d1c1297cc339119a83}\label{classnetdem_1_1_general_net_a1a0f3c83138854d1c1297cc339119a83}} 
 \index{netdem::GeneralNet@{netdem::GeneralNet}!Predict@{Predict}}
 \index{Predict@{Predict}!netdem::GeneralNet@{netdem::GeneralNet}}
@@ -172,6 +184,9 @@ Saves the current neural network model to a file.
 {\em label} & The label for the saved model. \\
 \hline
 \end{DoxyParams}
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{02_train_classifier_trimesh_plane_8cpp-example}{02\+\_\+train\+\_\+classifier\+\_\+trimesh\+\_\+plane.\+cpp}}, \mbox{\hyperlink{12_train_classifier_trimesh_8cpp-example}{12\+\_\+train\+\_\+classifier\+\_\+trimesh.\+cpp}}, \mbox{\hyperlink{22_train_classifier_ellipsoid_plane_8cpp-example}{22\+\_\+train\+\_\+classifier\+\_\+ellipsoid\+\_\+plane.\+cpp}}, and \mbox{\hyperlink{32_train_classifier_ellipsoid_8cpp-example}{32\+\_\+train\+\_\+classifier\+\_\+ellipsoid.\+cpp}}.\end{Desc}
 \mbox{\Hypertarget{classnetdem_1_1_general_net_a0c31c725dea72fe4a05faaf990407ac5}\label{classnetdem_1_1_general_net_a0c31c725dea72fe4a05faaf990407ac5}} 
 \index{netdem::GeneralNet@{netdem::GeneralNet}!Train@{Train}}
 \index{Train@{Train}!netdem::GeneralNet@{netdem::GeneralNet}}
@@ -189,6 +204,9 @@ Trains the current neural network model using the given input and output data.
 {\em data\+\_\+y} & The output data to use for training. \\
 \hline
 \end{DoxyParams}
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{02_train_classifier_trimesh_plane_8cpp-example}{02\+\_\+train\+\_\+classifier\+\_\+trimesh\+\_\+plane.\+cpp}}, \mbox{\hyperlink{12_train_classifier_trimesh_8cpp-example}{12\+\_\+train\+\_\+classifier\+\_\+trimesh.\+cpp}}, \mbox{\hyperlink{22_train_classifier_ellipsoid_plane_8cpp-example}{22\+\_\+train\+\_\+classifier\+\_\+ellipsoid\+\_\+plane.\+cpp}}, and \mbox{\hyperlink{32_train_classifier_ellipsoid_8cpp-example}{32\+\_\+train\+\_\+classifier\+\_\+ellipsoid.\+cpp}}.\end{Desc}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

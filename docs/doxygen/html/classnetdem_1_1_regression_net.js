@@ -1,6 +1,6 @@
 var classnetdem_1_1_regression_net =
 [
-    [ "AddLayer", "classnetdem_1_1_regression_net.html#a50664a34e7c9df9d7bd20238d1a4032f", null ],
+    [ "AddLayer", "classnetdem_1_1_regression_net.html#aafa8571adee4fd708a9179d40cf632aa", null ],
     [ "Gradient", "classnetdem_1_1_regression_net.html#a20b97ff96a288d2d0468fb494ae6e8af", null ],
     [ "Load", "classnetdem_1_1_regression_net.html#a4802cc4f75ad194e3a1136ee85bdb8e6", null ],
     [ "Predict", "classnetdem_1_1_regression_net.html#ad0a454915d74f397ea4b6ce40c46f84e", null ],

@@ -1,0 +1,53 @@
+\hypertarget{04_demo_normal_patches_8cpp-example}{}\doxysection{04\+\_\+demo\+\_\+normal\+\_\+patches.\+cpp}
+This is an example of how to use the netdem library.
+
+
+\begin{DoxyCodeInclude}{0}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}data\_dumper.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}gen\_pack.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}gen\_wall\_box\_plane.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}gen\_wall\_box\_plate.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}gravity.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}model\_linear\_spring.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}shape\_polybezier.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}shape\_sphere.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}shape\_trimesh.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}simulation.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ <unordered\_map>}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{using\ namespace\ }\mbox{\hyperlink{namespacenetdem}{netdem}};}
+\DoxyCodeLine{\textcolor{keyword}{using\ namespace\ }std;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\mbox{\hyperlink{classnetdem_1_1_s_t_l_model}{STLModel}}\ GetKernelPolyhedron();}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ DemoNormalPatches(\textcolor{keywordtype}{int}\ argc,\ \textcolor{keywordtype}{char}\ **argv)\ \{}
+\DoxyCodeLine{\ \ \textcolor{keywordtype}{int}\ num\_particles\ =\ atof(argv[2]);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ filesystem::create\_directories(\textcolor{stringliteral}{"{}local/polybezier\_model/demo\_normal\_patches"{}});}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ num\_particles;\ i++)\ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{auto}\ kernel\_stl\ =\ GetKernelPolyhedron();}
+\DoxyCodeLine{\ \ \ \ kernel\_stl.SaveAsSTL(}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}local/polybezier\_model/demo\_normal\_patches/kernel\_stl\_"{}}\ +}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ to\_string(i)\ +\ \textcolor{stringliteral}{"{}.stl"{}});}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{classnetdem_1_1_polybezier}{Polybezier}}\ polybezier;}
+\DoxyCodeLine{\ \ \ \ polybezier.\mbox{\hyperlink{classnetdem_1_1_polybezier_ad6fb2162349c6483a61572326cc405a6}{InitFromKernelSTL}}(kernel\_stl);}
+\DoxyCodeLine{\ \ \ \ polybezier.\mbox{\hyperlink{classnetdem_1_1_polybezier_aa340e7dae1dc62af6f34e00cd4507d27}{SaveNormalPatchesCubic}}(}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}local/polybezier\_model/demo\_normal\_patches/polybezier\_normal\_"{}}\ +}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ to\_string(i)\ +\ \textcolor{stringliteral}{"{}.stl"{}});}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{classnetdem_1_1_tri_mesh}{TriMesh}}\ trimesh;}
+\DoxyCodeLine{\ \ \ \ trimesh.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_a37d69b0bfd72b90fcdf639eda5281ac3}{use\_linked\_patches}}\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\ \ \ \ trimesh.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_a1dc42a1f9439c900d76f213155ebb56d}{InitFromSTL}}(polybezier.\mbox{\hyperlink{classnetdem_1_1_polybezier_a063a225810a381792101b8605365cb48}{GetSTLModel}}(1000));}
+\DoxyCodeLine{\ \ \ \ trimesh.\mbox{\hyperlink{classnetdem_1_1_shape_a2eaa2d4c2021a7963cbfcc65d0f6cd41}{SaveAsSTL}}(\textcolor{stringliteral}{"{}local/polybezier\_model/demo\_normal\_patches/mesh\_stl\_"{}}\ +}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ to\_string(i)\ +\ \textcolor{stringliteral}{"{}.stl"{}});}
+\DoxyCodeLine{\ \ \ \ trimesh.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_a342fc3c8618cb8212b945f5826fe5208}{SaveNormalPatchesCubic}}(}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}local/polybezier\_model/demo\_normal\_patches/mesh\_normal\_"{}}\ +}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ to\_string(i)\ +\ \textcolor{stringliteral}{"{}.stl"{}});}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCodeInclude}
+ 
