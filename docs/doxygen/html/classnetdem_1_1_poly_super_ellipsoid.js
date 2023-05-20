@@ -15,5 +15,13 @@ var classnetdem_1_1_poly_super_ellipsoid =
     [ "SupportPoints", "classnetdem_1_1_poly_super_ellipsoid.html#a2e68640a5484b1bee074169f12b59616", null ],
     [ "SurfacePoint", "classnetdem_1_1_poly_super_ellipsoid.html#aa65616c50b792e039d70b4ac0d90a579", null ],
     [ "UpdateNodes", "classnetdem_1_1_poly_super_ellipsoid.html#abc2b32e07feada06e23554b9972f9e7c", null ],
-    [ "UpdateShapeProperties", "classnetdem_1_1_poly_super_ellipsoid.html#ab187ee094b56e157788fc5c8efb98e58", null ]
+    [ "UpdateShapeProperties", "classnetdem_1_1_poly_super_ellipsoid.html#ab187ee094b56e157788fc5c8efb98e58", null ],
+    [ "axis_a", "classnetdem_1_1_poly_super_ellipsoid.html#a8ff8b27afcbeb2740e1377853e7491f2", null ],
+    [ "axis_b", "classnetdem_1_1_poly_super_ellipsoid.html#a9be1839b55cb1f5797e5e1b1d53e50f2", null ],
+    [ "axis_c", "classnetdem_1_1_poly_super_ellipsoid.html#a119ed4d50c86d764267cea0c0e7d5b6f", null ],
+    [ "order_ab", "classnetdem_1_1_poly_super_ellipsoid.html#aba808f1ab42db91ba117f22e2b7b00ec", null ],
+    [ "order_c", "classnetdem_1_1_poly_super_ellipsoid.html#a3c989c243d8ccc24f16e87284ad43211", null ],
+    [ "pos_ref", "classnetdem_1_1_poly_super_ellipsoid.html#add91c0139934bd237c66b00ea1d113ec", null ],
+    [ "quat_conj", "classnetdem_1_1_poly_super_ellipsoid.html#aeac0f30737cf618e91ee207e4cfdcc0c", null ],
+    [ "quat_ref", "classnetdem_1_1_poly_super_ellipsoid.html#af804f192a323b2e87abf8f720eb0af41", null ]
 ];

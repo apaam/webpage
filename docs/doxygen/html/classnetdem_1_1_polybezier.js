@@ -16,5 +16,13 @@ var classnetdem_1_1_polybezier =
     [ "SetSize", "classnetdem_1_1_polybezier.html#af384e6ec1edaa5375b86971601528080", null ],
     [ "SupportPoint", "classnetdem_1_1_polybezier.html#a622e64685d49416ca42732c5466a9b1a", null ],
     [ "SupportPoints", "classnetdem_1_1_polybezier.html#ac96d550cd6d9e4ef692fe5b882779d8d", null ],
-    [ "UpdateShapeProperties", "classnetdem_1_1_polybezier.html#a54241720500d2a90fb5652b8f750ea25", null ]
+    [ "UpdateShapeProperties", "classnetdem_1_1_polybezier.html#a54241720500d2a90fb5652b8f750ea25", null ],
+    [ "edge_patch_knots_list", "classnetdem_1_1_polybezier.html#ac1218a57c9b3d1304b99d4ba729a02fb", null ],
+    [ "face_patch_knots_list", "classnetdem_1_1_polybezier.html#aca8f31dddc2d7af147dec1c8ceddde26", null ],
+    [ "face_patch_normals_list", "classnetdem_1_1_polybezier.html#a5134e4d2db0021867d8c64d7f06bb7b9", null ],
+    [ "linked_edges_list", "classnetdem_1_1_polybezier.html#ac10a187ae800aaf1521eed709db7d640", null ],
+    [ "linked_patches_list", "classnetdem_1_1_polybezier.html#a742b5cbbaaf0a113737f5e06fb060196", null ],
+    [ "num_cells", "classnetdem_1_1_polybezier.html#aea00adb3552548d2699c8ec53bcc9fe1", null ],
+    [ "num_patches", "classnetdem_1_1_polybezier.html#a9db7309122cf86a54a6b5d91e8b6954d", null ],
+    [ "order", "classnetdem_1_1_polybezier.html#a1a2361798195770502dc4dbf84d8ed03", null ]
 ];

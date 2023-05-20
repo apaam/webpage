@@ -15,5 +15,14 @@ var classnetdem_1_1_poly_super_quadrics =
     [ "SupportPoints", "classnetdem_1_1_poly_super_quadrics.html#ac6c12e775c0cf32170097503939aac8f", null ],
     [ "SurfacePoint", "classnetdem_1_1_poly_super_quadrics.html#adb8f20d6f538fe94a99825c2c0fd81c8", null ],
     [ "UpdateNodes", "classnetdem_1_1_poly_super_quadrics.html#a85e6c041a0a98de2a239c30829f94a28", null ],
-    [ "UpdateShapeProperties", "classnetdem_1_1_poly_super_quadrics.html#a2d8325174451005709bfdde05c3c3faa", null ]
+    [ "UpdateShapeProperties", "classnetdem_1_1_poly_super_quadrics.html#a2d8325174451005709bfdde05c3c3faa", null ],
+    [ "axis_a", "classnetdem_1_1_poly_super_quadrics.html#a6c0e3725b74fe72c658cb11dd5ee776e", null ],
+    [ "axis_b", "classnetdem_1_1_poly_super_quadrics.html#a0de84d7a533ac1d0882fa5cdde01f3d9", null ],
+    [ "axis_c", "classnetdem_1_1_poly_super_quadrics.html#a10a524223fb8e84714e477d2036f7fd0", null ],
+    [ "order_a", "classnetdem_1_1_poly_super_quadrics.html#ad3097d74b6ec341f50e2d30fee509872", null ],
+    [ "order_b", "classnetdem_1_1_poly_super_quadrics.html#ac4cd64d05652620b89ee84b57bd29295", null ],
+    [ "order_c", "classnetdem_1_1_poly_super_quadrics.html#a567c968029a528e8452f4caeb58e5b67", null ],
+    [ "pos_ref", "classnetdem_1_1_poly_super_quadrics.html#a8dbfce5a666591af4f045abe734a6a88", null ],
+    [ "quat_conj", "classnetdem_1_1_poly_super_quadrics.html#a1f8403f295819b02c58e0165eb135ad9", null ],
+    [ "quat_ref", "classnetdem_1_1_poly_super_quadrics.html#afc4c8a872516512ef3fa433278974411", null ]
 ];
