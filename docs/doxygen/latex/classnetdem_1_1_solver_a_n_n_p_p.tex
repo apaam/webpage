@@ -46,7 +46,7 @@ void \mbox{\hyperlink{classnetdem_1_1_solver_a_n_n_p_p_a8607c1d75da611fc0f244fe7
 \begin{DoxyCompactList}\small\item\em Resolves the collision using a potential-\/based method at initialization time. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classnetdem_1_1_solver_a_n_n_p_p_a5c886f91d3806301f62601ffdc2f78e5}{Resolve\+Update\+\_\+\+Potential\+Based}} (\mbox{\hyperlink{classnetdem_1_1_collision_geometries}{Collision\+Geometries}} $\ast$const cnt\+\_\+geoms, double timestep)
 \begin{DoxyCompactList}\small\item\em Resolves the collision using a potential-\/based method during update time. \end{DoxyCompactList}\item 
-std\+::tuple$<$ double, Vec3d $>$ \mbox{\hyperlink{classnetdem_1_1_solver_a_n_n_p_p_a89b709656262bba8b3ea2bfe4d7ecbff}{Potential}} (Vec3d const \&pos, Vec4d const \&quat)
+std\+::tuple$<$ double, Vec3d $>$ \mbox{\hyperlink{classnetdem_1_1_solver_a_n_n_p_p_a5c21e07cba768af15c1fd23f16ca1cfb}{Get\+Potential}} (Vec3d const \&pos, Vec4d const \&quat)
 \begin{DoxyCompactList}\small\item\em Calculates the potential energy and contact position for the collision. \end{DoxyCompactList}\item 
 std\+::tuple$<$ Vec3d, Vec3d, Vec3d $>$ \mbox{\hyperlink{classnetdem_1_1_solver_a_n_n_p_p_ad4daff69a320bcf52e0167e336ad9b36}{Evaluate\+Contact\+Forces}} ()
 \begin{DoxyCompactList}\small\item\em Evaluates the contact forces for the collision. \end{DoxyCompactList}\end{DoxyCompactItemize}
@@ -105,7 +105,10 @@ A class that represents a collision solver using artificial neural networks.
 
 concrete geometric solver for sphere and sphere contacts. 
 
-The {\ttfamily \mbox{\hyperlink{classnetdem_1_1_solver_a_n_n_p_p}{Solver\+ANNPP}}} class is a specific implementation of a collision solver using artificial neural networks. It provides functionality to detect and resolve collisions between two particles, as well as calculate potential energies and contact forces. 
+The {\ttfamily \mbox{\hyperlink{classnetdem_1_1_solver_a_n_n_p_p}{Solver\+ANNPP}}} class is a specific implementation of a collision solver using artificial neural networks. It provides functionality to detect and resolve collisions between two particles, as well as calculate potential energies and contact forces. \begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{90_random_packing_trimesh_8cpp-example}{90\+\_\+random\+\_\+packing\+\_\+trimesh.\+cpp}}, \mbox{\hyperlink{91_triaixal_comp_8cpp-example}{91\+\_\+triaixal\+\_\+comp.\+cpp}}, \mbox{\hyperlink{92_angle_of_repose_8cpp-example}{92\+\_\+angle\+\_\+of\+\_\+repose.\+cpp}}, and \mbox{\hyperlink{96_random_packing_ellipsoid_8cpp-example}{96\+\_\+random\+\_\+packing\+\_\+ellipsoid.\+cpp}}.\end{Desc}
+
 
 \doxysubsection{Constructor \& Destructor Documentation}
 \mbox{\Hypertarget{classnetdem_1_1_solver_a_n_n_p_p_a6f6d850424003eb68296ea0915d58b97}\label{classnetdem_1_1_solver_a_n_n_p_p_a6f6d850424003eb68296ea0915d58b97}} 
@@ -193,6 +196,28 @@ This function evaluates the contact forces for the collision and returns them as
 \begin{DoxyReturn}{Returns}
 A tuple containing the force, moment, and position vectors. 
 \end{DoxyReturn}
+\mbox{\Hypertarget{classnetdem_1_1_solver_a_n_n_p_p_a5c21e07cba768af15c1fd23f16ca1cfb}\label{classnetdem_1_1_solver_a_n_n_p_p_a5c21e07cba768af15c1fd23f16ca1cfb}} 
+\index{netdem::SolverANNPP@{netdem::SolverANNPP}!GetPotential@{GetPotential}}
+\index{GetPotential@{GetPotential}!netdem::SolverANNPP@{netdem::SolverANNPP}}
+\doxysubsubsection{\texorpdfstring{GetPotential()}{GetPotential()}}
+{\footnotesize\ttfamily std\+::tuple$<$ double, Vec3d $>$ netdem\+::\+Solver\+ANNPP\+::\+Get\+Potential (\begin{DoxyParamCaption}\item[{Vec3d const \&}]{pos,  }\item[{Vec4d const \&}]{quat }\end{DoxyParamCaption})}
+
+
+
+Calculates the potential energy and contact position for the collision. 
+
+This function calculates the potential energy and contact position for the collision given a position and quaternion representing the particles\textquotesingle{} orientations.
+
+
+\begin{DoxyParams}{Parameters}
+{\em pos} & The position of the particles relative to each other. \\
+\hline
+{\em quat} & The quaternion representing the particles\textquotesingle{} orientations relative to each other. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A tuple containing the potential energy and contact position. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{classnetdem_1_1_solver_a_n_n_p_p_a06f906827b1806277f7eb4831307290d}\label{classnetdem_1_1_solver_a_n_n_p_p_a06f906827b1806277f7eb4831307290d}} 
 \index{netdem::SolverANNPP@{netdem::SolverANNPP}!Init@{Init}}
 \index{Init@{Init}!netdem::SolverANNPP@{netdem::SolverANNPP}}
@@ -235,28 +260,9 @@ This function initializes the collision solver with neural network models loaded
 {\em regressor\+\_\+file} & The name of the file containing the regression model data. \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{classnetdem_1_1_solver_a_n_n_p_p_a89b709656262bba8b3ea2bfe4d7ecbff}\label{classnetdem_1_1_solver_a_n_n_p_p_a89b709656262bba8b3ea2bfe4d7ecbff}} 
-\index{netdem::SolverANNPP@{netdem::SolverANNPP}!Potential@{Potential}}
-\index{Potential@{Potential}!netdem::SolverANNPP@{netdem::SolverANNPP}}
-\doxysubsubsection{\texorpdfstring{Potential()}{Potential()}}
-{\footnotesize\ttfamily std\+::tuple$<$ double, Vec3d $>$ netdem\+::\+Solver\+ANNPP\+::\+Potential (\begin{DoxyParamCaption}\item[{Vec3d const \&}]{pos,  }\item[{Vec4d const \&}]{quat }\end{DoxyParamCaption})}
-
-
-
-Calculates the potential energy and contact position for the collision. 
-
-This function calculates the potential energy and contact position for the collision given a position and quaternion representing the particles\textquotesingle{} orientations.
-
-
-\begin{DoxyParams}{Parameters}
-{\em pos} & The position of the particles relative to each other. \\
-\hline
-{\em quat} & The quaternion representing the particles\textquotesingle{} orientations relative to each other. \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-A tuple containing the potential energy and contact position. 
-\end{DoxyReturn}
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{90_random_packing_trimesh_8cpp-example}{90\+\_\+random\+\_\+packing\+\_\+trimesh.\+cpp}}, \mbox{\hyperlink{91_triaixal_comp_8cpp-example}{91\+\_\+triaixal\+\_\+comp.\+cpp}}, \mbox{\hyperlink{92_angle_of_repose_8cpp-example}{92\+\_\+angle\+\_\+of\+\_\+repose.\+cpp}}, and \mbox{\hyperlink{96_random_packing_ellipsoid_8cpp-example}{96\+\_\+random\+\_\+packing\+\_\+ellipsoid.\+cpp}}.\end{Desc}
 \mbox{\Hypertarget{classnetdem_1_1_solver_a_n_n_p_p_ab86546f5298f0acbd6c062bb8cef5f90}\label{classnetdem_1_1_solver_a_n_n_p_p_ab86546f5298f0acbd6c062bb8cef5f90}} 
 \index{netdem::SolverANNPP@{netdem::SolverANNPP}!ResolveInit@{ResolveInit}}
 \index{ResolveInit@{ResolveInit}!netdem::SolverANNPP@{netdem::SolverANNPP}}

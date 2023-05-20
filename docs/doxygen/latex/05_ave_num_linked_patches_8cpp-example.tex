@@ -1,0 +1,57 @@
+\hypertarget{05_ave_num_linked_patches_8cpp-example}{}\doxysection{05\+\_\+ave\+\_\+num\+\_\+linked\+\_\+patches.\+cpp}
+This is an example of how to use the netdem library.
+
+
+\begin{DoxyCodeInclude}{0}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}data\_dumper.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}gen\_pack.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}gen\_wall\_box\_plane.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}gen\_wall\_box\_plate.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}gravity.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}model\_linear\_spring.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}shape\_polybezier.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}shape\_sphere.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}shape\_trimesh.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}simulation.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ <unordered\_map>}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{using\ namespace\ }\mbox{\hyperlink{namespacenetdem}{netdem}};}
+\DoxyCodeLine{\textcolor{keyword}{using\ namespace\ }std;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ AveNumLinkedPatches(\textcolor{keywordtype}{int}\ argc,\ \textcolor{keywordtype}{char}\ **argv)\ \{}
+\DoxyCodeLine{\ \ \textcolor{keywordtype}{int}\ num\_particles\ =\ atof(argv[2]);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ filesystem::create\_directories(\textcolor{stringliteral}{"{}local/polybezier\_model/demo\_normal\_patches"{}});}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 1;\ i\ <\ 10;\ i++)\ \{}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{classnetdem_1_1_s_t_l_model}{STLModel}}\ kernel\_stl;}
+\DoxyCodeLine{\ \ \ \ kernel\_stl.\mbox{\hyperlink{classnetdem_1_1_s_t_l_model_abb01a9583427f88f59d2abdf79b1e981}{InitFromSTL}}(}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}local/polybezier\_model/demo\_normal\_patches/kernel\_stl\_1.stl"{}});}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{classnetdem_1_1_polybezier}{Polybezier}}\ polybezier;}
+\DoxyCodeLine{\ \ \ \ polybezier.num\_cells\ =\ i;}
+\DoxyCodeLine{\ \ \ \ polybezier.\mbox{\hyperlink{classnetdem_1_1_polybezier_ad6fb2162349c6483a61572326cc405a6}{InitFromKernelSTL}}(kernel\_stl);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{double}\ ave\_num\{0\};}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ cell\ :\ polybezier.linked\_patches\_list)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ ave\_num\ +=\ cell.size();}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ cout\ <<\ i\ <<\ \textcolor{stringliteral}{"{},\ "{}}\ <<\ ave\_num\ /\ polybezier.linked\_patches\_list.size()}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{},\ "{}};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{classnetdem_1_1_tri_mesh}{TriMesh}}\ trimesh;}
+\DoxyCodeLine{\ \ \ \ trimesh.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_a88515b6a64766d16eb61de5f7d09fda4}{num\_cells}}\ =\ i;}
+\DoxyCodeLine{\ \ \ \ trimesh.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_a37d69b0bfd72b90fcdf639eda5281ac3}{use\_linked\_patches}}\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\ \ \ \ trimesh.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_a1dc42a1f9439c900d76f213155ebb56d}{InitFromSTL}}(polybezier.\mbox{\hyperlink{classnetdem_1_1_polybezier_a063a225810a381792101b8605365cb48}{GetSTLModel}}(1000));}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ ave\_num\ =\ 0;}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ cell\ :\ trimesh.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_aebaaf2c1a835d872b4f1144a250495ef}{linked\_vertices}})\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ ave\_num\ +=\ cell.size();}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ cout\ <<\ ave\_num\ /\ trimesh.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_aebaaf2c1a835d872b4f1144a250495ef}{linked\_vertices}}.size()\ <<\ endl;}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCodeInclude}
+ 

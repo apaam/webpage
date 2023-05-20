@@ -1,0 +1,157 @@
+\hypertarget{simple_shear_sphere_v0_8py-example}{}\doxysection{simple\+\_\+shear\+\_\+sphere\+\_\+v0.\+py}
+This is an example of how to use the netdem library.
+
+
+\begin{DoxyCodeInclude}{0}
+\DoxyCodeLine{00001\ \textcolor{keyword}{import}\ sys}
+\DoxyCodeLine{00002\ \textcolor{keyword}{import}\ os}
+\DoxyCodeLine{00003\ \textcolor{keyword}{import}\ math}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{comment}{\#\ env}}
+\DoxyCodeLine{00006\ dir\_path\ =\ os.path.dirname(os.path.realpath(\_\_file\_\_))}
+\DoxyCodeLine{00007\ sys.path.append(dir\_path\ +\ \textcolor{stringliteral}{"{}/../../build/lib/"{}})}
+\DoxyCodeLine{00008\ \textcolor{keyword}{from}\ pynetdem\ \textcolor{keyword}{import}\ *}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{comment}{\#\ sim\ settings}}
+\DoxyCodeLine{00011\ sim\ =\ Simulation()}
+\DoxyCodeLine{00012\ sim.domain\_manager.SetBound(-\/0.6,\ -\/0.6,\ -\/0.6,\ 0.6,\ 0.6,\ 0.6)}
+\DoxyCodeLine{00013\ sim.domain\_manager.SetCellSpacing(0.02,\ 0.02,\ 0.02)}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{comment}{\#\ solver\ settings}}
+\DoxyCodeLine{00016\ sim.dem\_solver.contact\_solver\_factory.settings.solver\_type\ \(\backslash\)}
+\DoxyCodeLine{00017\ \ \ \ \ =\ ContactSolverSettings.SolverType.automatic}
+\DoxyCodeLine{00018\ sim.dem\_solver.contact\_solver\_factory.settings.sdf\_potential\_type\ =\ 0}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{comment}{\#\ contact\ model}}
+\DoxyCodeLine{00021\ cnt\_model\_1\ =\ LinearSpring(2.0e4,\ 1.0e4,\ 0.7,\ 0.5)}
+\DoxyCodeLine{00022\ cnt\_model\_1.label\ =\ \textcolor{stringliteral}{"{}cnt\_model\_1"{}}}
+\DoxyCodeLine{00023\ cnt\_model\_1\_prt\ =\ sim.scene.InsertContactModel(cnt\_model\_1)}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ cnt\_model\_2\ =\ LinearSpring(2.0e4,\ 1.0e4,\ 0.7,\ 0.001)}
+\DoxyCodeLine{00026\ cnt\_model\_2.label\ =\ \textcolor{stringliteral}{"{}cnt\_model\_2"{}}}
+\DoxyCodeLine{00027\ cnt\_model\_2\_prt\ =\ sim.scene.InsertContactModel(cnt\_model\_2)}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ sim.scene.SetNumberOfMaterials(2)}
+\DoxyCodeLine{00030\ sim.scene.SetCollisionModel(0,\ 0,\ cnt\_model\_1\_prt)}
+\DoxyCodeLine{00031\ sim.scene.SetCollisionModel(0,\ 1,\ cnt\_model\_1\_prt)}
+\DoxyCodeLine{00032\ sim.scene.SetCollisionModel(1,\ 1,\ cnt\_model\_2\_prt)}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \textcolor{comment}{\#\ shape\ templates}}
+\DoxyCodeLine{00035\ sphere\ =\ Sphere(0.01)}
+\DoxyCodeLine{00036\ sphere\_ptr\ =\ sim.scene.InsertShape(sphere)}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ ring\_bot\ =\ TriMesh()}
+\DoxyCodeLine{00039\ ring\_bot.InitFromSTL(\textcolor{stringliteral}{"{}data/ring\_bot.stl"{}})}
+\DoxyCodeLine{00040\ ring\_bot.AlignAxes()}
+\DoxyCodeLine{00041\ ring\_bot\_ptr\ =\ sim.scene.InsertShape(ring\_bot)}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ ring\_mid\ =\ TriMesh()}
+\DoxyCodeLine{00044\ ring\_mid.InitFromSTL(\textcolor{stringliteral}{"{}data/ring\_mid.stl"{}})}
+\DoxyCodeLine{00045\ ring\_mid.AlignAxes()}
+\DoxyCodeLine{00046\ ring\_mid\_ptr\ =\ sim.scene.InsertShape(ring\_mid)}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \textcolor{comment}{\#\ create\ particles\ as\ ring}}
+\DoxyCodeLine{00049\ h\_ref\ =\ 0.00749305\ -\/\ 0.02\ +\ 0.00665}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ p\_bot\ =\ Particle()}
+\DoxyCodeLine{00052\ p\_bot.material\_type\ =\ 1}
+\DoxyCodeLine{00053\ p\_bot.SetShape(ring\_bot\_ptr)}
+\DoxyCodeLine{00054\ p\_bot.SetPosition(0,\ 0,\ h\_ref)}
+\DoxyCodeLine{00055\ p\_bot.SetRodrigues(Math.PI,\ 1,\ 0,\ 0)}
+\DoxyCodeLine{00056\ p\_bot.SetDensity(7530)}
+\DoxyCodeLine{00057\ p\_bot.damp\_global\ =\ 3}
+\DoxyCodeLine{00058\ p\_bot\_ptr\ =\ sim.scene.InsertParticle(p\_bot)}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \textcolor{keywordflow}{for}\ i\ \textcolor{keywordflow}{in}\ range(1,\ 18):}
+\DoxyCodeLine{00061\ \ \ \ \ p\_mid\ =\ Particle()}
+\DoxyCodeLine{00062\ \ \ \ \ p\_mid.material\_type\ =\ 1}
+\DoxyCodeLine{00063\ \ \ \ \ p\_mid.SetShape(ring\_mid\_ptr)}
+\DoxyCodeLine{00064\ \ \ \ \ p\_mid.SetPosition(0,\ 0,\ 0.003325\ +\ i\ *\ 0.00665)}
+\DoxyCodeLine{00065\ \ \ \ \ p\_mid.SetDensity(7530)}
+\DoxyCodeLine{00066\ \ \ \ \ p\_mid.damp\_global\ =\ 3}
+\DoxyCodeLine{00067\ \ \ \ \ p\_mid\_ptr\ =\ sim.scene.InsertParticle(p\_mid)}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00069\ \textcolor{comment}{\#\ create\ a\ motion\ control\ for\ particles}}
+\DoxyCodeLine{00070\ motion\_control\ =\ ParticleMotionControl()}
+\DoxyCodeLine{00071\ motion\_control.Init(sim)}
+\DoxyCodeLine{00072\ motion\_control.SetFixed(p\_bot\_ptr.id)}
+\DoxyCodeLine{00073\ tmp\ =\ sim.modifier\_manager.Insert(motion\_control)}
+\DoxyCodeLine{00074\ sim.modifier\_manager.Enable(motion\_control.label)}
+\DoxyCodeLine{00075\ motion\_control\_ptr\ =\ ParticleMotionControl.Cast(tmp)}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ \textcolor{comment}{\#\ gravity}}
+\DoxyCodeLine{00078\ grav\ =\ Gravity()}
+\DoxyCodeLine{00079\ grav.Init(sim)}
+\DoxyCodeLine{00080\ sim.modifier\_manager.Insert(grav)}
+\DoxyCodeLine{00081\ sim.modifier\_manager.Enable(grav.label)}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00083\ \textcolor{comment}{\#\ output}}
+\DoxyCodeLine{00084\ data\_dumper\ =\ DataDumper()}
+\DoxyCodeLine{00085\ data\_dumper.Init(sim)}
+\DoxyCodeLine{00086\ data\_dumper.SetRootPath(dir\_path\ +\ \textcolor{stringliteral}{"{}/../../tmp/simple\_shear/out/"{}})}
+\DoxyCodeLine{00087\ data\_dumper.SetSaveByCycles(100)}
+\DoxyCodeLine{00088\ data\_dumper.dump\_wall\_info\ =\ \textcolor{keyword}{True}}
+\DoxyCodeLine{00089\ data\_dumper.dump\_contact\_info\ =\ \textcolor{keyword}{True}}
+\DoxyCodeLine{00090\ data\_dumper.dump\_mesh\ =\ \textcolor{keyword}{True}}
+\DoxyCodeLine{00091\ data\_dumper.SaveShapeInfoAsSTL()}
+\DoxyCodeLine{00092\ sim.modifier\_manager.Insert(data\_dumper)}
+\DoxyCodeLine{00093\ sim.modifier\_manager.Enable(data\_dumper.label)}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00095\ \textcolor{comment}{\#\ relax\ the\ rings}}
+\DoxyCodeLine{00096\ sim.Run(2.0)}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00098\ \textcolor{comment}{\#\ fix\ the\ top\ two\ rings}}
+\DoxyCodeLine{00099\ motion\_control\_ptr.SetFixed(16)}
+\DoxyCodeLine{00100\ motion\_control\_ptr.SetFixed(17)}
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00102\ \textcolor{comment}{\#\ generate\ particles}}
+\DoxyCodeLine{00103\ cylinder\ =\ Cylinder(0.154,\ 0.2)}
+\DoxyCodeLine{00104\ cylinder\_stl\ =\ cylinder.GetSTLModel(1000)}
+\DoxyCodeLine{00105\ cylinder\_stl.Translate([0,\ 0,\ 0.1])}
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00107\ pack\_generator\ =\ PackGenerator()}
+\DoxyCodeLine{00108\ particle\_list\ =\ pack\_generator.GetVoronoiPack(}
+\DoxyCodeLine{00109\ \ \ \ \ cylinder\_stl,\ 100,\ sphere\_ptr)}
+\DoxyCodeLine{00110\ \textcolor{keywordflow}{for}\ p\ \textcolor{keywordflow}{in}\ particle\_list:}
+\DoxyCodeLine{00111\ \ \ \ \ p.SetDensity(7530)}
+\DoxyCodeLine{00112\ }
+\DoxyCodeLine{00113\ \textcolor{comment}{\#\ insert\ particles\ and\ rest}}
+\DoxyCodeLine{00114\ sim.scene.InsertParticle(particle\_list)}
+\DoxyCodeLine{00115\ sim.Run(1.0)}
+\DoxyCodeLine{00116\ }
+\DoxyCodeLine{00117\ \textcolor{comment}{\#\ remove\ extra\ particles}}
+\DoxyCodeLine{00118\ \textcolor{keywordflow}{for}\ p\ \textcolor{keywordflow}{in}\ sim.scene.particle\_list:}
+\DoxyCodeLine{00119\ \ \ \ \ \textcolor{keywordflow}{if}\ p.pos[2]\ <\ 0\ \textcolor{keywordflow}{or}\ p.pos[2]\ >\ 0.11\ \(\backslash\)}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{or}\ math.sqrt(p.pos[0]\ *\ p.pos[0]\ +\ p.pos[1]\ *\ p.pos[1])\ >\ 0.154:}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ p.id\ >=\ 18:}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \ \ \ \ sim.scene.RemoveParticle(p)}
+\DoxyCodeLine{00123\ }
+\DoxyCodeLine{00124\ \textcolor{comment}{\#\ add\ top\ wall\ and\ apply\ servo-\/control}}
+\DoxyCodeLine{00125\ plane\ =\ Plane(0,\ 0,\ 0.11,\ 0,\ 0,\ -\/1)}
+\DoxyCodeLine{00126\ plane.SetExtent(0.5)}
+\DoxyCodeLine{00127\ plane\_ptr\ =\ sim.scene.InsertShape(plane)}
+\DoxyCodeLine{00128\ wall\_top\ =\ Wall(plane\_ptr)}
+\DoxyCodeLine{00129\ wall\_top\_ptr\ =\ sim.scene.InsertWall(wall\_top)}
+\DoxyCodeLine{00130\ }
+\DoxyCodeLine{00131\ servo\_top\ =\ WallServoControl(2e6,\ Math.PI\ *\ 0.304\ *\ 0.304\ /\ 4)}
+\DoxyCodeLine{00132\ servo\_top.label\ =\ \textcolor{stringliteral}{"{}servo\_top"{}}}
+\DoxyCodeLine{00133\ servo\_top.Init(sim)}
+\DoxyCodeLine{00134\ servo\_top.target\_pressure\ =\ 4e5}
+\DoxyCodeLine{00135\ servo\_top.SetWall([wall\_top\_ptr.id])}
+\DoxyCodeLine{00136\ tmp\ =\ sim.modifier\_manager.Insert(servo\_top)}
+\DoxyCodeLine{00137\ sim.modifier\_manager.Enable(servo\_top.label)}
+\DoxyCodeLine{00138\ servo\_top\_ptr\ =\ WallServoControl.Cast(tmp)}
+\DoxyCodeLine{00139\ }
+\DoxyCodeLine{00140\ \textcolor{comment}{\#\ keep\ loading\ until\ target\ pressure\ is\ achieved}}
+\DoxyCodeLine{00141\ \textcolor{keywordflow}{while}\ \textcolor{keyword}{True}:}
+\DoxyCodeLine{00142\ \ \ \ \ sim.Run(0.01)}
+\DoxyCodeLine{00143\ \ \ \ \ \textcolor{keywordflow}{if}\ servo\_top\_ptr.achieved:}
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break}}
+\DoxyCodeLine{00145\ }
+\DoxyCodeLine{00146\ \textcolor{comment}{\#\ moving\ the\ bot\ ring,\ v\ =\ a\ *\ t\ +\ b}}
+\DoxyCodeLine{00147\ motion\_control\_ptr.SetLinearVelocity(0,\ 0,\ 0.005,\ 0,\ 0,\ 0,\ 0)}
+\DoxyCodeLine{00148\ }
+\DoxyCodeLine{00149\ sim.Run(3.0)}
+
+\end{DoxyCodeInclude}
+ 

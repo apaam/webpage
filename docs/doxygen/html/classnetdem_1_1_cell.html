@@ -137,9 +137,13 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>Print</b> ()</td></tr
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a8cac2b018f1c1800dd25b89802535e90"><td class="memItemLeft" align="right" valign="top">Vec3d&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnetdem_1_1_cell.html#a8cac2b018f1c1800dd25b89802535e90">bound_min</a></td></tr>
+<tr class="memitem:a8cac2b018f1c1800dd25b89802535e90"><td class="memItemLeft" align="right" valign="top"><a id="a8cac2b018f1c1800dd25b89802535e90" name="a8cac2b018f1c1800dd25b89802535e90"></a>
+Vec3d&#160;</td><td class="memItemRight" valign="bottom"><b>bound_min</b> {-0.5, -0.5, -0.5}</td></tr>
+<tr class="memdesc:a8cac2b018f1c1800dd25b89802535e90"><td class="mdescLeft">&#160;</td><td class="mdescRight">The minimum coordinates of the cell's bounding box. <br /></td></tr>
 <tr class="separator:a8cac2b018f1c1800dd25b89802535e90"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae3d3ed4322434ef86d5cace1ba277443"><td class="memItemLeft" align="right" valign="top">Vec3d&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnetdem_1_1_cell.html#ae3d3ed4322434ef86d5cace1ba277443">bound_max</a></td></tr>
+<tr class="memitem:ae3d3ed4322434ef86d5cace1ba277443"><td class="memItemLeft" align="right" valign="top"><a id="ae3d3ed4322434ef86d5cace1ba277443" name="ae3d3ed4322434ef86d5cace1ba277443"></a>
+Vec3d&#160;</td><td class="memItemRight" valign="bottom"><b>bound_max</b> {0.5, 0.5, 0.5}</td></tr>
+<tr class="memdesc:ae3d3ed4322434ef86d5cace1ba277443"><td class="mdescLeft">&#160;</td><td class="mdescRight">The maximum coordinates of the cell's bounding box. <br /></td></tr>
 <tr class="separator:ae3d3ed4322434ef86d5cace1ba277443"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaaa3575af0d035fea16fd7b7e1287929"><td class="memItemLeft" align="right" valign="top"><a id="aaaa3575af0d035fea16fd7b7e1287929" name="aaaa3575af0d035fea16fd7b7e1287929"></a>
 VecXT&lt; std::pair&lt; <a class="el" href="classnetdem_1_1_particle.html">Particle</a> *, int &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>linked_particle_list</b></td></tr>
@@ -152,12 +156,7 @@ VecXT&lt; std::pair&lt; <a class="el" href="classnetdem_1_1_wall.html">Wall</a> 
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A class representing a cell in a simulation grid. </p>
-<p>cell is used for broad-phase contact detection. The particles in a sub-domain will first be sorted into cells, so that only the particles that fall in the same cell could be potentially contact with each other.</p><ul>
-<li>bound_min, bound_max: coordinates of the lower and upper boundary of the rectangle cell.</li>
-<li>particle_list: particles that fall in this cell.</li>
-<li>wall_list: walls that fall in this cell.</li>
-</ul>
-<p>This class keeps track of particles and walls that are located within its boundaries. </p>
+<p>This class keeps track of particles and walls that are located within its boundaries. It is used for broad-phase contact detection. The particles in a sub-domain will first be sorted into cells, so that only the particles that fall in the same cell could be potentially contact with each other. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ac04c905212af3d12f81f9466cf2d827a" name="ac04c905212af3d12f81f9466cf2d827a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac04c905212af3d12f81f9466cf2d827a">&#9670;&#160;</a></span>Cell()</h2>
@@ -290,43 +289,6 @@ VecXT&lt; std::pair&lt; <a class="el" href="classnetdem_1_1_wall.html">Wall</a> 
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>True if the particle and the wall are in the same cell, false otherwise. </dd></dl>
-
-</div>
-</div>
-<h2 class="groupheader">Member Data Documentation</h2>
-<a id="ae3d3ed4322434ef86d5cace1ba277443" name="ae3d3ed4322434ef86d5cace1ba277443"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae3d3ed4322434ef86d5cace1ba277443">&#9670;&#160;</a></span>bound_max</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">Vec3d netdem::Cell::bound_max</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">{</div>
-<div class="line">      0.5, 0.5,</div>
-<div class="line">      0.5}</div>
-</div><!-- fragment --><p>The maximum coordinates of the cell's bounding box. </p>
-
-</div>
-</div>
-<a id="a8cac2b018f1c1800dd25b89802535e90" name="a8cac2b018f1c1800dd25b89802535e90"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8cac2b018f1c1800dd25b89802535e90">&#9670;&#160;</a></span>bound_min</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">Vec3d netdem::Cell::bound_min</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">{</div>
-<div class="line">      -0.5, -0.5,</div>
-<div class="line">      -0.5}</div>
-</div><!-- fragment --><p>The minimum coordinates of the cell's bounding box. </p>
 
 </div>
 </div>

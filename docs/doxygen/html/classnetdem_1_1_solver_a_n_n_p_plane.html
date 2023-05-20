@@ -154,9 +154,9 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>ResolveUpdate_LinearS
 <tr class="memitem:a932b4c02cbdcda802997f23d8bbc2a5b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnetdem_1_1_solver_a_n_n_p_plane.html#a932b4c02cbdcda802997f23d8bbc2a5b">ResolveUpdate_PotentialBased</a> (<a class="el" href="classnetdem_1_1_collision_geometries.html">CollisionGeometries</a> *const cnt_geoms, double timestep)</td></tr>
 <tr class="memdesc:a932b4c02cbdcda802997f23d8bbc2a5b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resolves the collision using a potential-based method during update time.  <br /></td></tr>
 <tr class="separator:a932b4c02cbdcda802997f23d8bbc2a5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a88abe5394b1d53583fd55a459d1cc173"><td class="memItemLeft" align="right" valign="top">std::tuple&lt; double, Vec3d &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnetdem_1_1_solver_a_n_n_p_plane.html#a88abe5394b1d53583fd55a459d1cc173">Potential</a> (double dist, Vec3d const &amp;nn)</td></tr>
-<tr class="memdesc:a88abe5394b1d53583fd55a459d1cc173"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the potential energy and contact position for the collision.  <br /></td></tr>
-<tr class="separator:a88abe5394b1d53583fd55a459d1cc173"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad8f65e522a92e88f4f6d01abcf99b984"><td class="memItemLeft" align="right" valign="top">std::tuple&lt; double, Vec3d &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnetdem_1_1_solver_a_n_n_p_plane.html#ad8f65e522a92e88f4f6d01abcf99b984">GetPotential</a> (double dist, Vec3d const &amp;nn)</td></tr>
+<tr class="memdesc:ad8f65e522a92e88f4f6d01abcf99b984"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the potential energy and contact position for the collision.  <br /></td></tr>
+<tr class="separator:ad8f65e522a92e88f4f6d01abcf99b984"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a167ff6e8342b482d2a4ad358c47becaf"><td class="memItemLeft" align="right" valign="top">std::tuple&lt; double, Vec3d, Vec3d &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnetdem_1_1_solver_a_n_n_p_plane.html#a167ff6e8342b482d2a4ad358c47becaf">EvaluateContactForces</a> ()</td></tr>
 <tr class="memdesc:a167ff6e8342b482d2a4ad358c47becaf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Evaluates the contact forces for the collision.  <br /></td></tr>
 <tr class="separator:a167ff6e8342b482d2a4ad358c47becaf"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -212,6 +212,8 @@ Additional Inherited Members</h2></td></tr>
 <div class="textblock"><p>A class that represents a collision solver between a particle and a plane using artificial neural networks. </p>
 <p>concrete geometric solver for sphere and sphere contacts. </p>
 <p>The <code><a class="el" href="classnetdem_1_1_solver_a_n_n_p_plane.html" title="A class that represents a collision solver between a particle and a plane using artificial neural net...">SolverANNPPlane</a></code> class is a specific implementation of a collision solver between a particle and a plane using artificial neural networks. It provides functionality to detect and resolve collisions between a particle and a wall, as well as calculate potential energies and contact forces. </p>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="90_random_packing_trimesh_8cpp-example.html#_a23">90_random_packing_trimesh.cpp</a>, <a class="el" href="91_triaixal_comp_8cpp-example.html#_a23">91_triaixal_comp.cpp</a>, <a class="el" href="92_angle_of_repose_8cpp-example.html#_a23">92_angle_of_repose.cpp</a>, and <a class="el" href="96_random_packing_ellipsoid_8cpp-example.html#_a20">96_random_packing_ellipsoid.cpp</a>.</dd>
+</dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a5dae96674f3d3da9448374fa0b5dc617" name="a5dae96674f3d3da9448374fa0b5dc617"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5dae96674f3d3da9448374fa0b5dc617">&#9670;&#160;</a></span>SolverANNPPlane() <span class="overload">[1/2]</span></h2>
@@ -352,6 +354,45 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
+<a id="ad8f65e522a92e88f4f6d01abcf99b984" name="ad8f65e522a92e88f4f6d01abcf99b984"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad8f65e522a92e88f4f6d01abcf99b984">&#9670;&#160;</a></span>GetPotential()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::tuple&lt; double, Vec3d &gt; netdem::SolverANNPPlane::GetPotential </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>dist</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Vec3d const &amp;&#160;</td>
+          <td class="paramname"><em>nn</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Calculates the potential energy and contact position for the collision. </p>
+<p>This function calculates the potential energy and contact position for the collision given the distance between the particle and the wall and the normal vector of the wall.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dist</td><td>The distance between the particle and the wall. </td></tr>
+    <tr><td class="paramname">nn</td><td>The normal vector of the wall. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A tuple containing the potential energy and contact position. </dd></dl>
+
+</div>
+</div>
 <a id="ae10bd4dce3acde37a79ea4d058485a76" name="ae10bd4dce3acde37a79ea4d058485a76"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae10bd4dce3acde37a79ea4d058485a76">&#9670;&#160;</a></span>Init() <span class="overload">[1/2]</span></h2>
 
@@ -435,45 +476,8 @@ Additional Inherited Members</h2></td></tr>
   </table>
   </dd>
 </dl>
-
-</div>
-</div>
-<a id="a88abe5394b1d53583fd55a459d1cc173" name="a88abe5394b1d53583fd55a459d1cc173"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a88abe5394b1d53583fd55a459d1cc173">&#9670;&#160;</a></span>Potential()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::tuple&lt; double, Vec3d &gt; netdem::SolverANNPPlane::Potential </td>
-          <td>(</td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>dist</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">Vec3d const &amp;&#160;</td>
-          <td class="paramname"><em>nn</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Calculates the potential energy and contact position for the collision. </p>
-<p>This function calculates the potential energy and contact position for the collision given the distance between the particle and the wall and the normal vector of the wall.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">dist</td><td>The distance between the particle and the wall. </td></tr>
-    <tr><td class="paramname">nn</td><td>The normal vector of the wall. </td></tr>
-  </table>
-  </dd>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="90_random_packing_trimesh_8cpp-example.html#a24">90_random_packing_trimesh.cpp</a>, <a class="el" href="91_triaixal_comp_8cpp-example.html#a24">91_triaixal_comp.cpp</a>, <a class="el" href="92_angle_of_repose_8cpp-example.html#a24">92_angle_of_repose.cpp</a>, and <a class="el" href="96_random_packing_ellipsoid_8cpp-example.html#a21">96_random_packing_ellipsoid.cpp</a>.</dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>A tuple containing the potential energy and contact position. </dd></dl>
 
 </div>
 </div>

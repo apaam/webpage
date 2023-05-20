@@ -6,44 +6,36 @@
 \DoxyCodeLine{00002\ }
 \DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}modifier.hpp"{}}}
 \DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}particle.hpp"{}}}
-\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <cstdarg>}}
-\DoxyCodeLine{00006\ }
-\DoxyCodeLine{00007\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacenetdem}{netdem}}\ \{}
-\DoxyCodeLine{00008\ }
-\DoxyCodeLine{00015\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structnetdem_1_1_particle_energy}{ParticleEnergy}}\ \{}
-\DoxyCodeLine{00016\ \ \ \textcolor{keywordtype}{double}\ total\{0\},\ kinetic\{0\},\ gravitational\{0\},\ translational\{0\},}
-\DoxyCodeLine{00017\ \ \ \ \ \ \ rotational\{0\};}
-\DoxyCodeLine{00018\ \};}
-\DoxyCodeLine{00019\ }
-\DoxyCodeLine{00026\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classnetdem_1_1_particle_energy_evaluator}{ParticleEnergyEvaluator}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classnetdem_1_1_modifier}{Modifier}}\ \{}
-\DoxyCodeLine{00027\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00028\ \ \ VecXT<int>\ particle\_id\_list;}
-\DoxyCodeLine{00029\ \ \ VecXT<Particle\ *>\ particle\_list;}
-\DoxyCodeLine{00030\ \ \ VecXT<ParticleEnergy>\ particle\_energy\_list;}
-\DoxyCodeLine{00031\ }
-\DoxyCodeLine{00032\ \ \ \textcolor{keywordtype}{bool}\ use\_particles\_in\_scene\{\textcolor{keyword}{false}\};}
-\DoxyCodeLine{00033\ }
-\DoxyCodeLine{00037\ \ \ \mbox{\hyperlink{classnetdem_1_1_particle_energy_evaluator_ac9c82610021414f1daa8dee8340c02ec}{ParticleEnergyEvaluator}}();}
-\DoxyCodeLine{00038\ }
-\DoxyCodeLine{00043\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_particle_energy_evaluator_a637fc49163227d432d36459c6bd85915}{SetParticlesFromScene}}();}
-\DoxyCodeLine{00044\ }
-\DoxyCodeLine{00051\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_particle_energy_evaluator_a91bdc8413f99de246475eaf698758222}{SetParticles}}(\textcolor{keyword}{const}\ VecXT<int>\ \&id\_list);}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}particle\_group.hpp"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <cstdarg>}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacenetdem}{netdem}}\ \{}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00016\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structnetdem_1_1_particle_energy}{ParticleEnergy}}\ \{}
+\DoxyCodeLine{00017\ \ \ \textcolor{keywordtype}{double}\ total\{0\},\ kinetic\{0\},\ gravitational\{0\},\ translational\{0\},}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ rotational\{0\};}
+\DoxyCodeLine{00019\ \};}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00027\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classnetdem_1_1_particle_energy_evaluator}{ParticleEnergyEvaluator}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classnetdem_1_1_particle_group}{ParticleGroup}}\ \{}
+\DoxyCodeLine{00028\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00029\ \ \ VecXT<ParticleEnergy>\ particle\_energy\_list;}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00034\ \ \ \mbox{\hyperlink{classnetdem_1_1_particle_energy_evaluator_ac9c82610021414f1daa8dee8340c02ec}{ParticleEnergyEvaluator}}();}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00042\ \ \ \mbox{\hyperlink{structnetdem_1_1_particle_energy}{ParticleEnergy}}\ \mbox{\hyperlink{classnetdem_1_1_particle_energy_evaluator_a8783e87357faac50175b1f7317577b2a}{GetEnergy}}();}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00051\ \ \ \mbox{\hyperlink{structnetdem_1_1_particle_energy}{ParticleEnergy}}\ \mbox{\hyperlink{classnetdem_1_1_particle_energy_evaluator_a8783e87357faac50175b1f7317577b2a}{GetEnergy}}(\mbox{\hyperlink{classnetdem_1_1_particle}{Particle}}\ *\textcolor{keyword}{const}\ p);}
 \DoxyCodeLine{00052\ }
-\DoxyCodeLine{00060\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_particle_energy_evaluator_a91bdc8413f99de246475eaf698758222}{SetParticles}}(\textcolor{keywordtype}{int}\ num\_ids,\ ...);}
-\DoxyCodeLine{00061\ }
-\DoxyCodeLine{00068\ \ \ \mbox{\hyperlink{structnetdem_1_1_particle_energy}{ParticleEnergy}}\ \mbox{\hyperlink{classnetdem_1_1_particle_energy_evaluator_a8783e87357faac50175b1f7317577b2a}{GetEnergy}}();}
-\DoxyCodeLine{00069\ }
-\DoxyCodeLine{00077\ \ \ \mbox{\hyperlink{structnetdem_1_1_particle_energy}{ParticleEnergy}}\ \mbox{\hyperlink{classnetdem_1_1_particle_energy_evaluator_a8783e87357faac50175b1f7317577b2a}{GetEnergy}}(\mbox{\hyperlink{classnetdem_1_1_particle}{Particle}}\ *\textcolor{keyword}{const}\ p);}
+\DoxyCodeLine{00058\ \ \ \mbox{\hyperlink{classnetdem_1_1_modifier}{Modifier}}\ *\mbox{\hyperlink{classnetdem_1_1_particle_energy_evaluator_aab2645d6a1d7a81a7a5a4f3cfe3a95bd}{Clone}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00066\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_particle_energy_evaluator_a6c46fc3bf34599e35f95e0ab2a30d743}{Execute}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00076\ \ \ \textcolor{keyword}{static}\ VecXT<ParticleEnergy>\ \mbox{\hyperlink{classnetdem_1_1_particle_energy_evaluator_a6c46fc3bf34599e35f95e0ab2a30d743}{Execute}}(\textcolor{keyword}{const}\ VecXT<Particle\ *>\ \&p\_list,}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Vec3d\ gravity\_coef);}
 \DoxyCodeLine{00078\ }
-\DoxyCodeLine{00084\ \ \ \mbox{\hyperlink{classnetdem_1_1_modifier}{Modifier}}\ *\mbox{\hyperlink{classnetdem_1_1_particle_energy_evaluator_aab2645d6a1d7a81a7a5a4f3cfe3a95bd}{Clone}}()\ \textcolor{keyword}{const\ override};}
-\DoxyCodeLine{00085\ }
-\DoxyCodeLine{00092\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_particle_energy_evaluator_a6c46fc3bf34599e35f95e0ab2a30d743}{Execute}}()\ \textcolor{keyword}{override};}
-\DoxyCodeLine{00093\ }
-\DoxyCodeLine{00100\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_particle_energy_evaluator_a6c46fc3bf34599e35f95e0ab2a30d743}{Execute}}(\textcolor{keyword}{const}\ VecXT<Particle\ *>\ \&p\_list);}
-\DoxyCodeLine{00101\ }
-\DoxyCodeLine{00108\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_particle_energy_evaluator_a99beaf0b9e66e3d8ce68a08ef3c19b16}{Update}}()\ \textcolor{keyword}{override};}
-\DoxyCodeLine{00109\ \};}
-\DoxyCodeLine{00110\ }
-\DoxyCodeLine{00111\ \}\ \textcolor{comment}{//\ namespace\ netdem}}
+\DoxyCodeLine{00085\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_particle_energy_evaluator_a99beaf0b9e66e3d8ce68a08ef3c19b16}{Update}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00086\ \};}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00088\ \}\ \textcolor{comment}{//\ namespace\ netdem}}
 
 \end{DoxyCode}

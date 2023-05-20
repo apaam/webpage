@@ -20,43 +20,17 @@
 \DoxyCodeLine{00029\ }
 \DoxyCodeLine{00033\ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classnetdem_1_1_peri_digm_damage_model_a091eb71a03bebf943bb229fd77347e5d}{critical\_stretch}}\{1.0e-\/2\};}
 \DoxyCodeLine{00034\ }
-\DoxyCodeLine{00046\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_peri_digm_damage_model_a0ff75741fa5aca79be571ac02d7eb853}{InitFromEnergyReleaseRate}}(\textcolor{keywordtype}{double}\ youngs\_modulus,\ \textcolor{keywordtype}{double}\ poissons\_ratio,}
-\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ horizon,\ \textcolor{keywordtype}{double}\ energy\_release\_rate)\ \{}
-\DoxyCodeLine{00048\ \ \ \ \ \mbox{\hyperlink{classnetdem_1_1_peri_digm_damage_model_a091eb71a03bebf943bb229fd77347e5d}{critical\_stretch}}\ =\ \mbox{\hyperlink{classnetdem_1_1_peri_digm_damage_model_a3e555e94b9f67558aa934c8042339128}{GetStretchFromEnergyReleaseRate}}(}
-\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ youngs\_modulus,\ poissons\_ratio,\ horizon,\ energy\_release\_rate);}
-\DoxyCodeLine{00050\ \ \ \}}
-\DoxyCodeLine{00051\ }
-\DoxyCodeLine{00065\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classnetdem_1_1_peri_digm_damage_model_a3e555e94b9f67558aa934c8042339128}{GetStretchFromEnergyReleaseRate}}(\textcolor{keywordtype}{double}\ youngs\_modulus,}
-\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ poissons\_ratio,}
-\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ horizon,}
-\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ energy\_release\_rate)\ \{}
-\DoxyCodeLine{00069\ \ \ \ \ \textcolor{keywordtype}{double}\ shear\_modulus\ =\ youngs\_modulus\ /\ 2.0\ /\ (1.0\ +\ poissons\_ratio);}
-\DoxyCodeLine{00070\ \ \ \ \ \textcolor{keywordtype}{double}\ bulk\_modulus\ =\ youngs\_modulus\ /\ 3.0\ /\ (1.0\ -\/\ 2.0\ *\ poissons\_ratio);}
-\DoxyCodeLine{00071\ }
-\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keywordflow}{return}\ sqrt(energy\_release\_rate\ /}
-\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (3.0\ *\ shear\_modulus\ +}
-\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 81.0\ /\ 256.0\ *\ (bulk\_modulus\ -\/\ 5.0\ /\ 3.0\ *\ shear\_modulus))\ /}
-\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ horizon);}
-\DoxyCodeLine{00076\ \ \ \}}
+\DoxyCodeLine{00046\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_peri_digm_damage_model_abb8f4836520d43e7bc67ce5e9d3d7d41}{InitFromEnergyReleaseRate}}(\textcolor{keywordtype}{double}\ youngs\_modulus,\ \textcolor{keywordtype}{double}\ poissons\_ratio,}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ horizon,\ \textcolor{keywordtype}{double}\ energy\_release\_rate);}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00062\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classnetdem_1_1_peri_digm_damage_model_a7b79fdad05445a1ba2a9e91072e2ac73}{GetStretchFromEnergyReleaseRate}}(\textcolor{keywordtype}{double}\ youngs\_modulus,}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ poissons\_ratio,}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ horizon,}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ energy\_release\_rate);}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00075\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_peri_digm_damage_model_ab6ef18da28a0f69a63bff8ad291b98fe}{WriteInputFile}}(std::ostream\ \&os,\ \textcolor{keywordtype}{int}\ damage\_model\_id);}
+\DoxyCodeLine{00076\ \};}
 \DoxyCodeLine{00077\ }
-\DoxyCodeLine{00086\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_peri_digm_damage_model_aca722f21c05cbccf4b21122eec0dedf5}{WriteInputFile}}(std::ostream\ \&os,\ \textcolor{keywordtype}{int}\ damage\_model\_id)\ \{}
-\DoxyCodeLine{00087\ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\ \ \ \ My\ Damage\ Model\ "{}}\ +\ std::to\_string(damage\_model\_id\ +\ 1)\ +\ \textcolor{stringliteral}{"{}:\ "{}}}
-\DoxyCodeLine{00088\ \ \ \ \ \ \ \ <<\ std::endl;}
-\DoxyCodeLine{00089\ \ \ \ \ \textcolor{keywordflow}{switch}\ (\mbox{\hyperlink{classnetdem_1_1_peri_digm_damage_model_ac5a12f3415fed0363b44230bae0e800b}{type}})\ \{}
-\DoxyCodeLine{00090\ \ \ \ \ \textcolor{keywordflow}{case}\ Type::Critical\_Stretch:}
-\DoxyCodeLine{00091\ \ \ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\ \ \ \ \ \ Damage\ Model\ :\ \(\backslash\)"{}Critical\ Stretch\(\backslash\)"{}"{}}\ <<\ std::endl;}
-\DoxyCodeLine{00092\ \ \ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\ \ \ \ \ \ Critical\ Stretch:\ "{}}\ +\ IO::to\_string(\mbox{\hyperlink{classnetdem_1_1_peri_digm_damage_model_a091eb71a03bebf943bb229fd77347e5d}{critical\_stretch}})}
-\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \ <<\ std::endl;}
-\DoxyCodeLine{00094\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
-\DoxyCodeLine{00095\ }
-\DoxyCodeLine{00096\ \ \ \ \ \textcolor{keywordflow}{default}:}
-\DoxyCodeLine{00097\ \ \ \ \ \ \ IO::PrintError(}
-\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}in\ PeriDigmDamageModel::WriteToFile,\ damage\ model\ type\ not\ defined"{}});}
-\DoxyCodeLine{00099\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
-\DoxyCodeLine{00100\ \ \ \ \ \}}
-\DoxyCodeLine{00101\ \ \ \}}
-\DoxyCodeLine{00102\ \};}
-\DoxyCodeLine{00103\ }
-\DoxyCodeLine{00104\ \}\ \textcolor{comment}{//\ namespace\ netdem}}
+\DoxyCodeLine{00078\ \}\ \textcolor{comment}{//\ namespace\ netdem}}
 
 \end{DoxyCode}

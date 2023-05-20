@@ -11,9 +11,12 @@ var searchData=
   ['femsimulator_8',['FEMSimulator',['../classnetdem_1_1_f_e_m_simulator.html#a8103473aceb78ca3591a99ba7ea97b18',1,'netdem::FEMSimulator::FEMSimulator()'],['../classnetdem_1_1_f_e_m_simulator.html',1,'netdem::FEMSimulator']]],
   ['findmodifier_9',['FindModifier',['../classnetdem_1_1_modifier_manager.html#a394fb1f03924b6a5251b8bc687973779',1,'netdem::ModifierManager::FindModifier(std::string const &amp;label)'],['../classnetdem_1_1_modifier_manager.html#a099c246c7b07fd3fa6e11f231546549e',1,'netdem::ModifierManager::FindModifier(Modifier *const e)']]],
   ['fixed_5fnodes_10',['fixed_nodes',['../classnetdem_1_1_peri_digm_d_e_m_coupler.html#a7a7776e0507b39fb863a0d8268d3b5c3',1,'netdem::PeriDigmDEMCoupler']]],
-  ['force_11',['force',['../classnetdem_1_1_contact_forces.html#a3617e9cdf233c23b2666c83f3e99c7d2',1,'netdem::ContactForces::force()'],['../classnetdem_1_1_wall.html#a1265b814df37bae5a511deff0f2b0b10',1,'netdem::Wall::force()']]],
-  ['force_5fn_12',['force_n',['../classnetdem_1_1_contact_forces.html#a46f538665a9aa27282a5ee40f2b14472',1,'netdem::ContactForces']]],
-  ['force_5ft_13',['force_t',['../classnetdem_1_1_contact_forces.html#a90281b8f530986a2cd1797af844f720b',1,'netdem::ContactForces']]],
-  ['fragment_5falpha_14',['fragment_alpha',['../classnetdem_1_1_peri_digm_d_e_m_coupler.html#a96b822eeba61ae47783142e7972f4196',1,'netdem::PeriDigmDEMCoupler']]],
-  ['fragment_5fvol_5flimit_15',['fragment_vol_limit',['../classnetdem_1_1_peri_digm_d_e_m_coupler.html#a9f441391e37bd2c24f5682acba8529ee',1,'netdem::PeriDigmDEMCoupler']]]
+  ['fixspin_11',['FixSpin',['../classnetdem_1_1_wall_motion_control.html#ac00abc23215d898a82ed664a18fff2f7',1,'netdem::WallMotionControl']]],
+  ['fixvelocity_12',['FixVelocity',['../classnetdem_1_1_wall_motion_control.html#a017cb52d3948ea6b52a6c5fe9cda0ec4',1,'netdem::WallMotionControl']]],
+  ['force_13',['force',['../classnetdem_1_1_contact_forces.html#a3617e9cdf233c23b2666c83f3e99c7d2',1,'netdem::ContactForces::force()'],['../classnetdem_1_1_wall.html#a1265b814df37bae5a511deff0f2b0b10',1,'netdem::Wall::force()']]],
+  ['force_5flist_14',['force_list',['../classnetdem_1_1_external_force.html#aa8e610968f6bc4c4b5649b06e5aa1abf',1,'netdem::ExternalForce']]],
+  ['force_5fn_15',['force_n',['../classnetdem_1_1_contact_forces.html#a46f538665a9aa27282a5ee40f2b14472',1,'netdem::ContactForces']]],
+  ['force_5ft_16',['force_t',['../classnetdem_1_1_contact_forces.html#a90281b8f530986a2cd1797af844f720b',1,'netdem::ContactForces']]],
+  ['fragment_5falpha_17',['fragment_alpha',['../classnetdem_1_1_peri_digm_d_e_m_coupler.html#a96b822eeba61ae47783142e7972f4196',1,'netdem::PeriDigmDEMCoupler']]],
+  ['fragment_5fvol_5flimit_18',['fragment_vol_limit',['../classnetdem_1_1_peri_digm_d_e_m_coupler.html#a9f441391e37bd2c24f5682acba8529ee',1,'netdem::PeriDigmDEMCoupler']]]
 ];

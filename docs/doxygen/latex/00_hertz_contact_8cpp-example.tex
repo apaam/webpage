@@ -1,0 +1,86 @@
+\hypertarget{00_hertz_contact_8cpp-example}{}\doxysection{00\+\_\+hertz\+\_\+contact.\+cpp}
+This is an example of how to use the netdem library.
+
+
+\begin{DoxyCodeInclude}{0}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}deformable\_particle.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}gen\_wall\_box\_plane.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}model\_linear\_spring.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}shape\_sphere.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}solver\_sdf\_pw.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ <filesystem>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{using\ namespace\ }\mbox{\hyperlink{namespacenetdem}{netdem}};}
+\DoxyCodeLine{\textcolor{keyword}{using\ namespace\ }std;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ HertzContact()\ \{}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{classnetdem_1_1_tri_mesh}{TriMesh}}\ trimesh;}
+\DoxyCodeLine{\ \ trimesh.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_a1dc42a1f9439c900d76f213155ebb56d}{InitFromSTL}}(\textcolor{stringliteral}{"{}data/sphere.stl"{}});}
+\DoxyCodeLine{\ \ trimesh.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_aa2378c12f277056e112f8e6a0b31669b}{SetSize}}(1.0);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{classnetdem_1_1_deformable_particle}{DeformableParticle}}\ p;}
+\DoxyCodeLine{\ \ p.\mbox{\hyperlink{classnetdem_1_1_deformable_particle_a5ee92016b8d861281eadaf84695a911d}{SetShape}}(\&trimesh);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{classnetdem_1_1_plane}{Plane}}\ plane\_1(0,\ 0,\ -\/0.45,\ 0,\ 0,\ 1);}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{classnetdem_1_1_wall}{Wall}}\ w\_1\ =\ \mbox{\hyperlink{classnetdem_1_1_wall}{Wall}}(\&plane\_1);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{classnetdem_1_1_plane}{Plane}}\ plane\_2(0,\ 0,\ 0.45,\ 0,\ 0,\ -\/1);}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{classnetdem_1_1_wall}{Wall}}\ w\_2\ =\ \mbox{\hyperlink{classnetdem_1_1_wall}{Wall}}(\&plane\_2);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{classnetdem_1_1_linear_spring}{LinearSpring}}\ cnt\_model\ =\ \mbox{\hyperlink{classnetdem_1_1_linear_spring}{LinearSpring}}(2.0e6,\ 0.0,\ 0.0,\ 0.0);}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{classnetdem_1_1_solver_s_d_f_p_w}{SolverSDFPW}}\ cnt\_solver(\&p,\ \&w\_1);}
+\DoxyCodeLine{\ \ cnt\_solver.potential\_type\ =\ 0;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{keywordtype}{double}\ dt\ =\ 1.0e-\/4;}
+\DoxyCodeLine{\ \ p.\mbox{\hyperlink{classnetdem_1_1_deformable_particle_ad36ab5d51fbd4a0f3d39bf68a990d47c}{fem\_simulator}}.\mbox{\hyperlink{classnetdem_1_1_f_e_m_simulator_a6690d61908a1e5db55b618b2e53484a2}{gravity\_coef}}[2]\ =\ 0.0;}
+\DoxyCodeLine{\ \ p.\mbox{\hyperlink{classnetdem_1_1_deformable_particle_ad36ab5d51fbd4a0f3d39bf68a990d47c}{fem\_simulator}}.\mbox{\hyperlink{classnetdem_1_1_f_e_m_simulator_a011ee17fdeb932f09541e6d8812eab46}{timestep}}\ =\ 1.0e-\/5;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{keywordtype}{string}\ root\_dir\ =\ \textcolor{stringliteral}{"{}tmp/examples/deformable\_particle/hertz\_contact/"{}};}
+\DoxyCodeLine{\ \ filesystem::create\_directories(root\_dir);}
+\DoxyCodeLine{\ \ p.\mbox{\hyperlink{classnetdem_1_1_deformable_particle_aaa3fe30e53372abc97acfe2e97f3ed0b}{SaveAsVTK}}(root\_dir\ +\ \textcolor{stringliteral}{"{}particle\_000.vtk"{}});}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{keywordtype}{double}\ fz\ =\ 0;}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ ti\ =\ 0;\ ti\ <\ 100;\ ti++)\ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ tj\ =\ 0;\ tj\ <\ 50;\ tj++)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ p.\mbox{\hyperlink{classnetdem_1_1_deformable_particle_a41df46b2a3ba9cf0e646206007072936}{ClearForce}}();}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ cnt\_solver.\mbox{\hyperlink{classnetdem_1_1_solver_s_d_f_p_w_a63fb7fbf9bd6e3e59643fab40f50676e}{Init}}(\&p,\ \&w\_1);}
+\DoxyCodeLine{\ \ \ \ \ \ \textcolor{keywordflow}{if}\ (cnt\_solver.\mbox{\hyperlink{classnetdem_1_1_solver_s_d_f_p_w_a12a223019a63d13ec271f8f984f45ecb}{Detect}}())\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \mbox{\hyperlink{classnetdem_1_1_contact_p_w}{ContactPW}}\ cnt\ =\ \mbox{\hyperlink{classnetdem_1_1_contact_p_w}{ContactPW}}(\&p,\ \&w\_1);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ cnt.\mbox{\hyperlink{classnetdem_1_1_contact_p_w_a950d133d3ecd7be1cdc1536b7143c6e8}{SetCollisionModel}}(\&cnt\_model);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ cnt\_solver.\mbox{\hyperlink{classnetdem_1_1_solver_s_d_f_p_w_a36a0052e769c792ea93ecdb1569b5729}{ResolveInit}}(\&cnt,\ dt);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ cnt.\mbox{\hyperlink{classnetdem_1_1_contact_p_w_a51a1fa703dd02db2940e3f8dce5e72ac}{EvaluateForceMoment}}(dt);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ ii\ =\ 0;\ ii\ <\ cnt.\mbox{\hyperlink{classnetdem_1_1_contact_p_w_a016b7b2a4da87f0015070262afb2879c}{collision\_entries}}.size();\ ii++)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ p.\mbox{\hyperlink{classnetdem_1_1_deformable_particle_ad119daee07ad91b901b7d41817189ed4}{AddForce}}(cnt.\mbox{\hyperlink{classnetdem_1_1_contact_p_w_a016b7b2a4da87f0015070262afb2879c}{collision\_entries}}[ii].cnt\_geoms.node\_id,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cnt.\mbox{\hyperlink{classnetdem_1_1_contact_p_w_a016b7b2a4da87f0015070262afb2879c}{collision\_entries}}[ii].cnt\_forces.force);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ \ \ cnt\_solver.\mbox{\hyperlink{classnetdem_1_1_solver_s_d_f_p_w_a63fb7fbf9bd6e3e59643fab40f50676e}{Init}}(\&p,\ \&w\_2);}
+\DoxyCodeLine{\ \ \ \ \ \ fz\ =\ 0;}
+\DoxyCodeLine{\ \ \ \ \ \ \textcolor{keywordflow}{if}\ (cnt\_solver.\mbox{\hyperlink{classnetdem_1_1_solver_s_d_f_p_w_a12a223019a63d13ec271f8f984f45ecb}{Detect}}())\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \mbox{\hyperlink{classnetdem_1_1_contact_p_w}{ContactPW}}\ cnt\ =\ \mbox{\hyperlink{classnetdem_1_1_contact_p_w}{ContactPW}}(\&p,\ \&w\_2);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ cnt.\mbox{\hyperlink{classnetdem_1_1_contact_p_w_a950d133d3ecd7be1cdc1536b7143c6e8}{SetCollisionModel}}(\&cnt\_model);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ cnt\_solver.\mbox{\hyperlink{classnetdem_1_1_solver_s_d_f_p_w_a36a0052e769c792ea93ecdb1569b5729}{ResolveInit}}(\&cnt,\ dt);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ cnt.\mbox{\hyperlink{classnetdem_1_1_contact_p_w_a51a1fa703dd02db2940e3f8dce5e72ac}{EvaluateForceMoment}}(dt);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ ii\ =\ 0;\ ii\ <\ cnt.\mbox{\hyperlink{classnetdem_1_1_contact_p_w_a016b7b2a4da87f0015070262afb2879c}{collision\_entries}}.size();\ ii++)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ p.\mbox{\hyperlink{classnetdem_1_1_deformable_particle_ad119daee07ad91b901b7d41817189ed4}{AddForce}}(cnt.\mbox{\hyperlink{classnetdem_1_1_contact_p_w_a016b7b2a4da87f0015070262afb2879c}{collision\_entries}}[ii].cnt\_geoms.node\_id,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cnt.\mbox{\hyperlink{classnetdem_1_1_contact_p_w_a016b7b2a4da87f0015070262afb2879c}{collision\_entries}}[ii].cnt\_forces.force);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ fz\ +=\ cnt.\mbox{\hyperlink{classnetdem_1_1_contact_p_w_a016b7b2a4da87f0015070262afb2879c}{collision\_entries}}[ii].cnt\_forces.force[2];}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ \ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ p.\mbox{\hyperlink{classnetdem_1_1_deformable_particle_a4cd11ccb26fc06a51a1f0928252deaaf}{UpdateMotion}}(dt);}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}contact\ force\ z:"{}}\ <<\ abs(fz)\ <<\ endl;}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{char}\ filename[128];}
+\DoxyCodeLine{\ \ \ \ snprintf(filename,\ 128,\ \textcolor{stringliteral}{"{}particle\_\%03d.vtk"{}},\ ti\ +\ 1);}
+\DoxyCodeLine{\ \ \ \ p.\mbox{\hyperlink{classnetdem_1_1_deformable_particle_aaa3fe30e53372abc97acfe2e97f3ed0b}{SaveAsVTK}}(root\_dir\ +\ filename);}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCodeInclude}
+ 

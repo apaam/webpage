@@ -1,0 +1,59 @@
+\hypertarget{15_test_regressor_trimesh_8cpp-example}{}\doxysection{15\+\_\+test\+\_\+regressor\+\_\+trimesh.\+cpp}
+This is an example of how to use the netdem library.
+
+
+\begin{DoxyCodeInclude}{0}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}general\_net.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}mlpack\_utils.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}regression\_net.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}utils\_math.hpp"{}}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{using\ namespace\ }\mbox{\hyperlink{namespacenetdem}{netdem}};}
+\DoxyCodeLine{\textcolor{keyword}{using\ namespace\ }std;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ TestRegressorTrimesh(\textcolor{keywordtype}{int}\ id\_comp\ =\ 0)\ \{}
+\DoxyCodeLine{\ \ \textcolor{keywordtype}{string}\ root\_dir\ =\ \textcolor{stringliteral}{"{}local/examples/netdem/ann\_models/trimesh\_trimesh/"{}};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ arma::mat\ dataset;}
+\DoxyCodeLine{\ \ \textcolor{keywordtype}{bool}\ loadedDataset\ =}
+\DoxyCodeLine{\ \ \ \ \ \ mlpack::data::Load(root\_dir\ +\ \textcolor{stringliteral}{"{}dataset\_resolution.txt"{}},\ dataset,\ \textcolor{keyword}{true});}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{if}\ (!loadedDataset)\ \{}
+\DoxyCodeLine{\ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}loading\ data\ erros\ ..."{}}\ <<\ endl;}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{\ \ \textcolor{comment}{//\ element\ 7\ and\ 8\ are\ the\ volume\ and\ equivalent\ cross-\/section\ area}}
+\DoxyCodeLine{\ \ \textcolor{comment}{//\ scale\ so\ that\ they\ are\ in\ the\ same\ unit\ space\ as\ particle\ size}}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ dataset.n\_cols;\ i++)\ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{auto}\ tmp\_sgn\ =\ Math::Sign(dataset(3,\ i));}
+\DoxyCodeLine{\ \ \ \ dataset(3,\ i)\ =\ tmp\_sgn\ *\ dataset(3,\ i);}
+\DoxyCodeLine{\ \ \ \ dataset(4,\ i)\ =\ tmp\_sgn\ *\ dataset(4,\ i);}
+\DoxyCodeLine{\ \ \ \ dataset(5,\ i)\ =\ tmp\_sgn\ *\ dataset(5,\ i);}
+\DoxyCodeLine{\ \ \ \ dataset(6,\ i)\ =\ tmp\_sgn\ *\ dataset(6,\ i);}
+\DoxyCodeLine{\ \ \ \ dataset(7,\ i)\ =\ sqrt(dataset(7,\ i))\ *\ 40.0;}
+\DoxyCodeLine{\ \ \ \ dataset(8,\ i)\ =\ dataset(8,\ i)\ *\ 40.0;}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{\ \ cout\ <<\ \textcolor{stringliteral}{"{}finished\ loading\ data\ ..."{}}\ <<\ endl;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ arma::mat\ test\_data\ =\ dataset;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{keywordtype}{int}\ num\_x\{7\},\ num\_y\{8\};}
+\DoxyCodeLine{\ \ arma::mat\ test\_x\ =\ test\_data.rows(0,\ num\_x\ -\/\ 1);}
+\DoxyCodeLine{\ \ arma::mat\ test\_y\ =\ test\_data.rows(num\_x,\ num\_x\ +\ num\_y\ -\/\ 1);}
+\DoxyCodeLine{\ \ cout\ <<\ \textcolor{stringliteral}{"{}finished\ preparing\ training\ and\ testing\ data\ ..."{}}\ <<\ endl;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{classnetdem_1_1_regression_net}{RegressionNet}}\ model;}
+\DoxyCodeLine{\ \ model.\mbox{\hyperlink{classnetdem_1_1_regression_net_a4802cc4f75ad194e3a1136ee85bdb8e6}{Load}}(root\_dir\ +\ \textcolor{stringliteral}{"{}ann\_regressor.xml"{}},\ \textcolor{stringliteral}{"{}resolution"{}});}
+\DoxyCodeLine{\ \ cout\ <<\ \textcolor{stringliteral}{"{}finished\ loading\ ann\ model\ ..."{}}\ <<\ endl;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{keyword}{auto}\ pred\_y\ =\ model.\mbox{\hyperlink{classnetdem_1_1_regression_net_ad0a454915d74f397ea4b6ce40c46f84e}{Predict}}(test\_x);}
+\DoxyCodeLine{\ \ \textcolor{keywordtype}{double}\ test\_accuracy\ =}
+\DoxyCodeLine{\ \ \ \ \ \ MLPackUtils::GetMAE(pred\_y.rows(id\_comp,\ id\_comp),\ test\_y.rows(id\_comp,\ id\_comp));}
+\DoxyCodeLine{\ \ cout\ <<\ \textcolor{stringliteral}{"{}test\ mae:\ "{}}\ <<\ test\_accuracy\ <<\ endl;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ arma::mat\ joined\_yy\ =\ std::move(arma::join\_cols(pred\_y,\ test\_y));}
+\DoxyCodeLine{\ \ mlpack::data::Save(root\_dir\ +\ \textcolor{stringliteral}{"{}pred\_vs\_true\_resolution.txt"{}},\ joined\_yy,\ \textcolor{keyword}{false},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{true},\ mlpack::data::FileType::CSVASCII);}
+\DoxyCodeLine{\}}
+
+\end{DoxyCodeInclude}
+ 

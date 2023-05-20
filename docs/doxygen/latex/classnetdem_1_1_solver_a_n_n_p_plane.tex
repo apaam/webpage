@@ -48,7 +48,7 @@ void \mbox{\hyperlink{classnetdem_1_1_solver_a_n_n_p_plane_aa0cc3ab5251fcb650179
 \begin{DoxyCompactList}\small\item\em Resolves the collision using a potential-\/based method at initialization time. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classnetdem_1_1_solver_a_n_n_p_plane_a932b4c02cbdcda802997f23d8bbc2a5b}{Resolve\+Update\+\_\+\+Potential\+Based}} (\mbox{\hyperlink{classnetdem_1_1_collision_geometries}{Collision\+Geometries}} $\ast$const cnt\+\_\+geoms, double timestep)
 \begin{DoxyCompactList}\small\item\em Resolves the collision using a potential-\/based method during update time. \end{DoxyCompactList}\item 
-std\+::tuple$<$ double, Vec3d $>$ \mbox{\hyperlink{classnetdem_1_1_solver_a_n_n_p_plane_a88abe5394b1d53583fd55a459d1cc173}{Potential}} (double dist, Vec3d const \&nn)
+std\+::tuple$<$ double, Vec3d $>$ \mbox{\hyperlink{classnetdem_1_1_solver_a_n_n_p_plane_ad8f65e522a92e88f4f6d01abcf99b984}{Get\+Potential}} (double dist, Vec3d const \&nn)
 \begin{DoxyCompactList}\small\item\em Calculates the potential energy and contact position for the collision. \end{DoxyCompactList}\item 
 std\+::tuple$<$ double, Vec3d, Vec3d $>$ \mbox{\hyperlink{classnetdem_1_1_solver_a_n_n_p_plane_a167ff6e8342b482d2a4ad358c47becaf}{Evaluate\+Contact\+Forces}} ()
 \begin{DoxyCompactList}\small\item\em Evaluates the contact forces for the collision. \end{DoxyCompactList}\end{DoxyCompactItemize}
@@ -107,7 +107,10 @@ A class that represents a collision solver between a particle and a plane using 
 
 concrete geometric solver for sphere and sphere contacts. 
 
-The {\ttfamily \mbox{\hyperlink{classnetdem_1_1_solver_a_n_n_p_plane}{Solver\+ANNPPlane}}} class is a specific implementation of a collision solver between a particle and a plane using artificial neural networks. It provides functionality to detect and resolve collisions between a particle and a wall, as well as calculate potential energies and contact forces. 
+The {\ttfamily \mbox{\hyperlink{classnetdem_1_1_solver_a_n_n_p_plane}{Solver\+ANNPPlane}}} class is a specific implementation of a collision solver between a particle and a plane using artificial neural networks. It provides functionality to detect and resolve collisions between a particle and a wall, as well as calculate potential energies and contact forces. \begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{90_random_packing_trimesh_8cpp-example}{90\+\_\+random\+\_\+packing\+\_\+trimesh.\+cpp}}, \mbox{\hyperlink{91_triaixal_comp_8cpp-example}{91\+\_\+triaixal\+\_\+comp.\+cpp}}, \mbox{\hyperlink{92_angle_of_repose_8cpp-example}{92\+\_\+angle\+\_\+of\+\_\+repose.\+cpp}}, and \mbox{\hyperlink{96_random_packing_ellipsoid_8cpp-example}{96\+\_\+random\+\_\+packing\+\_\+ellipsoid.\+cpp}}.\end{Desc}
+
 
 \doxysubsection{Constructor \& Destructor Documentation}
 \mbox{\Hypertarget{classnetdem_1_1_solver_a_n_n_p_plane_a5dae96674f3d3da9448374fa0b5dc617}\label{classnetdem_1_1_solver_a_n_n_p_plane_a5dae96674f3d3da9448374fa0b5dc617}} 
@@ -186,6 +189,28 @@ This function evaluates the contact forces for the collision and returns them as
 \begin{DoxyReturn}{Returns}
 A tuple containing the force, moment, and position vectors. 
 \end{DoxyReturn}
+\mbox{\Hypertarget{classnetdem_1_1_solver_a_n_n_p_plane_ad8f65e522a92e88f4f6d01abcf99b984}\label{classnetdem_1_1_solver_a_n_n_p_plane_ad8f65e522a92e88f4f6d01abcf99b984}} 
+\index{netdem::SolverANNPPlane@{netdem::SolverANNPPlane}!GetPotential@{GetPotential}}
+\index{GetPotential@{GetPotential}!netdem::SolverANNPPlane@{netdem::SolverANNPPlane}}
+\doxysubsubsection{\texorpdfstring{GetPotential()}{GetPotential()}}
+{\footnotesize\ttfamily std\+::tuple$<$ double, Vec3d $>$ netdem\+::\+Solver\+ANNPPlane\+::\+Get\+Potential (\begin{DoxyParamCaption}\item[{double}]{dist,  }\item[{Vec3d const \&}]{nn }\end{DoxyParamCaption})}
+
+
+
+Calculates the potential energy and contact position for the collision. 
+
+This function calculates the potential energy and contact position for the collision given the distance between the particle and the wall and the normal vector of the wall.
+
+
+\begin{DoxyParams}{Parameters}
+{\em dist} & The distance between the particle and the wall. \\
+\hline
+{\em nn} & The normal vector of the wall. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A tuple containing the potential energy and contact position. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{classnetdem_1_1_solver_a_n_n_p_plane_ae10bd4dce3acde37a79ea4d058485a76}\label{classnetdem_1_1_solver_a_n_n_p_plane_ae10bd4dce3acde37a79ea4d058485a76}} 
 \index{netdem::SolverANNPPlane@{netdem::SolverANNPPlane}!Init@{Init}}
 \index{Init@{Init}!netdem::SolverANNPPlane@{netdem::SolverANNPPlane}}
@@ -228,28 +253,9 @@ This function initializes the collision solver with neural network models loaded
 {\em regressor\+\_\+file} & The name of the file containing the regression model data. \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{classnetdem_1_1_solver_a_n_n_p_plane_a88abe5394b1d53583fd55a459d1cc173}\label{classnetdem_1_1_solver_a_n_n_p_plane_a88abe5394b1d53583fd55a459d1cc173}} 
-\index{netdem::SolverANNPPlane@{netdem::SolverANNPPlane}!Potential@{Potential}}
-\index{Potential@{Potential}!netdem::SolverANNPPlane@{netdem::SolverANNPPlane}}
-\doxysubsubsection{\texorpdfstring{Potential()}{Potential()}}
-{\footnotesize\ttfamily std\+::tuple$<$ double, Vec3d $>$ netdem\+::\+Solver\+ANNPPlane\+::\+Potential (\begin{DoxyParamCaption}\item[{double}]{dist,  }\item[{Vec3d const \&}]{nn }\end{DoxyParamCaption})}
-
-
-
-Calculates the potential energy and contact position for the collision. 
-
-This function calculates the potential energy and contact position for the collision given the distance between the particle and the wall and the normal vector of the wall.
-
-
-\begin{DoxyParams}{Parameters}
-{\em dist} & The distance between the particle and the wall. \\
-\hline
-{\em nn} & The normal vector of the wall. \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-A tuple containing the potential energy and contact position. 
-\end{DoxyReturn}
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{90_random_packing_trimesh_8cpp-example}{90\+\_\+random\+\_\+packing\+\_\+trimesh.\+cpp}}, \mbox{\hyperlink{91_triaixal_comp_8cpp-example}{91\+\_\+triaixal\+\_\+comp.\+cpp}}, \mbox{\hyperlink{92_angle_of_repose_8cpp-example}{92\+\_\+angle\+\_\+of\+\_\+repose.\+cpp}}, and \mbox{\hyperlink{96_random_packing_ellipsoid_8cpp-example}{96\+\_\+random\+\_\+packing\+\_\+ellipsoid.\+cpp}}.\end{Desc}
 \mbox{\Hypertarget{classnetdem_1_1_solver_a_n_n_p_plane_ab99e9a5ca0c0e8a72a5629fbf71fab7e}\label{classnetdem_1_1_solver_a_n_n_p_plane_ab99e9a5ca0c0e8a72a5629fbf71fab7e}} 
 \index{netdem::SolverANNPPlane@{netdem::SolverANNPPlane}!ResolveInit@{ResolveInit}}
 \index{ResolveInit@{ResolveInit}!netdem::SolverANNPPlane@{netdem::SolverANNPPlane}}

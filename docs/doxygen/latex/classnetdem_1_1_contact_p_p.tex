@@ -73,13 +73,10 @@ bool \mbox{\hyperlink{classnetdem_1_1_contact_p_p_a9b8e6cbc7bacc58e504f00ec9d4b1
 \doxysubsection{Detailed Description}
 A class representing a contact between two particles. 
 
-Contains information about the two particles, the contact model used to calculate contact forces, and the collision geometries used by the contact model. to update contact between particles\+:
-\begin{DoxyItemize}
-\item particle\+\_\+1, particle\+\_\+2\+: pointers of particle 1 and 2, respectively.
-\item contact\+\_\+model\+: contact model for this contact.
-\item collision\+\_\+geometries\+: contact geometries, which will be used by the contact model to calculate contact forces.
-\item updated\+: a flag indicates that whether this contact has been updated in one DEM cycle. At the begining of a DEM cycle, this flag is set to false. If two particles (or a particle and a wall) are still in contact, the existing contact object will be udpated, and this flag will be set to true. If contact is not updated, it means that this contact is not activated (i.\+e., this contact vanishes) any more, and thus will be deleted. 
-\end{DoxyItemize}
+Contains information about the two particles, the contact model used to calculate contact forces, and the collision geometries used by the contact model. \begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{00_contact_test_sphere_8cpp-example}{00\+\_\+contact\+\_\+test\+\_\+sphere.\+cpp}}, \mbox{\hyperlink{01_contact_test_trimesh_8cpp-example}{01\+\_\+contact\+\_\+test\+\_\+trimesh.\+cpp}}, \mbox{\hyperlink{03_friction_test_sphere_8cpp-example}{03\+\_\+friction\+\_\+test\+\_\+sphere.\+cpp}}, \mbox{\hyperlink{04_friction_test_trimesh_8cpp-example}{04\+\_\+friction\+\_\+test\+\_\+trimesh.\+cpp}}, \mbox{\hyperlink{10_contact_test_sphere_8cpp-example}{10\+\_\+contact\+\_\+test\+\_\+sphere.\+cpp}}, \mbox{\hyperlink{10_gen_dataset_trimesh_8cpp-example}{10\+\_\+gen\+\_\+dataset\+\_\+trimesh.\+cpp}}, \mbox{\hyperlink{11_contact_test_trimesh_8cpp-example}{11\+\_\+contact\+\_\+test\+\_\+trimesh.\+cpp}}, \mbox{\hyperlink{11_test_dataset_trimesh_8cpp-example}{11\+\_\+test\+\_\+dataset\+\_\+trimesh.\+cpp}}, \mbox{\hyperlink{16_test_ann_vs_geom_trimesh_8cpp-example}{16\+\_\+test\+\_\+ann\+\_\+vs\+\_\+geom\+\_\+trimesh.\+cpp}}, \mbox{\hyperlink{17_test_ann_vs_geom_trimesh_8cpp-example}{17\+\_\+test\+\_\+ann\+\_\+vs\+\_\+geom\+\_\+trimesh.\+cpp}}, \mbox{\hyperlink{2_ev_gjk_performance_8cpp-example}{2\+\_\+ev\+\_\+gjk\+\_\+performance.\+cpp}}, \mbox{\hyperlink{31_test_dataset_ellipsoid_8cpp-example}{31\+\_\+test\+\_\+dataset\+\_\+ellipsoid.\+cpp}}, \mbox{\hyperlink{36_test_ann_vs_geom_ellipsoid_8cpp-example}{36\+\_\+test\+\_\+ann\+\_\+vs\+\_\+geom\+\_\+ellipsoid.\+cpp}}, and \mbox{\hyperlink{37_test_ann_vs_geom_ellipsoid_8cpp-example}{37\+\_\+test\+\_\+ann\+\_\+vs\+\_\+geom\+\_\+ellipsoid.\+cpp}}.\end{Desc}
+
 
 \doxysubsection{Constructor \& Destructor Documentation}
 \mbox{\Hypertarget{classnetdem_1_1_contact_p_p_a78f5a0ae5d5e5a0de5b00f706dbcc50f}\label{classnetdem_1_1_contact_p_p_a78f5a0ae5d5e5a0de5b00f706dbcc50f}} 
@@ -117,6 +114,9 @@ Calculate and apply the contact forces and moments between particles.
 {\em dt} & The time step size. \\
 \hline
 \end{DoxyParams}
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{00_contact_test_sphere_8cpp-example}{00\+\_\+contact\+\_\+test\+\_\+sphere.\+cpp}}, \mbox{\hyperlink{01_contact_test_trimesh_8cpp-example}{01\+\_\+contact\+\_\+test\+\_\+trimesh.\+cpp}}, \mbox{\hyperlink{03_friction_test_sphere_8cpp-example}{03\+\_\+friction\+\_\+test\+\_\+sphere.\+cpp}}, \mbox{\hyperlink{04_friction_test_trimesh_8cpp-example}{04\+\_\+friction\+\_\+test\+\_\+trimesh.\+cpp}}, \mbox{\hyperlink{10_contact_test_sphere_8cpp-example}{10\+\_\+contact\+\_\+test\+\_\+sphere.\+cpp}}, and \mbox{\hyperlink{11_contact_test_trimesh_8cpp-example}{11\+\_\+contact\+\_\+test\+\_\+trimesh.\+cpp}}.\end{Desc}
 \mbox{\Hypertarget{classnetdem_1_1_contact_p_p_a2ca414f4a8b919d3f04fc5ae112f2c61}\label{classnetdem_1_1_contact_p_p_a2ca414f4a8b919d3f04fc5ae112f2c61}} 
 \index{netdem::ContactPP@{netdem::ContactPP}!Init@{Init}}
 \index{Init@{Init}!netdem::ContactPP@{netdem::ContactPP}}
@@ -177,6 +177,9 @@ Set the collision model used to calculate collision forces between particles.
 {\em cnt\+\_\+model} & The collision model to use. \\
 \hline
 \end{DoxyParams}
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{00_contact_test_sphere_8cpp-example}{00\+\_\+contact\+\_\+test\+\_\+sphere.\+cpp}}, \mbox{\hyperlink{01_contact_test_trimesh_8cpp-example}{01\+\_\+contact\+\_\+test\+\_\+trimesh.\+cpp}}, \mbox{\hyperlink{03_friction_test_sphere_8cpp-example}{03\+\_\+friction\+\_\+test\+\_\+sphere.\+cpp}}, \mbox{\hyperlink{04_friction_test_trimesh_8cpp-example}{04\+\_\+friction\+\_\+test\+\_\+trimesh.\+cpp}}, \mbox{\hyperlink{10_contact_test_sphere_8cpp-example}{10\+\_\+contact\+\_\+test\+\_\+sphere.\+cpp}}, and \mbox{\hyperlink{11_contact_test_trimesh_8cpp-example}{11\+\_\+contact\+\_\+test\+\_\+trimesh.\+cpp}}.\end{Desc}
 
 
 \doxysubsection{Member Data Documentation}

@@ -14,7 +14,7 @@ A class that represents a feedforward neural network for regression.
 \item 
 void \mbox{\hyperlink{classnetdem_1_1_regression_net_a6931ff47063fccee2dbe2109b9184e86}{Reset\+Model}} ()
 \begin{DoxyCompactList}\small\item\em Resets the neural network model. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classnetdem_1_1_regression_net_a50664a34e7c9df9d7bd20238d1a4032f}{Add\+Layer}} (\mbox{\hyperlink{namespacenetdem_a06635636eca09676377d47de7cb4c02c}{Layer\+Type}} layer\+\_\+name,...)
+void \mbox{\hyperlink{classnetdem_1_1_regression_net_aafa8571adee4fd708a9179d40cf632aa}{Add\+Layer}} (\mbox{\hyperlink{classnetdem_1_1_m_l_pack_utils_a0b5ec585965c69a24ecbdea993fa1577}{MLPack\+Utils\+::\+Layer\+Type}} layer\+\_\+name,...)
 \begin{DoxyCompactList}\small\item\em Adds a layer to the neural network model. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classnetdem_1_1_regression_net_ab20e93179fa0215bf6d07e71d58da101}{Train}} (const arma\+::mat \&data\+\_\+x, const arma\+::mat \&data\+\_\+y)
 \begin{DoxyCompactList}\small\item\em Trains the neural network model with data. \end{DoxyCompactList}\item 
@@ -44,8 +44,9 @@ double {\bfseries decay\+\_\+rate\+\_\+moment} \{0.\+9\}
 \mbox{\Hypertarget{classnetdem_1_1_regression_net_a9678df579e50d45e2a2f090384dfdc2f}\label{classnetdem_1_1_regression_net_a9678df579e50d45e2a2f090384dfdc2f}} 
 double {\bfseries decay\+\_\+rate\+\_\+norm} \{0.\+9\}
 \begin{DoxyCompactList}\small\item\em The decay rate used for weight normalization during training. \end{DoxyCompactList}\item 
-double \mbox{\hyperlink{classnetdem_1_1_regression_net_a0406a76411df7880fc0efa6583ab9ff0}{gradient\+\_\+init\+\_\+param}} \{1e-\/8\}
-\item 
+\mbox{\Hypertarget{classnetdem_1_1_regression_net_a0406a76411df7880fc0efa6583ab9ff0}\label{classnetdem_1_1_regression_net_a0406a76411df7880fc0efa6583ab9ff0}} 
+double {\bfseries gradient\+\_\+init\+\_\+param} \{1e-\/8\}
+\begin{DoxyCompactList}\small\item\em Initial parameter value used for weight initialization during training. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classnetdem_1_1_regression_net_a0dc8e89c7b9472b37a30dfd37c8e0bd8}\label{classnetdem_1_1_regression_net_a0dc8e89c7b9472b37a30dfd37c8e0bd8}} 
 int {\bfseries epochs} \{100\}
 \begin{DoxyCompactList}\small\item\em The number of epochs used for training. \end{DoxyCompactList}\item 
@@ -60,14 +61,17 @@ bool {\bfseries enable\+\_\+logging} \{true\}
 \doxysubsection{Detailed Description}
 A class that represents a feedforward neural network for regression. 
 
-The {\ttfamily \mbox{\hyperlink{classnetdem_1_1_regression_net}{Regression\+Net}}} class is a specific implementation of a feedforward neural network for regression. It provides functionality to reset the model, add layers to the model, train the model with data, predict with the model, calculate the gradient of the model with respect to the input data, and load/save the model to disk. 
+The {\ttfamily \mbox{\hyperlink{classnetdem_1_1_regression_net}{Regression\+Net}}} class is a specific implementation of a feedforward neural network for regression. It provides functionality to reset the model, add layers to the model, train the model with data, predict with the model, calculate the gradient of the model with respect to the input data, and load/save the model to disk. \begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{01_train_netsdf_8cpp-example}{01\+\_\+train\+\_\+netsdf.\+cpp}}, \mbox{\hyperlink{02_test_netsdf_8cpp-example}{02\+\_\+test\+\_\+netsdf.\+cpp}}, \mbox{\hyperlink{03_train_netspf_8cpp-example}{03\+\_\+train\+\_\+netspf.\+cpp}}, \mbox{\hyperlink{04_test_netspf_8cpp-example}{04\+\_\+test\+\_\+netspf.\+cpp}}, \mbox{\hyperlink{04_train_regressor_trimesh_plane_8cpp-example}{04\+\_\+train\+\_\+regressor\+\_\+trimesh\+\_\+plane.\+cpp}}, \mbox{\hyperlink{05_test_regressor_trimesh_plane_8cpp-example}{05\+\_\+test\+\_\+regressor\+\_\+trimesh\+\_\+plane.\+cpp}}, \mbox{\hyperlink{06_test_ann_vs_geom_trimesh_plane_8cpp-example}{06\+\_\+test\+\_\+ann\+\_\+vs\+\_\+geom\+\_\+trimesh\+\_\+plane.\+cpp}}, \mbox{\hyperlink{11_train_coded_netsdf_8cpp-example}{11\+\_\+train\+\_\+coded\+\_\+netsdf.\+cpp}}, \mbox{\hyperlink{12_test_coded_netsdf_8cpp-example}{12\+\_\+test\+\_\+coded\+\_\+netsdf.\+cpp}}, \mbox{\hyperlink{14_train_regressor_trimesh_8cpp-example}{14\+\_\+train\+\_\+regressor\+\_\+trimesh.\+cpp}}, \mbox{\hyperlink{15_test_coded_shape_8cpp-example}{15\+\_\+test\+\_\+coded\+\_\+shape.\+cpp}}, \mbox{\hyperlink{15_test_regressor_trimesh_8cpp-example}{15\+\_\+test\+\_\+regressor\+\_\+trimesh.\+cpp}}, \mbox{\hyperlink{16_test_ann_vs_geom_trimesh_8cpp-example}{16\+\_\+test\+\_\+ann\+\_\+vs\+\_\+geom\+\_\+trimesh.\+cpp}}, \mbox{\hyperlink{16_test_latent_space_8cpp-example}{16\+\_\+test\+\_\+latent\+\_\+space.\+cpp}}, \mbox{\hyperlink{17_test_ann_vs_geom_trimesh_8cpp-example}{17\+\_\+test\+\_\+ann\+\_\+vs\+\_\+geom\+\_\+trimesh.\+cpp}}, \mbox{\hyperlink{24_train_regressor_ellipsoid_plane_8cpp-example}{24\+\_\+train\+\_\+regressor\+\_\+ellipsoid\+\_\+plane.\+cpp}}, \mbox{\hyperlink{25_test_regressor_ellipsoid_plane_8cpp-example}{25\+\_\+test\+\_\+regressor\+\_\+ellipsoid\+\_\+plane.\+cpp}}, \mbox{\hyperlink{26_test_ann_vs_geom_ellipsoid_plane_8cpp-example}{26\+\_\+test\+\_\+ann\+\_\+vs\+\_\+geom\+\_\+ellipsoid\+\_\+plane.\+cpp}}, \mbox{\hyperlink{34_train_regressor_ellipsoid_8cpp-example}{34\+\_\+train\+\_\+regressor\+\_\+ellipsoid.\+cpp}}, \mbox{\hyperlink{35_test_regressor_ellipsoid_8cpp-example}{35\+\_\+test\+\_\+regressor\+\_\+ellipsoid.\+cpp}}, \mbox{\hyperlink{36_test_ann_vs_geom_ellipsoid_8cpp-example}{36\+\_\+test\+\_\+ann\+\_\+vs\+\_\+geom\+\_\+ellipsoid.\+cpp}}, and \mbox{\hyperlink{37_test_ann_vs_geom_ellipsoid_8cpp-example}{37\+\_\+test\+\_\+ann\+\_\+vs\+\_\+geom\+\_\+ellipsoid.\+cpp}}.\end{Desc}
+
 
 \doxysubsection{Member Function Documentation}
-\mbox{\Hypertarget{classnetdem_1_1_regression_net_a50664a34e7c9df9d7bd20238d1a4032f}\label{classnetdem_1_1_regression_net_a50664a34e7c9df9d7bd20238d1a4032f}} 
+\mbox{\Hypertarget{classnetdem_1_1_regression_net_aafa8571adee4fd708a9179d40cf632aa}\label{classnetdem_1_1_regression_net_aafa8571adee4fd708a9179d40cf632aa}} 
 \index{netdem::RegressionNet@{netdem::RegressionNet}!AddLayer@{AddLayer}}
 \index{AddLayer@{AddLayer}!netdem::RegressionNet@{netdem::RegressionNet}}
 \doxysubsubsection{\texorpdfstring{AddLayer()}{AddLayer()}}
-{\footnotesize\ttfamily void netdem\+::\+Regression\+Net\+::\+Add\+Layer (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacenetdem_a06635636eca09676377d47de7cb4c02c}{Layer\+Type}}}]{layer\+\_\+name,  }\item[{}]{... }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void netdem\+::\+Regression\+Net\+::\+Add\+Layer (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_m_l_pack_utils_a0b5ec585965c69a24ecbdea993fa1577}{MLPack\+Utils\+::\+Layer\+Type}}}]{layer\+\_\+name,  }\item[{}]{... }\end{DoxyParamCaption})}
 
 
 
@@ -79,9 +83,12 @@ This function adds a layer to the neural network model.
 \begin{DoxyParams}{Parameters}
 {\em layer\+\_\+name} & The type of layer to add. \\
 \hline
-{\em ...} & Additional arguments depending on the type of layer being added. \\
+{\em ...} & Additional arguments depending on the type of layer being added.\\
 \hline
 \end{DoxyParams}
+For {\ttfamily \mbox{\hyperlink{classnetdem_1_1_m_l_pack_utils_a0b5ec585965c69a24ecbdea993fa1577a32a843da6ea40ab3b17a3421ccdf671b}{MLPack\+Utils\+::\+Layer\+Type\+::\+Linear}}}, an additional parameter indicating the dimension of outputs is required. \begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{01_train_netsdf_8cpp-example}{01\+\_\+train\+\_\+netsdf.\+cpp}}, \mbox{\hyperlink{03_train_netspf_8cpp-example}{03\+\_\+train\+\_\+netspf.\+cpp}}, \mbox{\hyperlink{04_train_regressor_trimesh_plane_8cpp-example}{04\+\_\+train\+\_\+regressor\+\_\+trimesh\+\_\+plane.\+cpp}}, \mbox{\hyperlink{11_train_coded_netsdf_8cpp-example}{11\+\_\+train\+\_\+coded\+\_\+netsdf.\+cpp}}, \mbox{\hyperlink{14_train_regressor_trimesh_8cpp-example}{14\+\_\+train\+\_\+regressor\+\_\+trimesh.\+cpp}}, \mbox{\hyperlink{24_train_regressor_ellipsoid_plane_8cpp-example}{24\+\_\+train\+\_\+regressor\+\_\+ellipsoid\+\_\+plane.\+cpp}}, and \mbox{\hyperlink{34_train_regressor_ellipsoid_8cpp-example}{34\+\_\+train\+\_\+regressor\+\_\+ellipsoid.\+cpp}}.\end{Desc}
 \mbox{\Hypertarget{classnetdem_1_1_regression_net_a20b97ff96a288d2d0468fb494ae6e8af}\label{classnetdem_1_1_regression_net_a20b97ff96a288d2d0468fb494ae6e8af}} 
 \index{netdem::RegressionNet@{netdem::RegressionNet}!Gradient@{Gradient}}
 \index{Gradient@{Gradient}!netdem::RegressionNet@{netdem::RegressionNet}}
@@ -102,6 +109,9 @@ This function calculates the gradient of the neural network model with respect t
 \begin{DoxyReturn}{Returns}
 The gradient of the neural network model with respect to the input data as a matrix of size (input\+\_\+dim x num\+\_\+samples). 
 \end{DoxyReturn}
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{11_train_coded_netsdf_8cpp-example}{11\+\_\+train\+\_\+coded\+\_\+netsdf.\+cpp}}, \mbox{\hyperlink{15_test_coded_shape_8cpp-example}{15\+\_\+test\+\_\+coded\+\_\+shape.\+cpp}}, and \mbox{\hyperlink{16_test_latent_space_8cpp-example}{16\+\_\+test\+\_\+latent\+\_\+space.\+cpp}}.\end{Desc}
 \mbox{\Hypertarget{classnetdem_1_1_regression_net_a4802cc4f75ad194e3a1136ee85bdb8e6}\label{classnetdem_1_1_regression_net_a4802cc4f75ad194e3a1136ee85bdb8e6}} 
 \index{netdem::RegressionNet@{netdem::RegressionNet}!Load@{Load}}
 \index{Load@{Load}!netdem::RegressionNet@{netdem::RegressionNet}}
@@ -121,6 +131,9 @@ This function loads the neural network model from disk.
 {\em label} & The label of the model data within the file (if applicable). \\
 \hline
 \end{DoxyParams}
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{02_test_netsdf_8cpp-example}{02\+\_\+test\+\_\+netsdf.\+cpp}}, \mbox{\hyperlink{04_test_netspf_8cpp-example}{04\+\_\+test\+\_\+netspf.\+cpp}}, \mbox{\hyperlink{05_test_regressor_trimesh_plane_8cpp-example}{05\+\_\+test\+\_\+regressor\+\_\+trimesh\+\_\+plane.\+cpp}}, \mbox{\hyperlink{06_test_ann_vs_geom_trimesh_plane_8cpp-example}{06\+\_\+test\+\_\+ann\+\_\+vs\+\_\+geom\+\_\+trimesh\+\_\+plane.\+cpp}}, \mbox{\hyperlink{12_test_coded_netsdf_8cpp-example}{12\+\_\+test\+\_\+coded\+\_\+netsdf.\+cpp}}, \mbox{\hyperlink{15_test_coded_shape_8cpp-example}{15\+\_\+test\+\_\+coded\+\_\+shape.\+cpp}}, \mbox{\hyperlink{15_test_regressor_trimesh_8cpp-example}{15\+\_\+test\+\_\+regressor\+\_\+trimesh.\+cpp}}, \mbox{\hyperlink{16_test_ann_vs_geom_trimesh_8cpp-example}{16\+\_\+test\+\_\+ann\+\_\+vs\+\_\+geom\+\_\+trimesh.\+cpp}}, \mbox{\hyperlink{16_test_latent_space_8cpp-example}{16\+\_\+test\+\_\+latent\+\_\+space.\+cpp}}, \mbox{\hyperlink{17_test_ann_vs_geom_trimesh_8cpp-example}{17\+\_\+test\+\_\+ann\+\_\+vs\+\_\+geom\+\_\+trimesh.\+cpp}}, \mbox{\hyperlink{25_test_regressor_ellipsoid_plane_8cpp-example}{25\+\_\+test\+\_\+regressor\+\_\+ellipsoid\+\_\+plane.\+cpp}}, \mbox{\hyperlink{26_test_ann_vs_geom_ellipsoid_plane_8cpp-example}{26\+\_\+test\+\_\+ann\+\_\+vs\+\_\+geom\+\_\+ellipsoid\+\_\+plane.\+cpp}}, \mbox{\hyperlink{35_test_regressor_ellipsoid_8cpp-example}{35\+\_\+test\+\_\+regressor\+\_\+ellipsoid.\+cpp}}, \mbox{\hyperlink{36_test_ann_vs_geom_ellipsoid_8cpp-example}{36\+\_\+test\+\_\+ann\+\_\+vs\+\_\+geom\+\_\+ellipsoid.\+cpp}}, and \mbox{\hyperlink{37_test_ann_vs_geom_ellipsoid_8cpp-example}{37\+\_\+test\+\_\+ann\+\_\+vs\+\_\+geom\+\_\+ellipsoid.\+cpp}}.\end{Desc}
 \mbox{\Hypertarget{classnetdem_1_1_regression_net_ad0a454915d74f397ea4b6ce40c46f84e}\label{classnetdem_1_1_regression_net_ad0a454915d74f397ea4b6ce40c46f84e}} 
 \index{netdem::RegressionNet@{netdem::RegressionNet}!Predict@{Predict}}
 \index{Predict@{Predict}!netdem::RegressionNet@{netdem::RegressionNet}}
@@ -141,6 +154,9 @@ This function predicts with the neural network model using the provided input da
 \begin{DoxyReturn}{Returns}
 The predicted output data as a matrix of size (output\+\_\+dim x num\+\_\+samples). 
 \end{DoxyReturn}
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{01_train_netsdf_8cpp-example}{01\+\_\+train\+\_\+netsdf.\+cpp}}, \mbox{\hyperlink{02_test_netsdf_8cpp-example}{02\+\_\+test\+\_\+netsdf.\+cpp}}, \mbox{\hyperlink{03_train_netspf_8cpp-example}{03\+\_\+train\+\_\+netspf.\+cpp}}, \mbox{\hyperlink{04_test_netspf_8cpp-example}{04\+\_\+test\+\_\+netspf.\+cpp}}, \mbox{\hyperlink{04_train_regressor_trimesh_plane_8cpp-example}{04\+\_\+train\+\_\+regressor\+\_\+trimesh\+\_\+plane.\+cpp}}, \mbox{\hyperlink{05_test_regressor_trimesh_plane_8cpp-example}{05\+\_\+test\+\_\+regressor\+\_\+trimesh\+\_\+plane.\+cpp}}, \mbox{\hyperlink{06_test_ann_vs_geom_trimesh_plane_8cpp-example}{06\+\_\+test\+\_\+ann\+\_\+vs\+\_\+geom\+\_\+trimesh\+\_\+plane.\+cpp}}, \mbox{\hyperlink{11_train_coded_netsdf_8cpp-example}{11\+\_\+train\+\_\+coded\+\_\+netsdf.\+cpp}}, \mbox{\hyperlink{12_test_coded_netsdf_8cpp-example}{12\+\_\+test\+\_\+coded\+\_\+netsdf.\+cpp}}, \mbox{\hyperlink{14_train_regressor_trimesh_8cpp-example}{14\+\_\+train\+\_\+regressor\+\_\+trimesh.\+cpp}}, \mbox{\hyperlink{15_test_coded_shape_8cpp-example}{15\+\_\+test\+\_\+coded\+\_\+shape.\+cpp}}, \mbox{\hyperlink{15_test_regressor_trimesh_8cpp-example}{15\+\_\+test\+\_\+regressor\+\_\+trimesh.\+cpp}}, \mbox{\hyperlink{16_test_ann_vs_geom_trimesh_8cpp-example}{16\+\_\+test\+\_\+ann\+\_\+vs\+\_\+geom\+\_\+trimesh.\+cpp}}, \mbox{\hyperlink{16_test_latent_space_8cpp-example}{16\+\_\+test\+\_\+latent\+\_\+space.\+cpp}}, \mbox{\hyperlink{17_test_ann_vs_geom_trimesh_8cpp-example}{17\+\_\+test\+\_\+ann\+\_\+vs\+\_\+geom\+\_\+trimesh.\+cpp}}, \mbox{\hyperlink{24_train_regressor_ellipsoid_plane_8cpp-example}{24\+\_\+train\+\_\+regressor\+\_\+ellipsoid\+\_\+plane.\+cpp}}, \mbox{\hyperlink{25_test_regressor_ellipsoid_plane_8cpp-example}{25\+\_\+test\+\_\+regressor\+\_\+ellipsoid\+\_\+plane.\+cpp}}, \mbox{\hyperlink{26_test_ann_vs_geom_ellipsoid_plane_8cpp-example}{26\+\_\+test\+\_\+ann\+\_\+vs\+\_\+geom\+\_\+ellipsoid\+\_\+plane.\+cpp}}, \mbox{\hyperlink{34_train_regressor_ellipsoid_8cpp-example}{34\+\_\+train\+\_\+regressor\+\_\+ellipsoid.\+cpp}}, \mbox{\hyperlink{35_test_regressor_ellipsoid_8cpp-example}{35\+\_\+test\+\_\+regressor\+\_\+ellipsoid.\+cpp}}, \mbox{\hyperlink{36_test_ann_vs_geom_ellipsoid_8cpp-example}{36\+\_\+test\+\_\+ann\+\_\+vs\+\_\+geom\+\_\+ellipsoid.\+cpp}}, and \mbox{\hyperlink{37_test_ann_vs_geom_ellipsoid_8cpp-example}{37\+\_\+test\+\_\+ann\+\_\+vs\+\_\+geom\+\_\+ellipsoid.\+cpp}}.\end{Desc}
 \mbox{\Hypertarget{classnetdem_1_1_regression_net_a6931ff47063fccee2dbe2109b9184e86}\label{classnetdem_1_1_regression_net_a6931ff47063fccee2dbe2109b9184e86}} 
 \index{netdem::RegressionNet@{netdem::RegressionNet}!ResetModel@{ResetModel}}
 \index{ResetModel@{ResetModel}!netdem::RegressionNet@{netdem::RegressionNet}}
@@ -170,6 +186,9 @@ This function saves the neural network model to disk.
 {\em label} & The label of the model data within the file (if applicable). \\
 \hline
 \end{DoxyParams}
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{01_train_netsdf_8cpp-example}{01\+\_\+train\+\_\+netsdf.\+cpp}}, \mbox{\hyperlink{03_train_netspf_8cpp-example}{03\+\_\+train\+\_\+netspf.\+cpp}}, \mbox{\hyperlink{04_train_regressor_trimesh_plane_8cpp-example}{04\+\_\+train\+\_\+regressor\+\_\+trimesh\+\_\+plane.\+cpp}}, \mbox{\hyperlink{11_train_coded_netsdf_8cpp-example}{11\+\_\+train\+\_\+coded\+\_\+netsdf.\+cpp}}, \mbox{\hyperlink{14_train_regressor_trimesh_8cpp-example}{14\+\_\+train\+\_\+regressor\+\_\+trimesh.\+cpp}}, \mbox{\hyperlink{24_train_regressor_ellipsoid_plane_8cpp-example}{24\+\_\+train\+\_\+regressor\+\_\+ellipsoid\+\_\+plane.\+cpp}}, and \mbox{\hyperlink{34_train_regressor_ellipsoid_8cpp-example}{34\+\_\+train\+\_\+regressor\+\_\+ellipsoid.\+cpp}}.\end{Desc}
 \mbox{\Hypertarget{classnetdem_1_1_regression_net_ab20e93179fa0215bf6d07e71d58da101}\label{classnetdem_1_1_regression_net_ab20e93179fa0215bf6d07e71d58da101}} 
 \index{netdem::RegressionNet@{netdem::RegressionNet}!Train@{Train}}
 \index{Train@{Train}!netdem::RegressionNet@{netdem::RegressionNet}}
@@ -189,16 +208,10 @@ This function trains the neural network model with the provided input and output
 {\em data\+\_\+y} & The output data matrix. \\
 \hline
 \end{DoxyParams}
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{01_train_netsdf_8cpp-example}{01\+\_\+train\+\_\+netsdf.\+cpp}}, \mbox{\hyperlink{03_train_netspf_8cpp-example}{03\+\_\+train\+\_\+netspf.\+cpp}}, \mbox{\hyperlink{04_train_regressor_trimesh_plane_8cpp-example}{04\+\_\+train\+\_\+regressor\+\_\+trimesh\+\_\+plane.\+cpp}}, \mbox{\hyperlink{11_train_coded_netsdf_8cpp-example}{11\+\_\+train\+\_\+coded\+\_\+netsdf.\+cpp}}, \mbox{\hyperlink{14_train_regressor_trimesh_8cpp-example}{14\+\_\+train\+\_\+regressor\+\_\+trimesh.\+cpp}}, \mbox{\hyperlink{24_train_regressor_ellipsoid_plane_8cpp-example}{24\+\_\+train\+\_\+regressor\+\_\+ellipsoid\+\_\+plane.\+cpp}}, and \mbox{\hyperlink{34_train_regressor_ellipsoid_8cpp-example}{34\+\_\+train\+\_\+regressor\+\_\+ellipsoid.\+cpp}}.\end{Desc}
 
-
-\doxysubsection{Member Data Documentation}
-\mbox{\Hypertarget{classnetdem_1_1_regression_net_a0406a76411df7880fc0efa6583ab9ff0}\label{classnetdem_1_1_regression_net_a0406a76411df7880fc0efa6583ab9ff0}} 
-\index{netdem::RegressionNet@{netdem::RegressionNet}!gradient\_init\_param@{gradient\_init\_param}}
-\index{gradient\_init\_param@{gradient\_init\_param}!netdem::RegressionNet@{netdem::RegressionNet}}
-\doxysubsubsection{\texorpdfstring{gradient\_init\_param}{gradient\_init\_param}}
-{\footnotesize\ttfamily double netdem\+::\+Regression\+Net\+::gradient\+\_\+init\+\_\+param \{1e-\/8\}}
-
-The initial parameter value used for weight initialization during training. 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 

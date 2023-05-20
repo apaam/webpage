@@ -34,23 +34,16 @@
 \DoxyCodeLine{00030\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>\ \textcolor{keyword}{using\ }VecXT\ =\ std::vector<T>;}
 \DoxyCodeLine{00031\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keywordtype}{size\_t}\ N>\ \textcolor{keyword}{using\ }VecNT\ =\ std::array<T,\ N>;}
 \DoxyCodeLine{00032\ }
-\DoxyCodeLine{00033\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_math}{Math}}\ \{}
-\DoxyCodeLine{00034\ }
-\DoxyCodeLine{00035\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{double}\ PI\ =\ 3.1415926535897932384626433832795028841971;}
-\DoxyCodeLine{00036\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{double}\ Infinity\ =\ 1.0e15;}
-\DoxyCodeLine{00037\ }
-\DoxyCodeLine{00038\ \}\ \textcolor{comment}{//\ namespace\ Math}}
-\DoxyCodeLine{00039\ }
-\DoxyCodeLine{00040\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structnetdem_1_1pair__hash}{pair\_hash}}\ \{}
-\DoxyCodeLine{00041\ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ T1,\ \textcolor{keyword}{class}\ T2>}
-\DoxyCodeLine{00042\ \ \ \textcolor{keywordtype}{int}\ operator()(\textcolor{keyword}{const}\ std::pair<T1,\ T2>\ \&p)\textcolor{keyword}{\ const\ }\{}
-\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keyword}{auto}\ h1\ =\ std::hash<T1>\{\}(p.first);}
-\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keyword}{auto}\ h2\ =\ std::hash<T2>\{\}(p.second);}
-\DoxyCodeLine{00045\ }
-\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keywordflow}{return}\ h1\ \string^\ h2;}
-\DoxyCodeLine{00047\ \ \ \}}
-\DoxyCodeLine{00048\ \};}
-\DoxyCodeLine{00049\ }
-\DoxyCodeLine{00050\ \}\ \textcolor{comment}{//\ namespace\ netdem}}
+\DoxyCodeLine{00033\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structnetdem_1_1_pair_hash}{PairHash}}\ \{}
+\DoxyCodeLine{00034\ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ T1,\ \textcolor{keyword}{class}\ T2>}
+\DoxyCodeLine{00035\ \ \ \textcolor{keywordtype}{int}\ operator()(\textcolor{keyword}{const}\ std::pair<T1,\ T2>\ \&p)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keyword}{auto}\ h1\ =\ std::hash<T1>\{\}(p.first);}
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keyword}{auto}\ h2\ =\ std::hash<T2>\{\}(p.second);}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keywordflow}{return}\ h1\ \string^\ h2;}
+\DoxyCodeLine{00040\ \ \ \}}
+\DoxyCodeLine{00041\ \};}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \}\ \textcolor{comment}{//\ namespace\ netdem}}
 
 \end{DoxyCode}

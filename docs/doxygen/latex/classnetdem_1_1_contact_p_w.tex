@@ -70,13 +70,10 @@ bool \mbox{\hyperlink{classnetdem_1_1_contact_p_w_ab40e10ef590a4cf2309c2aa1f6e79
 \doxysubsection{Detailed Description}
 A class representing a contact between a particle and a wall. 
 
-Contains information about the particle, the wall, the contact model used to calculate contact forces, and the collision geometries used by the contact model. to update contact between particle and wall\+:
-\begin{DoxyItemize}
-\item particle, wall\+: pointers of particle and wall, respectively.
-\item contact\+\_\+model\+: contact model for this contact.
-\item collision\+\_\+geometries\+: contact geometries, which will be used by the contact model to calculate contact forces.
-\item updated\+: a flag indicates that whether this contact has been updated in one DEM cycle. At the begining of a DEM cycle, this flag is set to false. If two particles (or a particle and a wall) are still in contact, the existing contact object will be udpated, and this flag will be set to true. If contact is not updated, it means that this contact is not activated (i.\+e., this contact vanishes) any more, and thus will be deleted. 
-\end{DoxyItemize}
+Contains information about the particle, the wall, the contact model used to calculate contact forces, and the collision geometries used by the contact model. \begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{00_gen_dataset_trimesh_plane_8cpp-example}{00\+\_\+gen\+\_\+dataset\+\_\+trimesh\+\_\+plane.\+cpp}}, \mbox{\hyperlink{00_hertz_contact_8cpp-example}{00\+\_\+hertz\+\_\+contact.\+cpp}}, \mbox{\hyperlink{01_test_dataset_trimesh_plane_8cpp-example}{01\+\_\+test\+\_\+dataset\+\_\+trimesh\+\_\+plane.\+cpp}}, \mbox{\hyperlink{06_test_ann_vs_geom_trimesh_plane_8cpp-example}{06\+\_\+test\+\_\+ann\+\_\+vs\+\_\+geom\+\_\+trimesh\+\_\+plane.\+cpp}}, \mbox{\hyperlink{21_test_dataset_ellipsoid_plane_8cpp-example}{21\+\_\+test\+\_\+dataset\+\_\+ellipsoid\+\_\+plane.\+cpp}}, \mbox{\hyperlink{26_test_ann_vs_geom_ellipsoid_plane_8cpp-example}{26\+\_\+test\+\_\+ann\+\_\+vs\+\_\+geom\+\_\+ellipsoid\+\_\+plane.\+cpp}}, and \mbox{\hyperlink{81_golf_ball_impact_8cpp-example}{81\+\_\+golf\+\_\+ball\+\_\+impact.\+cpp}}.\end{Desc}
+
 
 \doxysubsection{Constructor \& Destructor Documentation}
 \mbox{\Hypertarget{classnetdem_1_1_contact_p_w_aa488f0a2d7e220de9af5f3afd0bba2fa}\label{classnetdem_1_1_contact_p_w_aa488f0a2d7e220de9af5f3afd0bba2fa}} 
@@ -114,6 +111,9 @@ Calculate and apply the contact forces and moments between the particle and the 
 {\em dt} & The time step size. \\
 \hline
 \end{DoxyParams}
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{00_hertz_contact_8cpp-example}{00\+\_\+hertz\+\_\+contact.\+cpp}}, and \mbox{\hyperlink{81_golf_ball_impact_8cpp-example}{81\+\_\+golf\+\_\+ball\+\_\+impact.\+cpp}}.\end{Desc}
 \mbox{\Hypertarget{classnetdem_1_1_contact_p_w_a62d7eb130f63a8aec22b076e107830df}\label{classnetdem_1_1_contact_p_w_a62d7eb130f63a8aec22b076e107830df}} 
 \index{netdem::ContactPW@{netdem::ContactPW}!Init@{Init}}
 \index{Init@{Init}!netdem::ContactPW@{netdem::ContactPW}}
@@ -174,6 +174,9 @@ Set the collision model used to calculate collision forces between the particle 
 {\em cnt\+\_\+model} & The collision model to use. \\
 \hline
 \end{DoxyParams}
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{00_hertz_contact_8cpp-example}{00\+\_\+hertz\+\_\+contact.\+cpp}}, \mbox{\hyperlink{01_test_dataset_trimesh_plane_8cpp-example}{01\+\_\+test\+\_\+dataset\+\_\+trimesh\+\_\+plane.\+cpp}}, \mbox{\hyperlink{21_test_dataset_ellipsoid_plane_8cpp-example}{21\+\_\+test\+\_\+dataset\+\_\+ellipsoid\+\_\+plane.\+cpp}}, and \mbox{\hyperlink{81_golf_ball_impact_8cpp-example}{81\+\_\+golf\+\_\+ball\+\_\+impact.\+cpp}}.\end{Desc}
 
 
 \doxysubsection{Member Data Documentation}

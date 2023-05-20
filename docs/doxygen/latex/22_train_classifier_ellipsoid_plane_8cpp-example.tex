@@ -1,0 +1,87 @@
+\hypertarget{22_train_classifier_ellipsoid_plane_8cpp-example}{}\doxysection{22\+\_\+train\+\_\+classifier\+\_\+ellipsoid\+\_\+plane.\+cpp}
+This is an example of how to use the netdem library.
+
+
+\begin{DoxyCodeInclude}{0}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}general\_net.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}mlpack\_utils.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}regression\_net.hpp"{}}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{using\ namespace\ }\mbox{\hyperlink{namespacenetdem}{netdem}};}
+\DoxyCodeLine{\textcolor{keyword}{using\ namespace\ }std;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ TrainClassifierEllipsoidPlane()\ \{}
+\DoxyCodeLine{\ \ \textcolor{keywordtype}{string}\ root\_dir\ =\ \textcolor{stringliteral}{"{}local/examples/netdem/ann\_models/ellipsoid\_plane/"{}};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{comment}{//\ notes:\ rows\ represent\ features,\ columns\ represent\ data\ points.}}
+\DoxyCodeLine{\ \ arma::mat\ dataset;}
+\DoxyCodeLine{\ \ \textcolor{keywordtype}{bool}\ loadedDataset\ =\ mlpack::data::Load(}
+\DoxyCodeLine{\ \ \ \ \ \ root\_dir\ +\ \textcolor{stringliteral}{"{}archived/dataset\_detection.txt"{}},\ dataset,\ \textcolor{keyword}{true});}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{if}\ (!loadedDataset)\ \{}
+\DoxyCodeLine{\ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}loading\ data\ erros\ ..."{}}\ <<\ endl;}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{\ \ cout\ <<\ \textcolor{stringliteral}{"{}finished\ loading\ data\ ..."{}}\ <<\ endl;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{comment}{//\ split\ traning\ and\ testing\ data,\ prepare\ inputs\ and\ outputs}}
+\DoxyCodeLine{\ \ arma::mat\ train\_data,\ test\_data;}
+\DoxyCodeLine{\ \ mlpack::data::Split(dataset,\ train\_data,\ test\_data,\ 0.1);}
+\DoxyCodeLine{\ \ \textcolor{keywordtype}{int}\ num\_trains\ =\ train\_data.n\_cols;}
+\DoxyCodeLine{\ \ \textcolor{keywordtype}{int}\ num\_tests\ =\ test\_data.n\_cols;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{keywordtype}{int}\ num\_x\{4\},\ num\_y\{1\};}
+\DoxyCodeLine{\ \ arma::mat\ train\_x\ =\ train\_data.rows(0,\ num\_x\ -\/\ 1);}
+\DoxyCodeLine{\ \ arma::mat\ test\_x\ =\ test\_data.rows(0,\ num\_x\ -\/\ 1);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ arma::mat\ train\_y\ =\ train\_data.row(num\_x);}
+\DoxyCodeLine{\ \ arma::mat\ test\_y\ =\ test\_data.row(num\_x);}
+\DoxyCodeLine{\ \ cout\ <<\ \textcolor{stringliteral}{"{}finished\ preparing\ training\ and\ testing\ data\ ..."{}}\ <<\ endl;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{comment}{//\ create\ the\ ann\ model}}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{classnetdem_1_1_general_net}{GeneralNet}}\ model;}
+\DoxyCodeLine{\ \ \textcolor{keywordtype}{int}\ num\_nodes\ =\ 25,\ num\_hidden\_layers\ =\ 5;}
+\DoxyCodeLine{\ \ model.\mbox{\hyperlink{classnetdem_1_1_general_net_a2d4980cad526308c53c5ce3beda6da91}{AddLayer}}(MLPackUtils::LayerType::Linear,\ num\_nodes);}
+\DoxyCodeLine{\ \ model.\mbox{\hyperlink{classnetdem_1_1_general_net_a2d4980cad526308c53c5ce3beda6da91}{AddLayer}}(MLPackUtils::LayerType::LeakyReLU);}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ num\_hidden\_layers\ -\/\ 1;\ i++)\ \{}
+\DoxyCodeLine{\ \ \ \ model.\mbox{\hyperlink{classnetdem_1_1_general_net_a2d4980cad526308c53c5ce3beda6da91}{AddLayer}}(MLPackUtils::LayerType::Linear,\ num\_nodes);}
+\DoxyCodeLine{\ \ \ \ model.\mbox{\hyperlink{classnetdem_1_1_general_net_a2d4980cad526308c53c5ce3beda6da91}{AddLayer}}(MLPackUtils::LayerType::LeakyReLU);}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{\ \ model.\mbox{\hyperlink{classnetdem_1_1_general_net_a2d4980cad526308c53c5ce3beda6da91}{AddLayer}}(MLPackUtils::LayerType::Linear,\ 2);}
+\DoxyCodeLine{\ \ model.\mbox{\hyperlink{classnetdem_1_1_general_net_a2d4980cad526308c53c5ce3beda6da91}{AddLayer}}(MLPackUtils::LayerType::LogSoftMax);}
+\DoxyCodeLine{\ \ cout\ <<\ \textcolor{stringliteral}{"{}finished\ creating\ ann\ model\ ..."{}}\ <<\ endl;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{comment}{//\ set\ training\ parameters}}
+\DoxyCodeLine{\ \ model.\mbox{\hyperlink{classnetdem_1_1_general_net_a670e27ee9ec7b2cbb97da6fd6168ae80}{epochs}}\ =\ 100;}
+\DoxyCodeLine{\ \ model.\mbox{\hyperlink{classnetdem_1_1_general_net_acf8f8bfa2b6f06b038b787e50d22dd3a}{step\_size}}\ =\ 0.001;}
+\DoxyCodeLine{\ \ model.\mbox{\hyperlink{classnetdem_1_1_general_net_a574f0358138db10dbaa6f5bfe12872af}{batch\_size}}\ =\ 128;}
+\DoxyCodeLine{\ \ model.\mbox{\hyperlink{classnetdem_1_1_general_net_abd908e5afc4e9215511c28471da2e52f}{stop\_tol}}\ =\ 1.0e-\/10;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{keywordtype}{double}\ test\_accuracy\_best\{0\};}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ 10;\ i++)\ \{}
+\DoxyCodeLine{\ \ \ \ model.\mbox{\hyperlink{classnetdem_1_1_general_net_a0c31c725dea72fe4a05faaf990407ac5}{Train}}(train\_x,\ train\_y);}
+\DoxyCodeLine{\ \ \ \ cout\ <<\ endl\ <<\ \textcolor{stringliteral}{"{}finished\ training\ ..."{}}\ <<\ i\ <<\ endl;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ check\ the\ training\ and\ testing\ results}}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{auto}\ pred\_y\ =\ model.\mbox{\hyperlink{classnetdem_1_1_general_net_af2fc4261724d922ce5723f9d977bd21e}{Classify}}(train\_x);}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{double}\ train\_accuracy\ =}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ arma::accu(pred\_y\ ==\ train\_y)\ *\ 1.0\ /\ num\_trains\ *\ 100.0;}
+\DoxyCodeLine{\ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}train\ accuracy:\ "{}}\ <<\ train\_accuracy\ <<\ \textcolor{stringliteral}{"{}\ \%"{}}\ <<\ endl;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ pred\_y\ =\ model.\mbox{\hyperlink{classnetdem_1_1_general_net_af2fc4261724d922ce5723f9d977bd21e}{Classify}}(test\_x);}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{double}\ test\_accuracy\ =}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ arma::accu(pred\_y\ ==\ test\_y)\ *\ 1.0\ /\ num\_tests\ *\ 100.0;}
+\DoxyCodeLine{\ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}test\ accuracy:\ "{}}\ <<\ test\_accuracy\ <<\ \textcolor{stringliteral}{"{}\ \%"{}}\ <<\ endl\ <<\ endl;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ save\ the\ model}}
+\DoxyCodeLine{\ \ \ \ model.\mbox{\hyperlink{classnetdem_1_1_general_net_a17354db1181787f46187d01ba5ed6e7f}{Save}}(root\_dir\ +\ \textcolor{stringliteral}{"{}training/ann\_classifier\_"{}}\ +\ to\_string(i)\ +\ \textcolor{stringliteral}{"{}.xml"{}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}detection"{}});}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{if}\ (test\_accuracy\ >\ test\_accuracy\_best)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ test\_accuracy\_best\ =\ test\_accuracy;}
+\DoxyCodeLine{\ \ \ \ \ \ model.\mbox{\hyperlink{classnetdem_1_1_general_net_a17354db1181787f46187d01ba5ed6e7f}{Save}}(root\_dir\ +\ \textcolor{stringliteral}{"{}ann\_classifier.xml"{}},\ \textcolor{stringliteral}{"{}detection"{}});}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCodeInclude}
+ 

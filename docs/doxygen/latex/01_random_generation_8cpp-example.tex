@@ -1,0 +1,41 @@
+\hypertarget{01_random_generation_8cpp-example}{}\doxysection{01\+\_\+random\+\_\+generation.\+cpp}
+This is an example of how to use the netdem library.
+
+
+\begin{DoxyCodeInclude}{0}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}data\_dumper.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}gen\_pack.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}gen\_wall\_box\_plane.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}gen\_wall\_box\_plate.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}gravity.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}model\_linear\_spring.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}shape\_polybezier.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}shape\_sphere.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}shape\_trimesh.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}simulation.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ <unordered\_map>}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{using\ namespace\ }\mbox{\hyperlink{namespacenetdem}{netdem}};}
+\DoxyCodeLine{\textcolor{keyword}{using\ namespace\ }std;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ RandomGeneration(\textcolor{keywordtype}{int}\ argc,\ \textcolor{keywordtype}{char}\ **argv)\ \{}
+\DoxyCodeLine{\ \ \textcolor{keywordtype}{int}\ num\_particles\ =\ atof(argv[2]);}
+\DoxyCodeLine{\ \ \textcolor{keywordtype}{int}\ num\_patches\ =\ atof(argv[3]);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ filesystem::create\_directories(\textcolor{stringliteral}{"{}local/polybezier\_model/random\_generation/n"{}}\ +}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ to\_string(num\_patches));}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ num\_particles;\ i++)\ \{}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{classnetdem_1_1_polybezier}{Polybezier}}\ polybezier;}
+\DoxyCodeLine{\ \ \ \ polybezier.num\_patches\ =\ num\_patches;}
+\DoxyCodeLine{\ \ \ \ polybezier.\mbox{\hyperlink{classnetdem_1_1_polybezier_afa6b26c41ac4b7d67605b5195d31cb94}{InitByRandom}}();}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{auto}\ tmp\_stl\ =\ polybezier.\mbox{\hyperlink{classnetdem_1_1_polybezier_a063a225810a381792101b8605365cb48}{GetSTLModel}}(2000);}
+\DoxyCodeLine{\ \ \ \ tmp\_stl.\mbox{\hyperlink{classnetdem_1_1_s_t_l_model_ad63749f1cf41df85a3d7237025200a0b}{SaveAsSTL}}(\textcolor{stringliteral}{"{}local/polybezier\_model/random\_generation/n"{}}\ +}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ to\_string(num\_patches)\ +\ \textcolor{stringliteral}{"{}/p"{}}\ +\ to\_string(i)\ +\ \textcolor{stringliteral}{"{}.stl"{}});}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCodeInclude}
+ 

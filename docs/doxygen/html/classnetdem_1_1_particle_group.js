@@ -1,14 +1,21 @@
 var classnetdem_1_1_particle_group =
 [
     [ "ParticleGroup", "classnetdem_1_1_particle_group.html#aa04253262a5d464be88d02da29a74b17", null ],
-    [ "Add", "classnetdem_1_1_particle_group.html#ab7c98d7f7aae213d2bdafc93ebfdb7e8", null ],
-    [ "Add", "classnetdem_1_1_particle_group.html#ace6542d94ad495684072ad636b90d749", null ],
+    [ "AddParticle", "classnetdem_1_1_particle_group.html#aef4f55628dde5756b70ace9350703120", null ],
+    [ "AddParticle", "classnetdem_1_1_particle_group.html#aeee2f58a7d1a9a2953d3bb02dc2e005c", null ],
+    [ "AddParticle", "classnetdem_1_1_particle_group.html#aa2ae047cec7dad96fd39c0895baca8cc", null ],
     [ "Clear", "classnetdem_1_1_particle_group.html#a20a00aa35b80f2fa74e8e86d059c44a4", null ],
     [ "Clone", "classnetdem_1_1_particle_group.html#ac7848958b3f714ccd75a698fc65f6c44", null ],
     [ "Execute", "classnetdem_1_1_particle_group.html#aedc74b3696668e6ed971b9a3e301318a", null ],
-    [ "Remove", "classnetdem_1_1_particle_group.html#aabf22e781afc1e5254dcde307f51d35f", null ],
-    [ "Remove", "classnetdem_1_1_particle_group.html#a87c41fe2deaee3a80242bc24202a66e9", null ],
-    [ "SetSpin", "classnetdem_1_1_particle_group.html#a1a8f2553f5e3789dbca4c72531c29580", null ],
-    [ "SetVelocity", "classnetdem_1_1_particle_group.html#a5b170749df6fa9c7fe4a2267105566d2", null ],
-    [ "Update", "classnetdem_1_1_particle_group.html#a3b1f8bdddb7187904cae14031a12f1b3", null ]
+    [ "RemoveParticle", "classnetdem_1_1_particle_group.html#a78c568f87a89c0554823b46100c6e20b", null ],
+    [ "RemoveParticle", "classnetdem_1_1_particle_group.html#a63cb4362bfa55496f51c8b99294d63ca", null ],
+    [ "RemoveParticle", "classnetdem_1_1_particle_group.html#aa805edec121c481592925adec8d40870", null ],
+    [ "SetParticle", "classnetdem_1_1_particle_group.html#aad8f58f16ea751fb58e17cce025cf232", null ],
+    [ "SetParticle", "classnetdem_1_1_particle_group.html#a22227039a216142a997dc37723b1948b", null ],
+    [ "SetParticle", "classnetdem_1_1_particle_group.html#aa556c70d40a8466b298008f6e2416980", null ],
+    [ "SetParticleFromScene", "classnetdem_1_1_particle_group.html#afc2c52ea2d46e93ba4eca6a403ee0b29", null ],
+    [ "Update", "classnetdem_1_1_particle_group.html#a3b1f8bdddb7187904cae14031a12f1b3", null ],
+    [ "particle_id_list", "classnetdem_1_1_particle_group.html#af162319116a7a4d93a1f751f658e022e", null ],
+    [ "particle_list", "classnetdem_1_1_particle_group.html#aa14893da00d40386076537d870d3ea56", null ],
+    [ "use_particles_in_scene", "classnetdem_1_1_particle_group.html#adddb17b9cabcc572a887efff526a6b27", null ]
 ];
