@@ -43,6 +43,18 @@ var classnetdem_1_1_m_p_i_manager =
     [ "SyncParticleToGhostSubDomains", "classnetdem_1_1_m_p_i_manager.html#a814707039c87e377f2c34e891d3c9c0f", null ],
     [ "SyncShapeToAllProcessors", "classnetdem_1_1_m_p_i_manager.html#a6ef70dc03ee2a8ca82fba14e6038bee0", null ],
     [ "SyncWallToGhostSubDomains", "classnetdem_1_1_m_p_i_manager.html#a66131405901191af35a59b0f991bd77f", null ],
+    [ "bond_entry_pp_back_out_list", "classnetdem_1_1_m_p_i_manager.html#ad90d274c886686fe46dcf1a388f696b9", null ],
+    [ "bond_entry_pp_proxy_out_list", "classnetdem_1_1_m_p_i_manager.html#adc879bc2b7d8c4375cee752a3e4391de", null ],
+    [ "bond_entry_pp_transfer_out_list", "classnetdem_1_1_m_p_i_manager.html#aa291f738638e20653a49aaec4b6737ae", null ],
+    [ "bond_entry_pw_back_out_list", "classnetdem_1_1_m_p_i_manager.html#a42fff510a6d96bfd468deb363317cbc8", null ],
+    [ "bond_entry_pw_proxy_out_list", "classnetdem_1_1_m_p_i_manager.html#a04629ec1fb50f96ccb05e6605b452b1f", null ],
+    [ "bond_entry_pw_transfer_out_list", "classnetdem_1_1_m_p_i_manager.html#af0263d339762df65c080fb04e2d9185e", null ],
+    [ "collision_entry_pp_back_out_list", "classnetdem_1_1_m_p_i_manager.html#a253077e3b5eceaa52a53238b8779170a", null ],
+    [ "collision_entry_pp_proxy_out_list", "classnetdem_1_1_m_p_i_manager.html#a1a95363de875a18bb195091a88a2fdb6", null ],
+    [ "collision_entry_pp_transfer_out_list", "classnetdem_1_1_m_p_i_manager.html#a6dd3957b42a45e6d9d57e3ea879b834f", null ],
+    [ "collision_entry_pw_back_out_list", "classnetdem_1_1_m_p_i_manager.html#a475fac8faa080d10deee2a75b2e4e354", null ],
+    [ "collision_entry_pw_proxy_out_list", "classnetdem_1_1_m_p_i_manager.html#ad87e54a8ce2951c6905717525f9082fd", null ],
+    [ "collision_entry_pw_transfer_out_list", "classnetdem_1_1_m_p_i_manager.html#aba33ce73e5b545e31a02e466aae6ba5c", null ],
     [ "contact_pp_back_out_list", "classnetdem_1_1_m_p_i_manager.html#a4faa14a7ec5cac9b08014e5490de8008", null ],
     [ "contact_pp_proxy_out_list", "classnetdem_1_1_m_p_i_manager.html#a56e129ea031a5780267d345ac565d92e", null ],
     [ "contact_pp_transfer_out_list", "classnetdem_1_1_m_p_i_manager.html#aba825f99701a0f046e384c2b61a2078f", null ],
@@ -56,5 +68,6 @@ var classnetdem_1_1_m_p_i_manager =
     [ "particle_transfer_in_list", "classnetdem_1_1_m_p_i_manager.html#a0d8653f25f7ee091dda36f0e12e208bc", null ],
     [ "particle_transfer_out_list", "classnetdem_1_1_m_p_i_manager.html#a1105630e63c67a9b6e124144b5089f9b", null ],
     [ "self_rank", "classnetdem_1_1_m_p_i_manager.html#a595f702b35a768d39f873dec6ec6f185", null ],
-    [ "shape_to_sync_list", "classnetdem_1_1_m_p_i_manager.html#a171b2bb24d0ca7212a7cdcc63701da37", null ]
+    [ "shape_to_sync_list", "classnetdem_1_1_m_p_i_manager.html#a171b2bb24d0ca7212a7cdcc63701da37", null ],
+    [ "total_rank", "classnetdem_1_1_m_p_i_manager.html#a10e2672119d87e4443b126e9931ff8ec", null ]
 ];

@@ -95,16 +95,16 @@ $(document).ready(function(){initNavTree('05_ave_num_linked_patches_8cpp-example
 </div><!--header-->
 <div class="contents">
 <p>This is an example of how to use the netdem library.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &quot;data_dumper.hpp&quot;</span></div>
-<div class="line"><span class="preprocessor">#include &quot;gen_pack.hpp&quot;</span></div>
-<div class="line"><span class="preprocessor">#include &quot;gen_wall_box_plane.hpp&quot;</span></div>
-<div class="line"><span class="preprocessor">#include &quot;gen_wall_box_plate.hpp&quot;</span></div>
-<div class="line"><span class="preprocessor">#include &quot;gravity.hpp&quot;</span></div>
-<div class="line"><span class="preprocessor">#include &quot;model_linear_spring.hpp&quot;</span></div>
-<div class="line"><span class="preprocessor">#include &quot;shape_polybezier.hpp&quot;</span></div>
-<div class="line"><span class="preprocessor">#include &quot;shape_sphere.hpp&quot;</span></div>
-<div class="line"><span class="preprocessor">#include &quot;shape_trimesh.hpp&quot;</span></div>
-<div class="line"><span class="preprocessor">#include &quot;simulation.hpp&quot;</span></div>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &quot;<a class="code" href="data__dumper_8hpp.html">data_dumper.hpp</a>&quot;</span></div>
+<div class="line"><span class="preprocessor">#include &quot;<a class="code" href="gen__pack_8hpp.html">gen_pack.hpp</a>&quot;</span></div>
+<div class="line"><span class="preprocessor">#include &quot;<a class="code" href="gen__wall__box__plane_8hpp.html">gen_wall_box_plane.hpp</a>&quot;</span></div>
+<div class="line"><span class="preprocessor">#include &quot;<a class="code" href="gen__wall__box__plate_8hpp.html">gen_wall_box_plate.hpp</a>&quot;</span></div>
+<div class="line"><span class="preprocessor">#include &quot;<a class="code" href="gravity_8hpp.html">gravity.hpp</a>&quot;</span></div>
+<div class="line"><span class="preprocessor">#include &quot;<a class="code" href="model__linear__spring_8hpp.html">model_linear_spring.hpp</a>&quot;</span></div>
+<div class="line"><span class="preprocessor">#include &quot;<a class="code" href="shape__polybezier_8hpp.html">shape_polybezier.hpp</a>&quot;</span></div>
+<div class="line"><span class="preprocessor">#include &quot;<a class="code" href="shape__sphere_8hpp.html">shape_sphere.hpp</a>&quot;</span></div>
+<div class="line"><span class="preprocessor">#include &quot;<a class="code" href="shape__trimesh_8hpp.html">shape_trimesh.hpp</a>&quot;</span></div>
+<div class="line"><span class="preprocessor">#include &quot;<a class="code" href="simulation_8hpp.html">simulation.hpp</a>&quot;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;iostream&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;unordered_map&gt;</span></div>
 <div class="line"> </div>
@@ -122,14 +122,14 @@ $(document).ready(function(){initNavTree('05_ave_num_linked_patches_8cpp-example
 <div class="line">        <span class="stringliteral">&quot;local/polybezier_model/demo_normal_patches/kernel_stl_1.stl&quot;</span>);</div>
 <div class="line"> </div>
 <div class="line">    <a id="_a2" name="_a2"></a><a class="code hl_class" href="classnetdem_1_1_polybezier.html">Polybezier</a> polybezier;</div>
-<div class="line">    polybezier.<a id="a3" name="a3"></a>num_cells = i;</div>
+<div class="line">    polybezier.<a id="a3" name="a3"></a><a class="code hl_variable" href="classnetdem_1_1_polybezier.html#aea00adb3552548d2699c8ec53bcc9fe1">num_cells</a> = i;</div>
 <div class="line">    polybezier.<a id="a4" name="a4"></a><a class="code hl_function" href="classnetdem_1_1_polybezier.html#ad6fb2162349c6483a61572326cc405a6">InitFromKernelSTL</a>(kernel_stl);</div>
 <div class="line"> </div>
 <div class="line">    <span class="keywordtype">double</span> ave_num{0};</div>
-<div class="line">    <span class="keywordflow">for</span> (<span class="keyword">auto</span> cell : polybezier.<a id="a5" name="a5"></a>linked_patches_list) {</div>
+<div class="line">    <span class="keywordflow">for</span> (<span class="keyword">auto</span> cell : polybezier.<a id="a5" name="a5"></a><a class="code hl_variable" href="classnetdem_1_1_polybezier.html#a742b5cbbaaf0a113737f5e06fb060196">linked_patches_list</a>) {</div>
 <div class="line">      ave_num += cell.size();</div>
 <div class="line">    }</div>
-<div class="line">    cout &lt;&lt; i &lt;&lt; <span class="stringliteral">&quot;, &quot;</span> &lt;&lt; ave_num / polybezier.linked_patches_list.size()</div>
+<div class="line">    cout &lt;&lt; i &lt;&lt; <span class="stringliteral">&quot;, &quot;</span> &lt;&lt; ave_num / polybezier.<a class="code hl_variable" href="classnetdem_1_1_polybezier.html#a742b5cbbaaf0a113737f5e06fb060196">linked_patches_list</a>.size()</div>
 <div class="line">         &lt;&lt; <span class="stringliteral">&quot;, &quot;</span>;</div>
 <div class="line"> </div>
 <div class="line">    <a id="_a6" name="_a6"></a><a class="code hl_class" href="classnetdem_1_1_tri_mesh.html">TriMesh</a> trimesh;</div>
@@ -144,17 +144,29 @@ $(document).ready(function(){initNavTree('05_ave_num_linked_patches_8cpp-example
 <div class="line">    cout &lt;&lt; ave_num / trimesh.<a class="code hl_variable" href="classnetdem_1_1_tri_mesh.html#aebaaf2c1a835d872b4f1144a250495ef">linked_vertices</a>.size() &lt;&lt; endl;</div>
 <div class="line">  }</div>
 <div class="line">}</div>
-<div class="ttc" id="aclassnetdem_1_1_polybezier_html"><div class="ttname"><a href="classnetdem_1_1_polybezier.html">netdem::Polybezier</a></div><div class="ttdoc">A class representing a polybezier with variable orders and patches.</div><div class="ttdef"><b>Definition:</b> shape_polybezier.hpp:25</div></div>
+<div class="ttc" id="aclassnetdem_1_1_polybezier_html"><div class="ttname"><a href="classnetdem_1_1_polybezier.html">netdem::Polybezier</a></div><div class="ttdoc">A class representing a polybezier with variable orders and patches.</div><div class="ttdef"><b>Definition:</b> shape_polybezier.hpp:21</div></div>
 <div class="ttc" id="aclassnetdem_1_1_polybezier_html_a063a225810a381792101b8605365cb48"><div class="ttname"><a href="classnetdem_1_1_polybezier.html#a063a225810a381792101b8605365cb48">netdem::Polybezier::GetSTLModel</a></div><div class="ttdeci">STLModel GetSTLModel(int num_facets=400) override</div><div class="ttdoc">Generate an STL model for the Polybezier object.</div><div class="ttdef"><b>Definition:</b> shape_polybezier.cpp:249</div></div>
+<div class="ttc" id="aclassnetdem_1_1_polybezier_html_a742b5cbbaaf0a113737f5e06fb060196"><div class="ttname"><a href="classnetdem_1_1_polybezier.html#a742b5cbbaaf0a113737f5e06fb060196">netdem::Polybezier::linked_patches_list</a></div><div class="ttdeci">VecXT&lt; VecXT&lt; int &gt; &gt; linked_patches_list</div><div class="ttdef"><b>Definition:</b> shape_polybezier.hpp:39</div></div>
 <div class="ttc" id="aclassnetdem_1_1_polybezier_html_ad6fb2162349c6483a61572326cc405a6"><div class="ttname"><a href="classnetdem_1_1_polybezier.html#ad6fb2162349c6483a61572326cc405a6">netdem::Polybezier::InitFromKernelSTL</a></div><div class="ttdeci">void InitFromKernelSTL(std::string const &amp;file)</div><div class="ttdoc">Initialize the Polybezier object from a kernel STL model read from file.</div></div>
+<div class="ttc" id="aclassnetdem_1_1_polybezier_html_aea00adb3552548d2699c8ec53bcc9fe1"><div class="ttname"><a href="classnetdem_1_1_polybezier.html#aea00adb3552548d2699c8ec53bcc9fe1">netdem::Polybezier::num_cells</a></div><div class="ttdeci">int num_cells</div><div class="ttdef"><b>Definition:</b> shape_polybezier.hpp:40</div></div>
 <div class="ttc" id="aclassnetdem_1_1_s_t_l_model_html"><div class="ttname"><a href="classnetdem_1_1_s_t_l_model.html">netdem::STLModel</a></div><div class="ttdoc">Class for working with STL models.</div><div class="ttdef"><b>Definition:</b> stl_model.hpp:17</div></div>
 <div class="ttc" id="aclassnetdem_1_1_s_t_l_model_html_abb01a9583427f88f59d2abdf79b1e981"><div class="ttname"><a href="classnetdem_1_1_s_t_l_model.html#abb01a9583427f88f59d2abdf79b1e981">netdem::STLModel::InitFromSTL</a></div><div class="ttdeci">void InitFromSTL(std::string const &amp;file)</div><div class="ttdoc">Initialize the model from an STL file.</div><div class="ttdef"><b>Definition:</b> stl_model.cpp:25</div></div>
-<div class="ttc" id="aclassnetdem_1_1_tri_mesh_html"><div class="ttname"><a href="classnetdem_1_1_tri_mesh.html">netdem::TriMesh</a></div><div class="ttdoc">A class representing a triangular mesh in 3D space.</div><div class="ttdef"><b>Definition:</b> shape_trimesh.hpp:27</div></div>
+<div class="ttc" id="aclassnetdem_1_1_tri_mesh_html"><div class="ttname"><a href="classnetdem_1_1_tri_mesh.html">netdem::TriMesh</a></div><div class="ttdoc">A class representing a triangular mesh in 3D space.</div><div class="ttdef"><b>Definition:</b> shape_trimesh.hpp:23</div></div>
 <div class="ttc" id="aclassnetdem_1_1_tri_mesh_html_a1dc42a1f9439c900d76f213155ebb56d"><div class="ttname"><a href="classnetdem_1_1_tri_mesh.html#a1dc42a1f9439c900d76f213155ebb56d">netdem::TriMesh::InitFromSTL</a></div><div class="ttdeci">void InitFromSTL(std::string const &amp;file)</div><div class="ttdoc">Initialize the TriMesh object from an STL file.</div></div>
-<div class="ttc" id="aclassnetdem_1_1_tri_mesh_html_a37d69b0bfd72b90fcdf639eda5281ac3"><div class="ttname"><a href="classnetdem_1_1_tri_mesh.html#a37d69b0bfd72b90fcdf639eda5281ac3">netdem::TriMesh::use_linked_patches</a></div><div class="ttdeci">bool use_linked_patches</div><div class="ttdef"><b>Definition:</b> shape_trimesh.hpp:39</div></div>
-<div class="ttc" id="aclassnetdem_1_1_tri_mesh_html_a88515b6a64766d16eb61de5f7d09fda4"><div class="ttname"><a href="classnetdem_1_1_tri_mesh.html#a88515b6a64766d16eb61de5f7d09fda4">netdem::TriMesh::num_cells</a></div><div class="ttdeci">int num_cells</div><div class="ttdef"><b>Definition:</b> shape_trimesh.hpp:42</div></div>
-<div class="ttc" id="aclassnetdem_1_1_tri_mesh_html_aebaaf2c1a835d872b4f1144a250495ef"><div class="ttname"><a href="classnetdem_1_1_tri_mesh.html#aebaaf2c1a835d872b4f1144a250495ef">netdem::TriMesh::linked_vertices</a></div><div class="ttdeci">VecXT&lt; VecXT&lt; int &gt; &gt; linked_vertices</div><div class="ttdef"><b>Definition:</b> shape_trimesh.hpp:44</div></div>
-<div class="ttc" id="anamespacenetdem_html"><div class="ttname"><a href="namespacenetdem.html">netdem</a></div><div class="ttdoc">A namespace containing classes and functions for the netdem simulation.</div><div class="ttdef"><b>Definition:</b> bond_entry.hpp:7</div></div>
+<div class="ttc" id="aclassnetdem_1_1_tri_mesh_html_a37d69b0bfd72b90fcdf639eda5281ac3"><div class="ttname"><a href="classnetdem_1_1_tri_mesh.html#a37d69b0bfd72b90fcdf639eda5281ac3">netdem::TriMesh::use_linked_patches</a></div><div class="ttdeci">bool use_linked_patches</div><div class="ttdef"><b>Definition:</b> shape_trimesh.hpp:35</div></div>
+<div class="ttc" id="aclassnetdem_1_1_tri_mesh_html_a88515b6a64766d16eb61de5f7d09fda4"><div class="ttname"><a href="classnetdem_1_1_tri_mesh.html#a88515b6a64766d16eb61de5f7d09fda4">netdem::TriMesh::num_cells</a></div><div class="ttdeci">int num_cells</div><div class="ttdef"><b>Definition:</b> shape_trimesh.hpp:38</div></div>
+<div class="ttc" id="aclassnetdem_1_1_tri_mesh_html_aebaaf2c1a835d872b4f1144a250495ef"><div class="ttname"><a href="classnetdem_1_1_tri_mesh.html#aebaaf2c1a835d872b4f1144a250495ef">netdem::TriMesh::linked_vertices</a></div><div class="ttdeci">VecXT&lt; VecXT&lt; int &gt; &gt; linked_vertices</div><div class="ttdef"><b>Definition:</b> shape_trimesh.hpp:40</div></div>
+<div class="ttc" id="adata__dumper_8hpp_html"><div class="ttname"><a href="data__dumper_8hpp.html">data_dumper.hpp</a></div></div>
+<div class="ttc" id="agen__pack_8hpp_html"><div class="ttname"><a href="gen__pack_8hpp.html">gen_pack.hpp</a></div></div>
+<div class="ttc" id="agen__wall__box__plane_8hpp_html"><div class="ttname"><a href="gen__wall__box__plane_8hpp.html">gen_wall_box_plane.hpp</a></div></div>
+<div class="ttc" id="agen__wall__box__plate_8hpp_html"><div class="ttname"><a href="gen__wall__box__plate_8hpp.html">gen_wall_box_plate.hpp</a></div></div>
+<div class="ttc" id="agravity_8hpp_html"><div class="ttname"><a href="gravity_8hpp.html">gravity.hpp</a></div></div>
+<div class="ttc" id="amodel__linear__spring_8hpp_html"><div class="ttname"><a href="model__linear__spring_8hpp.html">model_linear_spring.hpp</a></div></div>
+<div class="ttc" id="anamespacenetdem_html"><div class="ttname"><a href="namespacenetdem.html">netdem</a></div><div class="ttdef"><b>Definition:</b> bond_entry.hpp:7</div></div>
+<div class="ttc" id="ashape__polybezier_8hpp_html"><div class="ttname"><a href="shape__polybezier_8hpp.html">shape_polybezier.hpp</a></div></div>
+<div class="ttc" id="ashape__sphere_8hpp_html"><div class="ttname"><a href="shape__sphere_8hpp.html">shape_sphere.hpp</a></div></div>
+<div class="ttc" id="ashape__trimesh_8hpp_html"><div class="ttname"><a href="shape__trimesh_8hpp.html">shape_trimesh.hpp</a></div></div>
+<div class="ttc" id="asimulation_8hpp_html"><div class="ttname"><a href="simulation_8hpp.html">simulation.hpp</a></div></div>
 </div><!-- fragment --> </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

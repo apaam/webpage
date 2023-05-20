@@ -12,5 +12,9 @@ var classnetdem_1_1_membrane_wall =
     [ "SetPressure", "classnetdem_1_1_membrane_wall.html#adc55a613604f7cb4bc0fd33a4736777d", null ],
     [ "SetRootPath", "classnetdem_1_1_membrane_wall.html#ae57d694d275c6cd17815d9f0b5dd7424", null ],
     [ "SetSaveByCycles", "classnetdem_1_1_membrane_wall.html#a7e84c6e002108946840729ee157cc47a", null ],
-    [ "SetSaveByTime", "classnetdem_1_1_membrane_wall.html#aa7548db94af095dc9ad3b0f6aae4ce5f", null ]
+    [ "SetSaveByTime", "classnetdem_1_1_membrane_wall.html#aa7548db94af095dc9ad3b0f6aae4ce5f", null ],
+    [ "dump_info", "classnetdem_1_1_membrane_wall.html#aca076ba6ac1fe9466e8d1cfa222c4608", null ],
+    [ "enable_deformation", "classnetdem_1_1_membrane_wall.html#a4f466497708a4b6835dd84a40f60d4df", null ],
+    [ "facing_outside", "classnetdem_1_1_membrane_wall.html#adeb5caad61ad22a22133b897d540bc59", null ],
+    [ "wall_list", "classnetdem_1_1_membrane_wall.html#a2c38d8812eb8fc46e3ac10487d02272b", null ]
 ];

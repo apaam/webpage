@@ -3,26 +3,26 @@ This is an example of how to use the netdem library.
 
 
 \begin{DoxyCodeInclude}{0}
-\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}contact\_solver\_factory.hpp"{}}}
-\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}data\_dumper.hpp"{}}}
-\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}gen\_pack.hpp"{}}}
-\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}gen\_wall\_box\_plane.hpp"{}}}
-\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}gravity.hpp"{}}}
-\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}model\_linear\_spring.hpp"{}}}
-\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}particle\_energy\_evaluator.hpp"{}}}
-\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}shape\_spherical\_harmonics.hpp"{}}}
-\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}simulation.hpp"{}}}
-\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}solver\_gjk\_pp.hpp"{}}}
-\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}solver\_gjk\_pw.hpp"{}}}
-\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}solver\_sdf\_pp.hpp"{}}}
-\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}solver\_sdf\_pw.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{contact__solver__factory_8hpp}{contact\_solver\_factory.hpp}}"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{data__dumper_8hpp}{data\_dumper.hpp}}"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{gen__pack_8hpp}{gen\_pack.hpp}}"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{gen__wall__box__plane_8hpp}{gen\_wall\_box\_plane.hpp}}"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{gravity_8hpp}{gravity.hpp}}"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{model__linear__spring_8hpp}{model\_linear\_spring.hpp}}"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{particle__energy__evaluator_8hpp}{particle\_energy\_evaluator.hpp}}"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{shape__spherical__harmonics_8hpp}{shape\_spherical\_harmonics.hpp}}"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{simulation_8hpp}{simulation.hpp}}"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{solver__gjk__pp_8hpp}{solver\_gjk\_pp.hpp}}"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{solver__gjk__pw_8hpp}{solver\_gjk\_pw.hpp}}"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{solver__sdf__pp_8hpp}{solver\_sdf\_pp.hpp}}"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{solver__sdf__pw_8hpp}{solver\_sdf\_pw.hpp}}"{}}}
 \DoxyCodeLine{\textcolor{preprocessor}{\#include\ <filesystem>}}
 \DoxyCodeLine{\textcolor{preprocessor}{\#include\ <iostream>}}
 \DoxyCodeLine{\textcolor{preprocessor}{\#include\ <unordered\_map>}}
 \DoxyCodeLine{\textcolor{keyword}{using\ namespace\ }\mbox{\hyperlink{namespacenetdem}{netdem}};}
 \DoxyCodeLine{\textcolor{keyword}{using\ namespace\ }std;}
 \DoxyCodeLine{}
-\DoxyCodeLine{\textcolor{keywordtype}{void}\ SaveDataset(\textcolor{keywordtype}{string}\ filename,\ VecXT<VecXT<double>>\ \&data);}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ SaveDataset(\textcolor{keywordtype}{string}\ filename,\ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT}}<\mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<double>}}>\ \&data);}
 \DoxyCodeLine{}
 \DoxyCodeLine{\textcolor{keywordtype}{void}\ EnergyTest(\textcolor{keywordtype}{int}\ potential\_case,\ \textcolor{keywordtype}{int}\ shape\_case,\ \textcolor{keywordtype}{double}\ timestep)\ \{}
 \DoxyCodeLine{\ \ \mbox{\hyperlink{classnetdem_1_1_simulation}{Simulation}}\ *sim\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{classnetdem_1_1_simulation}{Simulation}}();}
@@ -34,7 +34,7 @@ This is an example of how to use the netdem library.
 \DoxyCodeLine{\ \ \mbox{\hyperlink{classnetdem_1_1_linear_spring}{LinearSpring}}\ cnt\_model\ =\ \mbox{\hyperlink{classnetdem_1_1_linear_spring}{LinearSpring}}(1.0e7,\ 1.0e6,\ 0.0,\ 0.0);}
 \DoxyCodeLine{\ \ sim-\/>\mbox{\hyperlink{classnetdem_1_1_simulation_add17bfcd927bd2b7f14f05855c20bea3}{scene}}.\mbox{\hyperlink{classnetdem_1_1_scene_a16e8cd7195ba20a9d0bee14498b69c4f}{InsertContactModel}}(\&cnt\_model);}
 \DoxyCodeLine{\ \ sim-\/>\mbox{\hyperlink{classnetdem_1_1_simulation_add17bfcd927bd2b7f14f05855c20bea3}{scene}}.\mbox{\hyperlink{classnetdem_1_1_scene_a37580ce0b6492c6580c85a999aae8397}{SetNumberOfMaterials}}(1);}
-\DoxyCodeLine{\ \ sim-\/>\mbox{\hyperlink{classnetdem_1_1_simulation_add17bfcd927bd2b7f14f05855c20bea3}{scene}}.SetCollisionModel(0,\ 0,\ cnt\_model.\mbox{\hyperlink{classnetdem_1_1_contact_model_ac452f37ee577eb8e2cefa4156d9c62ab}{label}});}
+\DoxyCodeLine{\ \ sim-\/>\mbox{\hyperlink{classnetdem_1_1_simulation_add17bfcd927bd2b7f14f05855c20bea3}{scene}}.\mbox{\hyperlink{classnetdem_1_1_scene_a632f1fb42f6fdd508b3d534520110a4e}{SetCollisionModel}}(0,\ 0,\ cnt\_model.\mbox{\hyperlink{classnetdem_1_1_contact_model_ac452f37ee577eb8e2cefa4156d9c62ab}{label}});}
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ \mbox{\hyperlink{classnetdem_1_1_spherical_harmonics}{SphericalHarmonics}}\ sh;}
 \DoxyCodeLine{\ \ \textcolor{keywordflow}{switch}\ (shape\_case)\ \{}
@@ -57,7 +57,7 @@ This is an example of how to use the netdem library.
 \DoxyCodeLine{\ \ \}}
 \DoxyCodeLine{\ \ sim-\/>\mbox{\hyperlink{classnetdem_1_1_simulation_add17bfcd927bd2b7f14f05855c20bea3}{scene}}.\mbox{\hyperlink{classnetdem_1_1_scene_a398e24fbcba078c40b7970edbe44e325}{InsertShape}}(\&sh);}
 \DoxyCodeLine{}
-\DoxyCodeLine{\ \ VecXT<Particle>\ particle\_list\ =\ PackGenerator::GetGridPack(}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<Particle>}}\ particle\_list\ =\ PackGenerator::GetGridPack(}
 \DoxyCodeLine{\ \ \ \ \ \ 1,\ 1,\ 1,\ 0,\ 0,\ 0,\ 1,\ 1,\ 2,\ sim-\/>\mbox{\hyperlink{classnetdem_1_1_simulation_add17bfcd927bd2b7f14f05855c20bea3}{scene}}.\mbox{\hyperlink{classnetdem_1_1_scene_aaaf2e298f7e7bbd9dc8e34ec683a23f4}{GetShapes}}());}
 \DoxyCodeLine{\ \ sim-\/>\mbox{\hyperlink{classnetdem_1_1_simulation_add17bfcd927bd2b7f14f05855c20bea3}{scene}}.\mbox{\hyperlink{classnetdem_1_1_scene_a9e8ccb020b0ba1b5ab8626448ece42ae}{InsertParticle}}(particle\_list);}
 \DoxyCodeLine{}
@@ -72,7 +72,7 @@ This is an example of how to use the netdem library.
 \DoxyCodeLine{\ \ \mbox{\hyperlink{classnetdem_1_1_gravity}{Gravity}}\ grav;}
 \DoxyCodeLine{\ \ grav.\mbox{\hyperlink{classnetdem_1_1_gravity_a9172d8fb018fe1b553b3af50070a5788}{Init}}(sim);}
 \DoxyCodeLine{\ \ sim-\/>\mbox{\hyperlink{classnetdem_1_1_simulation_a918a87f02a78aed6a311bf90d1061e72}{modifier\_manager}}.\mbox{\hyperlink{classnetdem_1_1_modifier_manager_a6748f7dfd9b3e8e9999c4981684a9945}{Insert}}(\&grav);}
-\DoxyCodeLine{\ \ sim-\/>\mbox{\hyperlink{classnetdem_1_1_simulation_a918a87f02a78aed6a311bf90d1061e72}{modifier\_manager}}.\mbox{\hyperlink{classnetdem_1_1_modifier_manager_a75ba1abedb33d45398052ada3177baa2}{Enable}}(grav.label);}
+\DoxyCodeLine{\ \ sim-\/>\mbox{\hyperlink{classnetdem_1_1_simulation_a918a87f02a78aed6a311bf90d1061e72}{modifier\_manager}}.\mbox{\hyperlink{classnetdem_1_1_modifier_manager_a75ba1abedb33d45398052ada3177baa2}{Enable}}(grav.\mbox{\hyperlink{classnetdem_1_1_modifier_a9ca96d4276e4cb637b0220ab6fbbbbee}{label}});}
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ \mbox{\hyperlink{classnetdem_1_1_data_dumper}{DataDumper}}\ data\_dumper;}
 \DoxyCodeLine{\ \ data\_dumper.\mbox{\hyperlink{classnetdem_1_1_data_dumper_a3dba3724732b7159c81366a6cf09720a}{Init}}(sim);}
@@ -89,10 +89,10 @@ This is an example of how to use the netdem library.
 \DoxyCodeLine{\ \ pe\_evaluator.\mbox{\hyperlink{classnetdem_1_1_particle_group_afc2c52ea2d46e93ba4eca6a403ee0b29}{SetParticleFromScene}}();}
 \DoxyCodeLine{\ \ \textcolor{keyword}{auto}\ ev\ =\ sim-\/>\mbox{\hyperlink{classnetdem_1_1_simulation_a918a87f02a78aed6a311bf90d1061e72}{modifier\_manager}}.\mbox{\hyperlink{classnetdem_1_1_modifier_manager_a6748f7dfd9b3e8e9999c4981684a9945}{Insert}}(\&pe\_evaluator);}
 \DoxyCodeLine{\ \ \textcolor{keyword}{auto}\ pe\_evaluator\_ptr\ =\ \textcolor{keyword}{static\_cast<}\mbox{\hyperlink{classnetdem_1_1_particle_energy_evaluator}{ParticleEnergyEvaluator}}\ *\textcolor{keyword}{>}(ev);}
-\DoxyCodeLine{\ \ sim-\/>\mbox{\hyperlink{classnetdem_1_1_simulation_a918a87f02a78aed6a311bf90d1061e72}{modifier\_manager}}.\mbox{\hyperlink{classnetdem_1_1_modifier_manager_a75ba1abedb33d45398052ada3177baa2}{Enable}}(pe\_evaluator.label);}
+\DoxyCodeLine{\ \ sim-\/>\mbox{\hyperlink{classnetdem_1_1_simulation_a918a87f02a78aed6a311bf90d1061e72}{modifier\_manager}}.\mbox{\hyperlink{classnetdem_1_1_modifier_manager_a75ba1abedb33d45398052ada3177baa2}{Enable}}(pe\_evaluator.\mbox{\hyperlink{classnetdem_1_1_modifier_a9ca96d4276e4cb637b0220ab6fbbbbee}{label}});}
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ sim-\/>\mbox{\hyperlink{classnetdem_1_1_simulation_a072310a2f5600bccce29d2d4157b8c61}{dem\_solver}}.\mbox{\hyperlink{classnetdem_1_1_d_e_m_solver_a425c71e883bed7ce636ce51f50f42f7f}{timestep}}\ =\ timestep;}
-\DoxyCodeLine{\ \ VecXT<VecXT<double>>\ energy\_data;}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<VecXT<double>}}>\ energy\_data;}
 \DoxyCodeLine{\ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ 300;\ i++)\ \{}
 \DoxyCodeLine{\ \ \ \ sim-\/>\mbox{\hyperlink{classnetdem_1_1_simulation_a358efcc8d6d906b11ef8fce7a2624943}{Run}}(0.01);}
 \DoxyCodeLine{\ \ \ \ energy\_data.push\_back(}

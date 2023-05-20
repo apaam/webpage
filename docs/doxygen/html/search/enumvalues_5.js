@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['post_0',['post',['../classnetdem_1_1_d_e_m_solver.html#a7b625d897bb69cd28838602603b8b0c4acee104ef2b137bb7b79e5e9eef4c5783',1,'netdem::DEMSolver']]]
+  ['gjk_0',['gjk',['../classnetdem_1_1_contact_solver_settings.html#adff2184170befa136fdaedd56a048170a2f8746d2fc0843bbc69e87754c22d9d6',1,'netdem::ContactSolverSettings']]]
 ];

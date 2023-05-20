@@ -3,19 +3,19 @@ This is an example of how to use the netdem library.
 
 
 \begin{DoxyCodeInclude}{0}
-\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}contact\_solver\_factory.hpp"{}}}
-\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}distribution\_uniform.hpp"{}}}
-\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}general\_net.hpp"{}}}
-\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}igl\_wrapper.hpp"{}}}
-\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}mlpack\_utils.hpp"{}}}
-\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}model\_volume\_based.hpp"{}}}
-\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}particle.hpp"{}}}
-\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}regression\_net.hpp"{}}}
-\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}shape\_trimesh.hpp"{}}}
-\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}solver\_boolean\_pp.hpp"{}}}
-\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}solver\_boolean\_pw.hpp"{}}}
-\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}spherical\_voronoi.hpp"{}}}
-\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}utils\_math.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{contact__solver__factory_8hpp}{contact\_solver\_factory.hpp}}"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{distribution__uniform_8hpp}{distribution\_uniform.hpp}}"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{general__net_8hpp}{general\_net.hpp}}"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{igl__wrapper_8hpp}{igl\_wrapper.hpp}}"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{mlpack__utils_8hpp}{mlpack\_utils.hpp}}"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{model__volume__based_8hpp}{model\_volume\_based.hpp}}"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{particle_8hpp}{particle.hpp}}"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{regression__net_8hpp}{regression\_net.hpp}}"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{shape__trimesh_8hpp}{shape\_trimesh.hpp}}"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{solver__boolean__pp_8hpp}{solver\_boolean\_pp.hpp}}"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{solver__boolean__pw_8hpp}{solver\_boolean\_pw.hpp}}"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{spherical__voronoi_8hpp}{spherical\_voronoi.hpp}}"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{utils__math_8hpp}{utils\_math.hpp}}"{}}}
 \DoxyCodeLine{\textcolor{preprocessor}{\#include\ <fstream>}}
 \DoxyCodeLine{\textcolor{preprocessor}{\#include\ <iostream>}}
 \DoxyCodeLine{\textcolor{preprocessor}{\#include\ <random>}}
@@ -40,8 +40,8 @@ This is an example of how to use the netdem library.
 \DoxyCodeLine{\ \ obj\_p2.\mbox{\hyperlink{classnetdem_1_1_particle_af762283470f206c8a0797d6ce04f6436}{need\_update\_stl\_model}}\ =\ \textcolor{keyword}{true};}
 \DoxyCodeLine{\ \ cout\ <<\ \textcolor{stringliteral}{"{}particle\ created\ ...\ "{}}\ <<\ endl;}
 \DoxyCodeLine{}
-\DoxyCodeLine{\ \ obj\_p2.SetRodrigues(1.2,\ 0,\ 1,\ 0);}
-\DoxyCodeLine{\ \ obj\_p2.SetPosition(0,\ 0,\ 0.94);}
+\DoxyCodeLine{\ \ obj\_p2.\mbox{\hyperlink{classnetdem_1_1_particle_a116ae8a62a290ca23e7d3a48cf45fbef}{SetRodrigues}}(1.2,\ 0,\ 1,\ 0);}
+\DoxyCodeLine{\ \ obj\_p2.\mbox{\hyperlink{classnetdem_1_1_particle_a3f272179dd1b248f9ea09638c1beecfb}{SetPosition}}(0,\ 0,\ 0.94);}
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ \mbox{\hyperlink{classnetdem_1_1_solver_boolean_p_p}{SolverBooleanPP}}\ cnt\_solver;}
 \DoxyCodeLine{\ \ \mbox{\hyperlink{classnetdem_1_1_volume_based}{VolumeBased}}\ cnt\_model;}
@@ -57,34 +57,34 @@ This is an example of how to use the netdem library.
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ \textcolor{comment}{//\ random\ cases}}
 \DoxyCodeLine{\ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ trial\ =\ 0;\ trial\ <\ 100;\ trial++)\ \{}
-\DoxyCodeLine{\ \ \ \ Vec3d\ pos;}
-\DoxyCodeLine{\ \ \ \ pos[0]\ =\ obj\_p2.pos[0]\ +\ (uniform\_dist.\mbox{\hyperlink{classnetdem_1_1_uniform_distribution_a7e39cbd0ed813d381022ad61986092bf}{Get}}()\ -\/\ 0.5)\ *\ 0.001;}
-\DoxyCodeLine{\ \ \ \ pos[1]\ =\ obj\_p2.pos[1]\ +\ (uniform\_dist.\mbox{\hyperlink{classnetdem_1_1_uniform_distribution_a7e39cbd0ed813d381022ad61986092bf}{Get}}()\ -\/\ 0.5)\ *\ 0.001;}
-\DoxyCodeLine{\ \ \ \ pos[2]\ =\ obj\_p2.pos[2]\ +\ (uniform\_dist.\mbox{\hyperlink{classnetdem_1_1_uniform_distribution_a7e39cbd0ed813d381022ad61986092bf}{Get}}()\ -\/\ 0.5)\ *\ 0.001;}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ pos;}
+\DoxyCodeLine{\ \ \ \ pos[0]\ =\ obj\_p2.\mbox{\hyperlink{classnetdem_1_1_particle_a99a725063b17af58b5abda99dc935dd9}{pos}}[0]\ +\ (uniform\_dist.\mbox{\hyperlink{classnetdem_1_1_uniform_distribution_a7e39cbd0ed813d381022ad61986092bf}{Get}}()\ -\/\ 0.5)\ *\ 0.001;}
+\DoxyCodeLine{\ \ \ \ pos[1]\ =\ obj\_p2.\mbox{\hyperlink{classnetdem_1_1_particle_a99a725063b17af58b5abda99dc935dd9}{pos}}[1]\ +\ (uniform\_dist.\mbox{\hyperlink{classnetdem_1_1_uniform_distribution_a7e39cbd0ed813d381022ad61986092bf}{Get}}()\ -\/\ 0.5)\ *\ 0.001;}
+\DoxyCodeLine{\ \ \ \ pos[2]\ =\ obj\_p2.\mbox{\hyperlink{classnetdem_1_1_particle_a99a725063b17af58b5abda99dc935dd9}{pos}}[2]\ +\ (uniform\_dist.\mbox{\hyperlink{classnetdem_1_1_uniform_distribution_a7e39cbd0ed813d381022ad61986092bf}{Get}}()\ -\/\ 0.5)\ *\ 0.001;}
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{double}\ rot\_angle\{1.0e-\/4\};}
-\DoxyCodeLine{\ \ \ \ Vec3d\ rot\_axis;}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ rot\_axis;}
 \DoxyCodeLine{\ \ \ \ rot\_axis[0]\ =\ uniform\_dist.\mbox{\hyperlink{classnetdem_1_1_uniform_distribution_a7e39cbd0ed813d381022ad61986092bf}{Get}}()\ *\ 2.0\ -\/\ 1.0;}
 \DoxyCodeLine{\ \ \ \ rot\_axis[1]\ =\ uniform\_dist.\mbox{\hyperlink{classnetdem_1_1_uniform_distribution_a7e39cbd0ed813d381022ad61986092bf}{Get}}()\ *\ 2.0\ -\/\ 1.0;}
 \DoxyCodeLine{\ \ \ \ rot\_axis[2]\ =\ uniform\_dist.\mbox{\hyperlink{classnetdem_1_1_uniform_distribution_a7e39cbd0ed813d381022ad61986092bf}{Get}}()\ *\ 2.0\ -\/\ 1.0;}
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ \ \ \textcolor{keyword}{auto}\ dquat\ =\ Math::Quaternion::FromRodrigues(rot\_angle,\ rot\_axis);}
-\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{auto}\ quat\ =\ Math::Quaternion::Multiply(dquat,\ obj\_p2.quaternion);}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{auto}\ quat\ =\ Math::Quaternion::Multiply(dquat,\ obj\_p2.\mbox{\hyperlink{classnetdem_1_1_particle_a419c571fbf7604011f11c2ce77388720}{quaternion}});}
 \DoxyCodeLine{\ \ \ \ Math::Quaternion::Normalize(\&quat);}
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ apply\ to\ particle}}
-\DoxyCodeLine{\ \ \ \ obj\_p2.SetPosition(pos[0],\ pos[1],\ pos[2]);}
-\DoxyCodeLine{\ \ \ \ obj\_p2.SetQuaternion(quat[0],\ quat[1],\ quat[2],\ quat[3]);}
+\DoxyCodeLine{\ \ \ \ obj\_p2.\mbox{\hyperlink{classnetdem_1_1_particle_a3f272179dd1b248f9ea09638c1beecfb}{SetPosition}}(pos[0],\ pos[1],\ pos[2]);}
+\DoxyCodeLine{\ \ \ \ obj\_p2.\mbox{\hyperlink{classnetdem_1_1_particle_a0696409eed30981670dd748997dc23b0}{SetQuaternion}}(quat[0],\ quat[1],\ quat[2],\ quat[3]);}
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ contact\ detection\ and\ resolution}}
 \DoxyCodeLine{\ \ \ \ arma::mat\ input(7,\ 1,\ arma::fill::zeros);}
-\DoxyCodeLine{\ \ \ \ input(0,\ 0)\ =\ obj\_p2.pos[0];}
-\DoxyCodeLine{\ \ \ \ input(1,\ 0)\ =\ obj\_p2.pos[1];}
-\DoxyCodeLine{\ \ \ \ input(2,\ 0)\ =\ obj\_p2.pos[2];}
-\DoxyCodeLine{\ \ \ \ input(3,\ 0)\ =\ obj\_p2.quaternion[0]\ *\ Math::Sign(obj\_p2.quaternion[0]);}
-\DoxyCodeLine{\ \ \ \ input(4,\ 0)\ =\ obj\_p2.quaternion[1]\ *\ Math::Sign(obj\_p2.quaternion[0]);}
-\DoxyCodeLine{\ \ \ \ input(5,\ 0)\ =\ obj\_p2.quaternion[2]\ *\ Math::Sign(obj\_p2.quaternion[0]);}
-\DoxyCodeLine{\ \ \ \ input(6,\ 0)\ =\ obj\_p2.quaternion[3]\ *\ Math::Sign(obj\_p2.quaternion[0]);}
+\DoxyCodeLine{\ \ \ \ input(0,\ 0)\ =\ obj\_p2.\mbox{\hyperlink{classnetdem_1_1_particle_a99a725063b17af58b5abda99dc935dd9}{pos}}[0];}
+\DoxyCodeLine{\ \ \ \ input(1,\ 0)\ =\ obj\_p2.\mbox{\hyperlink{classnetdem_1_1_particle_a99a725063b17af58b5abda99dc935dd9}{pos}}[1];}
+\DoxyCodeLine{\ \ \ \ input(2,\ 0)\ =\ obj\_p2.\mbox{\hyperlink{classnetdem_1_1_particle_a99a725063b17af58b5abda99dc935dd9}{pos}}[2];}
+\DoxyCodeLine{\ \ \ \ input(3,\ 0)\ =\ obj\_p2.\mbox{\hyperlink{classnetdem_1_1_particle_a419c571fbf7604011f11c2ce77388720}{quaternion}}[0]\ *\ Math::Sign(obj\_p2.\mbox{\hyperlink{classnetdem_1_1_particle_a419c571fbf7604011f11c2ce77388720}{quaternion}}[0]);}
+\DoxyCodeLine{\ \ \ \ input(4,\ 0)\ =\ obj\_p2.\mbox{\hyperlink{classnetdem_1_1_particle_a419c571fbf7604011f11c2ce77388720}{quaternion}}[1]\ *\ Math::Sign(obj\_p2.\mbox{\hyperlink{classnetdem_1_1_particle_a419c571fbf7604011f11c2ce77388720}{quaternion}}[0]);}
+\DoxyCodeLine{\ \ \ \ input(5,\ 0)\ =\ obj\_p2.\mbox{\hyperlink{classnetdem_1_1_particle_a419c571fbf7604011f11c2ce77388720}{quaternion}}[2]\ *\ Math::Sign(obj\_p2.\mbox{\hyperlink{classnetdem_1_1_particle_a419c571fbf7604011f11c2ce77388720}{quaternion}}[0]);}
+\DoxyCodeLine{\ \ \ \ input(6,\ 0)\ =\ obj\_p2.\mbox{\hyperlink{classnetdem_1_1_particle_a419c571fbf7604011f11c2ce77388720}{quaternion}}[3]\ *\ Math::Sign(obj\_p2.\mbox{\hyperlink{classnetdem_1_1_particle_a419c571fbf7604011f11c2ce77388720}{quaternion}}[0]);}
 \DoxyCodeLine{\ \ \ \ \textcolor{keyword}{auto}\ output\ =\ classifier.\mbox{\hyperlink{classnetdem_1_1_general_net_af2fc4261724d922ce5723f9d977bd21e}{Classify}}(input);}
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ \ \ cnt\_solver.\mbox{\hyperlink{classnetdem_1_1_solver_boolean_p_p_a95d5fd4728888e1179367b180757859b}{Init}}(\&obj\_p1,\ \&obj\_p2);}

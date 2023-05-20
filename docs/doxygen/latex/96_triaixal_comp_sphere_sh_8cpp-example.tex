@@ -3,16 +3,16 @@ This is an example of how to use the netdem library.
 
 
 \begin{DoxyCodeInclude}{0}
-\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}contact\_solver\_factory.hpp"{}}}
-\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}data\_dumper.hpp"{}}}
-\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}gen\_pack.hpp"{}}}
-\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}gen\_wall\_box\_plane.hpp"{}}}
-\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}gravity.hpp"{}}}
-\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}model\_linear\_spring.hpp"{}}}
-\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}shape\_spherical\_harmonics.hpp"{}}}
-\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}simulation.hpp"{}}}
-\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}wall\_motion\_control.hpp"{}}}
-\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}wall\_servo\_control.hpp"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{contact__solver__factory_8hpp}{contact\_solver\_factory.hpp}}"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{data__dumper_8hpp}{data\_dumper.hpp}}"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{gen__pack_8hpp}{gen\_pack.hpp}}"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{gen__wall__box__plane_8hpp}{gen\_wall\_box\_plane.hpp}}"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{gravity_8hpp}{gravity.hpp}}"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{model__linear__spring_8hpp}{model\_linear\_spring.hpp}}"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{shape__spherical__harmonics_8hpp}{shape\_spherical\_harmonics.hpp}}"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{simulation_8hpp}{simulation.hpp}}"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{wall__motion__control_8hpp}{wall\_motion\_control.hpp}}"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{wall__servo__control_8hpp}{wall\_servo\_control.hpp}}"{}}}
 \DoxyCodeLine{\textcolor{preprocessor}{\#include\ <iostream>}}
 \DoxyCodeLine{\textcolor{keyword}{using\ namespace\ }\mbox{\hyperlink{namespacenetdem}{netdem}};}
 \DoxyCodeLine{\textcolor{keyword}{using\ namespace\ }std;}
@@ -30,7 +30,7 @@ This is an example of how to use the netdem library.
 \DoxyCodeLine{\ \ \mbox{\hyperlink{classnetdem_1_1_linear_spring}{LinearSpring}}\ cnt\_model\ =\ \mbox{\hyperlink{classnetdem_1_1_linear_spring}{LinearSpring}}(1.0e2,\ 1.0e4,\ 0.7,\ 0.3);}
 \DoxyCodeLine{\ \ sim-\/>\mbox{\hyperlink{classnetdem_1_1_simulation_add17bfcd927bd2b7f14f05855c20bea3}{scene}}.\mbox{\hyperlink{classnetdem_1_1_scene_a16e8cd7195ba20a9d0bee14498b69c4f}{InsertContactModel}}(\&cnt\_model);}
 \DoxyCodeLine{\ \ sim-\/>\mbox{\hyperlink{classnetdem_1_1_simulation_add17bfcd927bd2b7f14f05855c20bea3}{scene}}.\mbox{\hyperlink{classnetdem_1_1_scene_a37580ce0b6492c6580c85a999aae8397}{SetNumberOfMaterials}}(1);}
-\DoxyCodeLine{\ \ sim-\/>\mbox{\hyperlink{classnetdem_1_1_simulation_add17bfcd927bd2b7f14f05855c20bea3}{scene}}.SetCollisionModel(0,\ 0,\ cnt\_model.\mbox{\hyperlink{classnetdem_1_1_contact_model_ac452f37ee577eb8e2cefa4156d9c62ab}{label}});}
+\DoxyCodeLine{\ \ sim-\/>\mbox{\hyperlink{classnetdem_1_1_simulation_add17bfcd927bd2b7f14f05855c20bea3}{scene}}.\mbox{\hyperlink{classnetdem_1_1_scene_a632f1fb42f6fdd508b3d534520110a4e}{SetCollisionModel}}(0,\ 0,\ cnt\_model.\mbox{\hyperlink{classnetdem_1_1_contact_model_ac452f37ee577eb8e2cefa4156d9c62ab}{label}});}
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ \textcolor{comment}{//\ shape\ template}}
 \DoxyCodeLine{\ \ \mbox{\hyperlink{classnetdem_1_1_spherical_harmonics}{SphericalHarmonics}}\ sh;}
@@ -40,13 +40,13 @@ This is an example of how to use the netdem library.
 \DoxyCodeLine{\ \ sim-\/>\mbox{\hyperlink{classnetdem_1_1_simulation_add17bfcd927bd2b7f14f05855c20bea3}{scene}}.\mbox{\hyperlink{classnetdem_1_1_scene_a398e24fbcba078c40b7970edbe44e325}{InsertShape}}(\&sh);}
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ \textcolor{comment}{//\ get\ a\ pack\ of\ particles}}
-\DoxyCodeLine{\ \ VecXT<Particle>\ particle\_list\ =\ PackGenerator::GetGridPack(}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<Particle>}}\ particle\_list\ =\ PackGenerator::GetGridPack(}
 \DoxyCodeLine{\ \ \ \ \ \ 0.04,\ 0.04,\ 0.04,\ 0,\ 0,\ 0.10,\ 5,\ 5,\ 5,\ sim-\/>\mbox{\hyperlink{classnetdem_1_1_simulation_add17bfcd927bd2b7f14f05855c20bea3}{scene}}.\mbox{\hyperlink{classnetdem_1_1_scene_aaaf2e298f7e7bbd9dc8e34ec683a23f4}{GetShapes}}());}
 \DoxyCodeLine{\ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \&p\ :\ particle\_list)\ \{}
 \DoxyCodeLine{\ \ \ \ p.SetDensity(265000);}
 \DoxyCodeLine{\ \ \}}
 \DoxyCodeLine{}
-\DoxyCodeLine{\ \ VecXT<Particle>\ particle\_list\_2\ =\ PackGenerator::GetGridPack(}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<Particle>}}\ particle\_list\_2\ =\ PackGenerator::GetGridPack(}
 \DoxyCodeLine{\ \ \ \ \ \ 0.04,\ 0.04,\ 0.04,\ 0,\ 0,\ 0.02,\ 5,\ 5,\ 5,\ sim-\/>\mbox{\hyperlink{classnetdem_1_1_simulation_add17bfcd927bd2b7f14f05855c20bea3}{scene}}.\mbox{\hyperlink{classnetdem_1_1_scene_aaaf2e298f7e7bbd9dc8e34ec683a23f4}{GetShapes}}());}
 \DoxyCodeLine{\ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \&p\ :\ particle\_list\_2)\ \{}
 \DoxyCodeLine{\ \ \ \ p.SetDensity(265000);}
@@ -61,7 +61,7 @@ This is an example of how to use the netdem library.
 \DoxyCodeLine{\ \ \mbox{\hyperlink{classnetdem_1_1_gravity}{Gravity}}\ grav;}
 \DoxyCodeLine{\ \ grav.\mbox{\hyperlink{classnetdem_1_1_gravity_a9172d8fb018fe1b553b3af50070a5788}{Init}}(sim);}
 \DoxyCodeLine{\ \ sim-\/>\mbox{\hyperlink{classnetdem_1_1_simulation_a918a87f02a78aed6a311bf90d1061e72}{modifier\_manager}}.\mbox{\hyperlink{classnetdem_1_1_modifier_manager_a6748f7dfd9b3e8e9999c4981684a9945}{Insert}}(\&grav);}
-\DoxyCodeLine{\ \ sim-\/>\mbox{\hyperlink{classnetdem_1_1_simulation_a918a87f02a78aed6a311bf90d1061e72}{modifier\_manager}}.\mbox{\hyperlink{classnetdem_1_1_modifier_manager_a75ba1abedb33d45398052ada3177baa2}{Enable}}(grav.label);}
+\DoxyCodeLine{\ \ sim-\/>\mbox{\hyperlink{classnetdem_1_1_simulation_a918a87f02a78aed6a311bf90d1061e72}{modifier\_manager}}.\mbox{\hyperlink{classnetdem_1_1_modifier_manager_a75ba1abedb33d45398052ada3177baa2}{Enable}}(grav.\mbox{\hyperlink{classnetdem_1_1_modifier_a9ca96d4276e4cb637b0220ab6fbbbbee}{label}});}
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ \textcolor{comment}{//\ add\ a\ data\ dumper\ modifier}}
 \DoxyCodeLine{\ \ \mbox{\hyperlink{classnetdem_1_1_data_dumper}{DataDumper}}\ data\_dumper;}
@@ -72,7 +72,7 @@ This is an example of how to use the netdem library.
 \DoxyCodeLine{\ \ data\_dumper.\mbox{\hyperlink{classnetdem_1_1_data_dumper_a5293b933c8d6a5576b613e681dab4102}{dump\_wall\_info}}\ =\ \textcolor{keyword}{true};}
 \DoxyCodeLine{\ \ data\_dumper.\mbox{\hyperlink{classnetdem_1_1_data_dumper_a800da85dfebff37c9cedfd69b3771533}{dump\_contact\_info}}\ =\ \textcolor{keyword}{true};}
 \DoxyCodeLine{\ \ sim-\/>\mbox{\hyperlink{classnetdem_1_1_simulation_a918a87f02a78aed6a311bf90d1061e72}{modifier\_manager}}.\mbox{\hyperlink{classnetdem_1_1_modifier_manager_a6748f7dfd9b3e8e9999c4981684a9945}{Insert}}(\&data\_dumper);}
-\DoxyCodeLine{\ \ sim-\/>\mbox{\hyperlink{classnetdem_1_1_simulation_a918a87f02a78aed6a311bf90d1061e72}{modifier\_manager}}.\mbox{\hyperlink{classnetdem_1_1_modifier_manager_a75ba1abedb33d45398052ada3177baa2}{Enable}}(data\_dumper.label);}
+\DoxyCodeLine{\ \ sim-\/>\mbox{\hyperlink{classnetdem_1_1_simulation_a918a87f02a78aed6a311bf90d1061e72}{modifier\_manager}}.\mbox{\hyperlink{classnetdem_1_1_modifier_manager_a75ba1abedb33d45398052ada3177baa2}{Enable}}(data\_dumper.\mbox{\hyperlink{classnetdem_1_1_modifier_a9ca96d4276e4cb637b0220ab6fbbbbee}{label}});}
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ \textcolor{comment}{//\ random\ packing}}
 \DoxyCodeLine{\ \ sim-\/>\mbox{\hyperlink{classnetdem_1_1_simulation_a072310a2f5600bccce29d2d4157b8c61}{dem\_solver}}.\mbox{\hyperlink{classnetdem_1_1_d_e_m_solver_a425c71e883bed7ce636ce51f50f42f7f}{timestep}}\ =\ 1e-\/4;}
@@ -88,7 +88,7 @@ This is an example of how to use the netdem library.
 \DoxyCodeLine{\ \ \textcolor{comment}{//\ servo\ control\ for\ top\ wall,\ move\ the\ top\ wall\ right\ above\ the\ packing}}
 \DoxyCodeLine{\ \ sim-\/>\mbox{\hyperlink{classnetdem_1_1_simulation_add17bfcd927bd2b7f14f05855c20bea3}{scene}}.\mbox{\hyperlink{classnetdem_1_1_scene_afb86d1a8952750ded86fc43ea1439b61}{wall\_list}}[5]-\/>SetPosition(0,\ 0,\ -\/0.07);}
 \DoxyCodeLine{\ \ \mbox{\hyperlink{classnetdem_1_1_wall_servo_control}{WallServoControl}}\ servo\_top(1.0e5,\ 1.0);}
-\DoxyCodeLine{\ \ servo\_top.label\ =\ \textcolor{stringliteral}{"{}servo\_top"{}};}
+\DoxyCodeLine{\ \ servo\_top.\mbox{\hyperlink{classnetdem_1_1_modifier_a9ca96d4276e4cb637b0220ab6fbbbbee}{label}}\ =\ \textcolor{stringliteral}{"{}servo\_top"{}};}
 \DoxyCodeLine{\ \ servo\_top.\mbox{\hyperlink{classnetdem_1_1_wall_servo_control_a9a393e312ef90fb7bd43f163e092411d}{enable\_auto\_area}}\ =\ \textcolor{keyword}{true};}
 \DoxyCodeLine{\ \ servo\_top.\mbox{\hyperlink{classnetdem_1_1_modifier_ad340b35e3d4a44cbb708a522b89eec91}{Init}}(sim);}
 \DoxyCodeLine{\ \ servo\_top.\mbox{\hyperlink{classnetdem_1_1_wall_servo_control_a32b386998006c5274bdef26cf8acab8f}{target\_pressure}}\ =\ 0.5\ *\ pressure;}
@@ -97,7 +97,7 @@ This is an example of how to use the netdem library.
 \DoxyCodeLine{\ \ servo\_top.\mbox{\hyperlink{classnetdem_1_1_wall_servo_control_ab13df74a52dfa4656b293ed994a9e84f}{vel\_max}}\ =\ 1.0;}
 \DoxyCodeLine{\ \ servo\_top.\mbox{\hyperlink{classnetdem_1_1_wall_group_accb5c20f50a34cb163b77a818759720f}{SetWall}}(\{5\});}
 \DoxyCodeLine{\ \ \textcolor{keyword}{auto}\ tmp\ =\ sim-\/>\mbox{\hyperlink{classnetdem_1_1_simulation_a918a87f02a78aed6a311bf90d1061e72}{modifier\_manager}}.\mbox{\hyperlink{classnetdem_1_1_modifier_manager_a6748f7dfd9b3e8e9999c4981684a9945}{Insert}}(\&servo\_top);}
-\DoxyCodeLine{\ \ sim-\/>\mbox{\hyperlink{classnetdem_1_1_simulation_a918a87f02a78aed6a311bf90d1061e72}{modifier\_manager}}.\mbox{\hyperlink{classnetdem_1_1_modifier_manager_a75ba1abedb33d45398052ada3177baa2}{Enable}}(servo\_top.label);}
+\DoxyCodeLine{\ \ sim-\/>\mbox{\hyperlink{classnetdem_1_1_simulation_a918a87f02a78aed6a311bf90d1061e72}{modifier\_manager}}.\mbox{\hyperlink{classnetdem_1_1_modifier_manager_a75ba1abedb33d45398052ada3177baa2}{Enable}}(servo\_top.\mbox{\hyperlink{classnetdem_1_1_modifier_a9ca96d4276e4cb637b0220ab6fbbbbee}{label}});}
 \DoxyCodeLine{\ \ \textcolor{keyword}{auto}\ servo\_top\_ptr\ =\ \textcolor{keyword}{static\_cast<}\mbox{\hyperlink{classnetdem_1_1_wall_servo_control}{WallServoControl}}\ *\textcolor{keyword}{>}(tmp);}
 \DoxyCodeLine{\ \ \textcolor{keywordflow}{do}\ \{}
 \DoxyCodeLine{\ \ \ \ sim-\/>\mbox{\hyperlink{classnetdem_1_1_simulation_a358efcc8d6d906b11ef8fce7a2624943}{Run}}(0.1);}
@@ -109,14 +109,14 @@ This is an example of how to use the netdem library.
 \DoxyCodeLine{\ \ servo\_top.\mbox{\hyperlink{classnetdem_1_1_wall_servo_control_ad8e63e46098327cc5d3ca4f0eb2c6f12}{tol}}\ =\ 0.05;}
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ \mbox{\hyperlink{classnetdem_1_1_wall_servo_control}{WallServoControl}}\ servo\_lateral(1.0e5,\ 1.0);}
-\DoxyCodeLine{\ \ servo\_lateral.label\ =\ \textcolor{stringliteral}{"{}servo\_lateral"{}};}
+\DoxyCodeLine{\ \ servo\_lateral.\mbox{\hyperlink{classnetdem_1_1_modifier_a9ca96d4276e4cb637b0220ab6fbbbbee}{label}}\ =\ \textcolor{stringliteral}{"{}servo\_lateral"{}};}
 \DoxyCodeLine{\ \ servo\_lateral.\mbox{\hyperlink{classnetdem_1_1_wall_servo_control_a9a393e312ef90fb7bd43f163e092411d}{enable\_auto\_area}}\ =\ \textcolor{keyword}{true};}
 \DoxyCodeLine{\ \ servo\_lateral.\mbox{\hyperlink{classnetdem_1_1_modifier_ad340b35e3d4a44cbb708a522b89eec91}{Init}}(sim);}
 \DoxyCodeLine{\ \ servo\_lateral.\mbox{\hyperlink{classnetdem_1_1_wall_servo_control_a32b386998006c5274bdef26cf8acab8f}{target\_pressure}}\ =\ pressure;}
 \DoxyCodeLine{\ \ servo\_lateral.\mbox{\hyperlink{classnetdem_1_1_wall_servo_control_ab13df74a52dfa4656b293ed994a9e84f}{vel\_max}}\ =\ 1.0;}
 \DoxyCodeLine{\ \ servo\_lateral.\mbox{\hyperlink{classnetdem_1_1_wall_group_accb5c20f50a34cb163b77a818759720f}{SetWall}}(\{0,\ 1,\ 2,\ 3\});}
 \DoxyCodeLine{\ \ tmp\ =\ sim-\/>\mbox{\hyperlink{classnetdem_1_1_simulation_a918a87f02a78aed6a311bf90d1061e72}{modifier\_manager}}.\mbox{\hyperlink{classnetdem_1_1_modifier_manager_a6748f7dfd9b3e8e9999c4981684a9945}{Insert}}(\&servo\_lateral);}
-\DoxyCodeLine{\ \ sim-\/>\mbox{\hyperlink{classnetdem_1_1_simulation_a918a87f02a78aed6a311bf90d1061e72}{modifier\_manager}}.\mbox{\hyperlink{classnetdem_1_1_modifier_manager_a75ba1abedb33d45398052ada3177baa2}{Enable}}(servo\_lateral.label);}
+\DoxyCodeLine{\ \ sim-\/>\mbox{\hyperlink{classnetdem_1_1_simulation_a918a87f02a78aed6a311bf90d1061e72}{modifier\_manager}}.\mbox{\hyperlink{classnetdem_1_1_modifier_manager_a75ba1abedb33d45398052ada3177baa2}{Enable}}(servo\_lateral.\mbox{\hyperlink{classnetdem_1_1_modifier_a9ca96d4276e4cb637b0220ab6fbbbbee}{label}});}
 \DoxyCodeLine{\ \ \textcolor{keyword}{auto}\ servo\_lateral\_ptr\ =\ \textcolor{keyword}{static\_cast<}\mbox{\hyperlink{classnetdem_1_1_wall_servo_control}{WallServoControl}}\ *\textcolor{keyword}{>}(tmp);}
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ \textcolor{comment}{//\ keep\ loading\ until\ target\ pressure\ is\ achieved}}
@@ -126,7 +126,7 @@ This is an example of how to use the netdem library.
 \DoxyCodeLine{\ \ sim-\/>\mbox{\hyperlink{classnetdem_1_1_simulation_a358efcc8d6d906b11ef8fce7a2624943}{Run}}(0.1);}
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ \textcolor{comment}{//\ disable\ servo\ control\ of\ the\ top\ wall}}
-\DoxyCodeLine{\ \ sim-\/>\mbox{\hyperlink{classnetdem_1_1_simulation_a918a87f02a78aed6a311bf90d1061e72}{modifier\_manager}}.\mbox{\hyperlink{classnetdem_1_1_modifier_manager_ab88c1611f705b3e7b964125c791746c4}{Disable}}(servo\_top.label);}
+\DoxyCodeLine{\ \ sim-\/>\mbox{\hyperlink{classnetdem_1_1_simulation_a918a87f02a78aed6a311bf90d1061e72}{modifier\_manager}}.\mbox{\hyperlink{classnetdem_1_1_modifier_manager_ab88c1611f705b3e7b964125c791746c4}{Disable}}(servo\_top.\mbox{\hyperlink{classnetdem_1_1_modifier_a9ca96d4276e4cb637b0220ab6fbbbbee}{label}});}
 \DoxyCodeLine{\ \ servo\_lateral\_ptr-\/>enable\_warning\ =\ \textcolor{keyword}{true};}
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ \textcolor{comment}{//\ add\ deformation\ drived\ loading\ for\ top\ wall}}
@@ -135,7 +135,7 @@ This is an example of how to use the netdem library.
 \DoxyCodeLine{\ \ disp\_control.\mbox{\hyperlink{classnetdem_1_1_wall_group_accb5c20f50a34cb163b77a818759720f}{SetWall}}(\{5\});}
 \DoxyCodeLine{\ \ disp\_control.\mbox{\hyperlink{classnetdem_1_1_wall_motion_control_a411521731bcc9afca256c6c72ef6c727}{vel}}[2]\ =\ -\/0.002;}
 \DoxyCodeLine{\ \ sim-\/>\mbox{\hyperlink{classnetdem_1_1_simulation_a918a87f02a78aed6a311bf90d1061e72}{modifier\_manager}}.\mbox{\hyperlink{classnetdem_1_1_modifier_manager_a6748f7dfd9b3e8e9999c4981684a9945}{Insert}}(\&disp\_control);}
-\DoxyCodeLine{\ \ sim-\/>\mbox{\hyperlink{classnetdem_1_1_simulation_a918a87f02a78aed6a311bf90d1061e72}{modifier\_manager}}.\mbox{\hyperlink{classnetdem_1_1_modifier_manager_a75ba1abedb33d45398052ada3177baa2}{Enable}}(disp\_control.label);}
+\DoxyCodeLine{\ \ sim-\/>\mbox{\hyperlink{classnetdem_1_1_simulation_a918a87f02a78aed6a311bf90d1061e72}{modifier\_manager}}.\mbox{\hyperlink{classnetdem_1_1_modifier_manager_a75ba1abedb33d45398052ada3177baa2}{Enable}}(disp\_control.\mbox{\hyperlink{classnetdem_1_1_modifier_a9ca96d4276e4cb637b0220ab6fbbbbee}{label}});}
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ sim-\/>\mbox{\hyperlink{classnetdem_1_1_simulation_a358efcc8d6d906b11ef8fce7a2624943}{Run}}(10);}
 \DoxyCodeLine{}

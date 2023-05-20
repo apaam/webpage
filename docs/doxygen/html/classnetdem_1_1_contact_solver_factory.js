@@ -19,6 +19,7 @@ var classnetdem_1_1_contact_solver_factory =
     [ "settings", "classnetdem_1_1_contact_solver_factory.html#ad85c98c349f2a40ad26e63e23605a3dc", null ],
     [ "solver_id_customized", "classnetdem_1_1_contact_solver_factory.html#a3ccf277223198adeb837ae0d66c8ba35", null ],
     [ "solver_id_pp_list", "classnetdem_1_1_contact_solver_factory.html#a2b6950767f18a4cc81701705ad82dd0b", null ],
+    [ "solver_id_pw_list", "classnetdem_1_1_contact_solver_factory.html#aad7eb6efc822f948e8e5c604ab4dbd9c", null ],
     [ "solver_pp_pool", "classnetdem_1_1_contact_solver_factory.html#abe2c4feab4c610bc7670fc8f563ecb25", null ],
     [ "solver_pw_pool", "classnetdem_1_1_contact_solver_factory.html#a999d5eec2cf7d3c18e8803da04d0d244", null ]
 ];

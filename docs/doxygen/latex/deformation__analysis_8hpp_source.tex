@@ -1,12 +1,12 @@
 \hypertarget{deformation__analysis_8hpp_source}{}\doxysection{deformation\+\_\+analysis.\+hpp}
 \label{deformation__analysis_8hpp_source}\index{/Users/lzhshou/Documents/Research/myProjects/apaam/repo/netdem/src/modifier/deformation\_analysis.hpp@{/Users/lzhshou/Documents/Research/myProjects/apaam/repo/netdem/src/modifier/deformation\_analysis.hpp}}
-
+\mbox{\hyperlink{deformation__analysis_8hpp}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
 \DoxyCodeLine{00002\ }
-\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}deformable\_particle.hpp"{}}}
-\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}modifier.hpp"{}}}
-\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}particle\_group.hpp"{}}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{deformable__particle_8hpp}{deformable\_particle.hpp}}"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{modifier_8hpp}{modifier.hpp}}"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{particle__group_8hpp}{particle\_group.hpp}}"{}}}
 \DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <unordered\_map>}}
 \DoxyCodeLine{00007\ }
 \DoxyCodeLine{00008\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacenetdem}{netdem}}\ \{}
@@ -15,31 +15,31 @@
 \DoxyCodeLine{00016\ \textcolor{keyword}{public}:}
 \DoxyCodeLine{00020\ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classnetdem_1_1_deformation_analysis_1_1_settings}{Settings}}\ \{}
 \DoxyCodeLine{00021\ \ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keyword}{enum}\ \mbox{\hyperlink{classnetdem_1_1_deformation_analysis_1_1_settings_a3d5f3ec3fd8a98efe713dfa2a2dcb89f}{SolveBy}}\ \{\ cycles,\ time\ \};}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keyword}{enum}\ \mbox{\hyperlink{classnetdem_1_1_deformation_analysis_1_1_settings_a3d5f3ec3fd8a98efe713dfa2a2dcb89f}{SolveBy}}\ \{\ \mbox{\hyperlink{classnetdem_1_1_deformation_analysis_1_1_settings_a3d5f3ec3fd8a98efe713dfa2a2dcb89fa2b7801a03c14b0cd5fbbac208d2e67c6}{cycles}},\ \mbox{\hyperlink{classnetdem_1_1_deformation_analysis_1_1_settings_a3d5f3ec3fd8a98efe713dfa2a2dcb89fa439734c4c66333eba7a6e883ff7e9329}{time}}\ \};}
 \DoxyCodeLine{00026\ }
-\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordtype}{double}\ neo\_k\{6.94e5\},\ neo\_mu\{5.21e5\},\ density\{500.0\};}
-\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordtype}{double}\ damp\_coef\{0.7\};}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classnetdem_1_1_deformation_analysis_1_1_settings_a146ca53f01a4676843db7050becd68ee}{neo\_k}}\{6.94e5\},\ \mbox{\hyperlink{classnetdem_1_1_deformation_analysis_1_1_settings_a06ffe6c4087451c868ca5c85adbf272b}{neo\_mu}}\{5.21e5\},\ \mbox{\hyperlink{classnetdem_1_1_deformation_analysis_1_1_settings_a5b1861d72853453c49203b94c8fd6bb5}{density}}\{500.0\};}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classnetdem_1_1_deformation_analysis_1_1_settings_aca9a1cd65aa688bafac481a1c04bba50}{damp\_coef}}\{0.7\};}
 \DoxyCodeLine{00029\ }
-\DoxyCodeLine{00030\ \ \ \ \ Vec3d\ gravity\_coef\{0.0,\ 0.0,\ -\/9.81\};}
-\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordtype}{double}\ timestep\{1.0e-\/4\};}
-\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordtype}{int}\ mesh\_res\{20\};}
+\DoxyCodeLine{00030\ \ \ \ \ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ \mbox{\hyperlink{classnetdem_1_1_deformation_analysis_1_1_settings_a234f57873cae2b6560894cb9750e5d58}{gravity\_coef}}\{0.0,\ 0.0,\ -\/9.81\};}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classnetdem_1_1_deformation_analysis_1_1_settings_a0e585b49418c4047a7c3fee383d859e3}{timestep}}\{1.0e-\/4\};}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classnetdem_1_1_deformation_analysis_1_1_settings_afd13a0f323d972e21ef7c0f6e63db32c}{mesh\_res}}\{20\};}
 \DoxyCodeLine{00033\ }
-\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordtype}{bool}\ save\_by\_cycles\{\textcolor{keyword}{false}\};}
-\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordtype}{bool}\ save\_by\_time\{\textcolor{keyword}{false}\};}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classnetdem_1_1_deformation_analysis_1_1_settings_a381eef50255f6951a2812a1bb95ffbab}{save\_by\_cycles}}\{\textcolor{keyword}{false}\};}
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classnetdem_1_1_deformation_analysis_1_1_settings_ab21de31ee029a831d30c1ee9e0a92481}{save\_by\_time}}\{\textcolor{keyword}{false}\};}
 \DoxyCodeLine{00036\ }
-\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordtype}{int}\ save\_cycle\_interval\{0\};}
-\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordtype}{double}\ save\_time\_interval\{0\};}
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classnetdem_1_1_deformation_analysis_1_1_settings_a5a24be86ea97ba473cad240a920c6c47}{save\_cycle\_interval}}\{0\};}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classnetdem_1_1_deformation_analysis_1_1_settings_afb21cf97234303833601de6443fb0f77}{save\_time\_interval}}\{0\};}
 \DoxyCodeLine{00039\ }
-\DoxyCodeLine{00040\ \ \ \ \ std::string\ root\_path\{\textcolor{stringliteral}{"{}tmp/out/deformation\_analysis/"{}}\};}
+\DoxyCodeLine{00040\ \ \ \ \ std::string\ \mbox{\hyperlink{classnetdem_1_1_deformation_analysis_1_1_settings_a78547c8b3f6eafbd3cb39e54482ea2e1}{root\_path}}\{\textcolor{stringliteral}{"{}tmp/out/deformation\_analysis/"{}}\};}
 \DoxyCodeLine{00041\ }
 \DoxyCodeLine{00042\ \ \ \ \ \textcolor{comment}{//\ 0:\ cycles,\ 1:\ time}}
-\DoxyCodeLine{00043\ \ \ \ \ \mbox{\hyperlink{classnetdem_1_1_deformation_analysis_1_1_settings_a3d5f3ec3fd8a98efe713dfa2a2dcb89f}{SolveBy}}\ solve\_by\{SolveBy::cycles\};}
+\DoxyCodeLine{00043\ \ \ \ \ \mbox{\hyperlink{classnetdem_1_1_deformation_analysis_1_1_settings_a3d5f3ec3fd8a98efe713dfa2a2dcb89f}{SolveBy}}\ \mbox{\hyperlink{classnetdem_1_1_deformation_analysis_1_1_settings_afa4110f555771f106bfc395498e9a441}{solve\_by}}\{\mbox{\hyperlink{classnetdem_1_1_deformation_analysis_1_1_settings_a3d5f3ec3fd8a98efe713dfa2a2dcb89fa2b7801a03c14b0cd5fbbac208d2e67c6}{SolveBy::cycles}}\};}
 \DoxyCodeLine{00044\ }
-\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keywordtype}{int}\ solve\_cycle\_interval\{0\};}
-\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keywordtype}{double}\ solve\_time\_interval\{0\};}
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classnetdem_1_1_deformation_analysis_1_1_settings_a00c9d15705ee7ec5aeb6a719280a0b2f}{solve\_cycle\_interval}}\{0\};}
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classnetdem_1_1_deformation_analysis_1_1_settings_a759169b948ef1be3fd61d70bcd1faf12}{solve\_time\_interval}}\{0\};}
 \DoxyCodeLine{00047\ \ \ \};}
 \DoxyCodeLine{00048\ }
-\DoxyCodeLine{00049\ \ \ Settings\ settings;}
+\DoxyCodeLine{00049\ \ \ \mbox{\hyperlink{classnetdem_1_1_deformation_analysis_1_1_settings}{Settings}}\ \mbox{\hyperlink{classnetdem_1_1_deformation_analysis_a4f3bb4166d6db7cc6884ddef42711271}{settings}};}
 \DoxyCodeLine{00050\ }
 \DoxyCodeLine{00052\ \ \ std::unordered\_map<Particle\ *,\ std::pair<bool,\ DeformableParticle>>}
 \DoxyCodeLine{00053\ \ \ \ \ \ \ \mbox{\hyperlink{classnetdem_1_1_deformation_analysis_a3e35977142064ee467ab8c6490d907ec}{particle\_map}};}
@@ -48,7 +48,7 @@
 \DoxyCodeLine{00059\ }
 \DoxyCodeLine{00065\ \ \ \mbox{\hyperlink{classnetdem_1_1_modifier}{Modifier}}\ *\mbox{\hyperlink{classnetdem_1_1_deformation_analysis_a98c5cf82429ae3e24421a5c904a0655b}{Clone}}()\ \textcolor{keyword}{const\ override};}
 \DoxyCodeLine{00066\ }
-\DoxyCodeLine{00072\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_deformation_analysis_a8159a1d65475e975f45886acf6c14253}{Init}}(\mbox{\hyperlink{classnetdem_1_1_simulation}{Simulation}}\ *sim)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00072\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_deformation_analysis_a8159a1d65475e975f45886acf6c14253}{Init}}(\mbox{\hyperlink{classnetdem_1_1_simulation}{Simulation}}\ *\mbox{\hyperlink{classnetdem_1_1_modifier_a2af15a41cb6d01349b0597d2f1828763}{sim}})\ \textcolor{keyword}{override};}
 \DoxyCodeLine{00073\ }
 \DoxyCodeLine{00077\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_deformation_analysis_a8385f9938a351aa739992e03c5f0ef80}{Execute}}()\ \textcolor{keyword}{override};}
 \DoxyCodeLine{00078\ }

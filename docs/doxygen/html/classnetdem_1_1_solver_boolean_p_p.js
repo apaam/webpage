@@ -13,5 +13,15 @@ var classnetdem_1_1_solver_boolean_p_p =
     [ "ResolveUpdate", "classnetdem_1_1_solver_boolean_p_p.html#ab5ed940b7659d8b5395dff04c6dea0e6", null ],
     [ "ResolveUpdate", "classnetdem_1_1_solver_boolean_p_p.html#a5520be7c6171d4e6bd394f6ea59e4fec", null ],
     [ "ResolveUpdate_Equivalent", "classnetdem_1_1_solver_boolean_p_p.html#a37bbfc4e2d355232a89abe9ba7875579", null ],
-    [ "SeperateComponents", "classnetdem_1_1_solver_boolean_p_p.html#a2a54718213ae1c8c2e2c40219281c127", null ]
+    [ "SeperateComponents", "classnetdem_1_1_solver_boolean_p_p.html#a2a54718213ae1c8c2e2c40219281c127", null ],
+    [ "bound_sphere_radius_1", "classnetdem_1_1_solver_boolean_p_p.html#a62551d077a88e267450ca955536302a9", null ],
+    [ "bound_sphere_radius_2", "classnetdem_1_1_solver_boolean_p_p.html#a3bdcf3c6db3b895dfdbaba075160e13b", null ],
+    [ "comp_facets_list", "classnetdem_1_1_solver_boolean_p_p.html#ab54b06406b85f976d18f524746120304", null ],
+    [ "comp_facets_of_1or2_list", "classnetdem_1_1_solver_boolean_p_p.html#aac3fa66daf0c1d72052da63e8724478e", null ],
+    [ "dpos_12", "classnetdem_1_1_solver_boolean_p_p.html#aa71c438f26d471590808eb535a697e24", null ],
+    [ "facets_birth_ids", "classnetdem_1_1_solver_boolean_p_p.html#a6aa42630a79b40ef934466af2aebb69a", null ],
+    [ "facets_isct", "classnetdem_1_1_solver_boolean_p_p.html#a48f9ac5c8276cc1b5dc0b5502253c69b", null ],
+    [ "stl_model_1", "classnetdem_1_1_solver_boolean_p_p.html#a9d5e423058461b61d011e81da825d06c", null ],
+    [ "stl_model_2", "classnetdem_1_1_solver_boolean_p_p.html#a47196e9977e7b04c8cdf49ed0f11a261", null ],
+    [ "vertices_isct", "classnetdem_1_1_solver_boolean_p_p.html#aa162fe6ff3828849c596a3efc642cf7f", null ]
 ];

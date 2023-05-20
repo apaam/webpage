@@ -69,6 +69,7 @@ var hierarchy =
     [ "netdem::GeneralNet", "classnetdem_1_1_general_net.html", null ],
     [ "netdem::IGLWrapper", "classnetdem_1_1_i_g_l_wrapper.html", null ],
     [ "netdem::InputProcessor", "classnetdem_1_1_input_processor.html", null ],
+    [ "netdem::IO", "classnetdem_1_1_i_o.html", null ],
     [ "netdem::LevelSetFunction", "classnetdem_1_1_level_set_function.html", [
       [ "netdem::LevelSet", "classnetdem_1_1_level_set.html", null ],
       [ "netdem::LevelSetSplittor", "classnetdem_1_1_level_set_splittor.html", null ]
