@@ -5,7 +5,7 @@ var classnetdem_1_1_contact_p_w =
     [ "ApplyToParticle", "classnetdem_1_1_contact_p_w.html#a5e1f899aee93834b1f215ad9f22ecc0c", null ],
     [ "ApplyToWall", "classnetdem_1_1_contact_p_w.html#ab8dadeb4ebed04b0b8881c405f959ead", null ],
     [ "Clear", "classnetdem_1_1_contact_p_w.html#a29504aa1b1590c148b95746cc6f633cb", null ],
-    [ "EvaluateForceMoment", "classnetdem_1_1_contact_p_w.html#a51a1fa703dd02db2940e3f8dce5e72ac", null ],
+    [ "EvaluateForces", "classnetdem_1_1_contact_p_w.html#aa36e0924446d68e76a7b592fd54a9f66", null ],
     [ "Init", "classnetdem_1_1_contact_p_w.html#a62d7eb130f63a8aec22b076e107830df", null ],
     [ "IsActive", "classnetdem_1_1_contact_p_w.html#a55c10d8916efeb99717637b6178527f9", null ],
     [ "Print", "classnetdem_1_1_contact_p_w.html#a6fdf297c8c51a650b63b61015e2579c3", null ],

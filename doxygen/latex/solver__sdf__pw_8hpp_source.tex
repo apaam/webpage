@@ -1,5 +1,5 @@
-\hypertarget{solver__sdf__pw_8hpp_source}{}\doxysection{solver\+\_\+sdf\+\_\+pw.\+hpp}
-\label{solver__sdf__pw_8hpp_source}\index{/Users/lzhshou/Documents/Research/myProjects/apaam/repo/netdem/src/dem/solver\_sdf\_pw.hpp@{/Users/lzhshou/Documents/Research/myProjects/apaam/repo/netdem/src/dem/solver\_sdf\_pw.hpp}}
+\doxysection{solver\+\_\+sdf\+\_\+pw.\+hpp}
+\hypertarget{solver__sdf__pw_8hpp_source}{}\label{solver__sdf__pw_8hpp_source}\index{/Users/lzhshou/Documents/Research/myProjects/apaam/repo/netdem/src/dem/solver\_sdf\_pw.hpp@{/Users/lzhshou/Documents/Research/myProjects/apaam/repo/netdem/src/dem/solver\_sdf\_pw.hpp}}
 \mbox{\hyperlink{solver__sdf__pw_8hpp}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
@@ -47,24 +47,48 @@
 \DoxyCodeLine{00145\ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classnetdem_1_1_solver_s_d_f_p_w_ad6069f49fe426c71be363b9d92954687}{GetPotential}}(\textcolor{keywordtype}{double}\ dist,\ \mbox{\hyperlink{classnetdem_1_1_shape}{Shape}}\ *shape);}
 \DoxyCodeLine{00146\ }
 \DoxyCodeLine{00147\ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00148\ \ \ \textcolor{keywordtype}{bool}\ solve\_p\_to\_w\{\textcolor{keyword}{false}\},\ solve\_w\_to\_p\{\textcolor{keyword}{false}\};}
-\DoxyCodeLine{00149\ }
-\DoxyCodeLine{00150\ \ \ \textcolor{keywordtype}{double}\ bound\_sphere\_radius\_1,\ bound\_sphere\_radius\_2;}
+\DoxyCodeLine{00148\ }
+\DoxyCodeLine{00150\ \ \ \textcolor{keywordtype}{bool}\ solve\_p\_to\_w\{\textcolor{keyword}{false}\};}
 \DoxyCodeLine{00151\ }
-\DoxyCodeLine{00152\ \ \ \textcolor{comment}{//\ particle\ as\ reference}}
-\DoxyCodeLine{00153\ \ \ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ pos\_1,\ dpos\_12,\ dpos\_12\_ref;}
-\DoxyCodeLine{00154\ \ \ \mbox{\hyperlink{namespacenetdem_a13d5371f99b252a70fd5a5081b910370}{Vec4d}}\ quat\_1,\ dquat\_12;}
-\DoxyCodeLine{00155\ }
-\DoxyCodeLine{00156\ \ \ \textcolor{comment}{//\ wall\ as\ reference}}
-\DoxyCodeLine{00157\ \ \ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ pos\_2,\ dpos\_21,\ dpos\_21\_ref;}
-\DoxyCodeLine{00158\ \ \ \mbox{\hyperlink{namespacenetdem_a13d5371f99b252a70fd5a5081b910370}{Vec4d}}\ quat\_2,\ dquat\_21;}
-\DoxyCodeLine{00159\ }
-\DoxyCodeLine{00160\ \ \ Shape\ *shape\_1\{\textcolor{keyword}{nullptr}\},\ *shape\_2\{\textcolor{keyword}{nullptr}\};}
-\DoxyCodeLine{00161\ }
-\DoxyCodeLine{00162\ \ \ VecXT<int>\ node\_id\_list;}
-\DoxyCodeLine{00163\ \ \ VecXT<double>\ node\_dist\_list;}
-\DoxyCodeLine{00164\ \};}
+\DoxyCodeLine{00153\ \ \ \textcolor{keywordtype}{bool}\ solve\_w\_to\_p\{\textcolor{keyword}{false}\};}
+\DoxyCodeLine{00154\ }
+\DoxyCodeLine{00156\ \ \ \textcolor{keywordtype}{double}\ bound\_sphere\_radius\_1;}
+\DoxyCodeLine{00157\ }
+\DoxyCodeLine{00159\ \ \ \textcolor{keywordtype}{double}\ bound\_sphere\_radius\_2;}
+\DoxyCodeLine{00160\ }
+\DoxyCodeLine{00161\ \ \ \textcolor{comment}{//\ particle\ as\ reference}}
+\DoxyCodeLine{00162\ }
+\DoxyCodeLine{00164\ \ \ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ pos\_1;}
 \DoxyCodeLine{00165\ }
-\DoxyCodeLine{00166\ \}\ \textcolor{comment}{//\ namespace\ netdem}}
+\DoxyCodeLine{00167\ \ \ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ dpos\_12;}
+\DoxyCodeLine{00168\ }
+\DoxyCodeLine{00170\ \ \ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ dpos\_12\_ref;}
+\DoxyCodeLine{00171\ }
+\DoxyCodeLine{00173\ \ \ \mbox{\hyperlink{namespacenetdem_a13d5371f99b252a70fd5a5081b910370}{Vec4d}}\ quat\_1;}
+\DoxyCodeLine{00174\ }
+\DoxyCodeLine{00176\ \ \ \mbox{\hyperlink{namespacenetdem_a13d5371f99b252a70fd5a5081b910370}{Vec4d}}\ dquat\_12;}
+\DoxyCodeLine{00177\ }
+\DoxyCodeLine{00178\ \ \ \textcolor{comment}{//\ wall\ as\ reference}}
+\DoxyCodeLine{00179\ }
+\DoxyCodeLine{00181\ \ \ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ pos\_2;}
+\DoxyCodeLine{00182\ }
+\DoxyCodeLine{00184\ \ \ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ dpos\_21;}
+\DoxyCodeLine{00185\ }
+\DoxyCodeLine{00187\ \ \ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ dpos\_21\_ref;}
+\DoxyCodeLine{00188\ }
+\DoxyCodeLine{00190\ \ \ \mbox{\hyperlink{namespacenetdem_a13d5371f99b252a70fd5a5081b910370}{Vec4d}}\ quat\_2;}
+\DoxyCodeLine{00191\ }
+\DoxyCodeLine{00193\ \ \ \mbox{\hyperlink{namespacenetdem_a13d5371f99b252a70fd5a5081b910370}{Vec4d}}\ dquat\_21;}
+\DoxyCodeLine{00194\ }
+\DoxyCodeLine{00196\ \ \ Shape\ *shape\_1\{\textcolor{keyword}{nullptr}\};}
+\DoxyCodeLine{00197\ }
+\DoxyCodeLine{00199\ \ \ Shape\ *shape\_2\{\textcolor{keyword}{nullptr}\};}
+\DoxyCodeLine{00200\ }
+\DoxyCodeLine{00202\ \ \ VecXT<int>\ node\_id\_list;}
+\DoxyCodeLine{00203\ }
+\DoxyCodeLine{00205\ \ \ VecXT<double>\ node\_dist\_list;}
+\DoxyCodeLine{00206\ \};}
+\DoxyCodeLine{00207\ }
+\DoxyCodeLine{00208\ \}\ \textcolor{comment}{//\ namespace\ netdem}}
 
 \end{DoxyCode}

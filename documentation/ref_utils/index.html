@@ -179,7 +179,7 @@
                 
                 
                 <li>
-                    <a href="https://github.com/apaam/netdem_docs/">
+                    <a href="https://github.com/apaam/netdem_docs">
                         
                             <i class="fa fa-github-square"></i>
                         
@@ -311,10 +311,10 @@
 </div></div>
             <div class="col-md-9" role="main">
 
-<h3 id="_1"></h3>
+<div><h3 id="_1"></h3>
 <p><a href="../user_manual/">User manual</a>
 ┊ <a href="../ref_simulation/">Previous</a></p>
-<hr />
+<hr>
 <h3 id="levelsetfunction">LevelSetFunction</h3>
 <p>This class represents a level set function.</p>
 <h4 id="constructor">Constructor</h4>
@@ -371,7 +371,7 @@
 <li><code>iterations</code> (int): The number of iterations to perform. Default is 1.</li>
 <li><code>cfl</code> (double): The CFL coefficient to use. Default is 0.5.</li>
 </ul>
-<hr />
+<hr>
 <h3 id="stlreader">STLReader</h3>
 <p>This class is used for reading STL files.</p>
 <h4 id="constructor_1">Constructor</h4>
@@ -383,7 +383,7 @@
 <ul>
 <li><code>filename</code> (string): The name of the STL file to read.</li>
 </ul>
-<hr />
+<hr>
 <h3 id="stlmodel">STLModel</h3>
 <p>This class represents a 3D model loaded from an STL file.</p>
 <h4 id="constructor_2">Constructor</h4>
@@ -475,7 +475,7 @@ facets (list): A list of facets in the model, where each facet is a tuple of thr
 </ul>
 <h5 id="isconvex"><code>IsConvex()</code></h5>
 <p>Checks whether the model is convex.</p>
-<hr />
+<hr>
 <h3 id="wscvtsampler">WSCVTSampler</h3>
 <p>This class represents a sampler using the weighted stochastic collocation (WSC) method with the variable transformation technique (VTT).</p>
 <h4 id="constructor_3">Constructor</h4>
@@ -499,14 +499,14 @@ facets (list): A list of facets in the model, where each facet is a tuple of thr
 <li><code>num_samples</code> (int): The number of samples to generate.</li>
 <li><code>new_random</code> (bool, optional): If True, generate a new set of random numbers. Default is False.</li>
 </ul>
-<hr />
+<hr>
 <h3 id="voronoi">Voronoi</h3>
 <p>This class represents a Voronoi object.</p>
 <h4 id="methods_3">Methods</h4>
 <h5 id="solvepoints-stl_model-bool_val"><code>Solve(points, stl_model, bool_val)</code></h5>
 <p>Computes Voronoi tessellation given a set of points and an STLModel.</p>
 <ul>
-<li><code>points</code> (VecXT<Vec3d>): A vector of Vec3d points.</li>
+<li><code>points</code> (VecXT<vec3d>): A vector of Vec3d points.</vec3d></li>
 <li><code>stl_model</code> (STLModel): An instance of the STLModel.</li>
 <li><code>bool_val</code> (bool): A boolean value.</li>
 </ul>
@@ -521,7 +521,7 @@ facets (list): A list of facets in the model, where each facet is a tuple of thr
 </ul>
 <h5 id="saveasvtk"><code>SaveAsVTK()</code></h5>
 <p>Saves the Voronoi tessellation as a VTK file.</p>
-<hr />
+<hr>
 <h3 id="cork">Cork</h3>
 <p>This class provides methods for boolean operations on triangle meshes.</p>
 <h4 id="constructor_4">Constructor</h4>
@@ -531,37 +531,37 @@ facets (list): A list of facets in the model, where each facet is a tuple of thr
 <h5 id="meshintersectvertices1-triangles1-vertices2-triangles2-vertices_outnone-triangles_outnone-labels_outnone"><code>MeshIntersect(vertices1, triangles1, vertices2, triangles2, vertices_out=None, triangles_out=None, labels_out=None)</code></h5>
 <p>Computes the intersection between two triangle meshes.</p>
 <ul>
-<li><code>vertices1</code> (VecXT<Vec3d>): A vector of vertices defining the first mesh.</li>
-<li><code>triangles1</code> (VecXT<Vec3i>): A vector of triangles defining the first mesh.</li>
-<li><code>vertices2</code> (VecXT<Vec3d>): A vector of vertices defining the second mesh.</li>
-<li><code>triangles2</code> (VecXT<Vec3i>): A vector of triangles defining the second mesh.</li>
-<li><code>vertices_out</code> (VecXT<Vec3d>, optional): A vector to store the output vertices. If not provided, a new vector will be created.</li>
-<li><code>triangles_out</code> (VecXT<Vec3i>, optional): A vector to store the output triangles. If not provided, a new vector will be created.</li>
-<li><code>labels_out</code> (VecXT<int>, optional): A vector to store the output labels. If not provided, a new vector will be created.</li>
+<li><code>vertices1</code> (VecXT<vec3d>): A vector of vertices defining the first mesh.</vec3d></li>
+<li><code>triangles1</code> (VecXT<vec3i>): A vector of triangles defining the first mesh.</vec3i></li>
+<li><code>vertices2</code> (VecXT<vec3d>): A vector of vertices defining the second mesh.</vec3d></li>
+<li><code>triangles2</code> (VecXT<vec3i>): A vector of triangles defining the second mesh.</vec3i></li>
+<li><code>vertices_out</code> (VecXT<vec3d>, optional): A vector to store the output vertices. If not provided, a new vector will be created.</vec3d></li>
+<li><code>triangles_out</code> (VecXT<vec3i>, optional): A vector to store the output triangles. If not provided, a new vector will be created.</vec3i></li>
+<li><code>labels_out</code> (VecXT<int>, optional): A vector to store the output labels. If not provided, a new vector will be created.</int></li>
 </ul>
 <h5 id="meshunionvertices1-triangles1-vertices2-triangles2-vertices_outnone-triangles_outnone-labels_outnone"><code>MeshUnion(vertices1, triangles1, vertices2, triangles2, vertices_out=None, triangles_out=None, labels_out=None)</code></h5>
 <p>Computes the union of two triangle meshes.</p>
 <ul>
-<li><code>vertices1</code> (VecXT<Vec3d>): A vector of vertices defining the first mesh.</li>
-<li><code>triangles1</code> (VecXT<Vec3i>): A vector of triangles defining the first mesh.</li>
-<li><code>vertices2</code> (VecXT<Vec3d>): A vector of vertices defining the second mesh.</li>
-<li><code>triangles2</code> (VecXT<Vec3i>): A vector of triangles defining the second mesh.</li>
-<li><code>vertices_out</code> (VecXT<Vec3d>, optional): A vector to store the output vertices. If not provided, a new vector will be created.</li>
-<li><code>triangles_out</code> (VecXT<Vec3i>, optional): A vector to store the output triangles. If not provided, a new vector will be created.</li>
-<li><code>labels_out</code> (VecXT<int>, optional): A vector to store the output labels. If not provided, a new vector will be created.</li>
+<li><code>vertices1</code> (VecXT<vec3d>): A vector of vertices defining the first mesh.</vec3d></li>
+<li><code>triangles1</code> (VecXT<vec3i>): A vector of triangles defining the first mesh.</vec3i></li>
+<li><code>vertices2</code> (VecXT<vec3d>): A vector of vertices defining the second mesh.</vec3d></li>
+<li><code>triangles2</code> (VecXT<vec3i>): A vector of triangles defining the second mesh.</vec3i></li>
+<li><code>vertices_out</code> (VecXT<vec3d>, optional): A vector to store the output vertices. If not provided, a new vector will be created.</vec3d></li>
+<li><code>triangles_out</code> (VecXT<vec3i>, optional): A vector to store the output triangles. If not provided, a new vector will be created.</vec3i></li>
+<li><code>labels_out</code> (VecXT<int>, optional): A vector to store the output labels. If not provided, a new vector will be created.</int></li>
 </ul>
 <h5 id="meshdifferencevertices1-triangles1-vertices2-triangles2-vertices_outnone-triangles_outnone-labels_outnone"><code>MeshDifference(vertices1, triangles1, vertices2, triangles2, vertices_out=None, triangles_out=None, labels_out=None)</code></h5>
 <p>Computes the difference between two triangle meshes.</p>
 <ul>
-<li><code>vertices1</code> (VecXT<Vec3d>): A vector of vertices defining the first mesh.</li>
-<li><code>triangles1</code> (VecXT<Vec3i>): A vector of triangles defining the first mesh.</li>
-<li><code>vertices2</code> (VecXT<Vec3d>): A vector of vertices defining the second mesh.</li>
-<li><code>triangles2</code> (VecXT<Vec3i>): A vector of triangles defining the second mesh.</li>
-<li><code>vertices_out</code> (VecXT<Vec3d>, optional): A vector to store the output vertices. If not provided, a new vector will be created.</li>
-<li><code>triangles_out</code> (VecXT<Vec3i>, optional): A vector to store the output triangles. If not provided, a new vector will be created.</li>
-<li><code>labels_out</code> (VecXT<int>, optional): A vector to store the output labels. If not provided</li>
+<li><code>vertices1</code> (VecXT<vec3d>): A vector of vertices defining the first mesh.</vec3d></li>
+<li><code>triangles1</code> (VecXT<vec3i>): A vector of triangles defining the first mesh.</vec3i></li>
+<li><code>vertices2</code> (VecXT<vec3d>): A vector of vertices defining the second mesh.</vec3d></li>
+<li><code>triangles2</code> (VecXT<vec3i>): A vector of triangles defining the second mesh.</vec3i></li>
+<li><code>vertices_out</code> (VecXT<vec3d>, optional): A vector to store the output vertices. If not provided, a new vector will be created.</vec3d></li>
+<li><code>triangles_out</code> (VecXT<vec3i>, optional): A vector to store the output triangles. If not provided, a new vector will be created.</vec3i></li>
+<li><code>labels_out</code> (VecXT<int>, optional): A vector to store the output labels. If not provided</int></li>
 </ul>
-<hr />
+<hr>
 <h3 id="openmp">OpenMP</h3>
 <p>This module provides bindings for <code>OpenMP</code>, a specification for parallel programming in C++.</p>
 <h4 id="functions">Functions</h4>
@@ -572,9 +572,9 @@ facets (list): A list of facets in the model, where each facet is a tuple of thr
 <ul>
 <li><code>num_threads (int)</code>: The number of threads to be used.</li>
 </ul>
-<hr />
+<hr>
 <p><a href="../user_manual/">User manual</a>
-┊ <a href="../ref_simulation/">Previous</a></p></div>
+┊ <a href="../ref_simulation/">Previous</a></p></div></div>
             <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
