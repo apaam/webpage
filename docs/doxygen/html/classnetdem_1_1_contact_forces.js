@@ -1,6 +1,7 @@
 var classnetdem_1_1_contact_forces =
 [
     [ "Clear", "classnetdem_1_1_contact_forces.html#a094c39e767182a08f5602d0cb2a94170", null ],
+    [ "dynamic_properties", "classnetdem_1_1_contact_forces.html#a53bdd9a2fba2cd5c6f2e6d22089d6c10", null ],
     [ "fc_n", "classnetdem_1_1_contact_forces.html#a06756751e83cb7e96d100e248eda21ad", null ],
     [ "fc_s", "classnetdem_1_1_contact_forces.html#aa2c2ae8bb9713ab901bd2f39dd5081ed", null ],
     [ "fc_t", "classnetdem_1_1_contact_forces.html#ac6922bb53a78155adc137f1be7cca6d4", null ],
