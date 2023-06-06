@@ -1,53 +1,8 @@
-\hypertarget{pynetdem_5_voronoi_cylinder_8py-example}{}\doxysection{pynetdem\+\_\+5\+\_\+voronoi\+\_\+cylinder.\+py}
-This is an example of how to use the netdem library.
+\doxysection{pynetdem\+\_\+5\+\_\+voronoi\+\_\+cylinder.\+py}
+\hypertarget{pynetdem_5_voronoi_cylinder_8py-example}{}\label{pynetdem_5_voronoi_cylinder_8py-example}This is an example of how to use the netdem library.
 
 
 \begin{DoxyCodeInclude}{0}
-\DoxyCodeLine{00001\ \textcolor{keyword}{import}\ sys}
-\DoxyCodeLine{00002\ \textcolor{keyword}{import}\ os}
-\DoxyCodeLine{00003\ dir\_path\ =\ os.path.dirname(os.path.realpath(\_\_file\_\_))}
-\DoxyCodeLine{00004\ sys.path.append(dir\_path\ +\ \textcolor{stringliteral}{"{}/../../build/lib/"{}})}
-\DoxyCodeLine{00005\ }
-\DoxyCodeLine{00006\ \textcolor{keyword}{import}\ pynetdem}
-\DoxyCodeLine{00007\ pynetdem.omp\_set\_num\_threads(1)}
-\DoxyCodeLine{00008\ }
-\DoxyCodeLine{00009\ cylinder\ =\ pynetdem.Cylinder(0.025,\ 0.1)}
-\DoxyCodeLine{00010\ cylinder\_stl\ =\ cylinder.GetSTLModel(400)}
-\DoxyCodeLine{00011\ }
-\DoxyCodeLine{00012\ num\_p\ =\ 10}
-\DoxyCodeLine{00013\ }
-\DoxyCodeLine{00014\ [vt\_nodes,\ vt\_cells,\ vt\_seeds]\ =\ pynetdem.Voronoi.Solve(}
-\DoxyCodeLine{00015\ \ \ \ \ cylinder\_stl,\ num\_p,\ 1000,\ 1.0e-\/3,\ 1)}
-\DoxyCodeLine{00016\ }
-\DoxyCodeLine{00017\ pynetdem.Voronoi.SaveAsVTK(\textcolor{stringliteral}{"{}tmp/tests/voronoi\_cylinder.vtk"{}},\ vt\_nodes,\ vt\_cells,}
-\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ vt\_seeds)}
-\DoxyCodeLine{00019\ }
-\DoxyCodeLine{00020\ eq\_size\ =\ pow(0.025\ *\ 0.025\ *\ 0.1\ *\ 0.2\ /\ num\_p\ *\ 6.0,\ 1.0\ /\ 3.0)}
-\DoxyCodeLine{00021\ }
-\DoxyCodeLine{00022\ stl\_ref\ =\ pynetdem.STLModel()}
-\DoxyCodeLine{00023\ stl\_ref.InitFromSTL(\textcolor{stringliteral}{"{}tmp/lin2022/shapes/ballast3\_8.stl"{}})}
-\DoxyCodeLine{00024\ stl\_ref.SetSize(eq\_size)}
-\DoxyCodeLine{00025\ }
-\DoxyCodeLine{00026\ stl\_template\ =\ pynetdem.STLModel()}
-\DoxyCodeLine{00027\ \textcolor{keywordflow}{for}\ i\ \textcolor{keywordflow}{in}\ range(8):}
-\DoxyCodeLine{00028\ \ \ \ \ stl\_template.InitFromSTL(}
-\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}tmp/lin2022/shapes/ballast3\_"{}}\ +\ str(i\ +\ 1)\ +\ \textcolor{stringliteral}{"{}.stl"{}})}
-\DoxyCodeLine{00030\ \ \ \ \ stl\_template.SetSize(eq\_size)}
-\DoxyCodeLine{00031\ \ \ \ \ print(stl\_template.GetVolume()\ /\ 3.1415926\ /\ 0.025\ /\ 0.025\ /\ 0.1)}
-\DoxyCodeLine{00032\ }
-\DoxyCodeLine{00033\ \ \ \ \ stl\_model\ =\ pynetdem.STLModel()}
-\DoxyCodeLine{00034\ }
-\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordflow}{for}\ j\ \textcolor{keywordflow}{in}\ range(num\_p):}
-\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ stl\_tmp\ =\ pynetdem.STLModel(stl\_template.vertices,\ stl\_template.facets)}
-\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ stl\_voro\ =\ pynetdem.STLModel(vt\_nodes,\ vt\_cells[j])}
-\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ stl\_tmp.CopyPoseDev(stl\_voro,\ stl\_ref)}
-\DoxyCodeLine{00039\ }
-\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ stl\_tmp.SaveAsSTL(\textcolor{stringliteral}{"{}tmp/lin2022/specimen/ballast3\_"{}}\ +}
-\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ str(i\ +\ 1)\ +\ \textcolor{stringliteral}{"{}\_"{}}\ +\ str(j\ +\ 1)\ +\ \textcolor{stringliteral}{"{}.stl"{}})}
-\DoxyCodeLine{00042\ }
-\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ stl\_model.MergeSTLModel(stl\_tmp)}
-\DoxyCodeLine{00044\ }
-\DoxyCodeLine{00045\ \ \ \ \ stl\_model.SaveAsSTL(\textcolor{stringliteral}{"{}tmp/lin2022/specimen/ballast3\_"{}}\ +\ str(i\ +\ 1)\ +\ \textcolor{stringliteral}{"{}.stl"{}})}
 
 \end{DoxyCodeInclude}
  
