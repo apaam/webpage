@@ -1,58 +1,53 @@
-\hypertarget{single_cubic_pd_8py-example}{}\doxysection{single\+\_\+cubic\+\_\+pd.\+py}
-This is an example of how to use the netdem library.
+\doxysection{single\+\_\+cubic\+\_\+pd.\+py}
+\hypertarget{single_cubic_pd_8py-example}{}\label{single_cubic_pd_8py-example}This is an example of how to use the netdem library.
 
 
 \begin{DoxyCodeInclude}{0}
-\DoxyCodeLine{00001\ \textcolor{keyword}{import}\ sys}
-\DoxyCodeLine{00002\ \textcolor{keyword}{import}\ os}
-\DoxyCodeLine{00003\ dir\_path\ =\ os.path.dirname(os.path.realpath(\_\_file\_\_))}
-\DoxyCodeLine{00004\ sys.path.append(dir\_path\ +\ \textcolor{stringliteral}{"{}/../../build/lib/"{}})}
-\DoxyCodeLine{00005\ }
-\DoxyCodeLine{00006\ \textcolor{keyword}{import}\ pynetdem}
-\DoxyCodeLine{00007\ }
-\DoxyCodeLine{00008\ \textcolor{comment}{\#\ units:\ mm,\ 1000\ kg,\ N,\ s}}
-\DoxyCodeLine{00009\ pd\_sim\ =\ pynetdem.PeriDigmSimulator()}
-\DoxyCodeLine{00010\ pd\_sim.settings.result\_dir\ =\ \textcolor{stringliteral}{"{}tmp/out/peridigm/single\_cubic/"{}}}
-\DoxyCodeLine{00011\ }
-\DoxyCodeLine{00012\ mesh\_res\ =\ 20}
+\DoxyCodeLine{00001\ \textcolor{keyword}{import}\ netdem}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{comment}{\#\ units:\ mm,\ 1000\ kg,\ N,\ s}}
+\DoxyCodeLine{00004\ pd\_sim\ =\ pynetdem.PeriDigmSimulator()}
+\DoxyCodeLine{00005\ pd\_sim.settings.result\_dir\ =\ \textcolor{stringliteral}{"{}tmp/out/peridigm/single\_cubic/"{}}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ mesh\_res\ =\ 20}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ pd\_sim.discretization.type\ =\ pynetdem.PeriDigmDiscretization.Type.level\_set}
+\DoxyCodeLine{00010\ pd\_sim.discretization.InitFromGrid(-\/2.5,\ -\/2.5,\ -\/2.5,\ 5.0,\ 5.0,\ 5.0,\ mesh\_res)}
+\DoxyCodeLine{00011\ pd\_sim.discretization.MakePorosity(0.2)}
+\DoxyCodeLine{00012\ pd\_sim.InitDefaultSetup()}
 \DoxyCodeLine{00013\ }
-\DoxyCodeLine{00014\ pd\_sim.discretization.type\ =\ pynetdem.PeriDigmDiscretization.Type.level\_set}
-\DoxyCodeLine{00015\ pd\_sim.discretization.InitFromGrid(-\/2.5,\ -\/2.5,\ -\/2.5,\ 5.0,\ 5.0,\ 5.0,\ mesh\_res)}
-\DoxyCodeLine{00016\ pd\_sim.discretization.MakePorosity(0.2)}
-\DoxyCodeLine{00017\ pd\_sim.InitDefaultSetup()}
-\DoxyCodeLine{00018\ }
-\DoxyCodeLine{00019\ \textcolor{comment}{\#\ density\ is\ scaled\ by\ 1e6\ times\ to\ enlarge\ the\ timestep}}
-\DoxyCodeLine{00020\ pd\_sim.materials[0].density\ =\ 2650e-\/6}
-\DoxyCodeLine{00021\ pd\_sim.materials[0].youngs\_modulus\ =\ 15e3}
-\DoxyCodeLine{00022\ pd\_sim.materials[0].poissons\_ratio\ =\ 0.15}
-\DoxyCodeLine{00023\ energy\_release\_rate\ =\ 60e-\/3}
-\DoxyCodeLine{00024\ pd\_sim.damage\_models[0].InitFromEnergyReleaseRate(}
-\DoxyCodeLine{00025\ \ \ \ \ pd\_sim.materials[0].youngs\_modulus,}
-\DoxyCodeLine{00026\ \ \ \ \ pd\_sim.materials[0].poissons\_ratio,}
-\DoxyCodeLine{00027\ \ \ \ \ pd\_sim.blocks[0].horizon,}
-\DoxyCodeLine{00028\ \ \ \ \ energy\_release\_rate)}
-\DoxyCodeLine{00029\ pd\_sim.InitAutoTimestep()}
-\DoxyCodeLine{00030\ }
-\DoxyCodeLine{00031\ bc\_fixed\ =\ pd\_sim.InsertBoundaryCondition()}
-\DoxyCodeLine{00032\ \textcolor{keywordflow}{for}\ i\ \textcolor{keywordflow}{in}\ range(0,\ len(pd\_sim.discretization.nodes)):}
-\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordflow}{if}\ (abs(pd\_sim.discretization.nodes[i][2]\ +\ 2.5)\ <\ 5.0\ /\ mesh\_res):}
-\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ bc\_fixed.InsertNode(i)}
-\DoxyCodeLine{00035\ bc\_fixed.SetActivatedDimensions(\textcolor{keyword}{False},\ \textcolor{keyword}{False},\ \textcolor{keyword}{True})}
+\DoxyCodeLine{00014\ \textcolor{comment}{\#\ density\ is\ scaled\ by\ 1e6\ times\ to\ enlarge\ the\ timestep}}
+\DoxyCodeLine{00015\ pd\_sim.materials[0].density\ =\ 2650e-\/6}
+\DoxyCodeLine{00016\ pd\_sim.materials[0].youngs\_modulus\ =\ 15e3}
+\DoxyCodeLine{00017\ pd\_sim.materials[0].poissons\_ratio\ =\ 0.15}
+\DoxyCodeLine{00018\ energy\_release\_rate\ =\ 60e-\/3}
+\DoxyCodeLine{00019\ pd\_sim.damage\_models[0].InitFromEnergyReleaseRate(}
+\DoxyCodeLine{00020\ \ \ \ \ pd\_sim.materials[0].youngs\_modulus,}
+\DoxyCodeLine{00021\ \ \ \ \ pd\_sim.materials[0].poissons\_ratio,}
+\DoxyCodeLine{00022\ \ \ \ \ pd\_sim.blocks[0].horizon,}
+\DoxyCodeLine{00023\ \ \ \ \ energy\_release\_rate)}
+\DoxyCodeLine{00024\ pd\_sim.InitAutoTimestep()}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ bc\_fixed\ =\ pd\_sim.InsertBoundaryCondition()}
+\DoxyCodeLine{00027\ \textcolor{keywordflow}{for}\ i\ \textcolor{keywordflow}{in}\ range(0,\ len(pd\_sim.discretization.nodes)):}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordflow}{if}\ (abs(pd\_sim.discretization.nodes[i][2]\ +\ 2.5)\ <\ 5.0\ /\ mesh\_res):}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ bc\_fixed.InsertNode(i)}
+\DoxyCodeLine{00030\ bc\_fixed.SetActivatedDimensions(\textcolor{keyword}{False},\ \textcolor{keyword}{False},\ \textcolor{keyword}{True})}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ bc\_compress\ =\ pd\_sim.InsertBoundaryCondition()}
+\DoxyCodeLine{00033\ \textcolor{keywordflow}{for}\ i\ \textcolor{keywordflow}{in}\ range(0,\ len(pd\_sim.discretization.nodes)):}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordflow}{if}\ (abs(pd\_sim.discretization.nodes[i][2]\ -\/\ 2.5)\ <\ 5.0\ /\ mesh\_res):}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ bc\_compress.InsertNode(i)}
 \DoxyCodeLine{00036\ }
-\DoxyCodeLine{00037\ bc\_compress\ =\ pd\_sim.InsertBoundaryCondition()}
-\DoxyCodeLine{00038\ \textcolor{keywordflow}{for}\ i\ \textcolor{keywordflow}{in}\ range(0,\ len(pd\_sim.discretization.nodes)):}
-\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keywordflow}{if}\ (abs(pd\_sim.discretization.nodes[i][2]\ -\/\ 2.5)\ <\ 5.0\ /\ mesh\_res):}
-\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ bc\_compress.InsertNode(i)}
-\DoxyCodeLine{00041\ }
-\DoxyCodeLine{00042\ \textcolor{comment}{\#\ units:\ mm/s}}
-\DoxyCodeLine{00043\ loading\_rate\ =\ -\/0.5}
-\DoxyCodeLine{00044\ utimate\_disp\ =\ -\/0.5}
-\DoxyCodeLine{00045\ }
-\DoxyCodeLine{00046\ bc\_compress.SetByDisplacementRate(0,\ 0,\ loading\_rate)}
-\DoxyCodeLine{00047\ bc\_fixed.SetActivatedDimensions(\textcolor{keyword}{False},\ \textcolor{keyword}{False},\ \textcolor{keyword}{True})}
-\DoxyCodeLine{00048\ }
-\DoxyCodeLine{00049\ pd\_sim.settings.output\_freqency\ =\ 100}
-\DoxyCodeLine{00050\ pd\_sim.Solve(utimate\_disp\ /\ loading\_rate)}
+\DoxyCodeLine{00037\ \textcolor{comment}{\#\ units:\ mm/s}}
+\DoxyCodeLine{00038\ loading\_rate\ =\ -\/0.5}
+\DoxyCodeLine{00039\ utimate\_disp\ =\ -\/0.5}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ bc\_compress.SetByDisplacementRate(0,\ 0,\ loading\_rate)}
+\DoxyCodeLine{00042\ bc\_fixed.SetActivatedDimensions(\textcolor{keyword}{False},\ \textcolor{keyword}{False},\ \textcolor{keyword}{True})}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ pd\_sim.settings.output\_freqency\ =\ 100}
+\DoxyCodeLine{00045\ pd\_sim.Solve(utimate\_disp\ /\ loading\_rate)}
 
 \end{DoxyCodeInclude}
  

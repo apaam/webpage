@@ -1,5 +1,5 @@
-\hypertarget{solver__sphere__triangle_8hpp_source}{}\doxysection{solver\+\_\+sphere\+\_\+triangle.\+hpp}
-\label{solver__sphere__triangle_8hpp_source}\index{/Users/lzhshou/Documents/Research/myProjects/apaam/repo/netdem/src/dem/solver\_sphere\_triangle.hpp@{/Users/lzhshou/Documents/Research/myProjects/apaam/repo/netdem/src/dem/solver\_sphere\_triangle.hpp}}
+\doxysection{solver\+\_\+sphere\+\_\+triangle.\+hpp}
+\hypertarget{solver__sphere__triangle_8hpp_source}{}\label{solver__sphere__triangle_8hpp_source}\index{/Users/lzhshou/Documents/Research/myProjects/apaam/repo/netdem/src/dem/solver\_sphere\_triangle.hpp@{/Users/lzhshou/Documents/Research/myProjects/apaam/repo/netdem/src/dem/solver\_sphere\_triangle.hpp}}
 \mbox{\hyperlink{solver__sphere__triangle_8hpp}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
@@ -36,29 +36,35 @@
 \DoxyCodeLine{00092\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_solver_sphere_triangle_aa5af7e0af3fa0ab4340a7fbf35949667}{ResolveUpdate}}(\mbox{\hyperlink{classnetdem_1_1_collision_geometries}{CollisionGeometries}}\ *\textcolor{keyword}{const}\ cnt\_geoms,\ \textcolor{keywordtype}{double}\ timestep);}
 \DoxyCodeLine{00093\ }
 \DoxyCodeLine{00094\ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00095\ \ \ \textcolor{keywordtype}{double}\ radius\_1;}
-\DoxyCodeLine{00096\ \ \ \textcolor{keywordtype}{double}\ dist\_pc\_to\_tri;}
+\DoxyCodeLine{00096\ \ \ \textcolor{keywordtype}{double}\ radius\_1;}
 \DoxyCodeLine{00097\ }
-\DoxyCodeLine{00098\ \ \ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ cnt\_pos,\ cnt\_dir\_n;}
-\DoxyCodeLine{00099\ \ \ \textcolor{keywordtype}{double}\ cnt\_len\_n,\ cnt\_weight;}
-\DoxyCodeLine{00100\ }
-\DoxyCodeLine{00101\ \ \ \mbox{\hyperlink{classnetdem_1_1_triangle}{Triangle}}\ triangle;}
-\DoxyCodeLine{00102\ }
-\DoxyCodeLine{00106\ \ \ \textcolor{keywordtype}{void}\ UpdateLocalTriangle();}
+\DoxyCodeLine{00100\ \ \ \textcolor{keywordtype}{double}\ dist\_pc\_to\_tri;}
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00103\ \ \ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ cnt\_pos;}
+\DoxyCodeLine{00104\ }
+\DoxyCodeLine{00106\ \ \ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ cnt\_dir\_n;}
 \DoxyCodeLine{00107\ }
-\DoxyCodeLine{00111\ \ \ \textcolor{keywordtype}{void}\ ResolvePotentialContact();}
-\DoxyCodeLine{00112\ }
-\DoxyCodeLine{00116\ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ GetLineCircleIntersection(\textcolor{keywordtype}{double}\ cr,\ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ \textcolor{keyword}{const}\ \&cc,}
-\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ dist\_to\_line,}
-\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ \textcolor{keyword}{const}\ \&dir\_n\_cross\_line,}
-\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ \textcolor{keyword}{const}\ \&v0,\ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ \textcolor{keyword}{const}\ \&v1);}
-\DoxyCodeLine{00120\ }
-\DoxyCodeLine{00124\ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{double}\ GetTriangleArea(\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ \textcolor{keyword}{const}\ \&v0,\ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ \textcolor{keyword}{const}\ \&v1,}
-\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ \textcolor{keyword}{const}\ \&v2);}
+\DoxyCodeLine{00109\ \ \ \textcolor{keywordtype}{double}\ cnt\_len\_n;}
+\DoxyCodeLine{00110\ }
+\DoxyCodeLine{00112\ \ \ \textcolor{keywordtype}{double}\ cnt\_weight;}
+\DoxyCodeLine{00113\ }
+\DoxyCodeLine{00115\ \ \ \mbox{\hyperlink{classnetdem_1_1_triangle}{Triangle}}\ triangle;}
+\DoxyCodeLine{00116\ }
+\DoxyCodeLine{00120\ \ \ \textcolor{keywordtype}{void}\ UpdateLocalTriangle();}
+\DoxyCodeLine{00121\ }
+\DoxyCodeLine{00125\ \ \ \textcolor{keywordtype}{void}\ ResolvePotentialContact();}
 \DoxyCodeLine{00126\ }
-\DoxyCodeLine{00130\ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{double}\ GetCircleSegmentArea(\textcolor{keywordtype}{double}\ cr,\ \textcolor{keywordtype}{double}\ signed\_d);}
-\DoxyCodeLine{00131\ \};}
-\DoxyCodeLine{00132\ }
-\DoxyCodeLine{00133\ \}\ \textcolor{comment}{//\ namespace\ netdem}}
+\DoxyCodeLine{00130\ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ GetLineCircleIntersection(\textcolor{keywordtype}{double}\ cr,\ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ \textcolor{keyword}{const}\ \&cc,}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ dist\_to\_line,}
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ \textcolor{keyword}{const}\ \&dir\_n\_cross\_line,}
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ \textcolor{keyword}{const}\ \&v0,\ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ \textcolor{keyword}{const}\ \&v1);}
+\DoxyCodeLine{00134\ }
+\DoxyCodeLine{00138\ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{double}\ GetTriangleArea(\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ \textcolor{keyword}{const}\ \&v0,\ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ \textcolor{keyword}{const}\ \&v1,}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ \textcolor{keyword}{const}\ \&v2);}
+\DoxyCodeLine{00140\ }
+\DoxyCodeLine{00144\ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{double}\ GetCircleSegmentArea(\textcolor{keywordtype}{double}\ cr,\ \textcolor{keywordtype}{double}\ signed\_d);}
+\DoxyCodeLine{00145\ \};}
+\DoxyCodeLine{00146\ }
+\DoxyCodeLine{00147\ \}\ \textcolor{comment}{//\ namespace\ netdem}}
 
 \end{DoxyCode}

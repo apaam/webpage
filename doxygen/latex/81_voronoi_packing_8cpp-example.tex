@@ -1,5 +1,5 @@
-\hypertarget{81_voronoi_packing_8cpp-example}{}\doxysection{81\+\_\+voronoi\+\_\+packing.\+cpp}
-This is an example of how to use the netdem library.
+\doxysection{81\+\_\+voronoi\+\_\+packing.\+cpp}
+\hypertarget{81_voronoi_packing_8cpp-example}{}\label{81_voronoi_packing_8cpp-example}This is an example of how to use the netdem library.
 
 
 \begin{DoxyCodeInclude}{0}
@@ -14,6 +14,7 @@ This is an example of how to use the netdem library.
 \DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{shape__trimesh_8hpp}{shape\_trimesh.hpp}}"{}}}
 \DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{simulation_8hpp}{simulation.hpp}}"{}}}
 \DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{solver__gjk__pp_8hpp}{solver\_gjk\_pp.hpp}}"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ <filesystem>}}
 \DoxyCodeLine{\textcolor{preprocessor}{\#include\ <iostream>}}
 \DoxyCodeLine{\textcolor{preprocessor}{\#include\ <unordered\_map>}}
 \DoxyCodeLine{}
@@ -211,7 +212,7 @@ This is an example of how to use the netdem library.
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ sim-\/>\mbox{\hyperlink{classnetdem_1_1_simulation_a358efcc8d6d906b11ef8fce7a2624943}{Run}}(2.0);}
 \DoxyCodeLine{}
-\DoxyCodeLine{\ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ shape\_it\ :\ sim-\/>\mbox{\hyperlink{classnetdem_1_1_simulation_add17bfcd927bd2b7f14f05855c20bea3}{scene}}.\mbox{\hyperlink{classnetdem_1_1_scene_a2c7e95cca348617f430c5c6ec2e80a18}{shape\_map}})\ \{}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ shape\_it\ :\ sim-\/>scene.shape\_map)\ \{}
 \DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{if}\ (shape\_it.second-\/>shape\_type\ ==\ Shape::trimesh\_convex)\ \{}
 \DoxyCodeLine{\ \ \ \ \ \ \textcolor{keyword}{auto}\ trimesh\_ptr\ =\ \textcolor{keyword}{static\_cast<}\mbox{\hyperlink{classnetdem_1_1_tri_mesh}{TriMesh}}\ *\textcolor{keyword}{>}(shape\_it.second);}
 \DoxyCodeLine{\ \ \ \ \ \ \textcolor{comment}{//\ trimesh\_ptr-\/>use\_linked\_patches\ =\ true;}}

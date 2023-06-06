@@ -1,76 +1,82 @@
-\hypertarget{contact__forces_8hpp_source}{}\doxysection{contact\+\_\+forces.\+hpp}
-\label{contact__forces_8hpp_source}\index{/Users/lzhshou/Documents/Research/myProjects/apaam/repo/netdem/src/dem/contact\_forces.hpp@{/Users/lzhshou/Documents/Research/myProjects/apaam/repo/netdem/src/dem/contact\_forces.hpp}}
+\doxysection{contact\+\_\+forces.\+hpp}
+\hypertarget{contact__forces_8hpp_source}{}\label{contact__forces_8hpp_source}\index{/Users/lzhshou/Documents/Research/myProjects/apaam/repo/netdem/src/dem/contact\_forces.hpp@{/Users/lzhshou/Documents/Research/myProjects/apaam/repo/netdem/src/dem/contact\_forces.hpp}}
 \mbox{\hyperlink{contact__forces_8hpp}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
 \DoxyCodeLine{00002\ }
-\DoxyCodeLine{00003\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacenetdem}{netdem}}\ \{}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{mini__map_8hpp}{mini\_map.hpp}}"{}}}
 \DoxyCodeLine{00004\ }
-\DoxyCodeLine{00016\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classnetdem_1_1_contact_forces}{ContactForces}}\ \{}
-\DoxyCodeLine{00017\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00020\ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classnetdem_1_1_contact_forces_a06756751e83cb7e96d100e248eda21ad}{fc\_n}}\{0\},\ \mbox{\hyperlink{classnetdem_1_1_contact_forces_aa2c2ae8bb9713ab901bd2f39dd5081ed}{fc\_s}}\{0\},\ \mbox{\hyperlink{classnetdem_1_1_contact_forces_ac6922bb53a78155adc137f1be7cca6d4}{fc\_t}}\{0\};}
-\DoxyCodeLine{00021\ }
-\DoxyCodeLine{00024\ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classnetdem_1_1_contact_forces_a5e36c0921fa749bf3dcc78628f341a73}{mc\_n}}\{0\},\ \mbox{\hyperlink{classnetdem_1_1_contact_forces_a496e14eb9e359f9f48197fd1f3552e54}{mc\_s}}\{0\},\ \mbox{\hyperlink{classnetdem_1_1_contact_forces_a2329db0917484cc791f2a66698b015d4}{mc\_t}}\{0\};}
-\DoxyCodeLine{00025\ }
-\DoxyCodeLine{00028\ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classnetdem_1_1_contact_forces_abbc5d7eaa11885f6e8a4188c38a8495d}{fd\_n}}\{0\},\ \mbox{\hyperlink{classnetdem_1_1_contact_forces_a169a5b4ddd163b084ee7b0aeb7a46f25}{fd\_s}}\{0\},\ \mbox{\hyperlink{classnetdem_1_1_contact_forces_a742775e7dc9be095fb0563455f7bbe88}{fd\_t}}\{0\};}
-\DoxyCodeLine{00029\ }
-\DoxyCodeLine{00032\ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classnetdem_1_1_contact_forces_a631ef9839857325383b021b975faf444}{md\_n}}\{0\},\ \mbox{\hyperlink{classnetdem_1_1_contact_forces_a24899192c61e288c05e1b417c3bcbbe1}{md\_s}}\{0\},\ \mbox{\hyperlink{classnetdem_1_1_contact_forces_a96cc51c868203cf5dde75ac505a5373b}{md\_t}}\{0\};}
-\DoxyCodeLine{00033\ }
-\DoxyCodeLine{00035\ \ \ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ \mbox{\hyperlink{classnetdem_1_1_contact_forces_a3617e9cdf233c23b2666c83f3e99c7d2}{force}}\{0,\ 0,\ 0\};}
-\DoxyCodeLine{00036\ }
-\DoxyCodeLine{00038\ \ \ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ \mbox{\hyperlink{classnetdem_1_1_contact_forces_aaf1e12dbd096a4c8cd7893f22064dda0}{moment}}\{0,\ 0,\ 0\};}
-\DoxyCodeLine{00039\ }
-\DoxyCodeLine{00041\ \ \ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ \mbox{\hyperlink{classnetdem_1_1_contact_forces_a46f538665a9aa27282a5ee40f2b14472}{force\_n}}\{0,\ 0,\ 0\};}
-\DoxyCodeLine{00042\ }
-\DoxyCodeLine{00044\ \ \ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ \mbox{\hyperlink{classnetdem_1_1_contact_forces_a90281b8f530986a2cd1797af844f720b}{force\_t}}\{0,\ 0,\ 0\};}
-\DoxyCodeLine{00045\ }
-\DoxyCodeLine{00047\ \ \ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ \mbox{\hyperlink{classnetdem_1_1_contact_forces_aeddceeca40506f67622dab31b3fb0bb3}{moment\_n}}\{0,\ 0,\ 0\};}
-\DoxyCodeLine{00048\ }
-\DoxyCodeLine{00050\ \ \ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ \mbox{\hyperlink{classnetdem_1_1_contact_forces_ad0a31ae2b6e9fd0abfc7852130ae8863}{moment\_t}}\{0,\ 0,\ 0\};}
-\DoxyCodeLine{00051\ }
-\DoxyCodeLine{00055\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_contact_forces_a094c39e767182a08f5602d0cb2a94170}{Clear}}()\ \{}
-\DoxyCodeLine{00056\ \ \ \ \ \mbox{\hyperlink{classnetdem_1_1_contact_forces_a06756751e83cb7e96d100e248eda21ad}{fc\_n}}\ =\ 0;}
-\DoxyCodeLine{00057\ \ \ \ \ \mbox{\hyperlink{classnetdem_1_1_contact_forces_aa2c2ae8bb9713ab901bd2f39dd5081ed}{fc\_s}}\ =\ 0;}
-\DoxyCodeLine{00058\ \ \ \ \ \mbox{\hyperlink{classnetdem_1_1_contact_forces_ac6922bb53a78155adc137f1be7cca6d4}{fc\_t}}\ =\ 0;}
-\DoxyCodeLine{00059\ }
-\DoxyCodeLine{00060\ \ \ \ \ \mbox{\hyperlink{classnetdem_1_1_contact_forces_a5e36c0921fa749bf3dcc78628f341a73}{mc\_n}}\ =\ 0;}
-\DoxyCodeLine{00061\ \ \ \ \ \mbox{\hyperlink{classnetdem_1_1_contact_forces_a496e14eb9e359f9f48197fd1f3552e54}{mc\_s}}\ =\ 0;}
-\DoxyCodeLine{00062\ \ \ \ \ \mbox{\hyperlink{classnetdem_1_1_contact_forces_a2329db0917484cc791f2a66698b015d4}{mc\_t}}\ =\ 0;}
-\DoxyCodeLine{00063\ }
-\DoxyCodeLine{00064\ \ \ \ \ \mbox{\hyperlink{classnetdem_1_1_contact_forces_abbc5d7eaa11885f6e8a4188c38a8495d}{fd\_n}}\ =\ 0;}
-\DoxyCodeLine{00065\ \ \ \ \ \mbox{\hyperlink{classnetdem_1_1_contact_forces_a169a5b4ddd163b084ee7b0aeb7a46f25}{fd\_s}}\ =\ 0;}
-\DoxyCodeLine{00066\ \ \ \ \ \mbox{\hyperlink{classnetdem_1_1_contact_forces_a742775e7dc9be095fb0563455f7bbe88}{fd\_t}}\ =\ 0;}
-\DoxyCodeLine{00067\ }
-\DoxyCodeLine{00068\ \ \ \ \ \mbox{\hyperlink{classnetdem_1_1_contact_forces_a631ef9839857325383b021b975faf444}{md\_n}}\ =\ 0;}
-\DoxyCodeLine{00069\ \ \ \ \ \mbox{\hyperlink{classnetdem_1_1_contact_forces_a24899192c61e288c05e1b417c3bcbbe1}{md\_s}}\ =\ 0;}
-\DoxyCodeLine{00070\ \ \ \ \ \mbox{\hyperlink{classnetdem_1_1_contact_forces_a96cc51c868203cf5dde75ac505a5373b}{md\_t}}\ =\ 0;}
-\DoxyCodeLine{00071\ }
-\DoxyCodeLine{00072\ \ \ \ \ \mbox{\hyperlink{classnetdem_1_1_contact_forces_a3617e9cdf233c23b2666c83f3e99c7d2}{force}}[0]\ =\ 0;}
-\DoxyCodeLine{00073\ \ \ \ \ \mbox{\hyperlink{classnetdem_1_1_contact_forces_a3617e9cdf233c23b2666c83f3e99c7d2}{force}}[1]\ =\ 0;}
-\DoxyCodeLine{00074\ \ \ \ \ \mbox{\hyperlink{classnetdem_1_1_contact_forces_a3617e9cdf233c23b2666c83f3e99c7d2}{force}}[2]\ =\ 0;}
-\DoxyCodeLine{00075\ }
-\DoxyCodeLine{00076\ \ \ \ \ \mbox{\hyperlink{classnetdem_1_1_contact_forces_aaf1e12dbd096a4c8cd7893f22064dda0}{moment}}[0]\ =\ 0;}
-\DoxyCodeLine{00077\ \ \ \ \ \mbox{\hyperlink{classnetdem_1_1_contact_forces_aaf1e12dbd096a4c8cd7893f22064dda0}{moment}}[1]\ =\ 0;}
-\DoxyCodeLine{00078\ \ \ \ \ \mbox{\hyperlink{classnetdem_1_1_contact_forces_aaf1e12dbd096a4c8cd7893f22064dda0}{moment}}[2]\ =\ 0;}
-\DoxyCodeLine{00079\ }
-\DoxyCodeLine{00080\ \ \ \ \ \mbox{\hyperlink{classnetdem_1_1_contact_forces_a46f538665a9aa27282a5ee40f2b14472}{force\_n}}[0]\ =\ 0;}
-\DoxyCodeLine{00081\ \ \ \ \ \mbox{\hyperlink{classnetdem_1_1_contact_forces_a46f538665a9aa27282a5ee40f2b14472}{force\_n}}[1]\ =\ 0;}
-\DoxyCodeLine{00082\ \ \ \ \ \mbox{\hyperlink{classnetdem_1_1_contact_forces_a46f538665a9aa27282a5ee40f2b14472}{force\_n}}[2]\ =\ 0;}
-\DoxyCodeLine{00083\ }
-\DoxyCodeLine{00084\ \ \ \ \ \mbox{\hyperlink{classnetdem_1_1_contact_forces_a90281b8f530986a2cd1797af844f720b}{force\_t}}[0]\ =\ 0;}
-\DoxyCodeLine{00085\ \ \ \ \ \mbox{\hyperlink{classnetdem_1_1_contact_forces_a90281b8f530986a2cd1797af844f720b}{force\_t}}[1]\ =\ 0;}
-\DoxyCodeLine{00086\ \ \ \ \ \mbox{\hyperlink{classnetdem_1_1_contact_forces_a90281b8f530986a2cd1797af844f720b}{force\_t}}[2]\ =\ 0;}
-\DoxyCodeLine{00087\ }
-\DoxyCodeLine{00088\ \ \ \ \ \mbox{\hyperlink{classnetdem_1_1_contact_forces_aeddceeca40506f67622dab31b3fb0bb3}{moment\_n}}[0]\ =\ 0;}
-\DoxyCodeLine{00089\ \ \ \ \ \mbox{\hyperlink{classnetdem_1_1_contact_forces_aeddceeca40506f67622dab31b3fb0bb3}{moment\_n}}[1]\ =\ 0;}
-\DoxyCodeLine{00090\ \ \ \ \ \mbox{\hyperlink{classnetdem_1_1_contact_forces_aeddceeca40506f67622dab31b3fb0bb3}{moment\_n}}[2]\ =\ 0;}
-\DoxyCodeLine{00091\ }
-\DoxyCodeLine{00092\ \ \ \ \ \mbox{\hyperlink{classnetdem_1_1_contact_forces_ad0a31ae2b6e9fd0abfc7852130ae8863}{moment\_t}}[0]\ =\ 0;}
-\DoxyCodeLine{00093\ \ \ \ \ \mbox{\hyperlink{classnetdem_1_1_contact_forces_ad0a31ae2b6e9fd0abfc7852130ae8863}{moment\_t}}[1]\ =\ 0;}
-\DoxyCodeLine{00094\ \ \ \ \ \mbox{\hyperlink{classnetdem_1_1_contact_forces_ad0a31ae2b6e9fd0abfc7852130ae8863}{moment\_t}}[2]\ =\ 0;}
-\DoxyCodeLine{00095\ \ \ \}}
-\DoxyCodeLine{00096\ \};}
-\DoxyCodeLine{00097\ }
-\DoxyCodeLine{00098\ \}\ \textcolor{comment}{//\ namespace\ netdem}}
+\DoxyCodeLine{00005\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacenetdem}{netdem}}\ \{}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00018\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classnetdem_1_1_contact_forces}{ContactForces}}\ \{}
+\DoxyCodeLine{00019\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00022\ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classnetdem_1_1_contact_forces_a06756751e83cb7e96d100e248eda21ad}{fc\_n}}\{0\},\ \mbox{\hyperlink{classnetdem_1_1_contact_forces_aa2c2ae8bb9713ab901bd2f39dd5081ed}{fc\_s}}\{0\},\ \mbox{\hyperlink{classnetdem_1_1_contact_forces_ac6922bb53a78155adc137f1be7cca6d4}{fc\_t}}\{0\};}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00026\ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classnetdem_1_1_contact_forces_a5e36c0921fa749bf3dcc78628f341a73}{mc\_n}}\{0\},\ \mbox{\hyperlink{classnetdem_1_1_contact_forces_a496e14eb9e359f9f48197fd1f3552e54}{mc\_s}}\{0\},\ \mbox{\hyperlink{classnetdem_1_1_contact_forces_a2329db0917484cc791f2a66698b015d4}{mc\_t}}\{0\};}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00030\ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classnetdem_1_1_contact_forces_abbc5d7eaa11885f6e8a4188c38a8495d}{fd\_n}}\{0\},\ \mbox{\hyperlink{classnetdem_1_1_contact_forces_a169a5b4ddd163b084ee7b0aeb7a46f25}{fd\_s}}\{0\},\ \mbox{\hyperlink{classnetdem_1_1_contact_forces_a742775e7dc9be095fb0563455f7bbe88}{fd\_t}}\{0\};}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00034\ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classnetdem_1_1_contact_forces_a631ef9839857325383b021b975faf444}{md\_n}}\{0\},\ \mbox{\hyperlink{classnetdem_1_1_contact_forces_a24899192c61e288c05e1b417c3bcbbe1}{md\_s}}\{0\},\ \mbox{\hyperlink{classnetdem_1_1_contact_forces_a96cc51c868203cf5dde75ac505a5373b}{md\_t}}\{0\};}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00037\ \ \ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ \mbox{\hyperlink{classnetdem_1_1_contact_forces_a3617e9cdf233c23b2666c83f3e99c7d2}{force}}\{0,\ 0,\ 0\};}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00040\ \ \ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ \mbox{\hyperlink{classnetdem_1_1_contact_forces_aaf1e12dbd096a4c8cd7893f22064dda0}{moment}}\{0,\ 0,\ 0\};}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00043\ \ \ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ \mbox{\hyperlink{classnetdem_1_1_contact_forces_a46f538665a9aa27282a5ee40f2b14472}{force\_n}}\{0,\ 0,\ 0\};}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00046\ \ \ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ \mbox{\hyperlink{classnetdem_1_1_contact_forces_a90281b8f530986a2cd1797af844f720b}{force\_t}}\{0,\ 0,\ 0\};}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00049\ \ \ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ \mbox{\hyperlink{classnetdem_1_1_contact_forces_aeddceeca40506f67622dab31b3fb0bb3}{moment\_n}}\{0,\ 0,\ 0\};}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00052\ \ \ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ \mbox{\hyperlink{classnetdem_1_1_contact_forces_ad0a31ae2b6e9fd0abfc7852130ae8863}{moment\_t}}\{0,\ 0,\ 0\};}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00057\ \ \ \mbox{\hyperlink{classnetdem_1_1_mini_map}{MiniMap<std::string,\ double>}}\ \mbox{\hyperlink{classnetdem_1_1_contact_forces_a53bdd9a2fba2cd5c6f2e6d22089d6c10}{dynamic\_properties}};}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00062\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_contact_forces_a094c39e767182a08f5602d0cb2a94170}{Clear}}()\ \{}
+\DoxyCodeLine{00063\ \ \ \ \ \mbox{\hyperlink{classnetdem_1_1_contact_forces_a06756751e83cb7e96d100e248eda21ad}{fc\_n}}\ =\ 0;}
+\DoxyCodeLine{00064\ \ \ \ \ \mbox{\hyperlink{classnetdem_1_1_contact_forces_aa2c2ae8bb9713ab901bd2f39dd5081ed}{fc\_s}}\ =\ 0;}
+\DoxyCodeLine{00065\ \ \ \ \ \mbox{\hyperlink{classnetdem_1_1_contact_forces_ac6922bb53a78155adc137f1be7cca6d4}{fc\_t}}\ =\ 0;}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ \ \ \ \ \mbox{\hyperlink{classnetdem_1_1_contact_forces_a5e36c0921fa749bf3dcc78628f341a73}{mc\_n}}\ =\ 0;}
+\DoxyCodeLine{00068\ \ \ \ \ \mbox{\hyperlink{classnetdem_1_1_contact_forces_a496e14eb9e359f9f48197fd1f3552e54}{mc\_s}}\ =\ 0;}
+\DoxyCodeLine{00069\ \ \ \ \ \mbox{\hyperlink{classnetdem_1_1_contact_forces_a2329db0917484cc791f2a66698b015d4}{mc\_t}}\ =\ 0;}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ \ \ \ \ \mbox{\hyperlink{classnetdem_1_1_contact_forces_abbc5d7eaa11885f6e8a4188c38a8495d}{fd\_n}}\ =\ 0;}
+\DoxyCodeLine{00072\ \ \ \ \ \mbox{\hyperlink{classnetdem_1_1_contact_forces_a169a5b4ddd163b084ee7b0aeb7a46f25}{fd\_s}}\ =\ 0;}
+\DoxyCodeLine{00073\ \ \ \ \ \mbox{\hyperlink{classnetdem_1_1_contact_forces_a742775e7dc9be095fb0563455f7bbe88}{fd\_t}}\ =\ 0;}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \ \ \ \ \mbox{\hyperlink{classnetdem_1_1_contact_forces_a631ef9839857325383b021b975faf444}{md\_n}}\ =\ 0;}
+\DoxyCodeLine{00076\ \ \ \ \ \mbox{\hyperlink{classnetdem_1_1_contact_forces_a24899192c61e288c05e1b417c3bcbbe1}{md\_s}}\ =\ 0;}
+\DoxyCodeLine{00077\ \ \ \ \ \mbox{\hyperlink{classnetdem_1_1_contact_forces_a96cc51c868203cf5dde75ac505a5373b}{md\_t}}\ =\ 0;}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00079\ \ \ \ \ \mbox{\hyperlink{classnetdem_1_1_contact_forces_a3617e9cdf233c23b2666c83f3e99c7d2}{force}}[0]\ =\ 0;}
+\DoxyCodeLine{00080\ \ \ \ \ \mbox{\hyperlink{classnetdem_1_1_contact_forces_a3617e9cdf233c23b2666c83f3e99c7d2}{force}}[1]\ =\ 0;}
+\DoxyCodeLine{00081\ \ \ \ \ \mbox{\hyperlink{classnetdem_1_1_contact_forces_a3617e9cdf233c23b2666c83f3e99c7d2}{force}}[2]\ =\ 0;}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00083\ \ \ \ \ \mbox{\hyperlink{classnetdem_1_1_contact_forces_aaf1e12dbd096a4c8cd7893f22064dda0}{moment}}[0]\ =\ 0;}
+\DoxyCodeLine{00084\ \ \ \ \ \mbox{\hyperlink{classnetdem_1_1_contact_forces_aaf1e12dbd096a4c8cd7893f22064dda0}{moment}}[1]\ =\ 0;}
+\DoxyCodeLine{00085\ \ \ \ \ \mbox{\hyperlink{classnetdem_1_1_contact_forces_aaf1e12dbd096a4c8cd7893f22064dda0}{moment}}[2]\ =\ 0;}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00087\ \ \ \ \ \mbox{\hyperlink{classnetdem_1_1_contact_forces_a46f538665a9aa27282a5ee40f2b14472}{force\_n}}[0]\ =\ 0;}
+\DoxyCodeLine{00088\ \ \ \ \ \mbox{\hyperlink{classnetdem_1_1_contact_forces_a46f538665a9aa27282a5ee40f2b14472}{force\_n}}[1]\ =\ 0;}
+\DoxyCodeLine{00089\ \ \ \ \ \mbox{\hyperlink{classnetdem_1_1_contact_forces_a46f538665a9aa27282a5ee40f2b14472}{force\_n}}[2]\ =\ 0;}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00091\ \ \ \ \ \mbox{\hyperlink{classnetdem_1_1_contact_forces_a90281b8f530986a2cd1797af844f720b}{force\_t}}[0]\ =\ 0;}
+\DoxyCodeLine{00092\ \ \ \ \ \mbox{\hyperlink{classnetdem_1_1_contact_forces_a90281b8f530986a2cd1797af844f720b}{force\_t}}[1]\ =\ 0;}
+\DoxyCodeLine{00093\ \ \ \ \ \mbox{\hyperlink{classnetdem_1_1_contact_forces_a90281b8f530986a2cd1797af844f720b}{force\_t}}[2]\ =\ 0;}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00095\ \ \ \ \ \mbox{\hyperlink{classnetdem_1_1_contact_forces_aeddceeca40506f67622dab31b3fb0bb3}{moment\_n}}[0]\ =\ 0;}
+\DoxyCodeLine{00096\ \ \ \ \ \mbox{\hyperlink{classnetdem_1_1_contact_forces_aeddceeca40506f67622dab31b3fb0bb3}{moment\_n}}[1]\ =\ 0;}
+\DoxyCodeLine{00097\ \ \ \ \ \mbox{\hyperlink{classnetdem_1_1_contact_forces_aeddceeca40506f67622dab31b3fb0bb3}{moment\_n}}[2]\ =\ 0;}
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00099\ \ \ \ \ \mbox{\hyperlink{classnetdem_1_1_contact_forces_ad0a31ae2b6e9fd0abfc7852130ae8863}{moment\_t}}[0]\ =\ 0;}
+\DoxyCodeLine{00100\ \ \ \ \ \mbox{\hyperlink{classnetdem_1_1_contact_forces_ad0a31ae2b6e9fd0abfc7852130ae8863}{moment\_t}}[1]\ =\ 0;}
+\DoxyCodeLine{00101\ \ \ \ \ \mbox{\hyperlink{classnetdem_1_1_contact_forces_ad0a31ae2b6e9fd0abfc7852130ae8863}{moment\_t}}[2]\ =\ 0;}
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00103\ \ \ \ \ \mbox{\hyperlink{classnetdem_1_1_contact_forces_a53bdd9a2fba2cd5c6f2e6d22089d6c10}{dynamic\_properties}}.\mbox{\hyperlink{classnetdem_1_1_mini_map_a98011c15e695979ef3a4b09f6e9aa798}{clear}}();}
+\DoxyCodeLine{00104\ \ \ \}}
+\DoxyCodeLine{00105\ \};}
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00107\ \}\ \textcolor{comment}{//\ namespace\ netdem}}
 
 \end{DoxyCode}

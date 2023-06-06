@@ -1,84 +1,79 @@
-\hypertarget{single_irregular_bp_dem_8py-example}{}\doxysection{single\+\_\+irregular\+\_\+bp\+\_\+dem.\+py}
-This is an example of how to use the netdem library.
+\doxysection{single\+\_\+irregular\+\_\+bp\+\_\+dem.\+py}
+\hypertarget{single_irregular_bp_dem_8py-example}{}\label{single_irregular_bp_dem_8py-example}This is an example of how to use the netdem library.
 
 
 \begin{DoxyCodeInclude}{0}
-\DoxyCodeLine{00001\ \textcolor{keyword}{import}\ sys}
-\DoxyCodeLine{00002\ \textcolor{keyword}{import}\ os}
-\DoxyCodeLine{00003\ dir\_path\ =\ os.path.dirname(os.path.realpath(\_\_file\_\_))}
-\DoxyCodeLine{00004\ sys.path.append(dir\_path\ +\ \textcolor{stringliteral}{"{}/../../build/lib/"{}})}
-\DoxyCodeLine{00005\ }
-\DoxyCodeLine{00006\ \textcolor{keyword}{import}\ pynetdem}
-\DoxyCodeLine{00007\ \textcolor{keyword}{import}\ math}
+\DoxyCodeLine{00001\ \textcolor{keyword}{import}\ netdem}
+\DoxyCodeLine{00002\ \textcolor{keyword}{import}\ math}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{comment}{\#\ simulation\ settings}}
+\DoxyCodeLine{00005\ sim\ =\ pynetdem.Simulation()}
+\DoxyCodeLine{00006\ sim.domain\_manager.SetBound(-\/16,\ -\/16,\ -\/16,\ 16,\ 16,\ 16)}
+\DoxyCodeLine{00007\ sim.domain\_manager.SetCellSpacing(0.6,\ 0.6,\ 0.6)}
 \DoxyCodeLine{00008\ }
-\DoxyCodeLine{00009\ \textcolor{comment}{\#\ simulation\ settings}}
-\DoxyCodeLine{00010\ sim\ =\ pynetdem.Simulation()}
-\DoxyCodeLine{00011\ sim.domain\_manager.SetBound(-\/16,\ -\/16,\ -\/16,\ 16,\ 16,\ 16)}
-\DoxyCodeLine{00012\ sim.domain\_manager.SetCellSpacing(0.6,\ 0.6,\ 0.6)}
+\DoxyCodeLine{00009\ cnt\_model\ =\ pynetdem.LinearSpring(2.0e4,\ 1.0e4,\ 0.7,\ 0.5)}
+\DoxyCodeLine{00010\ cnt\_model\_ptr\ =\ sim.scene.InsertContactModel(cnt\_model)}
+\DoxyCodeLine{00011\ sim.scene.SetNumberOfMaterials(1)}
+\DoxyCodeLine{00012\ sim.scene.SetCollisionModel(0,\ 0,\ cnt\_model\_ptr)}
 \DoxyCodeLine{00013\ }
-\DoxyCodeLine{00014\ cnt\_model\ =\ pynetdem.LinearSpring(2.0e4,\ 1.0e4,\ 0.7,\ 0.5)}
-\DoxyCodeLine{00015\ cnt\_model\_ptr\ =\ sim.scene.InsertContactModel(cnt\_model)}
-\DoxyCodeLine{00016\ sim.scene.SetNumberOfMaterials(1)}
-\DoxyCodeLine{00017\ sim.scene.SetCollisionModel(0,\ 0,\ cnt\_model\_ptr)}
-\DoxyCodeLine{00018\ }
-\DoxyCodeLine{00019\ \textcolor{comment}{\#\ create\ a\ particle\ and\ two\ walls}}
-\DoxyCodeLine{00020\ stl\_model\ =\ pynetdem.STLModel()}
-\DoxyCodeLine{00021\ stl\_model.InitFromSTL(\textcolor{stringliteral}{"{}data/particle\_template.stl"{}})}
-\DoxyCodeLine{00022\ stl\_model.Decimate(400)}
-\DoxyCodeLine{00023\ stl\_model.Standardize()}
-\DoxyCodeLine{00024\ stl\_model.SetSize(1.0)}
-\DoxyCodeLine{00025\ }
-\DoxyCodeLine{00026\ bond\_model\ =\ pynetdem.ParallelBond(2.8e6,\ 1.4e6,\ 7.0e3,\ 3.5e3)}
-\DoxyCodeLine{00027\ bond\_model.label\ =\ \textcolor{stringliteral}{"{}bond\_model"{}}}
-\DoxyCodeLine{00028\ bond\_model\_ptr\ =\ sim.scene.InsertContactModel(bond\_model)}
+\DoxyCodeLine{00014\ \textcolor{comment}{\#\ create\ a\ particle\ and\ two\ walls}}
+\DoxyCodeLine{00015\ stl\_model\ =\ pynetdem.STLModel()}
+\DoxyCodeLine{00016\ stl\_model.InitFromSTL(\textcolor{stringliteral}{"{}data/particle\_template.stl"{}})}
+\DoxyCodeLine{00017\ stl\_model.Decimate(400)}
+\DoxyCodeLine{00018\ stl\_model.Standardize()}
+\DoxyCodeLine{00019\ stl\_model.SetSize(1.0)}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ bond\_model\ =\ pynetdem.ParallelBond(2.8e6,\ 1.4e6,\ 7.0e3,\ 3.5e3)}
+\DoxyCodeLine{00022\ bond\_model.label\ =\ \textcolor{stringliteral}{"{}bond\_model"{}}}
+\DoxyCodeLine{00023\ bond\_model\_ptr\ =\ sim.scene.InsertContactModel(bond\_model)}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ bonded\_spheres\ =\ pynetdem.BondedSpheres()}
+\DoxyCodeLine{00026\ bonded\_spheres.SetBondModel(bond\_model\_ptr)}
+\DoxyCodeLine{00027\ bonded\_spheres.InitFromSTL(stl\_model,\ 0.05)}
+\DoxyCodeLine{00028\ sim.scene.InsertParticle(bonded\_spheres)}
 \DoxyCodeLine{00029\ }
-\DoxyCodeLine{00030\ bonded\_spheres\ =\ pynetdem.BondedSpheres()}
-\DoxyCodeLine{00031\ bonded\_spheres.SetBondModel(bond\_model\_ptr)}
-\DoxyCodeLine{00032\ bonded\_spheres.InitFromSTL(stl\_model,\ 0.05)}
-\DoxyCodeLine{00033\ sim.scene.InsertParticle(bonded\_spheres)}
-\DoxyCodeLine{00034\ }
-\DoxyCodeLine{00035\ plane\_1\ =\ pynetdem.Plane(0,\ 0,\ 0.39,\ 0,\ 0,\ -\/1)}
-\DoxyCodeLine{00036\ plane\_2\ =\ pynetdem.Plane(0,\ 0,\ -\/0.44,\ 0,\ 0,\ 1)}
-\DoxyCodeLine{00037\ }
-\DoxyCodeLine{00038\ plane\_1\_ptr\ =\ sim.scene.InsertShape(plane\_1)}
-\DoxyCodeLine{00039\ plane\_2\_ptr\ =\ sim.scene.InsertShape(plane\_2)}
-\DoxyCodeLine{00040\ }
-\DoxyCodeLine{00041\ w\_1\ =\ pynetdem.Wall(plane\_1\_ptr)}
-\DoxyCodeLine{00042\ w\_2\ =\ pynetdem.Wall(plane\_2\_ptr)}
-\DoxyCodeLine{00043\ }
-\DoxyCodeLine{00044\ sim.scene.InsertWall(w\_1)}
-\DoxyCodeLine{00045\ sim.scene.InsertWall(w\_2)}
-\DoxyCodeLine{00046\ }
-\DoxyCodeLine{00047\ \textcolor{comment}{\#\ gravity}}
-\DoxyCodeLine{00048\ grav\ =\ pynetdem.Gravity()}
-\DoxyCodeLine{00049\ grav.Init(sim)}
-\DoxyCodeLine{00050\ sim.modifier\_manager.Insert(grav)}
-\DoxyCodeLine{00051\ sim.modifier\_manager.Enable(grav.label)}
-\DoxyCodeLine{00052\ sim.scene.gravity\_coef\ =\ [0,\ 0,\ -\/9.81e-\/3]}
-\DoxyCodeLine{00053\ }
-\DoxyCodeLine{00054\ \textcolor{comment}{\#\ save\ results}}
-\DoxyCodeLine{00055\ data\_dumper\ =\ pynetdem.DataDumper()}
-\DoxyCodeLine{00056\ data\_dumper.Init(sim)}
-\DoxyCodeLine{00057\ data\_dumper.SetRootPath(\textcolor{stringliteral}{"{}tmp/out/"{}})}
-\DoxyCodeLine{00058\ data\_dumper.SetSaveByCycles(100)}
-\DoxyCodeLine{00059\ data\_dumper.SaveShapeInfoAsSTL()}
-\DoxyCodeLine{00060\ data\_dumper.dump\_shape\_info\ =\ \textcolor{keyword}{True}}
-\DoxyCodeLine{00061\ data\_dumper.dump\_wall\_info\ =\ \textcolor{keyword}{True}}
-\DoxyCodeLine{00062\ data\_dumper.dump\_contact\_info\ =\ \textcolor{keyword}{True}}
-\DoxyCodeLine{00063\ sim.modifier\_manager.Insert(data\_dumper)}
-\DoxyCodeLine{00064\ sim.modifier\_manager.Enable(data\_dumper.label)}
-\DoxyCodeLine{00065\ }
-\DoxyCodeLine{00066\ \textcolor{comment}{\#\ add\ deformation\ drived\ loading\ for\ top\ wall}}
-\DoxyCodeLine{00067\ disp\_control\ =\ pynetdem.WallMotionControl()}
-\DoxyCodeLine{00068\ disp\_control.Init(sim)}
-\DoxyCodeLine{00069\ disp\_control.SetWall([0])}
-\DoxyCodeLine{00070\ disp\_control.SetVelocity(0,\ 0,\ -\/0.1)}
-\DoxyCodeLine{00071\ sim.modifier\_manager.Insert(disp\_control)}
-\DoxyCodeLine{00072\ sim.modifier\_manager.Enable(disp\_control.label)}
-\DoxyCodeLine{00073\ }
-\DoxyCodeLine{00074\ \textcolor{comment}{\#\ run\ the\ simulation}}
-\DoxyCodeLine{00075\ sim.dem\_solver.timestep\ =\ 1.0e-\/4}
-\DoxyCodeLine{00076\ sim.Run(2.0)}
+\DoxyCodeLine{00030\ plane\_1\ =\ pynetdem.Plane(0,\ 0,\ 0.39,\ 0,\ 0,\ -\/1)}
+\DoxyCodeLine{00031\ plane\_2\ =\ pynetdem.Plane(0,\ 0,\ -\/0.44,\ 0,\ 0,\ 1)}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ plane\_1\_ptr\ =\ sim.scene.InsertShape(plane\_1)}
+\DoxyCodeLine{00034\ plane\_2\_ptr\ =\ sim.scene.InsertShape(plane\_2)}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ w\_1\ =\ pynetdem.Wall(plane\_1\_ptr)}
+\DoxyCodeLine{00037\ w\_2\ =\ pynetdem.Wall(plane\_2\_ptr)}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ sim.scene.InsertWall(w\_1)}
+\DoxyCodeLine{00040\ sim.scene.InsertWall(w\_2)}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \textcolor{comment}{\#\ gravity}}
+\DoxyCodeLine{00043\ grav\ =\ pynetdem.Gravity()}
+\DoxyCodeLine{00044\ grav.Init(sim)}
+\DoxyCodeLine{00045\ sim.modifier\_manager.Insert(grav)}
+\DoxyCodeLine{00046\ sim.modifier\_manager.Enable(grav.label)}
+\DoxyCodeLine{00047\ sim.scene.gravity\_coef\ =\ [0,\ 0,\ -\/9.81e-\/3]}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \textcolor{comment}{\#\ save\ results}}
+\DoxyCodeLine{00050\ data\_dumper\ =\ pynetdem.DataDumper()}
+\DoxyCodeLine{00051\ data\_dumper.Init(sim)}
+\DoxyCodeLine{00052\ data\_dumper.SetRootPath(\textcolor{stringliteral}{"{}tmp/out/"{}})}
+\DoxyCodeLine{00053\ data\_dumper.SetSaveByCycles(100)}
+\DoxyCodeLine{00054\ data\_dumper.SaveShapeInfoAsSTL()}
+\DoxyCodeLine{00055\ data\_dumper.dump\_shape\_info\ =\ \textcolor{keyword}{True}}
+\DoxyCodeLine{00056\ data\_dumper.dump\_wall\_info\ =\ \textcolor{keyword}{True}}
+\DoxyCodeLine{00057\ data\_dumper.dump\_contact\_info\ =\ \textcolor{keyword}{True}}
+\DoxyCodeLine{00058\ sim.modifier\_manager.Insert(data\_dumper)}
+\DoxyCodeLine{00059\ sim.modifier\_manager.Enable(data\_dumper.label)}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \textcolor{comment}{\#\ add\ deformation\ drived\ loading\ for\ top\ wall}}
+\DoxyCodeLine{00062\ disp\_control\ =\ pynetdem.WallMotionControl()}
+\DoxyCodeLine{00063\ disp\_control.Init(sim)}
+\DoxyCodeLine{00064\ disp\_control.SetWall([0])}
+\DoxyCodeLine{00065\ disp\_control.SetVelocity(0,\ 0,\ -\/0.1)}
+\DoxyCodeLine{00066\ sim.modifier\_manager.Insert(disp\_control)}
+\DoxyCodeLine{00067\ sim.modifier\_manager.Enable(disp\_control.label)}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00069\ \textcolor{comment}{\#\ run\ the\ simulation}}
+\DoxyCodeLine{00070\ sim.dem\_solver.timestep\ =\ 1.0e-\/4}
+\DoxyCodeLine{00071\ sim.Run(2.0)}
 
 \end{DoxyCodeInclude}
  

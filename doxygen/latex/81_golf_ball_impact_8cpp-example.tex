@@ -1,5 +1,5 @@
-\hypertarget{81_golf_ball_impact_8cpp-example}{}\doxysection{81\+\_\+golf\+\_\+ball\+\_\+impact.\+cpp}
-This is an example of how to use the netdem library.
+\doxysection{81\+\_\+golf\+\_\+ball\+\_\+impact.\+cpp}
+\hypertarget{81_golf_ball_impact_8cpp-example}{}\label{81_golf_ball_impact_8cpp-example}This is an example of how to use the netdem library.
 
 
 \begin{DoxyCodeInclude}{0}
@@ -15,6 +15,7 @@ This is an example of how to use the netdem library.
 \DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{shape__sphere_8hpp}{shape\_sphere.hpp}}"{}}}
 \DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{simulation_8hpp}{simulation.hpp}}"{}}}
 \DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{solver__sdf__pw_8hpp}{solver\_sdf\_pw.hpp}}"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ <filesystem>}}
 \DoxyCodeLine{\textcolor{preprocessor}{\#include\ <iostream>}}
 \DoxyCodeLine{\textcolor{preprocessor}{\#include\ <unordered\_map>}}
 \DoxyCodeLine{}
@@ -71,7 +72,7 @@ This is an example of how to use the netdem library.
 \DoxyCodeLine{\ \ \ \ \ \ \ \ cnt.\mbox{\hyperlink{classnetdem_1_1_contact_p_w_a950d133d3ecd7be1cdc1536b7143c6e8}{SetCollisionModel}}(\&cnt\_model);}
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ cnt\_solver.\mbox{\hyperlink{classnetdem_1_1_solver_s_d_f_p_w_a36a0052e769c792ea93ecdb1569b5729}{ResolveInit}}(\&cnt,\ dem\_timestep);}
-\DoxyCodeLine{\ \ \ \ \ \ \ \ cnt.\mbox{\hyperlink{classnetdem_1_1_contact_p_w_a51a1fa703dd02db2940e3f8dce5e72ac}{EvaluateForceMoment}}(dem\_timestep);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ cnt.\mbox{\hyperlink{classnetdem_1_1_contact_p_w_aa36e0924446d68e76a7b592fd54a9f66}{EvaluateForces}}(dem\_timestep);}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ p.\mbox{\hyperlink{classnetdem_1_1_deformable_particle_a46a937860e9d9e0ac8e25886c8d66053}{ApplyContactForce}}(\&cnt);}
 \DoxyCodeLine{\ \ \ \ \ \ \}}
 \DoxyCodeLine{\ \ \ \ \ \ p.\mbox{\hyperlink{classnetdem_1_1_deformable_particle_a4cd11ccb26fc06a51a1f0928252deaaf}{UpdateMotion}}(dem\_timestep);}
