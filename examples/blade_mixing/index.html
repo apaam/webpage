@@ -201,7 +201,7 @@
         <li class="main active"><a href="#_1"></a></li>
         
     
-        <li class="main "><a href="#random-packing">Random packing</a></li>
+        <li class="main "><a href="#blade-mixing">Blade mixing</a></li>
         
             <li><a href="#whole-script"> &#9731; Whole script</a></li>
         
@@ -218,7 +218,7 @@
         <li class="main active"><a href="#_1"></a></li>
         
     
-        <li class="main "><a href="#random-packing">Random packing</a></li>
+        <li class="main "><a href="#blade-mixing">Blade mixing</a></li>
         
             <li><a href="#whole-script"> &#9731; Whole script</a></li>
         
@@ -233,149 +233,194 @@
 
 <div><h3 id="_1"></h3>
 <p><a href="../">Example</a>
-┊ <a href="../">Previous</a>
-┊ <a href="../blade_mixing/">Next</a></p>
+┊ <a href="../random_packing/">Previous</a>
+┊ <a href="../">Next</a></p>
 <hr>
-<h3 id="random-packing">Random packing</h3>
+<h3 id="blade-mixing">Blade mixing</h3>
 <h4 id="whole-script">Whole script</h4>
-<p>The script is written in Python and utilizes the <code>netdem</code> library to perform a simulation. It sets up a simulation environment with a defined boundary, contact models, triangular meshes, particle packs, walls, gravity, data dumping, and runs the simulation. It is important to note that the script assumes the required <code>netdem</code> library is properly installed and accessible in the Python environment. </p>
-<pre><code class="language-python">import netdem
+<p>The code is a C++ implementation of a simulation using the netdem library. It sets up a simulation environment, including the simulation domain, contact model, shapes, walls, gravity, data dumping, and runs the simulation.</p>
+<pre><code class="language-cpp">#include "data_dumper.hpp"
+#include "gen_pack.hpp"
+#include "gen_wall_box_plane.hpp"
+#include "gravity.hpp"
+#include "model_linear_spring.hpp"
+#include "shape_cylinder.hpp"
+#include "shape_sphere.hpp"
+#include "shape_triangle.hpp"
+#include "simulation.hpp"
+#include &lt;iostream&gt;
+#include &lt;unordered_map&gt;
+using namespace netdem;
+using namespace std;
 
-sim = netdem.Simulation()
-sim.domain_manager.SetBound(-0.6, -0.6, -0.6, 0.6, 0.6, 0.6)
-sim.domain_manager.SetCellSpacing(0.3, 0.3, 0.3)
+void ImportWall(Simulation *sim) {
+  STLModel cylinder_stl;
+  cylinder_stl.InitFromSTL("data/cylinder.stl");
+  for (auto &amp;vert : cylinder_stl.vertices) {
+    vert[2] *= 0.5;
+  }
+  cylinder_stl.SaveAsSTL("tmp/tests/cylinder_outer.stl");
+  for (auto &amp;facet : cylinder_stl.facets) {
+    Triangle triangle(cylinder_stl.vertices[facet[0]],
+                      cylinder_stl.vertices[facet[1]],
+                      cylinder_stl.vertices[facet[2]]);
+    auto shape_ptr = sim-&gt;scene.InsertShape(&amp;triangle);
+    Wall wall(shape_ptr);
+    sim-&gt;scene.InsertWall(wall);
+  }
 
-cnt_model = netdem.LinearSpring(2.0e6, 1.0e6, 0.7, 0.5)
-cnt_model_prt = sim.scene.InsertContactModel(cnt_model)
-sim.scene.SetNumberOfMaterials(1)
-sim.scene.SetCollisionModel(0, 0, cnt_model_prt)
+  for (auto &amp;vert : cylinder_stl.vertices) {
+    vert[0] *= 0.15;
+    vert[1] *= 0.15;
+    vert[2] *= 0.64;
+    vert[2] -= 0.10;
+  }
+  cylinder_stl.SaveAsSTL("tmp/tests/cylinder_inner.stl");
+  for (auto &amp;facet : cylinder_stl.facets) {
+    Triangle triangle(cylinder_stl.vertices[facet[0]],
+                      cylinder_stl.vertices[facet[1]],
+                      cylinder_stl.vertices[facet[2]]);
+    auto shape_ptr = sim-&gt;scene.InsertShape(&amp;triangle);
+    Wall wall(shape_ptr);
+    sim-&gt;scene.InsertWall(wall);
+  }
 
-tri_mesh = netdem.TriMesh()
-tri_mesh.InitFromSTL("data/particle_template.stl")
-tri_mesh.Decimate(400)
-tri_mesh.MakeConvex()
-tri_mesh.AlignAxes()
-tri_mesh.SetSize(0.1)
-tri_mesh_ptr = sim.scene.InsertShape(tri_mesh)
+  STLModel propeller_stl;
+  propeller_stl.InitFromSTL("data/copyleft/propeller.stl");
+  propeller_stl.Standardize();
+  for (auto &amp;vert : propeller_stl.vertices) {
+    vert[0] *= 0.14;
+    vert[1] *= 0.14;
+    vert[2] *= 0.8;
+    vert[2] -= 0.075;
+  }
+  propeller_stl.SaveAsSTL("tmp/tests/propeller.stl");
+  for (auto &amp;facet : propeller_stl.facets) {
+    Triangle triangle(propeller_stl.vertices[facet[0]],
+                      propeller_stl.vertices[facet[1]],
+                      propeller_stl.vertices[facet[2]]);
+    triangle.skin *= 10.0;
+    auto shape_ptr = sim-&gt;scene.InsertShape(&amp;triangle);
+    Wall wall;
+    wall.SetShape(shape_ptr, true);
+    wall.SetVelocitySpin(0, 0, -2.0 * Math::PI);
+    sim-&gt;scene.InsertWall(wall);
+  }
+}
 
-pack_generator = netdem.PackGenerator()
-particle_list = pack_generator.GetGridPack(1, 1, 0.2, 0, 0, 0.4, 5, 5, 1, tri_mesh_ptr)
-for p in particle_list:
-    p.SetVelocity(0, 0, -2.0)
+int main(int argc, char **argv) {
+  Simulation *sim = new Simulation();
 
-wall_box = netdem.WallBoxPlane(1, 1, 1, 0, 0, 0)
-wall_box.ImportToScene(sim.scene)
+  sim-&gt;domain_manager.SetBound(-0.6, -0.6, -0.6, 0.6, 0.6, 0.6);
+  sim-&gt;domain_manager.SetCellSpacing(0.2, 0.2, 0.2);
 
-grav = netdem.Gravity()
-grav.Init(sim)
-sim.modifier_manager.Insert(grav)
-sim.modifier_manager.Enable(grav.label)
+  LinearSpring cnt_model = LinearSpring(1.0e4, 1.0e4, 0.7, 0.5);
+  sim-&gt;scene.InsertContactModel(&amp;cnt_model);
+  sim-&gt;scene.SetNumberOfMaterials(1);
+  sim-&gt;scene.SetCollisionModel(0, 0, cnt_model.label);
 
-data_dumper = netdem.DataDumper()
-data_dumper.Init(sim)
-data_dumper.SetRootPath("tmp/out/")
-data_dumper.SetSaveByCycles(100)
-data_dumper.dump_contact_info = True
-data_dumper.dump_wall_info = True
-data_dumper.SaveShapeInfoAsSTL()
-sim.modifier_manager.Insert(data_dumper)
-sim.modifier_manager.Enable(data_dumper.label)
+  Sphere sphere = Sphere(0.02);
+  sphere.skin *= 1.0;
+  auto shape_ptr = sim-&gt;scene.InsertShape(&amp;sphere);
 
-for i in range(20):
-    sim.scene.InsertParticle(particle_list)
-    sim.Run(0.1)
+  VecXT&lt;Particle&gt; particle_list = PackGenerator::GetGridPack(
+      0.7, 0.7, 0.1, 0, 0, 0.2, 25, 20, 2, sim-&gt;scene.GetShapes());
+  for (auto &amp;p : particle_list) {
+    p.SetVelocity(0, 0, -2.0);
+  }
 
-sim.Run(2.0)
+  ImportWall(sim);
+
+  Gravity grav;
+  grav.Init(sim);
+  sim-&gt;modifier_manager.Insert(&amp;grav);
+  sim-&gt;modifier_manager.Enable(grav.label);
+
+  DataDumper data_dumper;
+  data_dumper.Init(sim);
+  data_dumper.SetRootPath("tmp/out/");
+  data_dumper.SetSaveByCycles(100);
+  data_dumper.dump_wall_info = true;
+  data_dumper.dump_shape_info = true;
+  sim-&gt;modifier_manager.Insert(&amp;data_dumper);
+  sim-&gt;modifier_manager.Enable(data_dumper.label);
+
+  for (int i = 0; i &lt; 20; i++) {
+    sim-&gt;scene.InsertParticle(particle_list);
+    sim-&gt;Run(0.1);
+  }
+  sim-&gt;Run(2.0);
+
+  delete sim;
+}
 </code></pre>
 <h4 id="step-by-step-explaination">Step-by-step explaination</h4>
-<p>Below is a detailed documentation of the script, explaining each line and its purpose.</p>
-<pre><code class="language-python">import netdem
+<p>Here's a breakdown of the code:</p>
+<pre><code class="language-cpp">void ImportWall(Simulation *sim) {
+  // ...
+}
 </code></pre>
-<p>This line imports the <code>netdem</code> module, which contains classes and functions necessary for the simulation.</p>
-<pre><code class="language-python">sim = netdem.Simulation()
+<p>This function defines the <code>ImportWall</code> function, which is used to import wall shapes into the simulation. The walls are created based on STL models and inserted into the simulation scene.</p>
+<pre><code class="language-cpp">int main(int argc, char **argv) {
+  Simulation *sim = new Simulation();
 </code></pre>
-<p>Creates an instance of the <code>Simulation</code> class and assigns it to the variable <code>sim</code>. This object will be used to manage the simulation.</p>
-<pre><code class="language-python">sim.domain_manager.SetBound(-0.6, -0.6, -0.6, 0.6, 0.6, 0.6)
+<p>The <code>main</code> function initializes a new <code>Simulation</code> object and assigns it to the <code>sim</code> pointer.</p>
+<pre><code class="language-cpp">  sim-&gt;domain_manager.SetBound(-0.6, -0.6, -0.6, 0.6, 0.6, 0.6);
+  sim-&gt;domain_manager.SetCellSpacing(0.2, 0.2, 0.2);
 </code></pre>
-<p>Sets the boundary of the simulation domain using the <code>SetBound</code> method of the <code>domain_manager</code> object. The specified coordinates (-0.6, -0.6, -0.6) and (0.6, 0.6, 0.6) define the minimum and maximum bounds of the simulation domain in three dimensions.</p>
-<pre><code class="language-python">sim.domain_manager.SetCellSpacing(0.3, 0.3, 0.3)
+<p>The boundary and cell spacing of the simulation domain are set using the methods <code>SetBound</code> and <code>SetCellSpacing</code> of the <code>domain_manager</code> object.</p>
+<pre><code class="language-cpp">  LinearSpring cnt_model = LinearSpring(1.0e4, 1.0e4, 0.7, 0.5);
+  sim-&gt;scene.InsertContactModel(&amp;cnt_model);
+  sim-&gt;scene.SetNumberOfMaterials(1);
+  sim-&gt;scene.SetCollisionModel(0, 0, cnt_model.label);
 </code></pre>
-<p>Sets the cell spacing of the simulation domain using the <code>SetCellSpacing</code> method of the <code>domain_manager</code> object. The specified values (0.3, 0.3, 0.3) determine the size of each cell in the simulation domain grid.</p>
-<pre><code class="language-python">cnt_model = netdem.LinearSpring(2.0e6, 1.0e6, 0.7, 0.5)
+<p>A linear spring contact model is created and inserted into the simulation scene using the <code>InsertContactModel</code> method of the <code>scene</code> object. The number of materials in the scene is set to 1, and the collision model at index 0 is updated with the label of the contact model.</p>
+<pre><code class="language-cpp">  Sphere sphere = Sphere(0.02);
+  sphere.skin *= 1.0;
+  auto shape_ptr = sim-&gt;scene.InsertShape(&amp;sphere);
 </code></pre>
-<p>Creates an instance of the <code>LinearSpring</code> class from the <code>netdem</code> module and assigns it to the variable <code>cnt_model</code>. This model represents a linear spring with specified parameters: stiffness, damping, restitution, and friction.</p>
-<pre><code class="language-python">cnt_model_prt = sim.scene.InsertContactModel(cnt_model)
+<p>A sphere shape is created and inserted into the simulation scene using the <code>InsertShape</code> method of the <code>scene</code> object. The sphere's skin (radius) is adjusted, and the resulting shape pointer is stored for later use.</p>
+<pre><code class="language-cpp">  VecXT&lt;Particle&gt; particle_list = PackGenerator::GetGridPack(
+      0.7, 0.7, 0.1, 0, 0, 0.2, 25, 20, 2, sim-&gt;scene.GetShapes());
+  for (auto &amp;p : particle_list) {
+    p.SetVelocity(0, 0, -2.0);
+  }
 </code></pre>
-<p>Inserts the contact model (<code>cnt_model</code>) into the simulation scene using the <code>InsertContactModel</code> method of the <code>scene</code> object. The resulting contact model is assigned to the variable <code>cnt_model_prt</code> for later use.</p>
-<pre><code class="language-python">sim.scene.SetNumberOfMaterials(1)
-sim.scene.SetCollisionModel(0, 0, cnt_model_prt)
+<p>A grid-based particle pack is generated using the <code>GetGridPack</code> method of the <code>PackGenerator</code> class. The parameters provided determine the position, size, and layout of the particles in the grid. The initial velocity of each particle in the pack is set to move downward.</p>
+<pre><code class="language-cpp">  ImportWall(sim);
 </code></pre>
-<p>Sets the number of materials in the simulation scene to 1 and assigns the contact model (<code>cnt_model_prt</code>) to the collision model at index 0. These operations are performed using methods from the <code>scene</code> object.</p>
-<pre><code class="language-python">tri_mesh = netdem.TriMesh()
+<p>The <code>ImportWall</code> function is called to import wall shapes into the simulation.</p>
+<pre><code class="language-cpp">  Gravity grav;
+  grav.Init(sim);
+  sim-&gt;modifier_manager.Insert(&amp;grav);
+  sim-&gt;modifier_manager.Enable(grav.label);
 </code></pre>
-<p>Creates an instance of the <code>TriMesh</code> class from the <code>netdem</code> module and assigns it to the variable <code>tri_mesh</code>. This object represents a triangular mesh.</p>
-<pre><code class="language-python">tri_mesh.InitFromSTL("data/particle_template.stl")
+<p>A gravity modifier is created, initialized with the simulation object, inserted into the modifier manager, and enabled.</p>
+<pre><code class="language-cpp">  DataDumper data_dumper;
+  data_dumper.Init(sim);
+  data_dumper.SetRootPath("tmp/out/");
+  data_dumper.SetSaveByCycles(100);
+  data_dumper.dump_wall_info = true;
+  data_dumper.dump_shape_info = true;
+  sim-&gt;modifier_manager.Insert(&amp;data_dumper);
+  sim-&gt;modifier_manager.Enable(data_dumper.label);
 </code></pre>
-<p>Initializes the <code>tri_mesh</code> object by loading a triangular mesh from an STL file located at "data/particle_template.stl". The provided STL file is used as a template for particles in the simulation.</p>
-<pre><code class="language-python">tri_mesh.Decimate(400)
+<p>A data dumper object is created, initialized with the simulation object, and configured to save data by cycles. The root path for saving files is set, and options for dumping wall and shape information are enabled. The data dumper object is then inserted into the modifier manager and enabled.</p>
+<pre><code class="language-cpp">  for (int i = 0; i &lt; 20; i++) {
+    sim-&gt;scene.InsertParticle(particle_list);
+    sim-&gt;Run(0.1);
+  }
+  sim-&gt;Run(2.0);
+
+  delete sim;
+}
 </code></pre>
-<p>Decimates the loaded triangular mesh, reducing the number of polygons while preserving the overall shape. The size of the decimation is determined by the parameter 400.</p>
-<pre><code class="language-python">tri_mesh.MakeConvex()
-</code></pre>
-<p>Converts the triangular mesh into a convex hull representation using the <code>MakeConvex</code> method. This step simplifies the geometry and improves simulation performance.</p>
-<pre><code class="language-python">tri_mesh.AlignAxes()
-</code></pre>
-<p>Aligns the axes of the triangular mesh using the <code>AlignAxes</code> method. This step ensures that the mesh aligns properly with the simulation coordinate system.</p>
-<pre><code class="language-python">tri_mesh.SetSize(0.1)
-</code></pre>
-<p>Sets the size of the triangular mesh using the <code>SetSize</code> method. The specified value (0.1) determines the new size of the mesh.</p>
-<pre><code class="language-python">tri_mesh_ptr = sim.scene.InsertShape(tri_mesh)
-</code></pre>
-<p>Inserts the triangular mesh object into the simulation scene using the <code>InsertShape</code> method of the <code>scene</code> object. The resulting shape is assigned to the variable <code>tri_mesh_ptr</code> for later use.</p>
-<pre><code class="language-python">pack_generator = netdem.PackGenerator()
-</code></pre>
-<p>Creates an instance of the <code>PackGenerator</code> class and assigns it to the variable <code>pack_generator</code>. This object is responsible for generating particle packs in the simulation.</p>
-<pre><code class="language-python">particle_list = pack_generator.GetGridPack(1, 1, 0.2, 0, 0, 0.4, 5, 5, 1, tri_mesh_ptr)
-</code></pre>
-<p>Generates a grid-based particle pack using the <code>GetGridPack</code> method of the <code>pack_generator</code> object. The generated particles are assigned to the <code>particle_list</code> variable. The parameters provided determine the number of particles in each dimension of the grid (1 particle in the x-direction, 1 particle in the y-direction), the spacing between particles (0.2), the position of the origin of the grid (0, 0, 0.4), the number of particles in each dimension (5 particles in the x-direction, 5 particles in the y-direction), the height of the particle pack (1), and the shape pointer (<code>tri_mesh_ptr</code>) used as a template for the particles.</p>
-<pre><code class="language-python">for p in particle_list:
-    p.SetVelocity(0, 0, -2.0)
-</code></pre>
-<p>Sets the initial velocity of each particle in the <code>particle_list</code> to (0, 0, -2.0) using the <code>SetVelocity</code> method. This sets a downward velocity for the particles.</p>
-<pre><code class="language-python">wall_box = netdem.WallBoxPlane(1, 1, 1, 0, 0, 0)
-wall_box.ImportToScene(sim.scene)
-</code></pre>
-<p>Creates an instance of the <code>WallBoxPlane</code> class with specified dimensions (1, 1, 1) and position (0, 0, 0). Then, it imports the wall box object into the simulation scene using the <code>ImportToScene</code> method of the <code>wall_box</code> object. This creates a box-shaped wall in the simulation.</p>
-<pre><code class="language-python">grav = netdem.Gravity()
-grav.Init(sim)
-sim.modifier_manager.Insert(grav)
-sim.modifier_manager.Enable(grav.label)
-</code></pre>
-<p>Creates an instance of the <code>Gravity</code> class and assigns it to the variable <code>grav</code>. The <code>Init</code> method initializes the gravity object using the <code>sim</code> simulation object. The gravity object is then inserted into the modifier manager of the simulation and enabled. This ensures that gravity affects the particles in the simulation.</p>
-<pre><code class="language-python">data_dumper = netdem.DataDumper()
-data_dumper.Init(sim)
-data_dumper.SetRootPath("tmp/out/")
-data_dumper.SetSaveByCycles(100)
-data_dumper.dump_contact_info = True
-data_dumper.dump_wall_info = True
-data_dumper.SaveShapeInfoAsSTL()
-sim.modifier_manager.Insert(data_dumper)
-sim.modifier_manager.Enable(data_dumper.label)
-</code></pre>
-<p>Creates an instance of the <code>DataDumper</code> class and assigns it to the variable <code>data_dumper</code>. The <code>Init</code> method initializes the data dumper object using the <code>sim</code> simulation object. The following lines specify various settings for the data dumper, such as the root path for saving files ("tmp/out/"), the save frequency (every 100 cycles), and the types of data to be dumped (contact information and wall information). Additionally, the <code>SaveShapeInfoAsSTL</code> method is called to enable saving shape information as STL files. Finally, the data dumper object is inserted into the modifier manager of the simulation and enabled.</p>
-<pre><code class="language-python">for i in range(20):
-    sim.scene.InsertParticle(particle_list)
-    sim.Run(0.1)
-</code></pre>
-<p>In a loop that iterates 20 times, particles from the <code>particle_list</code> are inserted into the simulation scene using the <code>InsertParticle</code> method. Then, the simulation is run for a duration of 0.1 time units using the <code>Run</code> method. This loop allows the particles to settle in the simulation before further simulation steps.</p>
-<pre><code class="language-python">sim.Run(2.0)
-</code></pre>
-<p>Finally, the simulation is run for a duration of 2.0 time units using the <code>Run</code> method. This completes the simulation process.</p>
+<p>A loop is used to insert particles from the particle list into the simulation scene, and the simulation is run for a duration of 0.1 time units. This loop allows the particles to settle in the simulation before further simulation steps. After the loop, the simulation is run for an additional 2.0 time units. Finally, the <code>sim</code> pointer is deleted to free the memory.</p>
 <h4 id="simulation-result">Simulation result</h4>
 <hr>
 <p><a href="../">Example</a>
-┊ <a href="../">Previous</a>
-┊ <a href="../blade_mixing/">Next</a></p></div></div>
+┊ <a href="../random_packing/">Previous</a>
+┊ <a href="../">Next</a></p></div></div>
             <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
