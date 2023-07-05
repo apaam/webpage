@@ -107,13 +107,13 @@ We generally follow [Google C++ Style Guide](https://google.github.io/styleguide
 - We use [doxygen](https://www.doxygen.nl/index.html) to generate the code documentation. We suggest the following comment format.
     - Block documentation (e.g., for class description): 
   
-          ```
+          ```cpp
           /** descriptions */
           ```
 
     - Line documentation: 
         
-          ```
+          ```cpp
           /// descriptions
           ```
 
