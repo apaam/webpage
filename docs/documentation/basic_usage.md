@@ -2,7 +2,7 @@
 
 [User manual](user_manual.md)
 ┊ [Previous](installation.md)
-┊ [Next](paraview_rendering.md)
+┊ [Next](computer_tips.md)
 
 -------
 
@@ -12,11 +12,11 @@ There are some built-in examples defined in the ``examples/`` directory. Once th
 
 Run an example using the following command in the root directory. The results will be stored in ``tmp/out/`` directory after the running of the example, and can be visualized in [paraview](https://www.paraview.org).
 
-```
+```bash
 ./build/bin/netdem_example_random_packing
 ```
   
-```
+```bash
 python3 example/00_random_packing/pynetdem_1_gjk_solver.py
 ```
 
@@ -24,13 +24,13 @@ python3 example/00_random_packing/pynetdem_1_gjk_solver.py
 
 For irregular-shaped particles, use the following command to generate the results with particles represented by triangle meshes.
 
-```
+```bash
 ./build/bin/netdem_tool_point2mesh [in.vtk] [out.vtk] [shape_dir]
 ```
 
 In case one need to do the generation in batch, the following command can be used
 
-```
+```bash
 ./scripts/batch_data_point2mesh.sh [in_dir] [out_dir] [shape_dir] [0, 1]
 ```
 
@@ -38,7 +38,7 @@ Option [0, 1] is for importing shape informaiton, such that ``0`` indicates usin
 
 or easier
 
-```        
+```bash    
 ./scripts/auto_mesh_particle.sh [out_dir] [0, 1, or 2]
 ./scripts/auto_mesh_wall.sh [out_dir] [0, 1, or 2]
 ```
@@ -97,4 +97,4 @@ We have a [side-repository](https://github.com/apaam/postprocess_scripts) that p
 
 [User manual](user_manual.md)
 ┊ [Previous](installation.md)
-┊ [Next](paraview_rendering.md)
+┊ [Next](computer_tips.md)

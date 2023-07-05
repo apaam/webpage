@@ -6,6 +6,8 @@
 
 [Basic usage](basic_usage.md): running simulation, particle shape reconstruction, post-processing, etc.
 
+[Computer tips](computer_tips.md): some useful tips in linux and computer methods, e.g., github token, DNS issue, etc.
+
 [Paraview rendering](paraview_rendering.md): hints and procedures in paraview visualization.
 
 [Blender rendering](blender_rendering.md): hints and procedures in blender visualization.

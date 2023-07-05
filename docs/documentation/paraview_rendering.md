@@ -1,7 +1,7 @@
 ###
 
 [User manual](user_manual.md)
-┊ [Previous](basic_usage.md)
+┊ [Previous](computer_tips.md)
 ┊ [Next](blender_rendering.md)
 
 ------
@@ -61,5 +61,5 @@ Results can be dumped as VTK files, which can be visualized in [paraview](https:
 ------
 
 [User manual](user_manual.md)
-┊ [Previous](basic_usage.md)
+┊ [Previous](computer_tips.md)
 ┊ [Next](blender_rendering.md)

@@ -11,7 +11,7 @@
 
 The compilation requires ``gcc``, ``autoconf``, ``automake``, ``cmake``, ``mpi``, ``boost``, which can be obtained using
 
-```
+```bash
 # For MacOS: use brew install, such as
 brew install gcc autoconf automake cmake openmpi boost
         
@@ -23,7 +23,7 @@ sudo apt-get install openmpi-bin libopenmpi-dev libboost-all-dev
 
 #### Compile and build
 
-```
+```bash
 make sync_submodule
 make
 ``` 
@@ -33,7 +33,7 @@ If some third-party libraries have not been or cannot be downloaded successfully
 
 #### Test the installation
 
-```
+```bash
 ./scripts/run_tests.sh
 ```
 
@@ -51,7 +51,7 @@ If some third-party libraries have not been or cannot be downloaded successfully
     - Add ``-flax-vector-conversions`` to the gcc complier flag in netdem ``CMakeLists.txt``.
     - Add the following lines to the ``FastWindingNumberForSoups`` in igl and comment out the ``#include <emmintrin.h>`` line.
 
-```
+```cpp
 #define SIMDE_ENABLE_NATIVE_ALIASES
 #include <simde/x86/sse.h>
 #include <simde/x86/sse4.1.h>
