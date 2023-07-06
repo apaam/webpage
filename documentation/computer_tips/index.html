@@ -201,7 +201,10 @@
         <li class="main active"><a href="#_1"></a></li>
         
     
-        <li class="main "><a href="#conventions">Conventions</a></li>
+        <li class="main "><a href="#github-token-and-gh">Github token and  gh</a></li>
+        
+    
+        <li class="main "><a href="#fastgithub-for-github-dns">fastgithub for github DNS</a></li>
         
     
     </ul>
@@ -212,7 +215,10 @@
         <li class="main active"><a href="#_1"></a></li>
         
     
-        <li class="main "><a href="#conventions">Conventions</a></li>
+        <li class="main "><a href="#github-token-and-gh">Github token and  gh</a></li>
+        
+    
+        <li class="main "><a href="#fastgithub-for-github-dns">fastgithub for github DNS</a></li>
         
     
     </ul>
@@ -220,16 +226,28 @@
             <div class="col-md-9" role="main">
 
 <div><h3 id="_1"></h3>
-<h3 id="conventions">Conventions</h3>
-<ul>
-<li>
-<p>For each class, it is suggested to bind a <code>Print</code> method (if exists) to a python method <code>__repr__</code>. For example</p>
-<p><code>cpp
-pybind11::class_&lt;Sphere&gt;(m, "Sphere")
-  .def("__repr__", &amp;Sphere::Print);</code></p>
-</li>
-<li>
-</ul></div></div>
+<p><a href="../user_manual/">User manual</a>
+┊ <a href="../basic_usage/">Previous</a>
+┊ <a href="../paraview_rendering/">Next</a></p>
+<hr>
+<p>We summarize some useful tips in linux and computer methods, e.g., github token, DNS issue, etc.</p>
+<h3 id="github-token-and-gh">Github token and  <code>gh</code></h3>
+<p>Github has abundon the access option of username and pwd and chosen to use token, which becomes fairly inconvenient. A solution to make life easier is to use <a href="https://cli.github.com">github CLI</a> (i.e., <code>gh</code>) to set up the access. For using github CLI, one may still need a token, which can be obtained from <a href="https://github.com/settings/tokens">https://github.com/settings/tokens</a>, for the initial set-up.</p>
+<h3 id="fastgithub-for-github-dns"><code>fastgithub</code> for github DNS</h3>
+<p>One may encounter <code>404</code> issue when accessing github relevent resources, which is very likely due to the DNS issue. A solution is to use <a href="https://github.com/dotnetcore/FastGithub">fastgithub</a>. As a practice, I put the following snippet in my <code>bashrc/zshrc</code> terminal profile. Once I need to use a git commmand towards github, I run <code>git_proxy_set</code> and <code>fastgithub</code> first, and then run conventional git commands, such as pull/fetch/push, and finally <code>git_proxy_unset</code> to reset git proxy. <em>Before using <code>fastgithub</code>, one may need to follow the instruction in <a href="https://github.com/dotnetcore/FastGithub">fastgithub</a> to set up the certificates.</em></p>
+<pre><code class="language-bash">alias fastgithub=/Users/lzhshou/MyBin/fastgithub_osx/fastgithub
+
+alias git_proxy_set='\
+  git config --global http.proxy http://127.0.0.1:38457 &amp;&amp; \
+  git config --global https.proxy http://127.0.0.1:38457'
+alias git_proxy_unset='\
+  git config --global --unset http.proxy &amp;&amp; \
+  git config --global --unset https.proxy'
+</code></pre>
+<hr>
+<p><a href="../user_manual/">User manual</a>
+┊ <a href="../basic_usage/">Previous</a>
+┊ <a href="../paraview_rendering/">Next</a></p></div></div>
             <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
