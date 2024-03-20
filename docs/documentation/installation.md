@@ -80,6 +80,55 @@ If some third-party libraries have not been or cannot be downloaded successfully
 
 Using dependencies already in the system would save the time required by the compilation of the whole project. Some dependencies (e.g., mlpack) would take fairly long time to compile. One can check out the log files in contrib/[package]/ep/src/[package]-stamp/ for the compiling, building and installing progresses of the dependencies. Some packages (e.g., ``boost`` and ``mpi``) could take forever to compile. It is recommended that you install pre-build ``boost`` and ``mpi`` using tools such as ``brew install `` in mac os, or ``apt-get install`` in ubantu.
 
+#### Installation of CFD-DEM (updated as of 2023)
+
+- Install prerequisites: the compilation requires ``gcc``, ``autoconf``, ``automake``, ``cmake``, ``mpi``, ``boost``, which can be obtained using
+
+        # For MacOS: use brew install, such as
+        brew install gcc autoconf automake cmake openmpi boost
+        
+        # For Ubuntu: use apt-get install, such as
+        sudo apt-get install build-essential cmake libgmp-dev
+        sudo apt-get install libopenmpi-dev openmpi-bin zlib1g-dev libboost-all-dev
+        sudo apt-get install flex bison gnuplot libreadline-dev libncurses-dev libxt-dev 
+
+ - Install ``netdem`` from [https://github.com/apaam](https://github.com/apaam).
+
+        mkdir apaam
+        cd apaam
+          
+        git clone https://github.com/apaam/netdem.git .
+        cd netdem
+        make
+        make pip_install
+        cd ..
+
+ - Install ``openfoam`` from [https://github.com/apaam](https://github.com/apaam).
+
+        git clone https://github.com/apaam/openfoam_customized.git .
+        cd openfoam_customized
+        make
+        cd ..
+
+ - Init OpenFOAM environment by adding the following lines to and sourcing the ``.bashrc`` (where ``$path_apaam`` is the path of apaam)
+
+        export APAAM_DIR=$path_apaam
+        export path_openfoam=$path_apaam/openfoam_customized/OpenFOAM-build
+        alias openfoam_init='source $path_openfoam/etc/bashrc'
+        openfoam_init
+        echo "using openfoam=$path_openfoam"
+
+ - Install ``cfddem`` from [https://github.com/apaam](https://github.com/apaam).
+
+        git clone https://github.com/apaam/cfddem.git .
+        cd cfddem
+        make
+        cd ..
+
+ - Add the library and binary directory to system PATH in ``.bashrc`` (where ``$path_apaam`` is the path of apaam)
+
+        export PATH=$PATH:$path_apaam/cfddem/build/bin
+
 -------
 
 [User manual](user_manual.md)
