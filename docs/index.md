@@ -73,16 +73,6 @@ Sep 2021 | Poly-super-ellipsoid, poly-super-quadric, spherical harmonics, level 
 <!-- Aug 2021 | Generlized two types of contact solvers, namely GJK and SDF.
 Mar 2021 | Integrated the [mlpack](https://github.com/mlpack/mlpack.git) as the machine learning environment. -->
 
-<!-- ## Latest Release -->
-
-<!-- [New features](https://github.com/apaam/netdem/blob/v4.3/CHANGELOG) -->
-
-<!-- [<button type="button" class="btn btn-success">
-**Download mfem-4.3.tgz**
-</button>](https://bit.ly/mfem-4-3)
-
-[Older releases](download.md) ┊ [Python wrapper](https://github.com/mfem/PyMFEM) -->
-
 ## Documentation
 
 

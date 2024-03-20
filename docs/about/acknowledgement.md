@@ -2,10 +2,12 @@
 
 ### How to cite
 
-We do not have a paper for this extire library for now. Please cite one of our relevant works with
+We do not have a paper for this extire library for now. Please cite our relevant works when approperiate: 
 
-- Lai, Z., Zhao, S., Zhao, J., & Huang, L. (2021). [Revisiting the GJK and shape erosion method for contact resolution in DEM](https://www.sciencedirect.com/science/article/pii/S0032591021007555). Powder Technology, 394, 363-371.
-- Lai, Z., Zhao, S., Zhao, J., & Huang, L. (2022). [Signed distance field framework for unified DEM modeling of granular media with arbitrary particle shapes](https://link.springer.com/article/10.1007/s00466-022-02220-8). Computational Mechanics, 1-21.
+- Lai, Z., Zhao, J., Zhao, S., & Huang, L. (2022). [Signed distance field enhanced fully resolved CFD-DEM for simulation of granular flows involving multiphase fluids and irregularly shaped particles](https://doi.org/10.1016/j.cma.2023.116195). Computer Methods in Applied Mechanics and Engineering, 414, 116195.
+- Huang, S., Huang, L., Lai, Z., & Zhao, J. [Morphology characterization and discrete element modeling of coral sand with intraparticle voids](https://doi.org/10.1016/j.enggeo.2023.107023). Engineering Geology, 315, 107023.
+- Lai, Z., Zhao, S., Zhao, J., & Huang, L. (2022). [Signed distance field framework for unified DEM modeling of granular media with arbitrary particle shapes](https://doi.org/10.1007/s00466-022-02220-8). Computational Mechanics, 1-21.
+- Lai, Z., Zhao, S., Zhao, J., & Huang, L. (2021). [Revisiting the GJK and shape erosion method for contact resolution in DEM](https://doi.org/10.1016/j.powtec.2021.08.068). Powder Technology, 394, 363-371.
 
 ### Contributors
 
@@ -28,9 +30,3 @@ This project is under active development. The fundings that have supported the d
 Copyright &copy; 2020-, NetDEM team, Applied Process Analysis and Modeling Group. 
 
 Copyright &copy; 2020-, Sun Yat-sen University and The Hong Kong University of Science and Technology.
-
-NetDEM is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
-
-NetDEM is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
-
-You should have received a copy of the GNU General Public License along with this program.  If not, see <https://www.gnu.org/licenses/>.
