@@ -1,0 +1,72 @@
+\doxysection{netdem\+::Particle\+Parser\+GPU Class Reference}
+\hypertarget{classnetdem_1_1_particle_parser_g_p_u}{}\label{classnetdem_1_1_particle_parser_g_p_u}\index{netdem::ParticleParserGPU@{netdem::ParticleParserGPU}}
+
+
+A class for converting between \doxylink{classnetdem_1_1_particle}{Particle} objects and \doxylink{structnetdem_1_1_particle_data_g_p_u}{Particle\+Data\+GPU} structs.  
+
+
+
+
+{\ttfamily \#include $<$particle\+\_\+parser\+\_\+gpu.\+hpp$>$}
+
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{classnetdem_1_1_particle_parser_g_p_u_a7555b311dc0b4b3cfcb91f7d23db579f}{Class\+To\+Struct}} (const \mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} \texorpdfstring{$\ast$}{*}const p\+\_\+class, \mbox{\hyperlink{structnetdem_1_1_particle_data_g_p_u}{Particle\+Data\+GPU}} \texorpdfstring{$\ast$}{*}const p\+\_\+struct)
+\begin{DoxyCompactList}\small\item\em Converts a \doxylink{classnetdem_1_1_particle}{Particle} object to a \doxylink{structnetdem_1_1_particle_data_g_p_u}{Particle\+Data\+GPU} struct. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classnetdem_1_1_particle_parser_g_p_u_abd045d43ff9dfe588377dc2e9dda0ebb}{Struct\+To\+Class}} (\mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} \texorpdfstring{$\ast$}{*}const p\+\_\+class, const \mbox{\hyperlink{structnetdem_1_1_particle_data_g_p_u}{Particle\+Data\+GPU}} \texorpdfstring{$\ast$}{*}const p\+\_\+struct, const std\+::unordered\+\_\+map$<$ int, \mbox{\hyperlink{classnetdem_1_1_shape}{Shape}} \texorpdfstring{$\ast$}{*} $>$ \&shape\+\_\+map)
+\begin{DoxyCompactList}\small\item\em Converts a \doxylink{structnetdem_1_1_particle_data_g_p_u}{Particle\+Data\+GPU} struct to a \doxylink{classnetdem_1_1_particle}{Particle} object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A class for converting between \doxylink{classnetdem_1_1_particle}{Particle} objects and \doxylink{structnetdem_1_1_particle_data_g_p_u}{Particle\+Data\+GPU} structs. 
+
+The \doxylink{classnetdem_1_1_particle_parser}{Particle\+Parser} class provides methods for converting between \doxylink{classnetdem_1_1_particle}{Particle} objects and \doxylink{structnetdem_1_1_particle_data_g_p_u}{Particle\+Data\+GPU} structs, which are used for communication between MPI processes in the Peridigm code. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classnetdem_1_1_particle_parser_g_p_u_a7555b311dc0b4b3cfcb91f7d23db579f}\index{netdem::ParticleParserGPU@{netdem::ParticleParserGPU}!ClassToStruct@{ClassToStruct}}
+\index{ClassToStruct@{ClassToStruct}!netdem::ParticleParserGPU@{netdem::ParticleParserGPU}}
+\doxysubsubsection{\texorpdfstring{ClassToStruct()}{ClassToStruct()}}
+{\footnotesize\ttfamily \label{classnetdem_1_1_particle_parser_g_p_u_a7555b311dc0b4b3cfcb91f7d23db579f} 
+void Particle\+Parser\+GPU\+::\+Class\+To\+Struct (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} \texorpdfstring{$\ast$}{*}const}]{p\+\_\+class}{, }\item[{\mbox{\hyperlink{structnetdem_1_1_particle_data_g_p_u}{Particle\+Data\+GPU}} \texorpdfstring{$\ast$}{*}const}]{p\+\_\+struct}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Converts a \doxylink{classnetdem_1_1_particle}{Particle} object to a \doxylink{structnetdem_1_1_particle_data_g_p_u}{Particle\+Data\+GPU} struct. 
+
+This static method converts a \doxylink{classnetdem_1_1_particle}{Particle} object to a \doxylink{structnetdem_1_1_particle_data_g_p_u}{Particle\+Data\+GPU} struct, which can be used for communication between MPI processes.
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+\_\+class} & The \doxylink{classnetdem_1_1_particle}{Particle} object to convert. \\
+\hline
+{\em p\+\_\+struct} & The \doxylink{structnetdem_1_1_particle_data_g_p_u}{Particle\+Data\+GPU} struct to store the converted data in. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classnetdem_1_1_particle_parser_g_p_u_abd045d43ff9dfe588377dc2e9dda0ebb}\index{netdem::ParticleParserGPU@{netdem::ParticleParserGPU}!StructToClass@{StructToClass}}
+\index{StructToClass@{StructToClass}!netdem::ParticleParserGPU@{netdem::ParticleParserGPU}}
+\doxysubsubsection{\texorpdfstring{StructToClass()}{StructToClass()}}
+{\footnotesize\ttfamily \label{classnetdem_1_1_particle_parser_g_p_u_abd045d43ff9dfe588377dc2e9dda0ebb} 
+void Particle\+Parser\+GPU\+::\+Struct\+To\+Class (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} \texorpdfstring{$\ast$}{*}const}]{p\+\_\+class}{, }\item[{const \mbox{\hyperlink{structnetdem_1_1_particle_data_g_p_u}{Particle\+Data\+GPU}} \texorpdfstring{$\ast$}{*}const}]{p\+\_\+struct}{, }\item[{const std\+::unordered\+\_\+map$<$ int, \mbox{\hyperlink{classnetdem_1_1_shape}{Shape}} \texorpdfstring{$\ast$}{*} $>$ \&}]{shape\+\_\+map}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Converts a \doxylink{structnetdem_1_1_particle_data_g_p_u}{Particle\+Data\+GPU} struct to a \doxylink{classnetdem_1_1_particle}{Particle} object. 
+
+This static method converts a \doxylink{structnetdem_1_1_particle_data_g_p_u}{Particle\+Data\+GPU} struct to a \doxylink{classnetdem_1_1_particle}{Particle} object, using additional input data such as shape maps, etc.
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+\_\+class} & The \doxylink{classnetdem_1_1_particle}{Particle} object to store the converted data in. \\
+\hline
+{\em p\+\_\+struct} & The \doxylink{structnetdem_1_1_particle_data_g_p_u}{Particle\+Data\+GPU} struct to convert. \\
+\hline
+{\em shape\+\_\+map} & The unordered\+\_\+map$<$int, Shape \texorpdfstring{$\ast$}{*}$>$ containing shape information for the particles. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/lzhshou/\+Documents/\+Research/my\+Projects/apaam/repo/netdem/src/webgpu/\mbox{\hyperlink{particle__parser__gpu_8hpp}{particle\+\_\+parser\+\_\+gpu.\+hpp}}\item 
+/\+Users/lzhshou/\+Documents/\+Research/my\+Projects/apaam/repo/netdem/src/webgpu/\mbox{\hyperlink{particle__parser__gpu_8cpp}{particle\+\_\+parser\+\_\+gpu.\+cpp}}\end{DoxyCompactItemize}

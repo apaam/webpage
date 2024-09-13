@@ -2,7 +2,7 @@
 \hypertarget{index}{}\label{index}\index{NetDEM@{NetDEM}}
 \label{index_md__2_users_2lzhshou_2_documents_2_research_2my_projects_2apaam_2repo_2netdem_2readme}%
 \Hypertarget{index_md__2_users_2lzhshou_2_documents_2_research_2my_projects_2apaam_2repo_2netdem_2readme}%
- \hypertarget{index_autotoc_md1}{}\doxysection{\texorpdfstring{Welcome}{Welcome}}\label{index_autotoc_md1}
+\hypertarget{index_autotoc_md1}{}\doxysection{\texorpdfstring{Welcome}{Welcome}}\label{index_autotoc_md1}
 \href{https://apaam.github.io/netdem_docs/}{\texttt{ {\bfseries{Net\+DEM}}}} is a C++ program library targeted at the computational mechanics of irregular granular materials and utilizing machine learning tools to boost the computational effciency.
 
 It is currently capable of performing basic and general DEM simulations, with following features\+:
@@ -27,15 +27,14 @@ The compilation requires {\ttfamily gcc}, {\ttfamily autoconf}, {\ttfamily autom
 \DoxyCodeLine{brew\ install\ gcc\ autoconf\ autoconf-\/archive\ automake\ texinfo\ cmake\ openmpi\ boost}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ }
 \DoxyCodeLine{\#\ For\ Ubuntu:\ use\ apt-\/get\ install,\ such\ as}
-\DoxyCodeLine{sudo\ apt\ install\ build-\/essential}
-\DoxyCodeLine{sudo\ apt-\/get\ install\ -\/y\ autoconf-\/archive\ automake\ cmake\ texinfo}
-\DoxyCodeLine{sudo\ apt-\/get\ install\ openmpi-\/bin\ libopenmpi-\/dev\ libboost-\/all-\/dev\ libomp-\/dev}
+\DoxyCodeLine{sudo\ apt\ install\ -\/y\ build-\/essential}
+\DoxyCodeLine{sudo\ apt-\/get\ install\ -\/y\ autoconf-\/archive\ automake\ cmake\ texinfo\ git\ rsync}
+\DoxyCodeLine{sudo\ apt-\/get\ install\ -\/y\ openmpi-\/bin\ libopenmpi-\/dev\ libboost-\/all-\/dev\ libomp-\/dev\ libgmp-\/dev}
 
 \end{DoxyCode}
 \hypertarget{index_autotoc_md5}{}\doxysubsubsection{\texorpdfstring{Compile and build}{Compile and build}}\label{index_autotoc_md5}
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{make\ sync\_submodule}
 \DoxyCodeLine{make}
 
 \end{DoxyCode}
@@ -47,7 +46,33 @@ If some third-\/party libraries have not been or cannot be downloaded successful
 \DoxyCodeLine{./scripts/run\_tests.sh}
 
 \end{DoxyCode}
-\hypertarget{index_autotoc_md7}{}\doxysubsection{\texorpdfstring{Examples \& tutorials}{Examples \& tutorials}}\label{index_autotoc_md7}
+\hypertarget{index_autotoc_md7}{}\doxysubsubsection{\texorpdfstring{Build or install pip and pypa packages}{Build or install pip and pypa packages}}\label{index_autotoc_md7}
+Install pip requisites\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{pip3\ install\ auditwheel\ auditwheel-\/symbols}
+
+\end{DoxyCode}
+
+
+To install netdem as a pip package\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{make\ pip\_install}
+
+\end{DoxyCode}
+
+
+To build netdem as a pypa wheel that is distributable\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{make\ pypi}
+
+\end{DoxyCode}
+\hypertarget{index_autotoc_md8}{}\doxysubsection{\texorpdfstring{Examples \& tutorials}{Examples \& tutorials}}\label{index_autotoc_md8}
 Some preliminary examples are located under directory {\ttfamily examples/}, which can be run with, e.\+g.,
 
 
@@ -57,10 +82,10 @@ Some preliminary examples are located under directory {\ttfamily examples/}, whi
 \end{DoxyCode}
 
 
-For more details please refer to the \href{https://apaam.github.io/netdem_docs/}{\texttt{ website}}.\hypertarget{index_autotoc_md8}{}\doxysubsection{\texorpdfstring{Visualize \& post-\/process}{Visualize \& post-process}}\label{index_autotoc_md8}
+For more details please refer to the \href{https://apaam.github.io/netdem_docs/}{\texttt{ website}}.\hypertarget{index_autotoc_md9}{}\doxysubsection{\texorpdfstring{Visualize \& post-\/process}{Visualize \& post-\/process}}\label{index_autotoc_md9}
 Results can be dumped as VTK files, which can be visualized in \href{https://www.paraview.org/}{\texttt{ paraview}}.
 
-Plese refer to {\ttfamily tools/post\+\_\+process} for some matlab or python scripts for post-\/process (e.\+g., VTK io, stress-\/strain, spherical histograms of contact anisotropy).\hypertarget{index_autotoc_md9}{}\doxysection{\texorpdfstring{Support}{Support}}\label{index_autotoc_md9}
+Plese refer to {\ttfamily tools/post\+\_\+process} for some matlab or python scripts for post-\/process (e.\+g., VTK io, stress-\/strain, spherical histograms of contact anisotropy).\hypertarget{index_autotoc_md10}{}\doxysection{\texorpdfstring{Support}{Support}}\label{index_autotoc_md10}
 This code is under active development. Please join us if you have an interest to contribute.
 
 If you need help using Net\+DEM, or have found a bug, please \href{https://github.com/apaam/netdem/issues}{\texttt{ open an issue}} or \href{https://github.com/apaam/netdem/pulls}{\texttt{ submit a pull request}}. 

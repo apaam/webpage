@@ -1,0 +1,65 @@
+\doxysection{particle.\+wgsl.\+h}
+\hypertarget{particle_8wgsl_8h_source}{}\label{particle_8wgsl_8h_source}\index{/Users/lzhshou/Documents/Research/myProjects/apaam/repo/netdem/src/webgpu/shaders/particle.wgsl.h@{/Users/lzhshou/Documents/Research/myProjects/apaam/repo/netdem/src/webgpu/shaders/particle.wgsl.h}}
+\mbox{\hyperlink{particle_8wgsl_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \mbox{\hyperlink{particle_8wgsl_8h_a65b4cab7bc806f8e8aab7bcd04b44f34}{shader\_source}}\ =\ R\textcolor{stringliteral}{"{}(}}
+\DoxyCodeLine{00006\ \textcolor{stringliteral}{struct\ Particle\ \{}}
+\DoxyCodeLine{00007\ \textcolor{stringliteral}{\ \ \ \ id:\ i32,}}
+\DoxyCodeLine{00008\ \textcolor{stringliteral}{\ \ \ \ shape\_id:\ i32,}}
+\DoxyCodeLine{00009\ \textcolor{stringliteral}{\ \ \ \ enable\_bound\_aabb:\ i32,}}
+\DoxyCodeLine{00010\ \textcolor{stringliteral}{\ \ \ \ need\_update\_linked\_list:\ i32,}}
+\DoxyCodeLine{00011\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{00012\ \textcolor{stringliteral}{\ \ \ \ material\_type:\ i32,}}
+\DoxyCodeLine{00013\ \textcolor{stringliteral}{\ \ \ \ density:\ f32,}}
+\DoxyCodeLine{00014\ \textcolor{stringliteral}{\ \ \ \ damp\_viscous:\ f32,}}
+\DoxyCodeLine{00015\ \textcolor{stringliteral}{\ \ \ \ damp\_numerical:\ f32,}}
+\DoxyCodeLine{00016\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{00017\ \textcolor{stringliteral}{\ \ \ \ bound\_min:\ vec3<f32>,}}
+\DoxyCodeLine{00018\ \textcolor{stringliteral}{\ \ \ \ padding1:\ f32,\ }}
+\DoxyCodeLine{00019\ \textcolor{stringliteral}{\ \ \ \ bound\_max:\ vec3<f32>,}}
+\DoxyCodeLine{00020\ \textcolor{stringliteral}{\ \ \ \ margin:\ f32,}}
+\DoxyCodeLine{00021\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{00022\ \textcolor{stringliteral}{\ \ \ \ bound\_disp:\ vec3<f32>,}}
+\DoxyCodeLine{00023\ \textcolor{stringliteral}{\ \ \ \ padding2:\ f32,\ }}
+\DoxyCodeLine{00024\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{00025\ \textcolor{stringliteral}{\ \ \ \ pos:\ vec3<f32>,}}
+\DoxyCodeLine{00026\ \textcolor{stringliteral}{\ \ \ \ padding3:\ f32,\ }}
+\DoxyCodeLine{00027\ \textcolor{stringliteral}{\ \ \ \ quaternion:\ vec4<f32>,}}
+\DoxyCodeLine{00028\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{00029\ \textcolor{stringliteral}{\ \ \ \ vel:\ vec3<f32>,}}
+\DoxyCodeLine{00030\ \textcolor{stringliteral}{\ \ \ \ padding4:\ f32,\ }}
+\DoxyCodeLine{00031\ \textcolor{stringliteral}{\ \ \ \ spin:\ vec3<f32>,}}
+\DoxyCodeLine{00032\ \textcolor{stringliteral}{\ \ \ \ padding5:\ f32,\ }}
+\DoxyCodeLine{00033\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{00034\ \textcolor{stringliteral}{\ \ \ \ vel\_m0p5:\ vec3<f32>,}}
+\DoxyCodeLine{00035\ \textcolor{stringliteral}{\ \ \ \ padding6:\ f32,\ }}
+\DoxyCodeLine{00036\ \textcolor{stringliteral}{\ \ \ \ spin\_principal:\ vec3<f32>,}}
+\DoxyCodeLine{00037\ \textcolor{stringliteral}{\ \ \ \ padding7:\ f32,\ }}
+\DoxyCodeLine{00038\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{00039\ \textcolor{stringliteral}{\ \ \ \ force:\ vec3<f32>,}}
+\DoxyCodeLine{00040\ \textcolor{stringliteral}{\ \ \ \ padding8:\ f32,\ }}
+\DoxyCodeLine{00041\ \textcolor{stringliteral}{\ \ \ \ moment:\ vec3<f32>,}}
+\DoxyCodeLine{00042\ \textcolor{stringliteral}{\ \ \ \ padding9:\ f32,\ }}
+\DoxyCodeLine{00043\ \textcolor{stringliteral}{\};}}
+\DoxyCodeLine{00044\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{00045\ \textcolor{stringliteral}{@group(0)\ @binding(0)\ var<storage,\ read\_write>\ particles\ :\ array<Particle>;}}
+\DoxyCodeLine{00046\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{00047\ \textcolor{stringliteral}{@compute\ @workgroup\_size(32)}}
+\DoxyCodeLine{00048\ \textcolor{stringliteral}{fn\ main(@builtin(global\_invocation\_id)\ GlobalInvocationID:\ vec3<u32>)\ \{}}
+\DoxyCodeLine{00049\ \textcolor{stringliteral}{\ \ \ \ let\ index\ =\ GlobalInvocationID.x;}}
+\DoxyCodeLine{00050\ \textcolor{stringliteral}{\ \ \ \ if\ index\ >=\ arrayLength(\&particles)\ \{}}
+\DoxyCodeLine{00051\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ return;}}
+\DoxyCodeLine{00052\ \textcolor{stringliteral}{\ \ \ \ \}}}
+\DoxyCodeLine{00053\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{00054\ \textcolor{stringliteral}{\ \ \ \ let\ dt\ =\ 1.0e-\/6f;\ \ //time\ step}}
+\DoxyCodeLine{00055\ \textcolor{stringliteral}{\ \ \ \ particles[index].vel.z\ +=\ -\/10.0f\ *\ dt;}}
+\DoxyCodeLine{00056\ \textcolor{stringliteral}{\ \ \ \ particles[index].pos\ +=\ particles[index].vel\ *\ dt;}}
+\DoxyCodeLine{00057\ \textcolor{stringliteral}{\}}}
+\DoxyCodeLine{00058\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{00059\ \textcolor{stringliteral}{)"{};}}
+
+\end{DoxyCode}

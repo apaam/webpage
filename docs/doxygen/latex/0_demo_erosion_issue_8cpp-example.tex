@@ -18,7 +18,7 @@
 \DoxyCodeLine{}
 \DoxyCodeLine{\textcolor{keyword}{class\ }SolverGJKPP\_TEST\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classnetdem_1_1_solver_g_j_k_p_p}{SolverGJKPP}}\ \{}
 \DoxyCodeLine{\textcolor{keyword}{public}:}
-\DoxyCodeLine{\ \ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ MinkowskiDiff(\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ \textcolor{keyword}{const}\ \&dir,\ \textcolor{keywordtype}{double}\ erosion\_ratio\ =\ 0)\ \{}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{namespacenetdem_a510a89239abc51ed4d8d88ce7ee403df}{Vec3d}}\ MinkowskiDiff(\mbox{\hyperlink{namespacenetdem_a510a89239abc51ed4d8d88ce7ee403df}{Vec3d}}\ \textcolor{keyword}{const}\ \&dir,\ \textcolor{keywordtype}{double}\ erosion\_ratio\ =\ 0)\ \{}
 \DoxyCodeLine{\ \ \ \ \textcolor{keyword}{auto}\ pos\_1\ =\ shape\_1-\/>SupportPoint(-\/1.0\ *\ dir);}
 \DoxyCodeLine{\ \ \ \ \textcolor{keyword}{auto}\ pos\_2\ =\ Math::Rotate(}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ shape\_2-\/>SupportPoint(Math::Rotate(dir,\ dquat\_12\_conj)),\ dquat\_12);}
@@ -33,8 +33,8 @@
 \DoxyCodeLine{\ \ \}}
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ tuple<double,\ Vec3d,\ Vec3d>\ GJK\_EROSION(\textcolor{keywordtype}{double}\ erosion\_ratio)\ \{}
-\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ sup\_point;}
-\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ sup\_dir\ =\ particle\_2-\/>pos\ -\/\ particle\_1-\/>pos;}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{namespacenetdem_a510a89239abc51ed4d8d88ce7ee403df}{Vec3d}}\ sup\_point;}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{namespacenetdem_a510a89239abc51ed4d8d88ce7ee403df}{Vec3d}}\ sup\_dir\ =\ particle\_1-\/>pos\ -\/\ particle\_2-\/>pos;}
 \DoxyCodeLine{\ \ \ \ Math::Normalize(\&sup\_dir);}
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ \ \ sup\_point\ =\ MinkowskiDiff(sup\_dir,\ erosion\_ratio);}
@@ -45,7 +45,7 @@
 \DoxyCodeLine{\ \ \ \ sup\_dir\ =\ -\/1.0\ *\ sup\_point;}
 \DoxyCodeLine{\ \ \ \ Math::Normalize(\&sup\_dir);}
 \DoxyCodeLine{}
-\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ cnt\_dir\_n,\ cnt\_pos;}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{namespacenetdem_a510a89239abc51ed4d8d88ce7ee403df}{Vec3d}}\ cnt\_dir\_n,\ cnt\_pos;}
 \DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{double}\ cnt\_len\_n;}
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{bool}\ is\_collide\{\textcolor{keyword}{false}\};}
@@ -60,15 +60,18 @@
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ \ \ \ \ \textcolor{keywordflow}{if}\ (min\_dist\_simp\ -\/\ min\_dist\_mink\ <\ 1e-\/10)\ \{}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{comment}{//\ gather\ contact\ geometric\ features}}
-\DoxyCodeLine{\ \ \ \ \ \ \ \ sup\_point\ =\ MinkowskiDiff(sup\_dir);}
-\DoxyCodeLine{\ \ \ \ \ \ \ \ cnt\_len\_n\ =\ Math::Dot(sup\_point,\ sup\_dir);}
-\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (cnt\_len\_n\ >\ 0)\ \{}
-\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ cnt\_dir\_n\ =\ -\/1.0\ *\ sup\_dir;}
-\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ find\_cnt\_pos;}
-\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ tie(cnt\_pos,\ find\_cnt\_pos)\ =\ GetContactPoint(sup\_dir);}
-\DoxyCodeLine{\ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ cnt\_dir\_n\ =\ sup\_dir;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ sup\_point\ =\ MinkowskiDiff(cnt\_dir\_n);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ cnt\_len\_n\ =\ Math::Dot(sup\_point,\ cnt\_dir\_n);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ find\_cnt\_pos;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ tie(cnt\_pos,\ find\_cnt\_pos)\ =\ GetContactPoint(cnt\_dir\_n);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (cnt\_len\_n\ <\ 0\ ||\ !find\_cnt\_pos)\ \{}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ cnt\_len\_n\ =\ 0;}
-\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ cnt\_dir\_n\ =\ -\/1.0\ *\ sup\_dir;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ cnt\_dir\_n[0]\ =\ 0;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ cnt\_dir\_n[1]\ =\ 0;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ cnt\_dir\_n[2]\ =\ 0;}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \}}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
 \DoxyCodeLine{\ \ \ \ \ \ \}}
@@ -88,7 +91,7 @@
 \DoxyCodeLine{\ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}warning:\ git\_erosion\ pp\ not\ converged"{}}\ <<\ endl;}
 \DoxyCodeLine{\ \ \ \ \}}
 \DoxyCodeLine{}
-\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{return}\ make\_tuple(cnt\_len\_n,\ cnt\_dir\_n,\ cnt\_pos);}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{return}\ tuple<double,\ Vec3d,\ Vec3d>(cnt\_len\_n,\ cnt\_dir\_n,\ cnt\_pos);}
 \DoxyCodeLine{\ \ \}}
 \DoxyCodeLine{\};}
 \DoxyCodeLine{}
@@ -126,8 +129,8 @@
 \DoxyCodeLine{\ \ \ \ \}}
 \DoxyCodeLine{\ \ \}}
 \DoxyCodeLine{}
-\DoxyCodeLine{\ \ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ dir\_sup\ =\ -\/1.0\ *\ cnt\_geoms\_epa.dir\_n;}
-\DoxyCodeLine{\ \ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ pos\_sup\ =\ cnt\_solver.MinkowskiDiff(dir\_sup);}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{namespacenetdem_a510a89239abc51ed4d8d88ce7ee403df}{Vec3d}}\ dir\_sup\ =\ -\/1.0\ *\ cnt\_geoms\_epa.dir\_n;}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{namespacenetdem_a510a89239abc51ed4d8d88ce7ee403df}{Vec3d}}\ pos\_sup\ =\ cnt\_solver.MinkowskiDiff(dir\_sup);}
 \DoxyCodeLine{\ \ \textcolor{keywordtype}{double}\ pos\_sup\_norm\ =\ Math::NormL2(pos\_sup);}
 \DoxyCodeLine{\ \ cout\ <<\ \textcolor{stringliteral}{"{}result:\ "{}}\ <<\ pos\_sup\_norm\ <<\ \textcolor{stringliteral}{"{}:\ "{}}\ <<\ pos\_sup\ /\ pos\_sup\_norm\ <<\ \textcolor{stringliteral}{"{}:\ "{}}}
 \DoxyCodeLine{\ \ \ \ \ \ \ <<\ cnt\_geoms\_epa.dir\_n\ <<\ endl;}

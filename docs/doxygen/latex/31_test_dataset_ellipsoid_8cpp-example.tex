@@ -22,12 +22,12 @@
 \DoxyCodeLine{\textcolor{keyword}{using\ namespace\ }\mbox{\hyperlink{namespacenetdem}{netdem}};}
 \DoxyCodeLine{\textcolor{keyword}{using\ namespace\ }std;}
 \DoxyCodeLine{}
-\DoxyCodeLine{\mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<VecXT<double>}}>\ LoadDatasetEllipsoid(\textcolor{keywordtype}{string}\ filename)\ \{}
+\DoxyCodeLine{\mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{VecXT<VecXT<double>}}>\ LoadDatasetEllipsoid(\textcolor{keywordtype}{string}\ filename)\ \{}
 \DoxyCodeLine{\ \ ifstream\ file\_handle;}
 \DoxyCodeLine{\ \ file\_handle.open(filename,\ ios::binary);}
 \DoxyCodeLine{\ \ \textcolor{keywordflow}{if}\ (!file\_handle)\ \{}
 \DoxyCodeLine{\ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Fail\ to\ read\ file:\ "{}}\ <<\ filename\ <<\ endl;}
-\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<VecXT<double>}}>();}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{VecXT<VecXT<double>}}>();}
 \DoxyCodeLine{\ \ \}}
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ file\_handle.seekg(0,\ ios::end);}
@@ -41,9 +41,9 @@
 \DoxyCodeLine{\ \ ss.str(\textcolor{stringliteral}{"{}"{}});}
 \DoxyCodeLine{\ \ ss.clear();}
 \DoxyCodeLine{\ \ ss.str(buffer);}
-\DoxyCodeLine{\ \ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<VecXT<double>}}>\ dataset;}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{VecXT<VecXT<double>}}>\ dataset;}
 \DoxyCodeLine{\ \ \textcolor{keywordtype}{string}\ str\_line,\ str\_num;}
-\DoxyCodeLine{\ \ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<double>}}\ data\_line;}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{VecXT<double>}}\ data\_line;}
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ getline(ss,\ str\_line);}
 \DoxyCodeLine{\ \ istringstream\ readstr(str\_line);}
@@ -88,7 +88,7 @@
 \DoxyCodeLine{\ \ \mbox{\hyperlink{classnetdem_1_1_linear_spring}{LinearSpring}}\ cnt\_model;}
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ \textcolor{keywordtype}{string}\ root\_dir\ =\ \textcolor{stringliteral}{"{}local/examples/netdem/ann\_models/ellipsoid\_ellipsoid/"{}};}
-\DoxyCodeLine{\ \ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<VecXT<double>}}>\ dataset\ =}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{VecXT<VecXT<double>}}>\ dataset\ =}
 \DoxyCodeLine{\ \ \ \ \ \ LoadDatasetEllipsoid(root\_dir\ +\ \textcolor{stringliteral}{"{}dataset\_detection.txt"{}});}
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ \textcolor{keywordtype}{int}\ num\_samples\ =\ dataset.size();}
@@ -103,13 +103,13 @@
 \DoxyCodeLine{\ \ \}}
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ num\_samples;\ i++)\ \{}
-\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ pos;}
-\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{namespacenetdem_a13d5371f99b252a70fd5a5081b910370}{Vec4d}}\ quat;}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{namespacenetdem_a510a89239abc51ed4d8d88ce7ee403df}{Vec3d}}\ \mbox{\hyperlink{namespacenetdem_a3c02b9c21c10a18b737b5591b4c0c324}{pos}};}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{namespacenetdem_aa088f3b9daf31efbeb49c18db267c791}{Vec4d}}\ quat;}
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ unpack\ the\ inputs}}
-\DoxyCodeLine{\ \ \ \ pos[0]\ =\ ds\_inputs[i][0];}
-\DoxyCodeLine{\ \ \ \ pos[1]\ =\ ds\_inputs[i][1];}
-\DoxyCodeLine{\ \ \ \ pos[2]\ =\ ds\_inputs[i][2];}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{namespacenetdem_a3c02b9c21c10a18b737b5591b4c0c324}{pos}}[0]\ =\ ds\_inputs[i][0];}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{namespacenetdem_a3c02b9c21c10a18b737b5591b4c0c324}{pos}}[1]\ =\ ds\_inputs[i][1];}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{namespacenetdem_a3c02b9c21c10a18b737b5591b4c0c324}{pos}}[2]\ =\ ds\_inputs[i][2];}
 \DoxyCodeLine{\ \ \ \ quat[0]\ =\ ds\_inputs[i][3];}
 \DoxyCodeLine{\ \ \ \ quat[1]\ =\ ds\_inputs[i][4];}
 \DoxyCodeLine{\ \ \ \ quat[2]\ =\ ds\_inputs[i][5];}
@@ -141,7 +141,7 @@
 \DoxyCodeLine{\ \ \mbox{\hyperlink{classnetdem_1_1_linear_spring}{LinearSpring}}\ cnt\_model;}
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ \textcolor{keywordtype}{string}\ root\_dir\ =\ \textcolor{stringliteral}{"{}local/examples/netdem/ann\_models/ellipsoid\_ellipsoid/"{}};}
-\DoxyCodeLine{\ \ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<VecXT<double>}}>\ dataset\ =}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{VecXT<VecXT<double>}}>\ dataset\ =}
 \DoxyCodeLine{\ \ \ \ \ \ LoadDatasetEllipsoid(root\_dir\ +\ \textcolor{stringliteral}{"{}dataset\_resolution.txt"{}});}
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ \textcolor{keywordtype}{int}\ num\_samples\ =\ dataset.size();}
@@ -158,13 +158,13 @@
 \DoxyCodeLine{\ \ \}}
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ num\_samples;\ i++)\ \{}
-\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ pos;}
-\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{namespacenetdem_a13d5371f99b252a70fd5a5081b910370}{Vec4d}}\ quat;}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{namespacenetdem_a510a89239abc51ed4d8d88ce7ee403df}{Vec3d}}\ \mbox{\hyperlink{namespacenetdem_a3c02b9c21c10a18b737b5591b4c0c324}{pos}};}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{namespacenetdem_aa088f3b9daf31efbeb49c18db267c791}{Vec4d}}\ quat;}
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ unpack\ the\ inputs}}
-\DoxyCodeLine{\ \ \ \ pos[0]\ =\ ds\_inputs[i][0];}
-\DoxyCodeLine{\ \ \ \ pos[1]\ =\ ds\_inputs[i][1];}
-\DoxyCodeLine{\ \ \ \ pos[2]\ =\ ds\_inputs[i][2];}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{namespacenetdem_a3c02b9c21c10a18b737b5591b4c0c324}{pos}}[0]\ =\ ds\_inputs[i][0];}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{namespacenetdem_a3c02b9c21c10a18b737b5591b4c0c324}{pos}}[1]\ =\ ds\_inputs[i][1];}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{namespacenetdem_a3c02b9c21c10a18b737b5591b4c0c324}{pos}}[2]\ =\ ds\_inputs[i][2];}
 \DoxyCodeLine{\ \ \ \ quat[0]\ =\ ds\_inputs[i][3];}
 \DoxyCodeLine{\ \ \ \ quat[1]\ =\ ds\_inputs[i][4];}
 \DoxyCodeLine{\ \ \ \ quat[2]\ =\ ds\_inputs[i][5];}

@@ -100,8 +100,8 @@
 \DoxyCodeLine{\ \ \mbox{\hyperlink{classnetdem_1_1_uniform_distribution}{UniformDistribution}}\ uniform\_dist(0.0,\ 1.0);}
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ \textcolor{comment}{//\ use\ spherical\ centroidal\ voronoi\ to\ sample\ uniform\ unit\ VecXT}}
-\DoxyCodeLine{\ \ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<Vec3d>}}\ vertices\ =\ SphericalVoronoi::Solve(1000,\ 10000,\ 1.0e-\/4);}
-\DoxyCodeLine{\ \ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<Vec3i>}}\ facets;}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{VecXT<Vec3d>}}\ vertices\ =\ SphericalVoronoi::Solve(1000,\ 10000,\ 1.0e-\/4);}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{VecXT<Vec3i>}}\ facets;}
 \DoxyCodeLine{\ \ IGLWrapper::ConvexHull(vertices,\ \&vertices,\ \&facets);}
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ \textcolor{comment}{//\ random\ cases}}
@@ -116,20 +116,20 @@
 \DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{double}\ v\_vert\ =\ uniform\_dist.Get()\ *\ (1\ -\/\ u\_vert);}
 \DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{double}\ w\_vert\ =\ 1\ -\/\ u\_vert\ -\/\ v\_vert;}
 \DoxyCodeLine{}
-\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ dir\_n;}
-\DoxyCodeLine{\ \ \ \ dir\_n[0]\ =\ u\_vert\ *\ vert\_0[0]\ +\ v\_vert\ *\ vert\_1[0]\ +\ w\_vert\ *\ vert\_2[0];}
-\DoxyCodeLine{\ \ \ \ dir\_n[1]\ =\ u\_vert\ *\ vert\_0[1]\ +\ v\_vert\ *\ vert\_1[1]\ +\ w\_vert\ *\ vert\_2[1];}
-\DoxyCodeLine{\ \ \ \ dir\_n[2]\ =\ u\_vert\ *\ vert\_0[2]\ +\ v\_vert\ *\ vert\_1[2]\ +\ w\_vert\ *\ vert\_2[2];}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{namespacenetdem_a510a89239abc51ed4d8d88ce7ee403df}{Vec3d}}\ \mbox{\hyperlink{namespacenetdem_acfdf2ec334780123689f95ba696a20f1}{dir\_n}};}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{namespacenetdem_acfdf2ec334780123689f95ba696a20f1}{dir\_n}}[0]\ =\ u\_vert\ *\ vert\_0[0]\ +\ v\_vert\ *\ vert\_1[0]\ +\ w\_vert\ *\ vert\_2[0];}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{namespacenetdem_acfdf2ec334780123689f95ba696a20f1}{dir\_n}}[1]\ =\ u\_vert\ *\ vert\_0[1]\ +\ v\_vert\ *\ vert\_1[1]\ +\ w\_vert\ *\ vert\_2[1];}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{namespacenetdem_acfdf2ec334780123689f95ba696a20f1}{dir\_n}}[2]\ =\ u\_vert\ *\ vert\_0[2]\ +\ v\_vert\ *\ vert\_1[2]\ +\ w\_vert\ *\ vert\_2[2];}
 \DoxyCodeLine{\ \ \ \ Math::Normalize(\&dir\_n);}
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ random\ overlap}}
 \DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{double}\ cnt\_prob\ =\ uniform\_dist.Get();}
-\DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{double}\ len\_min\ =\ cnt\_prob\ >\ 0.6\ ?\ 0\ :\ -\/ellipsoid.\mbox{\hyperlink{classnetdem_1_1_shape_aa2544899cc79d4ae84fc700f490a37dc}{bound\_sphere\_radius}};}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{double}\ len\_min\ =\ cnt\_prob\ >\ 0.6\ ?\ 0\ :\ -\/ellipsoid.\mbox{\hyperlink{classnetdem_1_1_shape_a3f2bd3400d31a7268f1f383215bde183}{GetBoundSphereRadius}}();}
 \DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{double}\ len\_max\ =\ cnt\_prob\ >\ 0.6\ ?\ 0.1\ :\ 0;}
-\DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{double}\ len\_n\ =\ len\_min\ +\ uniform\_dist.Get()\ *\ (len\_max\ -\/\ len\_min);}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{namespacenetdem_a96843b33c5f3ded90fa1bb19118df27d}{len\_n}}\ =\ len\_min\ +\ uniform\_dist.Get()\ *\ (len\_max\ -\/\ len\_min);}
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ random\ rotation}}
-\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{namespacenetdem_a13d5371f99b252a70fd5a5081b910370}{Vec4d}}\ quat;}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{namespacenetdem_aa088f3b9daf31efbeb49c18db267c791}{Vec4d}}\ quat;}
 \DoxyCodeLine{\ \ \ \ quat[0]\ =\ uniform\_dist.Get()\ *\ 2.0\ -\/\ 1.0;}
 \DoxyCodeLine{\ \ \ \ quat[1]\ =\ uniform\_dist.Get()\ *\ 2.0\ -\/\ 1.0;}
 \DoxyCodeLine{\ \ \ \ quat[2]\ =\ uniform\_dist.Get()\ *\ 2.0\ -\/\ 1.0;}
@@ -137,18 +137,18 @@
 \DoxyCodeLine{\ \ \ \ Math::Quaternion::Normalize(\&quat);}
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ calculate\ p2\ position}}
-\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ sup\_pos\_p1,\ sup\_dir\_p1\{-\/dir\_n[0],\ -\/dir\_n[1],\ -\/dir\_n[2]\};}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{namespacenetdem_a510a89239abc51ed4d8d88ce7ee403df}{Vec3d}}\ sup\_pos\_p1,\ sup\_dir\_p1\{-\/\mbox{\hyperlink{namespacenetdem_acfdf2ec334780123689f95ba696a20f1}{dir\_n}}[0],\ -\/\mbox{\hyperlink{namespacenetdem_acfdf2ec334780123689f95ba696a20f1}{dir\_n}}[1],\ -\/\mbox{\hyperlink{namespacenetdem_acfdf2ec334780123689f95ba696a20f1}{dir\_n}}[2]\};}
 \DoxyCodeLine{\ \ \ \ sup\_pos\_p1\ =\ ellipsoid.\mbox{\hyperlink{classnetdem_1_1_ellipsoid_aff41be1941a2b21dcdab49bfaae55ad5}{SupportPoint}}(sup\_dir\_p1);}
 \DoxyCodeLine{}
-\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ sup\_pos\_p2,\ sup\_pos\_p2\_ref,\ sup\_pos\_p2\_o;}
-\DoxyCodeLine{\ \ \ \ sup\_pos\_p2\ =\ sup\_pos\_p1\ +\ len\_n\ *\ dir\_n;}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{namespacenetdem_a510a89239abc51ed4d8d88ce7ee403df}{Vec3d}}\ sup\_pos\_p2,\ sup\_pos\_p2\_ref,\ sup\_pos\_p2\_o;}
+\DoxyCodeLine{\ \ \ \ sup\_pos\_p2\ =\ sup\_pos\_p1\ +\ \mbox{\hyperlink{namespacenetdem_a96843b33c5f3ded90fa1bb19118df27d}{len\_n}}\ *\ \mbox{\hyperlink{namespacenetdem_acfdf2ec334780123689f95ba696a20f1}{dir\_n}};}
 \DoxyCodeLine{}
-\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{namespacenetdem_a13d5371f99b252a70fd5a5081b910370}{Vec4d}}\ quat\_conj\ =\ Math::Quaternion::Conjugate(quat);}
-\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ sup\_dir\_p2\_ref\ =\ Math::Rotate(dir\_n,\ quat\_conj);}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{namespacenetdem_aa088f3b9daf31efbeb49c18db267c791}{Vec4d}}\ quat\_conj\ =\ Math::Quaternion::Conjugate(quat);}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{namespacenetdem_a510a89239abc51ed4d8d88ce7ee403df}{Vec3d}}\ sup\_dir\_p2\_ref\ =\ Math::Rotate(dir\_n,\ quat\_conj);}
 \DoxyCodeLine{\ \ \ \ sup\_pos\_p2\_ref\ =\ ellipsoid.\mbox{\hyperlink{classnetdem_1_1_ellipsoid_aff41be1941a2b21dcdab49bfaae55ad5}{SupportPoint}}(sup\_dir\_p2\_ref);}
 \DoxyCodeLine{\ \ \ \ sup\_pos\_p2\_o\ =\ Math::Rotate(sup\_pos\_p2\_ref,\ quat);}
 \DoxyCodeLine{}
-\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ pos\ =\ sup\_pos\_p2\ -\/\ sup\_pos\_p2\_o;}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{namespacenetdem_a510a89239abc51ed4d8d88ce7ee403df}{Vec3d}}\ \mbox{\hyperlink{namespacenetdem_a3c02b9c21c10a18b737b5591b4c0c324}{pos}}\ =\ sup\_pos\_p2\ -\/\ sup\_pos\_p2\_o;}
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ apply\ to\ particle}}
 \DoxyCodeLine{\ \ \ \ obj\_p2.\mbox{\hyperlink{classnetdem_1_1_particle_a3f272179dd1b248f9ea09638c1beecfb}{SetPosition}}(pos[0],\ pos[1],\ pos[2]);}
@@ -156,7 +156,7 @@
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{if}\ (len\_n\ <\ 0)\ \{}
 \DoxyCodeLine{\ \ \ \ \ \ \textcolor{comment}{//\ skip\ the\ cases\ pruuned\ away\ in\ the\ narrow\ phase\ contact\ detection}}
-\DoxyCodeLine{\ \ \ \ \ \ \textcolor{keywordflow}{if}\ (Math::NormL2(pos)\ >\ ellipsoid.\mbox{\hyperlink{classnetdem_1_1_shape_aa2544899cc79d4ae84fc700f490a37dc}{bound\_sphere\_radius}}\ *\ 2)}
+\DoxyCodeLine{\ \ \ \ \ \ \textcolor{keywordflow}{if}\ (Math::NormL2(pos)\ >\ ellipsoid.\mbox{\hyperlink{classnetdem_1_1_shape_a3f2bd3400d31a7268f1f383215bde183}{GetBoundSphereRadius}}()\ *\ 2)}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ \ \ \ \ \textcolor{comment}{//\ use\ distance\ from\ particle\ centroid\ to\ plane\ and\ plane\ normal\ as\ inputs}}
@@ -193,13 +193,13 @@
 \DoxyCodeLine{\ \ \ \ \ \ ds\_cnt\_flags[i]\ =\ 1;}
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ \ \ \ \ \textcolor{comment}{//\ volume\ and\ directional\ cross-\/section\ area\ of\ intersection\ as\ outputs}}
-\DoxyCodeLine{\ \ \ \ \ \ ds\_cnt\_feats[i][0]\ =\ len\_n;}
-\DoxyCodeLine{\ \ \ \ \ \ ds\_cnt\_feats[i][1]\ =\ dir\_n[0];}
-\DoxyCodeLine{\ \ \ \ \ \ ds\_cnt\_feats[i][2]\ =\ dir\_n[1];}
-\DoxyCodeLine{\ \ \ \ \ \ ds\_cnt\_feats[i][3]\ =\ dir\_n[2];}
-\DoxyCodeLine{\ \ \ \ \ \ ds\_cnt\_feats[i][4]\ =\ sup\_pos\_p1[0]\ +\ 0.5\ *\ len\_n\ *\ dir\_n[0];}
-\DoxyCodeLine{\ \ \ \ \ \ ds\_cnt\_feats[i][5]\ =\ sup\_pos\_p1[1]\ +\ 0.5\ *\ len\_n\ *\ dir\_n[1];}
-\DoxyCodeLine{\ \ \ \ \ \ ds\_cnt\_feats[i][6]\ =\ sup\_pos\_p1[2]\ +\ 0.5\ *\ len\_n\ *\ dir\_n[2];}
+\DoxyCodeLine{\ \ \ \ \ \ ds\_cnt\_feats[i][0]\ =\ \mbox{\hyperlink{namespacenetdem_a96843b33c5f3ded90fa1bb19118df27d}{len\_n}};}
+\DoxyCodeLine{\ \ \ \ \ \ ds\_cnt\_feats[i][1]\ =\ \mbox{\hyperlink{namespacenetdem_acfdf2ec334780123689f95ba696a20f1}{dir\_n}}[0];}
+\DoxyCodeLine{\ \ \ \ \ \ ds\_cnt\_feats[i][2]\ =\ \mbox{\hyperlink{namespacenetdem_acfdf2ec334780123689f95ba696a20f1}{dir\_n}}[1];}
+\DoxyCodeLine{\ \ \ \ \ \ ds\_cnt\_feats[i][3]\ =\ \mbox{\hyperlink{namespacenetdem_acfdf2ec334780123689f95ba696a20f1}{dir\_n}}[2];}
+\DoxyCodeLine{\ \ \ \ \ \ ds\_cnt\_feats[i][4]\ =\ sup\_pos\_p1[0]\ +\ 0.5\ *\ \mbox{\hyperlink{namespacenetdem_a96843b33c5f3ded90fa1bb19118df27d}{len\_n}}\ *\ \mbox{\hyperlink{namespacenetdem_acfdf2ec334780123689f95ba696a20f1}{dir\_n}}[0];}
+\DoxyCodeLine{\ \ \ \ \ \ ds\_cnt\_feats[i][5]\ =\ sup\_pos\_p1[1]\ +\ 0.5\ *\ \mbox{\hyperlink{namespacenetdem_a96843b33c5f3ded90fa1bb19118df27d}{len\_n}}\ *\ \mbox{\hyperlink{namespacenetdem_acfdf2ec334780123689f95ba696a20f1}{dir\_n}}[1];}
+\DoxyCodeLine{\ \ \ \ \ \ ds\_cnt\_feats[i][6]\ =\ sup\_pos\_p1[2]\ +\ 0.5\ *\ \mbox{\hyperlink{namespacenetdem_a96843b33c5f3ded90fa1bb19118df27d}{len\_n}}\ *\ \mbox{\hyperlink{namespacenetdem_acfdf2ec334780123689f95ba696a20f1}{dir\_n}}[2];}
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ \ \ \ \ \textcolor{comment}{//\ SolverGJKPP\ cnt\_solver;}}
 \DoxyCodeLine{\ \ \ \ \ \ \textcolor{comment}{//\ LinearSpring\ cnt\_model;}}

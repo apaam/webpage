@@ -67,8 +67,11 @@
 \DoxyCodeLine{\ \ arma::mat\ test\_x\ =\ test\_data.rows(0,\ num\_x\ -\/\ 1);}
 \DoxyCodeLine{\ \ arma::mat\ test\_y\ =\ test\_data.row(num\_x);}
 \DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{comment}{//\ settings}}
+\DoxyCodeLine{\ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{size\_t}\ num\_latent\_code\ =\ 5;}
+\DoxyCodeLine{\ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ num\_nodes\ =\ 50,\ num\_hidden\_layers\ =\ 2;}
+\DoxyCodeLine{}
 \DoxyCodeLine{\ \ \textcolor{comment}{//\ initialize\ the\ latent\ code}}
-\DoxyCodeLine{\ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{size\_t}\ num\_latent\_code\ =\ 10;}
 \DoxyCodeLine{\ \ vector<VecNd<num\_latent\_code>>\ latent\_code(num\_templates);}
 \DoxyCodeLine{\ \ \textcolor{keyword}{auto}\ \&random\_engine\ =\ RandomEngine::GetInstance();}
 \DoxyCodeLine{\ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ num\_templates;\ i++)\ \{}
@@ -116,7 +119,6 @@
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ \textcolor{comment}{//\ create\ the\ ann\ model}}
 \DoxyCodeLine{\ \ \mbox{\hyperlink{classnetdem_1_1_regression_net}{RegressionNet}}\ model;}
-\DoxyCodeLine{\ \ \textcolor{keywordtype}{int}\ num\_nodes\ =\ 25,\ num\_hidden\_layers\ =\ 5;}
 \DoxyCodeLine{\ \ model.\mbox{\hyperlink{classnetdem_1_1_regression_net_aafa8571adee4fd708a9179d40cf632aa}{AddLayer}}(MLPackUtils::LayerType::Linear,\ num\_nodes);}
 \DoxyCodeLine{\ \ model.\mbox{\hyperlink{classnetdem_1_1_regression_net_aafa8571adee4fd708a9179d40cf632aa}{AddLayer}}(MLPackUtils::LayerType::LeakyReLU);}
 \DoxyCodeLine{\ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ num\_hidden\_layers\ -\/\ 1;\ i++)\ \{}
@@ -134,8 +136,8 @@
 \DoxyCodeLine{\ \ model.\mbox{\hyperlink{classnetdem_1_1_regression_net_afcc7f4b5b730bc1c8c9e7b7e9eaafbca}{enable\_logging}}\ =\ \textcolor{keyword}{false};}
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ \textcolor{keywordtype}{double}\ test\_accuracy\_best\{1.0e8\};}
-\DoxyCodeLine{\ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ iter\ =\ 0;\ iter\ <\ 100;\ iter++)\ \{}
-\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ sub\_iter\ =\ 0;\ sub\_iter\ <\ 100;\ sub\_iter++)\ \{}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ iter\ =\ 0;\ iter\ <\ 1000;\ iter++)\ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ sub\_iter\ =\ 0;\ sub\_iter\ <\ 10;\ sub\_iter++)\ \{}
 \DoxyCodeLine{\ \ \ \ \ \ \textcolor{comment}{//\ update\ the\ latent\ code\ in\ training\ and\ testing\ samples}}
 \DoxyCodeLine{\ \ \ \ \ \ id\_start\ =\ 0;}
 \DoxyCodeLine{\ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ ii\ =\ 0;\ ii\ <\ num\_templates;\ ii++)\ \{}
@@ -172,10 +174,19 @@
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ num\_latent\_code;\ i++)\ \{}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ latent\_code[ii][i]\ -\/=}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ learning\_rate\ *\ (pred\_y(0,\ jj)\ -\/\ train\_y(0,\ jj))\ *\ dydx(0,\ i);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (abs(latent\_code[ii][i])\ >\ 10.0)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ latent\_code[ii][i]\ =}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ random\_engine.GetUniformDistribution(-\/1.0,\ 1.0);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \}}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \}}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \}}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ id\_start\ +=\ num\_train\_samples\_each[ii];}
 \DoxyCodeLine{\ \ \ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \&tmp\_code\ :\ latent\_code)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ cout\ <<\ tmp\_code\ <<\ endl;}
 \DoxyCodeLine{\ \ \ \ \}}
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ \ \ \textcolor{keyword}{auto}\ pred\_y\ =\ model.\mbox{\hyperlink{classnetdem_1_1_regression_net_ad0a454915d74f397ea4b6ce40c46f84e}{Predict}}(train\_x\_coded);}

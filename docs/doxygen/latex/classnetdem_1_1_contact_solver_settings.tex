@@ -33,6 +33,8 @@ bool \mbox{\hyperlink{classnetdem_1_1_contact_solver_settings_aecd75902a1919f840
 int \mbox{\hyperlink{classnetdem_1_1_contact_solver_settings_a42078a4cfb9c398ee7d3283dc13a1496}{sdf\+\_\+potential\+\_\+type}} \{0\}
 \item 
 bool \mbox{\hyperlink{classnetdem_1_1_contact_solver_settings_a07f7f35543fb182dcbe7b0039a401ea1}{sdf\+\_\+solve\+\_\+two\+\_\+sides}} \{false\}
+\item 
+bool \mbox{\hyperlink{classnetdem_1_1_contact_solver_settings_a92b841192d17c57d00faa6fdea18b01e}{sdf\+\_\+use\+\_\+equivalent\+\_\+stiffness}} \{true\}
 \end{DoxyCompactItemize}
 
 
@@ -42,22 +44,22 @@ A container class for settings related to contact solvers.
 This class provides a set of member variables that can be used to configure various aspects of the contact solvers used in a simulation. The {\ttfamily Solver\+Type} enumeration specifies the type of solver to use, while other variables control specific options like erosion and logging. 
 
 \doxysubsection{Member Enumeration Documentation}
-\Hypertarget{classnetdem_1_1_contact_solver_settings_adff2184170befa136fdaedd56a048170}\label{classnetdem_1_1_contact_solver_settings_adff2184170befa136fdaedd56a048170} 
-\index{netdem::ContactSolverSettings@{netdem::ContactSolverSettings}!SolverType@{SolverType}}
+\Hypertarget{classnetdem_1_1_contact_solver_settings_adff2184170befa136fdaedd56a048170}\index{netdem::ContactSolverSettings@{netdem::ContactSolverSettings}!SolverType@{SolverType}}
 \index{SolverType@{SolverType}!netdem::ContactSolverSettings@{netdem::ContactSolverSettings}}
 \doxysubsubsection{\texorpdfstring{SolverType}{SolverType}}
-{\footnotesize\ttfamily enum \mbox{\hyperlink{classnetdem_1_1_contact_solver_settings_adff2184170befa136fdaedd56a048170}{netdem\+::\+Contact\+Solver\+Settings\+::\+Solver\+Type}}}
+{\footnotesize\ttfamily \label{classnetdem_1_1_contact_solver_settings_adff2184170befa136fdaedd56a048170} 
+enum \mbox{\hyperlink{classnetdem_1_1_contact_solver_settings_adff2184170befa136fdaedd56a048170}{netdem\+::\+Contact\+Solver\+Settings\+::\+Solver\+Type}}}
 
-An enumeration of possible solver types. \begin{DoxyEnumFields}{Enumerator}
-\raisebox{\heightof{T}}[0pt][0pt]{\index{gjk@{gjk}!netdem::ContactSolverSettings@{netdem::ContactSolverSettings}}\index{netdem::ContactSolverSettings@{netdem::ContactSolverSettings}!gjk@{gjk}}}\Hypertarget{classnetdem_1_1_contact_solver_settings_adff2184170befa136fdaedd56a048170a2f8746d2fc0843bbc69e87754c22d9d6}\label{classnetdem_1_1_contact_solver_settings_adff2184170befa136fdaedd56a048170a2f8746d2fc0843bbc69e87754c22d9d6} 
+An enumeration of possible solver types. \begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{gjk@{gjk}!netdem::ContactSolverSettings@{netdem::ContactSolverSettings}}\index{netdem::ContactSolverSettings@{netdem::ContactSolverSettings}!gjk@{gjk}}}\Hypertarget{classnetdem_1_1_contact_solver_settings_adff2184170befa136fdaedd56a048170a2f8746d2fc0843bbc69e87754c22d9d6}\label{classnetdem_1_1_contact_solver_settings_adff2184170befa136fdaedd56a048170} 
 gjk&\\
 \hline
 
-\raisebox{\heightof{T}}[0pt][0pt]{\index{sdf@{sdf}!netdem::ContactSolverSettings@{netdem::ContactSolverSettings}}\index{netdem::ContactSolverSettings@{netdem::ContactSolverSettings}!sdf@{sdf}}}\Hypertarget{classnetdem_1_1_contact_solver_settings_adff2184170befa136fdaedd56a048170a1a2d570fdca7b5d65dc50565f2c1baac}\label{classnetdem_1_1_contact_solver_settings_adff2184170befa136fdaedd56a048170a1a2d570fdca7b5d65dc50565f2c1baac} 
+\raisebox{\heightof{T}}[0pt][0pt]{\index{sdf@{sdf}!netdem::ContactSolverSettings@{netdem::ContactSolverSettings}}\index{netdem::ContactSolverSettings@{netdem::ContactSolverSettings}!sdf@{sdf}}}\Hypertarget{classnetdem_1_1_contact_solver_settings_adff2184170befa136fdaedd56a048170a1a2d570fdca7b5d65dc50565f2c1baac}\label{classnetdem_1_1_contact_solver_settings_adff2184170befa136fdaedd56a048170} 
 sdf&\\
 \hline
 
-\raisebox{\heightof{T}}[0pt][0pt]{\index{automatic@{automatic}!netdem::ContactSolverSettings@{netdem::ContactSolverSettings}}\index{netdem::ContactSolverSettings@{netdem::ContactSolverSettings}!automatic@{automatic}}}\Hypertarget{classnetdem_1_1_contact_solver_settings_adff2184170befa136fdaedd56a048170aa29705e887c1874c038c3820d9471e57}\label{classnetdem_1_1_contact_solver_settings_adff2184170befa136fdaedd56a048170aa29705e887c1874c038c3820d9471e57} 
+\raisebox{\heightof{T}}[0pt][0pt]{\index{automatic@{automatic}!netdem::ContactSolverSettings@{netdem::ContactSolverSettings}}\index{netdem::ContactSolverSettings@{netdem::ContactSolverSettings}!automatic@{automatic}}}\Hypertarget{classnetdem_1_1_contact_solver_settings_adff2184170befa136fdaedd56a048170aa29705e887c1874c038c3820d9471e57}\label{classnetdem_1_1_contact_solver_settings_adff2184170befa136fdaedd56a048170} 
 automatic&\\
 \hline
 
@@ -65,50 +67,59 @@ automatic&\\
 
 
 \doxysubsection{Member Data Documentation}
-\Hypertarget{classnetdem_1_1_contact_solver_settings_aecd75902a1919f84023e8fe6fc488072}\label{classnetdem_1_1_contact_solver_settings_aecd75902a1919f84023e8fe6fc488072} 
-\index{netdem::ContactSolverSettings@{netdem::ContactSolverSettings}!gjk\_enable\_logging@{gjk\_enable\_logging}}
+\Hypertarget{classnetdem_1_1_contact_solver_settings_aecd75902a1919f84023e8fe6fc488072}\index{netdem::ContactSolverSettings@{netdem::ContactSolverSettings}!gjk\_enable\_logging@{gjk\_enable\_logging}}
 \index{gjk\_enable\_logging@{gjk\_enable\_logging}!netdem::ContactSolverSettings@{netdem::ContactSolverSettings}}
 \doxysubsubsection{\texorpdfstring{gjk\_enable\_logging}{gjk\_enable\_logging}}
-{\footnotesize\ttfamily bool netdem\+::\+Contact\+Solver\+Settings\+::gjk\+\_\+enable\+\_\+logging \{false\}}
+{\footnotesize\ttfamily \label{classnetdem_1_1_contact_solver_settings_aecd75902a1919f84023e8fe6fc488072} 
+bool netdem\+::\+Contact\+Solver\+Settings\+::gjk\+\_\+enable\+\_\+logging \{false\}}
 
-Whether to enable logging in the GJK solver. \Hypertarget{classnetdem_1_1_contact_solver_settings_a472be3fc22285336d27e46e3c2bbad6b}\label{classnetdem_1_1_contact_solver_settings_a472be3fc22285336d27e46e3c2bbad6b} 
-\index{netdem::ContactSolverSettings@{netdem::ContactSolverSettings}!gjk\_erosion\_ratio\_increment@{gjk\_erosion\_ratio\_increment}}
+Whether to enable logging in the GJK solver. \Hypertarget{classnetdem_1_1_contact_solver_settings_a472be3fc22285336d27e46e3c2bbad6b}\index{netdem::ContactSolverSettings@{netdem::ContactSolverSettings}!gjk\_erosion\_ratio\_increment@{gjk\_erosion\_ratio\_increment}}
 \index{gjk\_erosion\_ratio\_increment@{gjk\_erosion\_ratio\_increment}!netdem::ContactSolverSettings@{netdem::ContactSolverSettings}}
 \doxysubsubsection{\texorpdfstring{gjk\_erosion\_ratio\_increment}{gjk\_erosion\_ratio\_increment}}
-{\footnotesize\ttfamily double netdem\+::\+Contact\+Solver\+Settings\+::gjk\+\_\+erosion\+\_\+ratio\+\_\+increment \{0.\+01\}}
+{\footnotesize\ttfamily \label{classnetdem_1_1_contact_solver_settings_a472be3fc22285336d27e46e3c2bbad6b} 
+double netdem\+::\+Contact\+Solver\+Settings\+::gjk\+\_\+erosion\+\_\+ratio\+\_\+increment \{0.\+01\}}
 
-The amount by which to increment the erosion ratio in the GJK solver each time. \Hypertarget{classnetdem_1_1_contact_solver_settings_a5781fecd068e4501163dacfad26ec62f}\label{classnetdem_1_1_contact_solver_settings_a5781fecd068e4501163dacfad26ec62f} 
-\index{netdem::ContactSolverSettings@{netdem::ContactSolverSettings}!gjk\_erosion\_ratio\_initial@{gjk\_erosion\_ratio\_initial}}
+The amount by which to increment the erosion ratio in the GJK solver each time. \Hypertarget{classnetdem_1_1_contact_solver_settings_a5781fecd068e4501163dacfad26ec62f}\index{netdem::ContactSolverSettings@{netdem::ContactSolverSettings}!gjk\_erosion\_ratio\_initial@{gjk\_erosion\_ratio\_initial}}
 \index{gjk\_erosion\_ratio\_initial@{gjk\_erosion\_ratio\_initial}!netdem::ContactSolverSettings@{netdem::ContactSolverSettings}}
 \doxysubsubsection{\texorpdfstring{gjk\_erosion\_ratio\_initial}{gjk\_erosion\_ratio\_initial}}
-{\footnotesize\ttfamily double netdem\+::\+Contact\+Solver\+Settings\+::gjk\+\_\+erosion\+\_\+ratio\+\_\+initial \{0.\+01\}}
+{\footnotesize\ttfamily \label{classnetdem_1_1_contact_solver_settings_a5781fecd068e4501163dacfad26ec62f} 
+double netdem\+::\+Contact\+Solver\+Settings\+::gjk\+\_\+erosion\+\_\+ratio\+\_\+initial \{0.\+01\}}
 
-The initial erosion ratio to use in the GJK solver. \Hypertarget{classnetdem_1_1_contact_solver_settings_aaf0f4c17f2bd4443c11323b45cc8f752}\label{classnetdem_1_1_contact_solver_settings_aaf0f4c17f2bd4443c11323b45cc8f752} 
-\index{netdem::ContactSolverSettings@{netdem::ContactSolverSettings}!gjk\_use\_erosion@{gjk\_use\_erosion}}
+The initial erosion ratio to use in the GJK solver. \Hypertarget{classnetdem_1_1_contact_solver_settings_aaf0f4c17f2bd4443c11323b45cc8f752}\index{netdem::ContactSolverSettings@{netdem::ContactSolverSettings}!gjk\_use\_erosion@{gjk\_use\_erosion}}
 \index{gjk\_use\_erosion@{gjk\_use\_erosion}!netdem::ContactSolverSettings@{netdem::ContactSolverSettings}}
 \doxysubsubsection{\texorpdfstring{gjk\_use\_erosion}{gjk\_use\_erosion}}
-{\footnotesize\ttfamily bool netdem\+::\+Contact\+Solver\+Settings\+::gjk\+\_\+use\+\_\+erosion \{false\}}
+{\footnotesize\ttfamily \label{classnetdem_1_1_contact_solver_settings_aaf0f4c17f2bd4443c11323b45cc8f752} 
+bool netdem\+::\+Contact\+Solver\+Settings\+::gjk\+\_\+use\+\_\+erosion \{false\}}
 
-Whether to use erosion in the GJK solver. \Hypertarget{classnetdem_1_1_contact_solver_settings_a42078a4cfb9c398ee7d3283dc13a1496}\label{classnetdem_1_1_contact_solver_settings_a42078a4cfb9c398ee7d3283dc13a1496} 
-\index{netdem::ContactSolverSettings@{netdem::ContactSolverSettings}!sdf\_potential\_type@{sdf\_potential\_type}}
+Whether to use erosion in the GJK solver. \Hypertarget{classnetdem_1_1_contact_solver_settings_a42078a4cfb9c398ee7d3283dc13a1496}\index{netdem::ContactSolverSettings@{netdem::ContactSolverSettings}!sdf\_potential\_type@{sdf\_potential\_type}}
 \index{sdf\_potential\_type@{sdf\_potential\_type}!netdem::ContactSolverSettings@{netdem::ContactSolverSettings}}
 \doxysubsubsection{\texorpdfstring{sdf\_potential\_type}{sdf\_potential\_type}}
-{\footnotesize\ttfamily int netdem\+::\+Contact\+Solver\+Settings\+::sdf\+\_\+potential\+\_\+type \{0\}}
+{\footnotesize\ttfamily \label{classnetdem_1_1_contact_solver_settings_a42078a4cfb9c398ee7d3283dc13a1496} 
+int netdem\+::\+Contact\+Solver\+Settings\+::sdf\+\_\+potential\+\_\+type \{0\}}
 
 The type of potential function to use in the SDF solver. \begin{Desc}
 \item[Examples]\par
 \mbox{\hyperlink{00_nut_in_bolt_8cpp-example}{00\+\_\+nut\+\_\+in\+\_\+bolt.\+cpp}}, \mbox{\hyperlink{02_energy_test_8cpp-example}{02\+\_\+energy\+\_\+test.\+cpp}}, \mbox{\hyperlink{2_sdf_solver_8cpp-example}{2\+\_\+sdf\+\_\+solver.\+cpp}}, \mbox{\hyperlink{3_hybrid_solver_8cpp-example}{3\+\_\+hybrid\+\_\+solver.\+cpp}}, \mbox{\hyperlink{90_packing_demo_8cpp-example}{90\+\_\+packing\+\_\+demo.\+cpp}}, \mbox{\hyperlink{90_random_packing_8cpp-example}{90\+\_\+random\+\_\+packing.\+cpp}}, \mbox{\hyperlink{91_packing_ellipsoid_8cpp-example}{91\+\_\+packing\+\_\+ellipsoid.\+cpp}}, and \mbox{\hyperlink{92_nut_in_bolt_8cpp-example}{92\+\_\+nut\+\_\+in\+\_\+bolt.\+cpp}}.\end{Desc}
-\Hypertarget{classnetdem_1_1_contact_solver_settings_a07f7f35543fb182dcbe7b0039a401ea1}\label{classnetdem_1_1_contact_solver_settings_a07f7f35543fb182dcbe7b0039a401ea1} 
-\index{netdem::ContactSolverSettings@{netdem::ContactSolverSettings}!sdf\_solve\_two\_sides@{sdf\_solve\_two\_sides}}
+\Hypertarget{classnetdem_1_1_contact_solver_settings_a07f7f35543fb182dcbe7b0039a401ea1}\index{netdem::ContactSolverSettings@{netdem::ContactSolverSettings}!sdf\_solve\_two\_sides@{sdf\_solve\_two\_sides}}
 \index{sdf\_solve\_two\_sides@{sdf\_solve\_two\_sides}!netdem::ContactSolverSettings@{netdem::ContactSolverSettings}}
 \doxysubsubsection{\texorpdfstring{sdf\_solve\_two\_sides}{sdf\_solve\_two\_sides}}
-{\footnotesize\ttfamily bool netdem\+::\+Contact\+Solver\+Settings\+::sdf\+\_\+solve\+\_\+two\+\_\+sides \{false\}}
+{\footnotesize\ttfamily \label{classnetdem_1_1_contact_solver_settings_a07f7f35543fb182dcbe7b0039a401ea1} 
+bool netdem\+::\+Contact\+Solver\+Settings\+::sdf\+\_\+solve\+\_\+two\+\_\+sides \{false\}}
 
-Whether to solve contacts on both sides of an object in the SDF solver. \Hypertarget{classnetdem_1_1_contact_solver_settings_a3385a311115950587f496c976a3fa67f}\label{classnetdem_1_1_contact_solver_settings_a3385a311115950587f496c976a3fa67f} 
-\index{netdem::ContactSolverSettings@{netdem::ContactSolverSettings}!solver\_type@{solver\_type}}
+Whether to solve contacts on both sides of an object in the SDF solver. \Hypertarget{classnetdem_1_1_contact_solver_settings_a92b841192d17c57d00faa6fdea18b01e}\index{netdem::ContactSolverSettings@{netdem::ContactSolverSettings}!sdf\_use\_equivalent\_stiffness@{sdf\_use\_equivalent\_stiffness}}
+\index{sdf\_use\_equivalent\_stiffness@{sdf\_use\_equivalent\_stiffness}!netdem::ContactSolverSettings@{netdem::ContactSolverSettings}}
+\doxysubsubsection{\texorpdfstring{sdf\_use\_equivalent\_stiffness}{sdf\_use\_equivalent\_stiffness}}
+{\footnotesize\ttfamily \label{classnetdem_1_1_contact_solver_settings_a92b841192d17c57d00faa6fdea18b01e} 
+bool netdem\+::\+Contact\+Solver\+Settings\+::sdf\+\_\+use\+\_\+equivalent\+\_\+stiffness \{true\}}
+
+Whether to auto convert the model stiffness parameter, such that it is identical to those in conventional linear or Hertz contact. \begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{02_energy_test_8cpp-example}{02\+\_\+energy\+\_\+test.\+cpp}}, \mbox{\hyperlink{91_triaixal_comp_trimesh_8cpp-example}{91\+\_\+triaixal\+\_\+comp\+\_\+trimesh.\+cpp}}, \mbox{\hyperlink{92_angle_repose_trimesh_8cpp-example}{92\+\_\+angle\+\_\+repose\+\_\+trimesh.\+cpp}}, and \mbox{\hyperlink{97_triaixal_comp_sphere_geom_8cpp-example}{97\+\_\+triaixal\+\_\+comp\+\_\+sphere\+\_\+geom.\+cpp}}.\end{Desc}
+\Hypertarget{classnetdem_1_1_contact_solver_settings_a3385a311115950587f496c976a3fa67f}\index{netdem::ContactSolverSettings@{netdem::ContactSolverSettings}!solver\_type@{solver\_type}}
 \index{solver\_type@{solver\_type}!netdem::ContactSolverSettings@{netdem::ContactSolverSettings}}
 \doxysubsubsection{\texorpdfstring{solver\_type}{solver\_type}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classnetdem_1_1_contact_solver_settings_adff2184170befa136fdaedd56a048170}{Solver\+Type}} netdem\+::\+Contact\+Solver\+Settings\+::solver\+\_\+type \{\mbox{\hyperlink{classnetdem_1_1_contact_solver_settings_adff2184170befa136fdaedd56a048170aa29705e887c1874c038c3820d9471e57}{Solver\+Type\+::automatic}}\}}
+{\footnotesize\ttfamily \label{classnetdem_1_1_contact_solver_settings_a3385a311115950587f496c976a3fa67f} 
+\mbox{\hyperlink{classnetdem_1_1_contact_solver_settings_adff2184170befa136fdaedd56a048170}{Solver\+Type}} netdem\+::\+Contact\+Solver\+Settings\+::solver\+\_\+type \{\mbox{\hyperlink{classnetdem_1_1_contact_solver_settings_adff2184170befa136fdaedd56a048170aa29705e887c1874c038c3820d9471e57}{Solver\+Type\+::automatic}}\}}
 
 The type of solver to use for contact calculations. \begin{Desc}
 \item[Examples]\par

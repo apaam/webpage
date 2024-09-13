@@ -7,7 +7,7 @@ var classnetdem_1_1_solver_g_j_k_p_w =
     [ "EPA", "classnetdem_1_1_solver_g_j_k_p_w.html#ada27394138a67fb792de85536cfd8b44", null ],
     [ "GetContactPoint", "classnetdem_1_1_solver_g_j_k_p_w.html#a10cf7c119b7929c6b2c080346d457048", null ],
     [ "GetContactPoint_PlaneCase", "classnetdem_1_1_solver_g_j_k_p_w.html#a9c1506d44ae78113f7eaebb9119ddbcd", null ],
-    [ "GetFacetNormal", "classnetdem_1_1_solver_g_j_k_p_w.html#a3349cde79b907d92d2833eb1d0ecb0aa", null ],
+    [ "GetFacetNormal", "classnetdem_1_1_solver_g_j_k_p_w.html#a1c012a206380e6fe7aef3ffbaa7edd99", null ],
     [ "GetIntersections", "classnetdem_1_1_solver_g_j_k_p_w.html#ad7a91154f860c57fd4b81ec5db643408", null ],
     [ "GetIntersectionsAggresive", "classnetdem_1_1_solver_g_j_k_p_w.html#af11adfcf54773aff8651b30553d59a0f", null ],
     [ "GetLooseEdges", "classnetdem_1_1_solver_g_j_k_p_w.html#a4701f80189010506558b28613a65d61d", null ],

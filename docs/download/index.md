@@ -3,7 +3,7 @@
 ### NetDEM
 
 - Source code: [https://github.com/apaam/netdem](https://github.com/apaam/netdem)
-- Website: [https://github.com/apaam/netdem_docs](https://github.com/apaam/netdem_docs)
+- Website: [https://github.com/apaam/webpage](https://github.com/apaam/webpage)
 
 ### Post-processing scripts
 

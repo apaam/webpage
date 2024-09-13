@@ -21,7 +21,7 @@ Inheritance diagram for netdem\+::Solver\+SDFPW\+:\begin{figure}[H]
 enum \mbox{\hyperlink{classnetdem_1_1_solver_s_d_f_p_w_a5a5eb4fdc74c1276be050e7a92d5abb2}{Potential\+Type}} \{ \mbox{\hyperlink{classnetdem_1_1_solver_s_d_f_p_w_a5a5eb4fdc74c1276be050e7a92d5abb2a72452b11d2b55c1d0ffbefa88a5260fc}{linear}}
 , \mbox{\hyperlink{classnetdem_1_1_solver_s_d_f_p_w_a5a5eb4fdc74c1276be050e7a92d5abb2a92cd2b5d619574ce2fc452ba4906fc9b}{hertz}}
  \}
-\begin{DoxyCompactList}\small\item\em An enum representing the type of potential function used. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em An enumeration of potential types used by the solver. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -51,7 +51,7 @@ void \mbox{\hyperlink{classnetdem_1_1_solver_s_d_f_p_w_afc85af9a83a2f6c932901f17
 \begin{DoxyCompactList}\small\item\em Resolves the collision between the particle and the wall based on the initial contact geometries and timestep. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classnetdem_1_1_solver_s_d_f_p_w_a2927f477db76d7c4cc7f687176a3a4d1}{Resolve\+Update\+PToW}} (\mbox{\hyperlink{classnetdem_1_1_collision_geometries}{Collision\+Geometries}} \texorpdfstring{$\ast$}{*}const cnt\+\_\+geoms, double timestep)
 \begin{DoxyCompactList}\small\item\em Updates the contact geometries object and resolves the collision based on the updated information and timestep. \end{DoxyCompactList}\item 
-double \mbox{\hyperlink{classnetdem_1_1_solver_s_d_f_p_w_ad6069f49fe426c71be363b9d92954687}{Get\+Potential}} (double dist, \mbox{\hyperlink{classnetdem_1_1_shape}{Shape}} \texorpdfstring{$\ast$}{*}shape)
+double \mbox{\hyperlink{classnetdem_1_1_solver_s_d_f_p_w_a66a0cfae8c36a7e3cd8eb1700915705b}{Get\+Potential}} (double dist, double node\+\_\+area, double size\+\_\+eq, double size\+\_\+ratio)
 \begin{DoxyCompactList}\small\item\em Calculates the potential energy between two shapes based on their distance and type of potential function used. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classnetdem_1_1_collision_solver_p_w}{netdem\+::\+Collision\+Solver\+PW}}}
 \begin{DoxyCompactItemize}
@@ -60,26 +60,31 @@ double \mbox{\hyperlink{classnetdem_1_1_solver_s_d_f_p_w_ad6069f49fe426c71be363b
 \item 
 \mbox{\hyperlink{classnetdem_1_1_collision_solver_p_w_a9689e292d6b91c8b098fb2f6b16671bc}{Collision\+Solver\+PW}} (\mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} \texorpdfstring{$\ast$}{*}const p, \mbox{\hyperlink{classnetdem_1_1_wall}{Wall}} \texorpdfstring{$\ast$}{*}const w)
 \item 
-virtual \mbox{\hyperlink{classnetdem_1_1_collision_solver_p_w}{Collision\+Solver\+PW}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classnetdem_1_1_collision_solver_p_w_a9a373faf193910562f49bc0ac15050e9}{Clone}} () const =0
-\item 
-virtual void \mbox{\hyperlink{classnetdem_1_1_collision_solver_p_w_a23b3075924f949dfed8a681dbebedc03}{Init}} (\mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} \texorpdfstring{$\ast$}{*}const p, \mbox{\hyperlink{classnetdem_1_1_wall}{Wall}} \texorpdfstring{$\ast$}{*}const w)
-\item 
-virtual bool \mbox{\hyperlink{classnetdem_1_1_collision_solver_p_w_a662b4b47765dd9816e1cb46262e8ad32}{Detect}} ()=0
-\item 
 virtual bool \mbox{\hyperlink{classnetdem_1_1_collision_solver_p_w_af1988c5af79008cebb6c7c6ad54178f7}{Detect}} (\mbox{\hyperlink{classnetdem_1_1_contact_p_w}{Contact\+PW}} \texorpdfstring{$\ast$}{*}const cnt)
 \item 
-virtual void \mbox{\hyperlink{classnetdem_1_1_collision_solver_p_w_a1a4559783964fdb3f7eea71950d88c93}{Resolve\+Init}} (\mbox{\hyperlink{classnetdem_1_1_contact_p_w}{Contact\+PW}} \texorpdfstring{$\ast$}{*}const cnt, double timestep)=0
-\item 
-virtual void \mbox{\hyperlink{classnetdem_1_1_collision_solver_p_w_a1fa6dc4af91346ec8ec28db0c2bdd08e}{Resolve\+Update}} (\mbox{\hyperlink{classnetdem_1_1_contact_p_w}{Contact\+PW}} \texorpdfstring{$\ast$}{*}const cnt, double timestep)=0
-\item 
 virtual \mbox{\hyperlink{classnetdem_1_1_collision_solver_p_w_aed072d2954a6f834d5445a1d11699923}{\texorpdfstring{$\sim$}{\string~}\+Collision\+Solver\+PW}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static double \mbox{\hyperlink{classnetdem_1_1_solver_s_d_f_p_w_a005dd05c8f2f3616eb2a381daabdefad}{Ki\+To\+Kn}} (double ki, double size\+\_\+eq, double size\+\_\+ratio)
+\item 
+static double \mbox{\hyperlink{classnetdem_1_1_solver_s_d_f_p_w_a812b573c3c23221cad6bc4bb9786ec4a}{Ki\+From\+Kn}} (double kn, double size\+\_\+eq, double size\+\_\+ratio)
+\item 
+static double \mbox{\hyperlink{classnetdem_1_1_solver_s_d_f_p_w_a628cc540c0fdd4c21384e4bd6f28c627}{Ki\+To\+Estar}} (double ki, double size\+\_\+eq, double size\+\_\+ratio)
+\item 
+static double \mbox{\hyperlink{classnetdem_1_1_solver_s_d_f_p_w_aca26f4be8d139591e378958a14f2beb7}{Ki\+From\+Estar}} (double Estar, double size\+\_\+eq, double size\+\_\+ratio)
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
 int \mbox{\hyperlink{classnetdem_1_1_solver_s_d_f_p_w_a7b4a89276056a7f48dc150048352e46e}{potential\+\_\+type}} \{\mbox{\hyperlink{classnetdem_1_1_solver_s_d_f_p_w_a5a5eb4fdc74c1276be050e7a92d5abb2a72452b11d2b55c1d0ffbefa88a5260fc}{Potential\+Type\+::linear}}\}
-\item 
+\begin{DoxyCompactList}\small\item\em Whether to solve both sides of the collision. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{classnetdem_1_1_solver_s_d_f_p_w_ab69111df02ba58c0959e526fee3c0e89}{solve\+\_\+two\+\_\+sides}} \{false\}
+\item 
+bool \mbox{\hyperlink{classnetdem_1_1_solver_s_d_f_p_w_a746fa48a82de922af34c4d224bc9b179}{use\+\_\+equivalent\+\_\+stiffness}} \{true\}
+\item 
+double \mbox{\hyperlink{classnetdem_1_1_solver_s_d_f_p_w_ab2196579c715e1537c86679e85372702}{beta}} \{0.\+65\}
 \end{DoxyCompactItemize}
 \doxysubsection*{Public Attributes inherited from \mbox{\hyperlink{classnetdem_1_1_collision_solver_p_w}{netdem\+::\+Collision\+Solver\+PW}}}
 \begin{DoxyCompactItemize}
@@ -94,7 +99,7 @@ bool \mbox{\hyperlink{classnetdem_1_1_solver_s_d_f_p_w_ab69111df02ba58c0959e526f
 \item 
 void \mbox{\hyperlink{classnetdem_1_1_collision_solver_p_w_ac71fefe3b9e08712eedae9d5e5bfe336}{Init\+Basic\+Geoms}} (\mbox{\hyperlink{classnetdem_1_1_collision_geometries}{Collision\+Geometries}} \texorpdfstring{$\ast$}{*}const cnt\+\_\+geoms, double timestep)
 \item 
-void \mbox{\hyperlink{classnetdem_1_1_collision_solver_p_w_a75563d0f485ce14cca7eef636099b546}{Update\+Basic\+Geoms}} (\mbox{\hyperlink{classnetdem_1_1_collision_geometries}{Collision\+Geometries}} \texorpdfstring{$\ast$}{*}const cnt\+\_\+geoms, double timestep, \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&dir\+\_\+n\+\_\+old)
+void \mbox{\hyperlink{classnetdem_1_1_collision_solver_p_w_a75563d0f485ce14cca7eef636099b546}{Update\+Basic\+Geoms}} (\mbox{\hyperlink{classnetdem_1_1_collision_geometries}{Collision\+Geometries}} \texorpdfstring{$\ast$}{*}const cnt\+\_\+geoms, double timestep, \mbox{\hyperlink{namespacenetdem_a510a89239abc51ed4d8d88ce7ee403df}{Vec3d}} const \&dir\+\_\+n\+\_\+old)
 \end{DoxyCompactItemize}
 
 
@@ -107,22 +112,22 @@ The \doxylink{classnetdem_1_1_solver_s_d_f_p_w}{Solver\+SDFPW} class is used to 
 
 
 \doxysubsection{Member Enumeration Documentation}
-\Hypertarget{classnetdem_1_1_solver_s_d_f_p_w_a5a5eb4fdc74c1276be050e7a92d5abb2}\label{classnetdem_1_1_solver_s_d_f_p_w_a5a5eb4fdc74c1276be050e7a92d5abb2} 
-\index{netdem::SolverSDFPW@{netdem::SolverSDFPW}!PotentialType@{PotentialType}}
+\Hypertarget{classnetdem_1_1_solver_s_d_f_p_w_a5a5eb4fdc74c1276be050e7a92d5abb2}\index{netdem::SolverSDFPW@{netdem::SolverSDFPW}!PotentialType@{PotentialType}}
 \index{PotentialType@{PotentialType}!netdem::SolverSDFPW@{netdem::SolverSDFPW}}
 \doxysubsubsection{\texorpdfstring{PotentialType}{PotentialType}}
-{\footnotesize\ttfamily enum \mbox{\hyperlink{classnetdem_1_1_solver_s_d_f_p_w_a5a5eb4fdc74c1276be050e7a92d5abb2}{netdem\+::\+Solver\+SDFPW\+::\+Potential\+Type}}}
+{\footnotesize\ttfamily \label{classnetdem_1_1_solver_s_d_f_p_w_a5a5eb4fdc74c1276be050e7a92d5abb2} 
+enum \mbox{\hyperlink{classnetdem_1_1_solver_s_d_f_p_w_a5a5eb4fdc74c1276be050e7a92d5abb2}{netdem\+::\+Solver\+SDFPW\+::\+Potential\+Type}}}
 
 
 
-An enum representing the type of potential function used. 
+An enumeration of potential types used by the solver. 
 
-\begin{DoxyEnumFields}{Enumerator}
-\raisebox{\heightof{T}}[0pt][0pt]{\index{linear@{linear}!netdem::SolverSDFPW@{netdem::SolverSDFPW}}\index{netdem::SolverSDFPW@{netdem::SolverSDFPW}!linear@{linear}}}\Hypertarget{classnetdem_1_1_solver_s_d_f_p_w_a5a5eb4fdc74c1276be050e7a92d5abb2a72452b11d2b55c1d0ffbefa88a5260fc}\label{classnetdem_1_1_solver_s_d_f_p_w_a5a5eb4fdc74c1276be050e7a92d5abb2a72452b11d2b55c1d0ffbefa88a5260fc} 
+The potential type determines the shape of the contact force applied by the solver. The available options are linear and Hertz potentials. \begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{linear@{linear}!netdem::SolverSDFPW@{netdem::SolverSDFPW}}\index{netdem::SolverSDFPW@{netdem::SolverSDFPW}!linear@{linear}}}\Hypertarget{classnetdem_1_1_solver_s_d_f_p_w_a5a5eb4fdc74c1276be050e7a92d5abb2a72452b11d2b55c1d0ffbefa88a5260fc}\label{classnetdem_1_1_solver_s_d_f_p_w_a5a5eb4fdc74c1276be050e7a92d5abb2} 
 linear&\\
 \hline
 
-\raisebox{\heightof{T}}[0pt][0pt]{\index{hertz@{hertz}!netdem::SolverSDFPW@{netdem::SolverSDFPW}}\index{netdem::SolverSDFPW@{netdem::SolverSDFPW}!hertz@{hertz}}}\Hypertarget{classnetdem_1_1_solver_s_d_f_p_w_a5a5eb4fdc74c1276be050e7a92d5abb2a92cd2b5d619574ce2fc452ba4906fc9b}\label{classnetdem_1_1_solver_s_d_f_p_w_a5a5eb4fdc74c1276be050e7a92d5abb2a92cd2b5d619574ce2fc452ba4906fc9b} 
+\raisebox{\heightof{T}}[0pt][0pt]{\index{hertz@{hertz}!netdem::SolverSDFPW@{netdem::SolverSDFPW}}\index{netdem::SolverSDFPW@{netdem::SolverSDFPW}!hertz@{hertz}}}\Hypertarget{classnetdem_1_1_solver_s_d_f_p_w_a5a5eb4fdc74c1276be050e7a92d5abb2a92cd2b5d619574ce2fc452ba4906fc9b}\label{classnetdem_1_1_solver_s_d_f_p_w_a5a5eb4fdc74c1276be050e7a92d5abb2} 
 hertz&\\
 \hline
 
@@ -130,21 +135,21 @@ hertz&\\
 
 
 \doxysubsection{Constructor \& Destructor Documentation}
-\Hypertarget{classnetdem_1_1_solver_s_d_f_p_w_abfb55a7ef45d7f460662553a066ed851}\label{classnetdem_1_1_solver_s_d_f_p_w_abfb55a7ef45d7f460662553a066ed851} 
-\index{netdem::SolverSDFPW@{netdem::SolverSDFPW}!SolverSDFPW@{SolverSDFPW}}
+\Hypertarget{classnetdem_1_1_solver_s_d_f_p_w_abfb55a7ef45d7f460662553a066ed851}\index{netdem::SolverSDFPW@{netdem::SolverSDFPW}!SolverSDFPW@{SolverSDFPW}}
 \index{SolverSDFPW@{SolverSDFPW}!netdem::SolverSDFPW@{netdem::SolverSDFPW}}
 \doxysubsubsection{\texorpdfstring{SolverSDFPW()}{SolverSDFPW()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily netdem\+::\+Solver\+SDFPW\+::\+Solver\+SDFPW (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{classnetdem_1_1_solver_s_d_f_p_w_abfb55a7ef45d7f460662553a066ed851} 
+netdem\+::\+Solver\+SDFPW\+::\+Solver\+SDFPW (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
 
 
 Default constructor for \doxylink{classnetdem_1_1_solver_s_d_f_p_w}{Solver\+SDFPW} class. 
 
-\Hypertarget{classnetdem_1_1_solver_s_d_f_p_w_a4ba4654f6d584abfa6c89ed5833e4226}\label{classnetdem_1_1_solver_s_d_f_p_w_a4ba4654f6d584abfa6c89ed5833e4226} 
-\index{netdem::SolverSDFPW@{netdem::SolverSDFPW}!SolverSDFPW@{SolverSDFPW}}
+\Hypertarget{classnetdem_1_1_solver_s_d_f_p_w_a4ba4654f6d584abfa6c89ed5833e4226}\index{netdem::SolverSDFPW@{netdem::SolverSDFPW}!SolverSDFPW@{SolverSDFPW}}
 \index{SolverSDFPW@{SolverSDFPW}!netdem::SolverSDFPW@{netdem::SolverSDFPW}}
 \doxysubsubsection{\texorpdfstring{SolverSDFPW()}{SolverSDFPW()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily netdem\+::\+Solver\+SDFPW\+::\+Solver\+SDFPW (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} \texorpdfstring{$\ast$}{*}const}]{p,  }\item[{\mbox{\hyperlink{classnetdem_1_1_wall}{Wall}} \texorpdfstring{$\ast$}{*}const}]{w }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{classnetdem_1_1_solver_s_d_f_p_w_a4ba4654f6d584abfa6c89ed5833e4226} 
+netdem\+::\+Solver\+SDFPW\+::\+Solver\+SDFPW (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} \texorpdfstring{$\ast$}{*}const}]{p}{, }\item[{\mbox{\hyperlink{classnetdem_1_1_wall}{Wall}} \texorpdfstring{$\ast$}{*}const}]{w}{}\end{DoxyParamCaption})}
 
 
 
@@ -160,11 +165,11 @@ Constructor for \doxylink{classnetdem_1_1_solver_s_d_f_p_w}{Solver\+SDFPW} class
 
 
 \doxysubsection{Member Function Documentation}
-\Hypertarget{classnetdem_1_1_solver_s_d_f_p_w_a7ba5eac7ce54b3cd887fd3704f1a292d}\label{classnetdem_1_1_solver_s_d_f_p_w_a7ba5eac7ce54b3cd887fd3704f1a292d} 
-\index{netdem::SolverSDFPW@{netdem::SolverSDFPW}!Clone@{Clone}}
+\Hypertarget{classnetdem_1_1_solver_s_d_f_p_w_a7ba5eac7ce54b3cd887fd3704f1a292d}\index{netdem::SolverSDFPW@{netdem::SolverSDFPW}!Clone@{Clone}}
 \index{Clone@{Clone}!netdem::SolverSDFPW@{netdem::SolverSDFPW}}
 \doxysubsubsection{\texorpdfstring{Clone()}{Clone()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classnetdem_1_1_collision_solver_p_w}{Collision\+Solver\+PW}} \texorpdfstring{$\ast$}{*} netdem\+::\+Solver\+SDFPW\+::\+Clone (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+{\footnotesize\ttfamily \label{classnetdem_1_1_solver_s_d_f_p_w_a7ba5eac7ce54b3cd887fd3704f1a292d} 
+\mbox{\hyperlink{classnetdem_1_1_collision_solver_p_w}{Collision\+Solver\+PW}} \texorpdfstring{$\ast$}{*} netdem\+::\+Solver\+SDFPW\+::\+Clone (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
@@ -177,11 +182,11 @@ A pointer to the cloned \doxylink{classnetdem_1_1_solver_s_d_f_p_w}{Solver\+SDFP
 
 Implements \mbox{\hyperlink{classnetdem_1_1_collision_solver_p_w_a9a373faf193910562f49bc0ac15050e9}{netdem\+::\+Collision\+Solver\+PW}}.
 
-\Hypertarget{classnetdem_1_1_solver_s_d_f_p_w_a12a223019a63d13ec271f8f984f45ecb}\label{classnetdem_1_1_solver_s_d_f_p_w_a12a223019a63d13ec271f8f984f45ecb} 
-\index{netdem::SolverSDFPW@{netdem::SolverSDFPW}!Detect@{Detect}}
+\Hypertarget{classnetdem_1_1_solver_s_d_f_p_w_a12a223019a63d13ec271f8f984f45ecb}\index{netdem::SolverSDFPW@{netdem::SolverSDFPW}!Detect@{Detect}}
 \index{Detect@{Detect}!netdem::SolverSDFPW@{netdem::SolverSDFPW}}
 \doxysubsubsection{\texorpdfstring{Detect()}{Detect()}}
-{\footnotesize\ttfamily bool netdem\+::\+Solver\+SDFPW\+::\+Detect (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+{\footnotesize\ttfamily \label{classnetdem_1_1_solver_s_d_f_p_w_a12a223019a63d13ec271f8f984f45ecb} 
+bool netdem\+::\+Solver\+SDFPW\+::\+Detect (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
@@ -197,11 +202,11 @@ Implements \mbox{\hyperlink{classnetdem_1_1_collision_solver_p_w_a662b4b47765dd9
 \begin{Desc}
 \item[Examples]\par
 \mbox{\hyperlink{00_hertz_contact_8cpp-example}{00\+\_\+hertz\+\_\+contact.\+cpp}}, \mbox{\hyperlink{00_nut_in_bolt_8cpp-example}{00\+\_\+nut\+\_\+in\+\_\+bolt.\+cpp}}, \mbox{\hyperlink{81_golf_ball_impact_8cpp-example}{81\+\_\+golf\+\_\+ball\+\_\+impact.\+cpp}}, and \mbox{\hyperlink{92_nut_in_bolt_8cpp-example}{92\+\_\+nut\+\_\+in\+\_\+bolt.\+cpp}}.\end{Desc}
-\Hypertarget{classnetdem_1_1_solver_s_d_f_p_w_ad6069f49fe426c71be363b9d92954687}\label{classnetdem_1_1_solver_s_d_f_p_w_ad6069f49fe426c71be363b9d92954687} 
-\index{netdem::SolverSDFPW@{netdem::SolverSDFPW}!GetPotential@{GetPotential}}
+\Hypertarget{classnetdem_1_1_solver_s_d_f_p_w_a66a0cfae8c36a7e3cd8eb1700915705b}\index{netdem::SolverSDFPW@{netdem::SolverSDFPW}!GetPotential@{GetPotential}}
 \index{GetPotential@{GetPotential}!netdem::SolverSDFPW@{netdem::SolverSDFPW}}
 \doxysubsubsection{\texorpdfstring{GetPotential()}{GetPotential()}}
-{\footnotesize\ttfamily double netdem\+::\+Solver\+SDFPW\+::\+Get\+Potential (\begin{DoxyParamCaption}\item[{double}]{dist,  }\item[{\mbox{\hyperlink{classnetdem_1_1_shape}{Shape}} \texorpdfstring{$\ast$}{*}}]{shape }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{classnetdem_1_1_solver_s_d_f_p_w_a66a0cfae8c36a7e3cd8eb1700915705b} 
+double netdem\+::\+Solver\+SDFPW\+::\+Get\+Potential (\begin{DoxyParamCaption}\item[{double}]{dist}{, }\item[{double}]{node\+\_\+area}{, }\item[{double}]{size\+\_\+eq}{, }\item[{double}]{size\+\_\+ratio}{}\end{DoxyParamCaption})}
 
 
 
@@ -211,17 +216,19 @@ Calculates the potential energy between two shapes based on their distance and t
 \begin{DoxyParams}{Parameters}
 {\em dist} & The distance between the shapes. \\
 \hline
-{\em shape} & A pointer to the shape of one of the objects.\\
+{\em node\+\_\+area} & The surface area associated with the node. \\
+\hline
+{\em size\+\_\+eq} & The equivalent size of the shape.\\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 The potential energy between the two shapes. 
 \end{DoxyReturn}
-\Hypertarget{classnetdem_1_1_solver_s_d_f_p_w_a63fb7fbf9bd6e3e59643fab40f50676e}\label{classnetdem_1_1_solver_s_d_f_p_w_a63fb7fbf9bd6e3e59643fab40f50676e} 
-\index{netdem::SolverSDFPW@{netdem::SolverSDFPW}!Init@{Init}}
+\Hypertarget{classnetdem_1_1_solver_s_d_f_p_w_a63fb7fbf9bd6e3e59643fab40f50676e}\index{netdem::SolverSDFPW@{netdem::SolverSDFPW}!Init@{Init}}
 \index{Init@{Init}!netdem::SolverSDFPW@{netdem::SolverSDFPW}}
 \doxysubsubsection{\texorpdfstring{Init()}{Init()}}
-{\footnotesize\ttfamily void netdem\+::\+Solver\+SDFPW\+::\+Init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} \texorpdfstring{$\ast$}{*}const}]{p,  }\item[{\mbox{\hyperlink{classnetdem_1_1_wall}{Wall}} \texorpdfstring{$\ast$}{*}const}]{w }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+{\footnotesize\ttfamily \label{classnetdem_1_1_solver_s_d_f_p_w_a63fb7fbf9bd6e3e59643fab40f50676e} 
+void netdem\+::\+Solver\+SDFPW\+::\+Init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} \texorpdfstring{$\ast$}{*}const}]{p}{, }\item[{\mbox{\hyperlink{classnetdem_1_1_wall}{Wall}} \texorpdfstring{$\ast$}{*}const}]{w}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
@@ -241,11 +248,35 @@ Reimplemented from \mbox{\hyperlink{classnetdem_1_1_collision_solver_p_w_a23b307
 \begin{Desc}
 \item[Examples]\par
 \mbox{\hyperlink{00_hertz_contact_8cpp-example}{00\+\_\+hertz\+\_\+contact.\+cpp}}, \mbox{\hyperlink{00_nut_in_bolt_8cpp-example}{00\+\_\+nut\+\_\+in\+\_\+bolt.\+cpp}}, \mbox{\hyperlink{81_golf_ball_impact_8cpp-example}{81\+\_\+golf\+\_\+ball\+\_\+impact.\+cpp}}, and \mbox{\hyperlink{92_nut_in_bolt_8cpp-example}{92\+\_\+nut\+\_\+in\+\_\+bolt.\+cpp}}.\end{Desc}
-\Hypertarget{classnetdem_1_1_solver_s_d_f_p_w_a9eb7693d27ab007242a02f24ac4a6e81}\label{classnetdem_1_1_solver_s_d_f_p_w_a9eb7693d27ab007242a02f24ac4a6e81} 
-\index{netdem::SolverSDFPW@{netdem::SolverSDFPW}!ResolveInit@{ResolveInit}}
+\Hypertarget{classnetdem_1_1_solver_s_d_f_p_w_aca26f4be8d139591e378958a14f2beb7}\index{netdem::SolverSDFPW@{netdem::SolverSDFPW}!KiFromEstar@{KiFromEstar}}
+\index{KiFromEstar@{KiFromEstar}!netdem::SolverSDFPW@{netdem::SolverSDFPW}}
+\doxysubsubsection{\texorpdfstring{KiFromEstar()}{KiFromEstar()}}
+{\footnotesize\ttfamily \label{classnetdem_1_1_solver_s_d_f_p_w_aca26f4be8d139591e378958a14f2beb7} 
+double netdem\+::\+Solver\+SDFPW\+::\+Ki\+From\+Estar (\begin{DoxyParamCaption}\item[{double}]{Estar}{, }\item[{double}]{size\+\_\+eq}{, }\item[{double}]{size\+\_\+ratio}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\Hypertarget{classnetdem_1_1_solver_s_d_f_p_w_a812b573c3c23221cad6bc4bb9786ec4a}\index{netdem::SolverSDFPW@{netdem::SolverSDFPW}!KiFromKn@{KiFromKn}}
+\index{KiFromKn@{KiFromKn}!netdem::SolverSDFPW@{netdem::SolverSDFPW}}
+\doxysubsubsection{\texorpdfstring{KiFromKn()}{KiFromKn()}}
+{\footnotesize\ttfamily \label{classnetdem_1_1_solver_s_d_f_p_w_a812b573c3c23221cad6bc4bb9786ec4a} 
+double netdem\+::\+Solver\+SDFPW\+::\+Ki\+From\+Kn (\begin{DoxyParamCaption}\item[{double}]{kn}{, }\item[{double}]{size\+\_\+eq}{, }\item[{double}]{size\+\_\+ratio}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\Hypertarget{classnetdem_1_1_solver_s_d_f_p_w_a628cc540c0fdd4c21384e4bd6f28c627}\index{netdem::SolverSDFPW@{netdem::SolverSDFPW}!KiToEstar@{KiToEstar}}
+\index{KiToEstar@{KiToEstar}!netdem::SolverSDFPW@{netdem::SolverSDFPW}}
+\doxysubsubsection{\texorpdfstring{KiToEstar()}{KiToEstar()}}
+{\footnotesize\ttfamily \label{classnetdem_1_1_solver_s_d_f_p_w_a628cc540c0fdd4c21384e4bd6f28c627} 
+double netdem\+::\+Solver\+SDFPW\+::\+Ki\+To\+Estar (\begin{DoxyParamCaption}\item[{double}]{ki}{, }\item[{double}]{size\+\_\+eq}{, }\item[{double}]{size\+\_\+ratio}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\Hypertarget{classnetdem_1_1_solver_s_d_f_p_w_a005dd05c8f2f3616eb2a381daabdefad}\index{netdem::SolverSDFPW@{netdem::SolverSDFPW}!KiToKn@{KiToKn}}
+\index{KiToKn@{KiToKn}!netdem::SolverSDFPW@{netdem::SolverSDFPW}}
+\doxysubsubsection{\texorpdfstring{KiToKn()}{KiToKn()}}
+{\footnotesize\ttfamily \label{classnetdem_1_1_solver_s_d_f_p_w_a005dd05c8f2f3616eb2a381daabdefad} 
+double netdem\+::\+Solver\+SDFPW\+::\+Ki\+To\+Kn (\begin{DoxyParamCaption}\item[{double}]{ki}{, }\item[{double}]{size\+\_\+eq}{, }\item[{double}]{size\+\_\+ratio}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\Hypertarget{classnetdem_1_1_solver_s_d_f_p_w_a9eb7693d27ab007242a02f24ac4a6e81}\index{netdem::SolverSDFPW@{netdem::SolverSDFPW}!ResolveInit@{ResolveInit}}
 \index{ResolveInit@{ResolveInit}!netdem::SolverSDFPW@{netdem::SolverSDFPW}}
 \doxysubsubsection{\texorpdfstring{ResolveInit()}{ResolveInit()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily void netdem\+::\+Solver\+SDFPW\+::\+Resolve\+Init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_collision_geometries}{Collision\+Geometries}} \texorpdfstring{$\ast$}{*}const}]{cnt\+\_\+geoms,  }\item[{double}]{timestep }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{classnetdem_1_1_solver_s_d_f_p_w_a9eb7693d27ab007242a02f24ac4a6e81} 
+void netdem\+::\+Solver\+SDFPW\+::\+Resolve\+Init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_collision_geometries}{Collision\+Geometries}} \texorpdfstring{$\ast$}{*}const}]{cnt\+\_\+geoms}{, }\item[{double}]{timestep}{}\end{DoxyParamCaption})}
 
 
 
@@ -258,11 +289,11 @@ Resolves the collision between the particle and the wall based on the initial co
 {\em timestep} & The timestep to use for resolving the collision. \\
 \hline
 \end{DoxyParams}
-\Hypertarget{classnetdem_1_1_solver_s_d_f_p_w_a36a0052e769c792ea93ecdb1569b5729}\label{classnetdem_1_1_solver_s_d_f_p_w_a36a0052e769c792ea93ecdb1569b5729} 
-\index{netdem::SolverSDFPW@{netdem::SolverSDFPW}!ResolveInit@{ResolveInit}}
+\Hypertarget{classnetdem_1_1_solver_s_d_f_p_w_a36a0052e769c792ea93ecdb1569b5729}\index{netdem::SolverSDFPW@{netdem::SolverSDFPW}!ResolveInit@{ResolveInit}}
 \index{ResolveInit@{ResolveInit}!netdem::SolverSDFPW@{netdem::SolverSDFPW}}
 \doxysubsubsection{\texorpdfstring{ResolveInit()}{ResolveInit()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily void netdem\+::\+Solver\+SDFPW\+::\+Resolve\+Init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_contact_p_w}{Contact\+PW}} \texorpdfstring{$\ast$}{*}const}]{cnt,  }\item[{double}]{timestep }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+{\footnotesize\ttfamily \label{classnetdem_1_1_solver_s_d_f_p_w_a36a0052e769c792ea93ecdb1569b5729} 
+void netdem\+::\+Solver\+SDFPW\+::\+Resolve\+Init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_contact_p_w}{Contact\+PW}} \texorpdfstring{$\ast$}{*}const}]{cnt}{, }\item[{double}]{timestep}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
@@ -282,11 +313,11 @@ Implements \mbox{\hyperlink{classnetdem_1_1_collision_solver_p_w_a1a4559783964fd
 \begin{Desc}
 \item[Examples]\par
 \mbox{\hyperlink{00_hertz_contact_8cpp-example}{00\+\_\+hertz\+\_\+contact.\+cpp}}, and \mbox{\hyperlink{81_golf_ball_impact_8cpp-example}{81\+\_\+golf\+\_\+ball\+\_\+impact.\+cpp}}.\end{Desc}
-\Hypertarget{classnetdem_1_1_solver_s_d_f_p_w_afc85af9a83a2f6c932901f17fc2960be}\label{classnetdem_1_1_solver_s_d_f_p_w_afc85af9a83a2f6c932901f17fc2960be} 
-\index{netdem::SolverSDFPW@{netdem::SolverSDFPW}!ResolveInitPToW@{ResolveInitPToW}}
+\Hypertarget{classnetdem_1_1_solver_s_d_f_p_w_afc85af9a83a2f6c932901f17fc2960be}\index{netdem::SolverSDFPW@{netdem::SolverSDFPW}!ResolveInitPToW@{ResolveInitPToW}}
 \index{ResolveInitPToW@{ResolveInitPToW}!netdem::SolverSDFPW@{netdem::SolverSDFPW}}
 \doxysubsubsection{\texorpdfstring{ResolveInitPToW()}{ResolveInitPToW()}}
-{\footnotesize\ttfamily void netdem\+::\+Solver\+SDFPW\+::\+Resolve\+Init\+PToW (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_collision_geometries}{Collision\+Geometries}} \texorpdfstring{$\ast$}{*}const}]{cnt\+\_\+geoms,  }\item[{double}]{timestep }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{classnetdem_1_1_solver_s_d_f_p_w_afc85af9a83a2f6c932901f17fc2960be} 
+void netdem\+::\+Solver\+SDFPW\+::\+Resolve\+Init\+PToW (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_collision_geometries}{Collision\+Geometries}} \texorpdfstring{$\ast$}{*}const}]{cnt\+\_\+geoms}{, }\item[{double}]{timestep}{}\end{DoxyParamCaption})}
 
 
 
@@ -299,11 +330,11 @@ Resolves the collision between the particle and the wall based on the initial co
 {\em timestep} & The timestep to use for resolving the collision. \\
 \hline
 \end{DoxyParams}
-\Hypertarget{classnetdem_1_1_solver_s_d_f_p_w_a40fdb70570a2f28e3f3ee11181b33dcd}\label{classnetdem_1_1_solver_s_d_f_p_w_a40fdb70570a2f28e3f3ee11181b33dcd} 
-\index{netdem::SolverSDFPW@{netdem::SolverSDFPW}!ResolveInitWToP@{ResolveInitWToP}}
+\Hypertarget{classnetdem_1_1_solver_s_d_f_p_w_a40fdb70570a2f28e3f3ee11181b33dcd}\index{netdem::SolverSDFPW@{netdem::SolverSDFPW}!ResolveInitWToP@{ResolveInitWToP}}
 \index{ResolveInitWToP@{ResolveInitWToP}!netdem::SolverSDFPW@{netdem::SolverSDFPW}}
 \doxysubsubsection{\texorpdfstring{ResolveInitWToP()}{ResolveInitWToP()}}
-{\footnotesize\ttfamily void netdem\+::\+Solver\+SDFPW\+::\+Resolve\+Init\+WToP (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_collision_geometries}{Collision\+Geometries}} \texorpdfstring{$\ast$}{*}const}]{cnt\+\_\+geoms,  }\item[{double}]{timestep }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{classnetdem_1_1_solver_s_d_f_p_w_a40fdb70570a2f28e3f3ee11181b33dcd} 
+void netdem\+::\+Solver\+SDFPW\+::\+Resolve\+Init\+WToP (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_collision_geometries}{Collision\+Geometries}} \texorpdfstring{$\ast$}{*}const}]{cnt\+\_\+geoms}{, }\item[{double}]{timestep}{}\end{DoxyParamCaption})}
 
 
 
@@ -316,11 +347,11 @@ Resolves the collision between the wall and the particle based on the initial co
 {\em timestep} & The timestep to use for resolving the collision. \\
 \hline
 \end{DoxyParams}
-\Hypertarget{classnetdem_1_1_solver_s_d_f_p_w_a91663bb5dc65da1eeaf16f90d7e1b6e2}\label{classnetdem_1_1_solver_s_d_f_p_w_a91663bb5dc65da1eeaf16f90d7e1b6e2} 
-\index{netdem::SolverSDFPW@{netdem::SolverSDFPW}!ResolveUpdate@{ResolveUpdate}}
+\Hypertarget{classnetdem_1_1_solver_s_d_f_p_w_a91663bb5dc65da1eeaf16f90d7e1b6e2}\index{netdem::SolverSDFPW@{netdem::SolverSDFPW}!ResolveUpdate@{ResolveUpdate}}
 \index{ResolveUpdate@{ResolveUpdate}!netdem::SolverSDFPW@{netdem::SolverSDFPW}}
 \doxysubsubsection{\texorpdfstring{ResolveUpdate()}{ResolveUpdate()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily void netdem\+::\+Solver\+SDFPW\+::\+Resolve\+Update (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_collision_geometries}{Collision\+Geometries}} \texorpdfstring{$\ast$}{*}const}]{cnt\+\_\+geoms,  }\item[{double}]{timestep }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{classnetdem_1_1_solver_s_d_f_p_w_a91663bb5dc65da1eeaf16f90d7e1b6e2} 
+void netdem\+::\+Solver\+SDFPW\+::\+Resolve\+Update (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_collision_geometries}{Collision\+Geometries}} \texorpdfstring{$\ast$}{*}const}]{cnt\+\_\+geoms}{, }\item[{double}]{timestep}{}\end{DoxyParamCaption})}
 
 
 
@@ -333,11 +364,11 @@ Updates the contact geometries object and resolves the collision based on the up
 {\em timestep} & The timestep to use for resolving the collision. \\
 \hline
 \end{DoxyParams}
-\Hypertarget{classnetdem_1_1_solver_s_d_f_p_w_a1c1fd6e474289240892763599a267f12}\label{classnetdem_1_1_solver_s_d_f_p_w_a1c1fd6e474289240892763599a267f12} 
-\index{netdem::SolverSDFPW@{netdem::SolverSDFPW}!ResolveUpdate@{ResolveUpdate}}
+\Hypertarget{classnetdem_1_1_solver_s_d_f_p_w_a1c1fd6e474289240892763599a267f12}\index{netdem::SolverSDFPW@{netdem::SolverSDFPW}!ResolveUpdate@{ResolveUpdate}}
 \index{ResolveUpdate@{ResolveUpdate}!netdem::SolverSDFPW@{netdem::SolverSDFPW}}
 \doxysubsubsection{\texorpdfstring{ResolveUpdate()}{ResolveUpdate()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily void netdem\+::\+Solver\+SDFPW\+::\+Resolve\+Update (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_contact_p_w}{Contact\+PW}} \texorpdfstring{$\ast$}{*}const}]{cnt,  }\item[{double}]{timestep }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+{\footnotesize\ttfamily \label{classnetdem_1_1_solver_s_d_f_p_w_a1c1fd6e474289240892763599a267f12} 
+void netdem\+::\+Solver\+SDFPW\+::\+Resolve\+Update (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_contact_p_w}{Contact\+PW}} \texorpdfstring{$\ast$}{*}const}]{cnt}{, }\item[{double}]{timestep}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
@@ -354,11 +385,11 @@ Updates the contact information object and resolves the collision based on the u
 
 Implements \mbox{\hyperlink{classnetdem_1_1_collision_solver_p_w_a1fa6dc4af91346ec8ec28db0c2bdd08e}{netdem\+::\+Collision\+Solver\+PW}}.
 
-\Hypertarget{classnetdem_1_1_solver_s_d_f_p_w_a2927f477db76d7c4cc7f687176a3a4d1}\label{classnetdem_1_1_solver_s_d_f_p_w_a2927f477db76d7c4cc7f687176a3a4d1} 
-\index{netdem::SolverSDFPW@{netdem::SolverSDFPW}!ResolveUpdatePToW@{ResolveUpdatePToW}}
+\Hypertarget{classnetdem_1_1_solver_s_d_f_p_w_a2927f477db76d7c4cc7f687176a3a4d1}\index{netdem::SolverSDFPW@{netdem::SolverSDFPW}!ResolveUpdatePToW@{ResolveUpdatePToW}}
 \index{ResolveUpdatePToW@{ResolveUpdatePToW}!netdem::SolverSDFPW@{netdem::SolverSDFPW}}
 \doxysubsubsection{\texorpdfstring{ResolveUpdatePToW()}{ResolveUpdatePToW()}}
-{\footnotesize\ttfamily void netdem\+::\+Solver\+SDFPW\+::\+Resolve\+Update\+PToW (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_collision_geometries}{Collision\+Geometries}} \texorpdfstring{$\ast$}{*}const}]{cnt\+\_\+geoms,  }\item[{double}]{timestep }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{classnetdem_1_1_solver_s_d_f_p_w_a2927f477db76d7c4cc7f687176a3a4d1} 
+void netdem\+::\+Solver\+SDFPW\+::\+Resolve\+Update\+PToW (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_collision_geometries}{Collision\+Geometries}} \texorpdfstring{$\ast$}{*}const}]{cnt\+\_\+geoms}{, }\item[{double}]{timestep}{}\end{DoxyParamCaption})}
 
 
 
@@ -371,11 +402,11 @@ Updates the contact geometries object and resolves the collision based on the up
 {\em timestep} & The timestep to use for resolving the collision. \\
 \hline
 \end{DoxyParams}
-\Hypertarget{classnetdem_1_1_solver_s_d_f_p_w_a53250f3c6c5c2af2f9bfdd3c35ffc050}\label{classnetdem_1_1_solver_s_d_f_p_w_a53250f3c6c5c2af2f9bfdd3c35ffc050} 
-\index{netdem::SolverSDFPW@{netdem::SolverSDFPW}!ResolveUpdateWToP@{ResolveUpdateWToP}}
+\Hypertarget{classnetdem_1_1_solver_s_d_f_p_w_a53250f3c6c5c2af2f9bfdd3c35ffc050}\index{netdem::SolverSDFPW@{netdem::SolverSDFPW}!ResolveUpdateWToP@{ResolveUpdateWToP}}
 \index{ResolveUpdateWToP@{ResolveUpdateWToP}!netdem::SolverSDFPW@{netdem::SolverSDFPW}}
 \doxysubsubsection{\texorpdfstring{ResolveUpdateWToP()}{ResolveUpdateWToP()}}
-{\footnotesize\ttfamily void netdem\+::\+Solver\+SDFPW\+::\+Resolve\+Update\+WToP (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_collision_geometries}{Collision\+Geometries}} \texorpdfstring{$\ast$}{*}const}]{cnt\+\_\+geoms,  }\item[{double}]{timestep }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{classnetdem_1_1_solver_s_d_f_p_w_a53250f3c6c5c2af2f9bfdd3c35ffc050} 
+void netdem\+::\+Solver\+SDFPW\+::\+Resolve\+Update\+WToP (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_collision_geometries}{Collision\+Geometries}} \texorpdfstring{$\ast$}{*}const}]{cnt\+\_\+geoms}{, }\item[{double}]{timestep}{}\end{DoxyParamCaption})}
 
 
 
@@ -391,24 +422,40 @@ Updates the contact geometries object and resolves the collision based on the up
 
 
 \doxysubsection{Member Data Documentation}
-\Hypertarget{classnetdem_1_1_solver_s_d_f_p_w_a7b4a89276056a7f48dc150048352e46e}\label{classnetdem_1_1_solver_s_d_f_p_w_a7b4a89276056a7f48dc150048352e46e} 
-\index{netdem::SolverSDFPW@{netdem::SolverSDFPW}!potential\_type@{potential\_type}}
+\Hypertarget{classnetdem_1_1_solver_s_d_f_p_w_ab2196579c715e1537c86679e85372702}\index{netdem::SolverSDFPW@{netdem::SolverSDFPW}!beta@{beta}}
+\index{beta@{beta}!netdem::SolverSDFPW@{netdem::SolverSDFPW}}
+\doxysubsubsection{\texorpdfstring{beta}{beta}}
+{\footnotesize\ttfamily \label{classnetdem_1_1_solver_s_d_f_p_w_ab2196579c715e1537c86679e85372702} 
+double netdem\+::\+Solver\+SDFPW\+::beta \{0.\+65\}}
+
+\Hypertarget{classnetdem_1_1_solver_s_d_f_p_w_a7b4a89276056a7f48dc150048352e46e}\index{netdem::SolverSDFPW@{netdem::SolverSDFPW}!potential\_type@{potential\_type}}
 \index{potential\_type@{potential\_type}!netdem::SolverSDFPW@{netdem::SolverSDFPW}}
 \doxysubsubsection{\texorpdfstring{potential\_type}{potential\_type}}
-{\footnotesize\ttfamily int netdem\+::\+Solver\+SDFPW\+::potential\+\_\+type \{\mbox{\hyperlink{classnetdem_1_1_solver_s_d_f_p_w_a5a5eb4fdc74c1276be050e7a92d5abb2a72452b11d2b55c1d0ffbefa88a5260fc}{Potential\+Type\+::linear}}\}}
+{\footnotesize\ttfamily \label{classnetdem_1_1_solver_s_d_f_p_w_a7b4a89276056a7f48dc150048352e46e} 
+int netdem\+::\+Solver\+SDFPW\+::potential\+\_\+type \{\mbox{\hyperlink{classnetdem_1_1_solver_s_d_f_p_w_a5a5eb4fdc74c1276be050e7a92d5abb2a72452b11d2b55c1d0ffbefa88a5260fc}{Potential\+Type\+::linear}}\}}
+
+
+
+Whether to solve both sides of the collision. 
 
 \begin{Desc}
 \item[Examples]\par
 \mbox{\hyperlink{00_hertz_contact_8cpp-example}{00\+\_\+hertz\+\_\+contact.\+cpp}}, and \mbox{\hyperlink{81_golf_ball_impact_8cpp-example}{81\+\_\+golf\+\_\+ball\+\_\+impact.\+cpp}}.\end{Desc}
-\Hypertarget{classnetdem_1_1_solver_s_d_f_p_w_ab69111df02ba58c0959e526fee3c0e89}\label{classnetdem_1_1_solver_s_d_f_p_w_ab69111df02ba58c0959e526fee3c0e89} 
-\index{netdem::SolverSDFPW@{netdem::SolverSDFPW}!solve\_two\_sides@{solve\_two\_sides}}
+\Hypertarget{classnetdem_1_1_solver_s_d_f_p_w_ab69111df02ba58c0959e526fee3c0e89}\index{netdem::SolverSDFPW@{netdem::SolverSDFPW}!solve\_two\_sides@{solve\_two\_sides}}
 \index{solve\_two\_sides@{solve\_two\_sides}!netdem::SolverSDFPW@{netdem::SolverSDFPW}}
 \doxysubsubsection{\texorpdfstring{solve\_two\_sides}{solve\_two\_sides}}
-{\footnotesize\ttfamily bool netdem\+::\+Solver\+SDFPW\+::solve\+\_\+two\+\_\+sides \{false\}}
+{\footnotesize\ttfamily \label{classnetdem_1_1_solver_s_d_f_p_w_ab69111df02ba58c0959e526fee3c0e89} 
+bool netdem\+::\+Solver\+SDFPW\+::solve\+\_\+two\+\_\+sides \{false\}}
 
-\begin{Desc}
+Whether to auto convert the model stiffness parameter, such that it is identical to those in conventional linear or Hertz contact. \begin{Desc}
 \item[Examples]\par
 \mbox{\hyperlink{81_golf_ball_impact_8cpp-example}{81\+\_\+golf\+\_\+ball\+\_\+impact.\+cpp}}.\end{Desc}
+\Hypertarget{classnetdem_1_1_solver_s_d_f_p_w_a746fa48a82de922af34c4d224bc9b179}\index{netdem::SolverSDFPW@{netdem::SolverSDFPW}!use\_equivalent\_stiffness@{use\_equivalent\_stiffness}}
+\index{use\_equivalent\_stiffness@{use\_equivalent\_stiffness}!netdem::SolverSDFPW@{netdem::SolverSDFPW}}
+\doxysubsubsection{\texorpdfstring{use\_equivalent\_stiffness}{use\_equivalent\_stiffness}}
+{\footnotesize\ttfamily \label{classnetdem_1_1_solver_s_d_f_p_w_a746fa48a82de922af34c4d224bc9b179} 
+bool netdem\+::\+Solver\+SDFPW\+::use\+\_\+equivalent\+\_\+stiffness \{true\}}
+
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

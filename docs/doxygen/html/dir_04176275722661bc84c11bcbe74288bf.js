@@ -12,6 +12,7 @@ var dir_04176275722661bc84c11bcbe74288bf =
     [ "scene", "dir_e5e25c93c80ecefe2230042860598afa.html", "dir_e5e25c93c80ecefe2230042860598afa" ],
     [ "shape", "dir_c7ce7a2949de94e8bf859e4edd46d516.html", "dir_c7ce7a2949de94e8bf859e4edd46d516" ],
     [ "utils", "dir_b957ce71d4cec3aa1e6b9f7647e1edd6.html", "dir_b957ce71d4cec3aa1e6b9f7647e1edd6" ],
+    [ "webgpu", "dir_c2bd3ddc678d8fd9a144a3c407627afa.html", "dir_c2bd3ddc678d8fd9a144a3c407627afa" ],
     [ "main.cpp", "main_8cpp.html", "main_8cpp" ],
     [ "netdem.hpp", "netdem_8hpp.html", null ],
     [ "simulation.cpp", "simulation_8cpp.html", null ],

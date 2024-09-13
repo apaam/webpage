@@ -20,12 +20,12 @@
 \DoxyCodeLine{}
 \DoxyCodeLine{\textcolor{keywordtype}{int}\ num\_samples\ =\ 1000000;}
 \DoxyCodeLine{}
-\DoxyCodeLine{\textcolor{keyword}{auto}\ *ds\_q\_pos\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}[num\_samples];}
-\DoxyCodeLine{\textcolor{keyword}{auto}\ *ds\_q\_quat\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{namespacenetdem_a13d5371f99b252a70fd5a5081b910370}{Vec4d}}[num\_samples];}
+\DoxyCodeLine{\textcolor{keyword}{auto}\ *ds\_q\_pos\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{namespacenetdem_a510a89239abc51ed4d8d88ce7ee403df}{Vec3d}}[num\_samples];}
+\DoxyCodeLine{\textcolor{keyword}{auto}\ *ds\_q\_quat\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{namespacenetdem_aa088f3b9daf31efbeb49c18db267c791}{Vec4d}}[num\_samples];}
 \DoxyCodeLine{}
 \DoxyCodeLine{\textcolor{keyword}{auto}\ *ds\_len\_n\ =\ \textcolor{keyword}{new}\ \textcolor{keywordtype}{double}[num\_samples];}
-\DoxyCodeLine{\textcolor{keyword}{auto}\ *ds\_dir\_n\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}[num\_samples];}
-\DoxyCodeLine{\textcolor{keyword}{auto}\ *ds\_pos\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}[num\_samples];}
+\DoxyCodeLine{\textcolor{keyword}{auto}\ *ds\_dir\_n\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{namespacenetdem_a510a89239abc51ed4d8d88ce7ee403df}{Vec3d}}[num\_samples];}
+\DoxyCodeLine{\textcolor{keyword}{auto}\ *ds\_pos\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{namespacenetdem_a510a89239abc51ed4d8d88ce7ee403df}{Vec3d}}[num\_samples];}
 \DoxyCodeLine{}
 \DoxyCodeLine{\mbox{\hyperlink{classnetdem_1_1_ellipsoid}{Ellipsoid}}\ ellipsoid\ =\ \mbox{\hyperlink{classnetdem_1_1_ellipsoid}{Ellipsoid}}(0.5,\ 1.0,\ 0.5);}
 \DoxyCodeLine{\mbox{\hyperlink{classnetdem_1_1_particle}{Particle}}\ p1\ =\ \mbox{\hyperlink{classnetdem_1_1_particle}{Particle}}(\&ellipsoid);}
@@ -38,9 +38,9 @@
 \DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ particle\ rotation}}
 \DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{double}\ rot\_axis\_theta\ =\ uniform\_dist.\mbox{\hyperlink{classnetdem_1_1_uniform_distribution_a7e39cbd0ed813d381022ad61986092bf}{Get}}()\ *\ Math::PI;}
 \DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{double}\ rot\_axis\_phi\ =\ uniform\_dist.\mbox{\hyperlink{classnetdem_1_1_uniform_distribution_a7e39cbd0ed813d381022ad61986092bf}{Get}}()\ *\ 2.0\ *\ Math::PI;}
-\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ rot\_axis\_sph\{1.0,\ rot\_axis\_theta,\ rot\_axis\_phi\};}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{namespacenetdem_a510a89239abc51ed4d8d88ce7ee403df}{Vec3d}}\ rot\_axis\_sph\{1.0,\ rot\_axis\_theta,\ rot\_axis\_phi\};}
 \DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{double}\ rot\_angle\ =\ uniform\_dist.\mbox{\hyperlink{classnetdem_1_1_uniform_distribution_a7e39cbd0ed813d381022ad61986092bf}{Get}}()\ *\ 2.0\ *\ Math::PI;}
-\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ rot\_axis\ =\ Math::SphericalToCartesian(rot\_axis\_sph);}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{namespacenetdem_a510a89239abc51ed4d8d88ce7ee403df}{Vec3d}}\ rot\_axis\ =\ Math::SphericalToCartesian(rot\_axis\_sph);}
 \DoxyCodeLine{\ \ \ \ ds\_q\_quat[i]\ =\ Math::Quaternion::FromRodrigues(rot\_angle,\ rot\_axis);}
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ target\ overlap}}
@@ -49,21 +49,21 @@
 \DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ target\ contact\ normal}}
 \DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{double}\ dir\_theta\ =\ uniform\_dist.\mbox{\hyperlink{classnetdem_1_1_uniform_distribution_a7e39cbd0ed813d381022ad61986092bf}{Get}}()\ *\ Math::PI;}
 \DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{double}\ dir\_phi\ =\ uniform\_dist.\mbox{\hyperlink{classnetdem_1_1_uniform_distribution_a7e39cbd0ed813d381022ad61986092bf}{Get}}()\ *\ 2.0\ *\ Math::PI;}
-\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ dir\_sph\{1.0,\ dir\_theta,\ dir\_phi\};}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{namespacenetdem_a510a89239abc51ed4d8d88ce7ee403df}{Vec3d}}\ dir\_sph\{1.0,\ dir\_theta,\ dir\_phi\};}
 \DoxyCodeLine{\ \ \ \ ds\_dir\_n[i]\ =\ Math::SphericalToCartesian(dir\_sph);}
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ get\ the\ support\ points}}
-\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ sup\_pos\_1,\ sup\_pos\_2;}
-\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ dir\_n\_inv\ =\ -\/1.0\ *\ ds\_dir\_n[i];}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{namespacenetdem_a510a89239abc51ed4d8d88ce7ee403df}{Vec3d}}\ sup\_pos\_1,\ sup\_pos\_2;}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{namespacenetdem_a510a89239abc51ed4d8d88ce7ee403df}{Vec3d}}\ dir\_n\_inv\ =\ -\/1.0\ *\ ds\_dir\_n[i];}
 \DoxyCodeLine{\ \ \ \ sup\_pos\_1\ =\ ellipsoid.\mbox{\hyperlink{classnetdem_1_1_ellipsoid_aff41be1941a2b21dcdab49bfaae55ad5}{SupportPoint}}(dir\_n\_inv);}
 \DoxyCodeLine{\ \ \ \ sup\_pos\_2\ =\ sup\_pos\_1\ +\ ds\_len\_n[i]\ *\ ds\_dir\_n[i];}
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ \ \ ds\_pos[i]\ =\ sup\_pos\_1\ +\ 0.5\ *\ ds\_len\_n[i]\ *\ ds\_dir\_n[i];}
 \DoxyCodeLine{}
-\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{namespacenetdem_a13d5371f99b252a70fd5a5081b910370}{Vec4d}}\ quat\_conj\ =\ Math::Quaternion::Conjugate(ds\_q\_quat[i]);}
-\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ dir\_n\_ref\ =\ Math::Rotate(ds\_dir\_n[i],\ quat\_conj);}
-\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ sup\_pos\_2\_ref\ =\ ellipsoid.\mbox{\hyperlink{classnetdem_1_1_ellipsoid_aff41be1941a2b21dcdab49bfaae55ad5}{SupportPoint}}(dir\_n\_ref);}
-\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ sup\_pos\_2\_rot\ =\ Math::Rotate(sup\_pos\_2\_ref,\ ds\_q\_quat[i]);}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{namespacenetdem_aa088f3b9daf31efbeb49c18db267c791}{Vec4d}}\ quat\_conj\ =\ Math::Quaternion::Conjugate(ds\_q\_quat[i]);}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{namespacenetdem_a510a89239abc51ed4d8d88ce7ee403df}{Vec3d}}\ dir\_n\_ref\ =\ Math::Rotate(ds\_dir\_n[i],\ quat\_conj);}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{namespacenetdem_a510a89239abc51ed4d8d88ce7ee403df}{Vec3d}}\ sup\_pos\_2\_ref\ =\ ellipsoid.\mbox{\hyperlink{classnetdem_1_1_ellipsoid_aff41be1941a2b21dcdab49bfaae55ad5}{SupportPoint}}(dir\_n\_ref);}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{namespacenetdem_a510a89239abc51ed4d8d88ce7ee403df}{Vec3d}}\ sup\_pos\_2\_rot\ =\ Math::Rotate(sup\_pos\_2\_ref,\ ds\_q\_quat[i]);}
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ calculate\ the\ particle\ position}}
 \DoxyCodeLine{\ \ \ \ ds\_q\_pos[i]\ =\ sup\_pos\_2\ -\/\ sup\_pos\_2\_rot;}

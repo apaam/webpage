@@ -1,0 +1,58 @@
+\doxysection{webgpu\+\_\+prefix\+\_\+sum.\+hpp}
+\hypertarget{webgpu__prefix__sum_8hpp_source}{}\label{webgpu__prefix__sum_8hpp_source}\index{/Users/lzhshou/Documents/Research/myProjects/apaam/repo/netdem/src/webgpu/webgpu\_prefix\_sum.hpp@{/Users/lzhshou/Documents/Research/myProjects/apaam/repo/netdem/src/webgpu/webgpu\_prefix\_sum.hpp}}
+\mbox{\hyperlink{webgpu__prefix__sum_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <webgpu/webgpu.hpp>}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacenetdem}{netdem}}\ \{}
+\DoxyCodeLine{00007\ \textcolor{keyword}{namespace\ }webgpu\ \{}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classnetdem_1_1webgpu_1_1_prefix_sum}{PrefixSum}}\ \{}
+\DoxyCodeLine{00010\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00011\ \ \ \mbox{\hyperlink{classnetdem_1_1webgpu_1_1_prefix_sum_ae7fe2456b43b736dc96ed3cd9c33ee7d}{PrefixSum}}(wgpu::Device\ \&device);}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1webgpu_1_1_prefix_sum_a01c13516ce19dc66d9d86a775da9f9a5}{Init}}(wgpu::Device\ \&device);}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1webgpu_1_1_prefix_sum_a4be841e8fe7f5de72e25a002f9eb8e67}{Solve}}(wgpu::Buffer\ buffer\_src,\ wgpu::Buffer\ buffer\_dst,}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ array\_size);}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00019\ \ \ wgpu::Device\ \&device;}
+\DoxyCodeLine{00020\ \ \ wgpu::BindGroupLayout\ bg\_layout;}
+\DoxyCodeLine{00021\ \ \ wgpu::ComputePipeline\ cmp\_pl\_prefix\_sum\_sub;}
+\DoxyCodeLine{00022\ \ \ wgpu::ComputePipeline\ cmp\_pl\_add\_block\_sums;}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1webgpu_1_1_prefix_sum_a01c13516ce19dc66d9d86a775da9f9a5}{Init}}();}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \ \ \textcolor{keywordtype}{void}\ InitBindGroupLayout();}
+\DoxyCodeLine{00027\ \ \ wgpu::BindGroup\ GetBindGroup(wgpu::Buffer\ buffer\_data\_src,}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ wgpu::Buffer\ buffer\_presum\_src,}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ wgpu::Buffer\ buffer\_dst,\ \textcolor{keywordtype}{size\_t}\ offset\_data\_src,}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ offset\_presum\_src,\ \textcolor{keywordtype}{size\_t}\ offset\_dst,}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ array\_size\_src,\ \textcolor{keywordtype}{size\_t}\ array\_size\_dst);}
+\DoxyCodeLine{00032\ \ \ \textcolor{keywordtype}{void}\ InitPipeline();}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \ \ \textcolor{keywordtype}{void}\ PrefixSumSub(wgpu::Buffer\ buffer\_data\_src,}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ wgpu::Buffer\ buffer\_presum\_src,\ wgpu::Buffer\ buffer\_dst,}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ offset\_data\_src,\ \textcolor{keywordtype}{size\_t}\ offset\_presum\_src,}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ offset\_dst,\ \textcolor{keywordtype}{size\_t}\ array\_size\_src,}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ array\_size\_dst,\ wgpu::ComputePassEncoder\ cmp\_pass);}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \ \ \textcolor{keywordtype}{void}\ AddBlockSums(wgpu::Buffer\ buffer\_data\_src,}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ wgpu::Buffer\ buffer\_presum\_src,\ wgpu::Buffer\ buffer\_dst,}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ offset\_data\_src,\ \textcolor{keywordtype}{size\_t}\ offset\_presum\_src,}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ offset\_dst,\ \textcolor{keywordtype}{size\_t}\ array\_size\_src,}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ array\_size\_dst,\ wgpu::ComputePassEncoder\ cmp\_pass);}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{size\_t}\ workgroup\_size\ =\ 256;}
+\DoxyCodeLine{00047\ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{size\_t}\ ele\_size\ =\ \textcolor{keyword}{sizeof}(u\_int32\_t);}
+\DoxyCodeLine{00048\ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{size\_t}\ align\_size\ =\ 256\ /\ ele\_size;}
+\DoxyCodeLine{00049\ \};}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \}\ \textcolor{comment}{//\ namespace\ webgpu}}
+\DoxyCodeLine{00052\ \}\ \textcolor{comment}{//\ namespace\ netdem}}
+
+\end{DoxyCode}

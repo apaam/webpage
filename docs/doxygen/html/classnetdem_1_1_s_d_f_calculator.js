@@ -6,6 +6,5 @@ var classnetdem_1_1_s_d_f_calculator =
     [ "InitFromSTL", "classnetdem_1_1_s_d_f_calculator.html#abde55bf4a5f69649136cadc5ace8537a", null ],
     [ "InitFromSTL", "classnetdem_1_1_s_d_f_calculator.html#ab41ef27da95b30a9e59ff067950bf64b", null ],
     [ "SignedDistance", "classnetdem_1_1_s_d_f_calculator.html#ac6f6822eccf2696168ad4d376ce528e5", null ],
-    [ "SurfacePoint", "classnetdem_1_1_s_d_f_calculator.html#a1aa5ad48be7c50db1fd9df163494049b", null ],
-    [ "max_distance", "classnetdem_1_1_s_d_f_calculator.html#ae5110336b03e5804fa16efb00e43d8b2", null ]
+    [ "SurfacePoint", "classnetdem_1_1_s_d_f_calculator.html#a1aa5ad48be7c50db1fd9df163494049b", null ]
 ];
