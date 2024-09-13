@@ -2,8 +2,8 @@ var classnetdem_1_1_polybezier =
 [
     [ "Polybezier", "classnetdem_1_1_polybezier.html#a310db06214373de8588a02916ef8616c", null ],
     [ "Clone", "classnetdem_1_1_polybezier.html#a439a9125f96253fa67b83cb3fa126490", null ],
-    [ "GetSTLModel", "classnetdem_1_1_polybezier.html#a063a225810a381792101b8605365cb48", null ],
-    [ "GetSTLModel_v2", "classnetdem_1_1_polybezier.html#aceafc98349bcb17dc9cc766a0489d465", null ],
+    [ "GetSTLModel", "classnetdem_1_1_polybezier.html#a23ac5612f7f5dd7d67428f1327015493", null ],
+    [ "GetSTLModel_v2", "classnetdem_1_1_polybezier.html#aa563b05298febf05c9969e8bcc95d8f0", null ],
     [ "Init", "classnetdem_1_1_polybezier.html#a6d749ac649b147ad1f6cd540e3dbe080", null ],
     [ "InitByRandom", "classnetdem_1_1_polybezier.html#afa6b26c41ac4b7d67605b5195d31cb94", null ],
     [ "InitFromJson", "classnetdem_1_1_polybezier.html#aa812d6b44f8fc2e6679b25009c659cad", null ],

@@ -84,7 +84,7 @@
 \DoxyCodeLine{\ \ \textcolor{keywordtype}{string}\ root\_dir\ =\ \textcolor{stringliteral}{"{}tmp/examples/sdf\_dem/sdf\_demo/"{}};}
 \DoxyCodeLine{\ \ filesystem::create\_directories(root\_dir);}
 \DoxyCodeLine{}
-\DoxyCodeLine{\ \ \textcolor{keyword}{auto}\ stl\_model\ =\ shape-\/>GetSTLModel(2000);}
+\DoxyCodeLine{\ \ \textcolor{keyword}{auto}\ stl\_model\ =\ shape-\/>GetSTLModel(1000);}
 \DoxyCodeLine{\ \ stl\_model.SaveAsSTL(root\_dir\ +\ \textcolor{stringliteral}{"{}surface.stl"{}});}
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ \textcolor{keywordtype}{double}\ mesh\_size\ =}
@@ -96,7 +96,7 @@
 \DoxyCodeLine{\ \ stl\_model.SaveAsSTL(root\_dir\ +\ \textcolor{stringliteral}{"{}surface\_mesh.stl"{}});}
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ \textcolor{comment}{//\ calculate\ the\ signed\ distance}}
-\DoxyCodeLine{\ \ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<double>}}\ dist\_list;}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{VecXT<double>}}\ dist\_list;}
 \DoxyCodeLine{\ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \&node\ :\ tetmesh.\mbox{\hyperlink{classnetdem_1_1_tet_mesh_a851cb634900ec65f4370559106970bfb}{nodes}})\ \{}
 \DoxyCodeLine{\ \ \ \ dist\_list.push\_back(shape-\/>SignedDistance(node));}
 \DoxyCodeLine{\ \ \}}
@@ -105,12 +105,10 @@
 \DoxyCodeLine{\ \ dem\_profiler.\mbox{\hyperlink{classnetdem_1_1_d_e_m_profiler_a78b51bc67b8a79503f870ee34ac89e76}{Clear}}();}
 \DoxyCodeLine{\ \ dem\_profiler.\mbox{\hyperlink{classnetdem_1_1_d_e_m_profiler_aec4a998774b78edc07c06b148f0b3cf7}{StartTimer}}(DEMProfiler::TimerType::custom);}
 \DoxyCodeLine{}
-\DoxyCodeLine{\ \ \mbox{\hyperlink{classnetdem_1_1_uniform_distribution}{UniformDistribution}}\ uniform\_dist\_x(shape-\/>bound\_aabb\_min[0],}
-\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ shape-\/>bound\_aabb\_max[0]);}
-\DoxyCodeLine{\ \ \mbox{\hyperlink{classnetdem_1_1_uniform_distribution}{UniformDistribution}}\ uniform\_dist\_y(shape-\/>bound\_aabb\_min[1],}
-\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ shape-\/>bound\_aabb\_max[1]);}
-\DoxyCodeLine{\ \ \mbox{\hyperlink{classnetdem_1_1_uniform_distribution}{UniformDistribution}}\ uniform\_dist\_z(shape-\/>bound\_aabb\_min[2],}
-\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ shape-\/>bound\_aabb\_max[1]);}
+\DoxyCodeLine{\ \ \textcolor{keyword}{auto}\ [bound\_aabb\_min,\ bound\_aabb\_max]\ =\ shape-\/>GetBoundAABB();}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{classnetdem_1_1_uniform_distribution}{UniformDistribution}}\ uniform\_dist\_x(bound\_aabb\_min[0],\ bound\_aabb\_max[0]);}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{classnetdem_1_1_uniform_distribution}{UniformDistribution}}\ uniform\_dist\_y(bound\_aabb\_min[1],\ bound\_aabb\_max[1]);}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{classnetdem_1_1_uniform_distribution}{UniformDistribution}}\ uniform\_dist\_z(bound\_aabb\_min[2],\ bound\_aabb\_max[1]);}
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ \textcolor{keywordtype}{int}\ num\_trials\ =\ 1e3;}
 \DoxyCodeLine{\ \ \textcolor{keyword}{auto}\ pos\_x\_list\ =\ uniform\_dist\_x.\mbox{\hyperlink{classnetdem_1_1_uniform_distribution_a7e39cbd0ed813d381022ad61986092bf}{Get}}(num\_trials);}
@@ -119,8 +117,8 @@
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ num\_trials;\ i++)\ \{}
 \DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \&node\ :\ tetmesh.\mbox{\hyperlink{classnetdem_1_1_tet_mesh_a851cb634900ec65f4370559106970bfb}{nodes}})\ \{}
-\DoxyCodeLine{\ \ \ \ \ \ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ pos\{pos\_x\_list[i],\ pos\_y\_list[i],\ pos\_z\_list[i]\};}
-\DoxyCodeLine{\ \ \ \ \ \ shape-\/>SignedDistance(pos);}
+\DoxyCodeLine{\ \ \ \ \ \ \mbox{\hyperlink{namespacenetdem_a510a89239abc51ed4d8d88ce7ee403df}{Vec3d}}\ \mbox{\hyperlink{namespacenetdem_a3c02b9c21c10a18b737b5591b4c0c324}{pos}}\{pos\_x\_list[i],\ pos\_y\_list[i],\ pos\_z\_list[i]\};}
+\DoxyCodeLine{\ \ \ \ \ \ shape-\/>SignedDistance(\mbox{\hyperlink{namespacenetdem_a3c02b9c21c10a18b737b5591b4c0c324}{pos}});}
 \DoxyCodeLine{\ \ \ \ \}}
 \DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{if}\ ((i\ +\ 1)\ \%\ 100\ ==\ 0)\ \{}
 \DoxyCodeLine{\ \ \ \ \ \ cout\ <<\ i\ +\ 1\ <<\ endl;}

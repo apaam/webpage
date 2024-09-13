@@ -1,0 +1,54 @@
+\doxysection{json\+\_\+serilization.\+hpp}
+\hypertarget{json__serilization_8hpp_source}{}\label{json__serilization_8hpp_source}\index{/Users/lzhshou/Documents/Research/myProjects/apaam/repo/netdem/src/utils/json\_serilization.hpp@{/Users/lzhshou/Documents/Research/myProjects/apaam/repo/netdem/src/utils/json\_serilization.hpp}}
+\mbox{\hyperlink{json__serilization_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{bond__entry__parser_8hpp}{bond\_entry\_parser.hpp}}"{}}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{collision__entry__parser_8hpp}{collision\_entry\_parser.hpp}}"{}}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{contact__pp__parser_8hpp}{contact\_pp\_parser.hpp}}"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{contact__pw__parser_8hpp}{contact\_pw\_parser.hpp}}"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{particle_8hpp}{particle.hpp}}"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{wall_8hpp}{wall.hpp}}"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <nlohmann/json.hpp>}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacenetdem}{netdem}}\ \{}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \mbox{\hyperlink{namespacenetdem_a8dea4d25a4ab3f2d0ed7d08f7b39f663}{NLOHMANN\_DEFINE\_TYPE\_NON\_INTRUSIVE}}(\mbox{\hyperlink{classnetdem_1_1_bond_geometries}{BondGeometries}},\ \mbox{\hyperlink{namespacenetdem_a3c02b9c21c10a18b737b5591b4c0c324}{pos}},\ \mbox{\hyperlink{namespacenetdem_acfdf2ec334780123689f95ba696a20f1}{dir\_n}},\ \mbox{\hyperlink{namespacenetdem_ad781032f474d093072bc8b8d2c7e1db6}{dir\_s}},\ \mbox{\hyperlink{namespacenetdem_ab28ae705d139fda86d1b127d7199980c}{dir\_t}},}
+\DoxyCodeLine{00012\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacenetdem_ae6de6f8b7d708c58b38429d7d6820e0f}{branch\_1}},\ \mbox{\hyperlink{namespacenetdem_a722f45097a01f42aa83aae7bd13eb056}{branch\_2}},\ pos\_ini,\ dir\_n\_ini,}
+\DoxyCodeLine{00013\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ dir\_s\_ini,\ dir\_t\_ini,\ pos\_1\_ini,\ pos\_2\_ini,}
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ quat\_1\_ini,\ quat\_2\_ini,\ radius,\ \mbox{\hyperlink{namespacenetdem_a96843b33c5f3ded90fa1bb19118df27d}{len\_n}},\ len\_s,}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ len\_t,\ \mbox{\hyperlink{namespacenetdem_a03b135c8ae50c67ec13f2a7563082528}{dlen\_n}},\ \mbox{\hyperlink{namespacenetdem_a43d62e701d798c61ecec61226185a928}{dlen\_s}},\ \mbox{\hyperlink{namespacenetdem_adaf3dbbf247d995070b865f9bd1be857}{dlen\_t}},\ theta\_n,}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ theta\_s,\ theta\_t,\ \mbox{\hyperlink{namespacenetdem_a98362df1ebcc2ac97c08d7349d3bf722}{dtheta\_n}},\ \mbox{\hyperlink{namespacenetdem_aaf900f48d6e5ed2463811204b18a5389}{dtheta\_s}},}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacenetdem_a25ca175d89f103f626b13b0fddcef1d0}{dtheta\_t}},\ \mbox{\hyperlink{namespacenetdem_adf466b30bef78ab0de75ca8444568be5}{active}})}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \mbox{\hyperlink{namespacenetdem_a8dea4d25a4ab3f2d0ed7d08f7b39f663}{NLOHMANN\_DEFINE\_TYPE\_NON\_INTRUSIVE}}(\mbox{\hyperlink{classnetdem_1_1_collision_geometries}{CollisionGeometries}},\ \mbox{\hyperlink{namespacenetdem_a3c02b9c21c10a18b737b5591b4c0c324}{pos}},\ \mbox{\hyperlink{namespacenetdem_acfdf2ec334780123689f95ba696a20f1}{dir\_n}},\ \mbox{\hyperlink{namespacenetdem_ad781032f474d093072bc8b8d2c7e1db6}{dir\_s}},}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacenetdem_ab28ae705d139fda86d1b127d7199980c}{dir\_t}},\ \mbox{\hyperlink{namespacenetdem_ae6de6f8b7d708c58b38429d7d6820e0f}{branch\_1}},\ \mbox{\hyperlink{namespacenetdem_a722f45097a01f42aa83aae7bd13eb056}{branch\_2}},\ \mbox{\hyperlink{namespacenetdem_a96843b33c5f3ded90fa1bb19118df27d}{len\_n}},\ \mbox{\hyperlink{namespacenetdem_a03b135c8ae50c67ec13f2a7563082528}{dlen\_n}},}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacenetdem_a43d62e701d798c61ecec61226185a928}{dlen\_s}},\ \mbox{\hyperlink{namespacenetdem_adaf3dbbf247d995070b865f9bd1be857}{dlen\_t}},\ \mbox{\hyperlink{namespacenetdem_a98362df1ebcc2ac97c08d7349d3bf722}{dtheta\_n}},\ \mbox{\hyperlink{namespacenetdem_aaf900f48d6e5ed2463811204b18a5389}{dtheta\_s}},\ \mbox{\hyperlink{namespacenetdem_a25ca175d89f103f626b13b0fddcef1d0}{dtheta\_t}},}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacenetdem_ae7bf4cee2eafcf36159fb939c937addd}{radius\_1}},\ \mbox{\hyperlink{namespacenetdem_ac8c1ab44d6df2b12eb5ef4139a213545}{radius\_2}},\ \mbox{\hyperlink{namespacenetdem_adf466b30bef78ab0de75ca8444568be5}{active}},\ \mbox{\hyperlink{namespacenetdem_ab550997597e29a17317bb63870f08e50}{node\_2to1}},}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacenetdem_a487da198a3d3c82f7c3e17a5e4b1f933}{node\_id}},\ \mbox{\hyperlink{namespacenetdem_a1aa14eedbdc9d4da6f670a09943a8939}{node\_dist}},\ \mbox{\hyperlink{namespacenetdem_af2cee258436686cb9d2fdd72b469e0d9}{vol}},\ sn)}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \mbox{\hyperlink{namespacenetdem_a8dea4d25a4ab3f2d0ed7d08f7b39f663}{NLOHMANN\_DEFINE\_TYPE\_NON\_INTRUSIVE}}(\mbox{\hyperlink{classnetdem_1_1_contact_forces}{ContactForces}},\ fc\_n,\ fc\_s,\ fc\_t,\ mc\_n,\ mc\_s,}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mc\_t,\ fd\_n,\ fd\_s,\ fd\_t,\ md\_n,\ md\_s,\ md\_t,}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ force,\ moment,\ force\_n,\ force\_t,\ moment\_n,}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ moment\_t)}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacenetdem_a9dcb9e4e7d2230410a6269d289e6271b}{to\_json}}(nlohmann::\mbox{\hyperlink{input__processor_8cpp_a0c01dbde6677d7e4769b85716c69c491}{json}}\ \&js,\ const\ \mbox{\hyperlink{classnetdem_1_1_bond_entry}{BondEntry}}\ \&obj);}
+\DoxyCodeLine{00031\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacenetdem_a657c3be25a06b452da1083cc1c70f5db}{from\_json}}(const\ nlohmann::\mbox{\hyperlink{input__processor_8cpp_a0c01dbde6677d7e4769b85716c69c491}{json}}\ \&js,\ \mbox{\hyperlink{classnetdem_1_1_bond_entry}{BondEntry}}\ \&obj);}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacenetdem_a9dcb9e4e7d2230410a6269d289e6271b}{to\_json}}(nlohmann::\mbox{\hyperlink{input__processor_8cpp_a0c01dbde6677d7e4769b85716c69c491}{json}}\ \&js,\ const\ \mbox{\hyperlink{classnetdem_1_1_collision_entry}{CollisionEntry}}\ \&obj);}
+\DoxyCodeLine{00034\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacenetdem_a657c3be25a06b452da1083cc1c70f5db}{from\_json}}(const\ nlohmann::\mbox{\hyperlink{input__processor_8cpp_a0c01dbde6677d7e4769b85716c69c491}{json}}\ \&js,\ \mbox{\hyperlink{classnetdem_1_1_collision_entry}{CollisionEntry}}\ \&obj);}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacenetdem_a9dcb9e4e7d2230410a6269d289e6271b}{to\_json}}(nlohmann::\mbox{\hyperlink{input__processor_8cpp_a0c01dbde6677d7e4769b85716c69c491}{json}}\ \&js,\ const\ \mbox{\hyperlink{classnetdem_1_1_contact_p_p}{ContactPP}}\ \&obj);}
+\DoxyCodeLine{00037\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacenetdem_a657c3be25a06b452da1083cc1c70f5db}{from\_json}}(const\ nlohmann::\mbox{\hyperlink{input__processor_8cpp_a0c01dbde6677d7e4769b85716c69c491}{json}}\ \&js,\ \mbox{\hyperlink{classnetdem_1_1_contact_p_p}{ContactPP}}\ \&obj);}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacenetdem_a9dcb9e4e7d2230410a6269d289e6271b}{to\_json}}(nlohmann::\mbox{\hyperlink{input__processor_8cpp_a0c01dbde6677d7e4769b85716c69c491}{json}}\ \&js,\ const\ \mbox{\hyperlink{classnetdem_1_1_contact_p_w}{ContactPW}}\ \&obj);}
+\DoxyCodeLine{00040\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacenetdem_a657c3be25a06b452da1083cc1c70f5db}{from\_json}}(const\ nlohmann::\mbox{\hyperlink{input__processor_8cpp_a0c01dbde6677d7e4769b85716c69c491}{json}}\ \&js,\ \mbox{\hyperlink{classnetdem_1_1_contact_p_w}{ContactPW}}\ \&obj);}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacenetdem_a9dcb9e4e7d2230410a6269d289e6271b}{to\_json}}(nlohmann::\mbox{\hyperlink{input__processor_8cpp_a0c01dbde6677d7e4769b85716c69c491}{json}}\ \&js,\ const\ \mbox{\hyperlink{classnetdem_1_1_particle}{Particle}}\ \&obj);}
+\DoxyCodeLine{00043\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacenetdem_a657c3be25a06b452da1083cc1c70f5db}{from\_json}}(const\ nlohmann::\mbox{\hyperlink{input__processor_8cpp_a0c01dbde6677d7e4769b85716c69c491}{json}}\ \&js,\ \mbox{\hyperlink{classnetdem_1_1_particle}{Particle}}\ \&obj);}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacenetdem_a9dcb9e4e7d2230410a6269d289e6271b}{to\_json}}(nlohmann::\mbox{\hyperlink{input__processor_8cpp_a0c01dbde6677d7e4769b85716c69c491}{json}}\ \&js,\ const\ \mbox{\hyperlink{classnetdem_1_1_wall}{Wall}}\ \&obj);}
+\DoxyCodeLine{00046\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacenetdem_a657c3be25a06b452da1083cc1c70f5db}{from\_json}}(const\ nlohmann::\mbox{\hyperlink{input__processor_8cpp_a0c01dbde6677d7e4769b85716c69c491}{json}}\ \&js,\ \mbox{\hyperlink{classnetdem_1_1_wall}{Wall}}\ \&obj);}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \}\ \textcolor{comment}{//\ namespace\ netdem}}
+
+\end{DoxyCode}

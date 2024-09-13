@@ -35,7 +35,7 @@
 \DoxyCodeLine{\ \ sim-\/>\mbox{\hyperlink{classnetdem_1_1_simulation_a072310a2f5600bccce29d2d4157b8c61}{dem\_solver}}.\mbox{\hyperlink{classnetdem_1_1_d_e_m_solver_afacb73a3ad5d0cdb271e71ba518ab545}{contact\_solver\_factory}}.\mbox{\hyperlink{classnetdem_1_1_contact_solver_factory_ad85c98c349f2a40ad26e63e23605a3dc}{settings}}.\mbox{\hyperlink{classnetdem_1_1_contact_solver_settings_a3385a311115950587f496c976a3fa67f}{solver\_type}}\ =}
 \DoxyCodeLine{\ \ \ \ \ \ ContactSolverSettings::SolverType::sdf;}
 \DoxyCodeLine{\ \ sim-\/>\mbox{\hyperlink{classnetdem_1_1_simulation_a072310a2f5600bccce29d2d4157b8c61}{dem\_solver}}.\mbox{\hyperlink{classnetdem_1_1_d_e_m_solver_afacb73a3ad5d0cdb271e71ba518ab545}{contact\_solver\_factory}}.\mbox{\hyperlink{classnetdem_1_1_contact_solver_factory_ad85c98c349f2a40ad26e63e23605a3dc}{settings}}.\mbox{\hyperlink{classnetdem_1_1_contact_solver_settings_a42078a4cfb9c398ee7d3283dc13a1496}{sdf\_potential\_type}}\ =\ 1;}
-\DoxyCodeLine{\ \ \mbox{\hyperlink{classnetdem_1_1_linear_spring}{LinearSpring}}\ contact\_model\ =\ \mbox{\hyperlink{classnetdem_1_1_linear_spring}{LinearSpring}}(2.0e3,\ 1.0e4,\ 0.3,\ 0.0);}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{classnetdem_1_1_linear_spring}{LinearSpring}}\ contact\_model\ =\ \mbox{\hyperlink{classnetdem_1_1_linear_spring}{LinearSpring}}(2.0e3,\ 1.0e4,\ 0.0,\ 0.0);}
 \DoxyCodeLine{\ \ sim-\/>\mbox{\hyperlink{classnetdem_1_1_simulation_add17bfcd927bd2b7f14f05855c20bea3}{scene}}.\mbox{\hyperlink{classnetdem_1_1_scene_a16e8cd7195ba20a9d0bee14498b69c4f}{InsertContactModel}}(\&contact\_model);}
 \DoxyCodeLine{\ \ sim-\/>\mbox{\hyperlink{classnetdem_1_1_simulation_add17bfcd927bd2b7f14f05855c20bea3}{scene}}.\mbox{\hyperlink{classnetdem_1_1_scene_a37580ce0b6492c6580c85a999aae8397}{SetNumberOfMaterials}}(1);}
 \DoxyCodeLine{\ \ sim-\/>\mbox{\hyperlink{classnetdem_1_1_simulation_add17bfcd927bd2b7f14f05855c20bea3}{scene}}.\mbox{\hyperlink{classnetdem_1_1_scene_a632f1fb42f6fdd508b3d534520110a4e}{SetCollisionModel}}(0,\ 0,\ contact\_model.\mbox{\hyperlink{classnetdem_1_1_contact_model_ac452f37ee577eb8e2cefa4156d9c62ab}{label}});}
@@ -45,10 +45,11 @@
 \DoxyCodeLine{\ \ ellipsoid.\mbox{\hyperlink{classnetdem_1_1_poly_super_ellipsoid_add0e7ce7668bb0fe006087de5c1dc4b7}{SetSize}}(0.05);}
 \DoxyCodeLine{\ \ sim-\/>\mbox{\hyperlink{classnetdem_1_1_simulation_add17bfcd927bd2b7f14f05855c20bea3}{scene}}.\mbox{\hyperlink{classnetdem_1_1_scene_a398e24fbcba078c40b7970edbe44e325}{InsertShape}}(\&ellipsoid);}
 \DoxyCodeLine{}
-\DoxyCodeLine{\ \ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<Particle>}}\ particle\_list\ =\ PackGenerator::GetGridPack(}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{VecXT<Particle>}}\ particle\_list\ =\ PackGenerator::GetGridPack(}
 \DoxyCodeLine{\ \ \ \ \ \ 1,\ 1,\ 0.2,\ 0,\ 0,\ 1.4,\ 10,\ 10,\ 2,\ sim-\/>\mbox{\hyperlink{classnetdem_1_1_simulation_add17bfcd927bd2b7f14f05855c20bea3}{scene}}.\mbox{\hyperlink{classnetdem_1_1_scene_aaaf2e298f7e7bbd9dc8e34ec683a23f4}{GetShapes}}());}
 \DoxyCodeLine{\ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \&p\ :\ particle\_list)\ \{}
 \DoxyCodeLine{\ \ \ \ p.SetVelocity(0,\ 0,\ -\/2.0);}
+\DoxyCodeLine{\ \ \ \ p.damp\_numerical\ =\ 0.7;}
 \DoxyCodeLine{\ \ \}}
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ \mbox{\hyperlink{classnetdem_1_1_wall_box_plane}{WallBoxPlane}}\ wall\_box(1,\ 1,\ 2,\ 0,\ 0,\ 0.5);}

@@ -1,0 +1,30 @@
+\doxysection{add\+\_\+block\+\_\+sums.\+wgsl.\+h}
+\hypertarget{prefix__sum_2add__block__sums_8wgsl_8h_source}{}\label{prefix__sum_2add__block__sums_8wgsl_8h_source}\index{/Users/lzhshou/Documents/Research/myProjects/apaam/repo/netdem/src/webgpu/shaders/webgpu\_math/prefix\_sum/add\_block\_sums.wgsl.h@{/Users/lzhshou/Documents/Research/myProjects/apaam/repo/netdem/src/webgpu/shaders/webgpu\_math/prefix\_sum/add\_block\_sums.wgsl.h}}
+\mbox{\hyperlink{prefix__sum_2add__block__sums_8wgsl_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \mbox{\hyperlink{prefix__sum_2add__block__sums_8wgsl_8h_a65b4cab7bc806f8e8aab7bcd04b44f34}{shader\_source}}\ =\ R\textcolor{stringliteral}{"{}(}}
+\DoxyCodeLine{00006\ \textcolor{stringliteral}{//\ Define\ the\ binding\ group\ layout}}
+\DoxyCodeLine{00007\ \textcolor{stringliteral}{@group(0)\ @binding(1)\ var<storage,\ read\_write>\ result:\ array<u32>;}}
+\DoxyCodeLine{00008\ \textcolor{stringliteral}{@group(0)\ @binding(2)\ var<storage,\ read\_write>\ aux:\ array<u32>;}}
+\DoxyCodeLine{00009\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{00010\ \textcolor{stringliteral}{const\ WORKGROUP\_SIZE\ :\ u32\ =\ 256u;}}
+\DoxyCodeLine{00011\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{00012\ \textcolor{stringliteral}{@compute\ @workgroup\_size(WORKGROUP\_SIZE)}}
+\DoxyCodeLine{00013\ \textcolor{stringliteral}{fn\ AddBlockSums(}}
+\DoxyCodeLine{00014\ \textcolor{stringliteral}{\ \ \ \ @builtin(global\_invocation\_id)\ global\_id:\ vec3<u32>,}}
+\DoxyCodeLine{00015\ \textcolor{stringliteral}{\ \ \ \ @builtin(local\_invocation\_id)\ local\_id:\ vec3<u32>,}}
+\DoxyCodeLine{00016\ \textcolor{stringliteral}{\ \ \ \ @builtin(workgroup\_id)\ group\_id:\ vec3<u32>}}
+\DoxyCodeLine{00017\ \textcolor{stringliteral}{)\ \{}}
+\DoxyCodeLine{00018\ \textcolor{stringliteral}{\ \ \ \ let\ gid\ =\ global\_id.x;}}
+\DoxyCodeLine{00019\ \textcolor{stringliteral}{\ \ \ \ let\ wid\ =\ group\_id.x;}}
+\DoxyCodeLine{00020\ \textcolor{stringliteral}{\ \ \ \ if\ gid\ <\ arrayLength(\&result)\ \{}}
+\DoxyCodeLine{00021\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ result[gid]\ =\ result[gid]\ +\ aux[wid];}}
+\DoxyCodeLine{00022\ \textcolor{stringliteral}{\ \ \ \ \}}}
+\DoxyCodeLine{00023\ \textcolor{stringliteral}{\}}}
+\DoxyCodeLine{00024\ \textcolor{stringliteral}{)"{};}}
+
+\end{DoxyCode}

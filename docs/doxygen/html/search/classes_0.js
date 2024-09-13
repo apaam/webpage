@@ -8,5 +8,6 @@ var searchData=
   ['bondgeometries_5',['BondGeometries',['../classnetdem_1_1_bond_geometries.html',1,'netdem']]],
   ['bondsolverpp_6',['BondSolverPP',['../classnetdem_1_1_bond_solver_p_p.html',1,'netdem']]],
   ['bondsolverpw_7',['BondSolverPW',['../classnetdem_1_1_bond_solver_p_w.html',1,'netdem']]],
-  ['breakageanalysispd_8',['BreakageAnalysisPD',['../classnetdem_1_1_breakage_analysis_p_d.html',1,'netdem']]]
+  ['breakageanalysis_8',['BreakageAnalysis',['../classnetdem_1_1_breakage_analysis.html',1,'netdem']]],
+  ['breakageanalysispd_9',['BreakageAnalysisPD',['../classnetdem_1_1_breakage_analysis_p_d.html',1,'netdem']]]
 ];

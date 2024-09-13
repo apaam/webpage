@@ -13,42 +13,48 @@
 \DoxyCodeLine{00009\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacenetdem}{netdem}}\ \{}
 \DoxyCodeLine{00010\ }
 \DoxyCodeLine{00017\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classnetdem_1_1_particle_motion_control}{ParticleMotionControl}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classnetdem_1_1_modifier}{Modifier}}\ \{}
-\DoxyCodeLine{00018\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00020\ \ \ \textcolor{keyword}{enum}\ \mbox{\hyperlink{classnetdem_1_1_particle_motion_control_adc91a346241575c9571d7d8bf22500ef}{Type}}\ \{\ \mbox{\hyperlink{classnetdem_1_1_particle_motion_control_adc91a346241575c9571d7d8bf22500efa015ee1eb3653f00fa9de6c41418ccc73}{fixed}},\ \mbox{\hyperlink{classnetdem_1_1_particle_motion_control_adc91a346241575c9571d7d8bf22500efa79b8120ea752f01fddc258552904a807}{linear\_vel}},\ \mbox{\hyperlink{classnetdem_1_1_particle_motion_control_adc91a346241575c9571d7d8bf22500efa4d9e2a1bbff16accaca4de3dc533f34b}{sin\_vel}},\ \mbox{\hyperlink{classnetdem_1_1_particle_motion_control_adc91a346241575c9571d7d8bf22500efab0a8245359b1e53396fc77a5da86902e}{num\_motions}}\ \};}
+\DoxyCodeLine{00018\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00020\ \ \ \textcolor{keyword}{enum}\ Type\ \{\ fixed,\ fix\_rotation,\ linear\_spin,\ linear\_vel,\ sin\_vel,\ num\_motions\ \};}
 \DoxyCodeLine{00021\ }
-\DoxyCodeLine{00023\ \ \ std::unordered\_set<int>\ \mbox{\hyperlink{classnetdem_1_1_particle_motion_control_a622dc1eb866556070031990d2249263e}{particle\_id\_list}};}
+\DoxyCodeLine{00023\ \ \ std::unordered\_set<int>\ particle\_id\_list;}
 \DoxyCodeLine{00024\ }
-\DoxyCodeLine{00026\ \ \ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<Particle\ *>}}\ \mbox{\hyperlink{classnetdem_1_1_particle_motion_control_afb03734d1970d3d9a912bdfe3b95a3cb}{particle\_list}};}
+\DoxyCodeLine{00026\ \ \ \mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{VecXT<Particle\ *>}}\ particle\_list;}
 \DoxyCodeLine{00027\ }
-\DoxyCodeLine{00029\ \ \ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<Type>}}\ \mbox{\hyperlink{classnetdem_1_1_particle_motion_control_a685a66c978ec05f332a808d48bc24e39}{motion\_type\_list}};}
+\DoxyCodeLine{00029\ \ \ \mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{VecXT<Type>}}\ motion\_type\_list;}
 \DoxyCodeLine{00030\ }
-\DoxyCodeLine{00032\ \ \ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<VecNd<9>}}>\ \mbox{\hyperlink{classnetdem_1_1_particle_motion_control_a2d576d4a4e44d90b91608cc3aa69fe92}{params\_list}};}
+\DoxyCodeLine{00032\ \ \ \mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{VecXT<VecNd<9>}}>\ params\_list;}
 \DoxyCodeLine{00033\ }
-\DoxyCodeLine{00037\ \ \ \mbox{\hyperlink{classnetdem_1_1_particle_motion_control_a3a5739aad56aa000b4e7a5430200c63e}{ParticleMotionControl}}();}
-\DoxyCodeLine{00038\ }
-\DoxyCodeLine{00044\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_particle_motion_control_a015927193f997e76db803cc1feaf7c22}{SetFixed}}(\textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id});}
-\DoxyCodeLine{00045\ }
-\DoxyCodeLine{00057\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_particle_motion_control_ac68ff2d7066fe9cb7b71b513e2caab6b}{SetLinearVelocity}}(\textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id},\ \textcolor{keywordtype}{double}\ xa,\ \textcolor{keywordtype}{double}\ xb,\ \textcolor{keywordtype}{double}\ ya,\ \textcolor{keywordtype}{double}\ yb,}
-\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ za,\ \textcolor{keywordtype}{double}\ zb);}
-\DoxyCodeLine{00059\ }
-\DoxyCodeLine{00077\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_particle_motion_control_ad27a5a5e0beaf005dfc7cb0bf167a9a4}{SetSinVelocity}}(\textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id},\ \textcolor{keywordtype}{double}\ x\_amplit,\ \textcolor{keywordtype}{double}\ x\_freq,\ \textcolor{keywordtype}{double}\ x\_phase,}
-\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ y\_amplit,\ \textcolor{keywordtype}{double}\ y\_freq,\ \textcolor{keywordtype}{double}\ y\_phase,}
-\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ z\_amplit,\ \textcolor{keywordtype}{double}\ z\_freq,\ \textcolor{keywordtype}{double}\ z\_phase);}
-\DoxyCodeLine{00080\ }
-\DoxyCodeLine{00085\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_particle_motion_control_a793dbab4d5e873da43891d81d59f6070}{SyncToAllProcessors}}();}
-\DoxyCodeLine{00086\ }
-\DoxyCodeLine{00090\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_particle_motion_control_a24317c7bb4b97a907ce6e4a01e187dd0}{Clear}}();}
+\DoxyCodeLine{00034\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00038\ \ \ \mbox{\hyperlink{classnetdem_1_1_particle_motion_control_a3a5739aad56aa000b4e7a5430200c63e}{ParticleMotionControl}}();}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00045\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_particle_motion_control_a015927193f997e76db803cc1feaf7c22}{SetFixed}}(\textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id});}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00052\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_particle_motion_control_a5491ea844cc36958385f50fc1cc4c8e0}{SetFixRotation}}(\textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id});}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_particle_motion_control_ad42f45af52da542e42ea860c5e20035a}{SetLinearSpin}}(\textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id},\ \textcolor{keywordtype}{double}\ spin\_x,\textcolor{keywordtype}{double}\ spin\_y,\ \textcolor{keywordtype}{double}\ spin\_z);}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00068\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_particle_motion_control_ac68ff2d7066fe9cb7b71b513e2caab6b}{SetLinearVelocity}}(\textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id},\ \textcolor{keywordtype}{double}\ xa,\ \textcolor{keywordtype}{double}\ xb,\ \textcolor{keywordtype}{double}\ ya,\ \textcolor{keywordtype}{double}\ yb,}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ za,\ \textcolor{keywordtype}{double}\ zb);}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00088\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_particle_motion_control_ad27a5a5e0beaf005dfc7cb0bf167a9a4}{SetSinVelocity}}(\textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id},\ \textcolor{keywordtype}{double}\ x\_amplit,\ \textcolor{keywordtype}{double}\ x\_freq,\ \textcolor{keywordtype}{double}\ x\_phase,}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ y\_amplit,\ \textcolor{keywordtype}{double}\ y\_freq,\ \textcolor{keywordtype}{double}\ y\_phase,}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ z\_amplit,\ \textcolor{keywordtype}{double}\ z\_freq,\ \textcolor{keywordtype}{double}\ z\_phase);}
 \DoxyCodeLine{00091\ }
-\DoxyCodeLine{00097\ \ \ \mbox{\hyperlink{classnetdem_1_1_modifier}{Modifier}}\ *\mbox{\hyperlink{classnetdem_1_1_particle_motion_control_a6f74d472a22f82eb110146a47c87ba07}{Clone}}()\ \textcolor{keyword}{const\ override};}
-\DoxyCodeLine{00098\ }
-\DoxyCodeLine{00103\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_particle_motion_control_abef790484d18d9d4ebb8dfaeb6bc384f}{Execute}}()\ \textcolor{keyword}{override};}
-\DoxyCodeLine{00104\ }
-\DoxyCodeLine{00111\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_particle_motion_control_a926d7fa3a1bc31b04bb3e2115917e322}{Update}}()\ \textcolor{keyword}{override};}
-\DoxyCodeLine{00112\ }
-\DoxyCodeLine{00113\ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00114\ \ \ std::unordered\_map<int,\ VecNd<10>>\ id\_params\_map;}
-\DoxyCodeLine{00115\ \};}
-\DoxyCodeLine{00116\ }
-\DoxyCodeLine{00117\ \}\ \textcolor{comment}{//\ namespace\ netdem}}
+\DoxyCodeLine{00096\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_particle_motion_control_a793dbab4d5e873da43891d81d59f6070}{SyncToAllProcessors}}();}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00101\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_particle_motion_control_a24317c7bb4b97a907ce6e4a01e187dd0}{Clear}}();}
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00108\ \ \ \mbox{\hyperlink{classnetdem_1_1_modifier}{Modifier}}\ *\mbox{\hyperlink{classnetdem_1_1_particle_motion_control_a6f74d472a22f82eb110146a47c87ba07}{Clone}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00109\ }
+\DoxyCodeLine{00114\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_particle_motion_control_abef790484d18d9d4ebb8dfaeb6bc384f}{Execute}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00115\ }
+\DoxyCodeLine{00122\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_particle_motion_control_a926d7fa3a1bc31b04bb3e2115917e322}{Update}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00123\ }
+\DoxyCodeLine{00124\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00125\ \ \ std::unordered\_map<int,\ VecNd<10>>\ id\_params\_map;}
+\DoxyCodeLine{00126\ \};}
+\DoxyCodeLine{00127\ }
+\DoxyCodeLine{00128\ \}\ \textcolor{comment}{//\ namespace\ netdem}}
 
 \end{DoxyCode}

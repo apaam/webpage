@@ -22,6 +22,6 @@ var classnetdem_1_1_solver_boolean_p_w =
     [ "facets_birth_ids", "classnetdem_1_1_solver_boolean_p_w.html#a5cadecdc146f67b8af31e76c51e5b32b", null ],
     [ "facets_isct", "classnetdem_1_1_solver_boolean_p_w.html#ab7eaea63f60148097e170495af5c521b", null ],
     [ "stl_model_1", "classnetdem_1_1_solver_boolean_p_w.html#ac6de9fb13ae0c118a079d0729ea2b5d5", null ],
-    [ "stl_model_2", "classnetdem_1_1_solver_boolean_p_w.html#a85699b38ed25e17e060485439b160aee", null ],
+    [ "stl_model_2", "classnetdem_1_1_solver_boolean_p_w.html#ab9f5283f743f0405e6d9e8ff97e003c1", null ],
     [ "vertices_isct", "classnetdem_1_1_solver_boolean_p_w.html#a3db4453ae6dd19d59aa5b19c4fff517c", null ]
 ];

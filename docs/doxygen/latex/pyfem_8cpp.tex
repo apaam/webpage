@@ -1,9 +1,15 @@
 \doxysection{/\+Users/lzhshou/\+Documents/\+Research/my\+Projects/apaam/repo/netdem/src/pybind/pyfem.cpp File Reference}
 \hypertarget{pyfem_8cpp}{}\label{pyfem_8cpp}\index{/Users/lzhshou/Documents/Research/myProjects/apaam/repo/netdem/src/pybind/pyfem.cpp@{/Users/lzhshou/Documents/Research/myProjects/apaam/repo/netdem/src/pybind/pyfem.cpp}}
-{\ttfamily \#include \"{}netdem.\+hpp\"{}}\newline
+{\ttfamily \#include "{}netdem.\+hpp"{}}\newline
 {\ttfamily \#include $<$pybind11/numpy.\+h$>$}\newline
+{\ttfamily \#include $<$pybind11/operators.\+h$>$}\newline
 {\ttfamily \#include $<$pybind11/pybind11.\+h$>$}\newline
 {\ttfamily \#include $<$pybind11/stl.\+h$>$}\newline
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename... Args$>$ }\\using \mbox{\hyperlink{pyfem_8cpp_a07f2d9f0babfcdab74f13004f0803afe}{overload\+\_\+cast\+\_\+}} = pybind11\+::detail\+::overload\+\_\+cast\+\_\+impl$<$Args...$>$
+\end{DoxyCompactItemize}
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -11,26 +17,52 @@ void \mbox{\hyperlink{pyfem_8cpp_a52794cd2cd9c5110635cceb39a702efc}{Init\+Tet\+M
 \item 
 void \mbox{\hyperlink{pyfem_8cpp_a2c34c7812fd09d6c0dceb0b142cb952f}{Init\+Py\+Membrane}} (pybind11\+::module \&m)
 \item 
+void \mbox{\hyperlink{pyfem_8cpp_ab71f71344a3a449791f87a508fc4ae8a}{Init\+Py\+Deformable\+Particle}} (pybind11\+::module \&m)
+\item 
+void \mbox{\hyperlink{pyfem_8cpp_ad30e974b1c627c14f9e73e0b8a6a7162}{Init\+Py\+FEMSimulator}} (pybind11\+::module \&m)
+\item 
 void \mbox{\hyperlink{pyfem_8cpp_a3d0b5975eb9df4917ec17b3a8de08aef}{Init\+Py\+FEMModule}} (pybind11\+::module \&m)
 \end{DoxyCompactItemize}
 
 
+\doxysubsection{Typedef Documentation}
+\Hypertarget{pyfem_8cpp_a07f2d9f0babfcdab74f13004f0803afe}\index{pyfem.cpp@{pyfem.cpp}!overload\_cast\_@{overload\_cast\_}}
+\index{overload\_cast\_@{overload\_cast\_}!pyfem.cpp@{pyfem.cpp}}
+\doxysubsubsection{\texorpdfstring{overload\_cast\_}{overload\_cast\_}}
+{\footnotesize\ttfamily \label{pyfem_8cpp_a07f2d9f0babfcdab74f13004f0803afe} 
+template$<$typename... Args$>$ \\
+using \mbox{\hyperlink{pydem_8cpp_a07f2d9f0babfcdab74f13004f0803afe}{overload\+\_\+cast\+\_\+}} = pybind11\+::detail\+::overload\+\_\+cast\+\_\+impl$<$Args...$>$}
+
+
+
 \doxysubsection{Function Documentation}
-\Hypertarget{pyfem_8cpp_a3d0b5975eb9df4917ec17b3a8de08aef}\label{pyfem_8cpp_a3d0b5975eb9df4917ec17b3a8de08aef} 
-\index{pyfem.cpp@{pyfem.cpp}!InitPyFEMModule@{InitPyFEMModule}}
+\Hypertarget{pyfem_8cpp_ab71f71344a3a449791f87a508fc4ae8a}\index{pyfem.cpp@{pyfem.cpp}!InitPyDeformableParticle@{InitPyDeformableParticle}}
+\index{InitPyDeformableParticle@{InitPyDeformableParticle}!pyfem.cpp@{pyfem.cpp}}
+\doxysubsubsection{\texorpdfstring{InitPyDeformableParticle()}{InitPyDeformableParticle()}}
+{\footnotesize\ttfamily \label{pyfem_8cpp_ab71f71344a3a449791f87a508fc4ae8a} 
+void Init\+Py\+Deformable\+Particle (\begin{DoxyParamCaption}\item[{pybind11\+::module \&}]{m}{}\end{DoxyParamCaption})}
+
+\Hypertarget{pyfem_8cpp_a3d0b5975eb9df4917ec17b3a8de08aef}\index{pyfem.cpp@{pyfem.cpp}!InitPyFEMModule@{InitPyFEMModule}}
 \index{InitPyFEMModule@{InitPyFEMModule}!pyfem.cpp@{pyfem.cpp}}
 \doxysubsubsection{\texorpdfstring{InitPyFEMModule()}{InitPyFEMModule()}}
-{\footnotesize\ttfamily void Init\+Py\+FEMModule (\begin{DoxyParamCaption}\item[{pybind11\+::module \&}]{m }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{pyfem_8cpp_a3d0b5975eb9df4917ec17b3a8de08aef} 
+void Init\+Py\+FEMModule (\begin{DoxyParamCaption}\item[{pybind11\+::module \&}]{m}{}\end{DoxyParamCaption})}
 
-\Hypertarget{pyfem_8cpp_a2c34c7812fd09d6c0dceb0b142cb952f}\label{pyfem_8cpp_a2c34c7812fd09d6c0dceb0b142cb952f} 
-\index{pyfem.cpp@{pyfem.cpp}!InitPyMembrane@{InitPyMembrane}}
+\Hypertarget{pyfem_8cpp_ad30e974b1c627c14f9e73e0b8a6a7162}\index{pyfem.cpp@{pyfem.cpp}!InitPyFEMSimulator@{InitPyFEMSimulator}}
+\index{InitPyFEMSimulator@{InitPyFEMSimulator}!pyfem.cpp@{pyfem.cpp}}
+\doxysubsubsection{\texorpdfstring{InitPyFEMSimulator()}{InitPyFEMSimulator()}}
+{\footnotesize\ttfamily \label{pyfem_8cpp_ad30e974b1c627c14f9e73e0b8a6a7162} 
+void Init\+Py\+FEMSimulator (\begin{DoxyParamCaption}\item[{pybind11\+::module \&}]{m}{}\end{DoxyParamCaption})}
+
+\Hypertarget{pyfem_8cpp_a2c34c7812fd09d6c0dceb0b142cb952f}\index{pyfem.cpp@{pyfem.cpp}!InitPyMembrane@{InitPyMembrane}}
 \index{InitPyMembrane@{InitPyMembrane}!pyfem.cpp@{pyfem.cpp}}
 \doxysubsubsection{\texorpdfstring{InitPyMembrane()}{InitPyMembrane()}}
-{\footnotesize\ttfamily void Init\+Py\+Membrane (\begin{DoxyParamCaption}\item[{pybind11\+::module \&}]{m }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{pyfem_8cpp_a2c34c7812fd09d6c0dceb0b142cb952f} 
+void Init\+Py\+Membrane (\begin{DoxyParamCaption}\item[{pybind11\+::module \&}]{m}{}\end{DoxyParamCaption})}
 
-\Hypertarget{pyfem_8cpp_a52794cd2cd9c5110635cceb39a702efc}\label{pyfem_8cpp_a52794cd2cd9c5110635cceb39a702efc} 
-\index{pyfem.cpp@{pyfem.cpp}!InitTetMesh@{InitTetMesh}}
+\Hypertarget{pyfem_8cpp_a52794cd2cd9c5110635cceb39a702efc}\index{pyfem.cpp@{pyfem.cpp}!InitTetMesh@{InitTetMesh}}
 \index{InitTetMesh@{InitTetMesh}!pyfem.cpp@{pyfem.cpp}}
 \doxysubsubsection{\texorpdfstring{InitTetMesh()}{InitTetMesh()}}
-{\footnotesize\ttfamily void Init\+Tet\+Mesh (\begin{DoxyParamCaption}\item[{pybind11\+::module \&}]{m }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{pyfem_8cpp_a52794cd2cd9c5110635cceb39a702efc} 
+void Init\+Tet\+Mesh (\begin{DoxyParamCaption}\item[{pybind11\+::module \&}]{m}{}\end{DoxyParamCaption})}
 

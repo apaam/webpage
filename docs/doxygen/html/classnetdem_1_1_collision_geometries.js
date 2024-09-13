@@ -13,6 +13,7 @@ var classnetdem_1_1_collision_geometries =
     [ "dtheta_s", "classnetdem_1_1_collision_geometries.html#a961a81710221692bdb76dafb9cba2494", null ],
     [ "dtheta_t", "classnetdem_1_1_collision_geometries.html#a030872ed2cbfa460662ae5f50718a076", null ],
     [ "len_n", "classnetdem_1_1_collision_geometries.html#a87cd78f5fff13742eda0fc170de01834", null ],
+    [ "node_2to1", "classnetdem_1_1_collision_geometries.html#a7034f70b7ffae01a455c017a1d247435", null ],
     [ "node_dist", "classnetdem_1_1_collision_geometries.html#a383f45836ab6790c5c72fa53c304b9ee", null ],
     [ "node_id", "classnetdem_1_1_collision_geometries.html#a305292695d38438d3655985b5167ce65", null ],
     [ "pos", "classnetdem_1_1_collision_geometries.html#ae5df4b8c08e83d1e2fd71fef36e64ce4", null ],

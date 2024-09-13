@@ -14,12 +14,18 @@ A class representing a cell in a simulation grid.
 \item 
 \mbox{\hyperlink{classnetdem_1_1_cell_a394510643e8664cf12b5efaf5cb99f71}{Cell}} ()
 \begin{DoxyCompactList}\small\item\em Default constructor for the \doxylink{classnetdem_1_1_cell}{Cell} class. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{classnetdem_1_1_cell_ac04c905212af3d12f81f9466cf2d827a}{Cell}} (\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&bmin, \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&bmax)
+\mbox{\hyperlink{classnetdem_1_1_cell_ac04c905212af3d12f81f9466cf2d827a}{Cell}} (\mbox{\hyperlink{namespacenetdem_a510a89239abc51ed4d8d88ce7ee403df}{Vec3d}} const \&bmin, \mbox{\hyperlink{namespacenetdem_a510a89239abc51ed4d8d88ce7ee403df}{Vec3d}} const \&bmax)
 \begin{DoxyCompactList}\small\item\em Constructor for the \doxylink{classnetdem_1_1_cell}{Cell} class with bounding box specified. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{classnetdem_1_1_cell_a77ddcecf6dd798b2009fb80ed2cd90bd}{Is\+Judge\+Cell}} (\mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} const \&p, \mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} const \&q)
 \begin{DoxyCompactList}\small\item\em Determine if two particles are in the same cell. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{classnetdem_1_1_cell_a440ef10926963a9e37a9dba4924fa9b7}{Is\+Judge\+Cell}} (\mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} const \&p, \mbox{\hyperlink{classnetdem_1_1_wall}{Wall}} const \&w)
 \begin{DoxyCompactList}\small\item\em Determine if a particle and a wall are in the same cell. \end{DoxyCompactList}\item 
+std\+::tuple$<$ \mbox{\hyperlink{namespacenetdem_a510a89239abc51ed4d8d88ce7ee403df}{Vec3d}}, \mbox{\hyperlink{namespacenetdem_a510a89239abc51ed4d8d88ce7ee403df}{Vec3d}} $>$ \mbox{\hyperlink{classnetdem_1_1_cell_abe33c41089c6ceb5551c93b94a75dc54}{Get\+Bound}} () const
+\begin{DoxyCompactList}\small\item\em Get the lower and upper coordinates of the cell box. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{Vec\+XT}}$<$ std\+::pair$<$ \mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} \texorpdfstring{$\ast$}{*}, int $>$ $>$ const \& \mbox{\hyperlink{classnetdem_1_1_cell_a9c759f28920bc2b98610b7586db9f861}{Get\+Linked\+Particles}} () const
+\begin{DoxyCompactList}\small\item\em Get the particles that are linked with this cell. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{Vec\+XT}}$<$ std\+::pair$<$ \mbox{\hyperlink{classnetdem_1_1_wall}{Wall}} \texorpdfstring{$\ast$}{*}, int $>$ $>$ const \& \mbox{\hyperlink{classnetdem_1_1_cell_a300505d99cecd8c5a4f8afed9aa1921f}{Get\+Linked\+Walls}} () const
+\begin{DoxyCompactList}\small\item\em Get the walls that are linked with this cell. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classnetdem_1_1_cell_a16b2debdbaf07c2a98e700a1cb115a82}{Clear\+Linked\+Lists}} ()
 \begin{DoxyCompactList}\small\item\em Clear the linked particle and wall lists. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classnetdem_1_1_s_t_l_model}{STLModel}} \mbox{\hyperlink{classnetdem_1_1_cell_a01b91d2d13137269856bacd9ced8904d}{Get\+STLModel}} ()
@@ -28,17 +34,22 @@ void \mbox{\hyperlink{classnetdem_1_1_cell_a16b2debdbaf07c2a98e700a1cb115a82}{Cl
 \begin{DoxyCompactList}\small\item\em Default destructor for the \doxylink{classnetdem_1_1_cell}{Cell} class. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classnetdem_1_1_cell_af71040602de48882145f0a241b34b9d4}{Print}} ()
 \begin{DoxyCompactList}\small\item\em Print the bounding box of the cell to stdout. \end{DoxyCompactList}\end{DoxyCompactItemize}
-\doxysubsubsection*{Public Attributes}
+\doxysubsubsection*{Protected Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \mbox{\hyperlink{classnetdem_1_1_cell_a8cac2b018f1c1800dd25b89802535e90}{bound\+\_\+min}} \{-\/0.\+5, -\/0.\+5, -\/0.\+5\}
-\begin{DoxyCompactList}\small\item\em The minimum coordinates of the cell\textquotesingle{}s bounding box. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \mbox{\hyperlink{classnetdem_1_1_cell_ae3d3ed4322434ef86d5cace1ba277443}{bound\+\_\+max}} \{0.\+5, 0.\+5, 0.\+5\}
-\begin{DoxyCompactList}\small\item\em The maximum coordinates of the cell\textquotesingle{}s bounding box. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ std\+::pair$<$ \mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} \texorpdfstring{$\ast$}{*}, int $>$ $>$ \mbox{\hyperlink{classnetdem_1_1_cell_aaaa3575af0d035fea16fd7b7e1287929}{linked\+\_\+particle\+\_\+list}}
-\begin{DoxyCompactList}\small\item\em A list of linked particles maintained by Update\+Linked\+Cells in particle. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ std\+::pair$<$ \mbox{\hyperlink{classnetdem_1_1_wall}{Wall}} \texorpdfstring{$\ast$}{*}, int $>$ $>$ \mbox{\hyperlink{classnetdem_1_1_cell_ace812eb598a049427b3f8e0b8b9a5445}{linked\+\_\+wall\+\_\+list}}
-\begin{DoxyCompactList}\small\item\em A list of linked walls maintained by Update\+Linked\+Cells in wall. \end{DoxyCompactList}\end{DoxyCompactItemize}
+void \mbox{\hyperlink{classnetdem_1_1_cell_aadb12eccc99f548bd28b7c9e81239752}{Remove\+Linked\+Particle}} (int lookup\+\_\+id)
+\begin{DoxyCompactList}\small\item\em Remove a linked particle by look-\/up id. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classnetdem_1_1_cell_a9310dd2b81cc0cf6473003a51bc04115}{Remove\+Linked\+Wall}} (int lookup\+\_\+id)
+\begin{DoxyCompactList}\small\item\em Remove a linked wall by look-\/up id. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classnetdem_1_1_cell_a0f6381b33b90b7e4ab72eeaeec4cc9ff}{Particle}}
+\item 
+class \mbox{\hyperlink{classnetdem_1_1_cell_ab22e010ecb433792b36c7fdbc4f45b69}{Wall}}
+\item 
+class \mbox{\hyperlink{classnetdem_1_1_cell_ad9f863ec8d35de83fdfd9ed41d8a2054}{MPIManager}}
+\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
@@ -47,21 +58,21 @@ A class representing a cell in a simulation grid.
 This class keeps track of particles and walls that are located within its boundaries. It is used for broad-\/phase contact detection. The particles in a sub-\/domain will first be sorted into cells, so that only the particles that fall in the same cell could be potentially contact with each other. 
 
 \doxysubsection{Constructor \& Destructor Documentation}
-\Hypertarget{classnetdem_1_1_cell_a394510643e8664cf12b5efaf5cb99f71}\label{classnetdem_1_1_cell_a394510643e8664cf12b5efaf5cb99f71} 
-\index{netdem::Cell@{netdem::Cell}!Cell@{Cell}}
+\Hypertarget{classnetdem_1_1_cell_a394510643e8664cf12b5efaf5cb99f71}\index{netdem::Cell@{netdem::Cell}!Cell@{Cell}}
 \index{Cell@{Cell}!netdem::Cell@{netdem::Cell}}
 \doxysubsubsection{\texorpdfstring{Cell()}{Cell()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily Cell\+::\+Cell (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{classnetdem_1_1_cell_a394510643e8664cf12b5efaf5cb99f71} 
+Cell\+::\+Cell (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
 
 
 Default constructor for the \doxylink{classnetdem_1_1_cell}{Cell} class. 
 
-\Hypertarget{classnetdem_1_1_cell_ac04c905212af3d12f81f9466cf2d827a}\label{classnetdem_1_1_cell_ac04c905212af3d12f81f9466cf2d827a} 
-\index{netdem::Cell@{netdem::Cell}!Cell@{Cell}}
+\Hypertarget{classnetdem_1_1_cell_ac04c905212af3d12f81f9466cf2d827a}\index{netdem::Cell@{netdem::Cell}!Cell@{Cell}}
 \index{Cell@{Cell}!netdem::Cell@{netdem::Cell}}
 \doxysubsubsection{\texorpdfstring{Cell()}{Cell()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily Cell\+::\+Cell (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&}]{bmin,  }\item[{\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&}]{bmax }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{classnetdem_1_1_cell_ac04c905212af3d12f81f9466cf2d827a} 
+Cell\+::\+Cell (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacenetdem_a510a89239abc51ed4d8d88ce7ee403df}{Vec3d}} const \&}]{bmin}{, }\item[{\mbox{\hyperlink{namespacenetdem_a510a89239abc51ed4d8d88ce7ee403df}{Vec3d}} const \&}]{bmax}{}\end{DoxyParamCaption})}
 
 
 
@@ -74,11 +85,11 @@ Constructor for the \doxylink{classnetdem_1_1_cell}{Cell} class with bounding bo
 {\em bmax} & The maximum coordinates of the cell\textquotesingle{}s bounding box. \\
 \hline
 \end{DoxyParams}
-\Hypertarget{classnetdem_1_1_cell_a9fa559f7a28e2b4336c6879ca09304d8}\label{classnetdem_1_1_cell_a9fa559f7a28e2b4336c6879ca09304d8} 
-\index{netdem::Cell@{netdem::Cell}!````~Cell@{\texorpdfstring{$\sim$}{\string~}Cell}}
+\Hypertarget{classnetdem_1_1_cell_a9fa559f7a28e2b4336c6879ca09304d8}\index{netdem::Cell@{netdem::Cell}!````~Cell@{\texorpdfstring{$\sim$}{\string~}Cell}}
 \index{````~Cell@{\texorpdfstring{$\sim$}{\string~}Cell}!netdem::Cell@{netdem::Cell}}
 \doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}Cell()}{\string~Cell()}}
-{\footnotesize\ttfamily Cell\+::\texorpdfstring{$\sim$}{\string~}\+Cell (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{classnetdem_1_1_cell_a9fa559f7a28e2b4336c6879ca09304d8} 
+Cell\+::\texorpdfstring{$\sim$}{\string~}\+Cell (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
 
 
@@ -87,21 +98,51 @@ Default destructor for the \doxylink{classnetdem_1_1_cell}{Cell} class.
 
 
 \doxysubsection{Member Function Documentation}
-\Hypertarget{classnetdem_1_1_cell_a16b2debdbaf07c2a98e700a1cb115a82}\label{classnetdem_1_1_cell_a16b2debdbaf07c2a98e700a1cb115a82} 
-\index{netdem::Cell@{netdem::Cell}!ClearLinkedLists@{ClearLinkedLists}}
+\Hypertarget{classnetdem_1_1_cell_a16b2debdbaf07c2a98e700a1cb115a82}\index{netdem::Cell@{netdem::Cell}!ClearLinkedLists@{ClearLinkedLists}}
 \index{ClearLinkedLists@{ClearLinkedLists}!netdem::Cell@{netdem::Cell}}
 \doxysubsubsection{\texorpdfstring{ClearLinkedLists()}{ClearLinkedLists()}}
-{\footnotesize\ttfamily void Cell\+::\+Clear\+Linked\+Lists (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{classnetdem_1_1_cell_a16b2debdbaf07c2a98e700a1cb115a82} 
+void Cell\+::\+Clear\+Linked\+Lists (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
 
 
 Clear the linked particle and wall lists. 
 
-\Hypertarget{classnetdem_1_1_cell_a01b91d2d13137269856bacd9ced8904d}\label{classnetdem_1_1_cell_a01b91d2d13137269856bacd9ced8904d} 
-\index{netdem::Cell@{netdem::Cell}!GetSTLModel@{GetSTLModel}}
+\Hypertarget{classnetdem_1_1_cell_abe33c41089c6ceb5551c93b94a75dc54}\index{netdem::Cell@{netdem::Cell}!GetBound@{GetBound}}
+\index{GetBound@{GetBound}!netdem::Cell@{netdem::Cell}}
+\doxysubsubsection{\texorpdfstring{GetBound()}{GetBound()}}
+{\footnotesize\ttfamily \label{classnetdem_1_1_cell_abe33c41089c6ceb5551c93b94a75dc54} 
+tuple$<$ \mbox{\hyperlink{namespacenetdem_a510a89239abc51ed4d8d88ce7ee403df}{Vec3d}}, \mbox{\hyperlink{namespacenetdem_a510a89239abc51ed4d8d88ce7ee403df}{Vec3d}} $>$ Cell\+::\+Get\+Bound (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Get the lower and upper coordinates of the cell box. 
+
+\Hypertarget{classnetdem_1_1_cell_a9c759f28920bc2b98610b7586db9f861}\index{netdem::Cell@{netdem::Cell}!GetLinkedParticles@{GetLinkedParticles}}
+\index{GetLinkedParticles@{GetLinkedParticles}!netdem::Cell@{netdem::Cell}}
+\doxysubsubsection{\texorpdfstring{GetLinkedParticles()}{GetLinkedParticles()}}
+{\footnotesize\ttfamily \label{classnetdem_1_1_cell_a9c759f28920bc2b98610b7586db9f861} 
+\mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{Vec\+XT}}$<$ std\+::pair$<$ \mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} \texorpdfstring{$\ast$}{*}, int $>$ $>$ const  \& Cell\+::\+Get\+Linked\+Particles (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Get the particles that are linked with this cell. 
+
+\Hypertarget{classnetdem_1_1_cell_a300505d99cecd8c5a4f8afed9aa1921f}\index{netdem::Cell@{netdem::Cell}!GetLinkedWalls@{GetLinkedWalls}}
+\index{GetLinkedWalls@{GetLinkedWalls}!netdem::Cell@{netdem::Cell}}
+\doxysubsubsection{\texorpdfstring{GetLinkedWalls()}{GetLinkedWalls()}}
+{\footnotesize\ttfamily \label{classnetdem_1_1_cell_a300505d99cecd8c5a4f8afed9aa1921f} 
+\mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{Vec\+XT}}$<$ std\+::pair$<$ \mbox{\hyperlink{classnetdem_1_1_wall}{Wall}} \texorpdfstring{$\ast$}{*}, int $>$ $>$ const  \& Cell\+::\+Get\+Linked\+Walls (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Get the walls that are linked with this cell. 
+
+\Hypertarget{classnetdem_1_1_cell_a01b91d2d13137269856bacd9ced8904d}\index{netdem::Cell@{netdem::Cell}!GetSTLModel@{GetSTLModel}}
 \index{GetSTLModel@{GetSTLModel}!netdem::Cell@{netdem::Cell}}
 \doxysubsubsection{\texorpdfstring{GetSTLModel()}{GetSTLModel()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classnetdem_1_1_s_t_l_model}{STLModel}} Cell\+::\+Get\+STLModel (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{classnetdem_1_1_cell_a01b91d2d13137269856bacd9ced8904d} 
+\mbox{\hyperlink{classnetdem_1_1_s_t_l_model}{STLModel}} Cell\+::\+Get\+STLModel (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
 
 
@@ -110,11 +151,11 @@ Generate an STL model for visualization purposes.
 \begin{DoxyReturn}{Returns}
 An \doxylink{classnetdem_1_1_s_t_l_model}{STLModel} object representing the cell. 
 \end{DoxyReturn}
-\Hypertarget{classnetdem_1_1_cell_a77ddcecf6dd798b2009fb80ed2cd90bd}\label{classnetdem_1_1_cell_a77ddcecf6dd798b2009fb80ed2cd90bd} 
-\index{netdem::Cell@{netdem::Cell}!IsJudgeCell@{IsJudgeCell}}
+\Hypertarget{classnetdem_1_1_cell_a77ddcecf6dd798b2009fb80ed2cd90bd}\index{netdem::Cell@{netdem::Cell}!IsJudgeCell@{IsJudgeCell}}
 \index{IsJudgeCell@{IsJudgeCell}!netdem::Cell@{netdem::Cell}}
 \doxysubsubsection{\texorpdfstring{IsJudgeCell()}{IsJudgeCell()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily bool Cell\+::\+Is\+Judge\+Cell (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} const \&}]{p,  }\item[{\mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} const \&}]{q }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{classnetdem_1_1_cell_a77ddcecf6dd798b2009fb80ed2cd90bd} 
+bool Cell\+::\+Is\+Judge\+Cell (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} const \&}]{p}{, }\item[{\mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} const \&}]{q}{}\end{DoxyParamCaption})}
 
 
 
@@ -130,11 +171,11 @@ Determine if two particles are in the same cell.
 \begin{DoxyReturn}{Returns}
 True if the two particles are in the same cell, false otherwise. 
 \end{DoxyReturn}
-\Hypertarget{classnetdem_1_1_cell_a440ef10926963a9e37a9dba4924fa9b7}\label{classnetdem_1_1_cell_a440ef10926963a9e37a9dba4924fa9b7} 
-\index{netdem::Cell@{netdem::Cell}!IsJudgeCell@{IsJudgeCell}}
+\Hypertarget{classnetdem_1_1_cell_a440ef10926963a9e37a9dba4924fa9b7}\index{netdem::Cell@{netdem::Cell}!IsJudgeCell@{IsJudgeCell}}
 \index{IsJudgeCell@{IsJudgeCell}!netdem::Cell@{netdem::Cell}}
 \doxysubsubsection{\texorpdfstring{IsJudgeCell()}{IsJudgeCell()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily bool Cell\+::\+Is\+Judge\+Cell (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} const \&}]{p,  }\item[{\mbox{\hyperlink{classnetdem_1_1_wall}{Wall}} const \&}]{w }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{classnetdem_1_1_cell_a440ef10926963a9e37a9dba4924fa9b7} 
+bool Cell\+::\+Is\+Judge\+Cell (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} const \&}]{p}{, }\item[{\mbox{\hyperlink{classnetdem_1_1_wall}{Wall}} const \&}]{w}{}\end{DoxyParamCaption})}
 
 
 
@@ -150,58 +191,56 @@ Determine if a particle and a wall are in the same cell.
 \begin{DoxyReturn}{Returns}
 True if the particle and the wall are in the same cell, false otherwise. 
 \end{DoxyReturn}
-\Hypertarget{classnetdem_1_1_cell_af71040602de48882145f0a241b34b9d4}\label{classnetdem_1_1_cell_af71040602de48882145f0a241b34b9d4} 
-\index{netdem::Cell@{netdem::Cell}!Print@{Print}}
+\Hypertarget{classnetdem_1_1_cell_af71040602de48882145f0a241b34b9d4}\index{netdem::Cell@{netdem::Cell}!Print@{Print}}
 \index{Print@{Print}!netdem::Cell@{netdem::Cell}}
 \doxysubsubsection{\texorpdfstring{Print()}{Print()}}
-{\footnotesize\ttfamily void Cell\+::\+Print (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{classnetdem_1_1_cell_af71040602de48882145f0a241b34b9d4} 
+void Cell\+::\+Print (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
 
 
 Print the bounding box of the cell to stdout. 
 
-
-
-\doxysubsection{Member Data Documentation}
-\Hypertarget{classnetdem_1_1_cell_ae3d3ed4322434ef86d5cace1ba277443}\label{classnetdem_1_1_cell_ae3d3ed4322434ef86d5cace1ba277443} 
-\index{netdem::Cell@{netdem::Cell}!bound\_max@{bound\_max}}
-\index{bound\_max@{bound\_max}!netdem::Cell@{netdem::Cell}}
-\doxysubsubsection{\texorpdfstring{bound\_max}{bound\_max}}
-{\footnotesize\ttfamily \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} netdem\+::\+Cell\+::bound\+\_\+max \{0.\+5, 0.\+5, 0.\+5\}}
+\Hypertarget{classnetdem_1_1_cell_aadb12eccc99f548bd28b7c9e81239752}\index{netdem::Cell@{netdem::Cell}!RemoveLinkedParticle@{RemoveLinkedParticle}}
+\index{RemoveLinkedParticle@{RemoveLinkedParticle}!netdem::Cell@{netdem::Cell}}
+\doxysubsubsection{\texorpdfstring{RemoveLinkedParticle()}{RemoveLinkedParticle()}}
+{\footnotesize\ttfamily \label{classnetdem_1_1_cell_aadb12eccc99f548bd28b7c9e81239752} 
+void Cell\+::\+Remove\+Linked\+Particle (\begin{DoxyParamCaption}\item[{int}]{lookup\+\_\+id}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
 
 
 
-The maximum coordinates of the cell\textquotesingle{}s bounding box. 
+Remove a linked particle by look-\/up id. 
 
-\Hypertarget{classnetdem_1_1_cell_a8cac2b018f1c1800dd25b89802535e90}\label{classnetdem_1_1_cell_a8cac2b018f1c1800dd25b89802535e90} 
-\index{netdem::Cell@{netdem::Cell}!bound\_min@{bound\_min}}
-\index{bound\_min@{bound\_min}!netdem::Cell@{netdem::Cell}}
-\doxysubsubsection{\texorpdfstring{bound\_min}{bound\_min}}
-{\footnotesize\ttfamily \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} netdem\+::\+Cell\+::bound\+\_\+min \{-\/0.\+5, -\/0.\+5, -\/0.\+5\}}
-
-
-
-The minimum coordinates of the cell\textquotesingle{}s bounding box. 
-
-\Hypertarget{classnetdem_1_1_cell_aaaa3575af0d035fea16fd7b7e1287929}\label{classnetdem_1_1_cell_aaaa3575af0d035fea16fd7b7e1287929} 
-\index{netdem::Cell@{netdem::Cell}!linked\_particle\_list@{linked\_particle\_list}}
-\index{linked\_particle\_list@{linked\_particle\_list}!netdem::Cell@{netdem::Cell}}
-\doxysubsubsection{\texorpdfstring{linked\_particle\_list}{linked\_particle\_list}}
-{\footnotesize\ttfamily \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$std\+::pair$<$\mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} \texorpdfstring{$\ast$}{*}, int$>$ $>$ netdem\+::\+Cell\+::linked\+\_\+particle\+\_\+list}
+\Hypertarget{classnetdem_1_1_cell_a9310dd2b81cc0cf6473003a51bc04115}\index{netdem::Cell@{netdem::Cell}!RemoveLinkedWall@{RemoveLinkedWall}}
+\index{RemoveLinkedWall@{RemoveLinkedWall}!netdem::Cell@{netdem::Cell}}
+\doxysubsubsection{\texorpdfstring{RemoveLinkedWall()}{RemoveLinkedWall()}}
+{\footnotesize\ttfamily \label{classnetdem_1_1_cell_a9310dd2b81cc0cf6473003a51bc04115} 
+void Cell\+::\+Remove\+Linked\+Wall (\begin{DoxyParamCaption}\item[{int}]{lookup\+\_\+id}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
 
 
 
-A list of linked particles maintained by Update\+Linked\+Cells in particle. 
-
-\Hypertarget{classnetdem_1_1_cell_ace812eb598a049427b3f8e0b8b9a5445}\label{classnetdem_1_1_cell_ace812eb598a049427b3f8e0b8b9a5445} 
-\index{netdem::Cell@{netdem::Cell}!linked\_wall\_list@{linked\_wall\_list}}
-\index{linked\_wall\_list@{linked\_wall\_list}!netdem::Cell@{netdem::Cell}}
-\doxysubsubsection{\texorpdfstring{linked\_wall\_list}{linked\_wall\_list}}
-{\footnotesize\ttfamily \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$std\+::pair$<$\mbox{\hyperlink{classnetdem_1_1_wall}{Wall}} \texorpdfstring{$\ast$}{*}, int$>$ $>$ netdem\+::\+Cell\+::linked\+\_\+wall\+\_\+list}
+Remove a linked wall by look-\/up id. 
 
 
 
-A list of linked walls maintained by Update\+Linked\+Cells in wall. 
+\doxysubsection{Friends And Related Symbol Documentation}
+\Hypertarget{classnetdem_1_1_cell_ad9f863ec8d35de83fdfd9ed41d8a2054}\index{netdem::Cell@{netdem::Cell}!MPIManager@{MPIManager}}
+\index{MPIManager@{MPIManager}!netdem::Cell@{netdem::Cell}}
+\doxysubsubsection{\texorpdfstring{MPIManager}{MPIManager}}
+{\footnotesize\ttfamily \label{classnetdem_1_1_cell_ad9f863ec8d35de83fdfd9ed41d8a2054} 
+friend class \mbox{\hyperlink{classnetdem_1_1_m_p_i_manager}{MPIManager}}\hspace{0.3cm}{\ttfamily [friend]}}
+
+\Hypertarget{classnetdem_1_1_cell_a0f6381b33b90b7e4ab72eeaeec4cc9ff}\index{netdem::Cell@{netdem::Cell}!Particle@{Particle}}
+\index{Particle@{Particle}!netdem::Cell@{netdem::Cell}}
+\doxysubsubsection{\texorpdfstring{Particle}{Particle}}
+{\footnotesize\ttfamily \label{classnetdem_1_1_cell_a0f6381b33b90b7e4ab72eeaeec4cc9ff} 
+friend class \mbox{\hyperlink{classnetdem_1_1_particle}{Particle}}\hspace{0.3cm}{\ttfamily [friend]}}
+
+\Hypertarget{classnetdem_1_1_cell_ab22e010ecb433792b36c7fdbc4f45b69}\index{netdem::Cell@{netdem::Cell}!Wall@{Wall}}
+\index{Wall@{Wall}!netdem::Cell@{netdem::Cell}}
+\doxysubsubsection{\texorpdfstring{Wall}{Wall}}
+{\footnotesize\ttfamily \label{classnetdem_1_1_cell_ab22e010ecb433792b36c7fdbc4f45b69} 
+friend class \mbox{\hyperlink{classnetdem_1_1_wall}{Wall}}\hspace{0.3cm}{\ttfamily [friend]}}
 
 
 

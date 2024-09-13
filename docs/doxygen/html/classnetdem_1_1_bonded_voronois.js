@@ -11,7 +11,6 @@ var classnetdem_1_1_bonded_voronois =
     [ "MakePorosity", "classnetdem_1_1_bonded_voronois.html#af31bf4d142fc1296d0c49ac31fe8dda5", null ],
     [ "operator=", "classnetdem_1_1_bonded_voronois.html#a211ae83568977ff7c0512eb7752f5a09", null ],
     [ "operator=", "classnetdem_1_1_bonded_voronois.html#a8702767ea32e797c1fe7db37d94ff6ae", null ],
-    [ "RefreshPointers", "classnetdem_1_1_bonded_voronois.html#a5b3586e59a90b7d153d95ffabf33943c", null ],
     [ "RotateByRodrigues", "classnetdem_1_1_bonded_voronois.html#aec2d341db2a3078106aa647ccdf8ab3a", null ],
     [ "SaveAsVTK", "classnetdem_1_1_bonded_voronois.html#a1e90503e13757229b9deb8c096e58284", null ],
     [ "SetBondModel", "classnetdem_1_1_bonded_voronois.html#a0ba7fe8cc00bf3a03068798001833f81", null ],

@@ -1,4 +1,4 @@
-This repository maintains the [documentation](https://apaam.github.io/netdem_docs/) of the [NetDEM](https://github.com/apaam/netdem) project. It is built on [mkdocs](https://www.mkdocs.org/) and the template extracted from [mfem](https://mfem.org/).
+This repository maintains the [documentation](https://apaam.github.io/webpage/) of the [NetDEM](https://github.com/apaam/netdem) project. It is built on [mkdocs](https://www.mkdocs.org/) and the template extracted from [mfem](https://mfem.org/).
 
 ## To update the site:
 

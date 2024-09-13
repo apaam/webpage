@@ -8,6 +8,7 @@
 \DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{data__dumper_8hpp}{data\_dumper.hpp}}"{}}}
 \DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{gen__pack_8hpp}{gen\_pack.hpp}}"{}}}
 \DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{gen__wall__box__plane_8hpp}{gen\_wall\_box\_plane.hpp}}"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{golden__spiral__sampler_8hpp}{golden\_spiral\_sampler.hpp}}"{}}}
 \DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{gravity_8hpp}{gravity.hpp}}"{}}}
 \DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{model__linear__spring_8hpp}{model\_linear\_spring.hpp}}"{}}}
 \DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{model__volume__based_8hpp}{model\_volume\_based.hpp}}"{}}}
@@ -52,16 +53,23 @@
 \DoxyCodeLine{\ \ model.\mbox{\hyperlink{classnetdem_1_1_regression_net_a4802cc4f75ad194e3a1136ee85bdb8e6}{Load}}(\textcolor{stringliteral}{"{}ann\_SDF.xml"{}},\ \textcolor{stringliteral}{"{}SDF"{}});}
 \DoxyCodeLine{\ \ cout\ <<\ \textcolor{stringliteral}{"{}finished\ loading\ ann\ model\ ..."{}}\ <<\ endl;}
 \DoxyCodeLine{}
-\DoxyCodeLine{\ \ \textcolor{keyword}{auto}\ searching\_points\ =\ WSCVTSampler::GetInstance().Get(1000);}
+\DoxyCodeLine{\ \ \textcolor{keyword}{auto}\ searching\_points\ =\ GoldenSpiralSampler::GetInstance().Get(2000);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{classnetdem_1_1_s_t_l_model}{STLModel}}\ stl\_model;}
+\DoxyCodeLine{\ \ IGLWrapper::ConvexHull(searching\_points,\ \&(stl\_model.\mbox{\hyperlink{classnetdem_1_1_s_t_l_model_a74db86ccf2a6a377aa4d7b0057f5082a}{vertices}}),}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \&(stl\_model.\mbox{\hyperlink{classnetdem_1_1_s_t_l_model_a6c82d2e74216bf22886b41737b67b0ca}{facets}}));}
+\DoxyCodeLine{\ \ searching\_points\ =\ stl\_model.\mbox{\hyperlink{classnetdem_1_1_s_t_l_model_a74db86ccf2a6a377aa4d7b0057f5082a}{vertices}};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{keywordtype}{int}\ num\_samples\ =\ searching\_points.size();}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{namespacenetdem_a8be723b4d09e8683b196ff9b51427d36}{VecXd}}\ sdf\_list(num\_samples);}
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ \textcolor{comment}{//\ loop\ over\ all\ templates}}
 \DoxyCodeLine{\ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ ii\ =\ 0;\ ii\ <\ num\_templates;\ ii++)\ \{}
-\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<Vec3d>}}\ surf\_vertices;}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ jj\ =\ 0;\ jj\ <\ num\_samples;\ jj++)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \textcolor{keyword}{auto}\ search\_point\ =\ searching\_points[jj]\ *\ 0.5;}
+\DoxyCodeLine{\ \ \ \ \ \ \textcolor{keyword}{auto}\ surf\_point\ =\ stl\_model.\mbox{\hyperlink{classnetdem_1_1_s_t_l_model_a74db86ccf2a6a377aa4d7b0057f5082a}{vertices}}[jj]\ *\ 0.5;}
 \DoxyCodeLine{}
-\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ surf\_point\ :\ searching\_points)\ \{}
-\DoxyCodeLine{\ \ \ \ \ \ surf\_point\ =\ surf\_point\ *\ 0.5;}
-\DoxyCodeLine{}
-\DoxyCodeLine{\ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ iter\ =\ 0;\ iter\ <\ 10;\ iter++)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ iter\ =\ 0;\ iter\ <\ 100;\ iter++)\ \{}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ arma::mat\ test\_x\_coded(num\_latent\_code\ +\ surf\_point.size(),\ 1);}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ num\_latent\_code;\ i++)\ \{}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ test\_x\_coded(i,\ 0)\ =\ latent\_code(ii,\ i);}
@@ -71,31 +79,67 @@
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \}}
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ sdf\ =\ model.\mbox{\hyperlink{classnetdem_1_1_regression_net_ad0a454915d74f397ea4b6ce40c46f84e}{Predict}}(test\_x\_coded);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ sdf\_list[jj]\ =\ sdf(0,\ 0);}
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (abs(sdf(0,\ 0))\ >\ 0.001)\ \{}
-\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ dydx\ =\ model.\mbox{\hyperlink{classnetdem_1_1_regression_net_a20b97ff96a288d2d0468fb494ae6e8af}{Gradient}}(test\_x\_coded);}
-\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ surf\_point[0]\ -\/=\ sdf(0,\ 0)\ *\ dydx(0,\ 0\ +\ num\_latent\_code);}
-\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ surf\_point[1]\ -\/=\ sdf(0,\ 0)\ *\ dydx(0,\ 1\ +\ num\_latent\_code);}
-\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ surf\_point[2]\ -\/=\ sdf(0,\ 0)\ *\ dydx(0,\ 2\ +\ num\_latent\_code);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ //\ using\ gradient}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ auto\ dydx\ =\ model.Gradient(test\_x\_coded);}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ surf\_point[0]\ -\/=\ sdf(0,\ 0)\ *\ dydx(0,\ 0\ +\ num\_latent\_code);}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ surf\_point[1]\ -\/=\ sdf(0,\ 0)\ *\ dydx(0,\ 1\ +\ num\_latent\_code);}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ surf\_point[2]\ -\/=\ sdf(0,\ 0)\ *\ dydx(0,\ 2\ +\ num\_latent\_code);}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ using\ sdf}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ surf\_point[0]\ +=\ sdf(0,\ 0)\ *\ search\_point[0];}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ surf\_point[1]\ +=\ sdf(0,\ 0)\ *\ search\_point[1];}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ surf\_point[2]\ +=\ sdf(0,\ 0)\ *\ search\_point[2];}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \}}
 \DoxyCodeLine{\ \ \ \ \ \ \}}
 \DoxyCodeLine{}
-\DoxyCodeLine{\ \ \ \ \ \ surf\_vertices.emplace\_back(surf\_point);}
+\DoxyCodeLine{\ \ \ \ \ \ stl\_model.\mbox{\hyperlink{classnetdem_1_1_s_t_l_model_a74db86ccf2a6a377aa4d7b0057f5082a}{vertices}}[jj]\ =\ surf\_point;}
 \DoxyCodeLine{\ \ \ \ \}}
 \DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ stl\_model.\mbox{\hyperlink{classnetdem_1_1_s_t_l_model_ad63749f1cf41df85a3d7237025200a0b}{SaveAsSTL}}(template\_names[ii]\ +\ \textcolor{stringliteral}{"{}/shape\_netsdf.stl"{}});}
+\DoxyCodeLine{}
 \DoxyCodeLine{\ \ \ \ \textcolor{comment}{/*\ using\ alpha-\/shape\ approach}}
-\DoxyCodeLine{\textcolor{comment}{\ \ \ \ STLModel\ stl\_model;}}
-\DoxyCodeLine{\textcolor{comment}{\ \ \ \ CGALWrapper::GetAlphaShape(\&(stl\_model.vertices),\ \&(stl\_model.facets),\ }}
-\DoxyCodeLine{\textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ surf\_vertices,\ 0.7);}}
+\DoxyCodeLine{\textcolor{comment}{\ \ \ \ CGALWrapper::GetAlphaShape(\&(stl\_model.vertices),\ \&(stl\_model.facets),}}
+\DoxyCodeLine{\textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ stl\_model.vertices,\ 0.7);}}
 \DoxyCodeLine{\textcolor{comment}{\ \ \ \ stl\_model.SaveAsSTL(template\_names[ii]\ +\ "{}/shape\_netsdf.stl"{});\ //\ */}}
 \DoxyCodeLine{}
-\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ using\ spherical\ harmonics\ approach}}
-\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{classnetdem_1_1_spherical_harmonics}{SphericalHarmonics}}\ sph;}
-\DoxyCodeLine{\ \ \ \ sph.\mbox{\hyperlink{classnetdem_1_1_spherical_harmonics_aff0aab3dedcfe8a1dfa44bf868575fd2}{InitFromSurfacePoints}}(surf\_vertices);}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{/*\ using\ spherical\ harmonics\ approach}}
+\DoxyCodeLine{\textcolor{comment}{\ \ \ \ SphericalHarmonics\ sph;}}
+\DoxyCodeLine{\textcolor{comment}{\ \ \ \ sph.InitFromSurfacePoints(stl\_model.vertices);}}
+\DoxyCodeLine{\textcolor{comment}{}}
+\DoxyCodeLine{\textcolor{comment}{\ \ \ \ sph.GetSTLModel(500).SaveAsSTL(template\_names[ii]\ +\ "{}/shape\_netsdf.stl"{});}}
+\DoxyCodeLine{\textcolor{comment}{\ \ \ \ //\ */}}
 \DoxyCodeLine{}
-\DoxyCodeLine{\ \ \ \ sph.\mbox{\hyperlink{classnetdem_1_1_spherical_harmonics_a636e21871ecf0cd3f59153c285ecbd9e}{GetSTLModel}}(1000).\mbox{\hyperlink{classnetdem_1_1_s_t_l_model_ad63749f1cf41df85a3d7237025200a0b}{SaveAsSTL}}(template\_names[ii]\ +\ \textcolor{stringliteral}{"{}/shape\_netsdf.stl"{}});}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ save\ the\ data\ points}}
+\DoxyCodeLine{\ \ \ \ stringbuf\ buf;}
+\DoxyCodeLine{\ \ \ \ ostream\ os(\&buf);}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{int}\ os\_width\ =\ 24;}
+\DoxyCodeLine{\ \ \ \ os.setf(ios::scientific);}
+\DoxyCodeLine{\ \ \ \ os.precision(15);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ num\_samples;\ i++)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \textcolor{comment}{//\ write\ the\ data\ as\ one\ sample\ one\ row}}
+\DoxyCodeLine{\ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\_inputs\ =\ 0;\ i\_inputs\ <\ 3;\ i\_inputs++)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ os.width(os\_width);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ os\ <<\ stl\_model.\mbox{\hyperlink{classnetdem_1_1_s_t_l_model_a74db86ccf2a6a377aa4d7b0057f5082a}{vertices}}[i][i\_inputs]\ <<\ \textcolor{stringliteral}{"{},\ "{}};}
+\DoxyCodeLine{\ \ \ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ \ \ os.width(os\_width);}
+\DoxyCodeLine{\ \ \ \ \ \ os\ <<\ sdf\_list[i]\ <<\ endl;}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{string}\ filename\ =\ template\_names[ii]\ +\ \textcolor{stringliteral}{"{}/surface\_points.txt"{}};}
+\DoxyCodeLine{\ \ \ \ ofstream\ outfile;}
+\DoxyCodeLine{\ \ \ \ outfile.open(filename);}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{if}\ (!outfile)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}cannot\ open\ file:\ "{}}\ <<\ filename\ <<\ endl;}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ outfile\ <<\ buf.str();}
+\DoxyCodeLine{\ \ \ \ outfile.close();}
+\DoxyCodeLine{\ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}data\ saved\ to:\ "{}}\ <<\ filename\ <<\ endl;}
 \DoxyCodeLine{\ \ \}}
 \DoxyCodeLine{\}}
 
