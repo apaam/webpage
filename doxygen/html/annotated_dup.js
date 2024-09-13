@@ -1,6 +1,12 @@
 var annotated_dup =
 [
     [ "netdem", "namespacenetdem.html", [
+      [ "webgpu", "namespacenetdem_1_1webgpu.html", [
+        [ "Math", "classnetdem_1_1webgpu_1_1_math.html", null ],
+        [ "PrefixSum", "classnetdem_1_1webgpu_1_1_prefix_sum.html", "classnetdem_1_1webgpu_1_1_prefix_sum" ],
+        [ "RadixSort", "classnetdem_1_1webgpu_1_1_radix_sort.html", "classnetdem_1_1webgpu_1_1_radix_sort" ],
+        [ "ResourceManager", "classnetdem_1_1webgpu_1_1_resource_manager.html", null ]
+      ] ],
       [ "BondedSpheres", "classnetdem_1_1_bonded_spheres.html", "classnetdem_1_1_bonded_spheres" ],
       [ "BondedVoronois", "classnetdem_1_1_bonded_voronois.html", "classnetdem_1_1_bonded_voronois" ],
       [ "BondEntry", "classnetdem_1_1_bond_entry.html", "classnetdem_1_1_bond_entry" ],
@@ -9,6 +15,7 @@ var annotated_dup =
       [ "BondGeometries", "classnetdem_1_1_bond_geometries.html", "classnetdem_1_1_bond_geometries" ],
       [ "BondSolverPP", "classnetdem_1_1_bond_solver_p_p.html", "classnetdem_1_1_bond_solver_p_p" ],
       [ "BondSolverPW", "classnetdem_1_1_bond_solver_p_w.html", "classnetdem_1_1_bond_solver_p_w" ],
+      [ "BreakageAnalysis", "classnetdem_1_1_breakage_analysis.html", "classnetdem_1_1_breakage_analysis" ],
       [ "BreakageAnalysisPD", "classnetdem_1_1_breakage_analysis_p_d.html", "classnetdem_1_1_breakage_analysis_p_d" ],
       [ "Cell", "classnetdem_1_1_cell.html", "classnetdem_1_1_cell" ],
       [ "CellManager", "classnetdem_1_1_cell_manager.html", "classnetdem_1_1_cell_manager" ],
@@ -51,6 +58,7 @@ var annotated_dup =
       [ "ExternalForce", "classnetdem_1_1_external_force.html", "classnetdem_1_1_external_force" ],
       [ "FEMSimulator", "classnetdem_1_1_f_e_m_simulator.html", "classnetdem_1_1_f_e_m_simulator" ],
       [ "GeneralNet", "classnetdem_1_1_general_net.html", "classnetdem_1_1_general_net" ],
+      [ "GoldenSpiralSampler", "classnetdem_1_1_golden_spiral_sampler.html", "classnetdem_1_1_golden_spiral_sampler" ],
       [ "Gravity", "classnetdem_1_1_gravity.html", "classnetdem_1_1_gravity" ],
       [ "HertzMindlin", "classnetdem_1_1_hertz_mindlin.html", "classnetdem_1_1_hertz_mindlin" ],
       [ "IGLWrapper", "classnetdem_1_1_i_g_l_wrapper.html", null ],
@@ -79,11 +87,14 @@ var annotated_dup =
       [ "ParallelBond", "classnetdem_1_1_parallel_bond.html", "classnetdem_1_1_parallel_bond" ],
       [ "Particle", "classnetdem_1_1_particle.html", "classnetdem_1_1_particle" ],
       [ "ParticleData", "structnetdem_1_1_particle_data.html", "structnetdem_1_1_particle_data" ],
+      [ "ParticleDataGPU", "structnetdem_1_1_particle_data_g_p_u.html", "structnetdem_1_1_particle_data_g_p_u" ],
       [ "ParticleEnergy", "structnetdem_1_1_particle_energy.html", "structnetdem_1_1_particle_energy" ],
       [ "ParticleEnergyEvaluator", "classnetdem_1_1_particle_energy_evaluator.html", "classnetdem_1_1_particle_energy_evaluator" ],
       [ "ParticleGroup", "classnetdem_1_1_particle_group.html", "classnetdem_1_1_particle_group" ],
       [ "ParticleMotionControl", "classnetdem_1_1_particle_motion_control.html", "classnetdem_1_1_particle_motion_control" ],
       [ "ParticleParser", "classnetdem_1_1_particle_parser.html", null ],
+      [ "ParticleParserGPU", "classnetdem_1_1_particle_parser_g_p_u.html", null ],
+      [ "ParticleStressEvaluator", "classnetdem_1_1_particle_stress_evaluator.html", "classnetdem_1_1_particle_stress_evaluator" ],
       [ "PeriDigmBlock", "classnetdem_1_1_peri_digm_block.html", "classnetdem_1_1_peri_digm_block" ],
       [ "PeriDigmBoundaryCondition", "classnetdem_1_1_peri_digm_boundary_condition.html", "classnetdem_1_1_peri_digm_boundary_condition" ],
       [ "PeriDigmDamageModel", "classnetdem_1_1_peri_digm_damage_model.html", "classnetdem_1_1_peri_digm_damage_model" ],
@@ -138,6 +149,8 @@ var annotated_dup =
       [ "WallMotionControl", "classnetdem_1_1_wall_motion_control.html", "classnetdem_1_1_wall_motion_control" ],
       [ "WallMotionIntegrator", "classnetdem_1_1_wall_motion_integrator.html", "classnetdem_1_1_wall_motion_integrator" ],
       [ "WallServoControl", "classnetdem_1_1_wall_servo_control.html", "classnetdem_1_1_wall_servo_control" ],
+      [ "WebGPUManager", "classnetdem_1_1_web_g_p_u_manager.html", "classnetdem_1_1_web_g_p_u_manager" ],
+      [ "WebGPUWrapper", "classnetdem_1_1_web_g_p_u_wrapper.html", null ],
       [ "WSCVTSampler", "classnetdem_1_1_w_s_c_v_t_sampler.html", "classnetdem_1_1_w_s_c_v_t_sampler" ]
     ] ]
 ];

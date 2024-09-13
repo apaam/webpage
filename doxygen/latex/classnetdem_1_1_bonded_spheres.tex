@@ -24,11 +24,13 @@ A class representing a sphere bonded to other spheres through contact pairs.
 \begin{DoxyCompactList}\small\item\em Move assignment operator for the \doxylink{classnetdem_1_1_bonded_spheres}{Bonded\+Spheres} class. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classnetdem_1_1_bonded_spheres_af5e2a48cb8282271acb8bbb13aa8af02}{Set\+Bond\+Model}} (\mbox{\hyperlink{classnetdem_1_1_contact_model}{Contact\+Model}} \texorpdfstring{$\ast$}{*}cnt\+\_\+model)
 \begin{DoxyCompactList}\small\item\em Set the contact model used to calculate the forces between particles. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classnetdem_1_1_bonded_spheres_a40e84249c83dda46640eb14dd96f379b}{Set\+Bond\+Margin}} (double margin)
+\begin{DoxyCompactList}\small\item\em Set the bond margin used to determine if two spheres are bonded. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classnetdem_1_1_bonded_spheres_a3ffc7e1c274b93cd67a49cbb0ab28ff8}{Translate}} (double pos\+\_\+x, double pos\+\_\+y, double pos\+\_\+z)
 \begin{DoxyCompactList}\small\item\em Translate the sphere by a given amount. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classnetdem_1_1_bonded_spheres_a9841edd63f2fc769ac407df34c4aac54}{Rotate\+By\+Rodrigues}} (double rot\+\_\+angle, double rot\+\_\+axis\+\_\+x, double rot\+\_\+axis\+\_\+y, double rot\+\_\+axis\+\_\+z)
 \begin{DoxyCompactList}\small\item\em Rotate the sphere by a given angle around a given axis using the Rodrigues formula. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \mbox{\hyperlink{classnetdem_1_1_bonded_spheres_aa08b213a18011397fe2b791edae8587a}{Get\+Centroid}} ()
+\mbox{\hyperlink{namespacenetdem_a510a89239abc51ed4d8d88ce7ee403df}{Vec3d}} \mbox{\hyperlink{classnetdem_1_1_bonded_spheres_aa08b213a18011397fe2b791edae8587a}{Get\+Centroid}} ()
 \begin{DoxyCompactList}\small\item\em Calculate the centroid of the sphere. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classnetdem_1_1_bonded_spheres_a8d303a63473a682686070bbe5a6ff9b1}{Init\+From\+STL}} (std\+::string const \&filename, double sphere\+\_\+size)
 \begin{DoxyCompactList}\small\item\em Initialize the sphere from an STL file with the given sphere size. \end{DoxyCompactList}\item 
@@ -36,8 +38,12 @@ void \mbox{\hyperlink{classnetdem_1_1_bonded_spheres_aa5d8d0e679233c3c4099111492
 \begin{DoxyCompactList}\small\item\em Initialize the sphere from an \doxylink{classnetdem_1_1_s_t_l_model}{STLModel} object with the given sphere size. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classnetdem_1_1_bonded_spheres_ac1ce8abc71f2e3df0c5372d4112dd825}{Init\+From\+Grid}} (double corner\+\_\+x, double corner\+\_\+y, double corner\+\_\+z, double len\+\_\+x, double len\+\_\+y, double len\+\_\+z, double sphere\+\_\+size)
 \begin{DoxyCompactList}\small\item\em Initialize a cubic grid of spheres with the given corner position, dimensions, and sphere size. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classnetdem_1_1_bonded_spheres_a554e53e5e91fe93f8b0f8951a5596793}{Init\+From\+Spheres}} (std\+::string const \&filename)
+\begin{DoxyCompactList}\small\item\em Initialize the spheres from a file providing the x, y, z, and size. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classnetdem_1_1_bonded_spheres_a4b9256f20c30561fa1511796518960d7}{Add\+Sphere}} (double x, double y, double z, double sphere\+\_\+size)
+\begin{DoxyCompactList}\small\item\em Add a sphere to the list. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classnetdem_1_1_bonded_spheres_a911a7d9dc7d81353eed973ee130333d4}{Make\+Porosity}} (double porosity)
-\begin{DoxyCompactList}\small\item\em Make the sphere porous by adding gaps between particles. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Make the particle porous by removing some spheres. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classnetdem_1_1_bonded_spheres_aa81da32dfbf6c931958a26269555d582}{Init\+Bonds}} ()
 \begin{DoxyCompactList}\small\item\em Initialize the bonded pairs between particles. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classnetdem_1_1_bonded_spheres_aa3021c420e43d6d1c30305418589f9b1}{Import\+To\+Scene}} (\mbox{\hyperlink{classnetdem_1_1_scene}{Scene}} \texorpdfstring{$\ast$}{*}const scene) const
@@ -45,37 +51,39 @@ void \mbox{\hyperlink{classnetdem_1_1_bonded_spheres_aa3021c420e43d6d1c303054185
 \doxysubsubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{classnetdem_1_1_sphere}{Sphere}} \mbox{\hyperlink{classnetdem_1_1_bonded_spheres_a1597ecd32f7f43fea26b371414af9b24}{sphere}}
-\begin{DoxyCompactList}\small\item\em The sphere\textquotesingle{}s geometry. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} $>$ \mbox{\hyperlink{classnetdem_1_1_bonded_spheres_ada76c116bef350b11364d69a30ccdec2}{particle\+\_\+list}}
-\begin{DoxyCompactList}\small\item\em The list of particles in the sphere. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{classnetdem_1_1_contact_p_p}{Contact\+PP}} $>$ \mbox{\hyperlink{classnetdem_1_1_bonded_spheres_afd65d1ba41033093b3429354e3060d1a}{contact\+\_\+list}}
+\mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{Vec\+XT}}$<$ \mbox{\hyperlink{classnetdem_1_1_sphere}{Sphere}} $>$ \mbox{\hyperlink{classnetdem_1_1_bonded_spheres_aeb59bc075a629b387299eff2cee7e0eb}{sphere\+\_\+list}}
+\begin{DoxyCompactList}\small\item\em The list of base spheres. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{Vec\+XT}}$<$ \mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} $>$ \mbox{\hyperlink{classnetdem_1_1_bonded_spheres_ada76c116bef350b11364d69a30ccdec2}{particle\+\_\+list}}
+\begin{DoxyCompactList}\small\item\em The list of sphere particles. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{Vec\+XT}}$<$ \mbox{\hyperlink{classnetdem_1_1_contact_p_p}{Contact\+PP}} $>$ \mbox{\hyperlink{classnetdem_1_1_bonded_spheres_afd65d1ba41033093b3429354e3060d1a}{contact\+\_\+list}}
 \begin{DoxyCompactList}\small\item\em The list of contact pairs between particles. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_ad732d71ff9685f48b7bcbfc82812e60e}{Vec2i}} $>$ \mbox{\hyperlink{classnetdem_1_1_bonded_spheres_a55549f908f6496231f5f752c7f448d4b}{bond\+\_\+pair\+\_\+list}}
+\mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{Vec\+XT}}$<$ \mbox{\hyperlink{namespacenetdem_a8bf20ddea431f8bfd9465206615fb061}{Vec2i}} $>$ \mbox{\hyperlink{classnetdem_1_1_bonded_spheres_a55549f908f6496231f5f752c7f448d4b}{bond\+\_\+pair\+\_\+list}}
 \begin{DoxyCompactList}\small\item\em The list of bonded pairs between particles. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classnetdem_1_1_contact_model}{Contact\+Model}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classnetdem_1_1_bonded_spheres_a32e1c1b2b10454da582431535282b857}{bond\+\_\+model}} \{nullptr\}
-\begin{DoxyCompactList}\small\item\em The contact model used to calculate the forces between particles. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em The contact model used to calculate the forces between particles. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classnetdem_1_1_bonded_spheres_a095a9a4c651627d065ae94a73ce6c8d5}{bond\+\_\+margin}} \{1.\+0e-\/6\}
+\begin{DoxyCompactList}\small\item\em Two spheres are bonded if their surface distance is within the bond\+\_\+margin. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
 A class representing a sphere bonded to other spheres through contact pairs. 
 
 \doxysubsection{Constructor \& Destructor Documentation}
-\Hypertarget{classnetdem_1_1_bonded_spheres_a576f802b0d9dc0909b21ddad1faf8016}\label{classnetdem_1_1_bonded_spheres_a576f802b0d9dc0909b21ddad1faf8016} 
-\index{netdem::BondedSpheres@{netdem::BondedSpheres}!BondedSpheres@{BondedSpheres}}
+\Hypertarget{classnetdem_1_1_bonded_spheres_a576f802b0d9dc0909b21ddad1faf8016}\index{netdem::BondedSpheres@{netdem::BondedSpheres}!BondedSpheres@{BondedSpheres}}
 \index{BondedSpheres@{BondedSpheres}!netdem::BondedSpheres@{netdem::BondedSpheres}}
 \doxysubsubsection{\texorpdfstring{BondedSpheres()}{BondedSpheres()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
-{\footnotesize\ttfamily Bonded\+Spheres\+::\+Bonded\+Spheres (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{classnetdem_1_1_bonded_spheres_a576f802b0d9dc0909b21ddad1faf8016} 
+Bonded\+Spheres\+::\+Bonded\+Spheres (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
 
 
 Default constructor for the \doxylink{classnetdem_1_1_bonded_spheres}{Bonded\+Spheres} class. 
 
-\Hypertarget{classnetdem_1_1_bonded_spheres_ab02ba0667cb6a1fdf1f6c2c3aa36b82d}\label{classnetdem_1_1_bonded_spheres_ab02ba0667cb6a1fdf1f6c2c3aa36b82d} 
-\index{netdem::BondedSpheres@{netdem::BondedSpheres}!BondedSpheres@{BondedSpheres}}
+\Hypertarget{classnetdem_1_1_bonded_spheres_ab02ba0667cb6a1fdf1f6c2c3aa36b82d}\index{netdem::BondedSpheres@{netdem::BondedSpheres}!BondedSpheres@{BondedSpheres}}
 \index{BondedSpheres@{BondedSpheres}!netdem::BondedSpheres@{netdem::BondedSpheres}}
 \doxysubsubsection{\texorpdfstring{BondedSpheres()}{BondedSpheres()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
-{\footnotesize\ttfamily Bonded\+Spheres\+::\+Bonded\+Spheres (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_bonded_spheres}{Bonded\+Spheres}} const \&}]{bp }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{classnetdem_1_1_bonded_spheres_ab02ba0667cb6a1fdf1f6c2c3aa36b82d} 
+Bonded\+Spheres\+::\+Bonded\+Spheres (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_bonded_spheres}{Bonded\+Spheres}} const \&}]{bp}{}\end{DoxyParamCaption})}
 
 
 
@@ -86,11 +94,11 @@ Copy constructor for the \doxylink{classnetdem_1_1_bonded_spheres}{Bonded\+Spher
 {\em bp} & The \doxylink{classnetdem_1_1_bonded_spheres}{Bonded\+Spheres} object to copy. \\
 \hline
 \end{DoxyParams}
-\Hypertarget{classnetdem_1_1_bonded_spheres_aa6571a57a50d5dc8380ba7f204be8eb3}\label{classnetdem_1_1_bonded_spheres_aa6571a57a50d5dc8380ba7f204be8eb3} 
-\index{netdem::BondedSpheres@{netdem::BondedSpheres}!BondedSpheres@{BondedSpheres}}
+\Hypertarget{classnetdem_1_1_bonded_spheres_aa6571a57a50d5dc8380ba7f204be8eb3}\index{netdem::BondedSpheres@{netdem::BondedSpheres}!BondedSpheres@{BondedSpheres}}
 \index{BondedSpheres@{BondedSpheres}!netdem::BondedSpheres@{netdem::BondedSpheres}}
 \doxysubsubsection{\texorpdfstring{BondedSpheres()}{BondedSpheres()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
-{\footnotesize\ttfamily Bonded\+Spheres\+::\+Bonded\+Spheres (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_bonded_spheres}{Bonded\+Spheres}} const \&\&}]{bp }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{classnetdem_1_1_bonded_spheres_aa6571a57a50d5dc8380ba7f204be8eb3} 
+Bonded\+Spheres\+::\+Bonded\+Spheres (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_bonded_spheres}{Bonded\+Spheres}} const \&\&}]{bp}{}\end{DoxyParamCaption})}
 
 
 
@@ -104,11 +112,32 @@ Move constructor for the \doxylink{classnetdem_1_1_bonded_spheres}{Bonded\+Spher
 
 
 \doxysubsection{Member Function Documentation}
-\Hypertarget{classnetdem_1_1_bonded_spheres_aa08b213a18011397fe2b791edae8587a}\label{classnetdem_1_1_bonded_spheres_aa08b213a18011397fe2b791edae8587a} 
-\index{netdem::BondedSpheres@{netdem::BondedSpheres}!GetCentroid@{GetCentroid}}
+\Hypertarget{classnetdem_1_1_bonded_spheres_a4b9256f20c30561fa1511796518960d7}\index{netdem::BondedSpheres@{netdem::BondedSpheres}!AddSphere@{AddSphere}}
+\index{AddSphere@{AddSphere}!netdem::BondedSpheres@{netdem::BondedSpheres}}
+\doxysubsubsection{\texorpdfstring{AddSphere()}{AddSphere()}}
+{\footnotesize\ttfamily \label{classnetdem_1_1_bonded_spheres_a4b9256f20c30561fa1511796518960d7} 
+void Bonded\+Spheres\+::\+Add\+Sphere (\begin{DoxyParamCaption}\item[{double}]{x}{, }\item[{double}]{y}{, }\item[{double}]{z}{, }\item[{double}]{sphere\+\_\+size}{}\end{DoxyParamCaption})}
+
+
+
+Add a sphere to the list. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & coordinate x. \\
+\hline
+{\em y} & coordinate y. \\
+\hline
+{\em z} & coordinate z. \\
+\hline
+{\em sphere\+\_\+size} & size of the sphere. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classnetdem_1_1_bonded_spheres_aa08b213a18011397fe2b791edae8587a}\index{netdem::BondedSpheres@{netdem::BondedSpheres}!GetCentroid@{GetCentroid}}
 \index{GetCentroid@{GetCentroid}!netdem::BondedSpheres@{netdem::BondedSpheres}}
 \doxysubsubsection{\texorpdfstring{GetCentroid()}{GetCentroid()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} Bonded\+Spheres\+::\+Get\+Centroid (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{classnetdem_1_1_bonded_spheres_aa08b213a18011397fe2b791edae8587a} 
+\mbox{\hyperlink{namespacenetdem_a510a89239abc51ed4d8d88ce7ee403df}{Vec3d}} Bonded\+Spheres\+::\+Get\+Centroid (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
 
 
@@ -117,11 +146,11 @@ Calculate the centroid of the sphere.
 \begin{DoxyReturn}{Returns}
 The centroid of the sphere as a Vec3d object. 
 \end{DoxyReturn}
-\Hypertarget{classnetdem_1_1_bonded_spheres_aa3021c420e43d6d1c30305418589f9b1}\label{classnetdem_1_1_bonded_spheres_aa3021c420e43d6d1c30305418589f9b1} 
-\index{netdem::BondedSpheres@{netdem::BondedSpheres}!ImportToScene@{ImportToScene}}
+\Hypertarget{classnetdem_1_1_bonded_spheres_aa3021c420e43d6d1c30305418589f9b1}\index{netdem::BondedSpheres@{netdem::BondedSpheres}!ImportToScene@{ImportToScene}}
 \index{ImportToScene@{ImportToScene}!netdem::BondedSpheres@{netdem::BondedSpheres}}
 \doxysubsubsection{\texorpdfstring{ImportToScene()}{ImportToScene()}}
-{\footnotesize\ttfamily void Bonded\+Spheres\+::\+Import\+To\+Scene (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_scene}{Scene}} \texorpdfstring{$\ast$}{*}const}]{scene }\end{DoxyParamCaption}) const}
+{\footnotesize\ttfamily \label{classnetdem_1_1_bonded_spheres_aa3021c420e43d6d1c30305418589f9b1} 
+void Bonded\+Spheres\+::\+Import\+To\+Scene (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_scene}{Scene}} \texorpdfstring{$\ast$}{*}const}]{scene}{}\end{DoxyParamCaption}) const}
 
 
 
@@ -132,21 +161,21 @@ Import the \doxylink{classnetdem_1_1_bonded_spheres}{Bonded\+Spheres} object to 
 {\em scene} & The \doxylink{classnetdem_1_1_scene}{Scene} object to import to. \\
 \hline
 \end{DoxyParams}
-\Hypertarget{classnetdem_1_1_bonded_spheres_aa81da32dfbf6c931958a26269555d582}\label{classnetdem_1_1_bonded_spheres_aa81da32dfbf6c931958a26269555d582} 
-\index{netdem::BondedSpheres@{netdem::BondedSpheres}!InitBonds@{InitBonds}}
+\Hypertarget{classnetdem_1_1_bonded_spheres_aa81da32dfbf6c931958a26269555d582}\index{netdem::BondedSpheres@{netdem::BondedSpheres}!InitBonds@{InitBonds}}
 \index{InitBonds@{InitBonds}!netdem::BondedSpheres@{netdem::BondedSpheres}}
 \doxysubsubsection{\texorpdfstring{InitBonds()}{InitBonds()}}
-{\footnotesize\ttfamily void Bonded\+Spheres\+::\+Init\+Bonds (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{classnetdem_1_1_bonded_spheres_aa81da32dfbf6c931958a26269555d582} 
+void Bonded\+Spheres\+::\+Init\+Bonds (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
 
 
 Initialize the bonded pairs between particles. 
 
-\Hypertarget{classnetdem_1_1_bonded_spheres_ac1ce8abc71f2e3df0c5372d4112dd825}\label{classnetdem_1_1_bonded_spheres_ac1ce8abc71f2e3df0c5372d4112dd825} 
-\index{netdem::BondedSpheres@{netdem::BondedSpheres}!InitFromGrid@{InitFromGrid}}
+\Hypertarget{classnetdem_1_1_bonded_spheres_ac1ce8abc71f2e3df0c5372d4112dd825}\index{netdem::BondedSpheres@{netdem::BondedSpheres}!InitFromGrid@{InitFromGrid}}
 \index{InitFromGrid@{InitFromGrid}!netdem::BondedSpheres@{netdem::BondedSpheres}}
 \doxysubsubsection{\texorpdfstring{InitFromGrid()}{InitFromGrid()}}
-{\footnotesize\ttfamily void Bonded\+Spheres\+::\+Init\+From\+Grid (\begin{DoxyParamCaption}\item[{double}]{corner\+\_\+x,  }\item[{double}]{corner\+\_\+y,  }\item[{double}]{corner\+\_\+z,  }\item[{double}]{len\+\_\+x,  }\item[{double}]{len\+\_\+y,  }\item[{double}]{len\+\_\+z,  }\item[{double}]{sphere\+\_\+size }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{classnetdem_1_1_bonded_spheres_ac1ce8abc71f2e3df0c5372d4112dd825} 
+void Bonded\+Spheres\+::\+Init\+From\+Grid (\begin{DoxyParamCaption}\item[{double}]{corner\+\_\+x}{, }\item[{double}]{corner\+\_\+y}{, }\item[{double}]{corner\+\_\+z}{, }\item[{double}]{len\+\_\+x}{, }\item[{double}]{len\+\_\+y}{, }\item[{double}]{len\+\_\+z}{, }\item[{double}]{sphere\+\_\+size}{}\end{DoxyParamCaption})}
 
 
 
@@ -169,11 +198,26 @@ Initialize a cubic grid of spheres with the given corner position, dimensions, a
 {\em sphere\+\_\+size} & The size of the spheres in the grid. \\
 \hline
 \end{DoxyParams}
-\Hypertarget{classnetdem_1_1_bonded_spheres_a8d303a63473a682686070bbe5a6ff9b1}\label{classnetdem_1_1_bonded_spheres_a8d303a63473a682686070bbe5a6ff9b1} 
-\index{netdem::BondedSpheres@{netdem::BondedSpheres}!InitFromSTL@{InitFromSTL}}
+\Hypertarget{classnetdem_1_1_bonded_spheres_a554e53e5e91fe93f8b0f8951a5596793}\index{netdem::BondedSpheres@{netdem::BondedSpheres}!InitFromSpheres@{InitFromSpheres}}
+\index{InitFromSpheres@{InitFromSpheres}!netdem::BondedSpheres@{netdem::BondedSpheres}}
+\doxysubsubsection{\texorpdfstring{InitFromSpheres()}{InitFromSpheres()}}
+{\footnotesize\ttfamily \label{classnetdem_1_1_bonded_spheres_a554e53e5e91fe93f8b0f8951a5596793} 
+void Bonded\+Spheres\+::\+Init\+From\+Spheres (\begin{DoxyParamCaption}\item[{std\+::string const \&}]{filename}{}\end{DoxyParamCaption})}
+
+
+
+Initialize the spheres from a file providing the x, y, z, and size. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & The a file providing the x, y, z, and size. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classnetdem_1_1_bonded_spheres_a8d303a63473a682686070bbe5a6ff9b1}\index{netdem::BondedSpheres@{netdem::BondedSpheres}!InitFromSTL@{InitFromSTL}}
 \index{InitFromSTL@{InitFromSTL}!netdem::BondedSpheres@{netdem::BondedSpheres}}
 \doxysubsubsection{\texorpdfstring{InitFromSTL()}{InitFromSTL()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily void Bonded\+Spheres\+::\+Init\+From\+STL (\begin{DoxyParamCaption}\item[{std\+::string const \&}]{filename,  }\item[{double}]{sphere\+\_\+size }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{classnetdem_1_1_bonded_spheres_a8d303a63473a682686070bbe5a6ff9b1} 
+void Bonded\+Spheres\+::\+Init\+From\+STL (\begin{DoxyParamCaption}\item[{std\+::string const \&}]{filename}{, }\item[{double}]{sphere\+\_\+size}{}\end{DoxyParamCaption})}
 
 
 
@@ -186,11 +230,11 @@ Initialize the sphere from an STL file with the given sphere size.
 {\em sphere\+\_\+size} & The size of the spheres in the mesh. \\
 \hline
 \end{DoxyParams}
-\Hypertarget{classnetdem_1_1_bonded_spheres_aa5d8d0e679233c3c409911149235ed32}\label{classnetdem_1_1_bonded_spheres_aa5d8d0e679233c3c409911149235ed32} 
-\index{netdem::BondedSpheres@{netdem::BondedSpheres}!InitFromSTL@{InitFromSTL}}
+\Hypertarget{classnetdem_1_1_bonded_spheres_aa5d8d0e679233c3c409911149235ed32}\index{netdem::BondedSpheres@{netdem::BondedSpheres}!InitFromSTL@{InitFromSTL}}
 \index{InitFromSTL@{InitFromSTL}!netdem::BondedSpheres@{netdem::BondedSpheres}}
 \doxysubsubsection{\texorpdfstring{InitFromSTL()}{InitFromSTL()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily void Bonded\+Spheres\+::\+Init\+From\+STL (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_s_t_l_model}{STLModel}} const \&}]{stl\+\_\+model,  }\item[{double}]{sphere\+\_\+size }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{classnetdem_1_1_bonded_spheres_aa5d8d0e679233c3c409911149235ed32} 
+void Bonded\+Spheres\+::\+Init\+From\+STL (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_s_t_l_model}{STLModel}} const \&}]{stl\+\_\+model}{, }\item[{double}]{sphere\+\_\+size}{}\end{DoxyParamCaption})}
 
 
 
@@ -203,26 +247,26 @@ Initialize the sphere from an \doxylink{classnetdem_1_1_s_t_l_model}{STLModel} o
 {\em sphere\+\_\+size} & The size of the spheres in the mesh. \\
 \hline
 \end{DoxyParams}
-\Hypertarget{classnetdem_1_1_bonded_spheres_a911a7d9dc7d81353eed973ee130333d4}\label{classnetdem_1_1_bonded_spheres_a911a7d9dc7d81353eed973ee130333d4} 
-\index{netdem::BondedSpheres@{netdem::BondedSpheres}!MakePorosity@{MakePorosity}}
+\Hypertarget{classnetdem_1_1_bonded_spheres_a911a7d9dc7d81353eed973ee130333d4}\index{netdem::BondedSpheres@{netdem::BondedSpheres}!MakePorosity@{MakePorosity}}
 \index{MakePorosity@{MakePorosity}!netdem::BondedSpheres@{netdem::BondedSpheres}}
 \doxysubsubsection{\texorpdfstring{MakePorosity()}{MakePorosity()}}
-{\footnotesize\ttfamily void Bonded\+Spheres\+::\+Make\+Porosity (\begin{DoxyParamCaption}\item[{double}]{porosity }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{classnetdem_1_1_bonded_spheres_a911a7d9dc7d81353eed973ee130333d4} 
+void Bonded\+Spheres\+::\+Make\+Porosity (\begin{DoxyParamCaption}\item[{double}]{porosity}{}\end{DoxyParamCaption})}
 
 
 
-Make the sphere porous by adding gaps between particles. 
+Make the particle porous by removing some spheres. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em porosity} & The desired porosity of the sphere as a fraction. \\
+{\em porosity} & The desired porosity of the particle as a fraction. \\
 \hline
 \end{DoxyParams}
-\Hypertarget{classnetdem_1_1_bonded_spheres_a707a2b9079b9ac6cea71335813bb04a2}\label{classnetdem_1_1_bonded_spheres_a707a2b9079b9ac6cea71335813bb04a2} 
-\index{netdem::BondedSpheres@{netdem::BondedSpheres}!operator=@{operator=}}
+\Hypertarget{classnetdem_1_1_bonded_spheres_a707a2b9079b9ac6cea71335813bb04a2}\index{netdem::BondedSpheres@{netdem::BondedSpheres}!operator=@{operator=}}
 \index{operator=@{operator=}!netdem::BondedSpheres@{netdem::BondedSpheres}}
 \doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classnetdem_1_1_bonded_spheres}{Bonded\+Spheres}} \& Bonded\+Spheres\+::operator= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_bonded_spheres}{Bonded\+Spheres}} const \&\&}]{bp }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{classnetdem_1_1_bonded_spheres_a707a2b9079b9ac6cea71335813bb04a2} 
+\mbox{\hyperlink{classnetdem_1_1_bonded_spheres}{Bonded\+Spheres}} \& Bonded\+Spheres\+::operator= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_bonded_spheres}{Bonded\+Spheres}} const \&\&}]{bp}{}\end{DoxyParamCaption})}
 
 
 
@@ -236,11 +280,11 @@ Move assignment operator for the \doxylink{classnetdem_1_1_bonded_spheres}{Bonde
 \begin{DoxyReturn}{Returns}
 A reference to the moved \doxylink{classnetdem_1_1_bonded_spheres}{Bonded\+Spheres} object. 
 \end{DoxyReturn}
-\Hypertarget{classnetdem_1_1_bonded_spheres_a38135f6922763f52d0dc39f0125b9bbe}\label{classnetdem_1_1_bonded_spheres_a38135f6922763f52d0dc39f0125b9bbe} 
-\index{netdem::BondedSpheres@{netdem::BondedSpheres}!operator=@{operator=}}
+\Hypertarget{classnetdem_1_1_bonded_spheres_a38135f6922763f52d0dc39f0125b9bbe}\index{netdem::BondedSpheres@{netdem::BondedSpheres}!operator=@{operator=}}
 \index{operator=@{operator=}!netdem::BondedSpheres@{netdem::BondedSpheres}}
 \doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classnetdem_1_1_bonded_spheres}{Bonded\+Spheres}} \& Bonded\+Spheres\+::operator= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_bonded_spheres}{Bonded\+Spheres}} const \&}]{bp }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{classnetdem_1_1_bonded_spheres_a38135f6922763f52d0dc39f0125b9bbe} 
+\mbox{\hyperlink{classnetdem_1_1_bonded_spheres}{Bonded\+Spheres}} \& Bonded\+Spheres\+::operator= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_bonded_spheres}{Bonded\+Spheres}} const \&}]{bp}{}\end{DoxyParamCaption})}
 
 
 
@@ -254,11 +298,11 @@ Copy assignment operator for the \doxylink{classnetdem_1_1_bonded_spheres}{Bonde
 \begin{DoxyReturn}{Returns}
 A reference to the copied \doxylink{classnetdem_1_1_bonded_spheres}{Bonded\+Spheres} object. 
 \end{DoxyReturn}
-\Hypertarget{classnetdem_1_1_bonded_spheres_a9841edd63f2fc769ac407df34c4aac54}\label{classnetdem_1_1_bonded_spheres_a9841edd63f2fc769ac407df34c4aac54} 
-\index{netdem::BondedSpheres@{netdem::BondedSpheres}!RotateByRodrigues@{RotateByRodrigues}}
+\Hypertarget{classnetdem_1_1_bonded_spheres_a9841edd63f2fc769ac407df34c4aac54}\index{netdem::BondedSpheres@{netdem::BondedSpheres}!RotateByRodrigues@{RotateByRodrigues}}
 \index{RotateByRodrigues@{RotateByRodrigues}!netdem::BondedSpheres@{netdem::BondedSpheres}}
 \doxysubsubsection{\texorpdfstring{RotateByRodrigues()}{RotateByRodrigues()}}
-{\footnotesize\ttfamily void Bonded\+Spheres\+::\+Rotate\+By\+Rodrigues (\begin{DoxyParamCaption}\item[{double}]{rot\+\_\+angle,  }\item[{double}]{rot\+\_\+axis\+\_\+x,  }\item[{double}]{rot\+\_\+axis\+\_\+y,  }\item[{double}]{rot\+\_\+axis\+\_\+z }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{classnetdem_1_1_bonded_spheres_a9841edd63f2fc769ac407df34c4aac54} 
+void Bonded\+Spheres\+::\+Rotate\+By\+Rodrigues (\begin{DoxyParamCaption}\item[{double}]{rot\+\_\+angle}{, }\item[{double}]{rot\+\_\+axis\+\_\+x}{, }\item[{double}]{rot\+\_\+axis\+\_\+y}{, }\item[{double}]{rot\+\_\+axis\+\_\+z}{}\end{DoxyParamCaption})}
 
 
 
@@ -275,11 +319,26 @@ Rotate the sphere by a given angle around a given axis using the Rodrigues formu
 {\em rot\+\_\+axis\+\_\+z} & The z component of the rotation axis. \\
 \hline
 \end{DoxyParams}
-\Hypertarget{classnetdem_1_1_bonded_spheres_af5e2a48cb8282271acb8bbb13aa8af02}\label{classnetdem_1_1_bonded_spheres_af5e2a48cb8282271acb8bbb13aa8af02} 
-\index{netdem::BondedSpheres@{netdem::BondedSpheres}!SetBondModel@{SetBondModel}}
+\Hypertarget{classnetdem_1_1_bonded_spheres_a40e84249c83dda46640eb14dd96f379b}\index{netdem::BondedSpheres@{netdem::BondedSpheres}!SetBondMargin@{SetBondMargin}}
+\index{SetBondMargin@{SetBondMargin}!netdem::BondedSpheres@{netdem::BondedSpheres}}
+\doxysubsubsection{\texorpdfstring{SetBondMargin()}{SetBondMargin()}}
+{\footnotesize\ttfamily \label{classnetdem_1_1_bonded_spheres_a40e84249c83dda46640eb14dd96f379b} 
+void Bonded\+Spheres\+::\+Set\+Bond\+Margin (\begin{DoxyParamCaption}\item[{double}]{margin}{}\end{DoxyParamCaption})}
+
+
+
+Set the bond margin used to determine if two spheres are bonded. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em margin} & The bond margin to use. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classnetdem_1_1_bonded_spheres_af5e2a48cb8282271acb8bbb13aa8af02}\index{netdem::BondedSpheres@{netdem::BondedSpheres}!SetBondModel@{SetBondModel}}
 \index{SetBondModel@{SetBondModel}!netdem::BondedSpheres@{netdem::BondedSpheres}}
 \doxysubsubsection{\texorpdfstring{SetBondModel()}{SetBondModel()}}
-{\footnotesize\ttfamily void Bonded\+Spheres\+::\+Set\+Bond\+Model (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_contact_model}{Contact\+Model}} \texorpdfstring{$\ast$}{*}}]{cnt\+\_\+model }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{classnetdem_1_1_bonded_spheres_af5e2a48cb8282271acb8bbb13aa8af02} 
+void Bonded\+Spheres\+::\+Set\+Bond\+Model (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_contact_model}{Contact\+Model}} \texorpdfstring{$\ast$}{*}}]{cnt\+\_\+model}{}\end{DoxyParamCaption})}
 
 
 
@@ -290,11 +349,11 @@ Set the contact model used to calculate the forces between particles.
 {\em cnt\+\_\+model} & The contact model to use. \\
 \hline
 \end{DoxyParams}
-\Hypertarget{classnetdem_1_1_bonded_spheres_a3ffc7e1c274b93cd67a49cbb0ab28ff8}\label{classnetdem_1_1_bonded_spheres_a3ffc7e1c274b93cd67a49cbb0ab28ff8} 
-\index{netdem::BondedSpheres@{netdem::BondedSpheres}!Translate@{Translate}}
+\Hypertarget{classnetdem_1_1_bonded_spheres_a3ffc7e1c274b93cd67a49cbb0ab28ff8}\index{netdem::BondedSpheres@{netdem::BondedSpheres}!Translate@{Translate}}
 \index{Translate@{Translate}!netdem::BondedSpheres@{netdem::BondedSpheres}}
 \doxysubsubsection{\texorpdfstring{Translate()}{Translate()}}
-{\footnotesize\ttfamily void Bonded\+Spheres\+::\+Translate (\begin{DoxyParamCaption}\item[{double}]{pos\+\_\+x,  }\item[{double}]{pos\+\_\+y,  }\item[{double}]{pos\+\_\+z }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{classnetdem_1_1_bonded_spheres_a3ffc7e1c274b93cd67a49cbb0ab28ff8} 
+void Bonded\+Spheres\+::\+Translate (\begin{DoxyParamCaption}\item[{double}]{pos\+\_\+x}{, }\item[{double}]{pos\+\_\+y}{, }\item[{double}]{pos\+\_\+z}{}\end{DoxyParamCaption})}
 
 
 
@@ -312,55 +371,65 @@ Translate the sphere by a given amount.
 
 
 \doxysubsection{Member Data Documentation}
-\Hypertarget{classnetdem_1_1_bonded_spheres_a32e1c1b2b10454da582431535282b857}\label{classnetdem_1_1_bonded_spheres_a32e1c1b2b10454da582431535282b857} 
-\index{netdem::BondedSpheres@{netdem::BondedSpheres}!bond\_model@{bond\_model}}
+\Hypertarget{classnetdem_1_1_bonded_spheres_a095a9a4c651627d065ae94a73ce6c8d5}\index{netdem::BondedSpheres@{netdem::BondedSpheres}!bond\_margin@{bond\_margin}}
+\index{bond\_margin@{bond\_margin}!netdem::BondedSpheres@{netdem::BondedSpheres}}
+\doxysubsubsection{\texorpdfstring{bond\_margin}{bond\_margin}}
+{\footnotesize\ttfamily \label{classnetdem_1_1_bonded_spheres_a095a9a4c651627d065ae94a73ce6c8d5} 
+double netdem\+::\+Bonded\+Spheres\+::bond\+\_\+margin \{1.\+0e-\/6\}}
+
+
+
+Two spheres are bonded if their surface distance is within the bond\+\_\+margin. 
+
+\Hypertarget{classnetdem_1_1_bonded_spheres_a32e1c1b2b10454da582431535282b857}\index{netdem::BondedSpheres@{netdem::BondedSpheres}!bond\_model@{bond\_model}}
 \index{bond\_model@{bond\_model}!netdem::BondedSpheres@{netdem::BondedSpheres}}
 \doxysubsubsection{\texorpdfstring{bond\_model}{bond\_model}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classnetdem_1_1_contact_model}{Contact\+Model}}\texorpdfstring{$\ast$}{*} netdem\+::\+Bonded\+Spheres\+::bond\+\_\+model \{nullptr\}}
+{\footnotesize\ttfamily \label{classnetdem_1_1_bonded_spheres_a32e1c1b2b10454da582431535282b857} 
+\mbox{\hyperlink{classnetdem_1_1_contact_model}{Contact\+Model}}\texorpdfstring{$\ast$}{*} netdem\+::\+Bonded\+Spheres\+::bond\+\_\+model \{nullptr\}}
 
 
 
 The contact model used to calculate the forces between particles. 
 
-\Hypertarget{classnetdem_1_1_bonded_spheres_a55549f908f6496231f5f752c7f448d4b}\label{classnetdem_1_1_bonded_spheres_a55549f908f6496231f5f752c7f448d4b} 
-\index{netdem::BondedSpheres@{netdem::BondedSpheres}!bond\_pair\_list@{bond\_pair\_list}}
+\Hypertarget{classnetdem_1_1_bonded_spheres_a55549f908f6496231f5f752c7f448d4b}\index{netdem::BondedSpheres@{netdem::BondedSpheres}!bond\_pair\_list@{bond\_pair\_list}}
 \index{bond\_pair\_list@{bond\_pair\_list}!netdem::BondedSpheres@{netdem::BondedSpheres}}
 \doxysubsubsection{\texorpdfstring{bond\_pair\_list}{bond\_pair\_list}}
-{\footnotesize\ttfamily \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$\mbox{\hyperlink{namespacenetdem_ad732d71ff9685f48b7bcbfc82812e60e}{Vec2i}}$>$ netdem\+::\+Bonded\+Spheres\+::bond\+\_\+pair\+\_\+list}
+{\footnotesize\ttfamily \label{classnetdem_1_1_bonded_spheres_a55549f908f6496231f5f752c7f448d4b} 
+\mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{Vec\+XT}}$<$\mbox{\hyperlink{namespacenetdem_a8bf20ddea431f8bfd9465206615fb061}{Vec2i}}$>$ netdem\+::\+Bonded\+Spheres\+::bond\+\_\+pair\+\_\+list}
 
 
 
 The list of bonded pairs between particles. 
 
-\Hypertarget{classnetdem_1_1_bonded_spheres_afd65d1ba41033093b3429354e3060d1a}\label{classnetdem_1_1_bonded_spheres_afd65d1ba41033093b3429354e3060d1a} 
-\index{netdem::BondedSpheres@{netdem::BondedSpheres}!contact\_list@{contact\_list}}
+\Hypertarget{classnetdem_1_1_bonded_spheres_afd65d1ba41033093b3429354e3060d1a}\index{netdem::BondedSpheres@{netdem::BondedSpheres}!contact\_list@{contact\_list}}
 \index{contact\_list@{contact\_list}!netdem::BondedSpheres@{netdem::BondedSpheres}}
 \doxysubsubsection{\texorpdfstring{contact\_list}{contact\_list}}
-{\footnotesize\ttfamily \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$\mbox{\hyperlink{classnetdem_1_1_contact_p_p}{Contact\+PP}}$>$ netdem\+::\+Bonded\+Spheres\+::contact\+\_\+list}
+{\footnotesize\ttfamily \label{classnetdem_1_1_bonded_spheres_afd65d1ba41033093b3429354e3060d1a} 
+\mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{Vec\+XT}}$<$\mbox{\hyperlink{classnetdem_1_1_contact_p_p}{Contact\+PP}}$>$ netdem\+::\+Bonded\+Spheres\+::contact\+\_\+list}
 
 
 
 The list of contact pairs between particles. 
 
-\Hypertarget{classnetdem_1_1_bonded_spheres_ada76c116bef350b11364d69a30ccdec2}\label{classnetdem_1_1_bonded_spheres_ada76c116bef350b11364d69a30ccdec2} 
-\index{netdem::BondedSpheres@{netdem::BondedSpheres}!particle\_list@{particle\_list}}
+\Hypertarget{classnetdem_1_1_bonded_spheres_ada76c116bef350b11364d69a30ccdec2}\index{netdem::BondedSpheres@{netdem::BondedSpheres}!particle\_list@{particle\_list}}
 \index{particle\_list@{particle\_list}!netdem::BondedSpheres@{netdem::BondedSpheres}}
 \doxysubsubsection{\texorpdfstring{particle\_list}{particle\_list}}
-{\footnotesize\ttfamily \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$\mbox{\hyperlink{classnetdem_1_1_particle}{Particle}}$>$ netdem\+::\+Bonded\+Spheres\+::particle\+\_\+list}
+{\footnotesize\ttfamily \label{classnetdem_1_1_bonded_spheres_ada76c116bef350b11364d69a30ccdec2} 
+\mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{Vec\+XT}}$<$\mbox{\hyperlink{classnetdem_1_1_particle}{Particle}}$>$ netdem\+::\+Bonded\+Spheres\+::particle\+\_\+list}
 
 
 
-The list of particles in the sphere. 
+The list of sphere particles. 
 
-\Hypertarget{classnetdem_1_1_bonded_spheres_a1597ecd32f7f43fea26b371414af9b24}\label{classnetdem_1_1_bonded_spheres_a1597ecd32f7f43fea26b371414af9b24} 
-\index{netdem::BondedSpheres@{netdem::BondedSpheres}!sphere@{sphere}}
-\index{sphere@{sphere}!netdem::BondedSpheres@{netdem::BondedSpheres}}
-\doxysubsubsection{\texorpdfstring{sphere}{sphere}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classnetdem_1_1_sphere}{Sphere}} netdem\+::\+Bonded\+Spheres\+::sphere}
+\Hypertarget{classnetdem_1_1_bonded_spheres_aeb59bc075a629b387299eff2cee7e0eb}\index{netdem::BondedSpheres@{netdem::BondedSpheres}!sphere\_list@{sphere\_list}}
+\index{sphere\_list@{sphere\_list}!netdem::BondedSpheres@{netdem::BondedSpheres}}
+\doxysubsubsection{\texorpdfstring{sphere\_list}{sphere\_list}}
+{\footnotesize\ttfamily \label{classnetdem_1_1_bonded_spheres_aeb59bc075a629b387299eff2cee7e0eb} 
+\mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{Vec\+XT}}$<$\mbox{\hyperlink{classnetdem_1_1_sphere}{Sphere}}$>$ netdem\+::\+Bonded\+Spheres\+::sphere\+\_\+list}
 
 
 
-The sphere\textquotesingle{}s geometry. 
+The list of base spheres. 
 
 
 

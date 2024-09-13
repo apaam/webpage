@@ -12,7 +12,7 @@
 \DoxyCodeLine{00007\ \textcolor{comment}{\#\ env}}
 \DoxyCodeLine{00008\ dir\_path\ =\ os.path.dirname(os.path.realpath(\_\_file\_\_))}
 \DoxyCodeLine{00009\ sys.path.append(dir\_path\ +\ \textcolor{stringliteral}{"{}/../../build/lib/"{}})}
-\DoxyCodeLine{00010\ \textcolor{keyword}{from}\ pynetdem\ \textcolor{keyword}{import}\ *}
+\DoxyCodeLine{00010\ \textcolor{keyword}{from}\ netdem\ \textcolor{keyword}{import}\ *}
 \DoxyCodeLine{00011\ }
 \DoxyCodeLine{00012\ \textcolor{comment}{\#\ sim\ settings}}
 \DoxyCodeLine{00013\ sim\ =\ Simulation()}
@@ -25,11 +25,11 @@
 \DoxyCodeLine{00020\ sim.dem\_solver.contact\_solver\_factory.settings.sdf\_potential\_type\ =\ 0}
 \DoxyCodeLine{00021\ }
 \DoxyCodeLine{00022\ \textcolor{comment}{\#\ contact\ model}}
-\DoxyCodeLine{00023\ cnt\_model\_1\ =\ LinearSpring(2.0e6,\ 1.0e6,\ 0.7,\ 0.3)}
+\DoxyCodeLine{00023\ cnt\_model\_1\ =\ LinearSpring(2.0e6,\ 1.0e6,\ 0.3,\ 0.0)}
 \DoxyCodeLine{00024\ cnt\_model\_1.label\ =\ \textcolor{stringliteral}{"{}cnt\_model\_1"{}}}
 \DoxyCodeLine{00025\ cnt\_model\_1\_prt\ =\ sim.scene.InsertContactModel(cnt\_model\_1)}
 \DoxyCodeLine{00026\ }
-\DoxyCodeLine{00027\ cnt\_model\_2\ =\ LinearSpring(2.0e6,\ 1.0e6,\ 0.7,\ 0.3)}
+\DoxyCodeLine{00027\ cnt\_model\_2\ =\ LinearSpring(2.0e6,\ 1.0e6,\ 0.3,\ 0.0)}
 \DoxyCodeLine{00028\ cnt\_model\_2.label\ =\ \textcolor{stringliteral}{"{}cnt\_model\_2"{}}}
 \DoxyCodeLine{00029\ cnt\_model\_2\_prt\ =\ sim.scene.InsertContactModel(cnt\_model\_2)}
 \DoxyCodeLine{00030\ }
@@ -127,7 +127,7 @@
 \DoxyCodeLine{00122\ \textcolor{comment}{\#\ particle\ shape\ templates}}
 \DoxyCodeLine{00123\ tri\_mesh\ =\ TriMesh()}
 \DoxyCodeLine{00124\ tri\_mesh.InitFromSTL(dir\_path\ +\ \textcolor{stringliteral}{"{}/data/particle\_template.stl"{}})}
-\DoxyCodeLine{00125\ tri\_mesh.Decimate(400)}
+\DoxyCodeLine{00125\ tri\_mesh.Decimate(200)}
 \DoxyCodeLine{00126\ tri\_mesh.MakeConvex()}
 \DoxyCodeLine{00127\ tri\_mesh.AlignAxes()}
 \DoxyCodeLine{00128\ tri\_mesh.SetSize(0.01)}
@@ -139,54 +139,55 @@
 \DoxyCodeLine{00134\ \ \ \ \ 0.2,\ 0.2,\ 1.0,\ 0,\ 0,\ 0.52,\ 12,\ 12,\ 60,\ particle\_shape\_ptr)}
 \DoxyCodeLine{00135\ \textcolor{keywordflow}{for}\ p\ \textcolor{keywordflow}{in}\ particle\_list:}
 \DoxyCodeLine{00136\ \ \ \ \ p.SetDensity(7530)}
-\DoxyCodeLine{00137\ }
-\DoxyCodeLine{00138\ \textcolor{comment}{\#\ insert\ particles\ and\ rest}}
-\DoxyCodeLine{00139\ sim.scene.InsertParticle(particle\_list)}
-\DoxyCodeLine{00140\ sim.Run(1.0)}
-\DoxyCodeLine{00141\ }
-\DoxyCodeLine{00142\ \textcolor{comment}{\#\ remove\ extra\ particles}}
-\DoxyCodeLine{00143\ \textcolor{keywordflow}{for}\ p\ \textcolor{keywordflow}{in}\ sim.scene.particle\_list:}
-\DoxyCodeLine{00144\ \ \ \ \ \textcolor{keywordflow}{if}\ p.pos[2]\ <\ 0\ \textcolor{keywordflow}{or}\ p.pos[2]\ >\ 0.12\ \(\backslash\)}
-\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{or}\ math.sqrt(p.pos[0]\ *\ p.pos[0]\ +\ p.pos[1]\ *\ p.pos[1])\ >\ 0.154:}
-\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ sim.scene.RemoveParticle(p)}
-\DoxyCodeLine{00147\ }
-\DoxyCodeLine{00148\ \textcolor{comment}{\#\ add\ top\ wall\ and\ apply\ servo-\/control}}
-\DoxyCodeLine{00149\ plane\ =\ Plane(0,\ 0,\ 0.13,\ 0,\ 0,\ -\/1)}
-\DoxyCodeLine{00150\ plane.SetExtent(0.5)}
-\DoxyCodeLine{00151\ plane\_ptr\ =\ sim.scene.InsertShape(plane)}
-\DoxyCodeLine{00152\ wall\_top\ =\ Wall(plane\_ptr)}
-\DoxyCodeLine{00153\ wall\_top\_ptr\ =\ sim.scene.InsertWall(wall\_top)}
-\DoxyCodeLine{00154\ }
-\DoxyCodeLine{00155\ servo\_top\ =\ WallServoControl(2e6,\ Math.PI\ *\ 0.308\ *\ 0.308\ /\ 4)}
-\DoxyCodeLine{00156\ servo\_top.label\ =\ \textcolor{stringliteral}{"{}servo\_top"{}}}
-\DoxyCodeLine{00157\ servo\_top.Init(sim)}
-\DoxyCodeLine{00158\ servo\_top.target\_pressure\ =\ 4e5}
-\DoxyCodeLine{00159\ servo\_top.SetWall([wall\_top\_ptr.id])}
-\DoxyCodeLine{00160\ tmp\ =\ sim.modifier\_manager.Insert(servo\_top)}
-\DoxyCodeLine{00161\ sim.modifier\_manager.Enable(servo\_top.label)}
-\DoxyCodeLine{00162\ servo\_top\_ptr\ =\ WallServoControl.Cast(tmp)}
-\DoxyCodeLine{00163\ }
-\DoxyCodeLine{00164\ \textcolor{comment}{\#\ keep\ loading\ until\ target\ pressure\ is\ achieved}}
-\DoxyCodeLine{00165\ \textcolor{keywordflow}{while}\ \textcolor{keyword}{True}:}
-\DoxyCodeLine{00166\ \ \ \ \ sim.Run(0.01)}
-\DoxyCodeLine{00167\ \ \ \ \ \textcolor{keywordflow}{if}\ servo\_top\_ptr.achieved:}
-\DoxyCodeLine{00168\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break}}
-\DoxyCodeLine{00169\ }
-\DoxyCodeLine{00170\ \textcolor{comment}{\#\ moving\ the\ bot\ ring}}
-\DoxyCodeLine{00171\ wall\_motion\_control\ =\ WallMotionControl()}
-\DoxyCodeLine{00172\ wall\_motion\_control.Init(sim)}
-\DoxyCodeLine{00173\ wall\_motion\_control.SetWall(bot\_wall\_ids)}
-\DoxyCodeLine{00174\ wall\_motion\_control.vel\ =\ (0.005,\ 0,\ 0)}
-\DoxyCodeLine{00175\ sim.modifier\_manager.Insert(wall\_motion\_control)}
-\DoxyCodeLine{00176\ sim.modifier\_manager.Enable(wall\_motion\_control.label)}
-\DoxyCodeLine{00177\ }
-\DoxyCodeLine{00178\ \textcolor{comment}{\#\ allow\ the\ middle\ ring\ stacks\ to\ move}}
-\DoxyCodeLine{00179\ \textcolor{keywordflow}{for}\ i\ \textcolor{keywordflow}{in}\ range(0,\ num\_mid\_rings):}
-\DoxyCodeLine{00180\ \ \ \ \ tmp\_label\ =\ \textcolor{stringliteral}{"{}wall\_motion\_integrator\_"{}}\ +\ str(i)}
-\DoxyCodeLine{00181\ \ \ \ \ sim.modifier\_manager.Enable(tmp\_label)}
-\DoxyCodeLine{00182\ }
-\DoxyCodeLine{00183\ \textcolor{comment}{\#\ run}}
-\DoxyCodeLine{00184\ sim.Run(3.0)}
+\DoxyCodeLine{00137\ \ \ \ \ p.damp\_numerical\ =\ 0.7}
+\DoxyCodeLine{00138\ }
+\DoxyCodeLine{00139\ \textcolor{comment}{\#\ insert\ particles\ and\ rest}}
+\DoxyCodeLine{00140\ sim.scene.InsertParticle(particle\_list)}
+\DoxyCodeLine{00141\ sim.Run(1.0)}
+\DoxyCodeLine{00142\ }
+\DoxyCodeLine{00143\ \textcolor{comment}{\#\ remove\ extra\ particles}}
+\DoxyCodeLine{00144\ \textcolor{keywordflow}{for}\ p\ \textcolor{keywordflow}{in}\ sim.scene.particle\_list:}
+\DoxyCodeLine{00145\ \ \ \ \ \textcolor{keywordflow}{if}\ p.pos[2]\ <\ 0\ \textcolor{keywordflow}{or}\ p.pos[2]\ >\ 0.12\ \(\backslash\)}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{or}\ math.sqrt(p.pos[0]\ *\ p.pos[0]\ +\ p.pos[1]\ *\ p.pos[1])\ >\ 0.154:}
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ sim.scene.RemoveParticle(p)}
+\DoxyCodeLine{00148\ }
+\DoxyCodeLine{00149\ \textcolor{comment}{\#\ add\ top\ wall\ and\ apply\ servo-\/control}}
+\DoxyCodeLine{00150\ plane\ =\ Plane(0,\ 0,\ 0.13,\ 0,\ 0,\ -\/1)}
+\DoxyCodeLine{00151\ plane.SetExtent(0.5)}
+\DoxyCodeLine{00152\ plane\_ptr\ =\ sim.scene.InsertShape(plane)}
+\DoxyCodeLine{00153\ wall\_top\ =\ Wall(plane\_ptr)}
+\DoxyCodeLine{00154\ wall\_top\_ptr\ =\ sim.scene.InsertWall(wall\_top)}
+\DoxyCodeLine{00155\ }
+\DoxyCodeLine{00156\ servo\_top\ =\ WallServoControl(2e6,\ Math.PI\ *\ 0.308\ *\ 0.308\ /\ 4)}
+\DoxyCodeLine{00157\ servo\_top.label\ =\ \textcolor{stringliteral}{"{}servo\_top"{}}}
+\DoxyCodeLine{00158\ servo\_top.Init(sim)}
+\DoxyCodeLine{00159\ servo\_top.target\_pressure\ =\ 4e5}
+\DoxyCodeLine{00160\ servo\_top.SetWall([wall\_top\_ptr.id])}
+\DoxyCodeLine{00161\ tmp\ =\ sim.modifier\_manager.Insert(servo\_top)}
+\DoxyCodeLine{00162\ sim.modifier\_manager.Enable(servo\_top.label)}
+\DoxyCodeLine{00163\ servo\_top\_ptr\ =\ WallServoControl.Cast(tmp)}
+\DoxyCodeLine{00164\ }
+\DoxyCodeLine{00165\ \textcolor{comment}{\#\ keep\ loading\ until\ target\ pressure\ is\ achieved}}
+\DoxyCodeLine{00166\ \textcolor{keywordflow}{while}\ \textcolor{keyword}{True}:}
+\DoxyCodeLine{00167\ \ \ \ \ sim.Run(0.01)}
+\DoxyCodeLine{00168\ \ \ \ \ \textcolor{keywordflow}{if}\ servo\_top\_ptr.achieved:}
+\DoxyCodeLine{00169\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break}}
+\DoxyCodeLine{00170\ }
+\DoxyCodeLine{00171\ \textcolor{comment}{\#\ moving\ the\ bot\ ring}}
+\DoxyCodeLine{00172\ wall\_motion\_control\ =\ WallMotionControl()}
+\DoxyCodeLine{00173\ wall\_motion\_control.Init(sim)}
+\DoxyCodeLine{00174\ wall\_motion\_control.SetWall(bot\_wall\_ids)}
+\DoxyCodeLine{00175\ wall\_motion\_control.SetVelocity(0.005,\ 0,\ 0)}
+\DoxyCodeLine{00176\ sim.modifier\_manager.Insert(wall\_motion\_control)}
+\DoxyCodeLine{00177\ sim.modifier\_manager.Enable(wall\_motion\_control.label)}
+\DoxyCodeLine{00178\ }
+\DoxyCodeLine{00179\ \textcolor{comment}{\#\ allow\ the\ middle\ ring\ stacks\ to\ move}}
+\DoxyCodeLine{00180\ \textcolor{keywordflow}{for}\ i\ \textcolor{keywordflow}{in}\ range(0,\ num\_mid\_rings):}
+\DoxyCodeLine{00181\ \ \ \ \ tmp\_label\ =\ \textcolor{stringliteral}{"{}wall\_motion\_integrator\_"{}}\ +\ str(i)}
+\DoxyCodeLine{00182\ \ \ \ \ sim.modifier\_manager.Enable(tmp\_label)}
+\DoxyCodeLine{00183\ }
+\DoxyCodeLine{00184\ \textcolor{comment}{\#\ run}}
+\DoxyCodeLine{00185\ sim.Run(3.0)}
 
 \end{DoxyCodeInclude}
  

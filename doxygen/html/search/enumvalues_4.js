@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['fixed_0',['fixed',['../classnetdem_1_1_particle_motion_control.html#adc91a346241575c9571d7d8bf22500efa015ee1eb3653f00fa9de6c41418ccc73',1,'netdem::ParticleMotionControl']]]
+  ['gjk_0',['gjk',['../classnetdem_1_1_contact_solver_settings.html#adff2184170befa136fdaedd56a048170a2f8746d2fc0843bbc69e87754c22d9d6',1,'netdem::ContactSolverSettings']]]
 ];

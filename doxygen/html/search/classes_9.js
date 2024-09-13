@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['math_0',['Math',['../classnetdem_1_1_math.html',1,'netdem']]],
+  ['math_0',['Math',['../classnetdem_1_1_math.html',1,'netdem::Math'],['../classnetdem_1_1webgpu_1_1_math.html',1,'netdem::webgpu::Math']]],
   ['membrane_1',['Membrane',['../classnetdem_1_1_membrane.html',1,'netdem']]],
   ['membranewall_2',['MembraneWall',['../classnetdem_1_1_membrane_wall.html',1,'netdem']]],
   ['minimap_3',['MiniMap',['../classnetdem_1_1_mini_map.html',1,'netdem']]],

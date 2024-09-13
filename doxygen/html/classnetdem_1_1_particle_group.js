@@ -7,6 +7,7 @@ var classnetdem_1_1_particle_group =
     [ "Clear", "classnetdem_1_1_particle_group.html#a20a00aa35b80f2fa74e8e86d059c44a4", null ],
     [ "Clone", "classnetdem_1_1_particle_group.html#ac7848958b3f714ccd75a698fc65f6c44", null ],
     [ "Execute", "classnetdem_1_1_particle_group.html#aedc74b3696668e6ed971b9a3e301318a", null ],
+    [ "GetParticles", "classnetdem_1_1_particle_group.html#a50627482be6732259614f1aae81b72fd", null ],
     [ "RemoveParticle", "classnetdem_1_1_particle_group.html#a78c568f87a89c0554823b46100c6e20b", null ],
     [ "RemoveParticle", "classnetdem_1_1_particle_group.html#a63cb4362bfa55496f51c8b99294d63ca", null ],
     [ "RemoveParticle", "classnetdem_1_1_particle_group.html#aa805edec121c481592925adec8d40870", null ],

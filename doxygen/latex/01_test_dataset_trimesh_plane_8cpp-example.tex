@@ -19,12 +19,12 @@
 \DoxyCodeLine{\textcolor{keyword}{using\ namespace\ }\mbox{\hyperlink{namespacenetdem}{netdem}};}
 \DoxyCodeLine{\textcolor{keyword}{using\ namespace\ }std;}
 \DoxyCodeLine{}
-\DoxyCodeLine{\mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<VecXT<double>}}>\ LoadDatasetTrimeshPlane(\textcolor{keywordtype}{string}\ filename)\ \{}
+\DoxyCodeLine{\mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{VecXT<VecXT<double>}}>\ LoadDatasetTrimeshPlane(\textcolor{keywordtype}{string}\ filename)\ \{}
 \DoxyCodeLine{\ \ ifstream\ file\_handle;}
 \DoxyCodeLine{\ \ file\_handle.open(filename,\ ios::binary);}
 \DoxyCodeLine{\ \ \textcolor{keywordflow}{if}\ (!file\_handle)\ \{}
 \DoxyCodeLine{\ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Fail\ to\ read\ file:\ "{}}\ <<\ filename\ <<\ endl;}
-\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<VecXT<double>}}>();}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{VecXT<VecXT<double>}}>();}
 \DoxyCodeLine{\ \ \}}
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ file\_handle.seekg(0,\ ios::end);}
@@ -38,9 +38,9 @@
 \DoxyCodeLine{\ \ ss.str(\textcolor{stringliteral}{"{}"{}});}
 \DoxyCodeLine{\ \ ss.clear();}
 \DoxyCodeLine{\ \ ss.str(buffer);}
-\DoxyCodeLine{\ \ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<VecXT<double>}}>\ dataset;}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{VecXT<VecXT<double>}}>\ dataset;}
 \DoxyCodeLine{\ \ \textcolor{keywordtype}{string}\ str\_line,\ str\_num;}
-\DoxyCodeLine{\ \ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<double>}}\ data\_line;}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{VecXT<double>}}\ data\_line;}
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ getline(ss,\ str\_line);}
 \DoxyCodeLine{\ \ istringstream\ readstr(str\_line);}
@@ -75,7 +75,7 @@
 \DoxyCodeLine{\textcolor{keywordtype}{void}\ TestDatasetTrimeshPlaneDetection()\ \{}
 \DoxyCodeLine{\ \ \mbox{\hyperlink{classnetdem_1_1_tri_mesh}{TriMesh}}\ tri\_mesh\_1;}
 \DoxyCodeLine{\ \ tri\_mesh\_1.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_a1dc42a1f9439c900d76f213155ebb56d}{InitFromSTL}}(\textcolor{stringliteral}{"{}data/particle\_template.stl"{}});}
-\DoxyCodeLine{\ \ tri\_mesh\_1.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_a6676d86d935edffc85b01191695a60b9}{Decimate}}(400);}
+\DoxyCodeLine{\ \ tri\_mesh\_1.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_a661f424b5d8c529d7a9c76b0deb88e78}{Decimate}}(200);}
 \DoxyCodeLine{\ \ tri\_mesh\_1.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_aa149712da01e2f068f28b8eba4395e14}{AlignAxes}}();}
 \DoxyCodeLine{\ \ tri\_mesh\_1.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_aa2378c12f277056e112f8e6a0b31669b}{SetSize}}(1.0);}
 \DoxyCodeLine{\ \ \mbox{\hyperlink{classnetdem_1_1_particle}{Particle}}\ obj\_p\ =\ \mbox{\hyperlink{classnetdem_1_1_particle}{Particle}}(\&tri\_mesh\_1);}
@@ -89,7 +89,7 @@
 \DoxyCodeLine{\ \ cout\ <<\ \textcolor{stringliteral}{"{}wall\ created\ ...\ "{}}\ <<\ endl;}
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ \textcolor{keywordtype}{string}\ root\_dir\ =\ \textcolor{stringliteral}{"{}local/examples/netdem/ann\_models/trimesh\_plane/"{}};}
-\DoxyCodeLine{\ \ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<VecXT<double>}}>\ dataset\ =}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{VecXT<VecXT<double>}}>\ dataset\ =}
 \DoxyCodeLine{\ \ \ \ \ \ LoadDatasetTrimeshPlane(root\_dir\ +\ \textcolor{stringliteral}{"{}dataset\_detection.txt"{}});}
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ \textcolor{comment}{//\ for\ (int\ i\ =\ 0;\ i\ <\ dataset.size();\ i++)\ \{\ //\ for\ debug,\ test\ the\ loadded}}
@@ -101,7 +101,7 @@
 \DoxyCodeLine{\ \ \textcolor{comment}{//\ \}}}
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ \textcolor{keywordtype}{int}\ num\_samples\ =\ dataset.size();}
-\DoxyCodeLine{\ \ \textcolor{keyword}{auto}\ *ds\_inputs\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{namespacenetdem_a13d5371f99b252a70fd5a5081b910370}{Vec4d}}[num\_samples];}
+\DoxyCodeLine{\ \ \textcolor{keyword}{auto}\ *ds\_inputs\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{namespacenetdem_aa088f3b9daf31efbeb49c18db267c791}{Vec4d}}[num\_samples];}
 \DoxyCodeLine{\ \ \textcolor{keyword}{auto}\ *ds\_cnt\_flags\ =\ \textcolor{keyword}{new}\ \textcolor{keywordtype}{bool}[num\_samples];}
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0,\ skip\ =\ 1;\ i\ <\ num\_samples;\ i\ +=\ skip)\ \{}
@@ -115,20 +115,20 @@
 \DoxyCodeLine{\ \ \mbox{\hyperlink{classnetdem_1_1_volume_based}{VolumeBased}}\ cnt\_model;}
 \DoxyCodeLine{\ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ num\_samples;\ i++)\ \{}
 \DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{double}\ dist\_pc\_to\_plane;}
-\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ dir\_n;}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{namespacenetdem_a510a89239abc51ed4d8d88ce7ee403df}{Vec3d}}\ \mbox{\hyperlink{namespacenetdem_acfdf2ec334780123689f95ba696a20f1}{dir\_n}};}
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ unpack\ the\ inputs}}
 \DoxyCodeLine{\ \ \ \ dist\_pc\_to\_plane\ =\ ds\_inputs[i][0];}
-\DoxyCodeLine{\ \ \ \ dir\_n[0]\ =\ ds\_inputs[i][1];}
-\DoxyCodeLine{\ \ \ \ dir\_n[1]\ =\ ds\_inputs[i][2];}
-\DoxyCodeLine{\ \ \ \ dir\_n[2]\ =\ ds\_inputs[i][3];}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{namespacenetdem_acfdf2ec334780123689f95ba696a20f1}{dir\_n}}[0]\ =\ ds\_inputs[i][1];}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{namespacenetdem_acfdf2ec334780123689f95ba696a20f1}{dir\_n}}[1]\ =\ ds\_inputs[i][2];}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{namespacenetdem_acfdf2ec334780123689f95ba696a20f1}{dir\_n}}[2]\ =\ ds\_inputs[i][3];}
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ transform\ the\ inputs\ to\ the\ wall\ position\ and\ rotation}}
 \DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ this\ is\ only\ for\ verification.\ No\ need\ to\ do\ this\ in\ contact\ solver}}
-\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ dir\_n\_ref\{0,\ 0,\ 1\},\ rot\_axis;}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{namespacenetdem_a510a89239abc51ed4d8d88ce7ee403df}{Vec3d}}\ dir\_n\_ref\{0,\ 0,\ 1\},\ rot\_axis;}
 \DoxyCodeLine{\ \ \ \ rot\_axis\ =\ Math::Cross(dir\_n\_ref,\ dir\_n);}
 \DoxyCodeLine{}
-\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{namespacenetdem_a13d5371f99b252a70fd5a5081b910370}{Vec4d}}\ quat;}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{namespacenetdem_aa088f3b9daf31efbeb49c18db267c791}{Vec4d}}\ quat;}
 \DoxyCodeLine{\ \ \ \ quat[0]\ =\ 1.0\ +\ Math::Dot(dir\_n,\ dir\_n\_ref);}
 \DoxyCodeLine{\ \ \ \ quat[1]\ =\ rot\_axis[0];}
 \DoxyCodeLine{\ \ \ \ quat[2]\ =\ rot\_axis[1];}
@@ -153,7 +153,7 @@
 \DoxyCodeLine{\textcolor{keywordtype}{void}\ TestDatasetTrimeshPlaneResolution()\ \{}
 \DoxyCodeLine{\ \ \mbox{\hyperlink{classnetdem_1_1_tri_mesh}{TriMesh}}\ tri\_mesh\_1;}
 \DoxyCodeLine{\ \ tri\_mesh\_1.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_a1dc42a1f9439c900d76f213155ebb56d}{InitFromSTL}}(\textcolor{stringliteral}{"{}data/particle\_template.stl"{}});}
-\DoxyCodeLine{\ \ tri\_mesh\_1.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_a6676d86d935edffc85b01191695a60b9}{Decimate}}(400);}
+\DoxyCodeLine{\ \ tri\_mesh\_1.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_a661f424b5d8c529d7a9c76b0deb88e78}{Decimate}}(200);}
 \DoxyCodeLine{\ \ tri\_mesh\_1.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_aa149712da01e2f068f28b8eba4395e14}{AlignAxes}}();}
 \DoxyCodeLine{\ \ tri\_mesh\_1.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_aa2378c12f277056e112f8e6a0b31669b}{SetSize}}(1.0);}
 \DoxyCodeLine{\ \ \mbox{\hyperlink{classnetdem_1_1_particle}{Particle}}\ obj\_p\ =\ \mbox{\hyperlink{classnetdem_1_1_particle}{Particle}}(\&tri\_mesh\_1);}
@@ -167,13 +167,13 @@
 \DoxyCodeLine{\ \ cout\ <<\ \textcolor{stringliteral}{"{}wall\ created\ ...\ "{}}\ <<\ endl;}
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ \textcolor{keywordtype}{string}\ root\_dir\ =\ \textcolor{stringliteral}{"{}local/examples/netdem/ann\_models/trimesh\_plane/"{}};}
-\DoxyCodeLine{\ \ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<VecXT<double>}}>\ dataset\ =}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{VecXT<VecXT<double>}}>\ dataset\ =}
 \DoxyCodeLine{\ \ \ \ \ \ LoadDatasetTrimeshPlane(root\_dir\ +\ \textcolor{stringliteral}{"{}dataset\_resolution.txt"{}});}
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ \textcolor{keywordtype}{int}\ num\_samples\ =\ dataset.size();}
-\DoxyCodeLine{\ \ \textcolor{keyword}{auto}\ *ds\_inputs\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{namespacenetdem_a13d5371f99b252a70fd5a5081b910370}{Vec4d}}[num\_samples];}
+\DoxyCodeLine{\ \ \textcolor{keyword}{auto}\ *ds\_inputs\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{namespacenetdem_aa088f3b9daf31efbeb49c18db267c791}{Vec4d}}[num\_samples];}
 \DoxyCodeLine{\ \ \textcolor{keyword}{auto}\ *ds\_cnt\_flags\ =\ \textcolor{keyword}{new}\ \textcolor{keywordtype}{bool}[num\_samples];}
-\DoxyCodeLine{\ \ \textcolor{keyword}{auto}\ *ds\_cnt\_feats\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{namespacenetdem_a4c6a34e4b9bc01901ac527bb8ea83909}{VecNT<double,\ 5>}}[num\_samples];}
+\DoxyCodeLine{\ \ \textcolor{keyword}{auto}\ *ds\_cnt\_feats\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{namespacenetdem_ad1d455526430e0bec883ee99ac0136ce}{VecNT<double,\ 5>}}[num\_samples];}
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0,\ skip\ =\ 1;\ i\ <\ num\_samples;\ i\ +=\ skip)\ \{}
 \DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\_inputs\ =\ 0;\ i\_inputs\ <\ 4;\ i\_inputs++)\ \{}
@@ -188,22 +188,22 @@
 \DoxyCodeLine{\ \ \mbox{\hyperlink{classnetdem_1_1_volume_based}{VolumeBased}}\ cnt\_model;}
 \DoxyCodeLine{\ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ num\_samples;\ i++)\ \{}
 \DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{double}\ dist\_pc\_to\_plane;}
-\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ dir\_n;}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{namespacenetdem_a510a89239abc51ed4d8d88ce7ee403df}{Vec3d}}\ \mbox{\hyperlink{namespacenetdem_acfdf2ec334780123689f95ba696a20f1}{dir\_n}};}
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ unpack\ the\ inputs}}
 \DoxyCodeLine{\ \ \ \ dist\_pc\_to\_plane\ =\ ds\_inputs[i][0];}
-\DoxyCodeLine{\ \ \ \ dir\_n[0]\ =\ ds\_inputs[i][1];}
-\DoxyCodeLine{\ \ \ \ dir\_n[1]\ =\ ds\_inputs[i][2];}
-\DoxyCodeLine{\ \ \ \ dir\_n[2]\ =\ ds\_inputs[i][3];}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{namespacenetdem_acfdf2ec334780123689f95ba696a20f1}{dir\_n}}[0]\ =\ ds\_inputs[i][1];}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{namespacenetdem_acfdf2ec334780123689f95ba696a20f1}{dir\_n}}[1]\ =\ ds\_inputs[i][2];}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{namespacenetdem_acfdf2ec334780123689f95ba696a20f1}{dir\_n}}[2]\ =\ ds\_inputs[i][3];}
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ transform\ the\ inputs\ to\ the\ wall\ position\ and\ rotation}}
 \DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ this\ is\ only\ for\ verification.\ No\ need\ to\ do\ this\ in\ contact\ solver}}
 \DoxyCodeLine{}
-\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ dir\_n\_ref\{0,\ 0,\ 1\};}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{namespacenetdem_a510a89239abc51ed4d8d88ce7ee403df}{Vec3d}}\ dir\_n\_ref\{0,\ 0,\ 1\};}
 \DoxyCodeLine{\ \ \ \ \textcolor{keyword}{auto}\ rot\_axis\ =\ Math::Cross(dir\_n\_ref,\ dir\_n);}
 \DoxyCodeLine{\ \ \ \ Math::Normalize(\&rot\_axis);}
 \DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{double}\ rot\_angle\ =\ acos(Math::Dot(dir\_n,\ dir\_n\_ref));}
-\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{namespacenetdem_a13d5371f99b252a70fd5a5081b910370}{Vec4d}}\ quat\ =\ Math::Quaternion::FromRodrigues(rot\_angle,\ rot\_axis);}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{namespacenetdem_aa088f3b9daf31efbeb49c18db267c791}{Vec4d}}\ quat\ =\ Math::Quaternion::FromRodrigues(rot\_angle,\ rot\_axis);}
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ \ \ obj\_w.\mbox{\hyperlink{classnetdem_1_1_wall_a72260b6cfb980c6a53aaf716cff0e57e}{SetPosition}}(-\/dist\_pc\_to\_plane\ *\ dir\_n[0],}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ -\/dist\_pc\_to\_plane\ *\ dir\_n[1],}

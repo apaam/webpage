@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['json_0',['json',['../input__processor_8cpp.html#ab701e3ac61a85b337ec5c1abaad6742d',1,'json:&#160;input_processor.cpp'],['../data__dumper_8cpp.html#ab701e3ac61a85b337ec5c1abaad6742d',1,'json:&#160;data_dumper.cpp'],['../mpi__manager_8cpp.html#ab701e3ac61a85b337ec5c1abaad6742d',1,'json:&#160;mpi_manager.cpp']]]
+  ['json_0',['json',['../input__processor_8cpp.html#a0c01dbde6677d7e4769b85716c69c491',1,'input_processor.cpp']]],
+  ['json_5fserilization_2ecpp_1',['json_serilization.cpp',['../json__serilization_8cpp.html',1,'']]],
+  ['json_5fserilization_2ehpp_2',['json_serilization.hpp',['../json__serilization_8hpp.html',1,'']]]
 ];

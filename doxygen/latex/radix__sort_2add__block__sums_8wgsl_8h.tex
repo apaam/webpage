@@ -1,0 +1,45 @@
+\doxysection{/\+Users/lzhshou/\+Documents/\+Research/my\+Projects/apaam/repo/netdem/src/webgpu/shaders/webgpu\+\_\+math/radix\+\_\+sort/add\+\_\+block\+\_\+sums.wgsl.\+h File Reference}
+\hypertarget{radix__sort_2add__block__sums_8wgsl_8h}{}\label{radix__sort_2add__block__sums_8wgsl_8h}\index{/Users/lzhshou/Documents/Research/myProjects/apaam/repo/netdem/src/webgpu/shaders/webgpu\_math/radix\_sort/add\_block\_sums.wgsl.h@{/Users/lzhshou/Documents/Research/myProjects/apaam/repo/netdem/src/webgpu/shaders/webgpu\_math/radix\_sort/add\_block\_sums.wgsl.h}}
+{\ttfamily \#include $<$string$>$}\newline
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{radix__sort_2add__block__sums_8wgsl_8h_a65b4cab7bc806f8e8aab7bcd04b44f34}{shader\+\_\+source}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{radix__sort_2add__block__sums_8wgsl_8h_a65b4cab7bc806f8e8aab7bcd04b44f34}\index{add\_block\_sums.wgsl.h@{add\_block\_sums.wgsl.h}!shader\_source@{shader\_source}}
+\index{shader\_source@{shader\_source}!add\_block\_sums.wgsl.h@{add\_block\_sums.wgsl.h}}
+\doxysubsubsection{\texorpdfstring{shader\_source}{shader\_source}}
+{\footnotesize\ttfamily \label{radix__sort_2add__block__sums_8wgsl_8h_a65b4cab7bc806f8e8aab7bcd04b44f34} 
+shader\+\_\+source}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ R\textcolor{stringliteral}{"{}(}}
+\DoxyCodeLine{\textcolor{stringliteral}{//\ Define\ the\ binding\ group\ layout}}
+\DoxyCodeLine{\textcolor{stringliteral}{@group(1)\ @binding(1)\ var<storage,\ read\_write>\ result\_0:\ array<u32>;}}
+\DoxyCodeLine{\textcolor{stringliteral}{@group(1)\ @binding(2)\ var<storage,\ read\_write>\ aux\_0:\ array<u32>;}}
+\DoxyCodeLine{\textcolor{stringliteral}{}}
+\DoxyCodeLine{\textcolor{stringliteral}{@group(1)\ @binding(4)\ var<storage,\ read\_write>\ result\_1:\ array<u32>;}}
+\DoxyCodeLine{\textcolor{stringliteral}{@group(1)\ @binding(5)\ var<storage,\ read\_write>\ aux\_1:\ array<u32>;}}
+\DoxyCodeLine{\textcolor{stringliteral}{}}
+\DoxyCodeLine{\textcolor{stringliteral}{const\ WORKGROUP\_SIZE\ :\ u32\ =\ 256u;}}
+\DoxyCodeLine{\textcolor{stringliteral}{}}
+\DoxyCodeLine{\textcolor{stringliteral}{@compute\ @workgroup\_size(WORKGROUP\_SIZE)}}
+\DoxyCodeLine{\textcolor{stringliteral}{fn\ AddBlockSums(}}
+\DoxyCodeLine{\textcolor{stringliteral}{\ \ \ \ @builtin(global\_invocation\_id)\ global\_id:\ vec3<u32>,}}
+\DoxyCodeLine{\textcolor{stringliteral}{\ \ \ \ @builtin(local\_invocation\_id)\ local\_id:\ vec3<u32>,}}
+\DoxyCodeLine{\textcolor{stringliteral}{\ \ \ \ @builtin(workgroup\_id)\ group\_id:\ vec3<u32>}}
+\DoxyCodeLine{\textcolor{stringliteral}{)\ \{}}
+\DoxyCodeLine{\textcolor{stringliteral}{\ \ \ \ let\ gid\ =\ global\_id.x;}}
+\DoxyCodeLine{\textcolor{stringliteral}{\ \ \ \ let\ wid\ =\ group\_id.x;}}
+\DoxyCodeLine{\textcolor{stringliteral}{\ \ \ \ if\ gid\ <\ arrayLength(\&result\_0)\ \{}}
+\DoxyCodeLine{\textcolor{stringliteral}{\ \ \ \ \ \ \ \ result\_0[gid]\ +=\ aux\_0[wid];}}
+\DoxyCodeLine{\textcolor{stringliteral}{\ \ \ \ \ \ \ \ result\_1[gid]\ +=\ aux\_1[wid];}}
+\DoxyCodeLine{\textcolor{stringliteral}{\ \ \ \ \}}}
+\DoxyCodeLine{\textcolor{stringliteral}{\}}}
+\DoxyCodeLine{\textcolor{stringliteral}{)"{}}}
+
+\end{DoxyCode}

@@ -18,6 +18,7 @@ var structnetdem_1_1_collision_entry_data =
     [ "md_n", "structnetdem_1_1_collision_entry_data.html#abfa63d8ad4368f3206bcd597bdf3c4ad", null ],
     [ "md_s", "structnetdem_1_1_collision_entry_data.html#a9af905bcb523bdc2d8b6422695b1d11a", null ],
     [ "md_t", "structnetdem_1_1_collision_entry_data.html#ad3df6870384a1c69487d7c7eaf0d4c58", null ],
+    [ "node_2to1", "structnetdem_1_1_collision_entry_data.html#a566c51fdd5943ec0e95af267858ad38e", null ],
     [ "node_id", "structnetdem_1_1_collision_entry_data.html#afefb39162931cff8e96476912530b941", null ],
     [ "pos", "structnetdem_1_1_collision_entry_data.html#aa3188a3b47ae522e154b1c303d375439", null ]
 ];

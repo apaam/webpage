@@ -4,8 +4,8 @@ var classnetdem_1_1_solver_a_n_n_p_w =
     [ "SolverANNPW", "classnetdem_1_1_solver_a_n_n_p_w.html#abb6606846077360c4e6dd3240d00e9b3", null ],
     [ "Clone", "classnetdem_1_1_solver_a_n_n_p_w.html#a2f931714bc7efc1fc2e201237ec1af48", null ],
     [ "Detect", "classnetdem_1_1_solver_a_n_n_p_w.html#a69a996313af4c37183e7336eb2b19439", null ],
-    [ "EvaluateContactForces", "classnetdem_1_1_solver_a_n_n_p_w.html#a0e60fe21eecbf1128bcbf9d5c197aa14", null ],
-    [ "GetPotential", "classnetdem_1_1_solver_a_n_n_p_w.html#a048dcca4ff5dfed45901c9c3d603d0d6", null ],
+    [ "EvaluateContactForces", "classnetdem_1_1_solver_a_n_n_p_w.html#a40126906e5f416fb0c80692d7154c07b", null ],
+    [ "GetPotential", "classnetdem_1_1_solver_a_n_n_p_w.html#a3976389b19ed86d8e4e84ab49a1f2d5c", null ],
     [ "Init", "classnetdem_1_1_solver_a_n_n_p_w.html#a41060f395ffabaf861f8270a6b3878fa", null ],
     [ "Init", "classnetdem_1_1_solver_a_n_n_p_w.html#a460d0543bde05243908c3e9407894e81", null ],
     [ "ResolveInit", "classnetdem_1_1_solver_a_n_n_p_w.html#ad407769d0187edba73707bd05abb513f", null ],
@@ -17,6 +17,5 @@ var classnetdem_1_1_solver_a_n_n_p_w =
     [ "ResolveUpdate_PotentialBased", "classnetdem_1_1_solver_a_n_n_p_w.html#a9933eaccd0b3266a07dc9b7d26f98b6e", null ],
     [ "ResolveUpdate_VolumeBased", "classnetdem_1_1_solver_a_n_n_p_w.html#a9ed295a2701d81728149bde904ba6417", null ],
     [ "classifier", "classnetdem_1_1_solver_a_n_n_p_w.html#a16513312fa17f1f37fed03044c2ac048", null ],
-    [ "is_initialized", "classnetdem_1_1_solver_a_n_n_p_w.html#a8c319b8ded0d9e03ae72edf39d3f4b52", null ],
     [ "regressor", "classnetdem_1_1_solver_a_n_n_p_w.html#a595cd6e022ebe0d5e3a420145237148b", null ]
 ];

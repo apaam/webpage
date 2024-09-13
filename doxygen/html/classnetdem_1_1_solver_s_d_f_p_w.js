@@ -8,7 +8,7 @@ var classnetdem_1_1_solver_s_d_f_p_w =
     [ "SolverSDFPW", "classnetdem_1_1_solver_s_d_f_p_w.html#a4ba4654f6d584abfa6c89ed5833e4226", null ],
     [ "Clone", "classnetdem_1_1_solver_s_d_f_p_w.html#a7ba5eac7ce54b3cd887fd3704f1a292d", null ],
     [ "Detect", "classnetdem_1_1_solver_s_d_f_p_w.html#a12a223019a63d13ec271f8f984f45ecb", null ],
-    [ "GetPotential", "classnetdem_1_1_solver_s_d_f_p_w.html#ad6069f49fe426c71be363b9d92954687", null ],
+    [ "GetPotential", "classnetdem_1_1_solver_s_d_f_p_w.html#a66a0cfae8c36a7e3cd8eb1700915705b", null ],
     [ "Init", "classnetdem_1_1_solver_s_d_f_p_w.html#a63fb7fbf9bd6e3e59643fab40f50676e", null ],
     [ "ResolveInit", "classnetdem_1_1_solver_s_d_f_p_w.html#a9eb7693d27ab007242a02f24ac4a6e81", null ],
     [ "ResolveInit", "classnetdem_1_1_solver_s_d_f_p_w.html#a36a0052e769c792ea93ecdb1569b5729", null ],
@@ -18,6 +18,8 @@ var classnetdem_1_1_solver_s_d_f_p_w =
     [ "ResolveUpdate", "classnetdem_1_1_solver_s_d_f_p_w.html#a1c1fd6e474289240892763599a267f12", null ],
     [ "ResolveUpdatePToW", "classnetdem_1_1_solver_s_d_f_p_w.html#a2927f477db76d7c4cc7f687176a3a4d1", null ],
     [ "ResolveUpdateWToP", "classnetdem_1_1_solver_s_d_f_p_w.html#a53250f3c6c5c2af2f9bfdd3c35ffc050", null ],
+    [ "beta", "classnetdem_1_1_solver_s_d_f_p_w.html#ab2196579c715e1537c86679e85372702", null ],
     [ "potential_type", "classnetdem_1_1_solver_s_d_f_p_w.html#a7b4a89276056a7f48dc150048352e46e", null ],
-    [ "solve_two_sides", "classnetdem_1_1_solver_s_d_f_p_w.html#ab69111df02ba58c0959e526fee3c0e89", null ]
+    [ "solve_two_sides", "classnetdem_1_1_solver_s_d_f_p_w.html#ab69111df02ba58c0959e526fee3c0e89", null ],
+    [ "use_equivalent_stiffness", "classnetdem_1_1_solver_s_d_f_p_w.html#a746fa48a82de922af34c4d224bc9b179", null ]
 ];

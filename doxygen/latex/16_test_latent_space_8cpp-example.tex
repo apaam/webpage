@@ -52,7 +52,7 @@
 \DoxyCodeLine{\ \ model.\mbox{\hyperlink{classnetdem_1_1_regression_net_a4802cc4f75ad194e3a1136ee85bdb8e6}{Load}}(\textcolor{stringliteral}{"{}ann\_SDF.xml"{}},\ \textcolor{stringliteral}{"{}SDF"{}});}
 \DoxyCodeLine{\ \ cout\ <<\ \textcolor{stringliteral}{"{}finished\ loading\ ann\ model\ ..."{}}\ <<\ endl;}
 \DoxyCodeLine{}
-\DoxyCodeLine{\ \ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<Vec3d>}}\ searching\_points\ =\ SphericalVoronoi::Solve(1000,\ 10000,\ 1.0e-\/4);}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{VecXT<Vec3d>}}\ searching\_points\ =\ SphericalVoronoi::Solve(1000,\ 10000,\ 1.0e-\/4);}
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ \textcolor{comment}{//\ loop\ over\ all\ templates}}
 \DoxyCodeLine{\ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ ii\ =\ 0;\ ii\ <\ num\_templates;\ ii++)\ \{}
@@ -61,7 +61,7 @@
 \DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ jj\ =\ 0;\ jj\ <=\ num\_intervals;\ jj++)\ \{}
 \DoxyCodeLine{\ \ \ \ \ \ \textcolor{keywordtype}{double}\ weight\ =\ jj\ *\ 1.0\ /\ num\_intervals;}
 \DoxyCodeLine{}
-\DoxyCodeLine{\ \ \ \ \ \ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<Vec3d>}}\ surf\_vertices;}
+\DoxyCodeLine{\ \ \ \ \ \ \mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{VecXT<Vec3d>}}\ surf\_vertices;}
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ vert\ :\ searching\_points)\ \{}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ vert\ =\ vert\ *\ 0.5;}
@@ -99,10 +99,10 @@
 \DoxyCodeLine{\ \ \ \ \ \ \textcolor{keywordtype}{string}\ root\_dir\ =\ \textcolor{stringliteral}{"{}shape\_netsdf\_"{}}\ +\ IO::ToString(ii)\ +\ \textcolor{stringliteral}{"{}\_"{}}\ +}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IO::ToString((ii\ +\ 1)\ \%\ num\_templates);}
 \DoxyCodeLine{\ \ \ \ \ \ filesystem::create\_directory(root\_dir);}
-\DoxyCodeLine{\ \ \ \ \ \ sph.\mbox{\hyperlink{classnetdem_1_1_spherical_harmonics_a636e21871ecf0cd3f59153c285ecbd9e}{GetSTLModel}}(1000).\mbox{\hyperlink{classnetdem_1_1_s_t_l_model_ad63749f1cf41df85a3d7237025200a0b}{SaveAsSTL}}(root\_dir\ +\ \textcolor{stringliteral}{"{}/shape\_netsdf\_"{}}\ +}
-\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IO::ToString(ii)\ +\ \textcolor{stringliteral}{"{}\_"{}}\ +}
-\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IO::ToString((ii\ +\ 1)\ \%\ num\_templates)\ +}
-\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\_"{}}\ +\ IO::ToString(jj)\ +\ \textcolor{stringliteral}{"{}.stl"{}});}
+\DoxyCodeLine{\ \ \ \ \ \ sph.\mbox{\hyperlink{classnetdem_1_1_spherical_harmonics_a2d59cf9cf5ed7a19c584001dc1baae04}{GetSTLModel}}(500).\mbox{\hyperlink{classnetdem_1_1_s_t_l_model_ad63749f1cf41df85a3d7237025200a0b}{SaveAsSTL}}(root\_dir\ +\ \textcolor{stringliteral}{"{}/shape\_netsdf\_"{}}\ +}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IO::ToString(ii)\ +\ \textcolor{stringliteral}{"{}\_"{}}\ +}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ IO::ToString((ii\ +\ 1)\ \%\ num\_templates)\ +}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\_"{}}\ +\ IO::ToString(jj)\ +\ \textcolor{stringliteral}{"{}.stl"{}});}
 \DoxyCodeLine{\ \ \ \ \}}
 \DoxyCodeLine{\ \ \}}
 \DoxyCodeLine{\}}

@@ -1,0 +1,50 @@
+\doxysection{webgpu\+\_\+manager.\+hpp}
+\hypertarget{webgpu__manager_8hpp_source}{}\label{webgpu__manager_8hpp_source}\index{/Users/lzhshou/Documents/Research/myProjects/apaam/repo/netdem/src/webgpu/webgpu\_manager.hpp@{/Users/lzhshou/Documents/Research/myProjects/apaam/repo/netdem/src/webgpu/webgpu\_manager.hpp}}
+\mbox{\hyperlink{webgpu__manager_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{utils__macros_8hpp}{utils\_macros.hpp}}"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <webgpu/webgpu.hpp>}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacenetdem}{netdem}}\ \{}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{keyword}{class\ }Simulation;}
+\DoxyCodeLine{00009\ \textcolor{keyword}{struct\ }ParticleDataGPU;}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classnetdem_1_1_web_g_p_u_manager}{WebGPUManager}}\ \{}
+\DoxyCodeLine{00012\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00013\ \ \ \mbox{\hyperlink{classnetdem_1_1_web_g_p_u_manager_aa97a1ff14f2417e6654343ed64f3f238}{WebGPUManager}}();}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_web_g_p_u_manager_a12eb3fb434577b6229153efefe684efa}{Init}}(\mbox{\hyperlink{classnetdem_1_1_simulation}{Simulation}}\ *\textcolor{keyword}{const}\ sim);}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_web_g_p_u_manager_a1827bad9ce72c7974bd3d549f606d31f}{SendDomainData}}();}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_web_g_p_u_manager_a33983fbb98b8d5d0eeed79e89fae6581}{SendParticleData}}();}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \ \ \mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{VecXT<ParticleDataGPU>}}\ \mbox{\hyperlink{classnetdem_1_1_web_g_p_u_manager_ae9460aa8f2e4321f5b9a83f5809e8fe3}{RecvParticleData}}();}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_web_g_p_u_manager_a07bb6cdddcf77c9668e7a4606018931a}{MergeParticleData}}(\mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{VecXT<ParticleDataGPU>}}\ \textcolor{keyword}{const}\ \&particle\_data\_list);}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \ \ wgpu::Device\ \mbox{\hyperlink{classnetdem_1_1_web_g_p_u_manager_af3745eda1a3a7f4d41d06d7df2ac999e}{GetDevice}}();}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_web_g_p_u_manager_ac0bdd3e81e68ded028a27ab671579423}{Solve}}();}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \ \ \mbox{\hyperlink{classnetdem_1_1_web_g_p_u_manager_a6dba8947284d6dd7f03a5f1fda9e4435}{\string~WebGPUManager}}();}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00032\ \ \ \textcolor{comment}{//\ A\ pointer\ to\ the\ simulation\ object\ that\ owns\ this\ scene.}}
+\DoxyCodeLine{00033\ \ \ \mbox{\hyperlink{classnetdem_1_1_simulation}{Simulation}}\ *sim\{\textcolor{keyword}{nullptr}\};}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \ \ wgpu::Buffer\ particle\_buffer;}
+\DoxyCodeLine{00036\ \ \ \textcolor{keywordtype}{size\_t}\ particle\_size\{0\};}
+\DoxyCodeLine{00037\ \ \ \textcolor{keywordtype}{size\_t}\ particle\_data\_size\{0\};}
+\DoxyCodeLine{00038\ \ \ \textcolor{keywordtype}{size\_t}\ workgroup\_size\{32\};}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \ \ \textcolor{comment}{//\ device}}
+\DoxyCodeLine{00041\ \ \ wgpu::Device\ device;}
+\DoxyCodeLine{00042\ \};}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \}\ \textcolor{comment}{//\ namespace\ netdem}}
+
+\end{DoxyCode}

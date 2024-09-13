@@ -64,6 +64,7 @@ var menudata={children:[
 {text:"g",url:"functions_func_g.html#index_g"},
 {text:"h",url:"functions_func_h.html#index_h"},
 {text:"i",url:"functions_func_i.html#index_i"},
+{text:"k",url:"functions_func_k.html#index_k"},
 {text:"l",url:"functions_func_l.html#index_l"},
 {text:"m",url:"functions_func_m.html#index_m"},
 {text:"n",url:"functions_func_n.html#index_n"},
@@ -106,7 +107,6 @@ var menudata={children:[
 {text:"b",url:"functions_eval.html#index_b"},
 {text:"c",url:"functions_eval.html#index_c"},
 {text:"e",url:"functions_eval.html#index_e"},
-{text:"f",url:"functions_eval.html#index_f"},
 {text:"g",url:"functions_eval.html#index_g"},
 {text:"h",url:"functions_eval.html#index_h"},
 {text:"l",url:"functions_eval.html#index_l"},
@@ -116,7 +116,14 @@ var menudata={children:[
 {text:"s",url:"functions_eval.html#index_s"},
 {text:"t",url:"functions_eval.html#index_t"},
 {text:"v",url:"functions_eval.html#index_v"},
-{text:"w",url:"functions_eval.html#index_w"}]}]}]},
+{text:"w",url:"functions_eval.html#index_w"}]},
+{text:"Related Symbols",url:"functions_rela.html",children:[
+{text:"c",url:"functions_rela.html#index_c"},
+{text:"d",url:"functions_rela.html#index_d"},
+{text:"m",url:"functions_rela.html#index_m"},
+{text:"n",url:"functions_rela.html#index_n"},
+{text:"p",url:"functions_rela.html#index_p"},
+{text:"w",url:"functions_rela.html#index_w"}]}]}]},
 {text:"Files",url:"files.html",children:[
 {text:"File List",url:"files.html"},
 {text:"File Members",url:"globals.html",children:[
@@ -127,11 +134,15 @@ var menudata={children:[
 {text:"m",url:"globals.html#index_m"},
 {text:"o",url:"globals.html#index_o"},
 {text:"p",url:"globals.html#index_p"},
-{text:"r",url:"globals.html#index_r"}]},
+{text:"r",url:"globals.html#index_r"},
+{text:"s",url:"globals.html#index_s"},
+{text:"w",url:"globals.html#index_w"}]},
 {text:"Functions",url:"globals_func.html",children:[
 {text:"i",url:"globals_func.html#index_i"},
 {text:"m",url:"globals_func.html#index_m"},
 {text:"p",url:"globals_func.html#index_p"}]},
-{text:"Typedefs",url:"globals_type.html"}]}]},
+{text:"Variables",url:"globals_vars.html"},
+{text:"Typedefs",url:"globals_type.html"},
+{text:"Macros",url:"globals_defs.html"}]}]},
 {text:"Examples",url:"examples.html"},
-{text:"APAAM",url:"^https://apaam.github.io/netdem_docs/"}]}
+{text:"APAAM",url:"^https://apaam.github.io/webpage/"}]}

@@ -7,24 +7,37 @@ A class representing a wall in contact with a particle.
 
 
 
-{\ttfamily \#include $<$contact\+\_\+pp.\+hpp$>$}
+{\ttfamily \#include $<$neigh\+\_\+tuple.\+hpp$>$}
 
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{classnetdem_1_1_neigh_wof_p_a231b12e0f5a61db714ec35b5ac82b813}{Neigh\+WofP}} ()
+\mbox{\hyperlink{classnetdem_1_1_neigh_wof_p_ae0779ebb41c672e1b02c690fb598b9e9}{Neigh\+WofP}} ()
 \begin{DoxyCompactList}\small\item\em Default constructor for the \doxylink{classnetdem_1_1_neigh_wof_p}{Neigh\+WofP} class. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{classnetdem_1_1_neigh_wof_p_a91f1727ad78ac3bb9151cf4879c29d2a}{Neigh\+WofP}} (\mbox{\hyperlink{classnetdem_1_1_wall}{Wall}} \texorpdfstring{$\ast$}{*}const w, int id, \mbox{\hyperlink{classnetdem_1_1_contact_p_w}{Contact\+PW}} \texorpdfstring{$\ast$}{*}const cnt)
-\begin{DoxyCompactList}\small\item\em Constructor for the \doxylink{classnetdem_1_1_neigh_wof_p}{Neigh\+WofP} class that initializes the neighbor with a wall and its corresponding contact. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\mbox{\hyperlink{classnetdem_1_1_neigh_wof_p_ad4afdbbfe825c80724583a46868de967}{Neigh\+WofP}} (\mbox{\hyperlink{classnetdem_1_1_wall}{Wall}} \texorpdfstring{$\ast$}{*}const w, int id, \mbox{\hyperlink{classnetdem_1_1_contact_p_w}{Contact\+PW}} \texorpdfstring{$\ast$}{*}const cnt)
+\begin{DoxyCompactList}\small\item\em Constructor for the \doxylink{classnetdem_1_1_neigh_wof_p}{Neigh\+WofP} class that initializes the neighbor with a wall and its corresponding contact. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classnetdem_1_1_neigh_pof_w}{Neigh\+PofW}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classnetdem_1_1_neigh_wof_p_a05d7f95494174b65235442fb330919a2}{Get\+Neigh\+Tuple}} () const
+\begin{DoxyCompactList}\small\item\em Get the neigh obj of the pair particle. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classnetdem_1_1_contact_p_w}{Contact\+PW}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classnetdem_1_1_neigh_wof_p_af7cd8fb1de6d5b8b4a5c5616e5fbcf24}{Get\+Contact}} () const
+\begin{DoxyCompactList}\small\item\em Get the contact. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classnetdem_1_1_neigh_wof_p_ac259a08c6c373d340b18e2370c4b56c9}{Set\+Contact}} (\mbox{\hyperlink{classnetdem_1_1_contact_p_w}{Contact\+PW}} \texorpdfstring{$\ast$}{*}const cnt)
+\begin{DoxyCompactList}\small\item\em Set the contact. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{classnetdem_1_1_wall}{Wall}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classnetdem_1_1_neigh_wof_p_aed061e53a2e2750e8293995a611deea5}{wall}} \{nullptr\}
 \begin{DoxyCompactList}\small\item\em A pointer to the neighboring wall. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{classnetdem_1_1_neigh_wof_p_ae1783dd1bb2ad88eed3c7149301b3807}{lookup\+\_\+id}} \{-\/1\}
-\begin{DoxyCompactList}\small\item\em The index of this particle in the linked\+\_\+particle\+\_\+list of the neighboring wall. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{classnetdem_1_1_contact_p_w}{Contact\+PW}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classnetdem_1_1_neigh_wof_p_ac7af9cc504388853e9e69cd89f3e81cf}{contact}} \{nullptr\}
-\begin{DoxyCompactList}\small\item\em A pointer to the contact between this particle and the neighboring wall, if it exists. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em The index of this particle in the linked\+\_\+particle\+\_\+list of the neighboring wall. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classnetdem_1_1_neigh_wof_p_a0f6381b33b90b7e4ab72eeaeec4cc9ff}{Particle}}
+\item 
+class \mbox{\hyperlink{classnetdem_1_1_neigh_wof_p_ab22e010ecb433792b36c7fdbc4f45b69}{Wall}}
+\item 
+class \mbox{\hyperlink{classnetdem_1_1_neigh_wof_p_a9f616be5039b99e7872a9e6014fc3ff9}{Neigh\+PofW}}
+\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
@@ -36,21 +49,21 @@ Contains information about the neighboring particle and the corresponding contac
 \end{DoxyItemize}
 
 \doxysubsection{Constructor \& Destructor Documentation}
-\Hypertarget{classnetdem_1_1_neigh_wof_p_a231b12e0f5a61db714ec35b5ac82b813}\label{classnetdem_1_1_neigh_wof_p_a231b12e0f5a61db714ec35b5ac82b813} 
-\index{netdem::NeighWofP@{netdem::NeighWofP}!NeighWofP@{NeighWofP}}
+\Hypertarget{classnetdem_1_1_neigh_wof_p_ae0779ebb41c672e1b02c690fb598b9e9}\index{netdem::NeighWofP@{netdem::NeighWofP}!NeighWofP@{NeighWofP}}
 \index{NeighWofP@{NeighWofP}!netdem::NeighWofP@{netdem::NeighWofP}}
 \doxysubsubsection{\texorpdfstring{NeighWofP()}{NeighWofP()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily netdem\+::\+Neigh\+Wof\+P\+::\+Neigh\+WofP (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily \label{classnetdem_1_1_neigh_wof_p_ae0779ebb41c672e1b02c690fb598b9e9} 
+Neigh\+Wof\+P\+::\+Neigh\+WofP (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
 
 
 Default constructor for the \doxylink{classnetdem_1_1_neigh_wof_p}{Neigh\+WofP} class. 
 
-\Hypertarget{classnetdem_1_1_neigh_wof_p_a91f1727ad78ac3bb9151cf4879c29d2a}\label{classnetdem_1_1_neigh_wof_p_a91f1727ad78ac3bb9151cf4879c29d2a} 
-\index{netdem::NeighWofP@{netdem::NeighWofP}!NeighWofP@{NeighWofP}}
+\Hypertarget{classnetdem_1_1_neigh_wof_p_ad4afdbbfe825c80724583a46868de967}\index{netdem::NeighWofP@{netdem::NeighWofP}!NeighWofP@{NeighWofP}}
 \index{NeighWofP@{NeighWofP}!netdem::NeighWofP@{netdem::NeighWofP}}
 \doxysubsubsection{\texorpdfstring{NeighWofP()}{NeighWofP()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily netdem\+::\+Neigh\+Wof\+P\+::\+Neigh\+WofP (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_wall}{Wall}} \texorpdfstring{$\ast$}{*}const}]{w,  }\item[{int}]{id,  }\item[{\mbox{\hyperlink{classnetdem_1_1_contact_p_w}{Contact\+PW}} \texorpdfstring{$\ast$}{*}const}]{cnt }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily \label{classnetdem_1_1_neigh_wof_p_ad4afdbbfe825c80724583a46868de967} 
+Neigh\+Wof\+P\+::\+Neigh\+WofP (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_wall}{Wall}} \texorpdfstring{$\ast$}{*}const}]{w}{, }\item[{int}]{id}{, }\item[{\mbox{\hyperlink{classnetdem_1_1_contact_p_w}{Contact\+PW}} \texorpdfstring{$\ast$}{*}const}]{cnt}{}\end{DoxyParamCaption})}
 
 
 
@@ -67,32 +80,76 @@ Constructor for the \doxylink{classnetdem_1_1_neigh_wof_p}{Neigh\+WofP} class th
 \end{DoxyParams}
 
 
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classnetdem_1_1_neigh_wof_p_af7cd8fb1de6d5b8b4a5c5616e5fbcf24}\index{netdem::NeighWofP@{netdem::NeighWofP}!GetContact@{GetContact}}
+\index{GetContact@{GetContact}!netdem::NeighWofP@{netdem::NeighWofP}}
+\doxysubsubsection{\texorpdfstring{GetContact()}{GetContact()}}
+{\footnotesize\ttfamily \label{classnetdem_1_1_neigh_wof_p_af7cd8fb1de6d5b8b4a5c5616e5fbcf24} 
+\mbox{\hyperlink{classnetdem_1_1_contact_p_w}{Contact\+PW}} \texorpdfstring{$\ast$}{*} Neigh\+Wof\+P\+::\+Get\+Contact (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Get the contact. 
+
+\Hypertarget{classnetdem_1_1_neigh_wof_p_a05d7f95494174b65235442fb330919a2}\index{netdem::NeighWofP@{netdem::NeighWofP}!GetNeighTuple@{GetNeighTuple}}
+\index{GetNeighTuple@{GetNeighTuple}!netdem::NeighWofP@{netdem::NeighWofP}}
+\doxysubsubsection{\texorpdfstring{GetNeighTuple()}{GetNeighTuple()}}
+{\footnotesize\ttfamily \label{classnetdem_1_1_neigh_wof_p_a05d7f95494174b65235442fb330919a2} 
+\mbox{\hyperlink{classnetdem_1_1_neigh_pof_w}{Neigh\+PofW}} \texorpdfstring{$\ast$}{*} Neigh\+Wof\+P\+::\+Get\+Neigh\+Tuple (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Get the neigh obj of the pair particle. 
+
+\Hypertarget{classnetdem_1_1_neigh_wof_p_ac259a08c6c373d340b18e2370c4b56c9}\index{netdem::NeighWofP@{netdem::NeighWofP}!SetContact@{SetContact}}
+\index{SetContact@{SetContact}!netdem::NeighWofP@{netdem::NeighWofP}}
+\doxysubsubsection{\texorpdfstring{SetContact()}{SetContact()}}
+{\footnotesize\ttfamily \label{classnetdem_1_1_neigh_wof_p_ac259a08c6c373d340b18e2370c4b56c9} 
+void Neigh\+Wof\+P\+::\+Set\+Contact (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_contact_p_w}{Contact\+PW}} \texorpdfstring{$\ast$}{*}const}]{cnt}{}\end{DoxyParamCaption})}
+
+
+
+Set the contact. 
+
+
+
+\doxysubsection{Friends And Related Symbol Documentation}
+\Hypertarget{classnetdem_1_1_neigh_wof_p_a9f616be5039b99e7872a9e6014fc3ff9}\index{netdem::NeighWofP@{netdem::NeighWofP}!NeighPofW@{NeighPofW}}
+\index{NeighPofW@{NeighPofW}!netdem::NeighWofP@{netdem::NeighWofP}}
+\doxysubsubsection{\texorpdfstring{NeighPofW}{NeighPofW}}
+{\footnotesize\ttfamily \label{classnetdem_1_1_neigh_wof_p_a9f616be5039b99e7872a9e6014fc3ff9} 
+friend class \mbox{\hyperlink{classnetdem_1_1_neigh_pof_w}{Neigh\+PofW}}\hspace{0.3cm}{\ttfamily [friend]}}
+
+\Hypertarget{classnetdem_1_1_neigh_wof_p_a0f6381b33b90b7e4ab72eeaeec4cc9ff}\index{netdem::NeighWofP@{netdem::NeighWofP}!Particle@{Particle}}
+\index{Particle@{Particle}!netdem::NeighWofP@{netdem::NeighWofP}}
+\doxysubsubsection{\texorpdfstring{Particle}{Particle}}
+{\footnotesize\ttfamily \label{classnetdem_1_1_neigh_wof_p_a0f6381b33b90b7e4ab72eeaeec4cc9ff} 
+friend class \mbox{\hyperlink{classnetdem_1_1_particle}{Particle}}\hspace{0.3cm}{\ttfamily [friend]}}
+
+\Hypertarget{classnetdem_1_1_neigh_wof_p_ab22e010ecb433792b36c7fdbc4f45b69}\index{netdem::NeighWofP@{netdem::NeighWofP}!Wall@{Wall}}
+\index{Wall@{Wall}!netdem::NeighWofP@{netdem::NeighWofP}}
+\doxysubsubsection{\texorpdfstring{Wall}{Wall}}
+{\footnotesize\ttfamily \label{classnetdem_1_1_neigh_wof_p_ab22e010ecb433792b36c7fdbc4f45b69} 
+friend class \mbox{\hyperlink{classnetdem_1_1_wall}{Wall}}\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
 \doxysubsection{Member Data Documentation}
-\Hypertarget{classnetdem_1_1_neigh_wof_p_ac7af9cc504388853e9e69cd89f3e81cf}\label{classnetdem_1_1_neigh_wof_p_ac7af9cc504388853e9e69cd89f3e81cf} 
-\index{netdem::NeighWofP@{netdem::NeighWofP}!contact@{contact}}
-\index{contact@{contact}!netdem::NeighWofP@{netdem::NeighWofP}}
-\doxysubsubsection{\texorpdfstring{contact}{contact}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classnetdem_1_1_contact_p_w}{Contact\+PW}}\texorpdfstring{$\ast$}{*} netdem\+::\+Neigh\+Wof\+P\+::contact \{nullptr\}}
-
-
-
-A pointer to the contact between this particle and the neighboring wall, if it exists. 
-
-\Hypertarget{classnetdem_1_1_neigh_wof_p_ae1783dd1bb2ad88eed3c7149301b3807}\label{classnetdem_1_1_neigh_wof_p_ae1783dd1bb2ad88eed3c7149301b3807} 
-\index{netdem::NeighWofP@{netdem::NeighWofP}!lookup\_id@{lookup\_id}}
+\Hypertarget{classnetdem_1_1_neigh_wof_p_ae1783dd1bb2ad88eed3c7149301b3807}\index{netdem::NeighWofP@{netdem::NeighWofP}!lookup\_id@{lookup\_id}}
 \index{lookup\_id@{lookup\_id}!netdem::NeighWofP@{netdem::NeighWofP}}
 \doxysubsubsection{\texorpdfstring{lookup\_id}{lookup\_id}}
-{\footnotesize\ttfamily int netdem\+::\+Neigh\+Wof\+P\+::lookup\+\_\+id \{-\/1\}}
+{\footnotesize\ttfamily \label{classnetdem_1_1_neigh_wof_p_ae1783dd1bb2ad88eed3c7149301b3807} 
+int netdem\+::\+Neigh\+Wof\+P\+::lookup\+\_\+id \{-\/1\}}
 
 
 
 The index of this particle in the linked\+\_\+particle\+\_\+list of the neighboring wall. 
 
-\Hypertarget{classnetdem_1_1_neigh_wof_p_aed061e53a2e2750e8293995a611deea5}\label{classnetdem_1_1_neigh_wof_p_aed061e53a2e2750e8293995a611deea5} 
-\index{netdem::NeighWofP@{netdem::NeighWofP}!wall@{wall}}
+\Hypertarget{classnetdem_1_1_neigh_wof_p_aed061e53a2e2750e8293995a611deea5}\index{netdem::NeighWofP@{netdem::NeighWofP}!wall@{wall}}
 \index{wall@{wall}!netdem::NeighWofP@{netdem::NeighWofP}}
 \doxysubsubsection{\texorpdfstring{wall}{wall}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classnetdem_1_1_wall}{Wall}}\texorpdfstring{$\ast$}{*} netdem\+::\+Neigh\+Wof\+P\+::wall \{nullptr\}}
+{\footnotesize\ttfamily \label{classnetdem_1_1_neigh_wof_p_aed061e53a2e2750e8293995a611deea5} 
+\mbox{\hyperlink{classnetdem_1_1_wall}{Wall}}\texorpdfstring{$\ast$}{*} netdem\+::\+Neigh\+Wof\+P\+::wall \{nullptr\}}
 
 
 
@@ -100,6 +157,7 @@ A pointer to the neighboring wall.
 
 
 
-The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-/\+Users/lzhshou/\+Documents/\+Research/my\+Projects/apaam/repo/netdem/src/scene/\mbox{\hyperlink{contact__pp_8hpp}{contact\+\_\+pp.\+hpp}}\end{DoxyCompactItemize}
+/\+Users/lzhshou/\+Documents/\+Research/my\+Projects/apaam/repo/netdem/src/scene/\mbox{\hyperlink{neigh__tuple_8hpp}{neigh\+\_\+tuple.\+hpp}}\item 
+/\+Users/lzhshou/\+Documents/\+Research/my\+Projects/apaam/repo/netdem/src/scene/\mbox{\hyperlink{neigh__tuple_8cpp}{neigh\+\_\+tuple.\+cpp}}\end{DoxyCompactItemize}

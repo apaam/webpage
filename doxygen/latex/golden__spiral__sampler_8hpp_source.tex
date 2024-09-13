@@ -1,0 +1,48 @@
+\doxysection{golden\+\_\+spiral\+\_\+sampler.\+hpp}
+\hypertarget{golden__spiral__sampler_8hpp_source}{}\label{golden__spiral__sampler_8hpp_source}\index{/Users/lzhshou/Documents/Research/myProjects/apaam/repo/netdem/src/utils/golden\_spiral\_sampler.hpp@{/Users/lzhshou/Documents/Research/myProjects/apaam/repo/netdem/src/utils/golden\_spiral\_sampler.hpp}}
+\mbox{\hyperlink{golden__spiral__sampler_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{mini__map_8hpp}{mini\_map.hpp}}"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{spherical__voronoi_8hpp}{spherical\_voronoi.hpp}}"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{utils__math_8hpp}{utils\_math.hpp}}"{}}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacenetdem}{netdem}}\ \{}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00017\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classnetdem_1_1_golden_spiral_sampler}{GoldenSpiralSampler}}\ \{}
+\DoxyCodeLine{00018\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00022\ \ \ \mbox{\hyperlink{classnetdem_1_1_golden_spiral_sampler_aa4b3e08577c53bda4c1f189b1356a30f}{GoldenSpiralSampler}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classnetdem_1_1_golden_spiral_sampler}{GoldenSpiralSampler}}\ \&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00027\ \ \ \mbox{\hyperlink{classnetdem_1_1_golden_spiral_sampler}{GoldenSpiralSampler}}\ \&\mbox{\hyperlink{classnetdem_1_1_golden_spiral_sampler_a5e1c3c40996111d3267d0b9df0bba166}{operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classnetdem_1_1_golden_spiral_sampler}{GoldenSpiralSampler}}\ \&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00038\ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{classnetdem_1_1_golden_spiral_sampler}{GoldenSpiralSampler}}\ \&\mbox{\hyperlink{classnetdem_1_1_golden_spiral_sampler_ae22e4ff9d557187876fbd7ff8128872e}{GetInstance}}()\ \{}
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{classnetdem_1_1_golden_spiral_sampler}{GoldenSpiralSampler}}\ instance;}
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordflow}{return}\ instance;}
+\DoxyCodeLine{00041\ \ \ \}}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00052\ \ \ \mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{VecXT<Vec3d>}}\ \mbox{\hyperlink{classnetdem_1_1_golden_spiral_sampler_a1cf50e746264856e236f29f87a409f3e}{Get}}(\textcolor{keywordtype}{int}\ num\_samples)\ \{}
+\DoxyCodeLine{00053\ \ \ \ \ \mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{VecXT<Vec3d>}}\ samples(num\_samples);}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ num\_samples;\ i++)\ \{}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ theta\ =\ std::acos(1.0\ -\/\ 2.0\ *\ (i\ +\ epsilon)\ /}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (num\_samples\ -\/\ 1.0\ +\ 2.0\ *\ epsilon));}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ phi\ =\ two\_pi\_by\_lambda\ *\ i;}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \mbox{\hyperlink{namespacenetdem_a510a89239abc51ed4d8d88ce7ee403df}{Vec3d}}\ vert\_sph\ =\ \{1.0,\ theta,\ phi\};}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ samples[i]\ =\ \mbox{\hyperlink{classnetdem_1_1_math_ab5632c9cfd48278078c18f3b256f338e}{Math::SphericalToCartesian}}(vert\_sph);}
+\DoxyCodeLine{00061\ \ \ \ \ \}}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keywordflow}{return}\ samples;}
+\DoxyCodeLine{00064\ \ \ \}}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00067\ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ lambda\ =\ (1.0\ +\ std::sqrt(5.0))\ /\ 2.0;}
+\DoxyCodeLine{00068\ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ two\_pi\_by\_lambda\ =\ 2.0\ *\ \mbox{\hyperlink{classnetdem_1_1_math_a902d4826f3f4fb5e5b105a223e1aed6e}{Math::PI}}\ /\ lambda;}
+\DoxyCodeLine{00069\ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{double}\ epsilon\ =\ 0.36;}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ \ \ \mbox{\hyperlink{classnetdem_1_1_golden_spiral_sampler}{GoldenSpiralSampler}}()\ \{\}}
+\DoxyCodeLine{00072\ \};}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00074\ \}\ \textcolor{comment}{//\ namespace\ netdem}}
+
+\end{DoxyCode}

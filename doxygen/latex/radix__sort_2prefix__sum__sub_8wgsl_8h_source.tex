@@ -1,0 +1,90 @@
+\doxysection{prefix\+\_\+sum\+\_\+sub.\+wgsl.\+h}
+\hypertarget{radix__sort_2prefix__sum__sub_8wgsl_8h_source}{}\label{radix__sort_2prefix__sum__sub_8wgsl_8h_source}\index{/Users/lzhshou/Documents/Research/myProjects/apaam/repo/netdem/src/webgpu/shaders/webgpu\_math/radix\_sort/prefix\_sum\_sub.wgsl.h@{/Users/lzhshou/Documents/Research/myProjects/apaam/repo/netdem/src/webgpu/shaders/webgpu\_math/radix\_sort/prefix\_sum\_sub.wgsl.h}}
+\mbox{\hyperlink{radix__sort_2prefix__sum__sub_8wgsl_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \mbox{\hyperlink{prefix__sum_2prefix__sum__sub_8wgsl_8h_a65b4cab7bc806f8e8aab7bcd04b44f34}{shader\_source}}\ =\ R\textcolor{stringliteral}{"{}(}}
+\DoxyCodeLine{00006\ \textcolor{stringliteral}{//\ Define\ the\ binding\ group\ layout}}
+\DoxyCodeLine{00007\ \textcolor{stringliteral}{@group(1)\ @binding(0)\ var<storage,\ read\_write>\ data\_0:\ array<u32>;}}
+\DoxyCodeLine{00008\ \textcolor{stringliteral}{@group(1)\ @binding(1)\ var<storage,\ read\_write>\ result\_0:\ array<u32>;}}
+\DoxyCodeLine{00009\ \textcolor{stringliteral}{@group(1)\ @binding(2)\ var<storage,\ read\_write>\ aux\_0:\ array<u32>;}}
+\DoxyCodeLine{00010\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{00011\ \textcolor{stringliteral}{@group(1)\ @binding(3)\ var<storage,\ read\_write>\ data\_1:\ array<u32>;}}
+\DoxyCodeLine{00012\ \textcolor{stringliteral}{@group(1)\ @binding(4)\ var<storage,\ read\_write>\ result\_1:\ array<u32>;}}
+\DoxyCodeLine{00013\ \textcolor{stringliteral}{@group(1)\ @binding(5)\ var<storage,\ read\_write>\ aux\_1:\ array<u32>;}}
+\DoxyCodeLine{00014\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{00015\ \textcolor{stringliteral}{//\ Shared\ memory\ for\ the\ workgroup}}
+\DoxyCodeLine{00016\ \textcolor{stringliteral}{const\ WORKGROUP\_SIZE\ :\ u32\ =\ 256u;}}
+\DoxyCodeLine{00017\ \textcolor{stringliteral}{var<workgroup>\ shared\_data\_0:\ array<u32,\ WORKGROUP\_SIZE>;}}
+\DoxyCodeLine{00018\ \textcolor{stringliteral}{var<workgroup>\ shared\_data\_1:\ array<u32,\ WORKGROUP\_SIZE>;}}
+\DoxyCodeLine{00019\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{00020\ \textcolor{stringliteral}{@compute\ @workgroup\_size(WORKGROUP\_SIZE)}}
+\DoxyCodeLine{00021\ \textcolor{stringliteral}{fn\ PrefixSumSub(}}
+\DoxyCodeLine{00022\ \textcolor{stringliteral}{\ \ \ \ @builtin(global\_invocation\_id)\ global\_id:\ vec3<u32>,}}
+\DoxyCodeLine{00023\ \textcolor{stringliteral}{\ \ \ \ @builtin(local\_invocation\_id)\ local\_id:\ vec3<u32>,}}
+\DoxyCodeLine{00024\ \textcolor{stringliteral}{\ \ \ \ @builtin(workgroup\_id)\ group\_id:\ vec3<u32>}}
+\DoxyCodeLine{00025\ \textcolor{stringliteral}{)\ \{}}
+\DoxyCodeLine{00026\ \textcolor{stringliteral}{\ \ \ \ //\ ids}}
+\DoxyCodeLine{00027\ \textcolor{stringliteral}{\ \ \ \ let\ tid\ =\ local\_id.x;}}
+\DoxyCodeLine{00028\ \textcolor{stringliteral}{\ \ \ \ let\ gid\ =\ global\_id.x;}}
+\DoxyCodeLine{00029\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{00030\ \textcolor{stringliteral}{\ \ \ \ //\ Load\ data\ into\ shared\ memory}}
+\DoxyCodeLine{00031\ \textcolor{stringliteral}{\ \ \ \ if\ gid\ <\ arrayLength(\&data\_0)\ \{}}
+\DoxyCodeLine{00032\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ shared\_data\_0[tid]\ =\ data\_0[gid];}}
+\DoxyCodeLine{00033\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ shared\_data\_1[tid]\ =\ data\_1[gid];}}
+\DoxyCodeLine{00034\ \textcolor{stringliteral}{\ \ \ \ \}}}
+\DoxyCodeLine{00035\ \textcolor{stringliteral}{\ \ \ \ workgroupBarrier();}}
+\DoxyCodeLine{00036\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{00037\ \textcolor{stringliteral}{\ \ \ \ //\ Up-\/sweep\ (reduce)\ phase}}
+\DoxyCodeLine{00038\ \textcolor{stringliteral}{\ \ \ \ var\ offset\ =\ 1u;}}
+\DoxyCodeLine{00039\ \textcolor{stringliteral}{\ \ \ \ while\ offset\ <\ WORKGROUP\_SIZE\ \{}}
+\DoxyCodeLine{00040\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ let\ idx\ =\ (tid\ +\ 1u)\ *\ offset\ *\ 2u\ -\/\ 1u;}}
+\DoxyCodeLine{00041\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ if\ idx\ <\ WORKGROUP\_SIZE\ \{}}
+\DoxyCodeLine{00042\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ shared\_data\_0[idx]\ +=\ shared\_data\_0[idx\ -\/\ offset];}}
+\DoxyCodeLine{00043\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ shared\_data\_1[idx]\ +=\ shared\_data\_1[idx\ -\/\ offset];}}
+\DoxyCodeLine{00044\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \}}}
+\DoxyCodeLine{00045\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ offset\ *=\ 2u;}}
+\DoxyCodeLine{00046\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ workgroupBarrier();}}
+\DoxyCodeLine{00047\ \textcolor{stringliteral}{\ \ \ \ \}}}
+\DoxyCodeLine{00048\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{00049\ \textcolor{stringliteral}{\ \ \ \ //\ Clear\ the\ last\ element}}
+\DoxyCodeLine{00050\ \textcolor{stringliteral}{\ \ \ \ if\ tid\ ==\ 0u\ \{}}
+\DoxyCodeLine{00051\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ shared\_data\_0[WORKGROUP\_SIZE\ -\/\ 1u]\ =\ 0u;}}
+\DoxyCodeLine{00052\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ shared\_data\_1[WORKGROUP\_SIZE\ -\/\ 1u]\ =\ 0u;}}
+\DoxyCodeLine{00053\ \textcolor{stringliteral}{\ \ \ \ \}}}
+\DoxyCodeLine{00054\ \textcolor{stringliteral}{\ \ \ \ workgroupBarrier();}}
+\DoxyCodeLine{00055\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{00056\ \textcolor{stringliteral}{\ \ \ \ //\ Down-\/sweep\ phase}}
+\DoxyCodeLine{00057\ \textcolor{stringliteral}{\ \ \ \ offset\ =\ WORKGROUP\_SIZE\ /\ 2u;}}
+\DoxyCodeLine{00058\ \textcolor{stringliteral}{\ \ \ \ while\ offset\ >\ 0u\ \{}}
+\DoxyCodeLine{00059\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ let\ idx\ =\ (tid\ +\ 1u)\ *\ offset\ *\ 2u\ -\/\ 1u;}}
+\DoxyCodeLine{00060\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ if\ idx\ <\ WORKGROUP\_SIZE\ \{}}
+\DoxyCodeLine{00061\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ let\ t\_0\ =\ shared\_data\_0[idx\ -\/\ offset];}}
+\DoxyCodeLine{00062\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ shared\_data\_0[idx\ -\/\ offset]\ =\ shared\_data\_0[idx];}}
+\DoxyCodeLine{00063\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ shared\_data\_0[idx]\ +=\ t\_0;}}
+\DoxyCodeLine{00064\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{00065\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ let\ t\_1\ =\ shared\_data\_1[idx\ -\/\ offset];}}
+\DoxyCodeLine{00066\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ shared\_data\_1[idx\ -\/\ offset]\ =\ shared\_data\_1[idx];}}
+\DoxyCodeLine{00067\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ shared\_data\_1[idx]\ +=\ t\_1;}}
+\DoxyCodeLine{00068\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \}}}
+\DoxyCodeLine{00069\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ offset\ /=\ 2u;}}
+\DoxyCodeLine{00070\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ workgroupBarrier();}}
+\DoxyCodeLine{00071\ \textcolor{stringliteral}{\ \ \ \ \}}}
+\DoxyCodeLine{00072\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{00073\ \textcolor{stringliteral}{\ \ \ \ //\ Write\ the\ result\ back\ to\ the\ global\ memory}}
+\DoxyCodeLine{00074\ \textcolor{stringliteral}{\ \ \ \ if\ gid\ <\ arrayLength(\&data\_0)\ \{}}
+\DoxyCodeLine{00075\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ result\_0[gid]\ =\ shared\_data\_0[tid];}}
+\DoxyCodeLine{00076\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ result\_1[gid]\ =\ shared\_data\_1[tid];}}
+\DoxyCodeLine{00077\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00078\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ if\ tid\ ==\ (WORKGROUP\_SIZE\ -\/\ 1u)\ \{}}
+\DoxyCodeLine{00079\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ aux\_0[group\_id.x]\ =\ data\_0[gid]\ +\ result\_0[gid];}}
+\DoxyCodeLine{00080\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ aux\_1[group\_id.x]\ =\ data\_1[gid]\ +\ result\_1[gid];}}
+\DoxyCodeLine{00081\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \}}}
+\DoxyCodeLine{00082\ \textcolor{stringliteral}{\ \ \ \ \}}}
+\DoxyCodeLine{00083\ \textcolor{stringliteral}{\}}}
+\DoxyCodeLine{00084\ \textcolor{stringliteral}{)"{};}}
+
+\end{DoxyCode}

@@ -7,6 +7,7 @@ var classnetdem_1_1_wall_group =
     [ "Clear", "classnetdem_1_1_wall_group.html#a74876a798031afa3d19e8db672dced94", null ],
     [ "Clone", "classnetdem_1_1_wall_group.html#a248114f9ab938a32d7f17645d451b919", null ],
     [ "Execute", "classnetdem_1_1_wall_group.html#a4e03bff6dfcd83838cd3385ea7e2121b", null ],
+    [ "GetWalls", "classnetdem_1_1_wall_group.html#a2a19d0996385db46189a0963a191635c", null ],
     [ "RemoveWall", "classnetdem_1_1_wall_group.html#ae31b1d10531cb721ccfe9a1e3ee4388b", null ],
     [ "RemoveWall", "classnetdem_1_1_wall_group.html#a83ff0808e0949dea7b1e69270bcd1dd3", null ],
     [ "RemoveWall", "classnetdem_1_1_wall_group.html#a0ab1673f0092ed9c0968167c41893801", null ],

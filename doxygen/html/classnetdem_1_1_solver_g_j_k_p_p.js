@@ -33,7 +33,6 @@ var classnetdem_1_1_solver_g_j_k_p_p =
     [ "dquat_12", "classnetdem_1_1_solver_g_j_k_p_p.html#a274d63454664b9893fd7ae91dbc1cfb0", null ],
     [ "dquat_12_conj", "classnetdem_1_1_solver_g_j_k_p_p.html#ad762670c8652be706bebae38454952ad", null ],
     [ "enable_logging", "classnetdem_1_1_solver_g_j_k_p_p.html#abbcfc533b87b58663116db0ced702119", null ],
-    [ "enalbe_debugging", "classnetdem_1_1_solver_g_j_k_p_p.html#ad32ab545189294b53e40698a707fda98", null ],
     [ "erosion_ratio_increment", "classnetdem_1_1_solver_g_j_k_p_p.html#a536306da89a80cdce8ddf78c641657df", null ],
     [ "erosion_ratio_initial", "classnetdem_1_1_solver_g_j_k_p_p.html#a84426e1ca5e1158dfebb04ea69b3bf71", null ],
     [ "shape_1", "classnetdem_1_1_solver_g_j_k_p_p.html#a0343415fa31668aae8386f5f01ba561e", null ],

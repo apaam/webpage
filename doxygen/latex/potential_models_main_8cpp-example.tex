@@ -8,9 +8,11 @@
 \DoxyCodeLine{\textcolor{preprocessor}{\#include\ <string>}}
 \DoxyCodeLine{\textcolor{keyword}{using\ namespace\ }std;}
 \DoxyCodeLine{}
-\DoxyCodeLine{\textcolor{keywordtype}{void}\ ContactTestSphere(\textcolor{keywordtype}{int}\ potential\_case,\ \textcolor{keywordtype}{int}\ node\_num);}
-\DoxyCodeLine{\textcolor{keywordtype}{void}\ ContactTestTrimesh(\textcolor{keywordtype}{int}\ potential\_case,\ \textcolor{keywordtype}{int}\ node\_num);}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ ContactTestSphere(\textcolor{keywordtype}{int}\ potential\_case,\ \textcolor{keywordtype}{int}\ surface\_node\_num);}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ ContactTestTrimesh(\textcolor{keywordtype}{int}\ potential\_case,\ \textcolor{keywordtype}{int}\ surface\_node\_num);}
 \DoxyCodeLine{\textcolor{keywordtype}{void}\ EnergyTest(\textcolor{keywordtype}{int}\ potential\_case,\ \textcolor{keywordtype}{int}\ shape\_case,\ \textcolor{keywordtype}{double}\ timestep);}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ CurvatureEffectTest(\textcolor{keywordtype}{int}\ potential\_case,\ \textcolor{keywordtype}{int}\ surface\_node\_num);}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ SizeEffectTest(\textcolor{keywordtype}{int}\ potential\_case,\ \textcolor{keywordtype}{int}\ surface\_node\_num,\ \textcolor{keywordtype}{double}\ size);}
 \DoxyCodeLine{}
 \DoxyCodeLine{\textcolor{keywordtype}{void}\ FrictionTestSphere(\textcolor{keywordtype}{int}\ potential\_case);}
 \DoxyCodeLine{\textcolor{keywordtype}{void}\ FrictionTestTrimesh(\textcolor{keywordtype}{int}\ potential\_case);}
@@ -20,25 +22,36 @@
 \DoxyCodeLine{\textcolor{keywordtype}{void}\ TriaxialComp(\textcolor{keywordtype}{bool}\ need\_make\_convex,\ \textcolor{keywordtype}{double}\ pressure,\ \textcolor{keywordtype}{string}\ root\_dir);}
 \DoxyCodeLine{\textcolor{keywordtype}{void}\ AngleRepose(\textcolor{keywordtype}{bool}\ need\_make\_convex,\ \textcolor{keywordtype}{double}\ friction,\ \textcolor{keywordtype}{string}\ root\_dir);}
 \DoxyCodeLine{}
-\DoxyCodeLine{\textcolor{keywordtype}{void}\ TriaxialCompSphereSH(\textcolor{keywordtype}{double}\ pressure,\ \textcolor{keywordtype}{string}\ root\_dir);}
-\DoxyCodeLine{\textcolor{keywordtype}{void}\ TriaxialCompSphereGeom(\textcolor{keywordtype}{double}\ friction,\ \textcolor{keywordtype}{double}\ pressure,\ \textcolor{keywordtype}{string}\ root\_dir);}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ Rockfall(\textcolor{keywordtype}{int}\ potential\_case,\ \textcolor{keywordtype}{double}\ kn,\ \textcolor{keywordtype}{int}\ surface\_node\_num,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ root\_dir);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ TriaxialCompSphereSDF(\textcolor{keywordtype}{double}\ kn\_coef,\ \textcolor{keywordtype}{double}\ friction,\ \textcolor{keywordtype}{double}\ pressure,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ root\_dir);}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ TriaxialCompSphereGeom(\textcolor{keywordtype}{double}\ kn\_coef,\ \textcolor{keywordtype}{double}\ friction,\ \textcolor{keywordtype}{double}\ pressure,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ root\_dir);}
 \DoxyCodeLine{}
 \DoxyCodeLine{\textcolor{keywordtype}{int}\ \mbox{\hyperlink{main_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{main}}(\textcolor{keywordtype}{int}\ argc,\ \textcolor{keywordtype}{char}\ **argv)\ \{}
 \DoxyCodeLine{\ \ \textcolor{keywordflow}{if}\ (argc\ ==\ 1)\ \{}
 \DoxyCodeLine{\ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}please\ specify\ the\ id\ of\ the\ task.\ \(\backslash\)n"{}}}
-\DoxyCodeLine{\ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}e.g.:\ netdem\_example\_sdf\_contact\ i"{}}\ <<\ endl;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}e.g.:\ netdem\_example\_potential\_models\ i"{}}\ <<\ endl;}
 \DoxyCodeLine{\ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}>>\ 00:\ contact\ potential\ test\ of\ sphere.\ option:\ [potential\_case]\ "{}}}
-\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}[node\_num]"{}}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}[surface\_node\_num]"{}}}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \ <<\ endl;}
 \DoxyCodeLine{\ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}>>\ 01:\ contact\ potential\ test\ of\ trimesh.\ option:\ "{}}}
-\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}[potential\_case]\ [node\_num]"{}}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}[potential\_case]\ [surface\_node\_num]"{}}}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \ <<\ endl;}
 \DoxyCodeLine{\ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}>>\ 02:\ evergy\ evolution\ test.\ option:\ [potential\_case]\ "{}}}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}[shape\_case]\ [timestep]"{}}}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \ <<\ endl;}
+\DoxyCodeLine{\ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}>>\ 03:\ friction\ test\ of\ sphere.\ option:\ [potential\_case]"{}}\ <<\ endl;}
+\DoxyCodeLine{\ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}>>\ 04:\ friction\ test\ of\ trimesh.\ option:\ [potential\_case]"{}}\ <<\ endl;}
+\DoxyCodeLine{\ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}>>\ 05:\ contact\ test\ for\ curvature\ effect.\ option:\ "{}}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}[potential\_case]\ [surface\_node\_num]"{}}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ <<\ endl;}
 \DoxyCodeLine{\ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}>>\ 80:\ random\ packing"{}}\ <<\ endl;}
 \DoxyCodeLine{\ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}>>\ 91:\ triaxial\ compression"{}}\ <<\ endl;}
 \DoxyCodeLine{\ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}>>\ 92:\ angle\ of\ repose"{}}\ <<\ endl;}
+\DoxyCodeLine{\ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}>>\ 93:\ rock\ fall\ test"{}}\ <<\ endl;}
 \DoxyCodeLine{\ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}>>\ 96:\ triaxial\ compression\ of\ sphere\ based\ on\ sh"{}}\ <<\ endl;}
 \DoxyCodeLine{\ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}>>\ 97:\ triaxial\ compression\ of\ sphere\ in\ conventional"{}}\ <<\ endl;}
 \DoxyCodeLine{}
@@ -50,23 +63,27 @@
 \DoxyCodeLine{\ \ \textcolor{keywordflow}{case}\ 0:}
 \DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{if}\ (argc\ ==\ 4)\ \{}
 \DoxyCodeLine{\ \ \ \ \ \ \textcolor{keywordtype}{int}\ potential\_case\ =\ atof(argv[2]);}
-\DoxyCodeLine{\ \ \ \ \ \ \textcolor{keywordtype}{int}\ node\_num\ =\ atof(argv[3]);}
-\DoxyCodeLine{\ \ \ \ \ \ ContactTestSphere(potential\_case,\ node\_num);}
+\DoxyCodeLine{\ \ \ \ \ \ \textcolor{keywordtype}{int}\ surface\_node\_num\ =\ atof(argv[3]);}
+\DoxyCodeLine{\ \ \ \ \ \ ContactTestSphere(potential\_case,\ surface\_node\_num);}
 \DoxyCodeLine{\ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}potential\ case:\ "{}}\ <<\ potential\_case\ <<\ \textcolor{stringliteral}{"{},\ "{}}}
-\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}node\ num:\ "{}}\ <<\ node\_num\ <<\ endl;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}node\ num:\ "{}}\ <<\ surface\_node\_num\ <<\ endl;}
 \DoxyCodeLine{\ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
 \DoxyCodeLine{\ \ \ \ \ \ ContactTestSphere(1,\ 1000);}
+\DoxyCodeLine{\ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}potential\ case:\ "{}}\ <<\ 1\ <<\ \textcolor{stringliteral}{"{},\ "{}}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}node\ num:\ "{}}\ <<\ 1000\ <<\ endl;}
 \DoxyCodeLine{\ \ \ \ \}}
 \DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{break};}
 \DoxyCodeLine{\ \ \textcolor{keywordflow}{case}\ 1:}
 \DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{if}\ (argc\ ==\ 4)\ \{}
 \DoxyCodeLine{\ \ \ \ \ \ \textcolor{keywordtype}{int}\ potential\_case\ =\ atof(argv[2]);}
-\DoxyCodeLine{\ \ \ \ \ \ \textcolor{keywordtype}{int}\ node\_num\ =\ atof(argv[3]);}
-\DoxyCodeLine{\ \ \ \ \ \ ContactTestTrimesh(potential\_case,\ node\_num);}
+\DoxyCodeLine{\ \ \ \ \ \ \textcolor{keywordtype}{int}\ surface\_node\_num\ =\ atof(argv[3]);}
+\DoxyCodeLine{\ \ \ \ \ \ ContactTestTrimesh(potential\_case,\ surface\_node\_num);}
 \DoxyCodeLine{\ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}potential\ case:\ "{}}\ <<\ potential\_case\ <<\ \textcolor{stringliteral}{"{},\ "{}}}
-\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}node\ num:\ "{}}\ <<\ node\_num\ <<\ endl;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}node\ num:\ "{}}\ <<\ surface\_node\_num\ <<\ endl;}
 \DoxyCodeLine{\ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
 \DoxyCodeLine{\ \ \ \ \ \ ContactTestTrimesh(1,\ 1000);}
+\DoxyCodeLine{\ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}potential\ case:\ "{}}\ <<\ 1\ <<\ \textcolor{stringliteral}{"{},\ "{}}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}node\ num:\ "{}}\ <<\ 1000\ <<\ endl;}
 \DoxyCodeLine{\ \ \ \ \}}
 \DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{break};}
 \DoxyCodeLine{\ \ \textcolor{keywordflow}{case}\ 2:}
@@ -105,6 +122,35 @@
 \DoxyCodeLine{\ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}potential\ case:\ "{}}\ <<\ 1\ <<\ endl;}
 \DoxyCodeLine{\ \ \ \ \}}
 \DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{case}\ 5:}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{if}\ (argc\ ==\ 4)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \textcolor{keywordtype}{int}\ potential\_case\ =\ atof(argv[2]);}
+\DoxyCodeLine{\ \ \ \ \ \ \textcolor{keywordtype}{int}\ surface\_node\_num\ =\ atof(argv[3]);}
+\DoxyCodeLine{\ \ \ \ \ \ CurvatureEffectTest(potential\_case,\ surface\_node\_num);}
+\DoxyCodeLine{\ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}potential\ case:\ "{}}\ <<\ potential\_case\ <<\ \textcolor{stringliteral}{"{},\ "{}}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}node\ num:\ "{}}\ <<\ surface\_node\_num\ <<\ endl;}
+\DoxyCodeLine{\ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ CurvatureEffectTest(1,\ 1000);}
+\DoxyCodeLine{\ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}potential\ case:\ "{}}\ <<\ 1\ <<\ \textcolor{stringliteral}{"{},\ "{}}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}node\ num:\ "{}}\ <<\ 1000\ <<\ endl;}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{case}\ 6:}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{if}\ (argc\ ==\ 5)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \textcolor{keywordtype}{int}\ potential\_case\ =\ atof(argv[2]);}
+\DoxyCodeLine{\ \ \ \ \ \ \textcolor{keywordtype}{int}\ surface\_node\_num\ =\ atof(argv[3]);}
+\DoxyCodeLine{\ \ \ \ \ \ \textcolor{keywordtype}{double}\ size\ =\ atof(argv[4]);}
+\DoxyCodeLine{\ \ \ \ \ \ SizeEffectTest(potential\_case,\ surface\_node\_num,\ size);}
+\DoxyCodeLine{\ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}potential\ case:\ "{}}\ <<\ potential\_case\ <<\ \textcolor{stringliteral}{"{},\ "{}}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}node\ num:\ "{}}\ <<\ surface\_node\_num\ <<\ \textcolor{stringliteral}{"{},\ "{}}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}size:\ "{}}\ <<\ size\ <<\ endl;}
+\DoxyCodeLine{\ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ SizeEffectTest(0,\ 1000,\ 1.0);}
+\DoxyCodeLine{\ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}potential\ case:\ "{}}\ <<\ 1\ <<\ \textcolor{stringliteral}{"{},\ "{}}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}node\ num:\ "{}}\ <<\ 1000\ <<\ \textcolor{stringliteral}{"{},\ "{}}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}size:\ "{}}\ <<\ 1.0\ <<\ endl;}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{break};}
 \DoxyCodeLine{\ \ \textcolor{keywordflow}{case}\ 80:}
 \DoxyCodeLine{\ \ \ \ RandomPacking(argc,\ argv);}
 \DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{break};}
@@ -116,8 +162,8 @@
 \DoxyCodeLine{\ \ \ \ \ \ filesystem::create\_directories(root\_dir);}
 \DoxyCodeLine{\ \ \ \ \ \ TriaxialComp(need\_make\_convex,\ pressure,\ root\_dir);}
 \DoxyCodeLine{\ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
-\DoxyCodeLine{\ \ \ \ \ \ filesystem::create\_directories(\textcolor{stringliteral}{"{}tmp/examples/sdf\_contact/triaxial\_comp/"{}});}
-\DoxyCodeLine{\ \ \ \ \ \ TriaxialComp(\textcolor{keyword}{false},\ 1.0e5,\ \textcolor{stringliteral}{"{}tmp/examples/sdf\_contact/triaxial\_comp/"{}});}
+\DoxyCodeLine{\ \ \ \ \ \ filesystem::create\_directories(\textcolor{stringliteral}{"{}local/potential\_models/triaxial\_comp/"{}});}
+\DoxyCodeLine{\ \ \ \ \ \ TriaxialComp(\textcolor{keyword}{false},\ 1.0e5,\ \textcolor{stringliteral}{"{}local/potential\_models/triaxial\_comp/"{}});}
 \DoxyCodeLine{\ \ \ \ \}}
 \DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{break};}
 \DoxyCodeLine{\ \ \textcolor{keywordflow}{case}\ 92:}
@@ -128,34 +174,84 @@
 \DoxyCodeLine{\ \ \ \ \ \ filesystem::create\_directories(root\_dir);}
 \DoxyCodeLine{\ \ \ \ \ \ AngleRepose(need\_make\_convex,\ friction,\ root\_dir);}
 \DoxyCodeLine{\ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
-\DoxyCodeLine{\ \ \ \ \ \ filesystem::create\_directories(\textcolor{stringliteral}{"{}tmp/examples/sdf\_contact/angle\_repose/"{}});}
-\DoxyCodeLine{\ \ \ \ \ \ AngleRepose(\textcolor{keyword}{false},\ 0.3,\ \textcolor{stringliteral}{"{}tmp/examples/sdf\_contact/angle\_repose/"{}});}
+\DoxyCodeLine{\ \ \ \ \ \ filesystem::create\_directories(\textcolor{stringliteral}{"{}local/potential\_models/angle\_repose/"{}});}
+\DoxyCodeLine{\ \ \ \ \ \ AngleRepose(\textcolor{keyword}{false},\ 0.3,\ \textcolor{stringliteral}{"{}local/potential\_models/angle\_repose/"{}});}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{case}\ 93:}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{if}\ (argc\ ==\ 6)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \textcolor{keywordtype}{double}\ potential\_case\ =\ atof(argv[2]);}
+\DoxyCodeLine{\ \ \ \ \ \ \textcolor{keywordtype}{double}\ kn\ =\ atof(argv[3]);}
+\DoxyCodeLine{\ \ \ \ \ \ \textcolor{keywordtype}{double}\ surface\_node\_num\ =\ atof(argv[4]);}
+\DoxyCodeLine{\ \ \ \ \ \ \textcolor{keywordtype}{string}\ root\_dir\ =\ string(argv[5]);}
+\DoxyCodeLine{\ \ \ \ \ \ filesystem::create\_directories(root\_dir);}
+\DoxyCodeLine{\ \ \ \ \ \ Rockfall(potential\_case,\ kn,\ surface\_node\_num,\ root\_dir);}
+\DoxyCodeLine{\ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \textcolor{keywordtype}{string}\ root\_dir\ =\ \textcolor{stringliteral}{"{}local/potential\_models/rockfall/tmp/"{}};}
+\DoxyCodeLine{\ \ \ \ \ \ filesystem::create\_directories(root\_dir);}
+\DoxyCodeLine{\ \ \ \ \ \ Rockfall(0,\ 1.0e5,\ 1000,\ root\_dir);}
 \DoxyCodeLine{\ \ \ \ \}}
 \DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{break};}
 \DoxyCodeLine{\ \ \textcolor{keywordflow}{case}\ 96:}
-\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{if}\ (argc\ ==\ 4)\ \{}
-\DoxyCodeLine{\ \ \ \ \ \ \textcolor{keywordtype}{double}\ pressure\ =\ atof(argv[2]);}
-\DoxyCodeLine{\ \ \ \ \ \ \textcolor{keywordtype}{string}\ root\_dir\ =\ string(argv[3]);}
-\DoxyCodeLine{\ \ \ \ \ \ TriaxialCompSphereSH(pressure,\ root\_dir);}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{if}\ (argc\ <\ 5)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \textcolor{keywordtype}{double}\ kn\_coef\ =\ 1.0;}
+\DoxyCodeLine{\ \ \ \ \ \ \textcolor{keywordtype}{double}\ friction\ =\ 0.3;}
+\DoxyCodeLine{\ \ \ \ \ \ \textcolor{keywordtype}{double}\ pressure\ =\ 2.0e5;}
+\DoxyCodeLine{\ \ \ \ \ \ \textcolor{keywordtype}{string}\ root\_dir\ =\ \textcolor{stringliteral}{"{}local/potential\_models/triaxial\_comp\_sh/"{}};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}default\ case:\ "{}}\ <<\ endl;}
+\DoxyCodeLine{\ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}\ kn\_coef:\ "{}}\ <<\ kn\_coef\ <<\ \textcolor{stringliteral}{"{},\ "{}}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\ friction:\ "{}}\ <<\ friction\ <<\ \textcolor{stringliteral}{"{},\ "{}}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\ pressure:\ "{}}\ <<\ pressure\ <<\ endl}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\ root\_dir:\ "{}}\ <<\ root\_dir\ <<\ endl;}
+\DoxyCodeLine{}
 \DoxyCodeLine{\ \ \ \ \ \ filesystem::create\_directories(root\_dir);}
+\DoxyCodeLine{\ \ \ \ \ \ TriaxialCompSphereSDF(kn\_coef,\ friction,\ pressure,\ root\_dir);}
 \DoxyCodeLine{\ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
-\DoxyCodeLine{\ \ \ \ \ \ filesystem::create\_directories(}
-\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}tmp/examples/sdf\_contact/triaxial\_comp\_sh/"{}});}
-\DoxyCodeLine{\ \ \ \ \ \ TriaxialCompSphereSH(1.0e5,\ \textcolor{stringliteral}{"{}tmp/examples/sdf\_contact/triaxial\_comp\_sh/"{}});}
+\DoxyCodeLine{\ \ \ \ \ \ \textcolor{keywordtype}{double}\ kn\_coef\ =\ atof(argv[2]);}
+\DoxyCodeLine{\ \ \ \ \ \ \textcolor{keywordtype}{double}\ friction\ =\ atof(argv[3]);}
+\DoxyCodeLine{\ \ \ \ \ \ \textcolor{keywordtype}{double}\ pressure\ =\ atof(argv[4]);}
+\DoxyCodeLine{\ \ \ \ \ \ \textcolor{keywordtype}{string}\ root\_dir\ =\ string(argv[5]);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}specified\ case:\ "{}}\ <<\ endl;}
+\DoxyCodeLine{\ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}\ kn\_coef:\ "{}}\ <<\ kn\_coef\ <<\ \textcolor{stringliteral}{"{},\ "{}}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\ friction:\ "{}}\ <<\ friction\ <<\ \textcolor{stringliteral}{"{},\ "{}}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\ pressure:\ "{}}\ <<\ pressure\ <<\ endl}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\ root\_dir:\ "{}}\ <<\ root\_dir\ <<\ endl;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ filesystem::create\_directories(root\_dir);}
+\DoxyCodeLine{\ \ \ \ \ \ TriaxialCompSphereSDF(kn\_coef,\ friction,\ pressure,\ root\_dir);}
 \DoxyCodeLine{\ \ \ \ \}}
 \DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{break};}
 \DoxyCodeLine{\ \ \textcolor{keywordflow}{case}\ 97:}
-\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{if}\ (argc\ ==\ 5)\ \{}
-\DoxyCodeLine{\ \ \ \ \ \ \textcolor{keywordtype}{double}\ friction\ =\ atof(argv[2]);}
-\DoxyCodeLine{\ \ \ \ \ \ \textcolor{keywordtype}{double}\ pressure\ =\ atof(argv[3]);}
-\DoxyCodeLine{\ \ \ \ \ \ \textcolor{keywordtype}{string}\ root\_dir\ =\ string(argv[4]);}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{if}\ (argc\ <\ 5)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \textcolor{keywordtype}{double}\ kn\_coef\ =\ 1.0;}
+\DoxyCodeLine{\ \ \ \ \ \ \textcolor{keywordtype}{double}\ friction\ =\ 0.3;}
+\DoxyCodeLine{\ \ \ \ \ \ \textcolor{keywordtype}{double}\ pressure\ =\ 2.0e5;}
+\DoxyCodeLine{\ \ \ \ \ \ \textcolor{keywordtype}{string}\ root\_dir\ =\ \textcolor{stringliteral}{"{}local/potential\_models/triaxial\_comp\_sh/"{}};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}default\ case:\ "{}}\ <<\ endl;}
+\DoxyCodeLine{\ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}\ kn\_coef:\ "{}}\ <<\ kn\_coef\ <<\ \textcolor{stringliteral}{"{},\ "{}}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\ friction:\ "{}}\ <<\ friction\ <<\ \textcolor{stringliteral}{"{},\ "{}}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\ pressure:\ "{}}\ <<\ pressure\ <<\ endl}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\ root\_dir:\ "{}}\ <<\ root\_dir\ <<\ endl;}
+\DoxyCodeLine{}
 \DoxyCodeLine{\ \ \ \ \ \ filesystem::create\_directories(root\_dir);}
-\DoxyCodeLine{\ \ \ \ \ \ TriaxialCompSphereGeom(friction,\ pressure,\ root\_dir);}
+\DoxyCodeLine{\ \ \ \ \ \ TriaxialCompSphereGeom(kn\_coef,\ friction,\ pressure,\ root\_dir);}
 \DoxyCodeLine{\ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
-\DoxyCodeLine{\ \ \ \ \ \ filesystem::create\_directories(}
-\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}tmp/examples/sdf\_contact/triaxial\_comp\_geom/"{}});}
-\DoxyCodeLine{\ \ \ \ \ \ TriaxialCompSphereGeom(0.3,\ 1.0e5,}
-\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}tmp/examples/sdf\_contact/triaxial\_comp\_geom/"{}});}
+\DoxyCodeLine{\ \ \ \ \ \ \textcolor{keywordtype}{double}\ kn\_coef\ =\ atof(argv[2]);}
+\DoxyCodeLine{\ \ \ \ \ \ \textcolor{keywordtype}{double}\ friction\ =\ atof(argv[3]);}
+\DoxyCodeLine{\ \ \ \ \ \ \textcolor{keywordtype}{double}\ pressure\ =\ atof(argv[4]);}
+\DoxyCodeLine{\ \ \ \ \ \ \textcolor{keywordtype}{string}\ root\_dir\ =\ string(argv[5]);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}specified\ case:\ "{}}\ <<\ endl;}
+\DoxyCodeLine{\ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}\ kn\_coef:\ "{}}\ <<\ kn\_coef\ <<\ \textcolor{stringliteral}{"{},\ "{}}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\ friction:\ "{}}\ <<\ friction\ <<\ \textcolor{stringliteral}{"{},\ "{}}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\ pressure:\ "{}}\ <<\ pressure\ <<\ endl}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}\ root\_dir:\ "{}}\ <<\ root\_dir\ <<\ endl;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ filesystem::create\_directories(root\_dir);}
+\DoxyCodeLine{\ \ \ \ \ \ TriaxialCompSphereGeom(kn\_coef,\ friction,\ pressure,\ root\_dir);}
 \DoxyCodeLine{\ \ \ \ \}}
 \DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{break};}
 \DoxyCodeLine{\ \ \textcolor{keywordflow}{default}:}

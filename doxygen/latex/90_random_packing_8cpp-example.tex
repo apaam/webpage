@@ -39,31 +39,32 @@
 \DoxyCodeLine{\ \ \textcolor{comment}{//\ contact\ model}}
 \DoxyCodeLine{\ \ sim-\/>\mbox{\hyperlink{classnetdem_1_1_simulation_a072310a2f5600bccce29d2d4157b8c61}{dem\_solver}}.\mbox{\hyperlink{classnetdem_1_1_d_e_m_solver_afacb73a3ad5d0cdb271e71ba518ab545}{contact\_solver\_factory}}.\mbox{\hyperlink{classnetdem_1_1_contact_solver_factory_ad85c98c349f2a40ad26e63e23605a3dc}{settings}}.\mbox{\hyperlink{classnetdem_1_1_contact_solver_settings_a3385a311115950587f496c976a3fa67f}{solver\_type}}\ =}
 \DoxyCodeLine{\ \ \ \ \ \ ContactSolverSettings::SolverType::sdf;}
-\DoxyCodeLine{\ \ sim-\/>\mbox{\hyperlink{classnetdem_1_1_simulation_a072310a2f5600bccce29d2d4157b8c61}{dem\_solver}}.\mbox{\hyperlink{classnetdem_1_1_d_e_m_solver_afacb73a3ad5d0cdb271e71ba518ab545}{contact\_solver\_factory}}.\mbox{\hyperlink{classnetdem_1_1_contact_solver_factory_ad85c98c349f2a40ad26e63e23605a3dc}{settings}}.\mbox{\hyperlink{classnetdem_1_1_contact_solver_settings_a42078a4cfb9c398ee7d3283dc13a1496}{sdf\_potential\_type}}\ =\ 1;}
-\DoxyCodeLine{\ \ \mbox{\hyperlink{classnetdem_1_1_linear_spring}{LinearSpring}}\ cnt\_model\ =\ \mbox{\hyperlink{classnetdem_1_1_linear_spring}{LinearSpring}}(2.0e4,\ 1.0e4,\ 0.7,\ 0.5);}
+\DoxyCodeLine{\ \ sim-\/>\mbox{\hyperlink{classnetdem_1_1_simulation_a072310a2f5600bccce29d2d4157b8c61}{dem\_solver}}.\mbox{\hyperlink{classnetdem_1_1_d_e_m_solver_afacb73a3ad5d0cdb271e71ba518ab545}{contact\_solver\_factory}}.\mbox{\hyperlink{classnetdem_1_1_contact_solver_factory_ad85c98c349f2a40ad26e63e23605a3dc}{settings}}.\mbox{\hyperlink{classnetdem_1_1_contact_solver_settings_a42078a4cfb9c398ee7d3283dc13a1496}{sdf\_potential\_type}}\ =\ 0;}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{classnetdem_1_1_linear_spring}{LinearSpring}}\ cnt\_model\ =\ \mbox{\hyperlink{classnetdem_1_1_linear_spring}{LinearSpring}}(2.0e6,\ 1.0e6,\ 0.5,\ 0.1);}
 \DoxyCodeLine{\ \ sim-\/>\mbox{\hyperlink{classnetdem_1_1_simulation_add17bfcd927bd2b7f14f05855c20bea3}{scene}}.\mbox{\hyperlink{classnetdem_1_1_scene_a16e8cd7195ba20a9d0bee14498b69c4f}{InsertContactModel}}(\&cnt\_model);}
 \DoxyCodeLine{\ \ sim-\/>\mbox{\hyperlink{classnetdem_1_1_simulation_add17bfcd927bd2b7f14f05855c20bea3}{scene}}.\mbox{\hyperlink{classnetdem_1_1_scene_a37580ce0b6492c6580c85a999aae8397}{SetNumberOfMaterials}}(1);}
 \DoxyCodeLine{\ \ sim-\/>\mbox{\hyperlink{classnetdem_1_1_simulation_add17bfcd927bd2b7f14f05855c20bea3}{scene}}.\mbox{\hyperlink{classnetdem_1_1_scene_a632f1fb42f6fdd508b3d534520110a4e}{SetCollisionModel}}(0,\ 0,\ cnt\_model.\mbox{\hyperlink{classnetdem_1_1_contact_model_ac452f37ee577eb8e2cefa4156d9c62ab}{label}});}
 \DoxyCodeLine{}
-\DoxyCodeLine{\ \ \textcolor{comment}{//\ shape\ template\ and\ particles}}
+\DoxyCodeLine{\ \ \textcolor{comment}{//\ //\ shape\ template\ and\ particles}}
 \DoxyCodeLine{\ \ \textcolor{comment}{//\ NetSDF\ netsdf;}}
 \DoxyCodeLine{\ \ \textcolor{comment}{//\ netsdf.InitFromModelFiles("{}ann\_SDF.xml"{},\ "{}ann\_SPF.xml"{});}}
 \DoxyCodeLine{\ \ \textcolor{comment}{//\ sim-\/>scene.InsertShape(\&netsdf);}}
 \DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{comment}{//\ coded\ netsdf}}
 \DoxyCodeLine{\ \ \mbox{\hyperlink{classnetdem_1_1_coded_net_s_d_f}{CodedNetSDF}}\ netsdf;}
-\DoxyCodeLine{\ \ netsdf.\mbox{\hyperlink{classnetdem_1_1_coded_net_s_d_f_a7c578dceb4f9c595c0bfca856ef77279}{InitFromModelFiles}}(\textcolor{stringliteral}{"{}ann\_SDF.xml"{}},\ \textcolor{stringliteral}{"{}latent\_code.txt"{}});}
+\DoxyCodeLine{\ \ netsdf.\mbox{\hyperlink{classnetdem_1_1_coded_net_s_d_f_a910e2bb6ab1eadf6eccacd049b509667}{InitFromModelFiles}}(\textcolor{stringliteral}{"{}ann\_SDF.xml"{}},\ \textcolor{stringliteral}{"{}latent\_code.txt"{}},\ 1);}
 \DoxyCodeLine{\ \ netsdf.\mbox{\hyperlink{classnetdem_1_1_coded_net_s_d_f_ac9de0a9d32f7ec55ca42ec59b6407c63}{SetSize}}(0.1);}
 \DoxyCodeLine{\ \ sim-\/>\mbox{\hyperlink{classnetdem_1_1_simulation_add17bfcd927bd2b7f14f05855c20bea3}{scene}}.\mbox{\hyperlink{classnetdem_1_1_scene_a398e24fbcba078c40b7970edbe44e325}{InsertShape}}(\&netsdf);}
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ \textcolor{comment}{//\ //\ shape\ template\ and\ particles}}
-\DoxyCodeLine{\ \ \textcolor{comment}{//\ TriMesh\ netsdf;}}
-\DoxyCodeLine{\ \ \textcolor{comment}{//\ netsdf.InitFromSTL("{}data/particle\_template.stl"{});}}
-\DoxyCodeLine{\ \ \textcolor{comment}{//\ netsdf.Decimate(400);}}
-\DoxyCodeLine{\ \ \textcolor{comment}{//\ netsdf.AlignAxes();}}
-\DoxyCodeLine{\ \ \textcolor{comment}{//\ netsdf.SetSize(0.1);}}
-\DoxyCodeLine{\ \ \textcolor{comment}{//\ sim-\/>scene.InsertShape(\&netsdf);}}
+\DoxyCodeLine{\ \ \textcolor{comment}{//\ TriMesh\ trimesh;}}
+\DoxyCodeLine{\ \ \textcolor{comment}{//\ trimesh.InitFromSTL("{}mms\_01/shape\_template.stl"{});}}
+\DoxyCodeLine{\ \ \textcolor{comment}{//\ trimesh.Decimate(2000);}}
+\DoxyCodeLine{\ \ \textcolor{comment}{//\ trimesh.AlignAxes();}}
+\DoxyCodeLine{\ \ \textcolor{comment}{//\ trimesh.SetSize(0.1);}}
+\DoxyCodeLine{\ \ \textcolor{comment}{//\ sim-\/>scene.InsertShape(\&trimesh);}}
 \DoxyCodeLine{}
-\DoxyCodeLine{\ \ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<Particle>}}\ particle\_list\ =\ PackGenerator::GetGridPack(}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{VecXT<Particle>}}\ particle\_list\ =\ PackGenerator::GetGridPack(}
 \DoxyCodeLine{\ \ \ \ \ \ 1,\ 1,\ 0.2,\ 0,\ 0,\ 0.4,\ 5,\ 5,\ 1,\ sim-\/>\mbox{\hyperlink{classnetdem_1_1_simulation_add17bfcd927bd2b7f14f05855c20bea3}{scene}}.\mbox{\hyperlink{classnetdem_1_1_scene_aaaf2e298f7e7bbd9dc8e34ec683a23f4}{GetShapes}}());}
 \DoxyCodeLine{\ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \&p\ :\ particle\_list)\ \{}
 \DoxyCodeLine{\ \ \ \ p.SetVelocity(0,\ 0,\ -\/2.0);}
