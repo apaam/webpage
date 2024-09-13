@@ -22,6 +22,8 @@ void \mbox{\hyperlink{classnetdem_1_1_contact_p_p_a678258ad62648eccad93af40ea37b
 \begin{DoxyCompactList}\small\item\em Set the bond model used to calculate bonded forces between particles. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classnetdem_1_1_contact_p_p_a407e8b3f0cbb630e38b3b347efa975e9}{Set\+Collision\+Model}} (\mbox{\hyperlink{classnetdem_1_1_contact_model}{Contact\+Model}} \texorpdfstring{$\ast$}{*}const cnt\+\_\+model)
 \begin{DoxyCompactList}\small\item\em Set the collision model used to calculate collision forces between particles. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classnetdem_1_1_contact_p_p_a6a801595765bdd028cdc80aed62b35ec}{Set\+Dynamic\+Property}} (std\+::string const \&key, double value)
+\begin{DoxyCompactList}\small\item\em Set the value of a dynamic property identified by the given key. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classnetdem_1_1_contact_p_p_afffdc15cace7f0b5fc5b7374fc88cfe1}{Evaluate\+Forces}} (double dt)
 \begin{DoxyCompactList}\small\item\em Calculate and apply the contact forces and moments between particles. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classnetdem_1_1_contact_p_p_a639a2c151ec84122932bc8674c696d94}{Apply\+To\+Particle}} ()
@@ -34,7 +36,7 @@ bool \mbox{\hyperlink{classnetdem_1_1_contact_p_p_acb2430ae4488cfbdb542be5f3b858
 \begin{DoxyCompactList}\small\item\em Check if the contact is still active. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classnetdem_1_1_contact_p_p_ae03bff5f4a7781a5201c597f7655a8b8}{Clear}} ()
 \begin{DoxyCompactList}\small\item\em Reset all properties of the contact. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classnetdem_1_1_contact_p_p_a35afb2d8d429d52dd71cbafe2f2acb7b}{Print}} ()
+void \mbox{\hyperlink{classnetdem_1_1_contact_p_p_a32814555c173d1583528b24704a630e5}{Print}} () const
 \begin{DoxyCompactList}\small\item\em Print the properties of the contact. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
@@ -47,9 +49,9 @@ void \mbox{\hyperlink{classnetdem_1_1_contact_p_p_a35afb2d8d429d52dd71cbafe2f2ac
 \begin{DoxyCompactList}\small\item\em The contact model used to calculate contact forces. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classnetdem_1_1_contact_model}{Contact\+Model}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classnetdem_1_1_contact_p_p_acff97c04d59f325dbb517c09632e58d5}{collision\+\_\+model}} \{nullptr\}
 \item 
-\mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{classnetdem_1_1_bond_entry}{Bond\+Entry}} $>$ \mbox{\hyperlink{classnetdem_1_1_contact_p_p_a104a05c3bab1c1a3f20601dc3b129f39}{bond\+\_\+entries}}
+\mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{Vec\+XT}}$<$ \mbox{\hyperlink{classnetdem_1_1_bond_entry}{Bond\+Entry}} $>$ \mbox{\hyperlink{classnetdem_1_1_contact_p_p_a104a05c3bab1c1a3f20601dc3b129f39}{bond\+\_\+entries}}
 \begin{DoxyCompactList}\small\item\em A list of \doxylink{classnetdem_1_1_bond_entry}{Bond\+Entry} objects representing the bonded pairs between particles. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{classnetdem_1_1_collision_entry}{Collision\+Entry}} $>$ \mbox{\hyperlink{classnetdem_1_1_contact_p_p_aa3acdd9b8fc2ff59edd98a8869047486}{collision\+\_\+entries}}
+\mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{Vec\+XT}}$<$ \mbox{\hyperlink{classnetdem_1_1_collision_entry}{Collision\+Entry}} $>$ \mbox{\hyperlink{classnetdem_1_1_contact_p_p_aa3acdd9b8fc2ff59edd98a8869047486}{collision\+\_\+entries}}
 \begin{DoxyCompactList}\small\item\em A list of \doxylink{classnetdem_1_1_collision_entry}{Collision\+Entry} objects representing the collision geometries used by the contact model. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{classnetdem_1_1_contact_p_p_a9b8e6cbc7bacc58e504f00ec9d4b19ec}{active}} \{true\}
 \begin{DoxyCompactList}\small\item\em A flag indicating whether the contact is active. \end{DoxyCompactList}\item 
@@ -66,21 +68,21 @@ Contains information about the two particles, the contact model used to calculat
 
 
 \doxysubsection{Constructor \& Destructor Documentation}
-\Hypertarget{classnetdem_1_1_contact_p_p_a0e2e0b1c4a9f5bd00677544d90abc340}\label{classnetdem_1_1_contact_p_p_a0e2e0b1c4a9f5bd00677544d90abc340} 
-\index{netdem::ContactPP@{netdem::ContactPP}!ContactPP@{ContactPP}}
+\Hypertarget{classnetdem_1_1_contact_p_p_a0e2e0b1c4a9f5bd00677544d90abc340}\index{netdem::ContactPP@{netdem::ContactPP}!ContactPP@{ContactPP}}
 \index{ContactPP@{ContactPP}!netdem::ContactPP@{netdem::ContactPP}}
 \doxysubsubsection{\texorpdfstring{ContactPP()}{ContactPP()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily Contact\+PP\+::\+Contact\+PP (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{classnetdem_1_1_contact_p_p_a0e2e0b1c4a9f5bd00677544d90abc340} 
+Contact\+PP\+::\+Contact\+PP (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
 
 
 Default constructor for the \doxylink{classnetdem_1_1_contact_p_p}{Contact\+PP} class. 
 
-\Hypertarget{classnetdem_1_1_contact_p_p_a78f5a0ae5d5e5a0de5b00f706dbcc50f}\label{classnetdem_1_1_contact_p_p_a78f5a0ae5d5e5a0de5b00f706dbcc50f} 
-\index{netdem::ContactPP@{netdem::ContactPP}!ContactPP@{ContactPP}}
+\Hypertarget{classnetdem_1_1_contact_p_p_a78f5a0ae5d5e5a0de5b00f706dbcc50f}\index{netdem::ContactPP@{netdem::ContactPP}!ContactPP@{ContactPP}}
 \index{ContactPP@{ContactPP}!netdem::ContactPP@{netdem::ContactPP}}
 \doxysubsubsection{\texorpdfstring{ContactPP()}{ContactPP()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily Contact\+PP\+::\+Contact\+PP (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} \texorpdfstring{$\ast$}{*}const}]{p1,  }\item[{\mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} \texorpdfstring{$\ast$}{*}const}]{p2 }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{classnetdem_1_1_contact_p_p_a78f5a0ae5d5e5a0de5b00f706dbcc50f} 
+Contact\+PP\+::\+Contact\+PP (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} \texorpdfstring{$\ast$}{*}const}]{p1}{, }\item[{\mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} \texorpdfstring{$\ast$}{*}const}]{p2}{}\end{DoxyParamCaption})}
 
 
 
@@ -96,11 +98,11 @@ Constructor for the \doxylink{classnetdem_1_1_contact_p_p}{Contact\+PP} class th
 
 
 \doxysubsection{Member Function Documentation}
-\Hypertarget{classnetdem_1_1_contact_p_p_a639a2c151ec84122932bc8674c696d94}\label{classnetdem_1_1_contact_p_p_a639a2c151ec84122932bc8674c696d94} 
-\index{netdem::ContactPP@{netdem::ContactPP}!ApplyToParticle@{ApplyToParticle}}
+\Hypertarget{classnetdem_1_1_contact_p_p_a639a2c151ec84122932bc8674c696d94}\index{netdem::ContactPP@{netdem::ContactPP}!ApplyToParticle@{ApplyToParticle}}
 \index{ApplyToParticle@{ApplyToParticle}!netdem::ContactPP@{netdem::ContactPP}}
 \doxysubsubsection{\texorpdfstring{ApplyToParticle()}{ApplyToParticle()}}
-{\footnotesize\ttfamily void Contact\+PP\+::\+Apply\+To\+Particle (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{classnetdem_1_1_contact_p_p_a639a2c151ec84122932bc8674c696d94} 
+void Contact\+PP\+::\+Apply\+To\+Particle (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
 
 
@@ -109,41 +111,41 @@ Apply the contact forces and moments to the particles.
 \begin{Desc}
 \item[Examples]\par
 \mbox{\hyperlink{00_contact_test_sphere_8cpp-example}{00\+\_\+contact\+\_\+test\+\_\+sphere.\+cpp}}, \mbox{\hyperlink{01_contact_test_trimesh_8cpp-example}{01\+\_\+contact\+\_\+test\+\_\+trimesh.\+cpp}}, \mbox{\hyperlink{03_friction_test_sphere_8cpp-example}{03\+\_\+friction\+\_\+test\+\_\+sphere.\+cpp}}, \mbox{\hyperlink{04_friction_test_trimesh_8cpp-example}{04\+\_\+friction\+\_\+test\+\_\+trimesh.\+cpp}}, \mbox{\hyperlink{10_contact_test_sphere_8cpp-example}{10\+\_\+contact\+\_\+test\+\_\+sphere.\+cpp}}, and \mbox{\hyperlink{11_contact_test_trimesh_8cpp-example}{11\+\_\+contact\+\_\+test\+\_\+trimesh.\+cpp}}.\end{Desc}
-\Hypertarget{classnetdem_1_1_contact_p_p_a1ad5907cb41ae5510a6e52f26c7b9e7b}\label{classnetdem_1_1_contact_p_p_a1ad5907cb41ae5510a6e52f26c7b9e7b} 
-\index{netdem::ContactPP@{netdem::ContactPP}!ApplyToParticle1@{ApplyToParticle1}}
+\Hypertarget{classnetdem_1_1_contact_p_p_a1ad5907cb41ae5510a6e52f26c7b9e7b}\index{netdem::ContactPP@{netdem::ContactPP}!ApplyToParticle1@{ApplyToParticle1}}
 \index{ApplyToParticle1@{ApplyToParticle1}!netdem::ContactPP@{netdem::ContactPP}}
 \doxysubsubsection{\texorpdfstring{ApplyToParticle1()}{ApplyToParticle1()}}
-{\footnotesize\ttfamily void Contact\+PP\+::\+Apply\+To\+Particle1 (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{classnetdem_1_1_contact_p_p_a1ad5907cb41ae5510a6e52f26c7b9e7b} 
+void Contact\+PP\+::\+Apply\+To\+Particle1 (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
 
 
 Apply the contact forces and moments to the first particle in the contact pair. 
 
-\Hypertarget{classnetdem_1_1_contact_p_p_a49359d2918b28a219d210462db2e9f13}\label{classnetdem_1_1_contact_p_p_a49359d2918b28a219d210462db2e9f13} 
-\index{netdem::ContactPP@{netdem::ContactPP}!ApplyToParticle2@{ApplyToParticle2}}
+\Hypertarget{classnetdem_1_1_contact_p_p_a49359d2918b28a219d210462db2e9f13}\index{netdem::ContactPP@{netdem::ContactPP}!ApplyToParticle2@{ApplyToParticle2}}
 \index{ApplyToParticle2@{ApplyToParticle2}!netdem::ContactPP@{netdem::ContactPP}}
 \doxysubsubsection{\texorpdfstring{ApplyToParticle2()}{ApplyToParticle2()}}
-{\footnotesize\ttfamily void Contact\+PP\+::\+Apply\+To\+Particle2 (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{classnetdem_1_1_contact_p_p_a49359d2918b28a219d210462db2e9f13} 
+void Contact\+PP\+::\+Apply\+To\+Particle2 (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
 
 
 Apply the contact forces and moments to the second particle in the contact pair. 
 
-\Hypertarget{classnetdem_1_1_contact_p_p_ae03bff5f4a7781a5201c597f7655a8b8}\label{classnetdem_1_1_contact_p_p_ae03bff5f4a7781a5201c597f7655a8b8} 
-\index{netdem::ContactPP@{netdem::ContactPP}!Clear@{Clear}}
+\Hypertarget{classnetdem_1_1_contact_p_p_ae03bff5f4a7781a5201c597f7655a8b8}\index{netdem::ContactPP@{netdem::ContactPP}!Clear@{Clear}}
 \index{Clear@{Clear}!netdem::ContactPP@{netdem::ContactPP}}
 \doxysubsubsection{\texorpdfstring{Clear()}{Clear()}}
-{\footnotesize\ttfamily void Contact\+PP\+::\+Clear (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{classnetdem_1_1_contact_p_p_ae03bff5f4a7781a5201c597f7655a8b8} 
+void Contact\+PP\+::\+Clear (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
 
 
 Reset all properties of the contact. 
 
-\Hypertarget{classnetdem_1_1_contact_p_p_afffdc15cace7f0b5fc5b7374fc88cfe1}\label{classnetdem_1_1_contact_p_p_afffdc15cace7f0b5fc5b7374fc88cfe1} 
-\index{netdem::ContactPP@{netdem::ContactPP}!EvaluateForces@{EvaluateForces}}
+\Hypertarget{classnetdem_1_1_contact_p_p_afffdc15cace7f0b5fc5b7374fc88cfe1}\index{netdem::ContactPP@{netdem::ContactPP}!EvaluateForces@{EvaluateForces}}
 \index{EvaluateForces@{EvaluateForces}!netdem::ContactPP@{netdem::ContactPP}}
 \doxysubsubsection{\texorpdfstring{EvaluateForces()}{EvaluateForces()}}
-{\footnotesize\ttfamily void Contact\+PP\+::\+Evaluate\+Forces (\begin{DoxyParamCaption}\item[{double}]{dt }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{classnetdem_1_1_contact_p_p_afffdc15cace7f0b5fc5b7374fc88cfe1} 
+void Contact\+PP\+::\+Evaluate\+Forces (\begin{DoxyParamCaption}\item[{double}]{dt}{}\end{DoxyParamCaption})}
 
 
 
@@ -157,11 +159,11 @@ Calculate and apply the contact forces and moments between particles.
 \begin{Desc}
 \item[Examples]\par
 \mbox{\hyperlink{00_contact_test_sphere_8cpp-example}{00\+\_\+contact\+\_\+test\+\_\+sphere.\+cpp}}, \mbox{\hyperlink{01_contact_test_trimesh_8cpp-example}{01\+\_\+contact\+\_\+test\+\_\+trimesh.\+cpp}}, \mbox{\hyperlink{03_friction_test_sphere_8cpp-example}{03\+\_\+friction\+\_\+test\+\_\+sphere.\+cpp}}, \mbox{\hyperlink{04_friction_test_trimesh_8cpp-example}{04\+\_\+friction\+\_\+test\+\_\+trimesh.\+cpp}}, \mbox{\hyperlink{10_contact_test_sphere_8cpp-example}{10\+\_\+contact\+\_\+test\+\_\+sphere.\+cpp}}, and \mbox{\hyperlink{11_contact_test_trimesh_8cpp-example}{11\+\_\+contact\+\_\+test\+\_\+trimesh.\+cpp}}.\end{Desc}
-\Hypertarget{classnetdem_1_1_contact_p_p_a2ca414f4a8b919d3f04fc5ae112f2c61}\label{classnetdem_1_1_contact_p_p_a2ca414f4a8b919d3f04fc5ae112f2c61} 
-\index{netdem::ContactPP@{netdem::ContactPP}!Init@{Init}}
+\Hypertarget{classnetdem_1_1_contact_p_p_a2ca414f4a8b919d3f04fc5ae112f2c61}\index{netdem::ContactPP@{netdem::ContactPP}!Init@{Init}}
 \index{Init@{Init}!netdem::ContactPP@{netdem::ContactPP}}
 \doxysubsubsection{\texorpdfstring{Init()}{Init()}}
-{\footnotesize\ttfamily void Contact\+PP\+::\+Init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} \texorpdfstring{$\ast$}{*}const}]{p1,  }\item[{\mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} \texorpdfstring{$\ast$}{*}const}]{p2 }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{classnetdem_1_1_contact_p_p_a2ca414f4a8b919d3f04fc5ae112f2c61} 
+void Contact\+PP\+::\+Init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} \texorpdfstring{$\ast$}{*}const}]{p1}{, }\item[{\mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} \texorpdfstring{$\ast$}{*}const}]{p2}{}\end{DoxyParamCaption})}
 
 
 
@@ -174,11 +176,11 @@ Initialize the contact with two particles.
 {\em p2} & A pointer to the second particle in the contact pair. \\
 \hline
 \end{DoxyParams}
-\Hypertarget{classnetdem_1_1_contact_p_p_acb2430ae4488cfbdb542be5f3b858065}\label{classnetdem_1_1_contact_p_p_acb2430ae4488cfbdb542be5f3b858065} 
-\index{netdem::ContactPP@{netdem::ContactPP}!IsActive@{IsActive}}
+\Hypertarget{classnetdem_1_1_contact_p_p_acb2430ae4488cfbdb542be5f3b858065}\index{netdem::ContactPP@{netdem::ContactPP}!IsActive@{IsActive}}
 \index{IsActive@{IsActive}!netdem::ContactPP@{netdem::ContactPP}}
 \doxysubsubsection{\texorpdfstring{IsActive()}{IsActive()}}
-{\footnotesize\ttfamily bool Contact\+PP\+::\+Is\+Active (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{classnetdem_1_1_contact_p_p_acb2430ae4488cfbdb542be5f3b858065} 
+bool Contact\+PP\+::\+Is\+Active (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
 
 
@@ -187,21 +189,21 @@ Check if the contact is still active.
 \begin{DoxyReturn}{Returns}
 True if the contact is active, false otherwise. 
 \end{DoxyReturn}
-\Hypertarget{classnetdem_1_1_contact_p_p_a35afb2d8d429d52dd71cbafe2f2acb7b}\label{classnetdem_1_1_contact_p_p_a35afb2d8d429d52dd71cbafe2f2acb7b} 
-\index{netdem::ContactPP@{netdem::ContactPP}!Print@{Print}}
+\Hypertarget{classnetdem_1_1_contact_p_p_a32814555c173d1583528b24704a630e5}\index{netdem::ContactPP@{netdem::ContactPP}!Print@{Print}}
 \index{Print@{Print}!netdem::ContactPP@{netdem::ContactPP}}
 \doxysubsubsection{\texorpdfstring{Print()}{Print()}}
-{\footnotesize\ttfamily void Contact\+PP\+::\+Print (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{classnetdem_1_1_contact_p_p_a32814555c173d1583528b24704a630e5} 
+void Contact\+PP\+::\+Print (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
 
 
 
 Print the properties of the contact. 
 
-\Hypertarget{classnetdem_1_1_contact_p_p_a678258ad62648eccad93af40ea37b2d4}\label{classnetdem_1_1_contact_p_p_a678258ad62648eccad93af40ea37b2d4} 
-\index{netdem::ContactPP@{netdem::ContactPP}!SetBondModel@{SetBondModel}}
+\Hypertarget{classnetdem_1_1_contact_p_p_a678258ad62648eccad93af40ea37b2d4}\index{netdem::ContactPP@{netdem::ContactPP}!SetBondModel@{SetBondModel}}
 \index{SetBondModel@{SetBondModel}!netdem::ContactPP@{netdem::ContactPP}}
 \doxysubsubsection{\texorpdfstring{SetBondModel()}{SetBondModel()}}
-{\footnotesize\ttfamily void Contact\+PP\+::\+Set\+Bond\+Model (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_contact_model}{Contact\+Model}} \texorpdfstring{$\ast$}{*}const}]{cnt\+\_\+model }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{classnetdem_1_1_contact_p_p_a678258ad62648eccad93af40ea37b2d4} 
+void Contact\+PP\+::\+Set\+Bond\+Model (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_contact_model}{Contact\+Model}} \texorpdfstring{$\ast$}{*}const}]{cnt\+\_\+model}{}\end{DoxyParamCaption})}
 
 
 
@@ -212,11 +214,11 @@ Set the bond model used to calculate bonded forces between particles.
 {\em cnt\+\_\+model} & The bond model to use. \\
 \hline
 \end{DoxyParams}
-\Hypertarget{classnetdem_1_1_contact_p_p_a407e8b3f0cbb630e38b3b347efa975e9}\label{classnetdem_1_1_contact_p_p_a407e8b3f0cbb630e38b3b347efa975e9} 
-\index{netdem::ContactPP@{netdem::ContactPP}!SetCollisionModel@{SetCollisionModel}}
+\Hypertarget{classnetdem_1_1_contact_p_p_a407e8b3f0cbb630e38b3b347efa975e9}\index{netdem::ContactPP@{netdem::ContactPP}!SetCollisionModel@{SetCollisionModel}}
 \index{SetCollisionModel@{SetCollisionModel}!netdem::ContactPP@{netdem::ContactPP}}
 \doxysubsubsection{\texorpdfstring{SetCollisionModel()}{SetCollisionModel()}}
-{\footnotesize\ttfamily void Contact\+PP\+::\+Set\+Collision\+Model (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_contact_model}{Contact\+Model}} \texorpdfstring{$\ast$}{*}const}]{cnt\+\_\+model }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{classnetdem_1_1_contact_p_p_a407e8b3f0cbb630e38b3b347efa975e9} 
+void Contact\+PP\+::\+Set\+Collision\+Model (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_contact_model}{Contact\+Model}} \texorpdfstring{$\ast$}{*}const}]{cnt\+\_\+model}{}\end{DoxyParamCaption})}
 
 
 
@@ -230,44 +232,61 @@ Set the collision model used to calculate collision forces between particles.
 \begin{Desc}
 \item[Examples]\par
 \mbox{\hyperlink{00_contact_test_sphere_8cpp-example}{00\+\_\+contact\+\_\+test\+\_\+sphere.\+cpp}}, \mbox{\hyperlink{01_contact_test_trimesh_8cpp-example}{01\+\_\+contact\+\_\+test\+\_\+trimesh.\+cpp}}, \mbox{\hyperlink{03_friction_test_sphere_8cpp-example}{03\+\_\+friction\+\_\+test\+\_\+sphere.\+cpp}}, \mbox{\hyperlink{04_friction_test_trimesh_8cpp-example}{04\+\_\+friction\+\_\+test\+\_\+trimesh.\+cpp}}, \mbox{\hyperlink{10_contact_test_sphere_8cpp-example}{10\+\_\+contact\+\_\+test\+\_\+sphere.\+cpp}}, and \mbox{\hyperlink{11_contact_test_trimesh_8cpp-example}{11\+\_\+contact\+\_\+test\+\_\+trimesh.\+cpp}}.\end{Desc}
+\Hypertarget{classnetdem_1_1_contact_p_p_a6a801595765bdd028cdc80aed62b35ec}\index{netdem::ContactPP@{netdem::ContactPP}!SetDynamicProperty@{SetDynamicProperty}}
+\index{SetDynamicProperty@{SetDynamicProperty}!netdem::ContactPP@{netdem::ContactPP}}
+\doxysubsubsection{\texorpdfstring{SetDynamicProperty()}{SetDynamicProperty()}}
+{\footnotesize\ttfamily \label{classnetdem_1_1_contact_p_p_a6a801595765bdd028cdc80aed62b35ec} 
+void Contact\+PP\+::\+Set\+Dynamic\+Property (\begin{DoxyParamCaption}\item[{std\+::string const \&}]{key}{, }\item[{double}]{value}{}\end{DoxyParamCaption})}
+
+
+
+Set the value of a dynamic property identified by the given key. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em key} & The key identifying the dynamic property. \\
+\hline
+{\em value} & The new value of the dynamic property. \\
+\hline
+\end{DoxyParams}
 
 
 \doxysubsection{Member Data Documentation}
-\Hypertarget{classnetdem_1_1_contact_p_p_a9b8e6cbc7bacc58e504f00ec9d4b19ec}\label{classnetdem_1_1_contact_p_p_a9b8e6cbc7bacc58e504f00ec9d4b19ec} 
-\index{netdem::ContactPP@{netdem::ContactPP}!active@{active}}
+\Hypertarget{classnetdem_1_1_contact_p_p_a9b8e6cbc7bacc58e504f00ec9d4b19ec}\index{netdem::ContactPP@{netdem::ContactPP}!active@{active}}
 \index{active@{active}!netdem::ContactPP@{netdem::ContactPP}}
 \doxysubsubsection{\texorpdfstring{active}{active}}
-{\footnotesize\ttfamily bool netdem\+::\+Contact\+PP\+::active \{true\}}
+{\footnotesize\ttfamily \label{classnetdem_1_1_contact_p_p_a9b8e6cbc7bacc58e504f00ec9d4b19ec} 
+bool netdem\+::\+Contact\+PP\+::active \{true\}}
 
 
 
 A flag indicating whether the contact is active. 
 
-If true, the contact is still in effect. If false, the contact has been deactivated and should be deleted. \Hypertarget{classnetdem_1_1_contact_p_p_a104a05c3bab1c1a3f20601dc3b129f39}\label{classnetdem_1_1_contact_p_p_a104a05c3bab1c1a3f20601dc3b129f39} 
-\index{netdem::ContactPP@{netdem::ContactPP}!bond\_entries@{bond\_entries}}
+If true, the contact is still in effect. If false, the contact has been deactivated and should be deleted. \Hypertarget{classnetdem_1_1_contact_p_p_a104a05c3bab1c1a3f20601dc3b129f39}\index{netdem::ContactPP@{netdem::ContactPP}!bond\_entries@{bond\_entries}}
 \index{bond\_entries@{bond\_entries}!netdem::ContactPP@{netdem::ContactPP}}
 \doxysubsubsection{\texorpdfstring{bond\_entries}{bond\_entries}}
-{\footnotesize\ttfamily \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$\mbox{\hyperlink{classnetdem_1_1_bond_entry}{Bond\+Entry}}$>$ netdem\+::\+Contact\+PP\+::bond\+\_\+entries}
+{\footnotesize\ttfamily \label{classnetdem_1_1_contact_p_p_a104a05c3bab1c1a3f20601dc3b129f39} 
+\mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{Vec\+XT}}$<$\mbox{\hyperlink{classnetdem_1_1_bond_entry}{Bond\+Entry}}$>$ netdem\+::\+Contact\+PP\+::bond\+\_\+entries}
 
 
 
 A list of \doxylink{classnetdem_1_1_bond_entry}{Bond\+Entry} objects representing the bonded pairs between particles. 
 
-\Hypertarget{classnetdem_1_1_contact_p_p_a0f89c46c537695077e1cf3bffb4ca5e0}\label{classnetdem_1_1_contact_p_p_a0f89c46c537695077e1cf3bffb4ca5e0} 
-\index{netdem::ContactPP@{netdem::ContactPP}!bond\_model@{bond\_model}}
+\Hypertarget{classnetdem_1_1_contact_p_p_a0f89c46c537695077e1cf3bffb4ca5e0}\index{netdem::ContactPP@{netdem::ContactPP}!bond\_model@{bond\_model}}
 \index{bond\_model@{bond\_model}!netdem::ContactPP@{netdem::ContactPP}}
 \doxysubsubsection{\texorpdfstring{bond\_model}{bond\_model}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classnetdem_1_1_contact_model}{Contact\+Model}}\texorpdfstring{$\ast$}{*} netdem\+::\+Contact\+PP\+::bond\+\_\+model \{nullptr\}}
+{\footnotesize\ttfamily \label{classnetdem_1_1_contact_p_p_a0f89c46c537695077e1cf3bffb4ca5e0} 
+\mbox{\hyperlink{classnetdem_1_1_contact_model}{Contact\+Model}}\texorpdfstring{$\ast$}{*} netdem\+::\+Contact\+PP\+::bond\+\_\+model \{nullptr\}}
 
 
 
 The contact model used to calculate contact forces. 
 
-\Hypertarget{classnetdem_1_1_contact_p_p_aa3acdd9b8fc2ff59edd98a8869047486}\label{classnetdem_1_1_contact_p_p_aa3acdd9b8fc2ff59edd98a8869047486} 
-\index{netdem::ContactPP@{netdem::ContactPP}!collision\_entries@{collision\_entries}}
+\Hypertarget{classnetdem_1_1_contact_p_p_aa3acdd9b8fc2ff59edd98a8869047486}\index{netdem::ContactPP@{netdem::ContactPP}!collision\_entries@{collision\_entries}}
 \index{collision\_entries@{collision\_entries}!netdem::ContactPP@{netdem::ContactPP}}
 \doxysubsubsection{\texorpdfstring{collision\_entries}{collision\_entries}}
-{\footnotesize\ttfamily \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$\mbox{\hyperlink{classnetdem_1_1_collision_entry}{Collision\+Entry}}$>$ netdem\+::\+Contact\+PP\+::collision\+\_\+entries}
+{\footnotesize\ttfamily \label{classnetdem_1_1_contact_p_p_aa3acdd9b8fc2ff59edd98a8869047486} 
+\mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{Vec\+XT}}$<$\mbox{\hyperlink{classnetdem_1_1_collision_entry}{Collision\+Entry}}$>$ netdem\+::\+Contact\+PP\+::collision\+\_\+entries}
 
 
 
@@ -276,37 +295,37 @@ A list of \doxylink{classnetdem_1_1_collision_entry}{Collision\+Entry} objects r
 \begin{Desc}
 \item[Examples]\par
 \mbox{\hyperlink{00_contact_test_sphere_8cpp-example}{00\+\_\+contact\+\_\+test\+\_\+sphere.\+cpp}}, \mbox{\hyperlink{01_contact_test_trimesh_8cpp-example}{01\+\_\+contact\+\_\+test\+\_\+trimesh.\+cpp}}, \mbox{\hyperlink{03_friction_test_sphere_8cpp-example}{03\+\_\+friction\+\_\+test\+\_\+sphere.\+cpp}}, \mbox{\hyperlink{04_friction_test_trimesh_8cpp-example}{04\+\_\+friction\+\_\+test\+\_\+trimesh.\+cpp}}, \mbox{\hyperlink{10_contact_test_sphere_8cpp-example}{10\+\_\+contact\+\_\+test\+\_\+sphere.\+cpp}}, and \mbox{\hyperlink{11_contact_test_trimesh_8cpp-example}{11\+\_\+contact\+\_\+test\+\_\+trimesh.\+cpp}}.\end{Desc}
-\Hypertarget{classnetdem_1_1_contact_p_p_acff97c04d59f325dbb517c09632e58d5}\label{classnetdem_1_1_contact_p_p_acff97c04d59f325dbb517c09632e58d5} 
-\index{netdem::ContactPP@{netdem::ContactPP}!collision\_model@{collision\_model}}
+\Hypertarget{classnetdem_1_1_contact_p_p_acff97c04d59f325dbb517c09632e58d5}\index{netdem::ContactPP@{netdem::ContactPP}!collision\_model@{collision\_model}}
 \index{collision\_model@{collision\_model}!netdem::ContactPP@{netdem::ContactPP}}
 \doxysubsubsection{\texorpdfstring{collision\_model}{collision\_model}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classnetdem_1_1_contact_model}{Contact\+Model}} \texorpdfstring{$\ast$}{*} netdem\+::\+Contact\+PP\+::collision\+\_\+model \{nullptr\}}
+{\footnotesize\ttfamily \label{classnetdem_1_1_contact_p_p_acff97c04d59f325dbb517c09632e58d5} 
+\mbox{\hyperlink{classnetdem_1_1_contact_model}{Contact\+Model}} \texorpdfstring{$\ast$}{*} netdem\+::\+Contact\+PP\+::collision\+\_\+model \{nullptr\}}
 
-\Hypertarget{classnetdem_1_1_contact_p_p_a1eae54102bc8cdadac5c7161e911320f}\label{classnetdem_1_1_contact_p_p_a1eae54102bc8cdadac5c7161e911320f} 
-\index{netdem::ContactPP@{netdem::ContactPP}!dynamic\_properties@{dynamic\_properties}}
+\Hypertarget{classnetdem_1_1_contact_p_p_a1eae54102bc8cdadac5c7161e911320f}\index{netdem::ContactPP@{netdem::ContactPP}!dynamic\_properties@{dynamic\_properties}}
 \index{dynamic\_properties@{dynamic\_properties}!netdem::ContactPP@{netdem::ContactPP}}
 \doxysubsubsection{\texorpdfstring{dynamic\_properties}{dynamic\_properties}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classnetdem_1_1_mini_map}{Mini\+Map}}$<$std\+::string, double$>$ netdem\+::\+Contact\+PP\+::dynamic\+\_\+properties}
+{\footnotesize\ttfamily \label{classnetdem_1_1_contact_p_p_a1eae54102bc8cdadac5c7161e911320f} 
+\mbox{\hyperlink{classnetdem_1_1_mini_map}{Mini\+Map}}$<$std\+::string, double$>$ netdem\+::\+Contact\+PP\+::dynamic\+\_\+properties}
 
 
 
 A \doxylink{classnetdem_1_1_mini_map}{Mini\+Map} object containing dynamic properties of the contact. 
 
-\Hypertarget{classnetdem_1_1_contact_p_p_ae1df0bacca599aa599446efa8e1fc8a4}\label{classnetdem_1_1_contact_p_p_ae1df0bacca599aa599446efa8e1fc8a4} 
-\index{netdem::ContactPP@{netdem::ContactPP}!particle\_1@{particle\_1}}
+\Hypertarget{classnetdem_1_1_contact_p_p_ae1df0bacca599aa599446efa8e1fc8a4}\index{netdem::ContactPP@{netdem::ContactPP}!particle\_1@{particle\_1}}
 \index{particle\_1@{particle\_1}!netdem::ContactPP@{netdem::ContactPP}}
 \doxysubsubsection{\texorpdfstring{particle\_1}{particle\_1}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classnetdem_1_1_particle}{Particle}}\texorpdfstring{$\ast$}{*} netdem\+::\+Contact\+PP\+::particle\+\_\+1 \{nullptr\}}
+{\footnotesize\ttfamily \label{classnetdem_1_1_contact_p_p_ae1df0bacca599aa599446efa8e1fc8a4} 
+\mbox{\hyperlink{classnetdem_1_1_particle}{Particle}}\texorpdfstring{$\ast$}{*} netdem\+::\+Contact\+PP\+::particle\+\_\+1 \{nullptr\}}
 
 
 
 A pointer to the first particle in the contact pair. 
 
-\Hypertarget{classnetdem_1_1_contact_p_p_a1c4ffff9ecfa935189d883a74b7499a4}\label{classnetdem_1_1_contact_p_p_a1c4ffff9ecfa935189d883a74b7499a4} 
-\index{netdem::ContactPP@{netdem::ContactPP}!particle\_2@{particle\_2}}
+\Hypertarget{classnetdem_1_1_contact_p_p_a1c4ffff9ecfa935189d883a74b7499a4}\index{netdem::ContactPP@{netdem::ContactPP}!particle\_2@{particle\_2}}
 \index{particle\_2@{particle\_2}!netdem::ContactPP@{netdem::ContactPP}}
 \doxysubsubsection{\texorpdfstring{particle\_2}{particle\_2}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classnetdem_1_1_particle}{Particle}}\texorpdfstring{$\ast$}{*} netdem\+::\+Contact\+PP\+::particle\+\_\+2 \{nullptr\}}
+{\footnotesize\ttfamily \label{classnetdem_1_1_contact_p_p_a1c4ffff9ecfa935189d883a74b7499a4} 
+\mbox{\hyperlink{classnetdem_1_1_particle}{Particle}}\texorpdfstring{$\ast$}{*} netdem\+::\+Contact\+PP\+::particle\+\_\+2 \{nullptr\}}
 
 
 

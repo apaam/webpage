@@ -85,7 +85,7 @@
 \DoxyCodeLine{\ \ \textcolor{comment}{//\ load\ particle}}
 \DoxyCodeLine{\ \ \mbox{\hyperlink{classnetdem_1_1_tri_mesh}{TriMesh}}\ tri\_mesh\_1;}
 \DoxyCodeLine{\ \ tri\_mesh\_1.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_a1dc42a1f9439c900d76f213155ebb56d}{InitFromSTL}}(\textcolor{stringliteral}{"{}data/particle\_template.stl"{}});}
-\DoxyCodeLine{\ \ tri\_mesh\_1.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_a6676d86d935edffc85b01191695a60b9}{Decimate}}(400);}
+\DoxyCodeLine{\ \ tri\_mesh\_1.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_a661f424b5d8c529d7a9c76b0deb88e78}{Decimate}}(200);}
 \DoxyCodeLine{\ \ tri\_mesh\_1.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_aa149712da01e2f068f28b8eba4395e14}{AlignAxes}}();}
 \DoxyCodeLine{\ \ tri\_mesh\_1.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_aa2378c12f277056e112f8e6a0b31669b}{SetSize}}(1.0);}
 \DoxyCodeLine{}
@@ -102,9 +102,9 @@
 \DoxyCodeLine{\ \ double(*ds\_cnt\_feats)[8]\ =\ \textcolor{keyword}{new}\ \textcolor{keywordtype}{double}[num\_samples][8];}
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ \textcolor{comment}{//\ use\ bound\ sphere\ to\ narrow\ down\ the\ random\ space}}
-\DoxyCodeLine{\ \ \textcolor{keywordtype}{double}\ dist\_max\ =\ obj\_p1.\mbox{\hyperlink{classnetdem_1_1_particle_ac63a86094d1dcd92c3a08ddfd1db0103}{shape}}-\/>\mbox{\hyperlink{classnetdem_1_1_shape_aa2544899cc79d4ae84fc700f490a37dc}{bound\_sphere\_radius}};}
+\DoxyCodeLine{\ \ \textcolor{keywordtype}{double}\ dist\_max\ =\ obj\_p1.\mbox{\hyperlink{classnetdem_1_1_particle_ac63a86094d1dcd92c3a08ddfd1db0103}{shape}}-\/>\mbox{\hyperlink{classnetdem_1_1_shape_a3f2bd3400d31a7268f1f383215bde183}{GetBoundSphereRadius}}()\ *\ 1.1;}
 \DoxyCodeLine{\ \ \textcolor{keywordtype}{double}\ dist\_min\{dist\_max\};}
-\DoxyCodeLine{\ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \&vert\ :\ tri\_mesh\_1.vertices)\ \{}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \&vert\ :\ tri\_mesh\_1.\mbox{\hyperlink{classnetdem_1_1_tri_mesh_acde0779520f91ee0596048099ea7b5e8}{vertices}})\ \{}
 \DoxyCodeLine{\ \ \ \ dist\_min\ =\ min(Math::NormL2(vert),\ dist\_min);}
 \DoxyCodeLine{\ \ \}}
 \DoxyCodeLine{\ \ dist\_min\ *=\ 0.9;}
@@ -116,8 +116,8 @@
 \DoxyCodeLine{\ \ \mbox{\hyperlink{classnetdem_1_1_uniform_distribution}{UniformDistribution}}\ uniform\_dist(0.0,\ 1.0);}
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ \textcolor{comment}{//\ use\ spherical\ centroidal\ voronoi\ to\ sample\ uniform\ unit\ VecXT}}
-\DoxyCodeLine{\ \ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<Vec3d>}}\ vertices\ =\ SphericalVoronoi::Solve(1000,\ 10000,\ 1.0e-\/4);}
-\DoxyCodeLine{\ \ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<Vec3i>}}\ facets;}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{VecXT<Vec3d>}}\ vertices\ =\ SphericalVoronoi::Solve(1000,\ 10000,\ 1.0e-\/4);}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{VecXT<Vec3i>}}\ facets;}
 \DoxyCodeLine{\ \ IGLWrapper::ConvexHull(vertices,\ \&vertices,\ \&facets);}
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ \textcolor{comment}{//\ the\ solver\ and\ dummy\ contact\ model}}
@@ -127,7 +127,7 @@
 \DoxyCodeLine{\ \ \textcolor{comment}{//\ random\ cases}}
 \DoxyCodeLine{\ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ trial\ =\ 0,\ i\ =\ 0;\ trial\ <\ num\_samples\ *\ 100;\ trial++)\ \{}
 \DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ random\ rotation}}
-\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{namespacenetdem_a13d5371f99b252a70fd5a5081b910370}{Vec4d}}\ quat;}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{namespacenetdem_aa088f3b9daf31efbeb49c18db267c791}{Vec4d}}\ quat;}
 \DoxyCodeLine{\ \ \ \ quat[0]\ =\ uniform\_dist.Get()\ *\ 2.0\ -\/\ 1.0;}
 \DoxyCodeLine{\ \ \ \ quat[1]\ =\ uniform\_dist.Get()\ *\ 2.0\ -\/\ 1.0;}
 \DoxyCodeLine{\ \ \ \ quat[2]\ =\ uniform\_dist.Get()\ *\ 2.0\ -\/\ 1.0;}
@@ -144,16 +144,16 @@
 \DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{double}\ v\_vert\ =\ uniform\_dist.Get()\ *\ (1\ -\/\ u\_vert);}
 \DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{double}\ w\_vert\ =\ 1\ -\/\ u\_vert\ -\/\ v\_vert;}
 \DoxyCodeLine{}
-\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}}\ pos;}
-\DoxyCodeLine{\ \ \ \ pos[0]\ =\ u\_vert\ *\ vert\_0[0]\ +\ v\_vert\ *\ vert\_1[0]\ +\ w\_vert\ *\ vert\_2[0];}
-\DoxyCodeLine{\ \ \ \ pos[1]\ =\ u\_vert\ *\ vert\_0[1]\ +\ v\_vert\ *\ vert\_1[1]\ +\ w\_vert\ *\ vert\_2[1];}
-\DoxyCodeLine{\ \ \ \ pos[2]\ =\ u\_vert\ *\ vert\_0[2]\ +\ v\_vert\ *\ vert\_1[2]\ +\ w\_vert\ *\ vert\_2[2];}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{namespacenetdem_a510a89239abc51ed4d8d88ce7ee403df}{Vec3d}}\ \mbox{\hyperlink{namespacenetdem_a3c02b9c21c10a18b737b5591b4c0c324}{pos}};}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{namespacenetdem_a3c02b9c21c10a18b737b5591b4c0c324}{pos}}[0]\ =\ u\_vert\ *\ vert\_0[0]\ +\ v\_vert\ *\ vert\_1[0]\ +\ w\_vert\ *\ vert\_2[0];}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{namespacenetdem_a3c02b9c21c10a18b737b5591b4c0c324}{pos}}[1]\ =\ u\_vert\ *\ vert\_0[1]\ +\ v\_vert\ *\ vert\_1[1]\ +\ w\_vert\ *\ vert\_2[1];}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{namespacenetdem_a3c02b9c21c10a18b737b5591b4c0c324}{pos}}[2]\ =\ u\_vert\ *\ vert\_0[2]\ +\ v\_vert\ *\ vert\_1[2]\ +\ w\_vert\ *\ vert\_2[2];}
 \DoxyCodeLine{\ \ \ \ Math::Normalize(\&pos);}
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ \ \ \textcolor{keyword}{auto}\ dist\_pp\ =\ dist\_min\ +\ uniform\_dist.Get()\ *\ dist\_range;}
-\DoxyCodeLine{\ \ \ \ pos[0]\ *=\ dist\_pp;}
-\DoxyCodeLine{\ \ \ \ pos[1]\ *=\ dist\_pp;}
-\DoxyCodeLine{\ \ \ \ pos[2]\ *=\ dist\_pp;}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{namespacenetdem_a3c02b9c21c10a18b737b5591b4c0c324}{pos}}[0]\ *=\ dist\_pp;}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{namespacenetdem_a3c02b9c21c10a18b737b5591b4c0c324}{pos}}[1]\ *=\ dist\_pp;}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{namespacenetdem_a3c02b9c21c10a18b737b5591b4c0c324}{pos}}[2]\ *=\ dist\_pp;}
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ apply\ to\ particle}}
 \DoxyCodeLine{\ \ \ \ obj\_p2.\mbox{\hyperlink{classnetdem_1_1_particle_a3f272179dd1b248f9ea09638c1beecfb}{SetPosition}}(pos[0],\ pos[1],\ pos[2]);}

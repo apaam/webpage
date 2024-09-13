@@ -1,0 +1,47 @@
+\doxysection{resource\+\_\+manager.\+hpp}
+\hypertarget{resource__manager_8hpp_source}{}\label{resource__manager_8hpp_source}\index{/Users/lzhshou/Documents/Research/myProjects/apaam/repo/netdem/src/webgpu/resource\_manager.hpp@{/Users/lzhshou/Documents/Research/myProjects/apaam/repo/netdem/src/webgpu/resource\_manager.hpp}}
+\mbox{\hyperlink{resource__manager_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <filesystem>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <webgpu/webgpu.hpp>}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacenetdem}{netdem}}\ \{}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{namespace\ }webgpu\ \{}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classnetdem_1_1webgpu_1_1_resource_manager}{ResourceManager}}\ \{}
+\DoxyCodeLine{00012\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00013\ \ \ \textcolor{keyword}{static}\ wgpu::Device\ \mbox{\hyperlink{classnetdem_1_1webgpu_1_1_resource_manager_a69d9d61185fcf82ac2712a0713e847a5}{GetDevice}}();}
+\DoxyCodeLine{00014\ \ \ \textcolor{keyword}{static}\ wgpu::Device\ \mbox{\hyperlink{classnetdem_1_1webgpu_1_1_resource_manager_a69d9d61185fcf82ac2712a0713e847a5}{GetDevice}}(wgpu::RequiredLimits\ limits);}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \ \ \textcolor{comment}{//\ Load\ a\ shader\ from\ a\ WGSL\ file\ into\ a\ new\ shader\ module}}
+\DoxyCodeLine{00017\ \ \ \textcolor{keyword}{static}\ std::string\ \mbox{\hyperlink{classnetdem_1_1webgpu_1_1_resource_manager_a88b8932b5b334bff70a12dad916626a5}{ReadFile}}(std::filesystem::path\ \textcolor{keyword}{const}\ \&path);}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \ \ \textcolor{keyword}{static}\ wgpu::ShaderModule}
+\DoxyCodeLine{00020\ \ \ \mbox{\hyperlink{classnetdem_1_1webgpu_1_1_resource_manager_a997b7d18e8693bc8b391d5bb63b3a705}{CreateShaderModule}}(wgpu::Device\ \&device,\ std::string\ \textcolor{keyword}{const}\ \&\mbox{\hyperlink{dem_8wgsl_8h_a65b4cab7bc806f8e8aab7bcd04b44f34}{shader\_source}});}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \ \ \textcolor{keyword}{static}\ wgpu::Buffer\ \mbox{\hyperlink{classnetdem_1_1webgpu_1_1_resource_manager_a1ba415d7e29fde40520180ed1e0c0c81}{CreateBufferWithData}}(wgpu::Device\ \&device,}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}\ *data,\ \textcolor{keywordtype}{size\_t}\ size,}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ wgpu::BufferUsageFlags\ usage);}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1webgpu_1_1_resource_manager_a7842bf04e3265a3f207a617b6fa10bc2}{ReadBuffer}}(wgpu::Device\ \&device,\ wgpu::Buffer\ \textcolor{keyword}{const}\ \&buffer,}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ buffer\_offset,\ \textcolor{keywordtype}{void}\ *data,\ \textcolor{keywordtype}{size\_t}\ size);}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00030\ \ \ \textcolor{keyword}{static}\ wgpu::Adapter}
+\DoxyCodeLine{00031\ \ \ RequestAdapterSync(wgpu::Instance\ instance,}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ wgpu::RequestAdapterOptions\ \textcolor{keyword}{const}\ *options);}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \ \ \textcolor{keyword}{static}\ wgpu::Device}
+\DoxyCodeLine{00035\ \ \ RequestDeviceSync(wgpu::Adapter\ adapter,}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ wgpu::DeviceDescriptor\ \textcolor{keyword}{const}\ *descriptor);}
+\DoxyCodeLine{00037\ \};}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \}\ \textcolor{comment}{//\ namespace\ webgpu}}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \}\ \textcolor{comment}{//\ namespace\ netdem}}
+
+\end{DoxyCode}

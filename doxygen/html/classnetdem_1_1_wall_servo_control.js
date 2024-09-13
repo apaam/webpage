@@ -9,7 +9,6 @@ var classnetdem_1_1_wall_servo_control =
     [ "enable_auto_area", "classnetdem_1_1_wall_servo_control.html#a9a393e312ef90fb7bd43f163e092411d", null ],
     [ "enable_warning", "classnetdem_1_1_wall_servo_control.html#a183135d45df70fa7bf08e98d2b87bbe6", null ],
     [ "kn", "classnetdem_1_1_wall_servo_control.html#a3d60b4733d577294c503f99838563be8", null ],
-    [ "pressure_list", "classnetdem_1_1_wall_servo_control.html#a0f82e2a75a4afe2c5574bf1e44991762", null ],
     [ "study_rate", "classnetdem_1_1_wall_servo_control.html#a7bbef42017ca9e870d0ce7d1b9332783", null ],
     [ "target_pressure", "classnetdem_1_1_wall_servo_control.html#a32b386998006c5274bdef26cf8acab8f", null ],
     [ "tol", "classnetdem_1_1_wall_servo_control.html#ad8e63e46098327cc5d3ca4f0eb2c6f12", null ],

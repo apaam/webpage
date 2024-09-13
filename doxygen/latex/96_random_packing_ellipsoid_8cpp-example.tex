@@ -35,7 +35,7 @@
 \DoxyCodeLine{\ \ sim-\/>\mbox{\hyperlink{classnetdem_1_1_simulation_a59b3aaba47a3a50145306b90ce26d049}{domain\_manager}}.\mbox{\hyperlink{classnetdem_1_1_domain_manager_a369081a4f895fc460ef631e5215fb399}{SetCellSpacing}}(0.3,\ 0.3,\ 0.3);}
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ \textcolor{comment}{//\ contact\ model}}
-\DoxyCodeLine{\ \ \mbox{\hyperlink{classnetdem_1_1_linear_spring}{LinearSpring}}\ cnt\_model\ =\ \mbox{\hyperlink{classnetdem_1_1_linear_spring}{LinearSpring}}(32.0e8,\ 1.0e6,\ 0.0,\ 0.3);}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{classnetdem_1_1_linear_spring}{LinearSpring}}\ cnt\_model\ =\ \mbox{\hyperlink{classnetdem_1_1_linear_spring}{LinearSpring}}(32.0e8,\ 1.0e6,\ 0.3,\ 0.0);}
 \DoxyCodeLine{\ \ sim-\/>\mbox{\hyperlink{classnetdem_1_1_simulation_add17bfcd927bd2b7f14f05855c20bea3}{scene}}.\mbox{\hyperlink{classnetdem_1_1_scene_a16e8cd7195ba20a9d0bee14498b69c4f}{InsertContactModel}}(\&cnt\_model);}
 \DoxyCodeLine{\ \ sim-\/>\mbox{\hyperlink{classnetdem_1_1_simulation_add17bfcd927bd2b7f14f05855c20bea3}{scene}}.\mbox{\hyperlink{classnetdem_1_1_scene_a37580ce0b6492c6580c85a999aae8397}{SetNumberOfMaterials}}(1);}
 \DoxyCodeLine{\ \ sim-\/>\mbox{\hyperlink{classnetdem_1_1_simulation_add17bfcd927bd2b7f14f05855c20bea3}{scene}}.\mbox{\hyperlink{classnetdem_1_1_scene_a632f1fb42f6fdd508b3d534520110a4e}{SetCollisionModel}}(0,\ 0,\ cnt\_model.\mbox{\hyperlink{classnetdem_1_1_contact_model_ac452f37ee577eb8e2cefa4156d9c62ab}{label}});}
@@ -45,8 +45,11 @@
 \DoxyCodeLine{\ \ ellipsoid.\mbox{\hyperlink{classnetdem_1_1_ellipsoid_aad89ec9c277c7cd402ecd2c40ecfcd5f}{SetSize}}(0.1);}
 \DoxyCodeLine{\ \ sim-\/>\mbox{\hyperlink{classnetdem_1_1_simulation_add17bfcd927bd2b7f14f05855c20bea3}{scene}}.\mbox{\hyperlink{classnetdem_1_1_scene_a398e24fbcba078c40b7970edbe44e325}{InsertShape}}(\&ellipsoid);}
 \DoxyCodeLine{}
-\DoxyCodeLine{\ \ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<Particle>}}\ particle\_list\ =\ PackGenerator::GetGridPack(}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{VecXT<Particle>}}\ particle\_list\ =\ PackGenerator::GetGridPack(}
 \DoxyCodeLine{\ \ \ \ \ \ 1,\ 1,\ 1,\ 0,\ 0,\ 0,\ 8,\ 8,\ 8,\ sim-\/>\mbox{\hyperlink{classnetdem_1_1_simulation_add17bfcd927bd2b7f14f05855c20bea3}{scene}}.\mbox{\hyperlink{classnetdem_1_1_scene_aaaf2e298f7e7bbd9dc8e34ec683a23f4}{GetShapes}}());}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \&p\ :\ particle\_list)\ \{}
+\DoxyCodeLine{\ \ \ \ p.damp\_numerical\ =\ 0.7;}
+\DoxyCodeLine{\ \ \}}
 \DoxyCodeLine{\ \ sim-\/>\mbox{\hyperlink{classnetdem_1_1_simulation_add17bfcd927bd2b7f14f05855c20bea3}{scene}}.\mbox{\hyperlink{classnetdem_1_1_scene_a9e8ccb020b0ba1b5ab8626448ece42ae}{InsertParticle}}(particle\_list);}
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ \textcolor{comment}{//\ wall\ based\ on\ plane}}

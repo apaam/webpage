@@ -1,8 +1,7 @@
 var searchData=
 [
-  ['levelset_0',['LevelSet',['../classnetdem_1_1_level_set.html#aeb7d78f52f0833eac59f46d61e1484b0',1,'netdem::LevelSet']]],
-  ['levelsetfunction_1',['LevelSetFunction',['../classnetdem_1_1_level_set_function.html#ab8fc41dd619285db35e31143a2f2fec9',1,'netdem::LevelSetFunction']]],
-  ['levelsetsplittor_2',['LevelSetSplittor',['../classnetdem_1_1_level_set_splittor.html#a289d6d10313442494952424539259cfb',1,'netdem::LevelSetSplittor']]],
-  ['linearspring_3',['LinearSpring',['../classnetdem_1_1_linear_spring.html#a92b4d742489e17e9db57213a877022d5',1,'netdem::LinearSpring::LinearSpring()'],['../classnetdem_1_1_linear_spring.html#a8c1771a68d1fc40d23cf3e010e992025',1,'netdem::LinearSpring::LinearSpring(double kn, double kt, double beta, double mu)']]],
-  ['load_4',['Load',['../classnetdem_1_1_general_net.html#a0a7b122315dff46529463a46d8d180a0',1,'netdem::GeneralNet::Load()'],['../classnetdem_1_1_regression_net.html#a4802cc4f75ad194e3a1136ee85bdb8e6',1,'netdem::RegressionNet::Load()']]]
+  ['kifromestar_0',['KiFromEstar',['../classnetdem_1_1_solver_s_d_f_p_p.html#a9616071bf715f83c1502c5108968bf8e',1,'netdem::SolverSDFPP::KiFromEstar()'],['../classnetdem_1_1_solver_s_d_f_p_w.html#aca26f4be8d139591e378958a14f2beb7',1,'netdem::SolverSDFPW::KiFromEstar()']]],
+  ['kifromkn_1',['KiFromKn',['../classnetdem_1_1_solver_s_d_f_p_p.html#a378e4ffa05795c7b37dd320772dc76c7',1,'netdem::SolverSDFPP::KiFromKn()'],['../classnetdem_1_1_solver_s_d_f_p_w.html#a812b573c3c23221cad6bc4bb9786ec4a',1,'netdem::SolverSDFPW::KiFromKn()']]],
+  ['kitoestar_2',['KiToEstar',['../classnetdem_1_1_solver_s_d_f_p_p.html#a35fa3f718d0dcc1c641cefc8de369aeb',1,'netdem::SolverSDFPP::KiToEstar()'],['../classnetdem_1_1_solver_s_d_f_p_w.html#a628cc540c0fdd4c21384e4bd6f28c627',1,'netdem::SolverSDFPW::KiToEstar()']]],
+  ['kitokn_3',['KiToKn',['../classnetdem_1_1_solver_s_d_f_p_p.html#a8b11e835b80bcf56e8ddd2aa87f6fc88',1,'netdem::SolverSDFPP::KiToKn()'],['../classnetdem_1_1_solver_s_d_f_p_w.html#a005dd05c8f2f3616eb2a381daabdefad',1,'netdem::SolverSDFPW::KiToKn()']]]
 ];

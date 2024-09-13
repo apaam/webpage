@@ -4,56 +4,56 @@
 
 \begin{DoxyCodeInclude}{0}
 \DoxyCodeLine{00001\ \textcolor{keyword}{import}\ netdem}
-\DoxyCodeLine{00002\ \textcolor{keyword}{import}\ math}
-\DoxyCodeLine{00003\ }
-\DoxyCodeLine{00004\ \textcolor{comment}{\#\ simulation\ settings}}
-\DoxyCodeLine{00005\ sim\ =\ pynetdem.Simulation()}
-\DoxyCodeLine{00006\ sim.domain\_manager.SetBound(-\/16,\ -\/16,\ -\/16,\ 16,\ 16,\ 16)}
-\DoxyCodeLine{00007\ sim.domain\_manager.SetCellSpacing(0.6,\ 0.6,\ 0.6)}
-\DoxyCodeLine{00008\ }
-\DoxyCodeLine{00009\ \textcolor{comment}{\#\ contact\ settings}}
-\DoxyCodeLine{00010\ sim.dem\_solver.contact\_solver\_factory.settings.solver\_type\ \(\backslash\)}
-\DoxyCodeLine{00011\ \ \ \ \ =\ pynetdem.ContactSolverSettings.SolverType.sdf}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{comment}{\#\ simulation\ settings}}
+\DoxyCodeLine{00004\ sim\ =\ \mbox{\hyperlink{classnetdem_1_1_simulation}{netdem.Simulation}}()}
+\DoxyCodeLine{00005\ sim.domain\_manager.SetBound(-\/16,\ -\/16,\ -\/16,\ 16,\ 16,\ 16)}
+\DoxyCodeLine{00006\ sim.domain\_manager.SetCellSpacing(0.6,\ 0.6,\ 0.6)}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{comment}{\#\ contact\ settings}}
+\DoxyCodeLine{00009\ sim.dem\_solver.contact\_solver\_factory.settings.solver\_type\ =\ (}
+\DoxyCodeLine{00010\ \ \ \ \ netdem.ContactSolverSettings.SolverType.sdf}
+\DoxyCodeLine{00011\ )}
 \DoxyCodeLine{00012\ sim.dem\_solver.contact\_solver\_factory.settings.sdf\_potential\_type\ =\ 0}
 \DoxyCodeLine{00013\ }
-\DoxyCodeLine{00014\ cnt\_model\ =\ pynetdem.LinearSpring(2.0e4,\ 1.0e4,\ 0.7,\ 0.5)}
+\DoxyCodeLine{00014\ cnt\_model\ =\ \mbox{\hyperlink{classnetdem_1_1_linear_spring}{netdem.LinearSpring}}(2.0e4,\ 1.0e4,\ 0.5,\ 0.0)}
 \DoxyCodeLine{00015\ cnt\_model\_ptr\ =\ sim.scene.InsertContactModel(cnt\_model)}
 \DoxyCodeLine{00016\ sim.scene.SetNumberOfMaterials(1)}
 \DoxyCodeLine{00017\ sim.scene.SetCollisionModel(0,\ 0,\ cnt\_model\_ptr)}
 \DoxyCodeLine{00018\ }
 \DoxyCodeLine{00019\ \textcolor{comment}{\#\ create\ a\ particle\ and\ two\ walls}}
-\DoxyCodeLine{00020\ trimesh\ =\ pynetdem.TriMesh()}
+\DoxyCodeLine{00020\ trimesh\ =\ \mbox{\hyperlink{classnetdem_1_1_tri_mesh}{netdem.TriMesh}}()}
 \DoxyCodeLine{00021\ trimesh.InitFromSTL(\textcolor{stringliteral}{"{}data/particle\_template.stl"{}})}
-\DoxyCodeLine{00022\ trimesh.Decimate(400)}
+\DoxyCodeLine{00022\ trimesh.Decimate(200)}
 \DoxyCodeLine{00023\ trimesh.AlignAxes()}
 \DoxyCodeLine{00024\ trimesh.SetSize(1.0)}
 \DoxyCodeLine{00025\ }
-\DoxyCodeLine{00026\ plane\_1\ =\ pynetdem.Plane(0,\ 0,\ 0.39,\ 0,\ 0,\ -\/1)}
-\DoxyCodeLine{00027\ plane\_2\ =\ pynetdem.Plane(0,\ 0,\ -\/0.44,\ 0,\ 0,\ 1)}
+\DoxyCodeLine{00026\ plane\_1\ =\ \mbox{\hyperlink{classnetdem_1_1_plane}{netdem.Plane}}(0,\ 0,\ 0.39,\ 0,\ 0,\ -\/1)}
+\DoxyCodeLine{00027\ plane\_2\ =\ \mbox{\hyperlink{classnetdem_1_1_plane}{netdem.Plane}}(0,\ 0,\ -\/0.44,\ 0,\ 0,\ 1)}
 \DoxyCodeLine{00028\ }
 \DoxyCodeLine{00029\ trimesh\_ptr\ =\ sim.scene.InsertShape(trimesh)}
 \DoxyCodeLine{00030\ plane\_1\_ptr\ =\ sim.scene.InsertShape(plane\_1)}
 \DoxyCodeLine{00031\ plane\_2\_ptr\ =\ sim.scene.InsertShape(plane\_2)}
 \DoxyCodeLine{00032\ }
-\DoxyCodeLine{00033\ p\ =\ pynetdem.Particle(trimesh\_ptr)}
+\DoxyCodeLine{00033\ p\ =\ \mbox{\hyperlink{classnetdem_1_1_particle}{netdem.Particle}}(trimesh\_ptr)}
 \DoxyCodeLine{00034\ p.SetDensity(2650e-\/6)}
 \DoxyCodeLine{00035\ }
-\DoxyCodeLine{00036\ w\_1\ =\ pynetdem.Wall(plane\_1\_ptr)}
-\DoxyCodeLine{00037\ w\_2\ =\ pynetdem.Wall(plane\_2\_ptr)}
+\DoxyCodeLine{00036\ w\_1\ =\ \mbox{\hyperlink{classnetdem_1_1_wall}{netdem.Wall}}(plane\_1\_ptr)}
+\DoxyCodeLine{00037\ w\_2\ =\ \mbox{\hyperlink{classnetdem_1_1_wall}{netdem.Wall}}(plane\_2\_ptr)}
 \DoxyCodeLine{00038\ }
 \DoxyCodeLine{00039\ sim.scene.InsertParticle(p)}
 \DoxyCodeLine{00040\ sim.scene.InsertWall(w\_1)}
 \DoxyCodeLine{00041\ sim.scene.InsertWall(w\_2)}
 \DoxyCodeLine{00042\ }
 \DoxyCodeLine{00043\ \textcolor{comment}{\#\ gravity}}
-\DoxyCodeLine{00044\ grav\ =\ pynetdem.Gravity()}
+\DoxyCodeLine{00044\ grav\ =\ \mbox{\hyperlink{classnetdem_1_1_gravity}{netdem.Gravity}}()}
 \DoxyCodeLine{00045\ grav.Init(sim)}
 \DoxyCodeLine{00046\ sim.modifier\_manager.Insert(grav)}
 \DoxyCodeLine{00047\ sim.modifier\_manager.Enable(grav.label)}
 \DoxyCodeLine{00048\ sim.scene.gravity\_coef\ =\ [0,\ 0,\ -\/9.81e-\/3]}
 \DoxyCodeLine{00049\ }
 \DoxyCodeLine{00050\ \textcolor{comment}{\#\ save\ results}}
-\DoxyCodeLine{00051\ data\_dumper\ =\ pynetdem.DataDumper()}
+\DoxyCodeLine{00051\ data\_dumper\ =\ \mbox{\hyperlink{classnetdem_1_1_data_dumper}{netdem.DataDumper}}()}
 \DoxyCodeLine{00052\ data\_dumper.Init(sim)}
 \DoxyCodeLine{00053\ data\_dumper.SetRootPath(\textcolor{stringliteral}{"{}tmp/out/"{}})}
 \DoxyCodeLine{00054\ data\_dumper.SetSaveByCycles(1000)}
@@ -65,7 +65,7 @@
 \DoxyCodeLine{00060\ sim.modifier\_manager.Enable(data\_dumper.label)}
 \DoxyCodeLine{00061\ }
 \DoxyCodeLine{00062\ \textcolor{comment}{\#\ breakage\ modifier}}
-\DoxyCodeLine{00063\ breakage\_analysis\ =\ pynetdem.BreakageAnalysisPD()}
+\DoxyCodeLine{00063\ breakage\_analysis\ =\ \mbox{\hyperlink{classnetdem_1_1_breakage_analysis_p_d}{netdem.BreakageAnalysisPD}}()}
 \DoxyCodeLine{00064\ breakage\_analysis.Init(sim)}
 \DoxyCodeLine{00065\ breakage\_analysis.SetRootPath(\textcolor{stringliteral}{"{}tmp/out/"{}})}
 \DoxyCodeLine{00066\ breakage\_analysis.SetParticleFromScene()}
@@ -92,7 +92,7 @@
 \DoxyCodeLine{00087\ sim.modifier\_manager.Enable(breakage\_analysis.label)}
 \DoxyCodeLine{00088\ }
 \DoxyCodeLine{00089\ \textcolor{comment}{\#\ add\ deformation\ drived\ loading\ for\ top\ wall}}
-\DoxyCodeLine{00090\ disp\_control\ =\ pynetdem.WallMotionControl()}
+\DoxyCodeLine{00090\ disp\_control\ =\ \mbox{\hyperlink{classnetdem_1_1_wall_motion_control}{netdem.WallMotionControl}}()}
 \DoxyCodeLine{00091\ disp\_control.Init(sim)}
 \DoxyCodeLine{00092\ disp\_control.SetWall([0])}
 \DoxyCodeLine{00093\ disp\_control.SetVelocity(0,\ 0,\ -\/0.1)}

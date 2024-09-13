@@ -25,6 +25,13 @@
 \DoxyCodeLine{\textcolor{keywordtype}{void}\ TestCodedShape();}
 \DoxyCodeLine{\textcolor{keywordtype}{void}\ TestLatentSpace();}
 \DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ PerfSDFQuery(\textcolor{keywordtype}{int}\ argc,\ \textcolor{keywordtype}{char}\ **argv);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ create\ a\ vtk\ file\ to\ view\ the\ sampled\ data\ points}}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ SamplesToVTK(\textcolor{keywordtype}{string}\ \&filename);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ RandomEllipsoid();}
+\DoxyCodeLine{}
 \DoxyCodeLine{\textcolor{comment}{//\ DEM\ simulations}}
 \DoxyCodeLine{\textcolor{keywordtype}{void}\ RandomPacking(\textcolor{keywordtype}{int}\ argc,\ \textcolor{keywordtype}{char}\ **argv);}
 \DoxyCodeLine{\textcolor{comment}{//\ void\ AngleOfRepose(int\ argc,\ char\ **argv);}}
@@ -39,15 +46,22 @@
 \DoxyCodeLine{\ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}>>\ 00:\ genertate\ dataset\ for\ signed\ distance\ field\ and\ surface\ "{}}}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}projection\ point"{}}}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \ <<\ endl;}
-\DoxyCodeLine{\ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}>>\ 01:\ train\ regressor\ for\ signed\ distance\ function"{}}\ <<\ endl;}
-\DoxyCodeLine{\ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}>>\ 02:\ test\ regressor\ for\ signed\ distance\ function"{}}\ <<\ endl;}
-\DoxyCodeLine{\ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}>>\ 03:\ train\ regressor\ for\ surface\ rojection\ function"{}}\ <<\ endl;}
-\DoxyCodeLine{\ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}>>\ 04:\ test\ regressor\ for\ surface\ rojection\ function"{}}\ <<\ endl;}
+\DoxyCodeLine{\ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}>>\ 01:\ train\ regressor\ for\ sdf"{}}\ <<\ endl;}
+\DoxyCodeLine{\ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}>>\ 02:\ test\ regressor\ for\ sdf"{}}\ <<\ endl;}
+\DoxyCodeLine{\ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}>>\ 03:\ train\ regressor\ for\ spf"{}}\ <<\ endl;}
+\DoxyCodeLine{\ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}>>\ 04:\ test\ regressor\ for\ spf"{}}\ <<\ endl;}
 \DoxyCodeLine{\ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}>>\ 05:\ test\ shape\ netsdf"{}}\ <<\ endl;}
 \DoxyCodeLine{}
-\DoxyCodeLine{\ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}>>\ 10:\ random\ packing"{}}\ <<\ endl;}
-\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ cout\ <<\ "{}>>\ 11:\ angle\ of\ repose"{}\ <<\ endl;}}
-\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ cout\ <<\ "{}>>\ 12:\ triaxial\ compression"{}\ <<\ endl;}}
+\DoxyCodeLine{\ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}>>\ 11:\ train\ coded\ netsdf"{}}\ <<\ endl;}
+\DoxyCodeLine{\ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}>>\ 12:\ test\ coded\ sdf"{}}\ <<\ endl;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}>>\ 15:\ test\ the\ shape\ represented\ by\ coded\ netsdf"{}}\ <<\ endl;}
+\DoxyCodeLine{\ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}>>\ 16:\ latent\_space\_interpolation"{}}\ <<\ endl;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}>>\ 80:\ create\ a\ vtk\ file\ to\ view\ the\ sampled\ data\ points"{}}\ <<\ endl;}
+\DoxyCodeLine{\ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}>>\ 81:\ generate\ an\ ellipsoid"{}}\ <<\ endl;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}>>\ 90:\ random\ packing"{}}\ <<\ endl;}
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{return}\ -\/1;}
 \DoxyCodeLine{\ \ \}}
@@ -94,7 +108,24 @@
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ \textcolor{keywordflow}{case}\ 16:}
 \DoxyCodeLine{\ \ \ \ TestLatentSpace();}
-\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{break};\ \ }
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{case}\ 70:}
+\DoxyCodeLine{\ \ \ \ PerfSDFQuery(argc,\ argv);}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{case}\ 80:}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{if}\ (argc\ ==\ 3)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \textcolor{keywordtype}{string}\ filename(argv[2]);}
+\DoxyCodeLine{\ \ \ \ \ \ SamplesToVTK(filename);}
+\DoxyCodeLine{\ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}>>\ 80\ [filename]"{}}\ <<\ endl;}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{case}\ 81:}
+\DoxyCodeLine{\ \ \ \ RandomEllipsoid();}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{break};}
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ \textcolor{keywordflow}{case}\ 90:}
 \DoxyCodeLine{\ \ \ \ RandomPacking(argc,\ argv);}

@@ -7,6 +7,6 @@ var classnetdem_1_1_simplex =
     [ "Simplex", "classnetdem_1_1_simplex.html#a23b519b99db107a021c9e6abc65b4b3d", null ],
     [ "PushBack", "classnetdem_1_1_simplex.html#ab2af20af30366619f1d41f22777bee4b", null ],
     [ "PushFront", "classnetdem_1_1_simplex.html#a93252ab8c997d16c446dc9d130e91870", null ],
-    [ "points", "classnetdem_1_1_simplex.html#ac81f7eaec0ee14f43df6a958924e2a8f", null ],
-    [ "size", "classnetdem_1_1_simplex.html#add623b5717103ee4c5517f904333646b", null ]
+    [ "Size", "classnetdem_1_1_simplex.html#ad33a340e2cb9a36a8a6c4b6277abb929", null ],
+    [ "points", "classnetdem_1_1_simplex.html#ac81f7eaec0ee14f43df6a958924e2a8f", null ]
 ];

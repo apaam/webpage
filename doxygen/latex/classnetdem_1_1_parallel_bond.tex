@@ -20,7 +20,7 @@ Inheritance diagram for netdem\+::Parallel\+Bond\+:\begin{figure}[H]
 \item 
 \mbox{\hyperlink{classnetdem_1_1_parallel_bond_a1081f6b8f94daa0cad8009b3f00cde97}{Parallel\+Bond}} ()
 \begin{DoxyCompactList}\small\item\em Default constructor for \doxylink{classnetdem_1_1_parallel_bond}{Parallel\+Bond}. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{classnetdem_1_1_parallel_bond_a1be1c83cdc4195d0e950b44f69ef0a43}{Parallel\+Bond}} (double \mbox{\hyperlink{classnetdem_1_1_parallel_bond_ab4c058cc8545278e936311546d4c8b71}{kn}}, double \mbox{\hyperlink{classnetdem_1_1_parallel_bond_a4423055cd5983f2d661d2a0e1eba924b}{kt}}, double sig\+\_\+n, double sig\+\_\+t)
+\mbox{\hyperlink{classnetdem_1_1_parallel_bond_a8f5b1dbf200df47181fb3fd4de294e92}{Parallel\+Bond}} (double \mbox{\hyperlink{classnetdem_1_1_parallel_bond_ab4c058cc8545278e936311546d4c8b71}{kn}}, double \mbox{\hyperlink{classnetdem_1_1_parallel_bond_a4423055cd5983f2d661d2a0e1eba924b}{kt}}, double sig\+\_\+n, double sig\+\_\+t, double \mbox{\hyperlink{classnetdem_1_1_parallel_bond_aae46dcc89dd63cbb69f4827bd851d282}{beta}})
 \begin{DoxyCompactList}\small\item\em Constructor for \doxylink{classnetdem_1_1_parallel_bond}{Parallel\+Bond}. \end{DoxyCompactList}\item 
 nlohmann\+::json \mbox{\hyperlink{classnetdem_1_1_parallel_bond_a3e9d98d5d555d197f7d0160ddefdebe3}{Pack\+Json}} () override
 \begin{DoxyCompactList}\small\item\em Packs the contact model properties into a JSON object. \end{DoxyCompactList}\item 
@@ -41,26 +41,12 @@ void \mbox{\hyperlink{classnetdem_1_1_parallel_bond_ab5c5d1dae772f5aab1e6353a01f
 \doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classnetdem_1_1_contact_model}{netdem\+::\+Contact\+Model}}}
 \begin{DoxyCompactItemize}
 \item 
-virtual nlohmann\+::json \mbox{\hyperlink{classnetdem_1_1_contact_model_a191a737b001313dd8a39d5f1dc1d6a78}{Pack\+Json}} ()
-\begin{DoxyCompactList}\small\item\em Serialize this contact model to JSON format. \end{DoxyCompactList}\item 
-virtual void \mbox{\hyperlink{classnetdem_1_1_contact_model_ad857f6a66c0ac793e12d5d66e69e679e}{Init\+From\+Json}} (nlohmann\+::json const \&js)
-\begin{DoxyCompactList}\small\item\em Initialize this contact model from a JSON configuration object. \end{DoxyCompactList}\item 
-virtual void \mbox{\hyperlink{classnetdem_1_1_contact_model_a03526d9c5e43b4bdde8f392975533666}{Set\+Property}} (nlohmann\+::json const \&js)
-\begin{DoxyCompactList}\small\item\em Set a property of this contact model from a JSON object. \end{DoxyCompactList}\item 
 virtual void \mbox{\hyperlink{classnetdem_1_1_contact_model_a44804e500c1e234486125e9be7e5c9b5}{Set\+Property}} (std\+::string const \&name, double value)
 \begin{DoxyCompactList}\small\item\em Set a property of this contact model by name and value. \end{DoxyCompactList}\item 
-virtual \mbox{\hyperlink{classnetdem_1_1_contact_model}{Contact\+Model}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classnetdem_1_1_contact_model_a697207b7395fdc6cface026d9df65678}{Clone}} () const
-\begin{DoxyCompactList}\small\item\em Create a new instance of this contact model. \end{DoxyCompactList}\item 
 virtual void \mbox{\hyperlink{classnetdem_1_1_contact_model_a37f29128d7060f517c07270fadbe3ef9}{Evaluate\+Forces}} (\mbox{\hyperlink{classnetdem_1_1_contact_forces}{Contact\+Forces}} \texorpdfstring{$\ast$}{*}const cnt\+\_\+forces, \mbox{\hyperlink{classnetdem_1_1_collision_geometries}{Collision\+Geometries}} \&cnt\+\_\+geoms, \mbox{\hyperlink{classnetdem_1_1_contact_p_p}{Contact\+PP}} \texorpdfstring{$\ast$}{*}const cnt, double dt) const
-\begin{DoxyCompactList}\small\item\em Calculate the contact forces and moments due to this model. \end{DoxyCompactList}\item 
-virtual void \mbox{\hyperlink{classnetdem_1_1_contact_model_a7c58b578155fc416b340af5a57bcf384}{Evaluate\+Forces}} (\mbox{\hyperlink{classnetdem_1_1_contact_forces}{Contact\+Forces}} \texorpdfstring{$\ast$}{*}const cnt\+\_\+forces, \mbox{\hyperlink{classnetdem_1_1_bond_geometries}{Bond\+Geometries}} \&cnt\+\_\+geoms, \mbox{\hyperlink{classnetdem_1_1_contact_p_p}{Contact\+PP}} \texorpdfstring{$\ast$}{*}const cnt, double dt) const
 \begin{DoxyCompactList}\small\item\em Calculate the contact forces and moments due to this model. \end{DoxyCompactList}\item 
 virtual void \mbox{\hyperlink{classnetdem_1_1_contact_model_a7cd4e711e55b276ab1cfacda58b5a6af}{Evaluate\+Forces}} (\mbox{\hyperlink{classnetdem_1_1_contact_forces}{Contact\+Forces}} \texorpdfstring{$\ast$}{*}const cnt\+\_\+forces, \mbox{\hyperlink{classnetdem_1_1_collision_geometries}{Collision\+Geometries}} \&cnt\+\_\+geoms, \mbox{\hyperlink{classnetdem_1_1_contact_p_w}{Contact\+PW}} \texorpdfstring{$\ast$}{*}const cnt, double dt) const
 \begin{DoxyCompactList}\small\item\em Calculate the contact forces and moments due to this model. \end{DoxyCompactList}\item 
-virtual void \mbox{\hyperlink{classnetdem_1_1_contact_model_a43ad08b75bc01fe36338f271ee4c7c0e}{Evaluate\+Forces}} (\mbox{\hyperlink{classnetdem_1_1_contact_forces}{Contact\+Forces}} \texorpdfstring{$\ast$}{*}const cnt\+\_\+forces, \mbox{\hyperlink{classnetdem_1_1_bond_geometries}{Bond\+Geometries}} \&cnt\+\_\+geoms, \mbox{\hyperlink{classnetdem_1_1_contact_p_w}{Contact\+PW}} \texorpdfstring{$\ast$}{*}const cnt, double dt) const
-\begin{DoxyCompactList}\small\item\em Calculate the contact forces and moments due to this model. \end{DoxyCompactList}\item 
-virtual void \mbox{\hyperlink{classnetdem_1_1_contact_model_a541fc910e1d85b1fc2bb75d73e50e984}{Print}} () const
-\begin{DoxyCompactList}\small\item\em Print debugging information about this contact model. \end{DoxyCompactList}\item 
 virtual \mbox{\hyperlink{classnetdem_1_1_contact_model_a8cc9483a6ac756f0c3d6832550232540}{\texorpdfstring{$\sim$}{\string~}\+Contact\+Model}} ()
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Public Attributes}
@@ -73,17 +59,19 @@ double \mbox{\hyperlink{classnetdem_1_1_parallel_bond_a4423055cd5983f2d661d2a0e1
 double \mbox{\hyperlink{classnetdem_1_1_parallel_bond_ae6096390858f2fcd6cb9d01780463c6a}{max\+\_\+sig\+\_\+n}} \{1.\+0e6\}
 \item 
 double \mbox{\hyperlink{classnetdem_1_1_parallel_bond_ae8d0e1fb7ca7d71112ec5256be0b4bcd}{max\+\_\+sig\+\_\+t}} \{1.\+0e6\}
+\item 
+double \mbox{\hyperlink{classnetdem_1_1_parallel_bond_aae46dcc89dd63cbb69f4827bd851d282}{beta}} \{0.\+0\}
 \end{DoxyCompactItemize}
 \doxysubsection*{Public Attributes inherited from \mbox{\hyperlink{classnetdem_1_1_contact_model}{netdem\+::\+Contact\+Model}}}
 \begin{DoxyCompactItemize}
 \item 
 int \mbox{\hyperlink{classnetdem_1_1_contact_model_af742c7150b1b9f1734cbc31644fb1105}{id}} \{0\}
 \item 
-std\+::string \mbox{\hyperlink{classnetdem_1_1_contact_model_ac452f37ee577eb8e2cefa4156d9c62ab}{label}} \{\"{}default\"{}\}
+std\+::string \mbox{\hyperlink{classnetdem_1_1_contact_model_ac452f37ee577eb8e2cefa4156d9c62ab}{label}} \{"{}default"{}\}
 \item 
 int \mbox{\hyperlink{classnetdem_1_1_contact_model_a79bc2c3ed2881b0e3640ceeba80308dc}{model\+\_\+type}} \{0\}
 \item 
-std\+::string \mbox{\hyperlink{classnetdem_1_1_contact_model_af4af438894db0d3a88e6ed66e397cc2b}{model\+\_\+name}} \{\"{}contact\+\_\+model\"{}\}
+std\+::string \mbox{\hyperlink{classnetdem_1_1_contact_model_af4af438894db0d3a88e6ed66e397cc2b}{model\+\_\+name}} \{"{}contact\+\_\+model"{}\}
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Additional Inherited Members}
 \doxysubsection*{Public Types inherited from \mbox{\hyperlink{classnetdem_1_1_contact_model}{netdem\+::\+Contact\+Model}}}
@@ -104,21 +92,21 @@ enum \mbox{\hyperlink{classnetdem_1_1_contact_model_a86b4462f72dd85e2e8a55dd6844
 Contact model that evaluates forces and moments between two particles using parallel bond models. 
 
 \doxysubsection{Constructor \& Destructor Documentation}
-\Hypertarget{classnetdem_1_1_parallel_bond_a1081f6b8f94daa0cad8009b3f00cde97}\label{classnetdem_1_1_parallel_bond_a1081f6b8f94daa0cad8009b3f00cde97} 
-\index{netdem::ParallelBond@{netdem::ParallelBond}!ParallelBond@{ParallelBond}}
+\Hypertarget{classnetdem_1_1_parallel_bond_a1081f6b8f94daa0cad8009b3f00cde97}\index{netdem::ParallelBond@{netdem::ParallelBond}!ParallelBond@{ParallelBond}}
 \index{ParallelBond@{ParallelBond}!netdem::ParallelBond@{netdem::ParallelBond}}
 \doxysubsubsection{\texorpdfstring{ParallelBond()}{ParallelBond()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily netdem\+::\+Parallel\+Bond\+::\+Parallel\+Bond (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{classnetdem_1_1_parallel_bond_a1081f6b8f94daa0cad8009b3f00cde97} 
+netdem\+::\+Parallel\+Bond\+::\+Parallel\+Bond (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
 
 
 Default constructor for \doxylink{classnetdem_1_1_parallel_bond}{Parallel\+Bond}. 
 
-\Hypertarget{classnetdem_1_1_parallel_bond_a1be1c83cdc4195d0e950b44f69ef0a43}\label{classnetdem_1_1_parallel_bond_a1be1c83cdc4195d0e950b44f69ef0a43} 
-\index{netdem::ParallelBond@{netdem::ParallelBond}!ParallelBond@{ParallelBond}}
+\Hypertarget{classnetdem_1_1_parallel_bond_a8f5b1dbf200df47181fb3fd4de294e92}\index{netdem::ParallelBond@{netdem::ParallelBond}!ParallelBond@{ParallelBond}}
 \index{ParallelBond@{ParallelBond}!netdem::ParallelBond@{netdem::ParallelBond}}
 \doxysubsubsection{\texorpdfstring{ParallelBond()}{ParallelBond()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily netdem\+::\+Parallel\+Bond\+::\+Parallel\+Bond (\begin{DoxyParamCaption}\item[{double}]{kn,  }\item[{double}]{kt,  }\item[{double}]{sig\+\_\+n,  }\item[{double}]{sig\+\_\+t }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{classnetdem_1_1_parallel_bond_a8f5b1dbf200df47181fb3fd4de294e92} 
+netdem\+::\+Parallel\+Bond\+::\+Parallel\+Bond (\begin{DoxyParamCaption}\item[{double}]{kn}{, }\item[{double}]{kt}{, }\item[{double}]{sig\+\_\+n}{, }\item[{double}]{sig\+\_\+t}{, }\item[{double}]{beta}{}\end{DoxyParamCaption})}
 
 
 
@@ -138,11 +126,11 @@ Constructor for \doxylink{classnetdem_1_1_parallel_bond}{Parallel\+Bond}.
 
 
 \doxysubsection{Member Function Documentation}
-\Hypertarget{classnetdem_1_1_parallel_bond_a5a82aaff231747a0d2b36185b3f80834}\label{classnetdem_1_1_parallel_bond_a5a82aaff231747a0d2b36185b3f80834} 
-\index{netdem::ParallelBond@{netdem::ParallelBond}!Clone@{Clone}}
+\Hypertarget{classnetdem_1_1_parallel_bond_a5a82aaff231747a0d2b36185b3f80834}\index{netdem::ParallelBond@{netdem::ParallelBond}!Clone@{Clone}}
 \index{Clone@{Clone}!netdem::ParallelBond@{netdem::ParallelBond}}
 \doxysubsubsection{\texorpdfstring{Clone()}{Clone()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classnetdem_1_1_contact_model}{Contact\+Model}} \texorpdfstring{$\ast$}{*} netdem\+::\+Parallel\+Bond\+::\+Clone (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+{\footnotesize\ttfamily \label{classnetdem_1_1_parallel_bond_a5a82aaff231747a0d2b36185b3f80834} 
+\mbox{\hyperlink{classnetdem_1_1_contact_model}{Contact\+Model}} \texorpdfstring{$\ast$}{*} netdem\+::\+Parallel\+Bond\+::\+Clone (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
@@ -155,11 +143,11 @@ A new instance of the contact model.
 
 Reimplemented from \mbox{\hyperlink{classnetdem_1_1_contact_model_a697207b7395fdc6cface026d9df65678}{netdem\+::\+Contact\+Model}}.
 
-\Hypertarget{classnetdem_1_1_parallel_bond_a97765eef76db194d6c2214bc849af6e3}\label{classnetdem_1_1_parallel_bond_a97765eef76db194d6c2214bc849af6e3} 
-\index{netdem::ParallelBond@{netdem::ParallelBond}!EvaluateForces@{EvaluateForces}}
+\Hypertarget{classnetdem_1_1_parallel_bond_a97765eef76db194d6c2214bc849af6e3}\index{netdem::ParallelBond@{netdem::ParallelBond}!EvaluateForces@{EvaluateForces}}
 \index{EvaluateForces@{EvaluateForces}!netdem::ParallelBond@{netdem::ParallelBond}}
 \doxysubsubsection{\texorpdfstring{EvaluateForces()}{EvaluateForces()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily void netdem\+::\+Parallel\+Bond\+::\+Evaluate\+Forces (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_contact_forces}{Contact\+Forces}} \texorpdfstring{$\ast$}{*}const}]{cnt\+\_\+forces,  }\item[{\mbox{\hyperlink{classnetdem_1_1_bond_geometries}{Bond\+Geometries}} \&}]{cnt\+\_\+geoms,  }\item[{\mbox{\hyperlink{classnetdem_1_1_contact_p_p}{Contact\+PP}} \texorpdfstring{$\ast$}{*}const}]{cnt,  }\item[{double}]{dt }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+{\footnotesize\ttfamily \label{classnetdem_1_1_parallel_bond_a97765eef76db194d6c2214bc849af6e3} 
+void netdem\+::\+Parallel\+Bond\+::\+Evaluate\+Forces (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_contact_forces}{Contact\+Forces}} \texorpdfstring{$\ast$}{*}const}]{cnt\+\_\+forces}{, }\item[{\mbox{\hyperlink{classnetdem_1_1_bond_geometries}{Bond\+Geometries}} \&}]{cnt\+\_\+geoms}{, }\item[{\mbox{\hyperlink{classnetdem_1_1_contact_p_p}{Contact\+PP}} \texorpdfstring{$\ast$}{*}const}]{cnt}{, }\item[{double}]{dt}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
@@ -180,11 +168,11 @@ Evaluates the forces and moments between two particles using parallel bond model
 
 Reimplemented from \mbox{\hyperlink{classnetdem_1_1_contact_model_a7c58b578155fc416b340af5a57bcf384}{netdem\+::\+Contact\+Model}}.
 
-\Hypertarget{classnetdem_1_1_parallel_bond_ace3cf4e0d1ff69b77973f3faa72a5362}\label{classnetdem_1_1_parallel_bond_ace3cf4e0d1ff69b77973f3faa72a5362} 
-\index{netdem::ParallelBond@{netdem::ParallelBond}!EvaluateForces@{EvaluateForces}}
+\Hypertarget{classnetdem_1_1_parallel_bond_ace3cf4e0d1ff69b77973f3faa72a5362}\index{netdem::ParallelBond@{netdem::ParallelBond}!EvaluateForces@{EvaluateForces}}
 \index{EvaluateForces@{EvaluateForces}!netdem::ParallelBond@{netdem::ParallelBond}}
 \doxysubsubsection{\texorpdfstring{EvaluateForces()}{EvaluateForces()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily void netdem\+::\+Parallel\+Bond\+::\+Evaluate\+Forces (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_contact_forces}{Contact\+Forces}} \texorpdfstring{$\ast$}{*}const}]{cnt\+\_\+forces,  }\item[{\mbox{\hyperlink{classnetdem_1_1_bond_geometries}{Bond\+Geometries}} \&}]{cnt\+\_\+geoms,  }\item[{\mbox{\hyperlink{classnetdem_1_1_contact_p_w}{Contact\+PW}} \texorpdfstring{$\ast$}{*}const}]{cnt,  }\item[{double}]{dt }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+{\footnotesize\ttfamily \label{classnetdem_1_1_parallel_bond_ace3cf4e0d1ff69b77973f3faa72a5362} 
+void netdem\+::\+Parallel\+Bond\+::\+Evaluate\+Forces (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_contact_forces}{Contact\+Forces}} \texorpdfstring{$\ast$}{*}const}]{cnt\+\_\+forces}{, }\item[{\mbox{\hyperlink{classnetdem_1_1_bond_geometries}{Bond\+Geometries}} \&}]{cnt\+\_\+geoms}{, }\item[{\mbox{\hyperlink{classnetdem_1_1_contact_p_w}{Contact\+PW}} \texorpdfstring{$\ast$}{*}const}]{cnt}{, }\item[{double}]{dt}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
@@ -205,11 +193,11 @@ Evaluates the forces and moments between a particle and a wall using parallel bo
 
 Reimplemented from \mbox{\hyperlink{classnetdem_1_1_contact_model_a43ad08b75bc01fe36338f271ee4c7c0e}{netdem\+::\+Contact\+Model}}.
 
-\Hypertarget{classnetdem_1_1_parallel_bond_a5c9bb9cac18250da3645ba4df3d69af1}\label{classnetdem_1_1_parallel_bond_a5c9bb9cac18250da3645ba4df3d69af1} 
-\index{netdem::ParallelBond@{netdem::ParallelBond}!InitFromJson@{InitFromJson}}
+\Hypertarget{classnetdem_1_1_parallel_bond_a5c9bb9cac18250da3645ba4df3d69af1}\index{netdem::ParallelBond@{netdem::ParallelBond}!InitFromJson@{InitFromJson}}
 \index{InitFromJson@{InitFromJson}!netdem::ParallelBond@{netdem::ParallelBond}}
 \doxysubsubsection{\texorpdfstring{InitFromJson()}{InitFromJson()}}
-{\footnotesize\ttfamily void netdem\+::\+Parallel\+Bond\+::\+Init\+From\+Json (\begin{DoxyParamCaption}\item[{nlohmann\+::json const \&}]{js }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+{\footnotesize\ttfamily \label{classnetdem_1_1_parallel_bond_a5c9bb9cac18250da3645ba4df3d69af1} 
+void netdem\+::\+Parallel\+Bond\+::\+Init\+From\+Json (\begin{DoxyParamCaption}\item[{nlohmann\+::json const \&}]{js}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
@@ -224,11 +212,11 @@ Initializes the contact model from a JSON object.
 
 Reimplemented from \mbox{\hyperlink{classnetdem_1_1_contact_model_ad857f6a66c0ac793e12d5d66e69e679e}{netdem\+::\+Contact\+Model}}.
 
-\Hypertarget{classnetdem_1_1_parallel_bond_a3e9d98d5d555d197f7d0160ddefdebe3}\label{classnetdem_1_1_parallel_bond_a3e9d98d5d555d197f7d0160ddefdebe3} 
-\index{netdem::ParallelBond@{netdem::ParallelBond}!PackJson@{PackJson}}
+\Hypertarget{classnetdem_1_1_parallel_bond_a3e9d98d5d555d197f7d0160ddefdebe3}\index{netdem::ParallelBond@{netdem::ParallelBond}!PackJson@{PackJson}}
 \index{PackJson@{PackJson}!netdem::ParallelBond@{netdem::ParallelBond}}
 \doxysubsubsection{\texorpdfstring{PackJson()}{PackJson()}}
-{\footnotesize\ttfamily nlohmann\+::json netdem\+::\+Parallel\+Bond\+::\+Pack\+Json (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+{\footnotesize\ttfamily \label{classnetdem_1_1_parallel_bond_a3e9d98d5d555d197f7d0160ddefdebe3} 
+nlohmann\+::json netdem\+::\+Parallel\+Bond\+::\+Pack\+Json (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
@@ -241,11 +229,11 @@ A JSON object containing the contact model properties.
 
 Reimplemented from \mbox{\hyperlink{classnetdem_1_1_contact_model_a191a737b001313dd8a39d5f1dc1d6a78}{netdem\+::\+Contact\+Model}}.
 
-\Hypertarget{classnetdem_1_1_parallel_bond_ab5c5d1dae772f5aab1e6353a01feb2c5}\label{classnetdem_1_1_parallel_bond_ab5c5d1dae772f5aab1e6353a01feb2c5} 
-\index{netdem::ParallelBond@{netdem::ParallelBond}!Print@{Print}}
+\Hypertarget{classnetdem_1_1_parallel_bond_ab5c5d1dae772f5aab1e6353a01feb2c5}\index{netdem::ParallelBond@{netdem::ParallelBond}!Print@{Print}}
 \index{Print@{Print}!netdem::ParallelBond@{netdem::ParallelBond}}
 \doxysubsubsection{\texorpdfstring{Print()}{Print()}}
-{\footnotesize\ttfamily void netdem\+::\+Parallel\+Bond\+::\+Print (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+{\footnotesize\ttfamily \label{classnetdem_1_1_parallel_bond_ab5c5d1dae772f5aab1e6353a01feb2c5} 
+void netdem\+::\+Parallel\+Bond\+::\+Print (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
@@ -255,11 +243,11 @@ Prints the contact model properties.
 
 Reimplemented from \mbox{\hyperlink{classnetdem_1_1_contact_model_a541fc910e1d85b1fc2bb75d73e50e984}{netdem\+::\+Contact\+Model}}.
 
-\Hypertarget{classnetdem_1_1_parallel_bond_afedeef8a214c03c7d89c45cb9f727297}\label{classnetdem_1_1_parallel_bond_afedeef8a214c03c7d89c45cb9f727297} 
-\index{netdem::ParallelBond@{netdem::ParallelBond}!SetProperty@{SetProperty}}
+\Hypertarget{classnetdem_1_1_parallel_bond_afedeef8a214c03c7d89c45cb9f727297}\index{netdem::ParallelBond@{netdem::ParallelBond}!SetProperty@{SetProperty}}
 \index{SetProperty@{SetProperty}!netdem::ParallelBond@{netdem::ParallelBond}}
 \doxysubsubsection{\texorpdfstring{SetProperty()}{SetProperty()}}
-{\footnotesize\ttfamily void netdem\+::\+Parallel\+Bond\+::\+Set\+Property (\begin{DoxyParamCaption}\item[{nlohmann\+::json const \&}]{js }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+{\footnotesize\ttfamily \label{classnetdem_1_1_parallel_bond_afedeef8a214c03c7d89c45cb9f727297} 
+void netdem\+::\+Parallel\+Bond\+::\+Set\+Property (\begin{DoxyParamCaption}\item[{nlohmann\+::json const \&}]{js}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
@@ -274,11 +262,11 @@ Sets the contact model properties.
 
 Reimplemented from \mbox{\hyperlink{classnetdem_1_1_contact_model_a03526d9c5e43b4bdde8f392975533666}{netdem\+::\+Contact\+Model}}.
 
-\Hypertarget{classnetdem_1_1_parallel_bond_a9ecd8f257c99607cb7734dc9e9253498}\label{classnetdem_1_1_parallel_bond_a9ecd8f257c99607cb7734dc9e9253498} 
-\index{netdem::ParallelBond@{netdem::ParallelBond}!SetRadius@{SetRadius}}
+\Hypertarget{classnetdem_1_1_parallel_bond_a9ecd8f257c99607cb7734dc9e9253498}\index{netdem::ParallelBond@{netdem::ParallelBond}!SetRadius@{SetRadius}}
 \index{SetRadius@{SetRadius}!netdem::ParallelBond@{netdem::ParallelBond}}
 \doxysubsubsection{\texorpdfstring{SetRadius()}{SetRadius()}}
-{\footnotesize\ttfamily void netdem\+::\+Parallel\+Bond\+::\+Set\+Radius (\begin{DoxyParamCaption}\item[{double}]{r }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{classnetdem_1_1_parallel_bond_a9ecd8f257c99607cb7734dc9e9253498} 
+void netdem\+::\+Parallel\+Bond\+::\+Set\+Radius (\begin{DoxyParamCaption}\item[{double}]{r}{}\end{DoxyParamCaption})}
 
 
 
@@ -292,37 +280,43 @@ Sets the radius for the bond geometries used by this contact model.
 
 
 \doxysubsection{Member Data Documentation}
-\Hypertarget{classnetdem_1_1_parallel_bond_ab4c058cc8545278e936311546d4c8b71}\label{classnetdem_1_1_parallel_bond_ab4c058cc8545278e936311546d4c8b71} 
-\index{netdem::ParallelBond@{netdem::ParallelBond}!kn@{kn}}
+\Hypertarget{classnetdem_1_1_parallel_bond_aae46dcc89dd63cbb69f4827bd851d282}\index{netdem::ParallelBond@{netdem::ParallelBond}!beta@{beta}}
+\index{beta@{beta}!netdem::ParallelBond@{netdem::ParallelBond}}
+\doxysubsubsection{\texorpdfstring{beta}{beta}}
+{\footnotesize\ttfamily \label{classnetdem_1_1_parallel_bond_aae46dcc89dd63cbb69f4827bd851d282} 
+double netdem\+::\+Parallel\+Bond\+::beta \{0.\+0\}}
+
+\Hypertarget{classnetdem_1_1_parallel_bond_ab4c058cc8545278e936311546d4c8b71}\index{netdem::ParallelBond@{netdem::ParallelBond}!kn@{kn}}
 \index{kn@{kn}!netdem::ParallelBond@{netdem::ParallelBond}}
 \doxysubsubsection{\texorpdfstring{kn}{kn}}
-{\footnotesize\ttfamily double netdem\+::\+Parallel\+Bond\+::kn \{2e6\}}
+{\footnotesize\ttfamily \label{classnetdem_1_1_parallel_bond_ab4c058cc8545278e936311546d4c8b71} 
+double netdem\+::\+Parallel\+Bond\+::kn \{2e6\}}
 
 
 
 \texorpdfstring{$<$}{<} Stiffness parameters used to calculate contact forces. 
 
-\Hypertarget{classnetdem_1_1_parallel_bond_a4423055cd5983f2d661d2a0e1eba924b}\label{classnetdem_1_1_parallel_bond_a4423055cd5983f2d661d2a0e1eba924b} 
-\index{netdem::ParallelBond@{netdem::ParallelBond}!kt@{kt}}
+\Hypertarget{classnetdem_1_1_parallel_bond_a4423055cd5983f2d661d2a0e1eba924b}\index{netdem::ParallelBond@{netdem::ParallelBond}!kt@{kt}}
 \index{kt@{kt}!netdem::ParallelBond@{netdem::ParallelBond}}
 \doxysubsubsection{\texorpdfstring{kt}{kt}}
-{\footnotesize\ttfamily double netdem\+::\+Parallel\+Bond\+::kt \{1e6\}}
+{\footnotesize\ttfamily \label{classnetdem_1_1_parallel_bond_a4423055cd5983f2d661d2a0e1eba924b} 
+double netdem\+::\+Parallel\+Bond\+::kt \{1e6\}}
 
 
 
 Maximum stress parameters used to calculate the maximum allowable force. 
 
-\Hypertarget{classnetdem_1_1_parallel_bond_ae6096390858f2fcd6cb9d01780463c6a}\label{classnetdem_1_1_parallel_bond_ae6096390858f2fcd6cb9d01780463c6a} 
-\index{netdem::ParallelBond@{netdem::ParallelBond}!max\_sig\_n@{max\_sig\_n}}
+\Hypertarget{classnetdem_1_1_parallel_bond_ae6096390858f2fcd6cb9d01780463c6a}\index{netdem::ParallelBond@{netdem::ParallelBond}!max\_sig\_n@{max\_sig\_n}}
 \index{max\_sig\_n@{max\_sig\_n}!netdem::ParallelBond@{netdem::ParallelBond}}
 \doxysubsubsection{\texorpdfstring{max\_sig\_n}{max\_sig\_n}}
-{\footnotesize\ttfamily double netdem\+::\+Parallel\+Bond\+::max\+\_\+sig\+\_\+n \{1.\+0e6\}}
+{\footnotesize\ttfamily \label{classnetdem_1_1_parallel_bond_ae6096390858f2fcd6cb9d01780463c6a} 
+double netdem\+::\+Parallel\+Bond\+::max\+\_\+sig\+\_\+n \{1.\+0e6\}}
 
-\Hypertarget{classnetdem_1_1_parallel_bond_ae8d0e1fb7ca7d71112ec5256be0b4bcd}\label{classnetdem_1_1_parallel_bond_ae8d0e1fb7ca7d71112ec5256be0b4bcd} 
-\index{netdem::ParallelBond@{netdem::ParallelBond}!max\_sig\_t@{max\_sig\_t}}
+\Hypertarget{classnetdem_1_1_parallel_bond_ae8d0e1fb7ca7d71112ec5256be0b4bcd}\index{netdem::ParallelBond@{netdem::ParallelBond}!max\_sig\_t@{max\_sig\_t}}
 \index{max\_sig\_t@{max\_sig\_t}!netdem::ParallelBond@{netdem::ParallelBond}}
 \doxysubsubsection{\texorpdfstring{max\_sig\_t}{max\_sig\_t}}
-{\footnotesize\ttfamily double netdem\+::\+Parallel\+Bond\+::max\+\_\+sig\+\_\+t \{1.\+0e6\}}
+{\footnotesize\ttfamily \label{classnetdem_1_1_parallel_bond_ae8d0e1fb7ca7d71112ec5256be0b4bcd} 
+double netdem\+::\+Parallel\+Bond\+::max\+\_\+sig\+\_\+t \{1.\+0e6\}}
 
 
 

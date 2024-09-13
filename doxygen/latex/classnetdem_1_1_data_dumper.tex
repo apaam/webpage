@@ -30,6 +30,10 @@ void \mbox{\hyperlink{classnetdem_1_1_data_dumper_aef238f0678391663b358471eb6f64
 \begin{DoxyCompactList}\small\item\em Sets the interval for saving data by time. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classnetdem_1_1_data_dumper_ac80bd05d4083227c57b5f6598d53a095}{Set\+Save\+By\+Cycles}} (double interval)
 \begin{DoxyCompactList}\small\item\em Sets the interval for saving data by cycles. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classnetdem_1_1_data_dumper_a7c8c07c13eb6242bdc0da4d2dfbe1053}{Set\+Save\+Read\+Restart\+By\+Time}} (double interval)
+\begin{DoxyCompactList}\small\item\em Sets the interval for saving data by time. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classnetdem_1_1_data_dumper_a25a166711bb43d6ed0af8c701c46aba9}{Set\+Save\+Read\+Restart\+By\+Cycles}} (double interval)
+\begin{DoxyCompactList}\small\item\em Sets the interval for saving data by cycles. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classnetdem_1_1_data_dumper_a76ad9732d15adabdfdedf995d8250c6f}{Clear\+Histories}} ()
 \begin{DoxyCompactList}\small\item\em Clears the history of when data was last saved. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classnetdem_1_1_data_dumper_a2f0dd9093fdac66550f11e00bd65d35b}{Save\+Particle\+Info\+As\+VTK}} ()
@@ -72,6 +76,16 @@ void \mbox{\hyperlink{classnetdem_1_1_data_dumper_a640bd260ed0f6269da751d5d33e4b
 \begin{DoxyCompactList}\small\item\em Saves shape information to VTK format. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classnetdem_1_1_data_dumper_a0b51bc0751d3298a817dc3868067163d}{Save\+Shape\+Info\+As\+Json}} (bool all\+\_\+in\+\_\+one=false)
 \begin{DoxyCompactList}\small\item\em Saves shape information as a JSON file. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classnetdem_1_1_data_dumper_af058b81a859e3af638517788516b7aa9}{Save\+Read\+Restart}} ()
+\begin{DoxyCompactList}\small\item\em Saves all information as JSON files for read restart. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classnetdem_1_1_data_dumper_a4219203fefadbe379d0e39a17460faa7}{Save\+Shape\+Read\+Restart}} ()
+\begin{DoxyCompactList}\small\item\em Saves shape information as a JSON file for read restart. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classnetdem_1_1_data_dumper_a9f0ff22225428f10572c56452fb66bf0}{Save\+Particle\+Read\+Restart}} ()
+\begin{DoxyCompactList}\small\item\em Saves particle information as a JSON file for read restart. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classnetdem_1_1_data_dumper_a97bea377819f9d1df5d3bf12809a0a83}{Save\+Contact\+Read\+Restart}} ()
+\begin{DoxyCompactList}\small\item\em Saves contact information as a JSON file for read restart. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classnetdem_1_1_data_dumper_af9f8e0d8294791652342df18ce987256}{Save\+Wall\+Read\+Restart}} ()
+\begin{DoxyCompactList}\small\item\em Saves wall information as a JSON file for read restart. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classnetdem_1_1_modifier}{Modifier}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classnetdem_1_1_data_dumper_adbe8a6ac0bf434dc79b98dfdd2dc8f3d}{Clone}} () const override
 \begin{DoxyCompactList}\small\item\em Clones the current \doxylink{classnetdem_1_1_data_dumper}{Data\+Dumper} instance. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classnetdem_1_1_data_dumper_ac55c159664b6760e023ef1521512b28b}{Execute}} () override
@@ -83,16 +97,10 @@ void \mbox{\hyperlink{classnetdem_1_1_data_dumper_a05fc49b081cb739e5976116774737
 \item 
 \mbox{\hyperlink{classnetdem_1_1_modifier_a00ecd168ce3ca5e2f3d4d741d7a56bbd}{Modifier}} ()
 \begin{DoxyCompactList}\small\item\em Default constructor for \doxylink{classnetdem_1_1_modifier}{Modifier} class. \end{DoxyCompactList}\item 
-virtual \mbox{\hyperlink{classnetdem_1_1_modifier}{Modifier}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classnetdem_1_1_modifier_a0c808763e3e8052cbd446cb7d910f843}{Clone}} () const
-\begin{DoxyCompactList}\small\item\em Clones the current \doxylink{classnetdem_1_1_modifier}{Modifier} instance. \end{DoxyCompactList}\item 
-virtual void \mbox{\hyperlink{classnetdem_1_1_modifier_ad340b35e3d4a44cbb708a522b89eec91}{Init}} (\mbox{\hyperlink{classnetdem_1_1_simulation}{Simulation}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{classnetdem_1_1_modifier_a2af15a41cb6d01349b0597d2f1828763}{sim}})
-\begin{DoxyCompactList}\small\item\em Initializes the \doxylink{classnetdem_1_1_modifier}{Modifier} instance. \end{DoxyCompactList}\item 
 virtual void \mbox{\hyperlink{classnetdem_1_1_modifier_af24eb11dda7460744ff568ce299bee6f}{Enable}} ()
 \begin{DoxyCompactList}\small\item\em Enables the \doxylink{classnetdem_1_1_modifier}{Modifier} instance. \end{DoxyCompactList}\item 
 virtual void \mbox{\hyperlink{classnetdem_1_1_modifier_aba99c2f91ecd22eb1c88c45b1890aa38}{Disable}} ()
 \begin{DoxyCompactList}\small\item\em Disables the \doxylink{classnetdem_1_1_modifier}{Modifier} instance. \end{DoxyCompactList}\item 
-virtual void \mbox{\hyperlink{classnetdem_1_1_modifier_a8ffc62d61052f129a3301278b7cffb2c}{Execute}} ()
-\begin{DoxyCompactList}\small\item\em Executes the \doxylink{classnetdem_1_1_modifier}{Modifier} instance. \end{DoxyCompactList}\item 
 virtual void \mbox{\hyperlink{classnetdem_1_1_modifier_adb2442a93cd18bc810156aa7275a46b8}{Update}} ()
 \begin{DoxyCompactList}\small\item\em Updates the \doxylink{classnetdem_1_1_modifier}{Modifier} instance. \end{DoxyCompactList}\item 
 virtual \mbox{\hyperlink{classnetdem_1_1_modifier_a370a42d8715caec46e4d4d241667d053}{\texorpdfstring{$\sim$}{\string~}\+Modifier}} ()
@@ -100,9 +108,9 @@ virtual \mbox{\hyperlink{classnetdem_1_1_modifier_a370a42d8715caec46e4d4d241667d
 \doxysubsubsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-static void \mbox{\hyperlink{classnetdem_1_1_data_dumper_aa9e25759e0764b871f3d81154f904149}{Save\+Particle\+Info\+As\+VTK}} (\mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} \texorpdfstring{$\ast$}{*} $>$ const \&p\+\_\+list, std\+::string const \&filename)
+static void \mbox{\hyperlink{classnetdem_1_1_data_dumper_aa9e25759e0764b871f3d81154f904149}{Save\+Particle\+Info\+As\+VTK}} (\mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{Vec\+XT}}$<$ \mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} \texorpdfstring{$\ast$}{*} $>$ const \&p\+\_\+list, std\+::string const \&filename)
 \begin{DoxyCompactList}\small\item\em Saves particle information to VTK format at a given filename. \end{DoxyCompactList}\item 
-static void \mbox{\hyperlink{classnetdem_1_1_data_dumper_a22183b54f6995f76dd65d46c568ed99b}{Save\+Particle\+Mesh\+As\+VTK}} (\mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} \texorpdfstring{$\ast$}{*} $>$ const \&p\+\_\+list, std\+::string const \&filename)
+static void \mbox{\hyperlink{classnetdem_1_1_data_dumper_a22183b54f6995f76dd65d46c568ed99b}{Save\+Particle\+Mesh\+As\+VTK}} (\mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{Vec\+XT}}$<$ \mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} \texorpdfstring{$\ast$}{*} $>$ const \&p\+\_\+list, std\+::string const \&filename)
 \begin{DoxyCompactList}\small\item\em Saves particle mesh in VTK format at a given filename. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
@@ -117,6 +125,8 @@ bool \mbox{\hyperlink{classnetdem_1_1_data_dumper_a25b1cd6a1f55fb41ae1b94f9e3794
 \begin{DoxyCompactList}\small\item\em A flag that determines whether to dump shape information. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{classnetdem_1_1_data_dumper_ab5736a2fbd2ac4977af39b6323bc8aea}{dump\+\_\+mesh}} \{false\}
 \begin{DoxyCompactList}\small\item\em A flag that determines whether to dump mesh information. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classnetdem_1_1_data_dumper_a0453c65685adfce7c628ace0a08dd1d9}{dump\+\_\+read\+\_\+restart}} \{false\}
+\begin{DoxyCompactList}\small\item\em A flag that determines whether to dump read restart information. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{classnetdem_1_1_data_dumper_acc3e9037bd9b43ee846c029364fcc4d1}{time\+\_\+stamp\+\_\+adjustable}} \{true\}
 \begin{DoxyCompactList}\small\item\em A flag that determines if time stamp is adjustable. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{classnetdem_1_1_data_dumper_aa9ea059ae46936e22a898ecce851f8d6}{dump\+\_\+reconstructed}} \{true\}
@@ -124,7 +134,7 @@ bool \mbox{\hyperlink{classnetdem_1_1_data_dumper_aa9ea059ae46936e22a898ecce851f
 \doxysubsection*{Public Attributes inherited from \mbox{\hyperlink{classnetdem_1_1_modifier}{netdem\+::\+Modifier}}}
 \begin{DoxyCompactItemize}
 \item 
-std\+::string \mbox{\hyperlink{classnetdem_1_1_modifier_a9ca96d4276e4cb637b0220ab6fbbbbee}{label}} \{\"{}default\"{}\}
+std\+::string \mbox{\hyperlink{classnetdem_1_1_modifier_a9ca96d4276e4cb637b0220ab6fbbbbee}{label}} \{"{}default"{}\}
 \item 
 \mbox{\hyperlink{classnetdem_1_1_d_e_m_solver_a7b625d897bb69cd28838602603b8b0c4}{DEMSolver\+::\+Cycle\+Point}} \mbox{\hyperlink{classnetdem_1_1_modifier_ac97b78c11b6264901e6ea5ee9324fe14}{cycle\+\_\+point}} \{\mbox{\hyperlink{classnetdem_1_1_d_e_m_solver_a7b625d897bb69cd28838602603b8b0c4a03e21037ee2bb4ffa60b59913aafc1ae}{DEMSolver\+::\+Cycle\+Point\+::pre}}\}
 \item 
@@ -141,15 +151,15 @@ bool \mbox{\hyperlink{classnetdem_1_1_modifier_a86866b7b68088778ba6062cf88126302
 \doxysubsection{Detailed Description}
 A class used to dump particle data into vtk files. This is a post-\/modifier, which will be executed at the end of a DEM cycle. \begin{Desc}
 \item[Examples]\par
-\mbox{\hyperlink{00_nut_in_bolt_8cpp-example}{00\+\_\+nut\+\_\+in\+\_\+bolt.\+cpp}}, \mbox{\hyperlink{02_energy_test_8cpp-example}{02\+\_\+energy\+\_\+test.\+cpp}}, \mbox{\hyperlink{0_geometric_solver_8cpp-example}{0\+\_\+geometric\+\_\+solver.\+cpp}}, \mbox{\hyperlink{0_plane_case_8cpp-example}{0\+\_\+plane\+\_\+case.\+cpp}}, \mbox{\hyperlink{1_gjk_solver_8cpp-example}{1\+\_\+gjk\+\_\+solver.\+cpp}}, \mbox{\hyperlink{1_membrane_case_8cpp-example}{1\+\_\+membrane\+\_\+case.\+cpp}}, \mbox{\hyperlink{1_test_triaxial_comp_8cpp-example}{1\+\_\+test\+\_\+triaxial\+\_\+comp.\+cpp}}, \mbox{\hyperlink{2_sdf_solver_8cpp-example}{2\+\_\+sdf\+\_\+solver.\+cpp}}, \mbox{\hyperlink{3_hybrid_solver_8cpp-example}{3\+\_\+hybrid\+\_\+solver.\+cpp}}, \mbox{\hyperlink{80_random_packing_8cpp-example}{80\+\_\+random\+\_\+packing.\+cpp}}, \mbox{\hyperlink{81_voronoi_packing_8cpp-example}{81\+\_\+voronoi\+\_\+packing.\+cpp}}, \mbox{\hyperlink{90_packing_demo_8cpp-example}{90\+\_\+packing\+\_\+demo.\+cpp}}, \mbox{\hyperlink{90_random_packing_8cpp-example}{90\+\_\+random\+\_\+packing.\+cpp}}, \mbox{\hyperlink{90_random_packing_trimesh_8cpp-example}{90\+\_\+random\+\_\+packing\+\_\+trimesh.\+cpp}}, \mbox{\hyperlink{91_packing_ellipsoid_8cpp-example}{91\+\_\+packing\+\_\+ellipsoid.\+cpp}}, \mbox{\hyperlink{91_triaixal_comp_8cpp-example}{91\+\_\+triaixal\+\_\+comp.\+cpp}}, \mbox{\hyperlink{91_triaixal_comp_trimesh_8cpp-example}{91\+\_\+triaixal\+\_\+comp\+\_\+trimesh.\+cpp}}, \mbox{\hyperlink{92_angle_of_repose_8cpp-example}{92\+\_\+angle\+\_\+of\+\_\+repose.\+cpp}}, \mbox{\hyperlink{92_angle_repose_trimesh_8cpp-example}{92\+\_\+angle\+\_\+repose\+\_\+trimesh.\+cpp}}, \mbox{\hyperlink{92_nut_in_bolt_8cpp-example}{92\+\_\+nut\+\_\+in\+\_\+bolt.\+cpp}}, \mbox{\hyperlink{93_triaixal_comp_trimesh_8cpp-example}{93\+\_\+triaixal\+\_\+comp\+\_\+trimesh.\+cpp}}, \mbox{\hyperlink{94_angle_repose_trimesh_8cpp-example}{94\+\_\+angle\+\_\+repose\+\_\+trimesh.\+cpp}}, \mbox{\hyperlink{96_random_packing_ellipsoid_8cpp-example}{96\+\_\+random\+\_\+packing\+\_\+ellipsoid.\+cpp}}, \mbox{\hyperlink{96_triaixal_comp_sphere_sh_8cpp-example}{96\+\_\+triaixal\+\_\+comp\+\_\+sphere\+\_\+sh.\+cpp}}, \mbox{\hyperlink{97_triaixal_comp_sphere_geom_8cpp-example}{97\+\_\+triaixal\+\_\+comp\+\_\+sphere\+\_\+geom.\+cpp}}, \mbox{\hyperlink{angle_repose_main_8cpp-example}{angle\+\_\+repose\+\_\+main.\+cpp}}, \mbox{\hyperlink{blade_mixing_main_8cpp-example}{blade\+\_\+mixing\+\_\+main.\+cpp}}, \mbox{\hyperlink{landslide_main_8cpp-example}{landslide\+\_\+main.\+cpp}}, and \mbox{\hyperlink{odemetric_comp_main_8cpp-example}{odemetric\+\_\+comp\+\_\+main.\+cpp}}.\end{Desc}
+\mbox{\hyperlink{00_nut_in_bolt_8cpp-example}{00\+\_\+nut\+\_\+in\+\_\+bolt.\+cpp}}, \mbox{\hyperlink{02_energy_test_8cpp-example}{02\+\_\+energy\+\_\+test.\+cpp}}, \mbox{\hyperlink{0_geometric_solver_8cpp-example}{0\+\_\+geometric\+\_\+solver.\+cpp}}, \mbox{\hyperlink{0_plane_case_8cpp-example}{0\+\_\+plane\+\_\+case.\+cpp}}, \mbox{\hyperlink{1_gjk_solver_8cpp-example}{1\+\_\+gjk\+\_\+solver.\+cpp}}, \mbox{\hyperlink{1_membrane_case_8cpp-example}{1\+\_\+membrane\+\_\+case.\+cpp}}, \mbox{\hyperlink{1_test_triaxial_comp_8cpp-example}{1\+\_\+test\+\_\+triaxial\+\_\+comp.\+cpp}}, \mbox{\hyperlink{2_sdf_solver_8cpp-example}{2\+\_\+sdf\+\_\+solver.\+cpp}}, \mbox{\hyperlink{3_hybrid_solver_8cpp-example}{3\+\_\+hybrid\+\_\+solver.\+cpp}}, \mbox{\hyperlink{81_voronoi_packing_8cpp-example}{81\+\_\+voronoi\+\_\+packing.\+cpp}}, \mbox{\hyperlink{90_packing_demo_8cpp-example}{90\+\_\+packing\+\_\+demo.\+cpp}}, \mbox{\hyperlink{90_random_packing_8cpp-example}{90\+\_\+random\+\_\+packing.\+cpp}}, \mbox{\hyperlink{90_random_packing_trimesh_8cpp-example}{90\+\_\+random\+\_\+packing\+\_\+trimesh.\+cpp}}, \mbox{\hyperlink{91_packing_ellipsoid_8cpp-example}{91\+\_\+packing\+\_\+ellipsoid.\+cpp}}, \mbox{\hyperlink{91_triaixal_comp_8cpp-example}{91\+\_\+triaixal\+\_\+comp.\+cpp}}, \mbox{\hyperlink{91_triaixal_comp_trimesh_8cpp-example}{91\+\_\+triaixal\+\_\+comp\+\_\+trimesh.\+cpp}}, \mbox{\hyperlink{92_angle_of_repose_8cpp-example}{92\+\_\+angle\+\_\+of\+\_\+repose.\+cpp}}, \mbox{\hyperlink{92_angle_repose_trimesh_8cpp-example}{92\+\_\+angle\+\_\+repose\+\_\+trimesh.\+cpp}}, \mbox{\hyperlink{92_nut_in_bolt_8cpp-example}{92\+\_\+nut\+\_\+in\+\_\+bolt.\+cpp}}, \mbox{\hyperlink{93_triaixal_comp_trimesh_8cpp-example}{93\+\_\+triaixal\+\_\+comp\+\_\+trimesh.\+cpp}}, \mbox{\hyperlink{94_angle_repose_trimesh_8cpp-example}{94\+\_\+angle\+\_\+repose\+\_\+trimesh.\+cpp}}, \mbox{\hyperlink{96_random_packing_ellipsoid_8cpp-example}{96\+\_\+random\+\_\+packing\+\_\+ellipsoid.\+cpp}}, \mbox{\hyperlink{97_triaixal_comp_sphere_geom_8cpp-example}{97\+\_\+triaixal\+\_\+comp\+\_\+sphere\+\_\+geom.\+cpp}}, \mbox{\hyperlink{angle_repose_main_8cpp-example}{angle\+\_\+repose\+\_\+main.\+cpp}}, \mbox{\hyperlink{blade_mixing_main_8cpp-example}{blade\+\_\+mixing\+\_\+main.\+cpp}}, \mbox{\hyperlink{landslide_main_8cpp-example}{landslide\+\_\+main.\+cpp}}, and \mbox{\hyperlink{odemetric_comp_main_8cpp-example}{odemetric\+\_\+comp\+\_\+main.\+cpp}}.\end{Desc}
 
 
 \doxysubsection{Constructor \& Destructor Documentation}
-\Hypertarget{classnetdem_1_1_data_dumper_a2c1c188704eaaacd2e998288eca7fe12}\label{classnetdem_1_1_data_dumper_a2c1c188704eaaacd2e998288eca7fe12} 
-\index{netdem::DataDumper@{netdem::DataDumper}!DataDumper@{DataDumper}}
+\Hypertarget{classnetdem_1_1_data_dumper_a2c1c188704eaaacd2e998288eca7fe12}\index{netdem::DataDumper@{netdem::DataDumper}!DataDumper@{DataDumper}}
 \index{DataDumper@{DataDumper}!netdem::DataDumper@{netdem::DataDumper}}
 \doxysubsubsection{\texorpdfstring{DataDumper()}{DataDumper()}}
-{\footnotesize\ttfamily netdem\+::\+Data\+Dumper\+::\+Data\+Dumper (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{classnetdem_1_1_data_dumper_a2c1c188704eaaacd2e998288eca7fe12} 
+netdem\+::\+Data\+Dumper\+::\+Data\+Dumper (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
 
 
@@ -158,21 +168,21 @@ Default constructor for \doxylink{classnetdem_1_1_data_dumper}{Data\+Dumper} cla
 
 
 \doxysubsection{Member Function Documentation}
-\Hypertarget{classnetdem_1_1_data_dumper_a76ad9732d15adabdfdedf995d8250c6f}\label{classnetdem_1_1_data_dumper_a76ad9732d15adabdfdedf995d8250c6f} 
-\index{netdem::DataDumper@{netdem::DataDumper}!ClearHistories@{ClearHistories}}
+\Hypertarget{classnetdem_1_1_data_dumper_a76ad9732d15adabdfdedf995d8250c6f}\index{netdem::DataDumper@{netdem::DataDumper}!ClearHistories@{ClearHistories}}
 \index{ClearHistories@{ClearHistories}!netdem::DataDumper@{netdem::DataDumper}}
 \doxysubsubsection{\texorpdfstring{ClearHistories()}{ClearHistories()}}
-{\footnotesize\ttfamily void netdem\+::\+Data\+Dumper\+::\+Clear\+Histories (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{classnetdem_1_1_data_dumper_a76ad9732d15adabdfdedf995d8250c6f} 
+void netdem\+::\+Data\+Dumper\+::\+Clear\+Histories (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
 
 
 Clears the history of when data was last saved. 
 
-\Hypertarget{classnetdem_1_1_data_dumper_adbe8a6ac0bf434dc79b98dfdd2dc8f3d}\label{classnetdem_1_1_data_dumper_adbe8a6ac0bf434dc79b98dfdd2dc8f3d} 
-\index{netdem::DataDumper@{netdem::DataDumper}!Clone@{Clone}}
+\Hypertarget{classnetdem_1_1_data_dumper_adbe8a6ac0bf434dc79b98dfdd2dc8f3d}\index{netdem::DataDumper@{netdem::DataDumper}!Clone@{Clone}}
 \index{Clone@{Clone}!netdem::DataDumper@{netdem::DataDumper}}
 \doxysubsubsection{\texorpdfstring{Clone()}{Clone()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classnetdem_1_1_modifier}{Modifier}} \texorpdfstring{$\ast$}{*} netdem\+::\+Data\+Dumper\+::\+Clone (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+{\footnotesize\ttfamily \label{classnetdem_1_1_data_dumper_adbe8a6ac0bf434dc79b98dfdd2dc8f3d} 
+\mbox{\hyperlink{classnetdem_1_1_modifier}{Modifier}} \texorpdfstring{$\ast$}{*} netdem\+::\+Data\+Dumper\+::\+Clone (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
@@ -185,11 +195,11 @@ A pointer to the cloned \doxylink{classnetdem_1_1_data_dumper}{Data\+Dumper} ins
 
 Reimplemented from \mbox{\hyperlink{classnetdem_1_1_modifier_a0c808763e3e8052cbd446cb7d910f843}{netdem\+::\+Modifier}}.
 
-\Hypertarget{classnetdem_1_1_data_dumper_ac55c159664b6760e023ef1521512b28b}\label{classnetdem_1_1_data_dumper_ac55c159664b6760e023ef1521512b28b} 
-\index{netdem::DataDumper@{netdem::DataDumper}!Execute@{Execute}}
+\Hypertarget{classnetdem_1_1_data_dumper_ac55c159664b6760e023ef1521512b28b}\index{netdem::DataDumper@{netdem::DataDumper}!Execute@{Execute}}
 \index{Execute@{Execute}!netdem::DataDumper@{netdem::DataDumper}}
 \doxysubsubsection{\texorpdfstring{Execute()}{Execute()}}
-{\footnotesize\ttfamily void netdem\+::\+Data\+Dumper\+::\+Execute (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+{\footnotesize\ttfamily \label{classnetdem_1_1_data_dumper_ac55c159664b6760e023ef1521512b28b} 
+void netdem\+::\+Data\+Dumper\+::\+Execute (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
@@ -199,11 +209,11 @@ Executes the \doxylink{classnetdem_1_1_data_dumper}{Data\+Dumper} instance.
 
 Reimplemented from \mbox{\hyperlink{classnetdem_1_1_modifier_a8ffc62d61052f129a3301278b7cffb2c}{netdem\+::\+Modifier}}.
 
-\Hypertarget{classnetdem_1_1_data_dumper_a3dba3724732b7159c81366a6cf09720a}\label{classnetdem_1_1_data_dumper_a3dba3724732b7159c81366a6cf09720a} 
-\index{netdem::DataDumper@{netdem::DataDumper}!Init@{Init}}
+\Hypertarget{classnetdem_1_1_data_dumper_a3dba3724732b7159c81366a6cf09720a}\index{netdem::DataDumper@{netdem::DataDumper}!Init@{Init}}
 \index{Init@{Init}!netdem::DataDumper@{netdem::DataDumper}}
 \doxysubsubsection{\texorpdfstring{Init()}{Init()}}
-{\footnotesize\ttfamily void netdem\+::\+Data\+Dumper\+::\+Init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_simulation}{Simulation}} \texorpdfstring{$\ast$}{*}}]{sim }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+{\footnotesize\ttfamily \label{classnetdem_1_1_data_dumper_a3dba3724732b7159c81366a6cf09720a} 
+void netdem\+::\+Data\+Dumper\+::\+Init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_simulation}{Simulation}} \texorpdfstring{$\ast$}{*}}]{sim}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
@@ -220,102 +230,112 @@ Reimplemented from \mbox{\hyperlink{classnetdem_1_1_modifier_ad340b35e3d4a44cbb7
 
 \begin{Desc}
 \item[Examples]\par
-\mbox{\hyperlink{00_nut_in_bolt_8cpp-example}{00\+\_\+nut\+\_\+in\+\_\+bolt.\+cpp}}, \mbox{\hyperlink{02_energy_test_8cpp-example}{02\+\_\+energy\+\_\+test.\+cpp}}, \mbox{\hyperlink{0_geometric_solver_8cpp-example}{0\+\_\+geometric\+\_\+solver.\+cpp}}, \mbox{\hyperlink{0_plane_case_8cpp-example}{0\+\_\+plane\+\_\+case.\+cpp}}, \mbox{\hyperlink{1_gjk_solver_8cpp-example}{1\+\_\+gjk\+\_\+solver.\+cpp}}, \mbox{\hyperlink{1_test_triaxial_comp_8cpp-example}{1\+\_\+test\+\_\+triaxial\+\_\+comp.\+cpp}}, \mbox{\hyperlink{2_sdf_solver_8cpp-example}{2\+\_\+sdf\+\_\+solver.\+cpp}}, \mbox{\hyperlink{3_hybrid_solver_8cpp-example}{3\+\_\+hybrid\+\_\+solver.\+cpp}}, \mbox{\hyperlink{80_random_packing_8cpp-example}{80\+\_\+random\+\_\+packing.\+cpp}}, \mbox{\hyperlink{81_voronoi_packing_8cpp-example}{81\+\_\+voronoi\+\_\+packing.\+cpp}}, \mbox{\hyperlink{90_packing_demo_8cpp-example}{90\+\_\+packing\+\_\+demo.\+cpp}}, \mbox{\hyperlink{90_random_packing_8cpp-example}{90\+\_\+random\+\_\+packing.\+cpp}}, \mbox{\hyperlink{90_random_packing_trimesh_8cpp-example}{90\+\_\+random\+\_\+packing\+\_\+trimesh.\+cpp}}, \mbox{\hyperlink{91_packing_ellipsoid_8cpp-example}{91\+\_\+packing\+\_\+ellipsoid.\+cpp}}, \mbox{\hyperlink{91_triaixal_comp_8cpp-example}{91\+\_\+triaixal\+\_\+comp.\+cpp}}, \mbox{\hyperlink{91_triaixal_comp_trimesh_8cpp-example}{91\+\_\+triaixal\+\_\+comp\+\_\+trimesh.\+cpp}}, \mbox{\hyperlink{92_angle_of_repose_8cpp-example}{92\+\_\+angle\+\_\+of\+\_\+repose.\+cpp}}, \mbox{\hyperlink{92_angle_repose_trimesh_8cpp-example}{92\+\_\+angle\+\_\+repose\+\_\+trimesh.\+cpp}}, \mbox{\hyperlink{92_nut_in_bolt_8cpp-example}{92\+\_\+nut\+\_\+in\+\_\+bolt.\+cpp}}, \mbox{\hyperlink{93_triaixal_comp_trimesh_8cpp-example}{93\+\_\+triaixal\+\_\+comp\+\_\+trimesh.\+cpp}}, \mbox{\hyperlink{94_angle_repose_trimesh_8cpp-example}{94\+\_\+angle\+\_\+repose\+\_\+trimesh.\+cpp}}, \mbox{\hyperlink{96_random_packing_ellipsoid_8cpp-example}{96\+\_\+random\+\_\+packing\+\_\+ellipsoid.\+cpp}}, \mbox{\hyperlink{96_triaixal_comp_sphere_sh_8cpp-example}{96\+\_\+triaixal\+\_\+comp\+\_\+sphere\+\_\+sh.\+cpp}}, \mbox{\hyperlink{97_triaixal_comp_sphere_geom_8cpp-example}{97\+\_\+triaixal\+\_\+comp\+\_\+sphere\+\_\+geom.\+cpp}}, \mbox{\hyperlink{angle_repose_main_8cpp-example}{angle\+\_\+repose\+\_\+main.\+cpp}}, \mbox{\hyperlink{blade_mixing_main_8cpp-example}{blade\+\_\+mixing\+\_\+main.\+cpp}}, \mbox{\hyperlink{landslide_main_8cpp-example}{landslide\+\_\+main.\+cpp}}, and \mbox{\hyperlink{odemetric_comp_main_8cpp-example}{odemetric\+\_\+comp\+\_\+main.\+cpp}}.\end{Desc}
-\Hypertarget{classnetdem_1_1_data_dumper_a05fc49b081cb739e5976116774737b20}\label{classnetdem_1_1_data_dumper_a05fc49b081cb739e5976116774737b20} 
-\index{netdem::DataDumper@{netdem::DataDumper}!Print@{Print}}
+\mbox{\hyperlink{00_nut_in_bolt_8cpp-example}{00\+\_\+nut\+\_\+in\+\_\+bolt.\+cpp}}, \mbox{\hyperlink{02_energy_test_8cpp-example}{02\+\_\+energy\+\_\+test.\+cpp}}, \mbox{\hyperlink{0_geometric_solver_8cpp-example}{0\+\_\+geometric\+\_\+solver.\+cpp}}, \mbox{\hyperlink{0_plane_case_8cpp-example}{0\+\_\+plane\+\_\+case.\+cpp}}, \mbox{\hyperlink{1_gjk_solver_8cpp-example}{1\+\_\+gjk\+\_\+solver.\+cpp}}, \mbox{\hyperlink{1_test_triaxial_comp_8cpp-example}{1\+\_\+test\+\_\+triaxial\+\_\+comp.\+cpp}}, \mbox{\hyperlink{2_sdf_solver_8cpp-example}{2\+\_\+sdf\+\_\+solver.\+cpp}}, \mbox{\hyperlink{3_hybrid_solver_8cpp-example}{3\+\_\+hybrid\+\_\+solver.\+cpp}}, \mbox{\hyperlink{81_voronoi_packing_8cpp-example}{81\+\_\+voronoi\+\_\+packing.\+cpp}}, \mbox{\hyperlink{90_packing_demo_8cpp-example}{90\+\_\+packing\+\_\+demo.\+cpp}}, \mbox{\hyperlink{90_random_packing_8cpp-example}{90\+\_\+random\+\_\+packing.\+cpp}}, \mbox{\hyperlink{90_random_packing_trimesh_8cpp-example}{90\+\_\+random\+\_\+packing\+\_\+trimesh.\+cpp}}, \mbox{\hyperlink{91_packing_ellipsoid_8cpp-example}{91\+\_\+packing\+\_\+ellipsoid.\+cpp}}, \mbox{\hyperlink{91_triaixal_comp_8cpp-example}{91\+\_\+triaixal\+\_\+comp.\+cpp}}, \mbox{\hyperlink{91_triaixal_comp_trimesh_8cpp-example}{91\+\_\+triaixal\+\_\+comp\+\_\+trimesh.\+cpp}}, \mbox{\hyperlink{92_angle_of_repose_8cpp-example}{92\+\_\+angle\+\_\+of\+\_\+repose.\+cpp}}, \mbox{\hyperlink{92_angle_repose_trimesh_8cpp-example}{92\+\_\+angle\+\_\+repose\+\_\+trimesh.\+cpp}}, \mbox{\hyperlink{92_nut_in_bolt_8cpp-example}{92\+\_\+nut\+\_\+in\+\_\+bolt.\+cpp}}, \mbox{\hyperlink{93_triaixal_comp_trimesh_8cpp-example}{93\+\_\+triaixal\+\_\+comp\+\_\+trimesh.\+cpp}}, \mbox{\hyperlink{94_angle_repose_trimesh_8cpp-example}{94\+\_\+angle\+\_\+repose\+\_\+trimesh.\+cpp}}, \mbox{\hyperlink{96_random_packing_ellipsoid_8cpp-example}{96\+\_\+random\+\_\+packing\+\_\+ellipsoid.\+cpp}}, \mbox{\hyperlink{97_triaixal_comp_sphere_geom_8cpp-example}{97\+\_\+triaixal\+\_\+comp\+\_\+sphere\+\_\+geom.\+cpp}}, \mbox{\hyperlink{angle_repose_main_8cpp-example}{angle\+\_\+repose\+\_\+main.\+cpp}}, \mbox{\hyperlink{blade_mixing_main_8cpp-example}{blade\+\_\+mixing\+\_\+main.\+cpp}}, \mbox{\hyperlink{landslide_main_8cpp-example}{landslide\+\_\+main.\+cpp}}, and \mbox{\hyperlink{odemetric_comp_main_8cpp-example}{odemetric\+\_\+comp\+\_\+main.\+cpp}}.\end{Desc}
+\Hypertarget{classnetdem_1_1_data_dumper_a05fc49b081cb739e5976116774737b20}\index{netdem::DataDumper@{netdem::DataDumper}!Print@{Print}}
 \index{Print@{Print}!netdem::DataDumper@{netdem::DataDumper}}
 \doxysubsubsection{\texorpdfstring{Print()}{Print()}}
-{\footnotesize\ttfamily void netdem\+::\+Data\+Dumper\+::\+Print (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{classnetdem_1_1_data_dumper_a05fc49b081cb739e5976116774737b20} 
+void netdem\+::\+Data\+Dumper\+::\+Print (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
 
 
 Prints the current state of the \doxylink{classnetdem_1_1_data_dumper}{Data\+Dumper} instance. 
 
-\Hypertarget{classnetdem_1_1_data_dumper_a31fab0472f58c9ffa791dadc3a22e353}\label{classnetdem_1_1_data_dumper_a31fab0472f58c9ffa791dadc3a22e353} 
-\index{netdem::DataDumper@{netdem::DataDumper}!SaveBondInfoAsDump@{SaveBondInfoAsDump}}
+\Hypertarget{classnetdem_1_1_data_dumper_a31fab0472f58c9ffa791dadc3a22e353}\index{netdem::DataDumper@{netdem::DataDumper}!SaveBondInfoAsDump@{SaveBondInfoAsDump}}
 \index{SaveBondInfoAsDump@{SaveBondInfoAsDump}!netdem::DataDumper@{netdem::DataDumper}}
 \doxysubsubsection{\texorpdfstring{SaveBondInfoAsDump()}{SaveBondInfoAsDump()}}
-{\footnotesize\ttfamily void netdem\+::\+Data\+Dumper\+::\+Save\+Bond\+Info\+As\+Dump (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{classnetdem_1_1_data_dumper_a31fab0472f58c9ffa791dadc3a22e353} 
+void netdem\+::\+Data\+Dumper\+::\+Save\+Bond\+Info\+As\+Dump (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
 
 
 Saves bond information to dump format. 
 
-\Hypertarget{classnetdem_1_1_data_dumper_adc10d4c9634df33f1da95043a49fe943}\label{classnetdem_1_1_data_dumper_adc10d4c9634df33f1da95043a49fe943} 
-\index{netdem::DataDumper@{netdem::DataDumper}!SaveBondInfoAsVTK@{SaveBondInfoAsVTK}}
+\Hypertarget{classnetdem_1_1_data_dumper_adc10d4c9634df33f1da95043a49fe943}\index{netdem::DataDumper@{netdem::DataDumper}!SaveBondInfoAsVTK@{SaveBondInfoAsVTK}}
 \index{SaveBondInfoAsVTK@{SaveBondInfoAsVTK}!netdem::DataDumper@{netdem::DataDumper}}
 \doxysubsubsection{\texorpdfstring{SaveBondInfoAsVTK()}{SaveBondInfoAsVTK()}}
-{\footnotesize\ttfamily void netdem\+::\+Data\+Dumper\+::\+Save\+Bond\+Info\+As\+VTK (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{classnetdem_1_1_data_dumper_adc10d4c9634df33f1da95043a49fe943} 
+void netdem\+::\+Data\+Dumper\+::\+Save\+Bond\+Info\+As\+VTK (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
 
 
 Saves bond information to VTK format. 
 
-\Hypertarget{classnetdem_1_1_data_dumper_a98457a3daeb7908fb624d11aa3097306}\label{classnetdem_1_1_data_dumper_a98457a3daeb7908fb624d11aa3097306} 
-\index{netdem::DataDumper@{netdem::DataDumper}!SaveBondVTKSeries@{SaveBondVTKSeries}}
+\Hypertarget{classnetdem_1_1_data_dumper_a98457a3daeb7908fb624d11aa3097306}\index{netdem::DataDumper@{netdem::DataDumper}!SaveBondVTKSeries@{SaveBondVTKSeries}}
 \index{SaveBondVTKSeries@{SaveBondVTKSeries}!netdem::DataDumper@{netdem::DataDumper}}
 \doxysubsubsection{\texorpdfstring{SaveBondVTKSeries()}{SaveBondVTKSeries()}}
-{\footnotesize\ttfamily void netdem\+::\+Data\+Dumper\+::\+Save\+Bond\+VTKSeries (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{classnetdem_1_1_data_dumper_a98457a3daeb7908fb624d11aa3097306} 
+void netdem\+::\+Data\+Dumper\+::\+Save\+Bond\+VTKSeries (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
 
 
 Saves bond information as a VTK series. 
 
-\Hypertarget{classnetdem_1_1_data_dumper_acda06333e494896937a0e1ccd53a8b55}\label{classnetdem_1_1_data_dumper_acda06333e494896937a0e1ccd53a8b55} 
-\index{netdem::DataDumper@{netdem::DataDumper}!SaveCollisionInfoAsDump@{SaveCollisionInfoAsDump}}
+\Hypertarget{classnetdem_1_1_data_dumper_acda06333e494896937a0e1ccd53a8b55}\index{netdem::DataDumper@{netdem::DataDumper}!SaveCollisionInfoAsDump@{SaveCollisionInfoAsDump}}
 \index{SaveCollisionInfoAsDump@{SaveCollisionInfoAsDump}!netdem::DataDumper@{netdem::DataDumper}}
 \doxysubsubsection{\texorpdfstring{SaveCollisionInfoAsDump()}{SaveCollisionInfoAsDump()}}
-{\footnotesize\ttfamily void netdem\+::\+Data\+Dumper\+::\+Save\+Collision\+Info\+As\+Dump (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{classnetdem_1_1_data_dumper_acda06333e494896937a0e1ccd53a8b55} 
+void netdem\+::\+Data\+Dumper\+::\+Save\+Collision\+Info\+As\+Dump (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
 
 
 Saves collision information to dump format. 
 
-\Hypertarget{classnetdem_1_1_data_dumper_aeb2e43ac5a1dfd2196295f4554998746}\label{classnetdem_1_1_data_dumper_aeb2e43ac5a1dfd2196295f4554998746} 
-\index{netdem::DataDumper@{netdem::DataDumper}!SaveCollisionInfoAsVTK@{SaveCollisionInfoAsVTK}}
+\Hypertarget{classnetdem_1_1_data_dumper_aeb2e43ac5a1dfd2196295f4554998746}\index{netdem::DataDumper@{netdem::DataDumper}!SaveCollisionInfoAsVTK@{SaveCollisionInfoAsVTK}}
 \index{SaveCollisionInfoAsVTK@{SaveCollisionInfoAsVTK}!netdem::DataDumper@{netdem::DataDumper}}
 \doxysubsubsection{\texorpdfstring{SaveCollisionInfoAsVTK()}{SaveCollisionInfoAsVTK()}}
-{\footnotesize\ttfamily void netdem\+::\+Data\+Dumper\+::\+Save\+Collision\+Info\+As\+VTK (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{classnetdem_1_1_data_dumper_aeb2e43ac5a1dfd2196295f4554998746} 
+void netdem\+::\+Data\+Dumper\+::\+Save\+Collision\+Info\+As\+VTK (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
 
 
 Saves collision information to VTK format. 
 
-\Hypertarget{classnetdem_1_1_data_dumper_a8c771decd4d9d071385394abca821bbd}\label{classnetdem_1_1_data_dumper_a8c771decd4d9d071385394abca821bbd} 
-\index{netdem::DataDumper@{netdem::DataDumper}!SaveCollisionVTKSeries@{SaveCollisionVTKSeries}}
+\Hypertarget{classnetdem_1_1_data_dumper_a8c771decd4d9d071385394abca821bbd}\index{netdem::DataDumper@{netdem::DataDumper}!SaveCollisionVTKSeries@{SaveCollisionVTKSeries}}
 \index{SaveCollisionVTKSeries@{SaveCollisionVTKSeries}!netdem::DataDumper@{netdem::DataDumper}}
 \doxysubsubsection{\texorpdfstring{SaveCollisionVTKSeries()}{SaveCollisionVTKSeries()}}
-{\footnotesize\ttfamily void netdem\+::\+Data\+Dumper\+::\+Save\+Collision\+VTKSeries (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{classnetdem_1_1_data_dumper_a8c771decd4d9d071385394abca821bbd} 
+void netdem\+::\+Data\+Dumper\+::\+Save\+Collision\+VTKSeries (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
 
 
 Saves collision information as a VTK series. 
 
-\Hypertarget{classnetdem_1_1_data_dumper_a6047564a1ad6b5ce594c6398caba5efd}\label{classnetdem_1_1_data_dumper_a6047564a1ad6b5ce594c6398caba5efd} 
-\index{netdem::DataDumper@{netdem::DataDumper}!SaveParticleInfoAsDump@{SaveParticleInfoAsDump}}
+\Hypertarget{classnetdem_1_1_data_dumper_a97bea377819f9d1df5d3bf12809a0a83}\index{netdem::DataDumper@{netdem::DataDumper}!SaveContactReadRestart@{SaveContactReadRestart}}
+\index{SaveContactReadRestart@{SaveContactReadRestart}!netdem::DataDumper@{netdem::DataDumper}}
+\doxysubsubsection{\texorpdfstring{SaveContactReadRestart()}{SaveContactReadRestart()}}
+{\footnotesize\ttfamily \label{classnetdem_1_1_data_dumper_a97bea377819f9d1df5d3bf12809a0a83} 
+void netdem\+::\+Data\+Dumper\+::\+Save\+Contact\+Read\+Restart (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Saves contact information as a JSON file for read restart. 
+
+\Hypertarget{classnetdem_1_1_data_dumper_a6047564a1ad6b5ce594c6398caba5efd}\index{netdem::DataDumper@{netdem::DataDumper}!SaveParticleInfoAsDump@{SaveParticleInfoAsDump}}
 \index{SaveParticleInfoAsDump@{SaveParticleInfoAsDump}!netdem::DataDumper@{netdem::DataDumper}}
 \doxysubsubsection{\texorpdfstring{SaveParticleInfoAsDump()}{SaveParticleInfoAsDump()}}
-{\footnotesize\ttfamily void netdem\+::\+Data\+Dumper\+::\+Save\+Particle\+Info\+As\+Dump (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{classnetdem_1_1_data_dumper_a6047564a1ad6b5ce594c6398caba5efd} 
+void netdem\+::\+Data\+Dumper\+::\+Save\+Particle\+Info\+As\+Dump (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
 
 
 Saves particle information to dump format. 
 
-\Hypertarget{classnetdem_1_1_data_dumper_a2f0dd9093fdac66550f11e00bd65d35b}\label{classnetdem_1_1_data_dumper_a2f0dd9093fdac66550f11e00bd65d35b} 
-\index{netdem::DataDumper@{netdem::DataDumper}!SaveParticleInfoAsVTK@{SaveParticleInfoAsVTK}}
+\Hypertarget{classnetdem_1_1_data_dumper_a2f0dd9093fdac66550f11e00bd65d35b}\index{netdem::DataDumper@{netdem::DataDumper}!SaveParticleInfoAsVTK@{SaveParticleInfoAsVTK}}
 \index{SaveParticleInfoAsVTK@{SaveParticleInfoAsVTK}!netdem::DataDumper@{netdem::DataDumper}}
 \doxysubsubsection{\texorpdfstring{SaveParticleInfoAsVTK()}{SaveParticleInfoAsVTK()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily void netdem\+::\+Data\+Dumper\+::\+Save\+Particle\+Info\+As\+VTK (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{classnetdem_1_1_data_dumper_a2f0dd9093fdac66550f11e00bd65d35b} 
+void netdem\+::\+Data\+Dumper\+::\+Save\+Particle\+Info\+As\+VTK (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
 
 
 Saves particle information to VTK format. 
 
-\Hypertarget{classnetdem_1_1_data_dumper_aa9e25759e0764b871f3d81154f904149}\label{classnetdem_1_1_data_dumper_aa9e25759e0764b871f3d81154f904149} 
-\index{netdem::DataDumper@{netdem::DataDumper}!SaveParticleInfoAsVTK@{SaveParticleInfoAsVTK}}
+\Hypertarget{classnetdem_1_1_data_dumper_aa9e25759e0764b871f3d81154f904149}\index{netdem::DataDumper@{netdem::DataDumper}!SaveParticleInfoAsVTK@{SaveParticleInfoAsVTK}}
 \index{SaveParticleInfoAsVTK@{SaveParticleInfoAsVTK}!netdem::DataDumper@{netdem::DataDumper}}
 \doxysubsubsection{\texorpdfstring{SaveParticleInfoAsVTK()}{SaveParticleInfoAsVTK()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily static void netdem\+::\+Data\+Dumper\+::\+Save\+Particle\+Info\+As\+VTK (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} \texorpdfstring{$\ast$}{*} $>$ const \&}]{p\+\_\+list,  }\item[{std\+::string const \&}]{filename }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+{\footnotesize\ttfamily \label{classnetdem_1_1_data_dumper_aa9e25759e0764b871f3d81154f904149} 
+static void netdem\+::\+Data\+Dumper\+::\+Save\+Particle\+Info\+As\+VTK (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{Vec\+XT}}$<$ \mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} \texorpdfstring{$\ast$}{*} $>$ const \&}]{p\+\_\+list}{, }\item[{std\+::string const \&}]{filename}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
 
 
@@ -328,31 +348,31 @@ Saves particle information to VTK format at a given filename.
 {\em filename} & The name of the output file. \\
 \hline
 \end{DoxyParams}
-\Hypertarget{classnetdem_1_1_data_dumper_a7536862849ee423a1c7bfe4086da762c}\label{classnetdem_1_1_data_dumper_a7536862849ee423a1c7bfe4086da762c} 
-\index{netdem::DataDumper@{netdem::DataDumper}!SaveParticleInfoAsVTKWithProxy@{SaveParticleInfoAsVTKWithProxy}}
+\Hypertarget{classnetdem_1_1_data_dumper_a7536862849ee423a1c7bfe4086da762c}\index{netdem::DataDumper@{netdem::DataDumper}!SaveParticleInfoAsVTKWithProxy@{SaveParticleInfoAsVTKWithProxy}}
 \index{SaveParticleInfoAsVTKWithProxy@{SaveParticleInfoAsVTKWithProxy}!netdem::DataDumper@{netdem::DataDumper}}
 \doxysubsubsection{\texorpdfstring{SaveParticleInfoAsVTKWithProxy()}{SaveParticleInfoAsVTKWithProxy()}}
-{\footnotesize\ttfamily void netdem\+::\+Data\+Dumper\+::\+Save\+Particle\+Info\+As\+VTKWith\+Proxy (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{classnetdem_1_1_data_dumper_a7536862849ee423a1c7bfe4086da762c} 
+void netdem\+::\+Data\+Dumper\+::\+Save\+Particle\+Info\+As\+VTKWith\+Proxy (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
 
 
 Saves particle information as VTK with proxy (for MPI debug use). 
 
-\Hypertarget{classnetdem_1_1_data_dumper_adce7a3d09bf85ed2a6e9373d4a29c286}\label{classnetdem_1_1_data_dumper_adce7a3d09bf85ed2a6e9373d4a29c286} 
-\index{netdem::DataDumper@{netdem::DataDumper}!SaveParticleMeshAsVTK@{SaveParticleMeshAsVTK}}
+\Hypertarget{classnetdem_1_1_data_dumper_adce7a3d09bf85ed2a6e9373d4a29c286}\index{netdem::DataDumper@{netdem::DataDumper}!SaveParticleMeshAsVTK@{SaveParticleMeshAsVTK}}
 \index{SaveParticleMeshAsVTK@{SaveParticleMeshAsVTK}!netdem::DataDumper@{netdem::DataDumper}}
 \doxysubsubsection{\texorpdfstring{SaveParticleMeshAsVTK()}{SaveParticleMeshAsVTK()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily void netdem\+::\+Data\+Dumper\+::\+Save\+Particle\+Mesh\+As\+VTK (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{classnetdem_1_1_data_dumper_adce7a3d09bf85ed2a6e9373d4a29c286} 
+void netdem\+::\+Data\+Dumper\+::\+Save\+Particle\+Mesh\+As\+VTK (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
 
 
 Saves particle mesh in VTK format. 
 
-\Hypertarget{classnetdem_1_1_data_dumper_a22183b54f6995f76dd65d46c568ed99b}\label{classnetdem_1_1_data_dumper_a22183b54f6995f76dd65d46c568ed99b} 
-\index{netdem::DataDumper@{netdem::DataDumper}!SaveParticleMeshAsVTK@{SaveParticleMeshAsVTK}}
+\Hypertarget{classnetdem_1_1_data_dumper_a22183b54f6995f76dd65d46c568ed99b}\index{netdem::DataDumper@{netdem::DataDumper}!SaveParticleMeshAsVTK@{SaveParticleMeshAsVTK}}
 \index{SaveParticleMeshAsVTK@{SaveParticleMeshAsVTK}!netdem::DataDumper@{netdem::DataDumper}}
 \doxysubsubsection{\texorpdfstring{SaveParticleMeshAsVTK()}{SaveParticleMeshAsVTK()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily static void netdem\+::\+Data\+Dumper\+::\+Save\+Particle\+Mesh\+As\+VTK (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} \texorpdfstring{$\ast$}{*} $>$ const \&}]{p\+\_\+list,  }\item[{std\+::string const \&}]{filename }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+{\footnotesize\ttfamily \label{classnetdem_1_1_data_dumper_a22183b54f6995f76dd65d46c568ed99b} 
+static void netdem\+::\+Data\+Dumper\+::\+Save\+Particle\+Mesh\+As\+VTK (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{Vec\+XT}}$<$ \mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} \texorpdfstring{$\ast$}{*} $>$ const \&}]{p\+\_\+list}{, }\item[{std\+::string const \&}]{filename}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
 
 
@@ -365,31 +385,51 @@ Saves particle mesh in VTK format at a given filename.
 {\em filename} & The name of the output file. \\
 \hline
 \end{DoxyParams}
-\Hypertarget{classnetdem_1_1_data_dumper_a82eb5fc19fbd82504c8612d07019449f}\label{classnetdem_1_1_data_dumper_a82eb5fc19fbd82504c8612d07019449f} 
-\index{netdem::DataDumper@{netdem::DataDumper}!SaveParticleMeshVTKSeries@{SaveParticleMeshVTKSeries}}
+\Hypertarget{classnetdem_1_1_data_dumper_a82eb5fc19fbd82504c8612d07019449f}\index{netdem::DataDumper@{netdem::DataDumper}!SaveParticleMeshVTKSeries@{SaveParticleMeshVTKSeries}}
 \index{SaveParticleMeshVTKSeries@{SaveParticleMeshVTKSeries}!netdem::DataDumper@{netdem::DataDumper}}
 \doxysubsubsection{\texorpdfstring{SaveParticleMeshVTKSeries()}{SaveParticleMeshVTKSeries()}}
-{\footnotesize\ttfamily void netdem\+::\+Data\+Dumper\+::\+Save\+Particle\+Mesh\+VTKSeries (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{classnetdem_1_1_data_dumper_a82eb5fc19fbd82504c8612d07019449f} 
+void netdem\+::\+Data\+Dumper\+::\+Save\+Particle\+Mesh\+VTKSeries (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
 
 
 Saves particle mesh as a VTK series. 
 
-\Hypertarget{classnetdem_1_1_data_dumper_a3e3bc18ac0db1dc6e4f2e32bf9bc2fe3}\label{classnetdem_1_1_data_dumper_a3e3bc18ac0db1dc6e4f2e32bf9bc2fe3} 
-\index{netdem::DataDumper@{netdem::DataDumper}!SaveParticleVTKSeries@{SaveParticleVTKSeries}}
+\Hypertarget{classnetdem_1_1_data_dumper_a9f0ff22225428f10572c56452fb66bf0}\index{netdem::DataDumper@{netdem::DataDumper}!SaveParticleReadRestart@{SaveParticleReadRestart}}
+\index{SaveParticleReadRestart@{SaveParticleReadRestart}!netdem::DataDumper@{netdem::DataDumper}}
+\doxysubsubsection{\texorpdfstring{SaveParticleReadRestart()}{SaveParticleReadRestart()}}
+{\footnotesize\ttfamily \label{classnetdem_1_1_data_dumper_a9f0ff22225428f10572c56452fb66bf0} 
+void netdem\+::\+Data\+Dumper\+::\+Save\+Particle\+Read\+Restart (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Saves particle information as a JSON file for read restart. 
+
+\Hypertarget{classnetdem_1_1_data_dumper_a3e3bc18ac0db1dc6e4f2e32bf9bc2fe3}\index{netdem::DataDumper@{netdem::DataDumper}!SaveParticleVTKSeries@{SaveParticleVTKSeries}}
 \index{SaveParticleVTKSeries@{SaveParticleVTKSeries}!netdem::DataDumper@{netdem::DataDumper}}
 \doxysubsubsection{\texorpdfstring{SaveParticleVTKSeries()}{SaveParticleVTKSeries()}}
-{\footnotesize\ttfamily void netdem\+::\+Data\+Dumper\+::\+Save\+Particle\+VTKSeries (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{classnetdem_1_1_data_dumper_a3e3bc18ac0db1dc6e4f2e32bf9bc2fe3} 
+void netdem\+::\+Data\+Dumper\+::\+Save\+Particle\+VTKSeries (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
 
 
 Saves particle information as a VTK series. 
 
-\Hypertarget{classnetdem_1_1_data_dumper_a0b51bc0751d3298a817dc3868067163d}\label{classnetdem_1_1_data_dumper_a0b51bc0751d3298a817dc3868067163d} 
-\index{netdem::DataDumper@{netdem::DataDumper}!SaveShapeInfoAsJson@{SaveShapeInfoAsJson}}
+\Hypertarget{classnetdem_1_1_data_dumper_af058b81a859e3af638517788516b7aa9}\index{netdem::DataDumper@{netdem::DataDumper}!SaveReadRestart@{SaveReadRestart}}
+\index{SaveReadRestart@{SaveReadRestart}!netdem::DataDumper@{netdem::DataDumper}}
+\doxysubsubsection{\texorpdfstring{SaveReadRestart()}{SaveReadRestart()}}
+{\footnotesize\ttfamily \label{classnetdem_1_1_data_dumper_af058b81a859e3af638517788516b7aa9} 
+void netdem\+::\+Data\+Dumper\+::\+Save\+Read\+Restart (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Saves all information as JSON files for read restart. 
+
+\Hypertarget{classnetdem_1_1_data_dumper_a0b51bc0751d3298a817dc3868067163d}\index{netdem::DataDumper@{netdem::DataDumper}!SaveShapeInfoAsJson@{SaveShapeInfoAsJson}}
 \index{SaveShapeInfoAsJson@{SaveShapeInfoAsJson}!netdem::DataDumper@{netdem::DataDumper}}
 \doxysubsubsection{\texorpdfstring{SaveShapeInfoAsJson()}{SaveShapeInfoAsJson()}}
-{\footnotesize\ttfamily void netdem\+::\+Data\+Dumper\+::\+Save\+Shape\+Info\+As\+Json (\begin{DoxyParamCaption}\item[{bool}]{all\+\_\+in\+\_\+one = {\ttfamily false} }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{classnetdem_1_1_data_dumper_a0b51bc0751d3298a817dc3868067163d} 
+void netdem\+::\+Data\+Dumper\+::\+Save\+Shape\+Info\+As\+Json (\begin{DoxyParamCaption}\item[{bool}]{all\+\_\+in\+\_\+one}{ = {\ttfamily false}}\end{DoxyParamCaption})}
 
 
 
@@ -400,11 +440,11 @@ Saves shape information as a JSON file.
 {\em all\+\_\+in\+\_\+one} & A flag that determines whether to save all the shapes in one file. \\
 \hline
 \end{DoxyParams}
-\Hypertarget{classnetdem_1_1_data_dumper_a98fa48ac13d93426527022a93e248f3f}\label{classnetdem_1_1_data_dumper_a98fa48ac13d93426527022a93e248f3f} 
-\index{netdem::DataDumper@{netdem::DataDumper}!SaveShapeInfoAsSTL@{SaveShapeInfoAsSTL}}
+\Hypertarget{classnetdem_1_1_data_dumper_a98fa48ac13d93426527022a93e248f3f}\index{netdem::DataDumper@{netdem::DataDumper}!SaveShapeInfoAsSTL@{SaveShapeInfoAsSTL}}
 \index{SaveShapeInfoAsSTL@{SaveShapeInfoAsSTL}!netdem::DataDumper@{netdem::DataDumper}}
 \doxysubsubsection{\texorpdfstring{SaveShapeInfoAsSTL()}{SaveShapeInfoAsSTL()}}
-{\footnotesize\ttfamily void netdem\+::\+Data\+Dumper\+::\+Save\+Shape\+Info\+As\+STL (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{classnetdem_1_1_data_dumper_a98fa48ac13d93426527022a93e248f3f} 
+void netdem\+::\+Data\+Dumper\+::\+Save\+Shape\+Info\+As\+STL (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
 
 
@@ -412,72 +452,92 @@ Saves shape information as an STL file.
 
 \begin{Desc}
 \item[Examples]\par
-\mbox{\hyperlink{00_nut_in_bolt_8cpp-example}{00\+\_\+nut\+\_\+in\+\_\+bolt.\+cpp}}, \mbox{\hyperlink{0_geometric_solver_8cpp-example}{0\+\_\+geometric\+\_\+solver.\+cpp}}, \mbox{\hyperlink{1_gjk_solver_8cpp-example}{1\+\_\+gjk\+\_\+solver.\+cpp}}, \mbox{\hyperlink{2_sdf_solver_8cpp-example}{2\+\_\+sdf\+\_\+solver.\+cpp}}, \mbox{\hyperlink{3_hybrid_solver_8cpp-example}{3\+\_\+hybrid\+\_\+solver.\+cpp}}, \mbox{\hyperlink{80_random_packing_8cpp-example}{80\+\_\+random\+\_\+packing.\+cpp}}, \mbox{\hyperlink{81_voronoi_packing_8cpp-example}{81\+\_\+voronoi\+\_\+packing.\+cpp}}, \mbox{\hyperlink{90_packing_demo_8cpp-example}{90\+\_\+packing\+\_\+demo.\+cpp}}, \mbox{\hyperlink{90_random_packing_8cpp-example}{90\+\_\+random\+\_\+packing.\+cpp}}, \mbox{\hyperlink{90_random_packing_trimesh_8cpp-example}{90\+\_\+random\+\_\+packing\+\_\+trimesh.\+cpp}}, \mbox{\hyperlink{91_packing_ellipsoid_8cpp-example}{91\+\_\+packing\+\_\+ellipsoid.\+cpp}}, \mbox{\hyperlink{91_triaixal_comp_8cpp-example}{91\+\_\+triaixal\+\_\+comp.\+cpp}}, \mbox{\hyperlink{91_triaixal_comp_trimesh_8cpp-example}{91\+\_\+triaixal\+\_\+comp\+\_\+trimesh.\+cpp}}, \mbox{\hyperlink{92_angle_of_repose_8cpp-example}{92\+\_\+angle\+\_\+of\+\_\+repose.\+cpp}}, \mbox{\hyperlink{92_angle_repose_trimesh_8cpp-example}{92\+\_\+angle\+\_\+repose\+\_\+trimesh.\+cpp}}, \mbox{\hyperlink{92_nut_in_bolt_8cpp-example}{92\+\_\+nut\+\_\+in\+\_\+bolt.\+cpp}}, \mbox{\hyperlink{93_triaixal_comp_trimesh_8cpp-example}{93\+\_\+triaixal\+\_\+comp\+\_\+trimesh.\+cpp}}, \mbox{\hyperlink{94_angle_repose_trimesh_8cpp-example}{94\+\_\+angle\+\_\+repose\+\_\+trimesh.\+cpp}}, \mbox{\hyperlink{96_random_packing_ellipsoid_8cpp-example}{96\+\_\+random\+\_\+packing\+\_\+ellipsoid.\+cpp}}, \mbox{\hyperlink{96_triaixal_comp_sphere_sh_8cpp-example}{96\+\_\+triaixal\+\_\+comp\+\_\+sphere\+\_\+sh.\+cpp}}, \mbox{\hyperlink{97_triaixal_comp_sphere_geom_8cpp-example}{97\+\_\+triaixal\+\_\+comp\+\_\+sphere\+\_\+geom.\+cpp}}, \mbox{\hyperlink{angle_repose_main_8cpp-example}{angle\+\_\+repose\+\_\+main.\+cpp}}, and \mbox{\hyperlink{odemetric_comp_main_8cpp-example}{odemetric\+\_\+comp\+\_\+main.\+cpp}}.\end{Desc}
-\Hypertarget{classnetdem_1_1_data_dumper_a640bd260ed0f6269da751d5d33e4be83}\label{classnetdem_1_1_data_dumper_a640bd260ed0f6269da751d5d33e4be83} 
-\index{netdem::DataDumper@{netdem::DataDumper}!SaveShapeInfoAsVTK@{SaveShapeInfoAsVTK}}
+\mbox{\hyperlink{00_nut_in_bolt_8cpp-example}{00\+\_\+nut\+\_\+in\+\_\+bolt.\+cpp}}, \mbox{\hyperlink{02_energy_test_8cpp-example}{02\+\_\+energy\+\_\+test.\+cpp}}, \mbox{\hyperlink{0_geometric_solver_8cpp-example}{0\+\_\+geometric\+\_\+solver.\+cpp}}, \mbox{\hyperlink{1_gjk_solver_8cpp-example}{1\+\_\+gjk\+\_\+solver.\+cpp}}, \mbox{\hyperlink{2_sdf_solver_8cpp-example}{2\+\_\+sdf\+\_\+solver.\+cpp}}, \mbox{\hyperlink{3_hybrid_solver_8cpp-example}{3\+\_\+hybrid\+\_\+solver.\+cpp}}, \mbox{\hyperlink{81_voronoi_packing_8cpp-example}{81\+\_\+voronoi\+\_\+packing.\+cpp}}, \mbox{\hyperlink{90_packing_demo_8cpp-example}{90\+\_\+packing\+\_\+demo.\+cpp}}, \mbox{\hyperlink{90_random_packing_8cpp-example}{90\+\_\+random\+\_\+packing.\+cpp}}, \mbox{\hyperlink{90_random_packing_trimesh_8cpp-example}{90\+\_\+random\+\_\+packing\+\_\+trimesh.\+cpp}}, \mbox{\hyperlink{91_packing_ellipsoid_8cpp-example}{91\+\_\+packing\+\_\+ellipsoid.\+cpp}}, \mbox{\hyperlink{91_triaixal_comp_8cpp-example}{91\+\_\+triaixal\+\_\+comp.\+cpp}}, \mbox{\hyperlink{91_triaixal_comp_trimesh_8cpp-example}{91\+\_\+triaixal\+\_\+comp\+\_\+trimesh.\+cpp}}, \mbox{\hyperlink{92_angle_of_repose_8cpp-example}{92\+\_\+angle\+\_\+of\+\_\+repose.\+cpp}}, \mbox{\hyperlink{92_angle_repose_trimesh_8cpp-example}{92\+\_\+angle\+\_\+repose\+\_\+trimesh.\+cpp}}, \mbox{\hyperlink{92_nut_in_bolt_8cpp-example}{92\+\_\+nut\+\_\+in\+\_\+bolt.\+cpp}}, \mbox{\hyperlink{93_triaixal_comp_trimesh_8cpp-example}{93\+\_\+triaixal\+\_\+comp\+\_\+trimesh.\+cpp}}, \mbox{\hyperlink{94_angle_repose_trimesh_8cpp-example}{94\+\_\+angle\+\_\+repose\+\_\+trimesh.\+cpp}}, \mbox{\hyperlink{96_random_packing_ellipsoid_8cpp-example}{96\+\_\+random\+\_\+packing\+\_\+ellipsoid.\+cpp}}, \mbox{\hyperlink{97_triaixal_comp_sphere_geom_8cpp-example}{97\+\_\+triaixal\+\_\+comp\+\_\+sphere\+\_\+geom.\+cpp}}, \mbox{\hyperlink{angle_repose_main_8cpp-example}{angle\+\_\+repose\+\_\+main.\+cpp}}, and \mbox{\hyperlink{odemetric_comp_main_8cpp-example}{odemetric\+\_\+comp\+\_\+main.\+cpp}}.\end{Desc}
+\Hypertarget{classnetdem_1_1_data_dumper_a640bd260ed0f6269da751d5d33e4be83}\index{netdem::DataDumper@{netdem::DataDumper}!SaveShapeInfoAsVTK@{SaveShapeInfoAsVTK}}
 \index{SaveShapeInfoAsVTK@{SaveShapeInfoAsVTK}!netdem::DataDumper@{netdem::DataDumper}}
 \doxysubsubsection{\texorpdfstring{SaveShapeInfoAsVTK()}{SaveShapeInfoAsVTK()}}
-{\footnotesize\ttfamily void netdem\+::\+Data\+Dumper\+::\+Save\+Shape\+Info\+As\+VTK (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{classnetdem_1_1_data_dumper_a640bd260ed0f6269da751d5d33e4be83} 
+void netdem\+::\+Data\+Dumper\+::\+Save\+Shape\+Info\+As\+VTK (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
 
 
 Saves shape information to VTK format. 
 
-\Hypertarget{classnetdem_1_1_data_dumper_a76340982427f1bd0626f00aa38f11d34}\label{classnetdem_1_1_data_dumper_a76340982427f1bd0626f00aa38f11d34} 
-\index{netdem::DataDumper@{netdem::DataDumper}!SaveWallInfoAsDump@{SaveWallInfoAsDump}}
+\Hypertarget{classnetdem_1_1_data_dumper_a4219203fefadbe379d0e39a17460faa7}\index{netdem::DataDumper@{netdem::DataDumper}!SaveShapeReadRestart@{SaveShapeReadRestart}}
+\index{SaveShapeReadRestart@{SaveShapeReadRestart}!netdem::DataDumper@{netdem::DataDumper}}
+\doxysubsubsection{\texorpdfstring{SaveShapeReadRestart()}{SaveShapeReadRestart()}}
+{\footnotesize\ttfamily \label{classnetdem_1_1_data_dumper_a4219203fefadbe379d0e39a17460faa7} 
+void netdem\+::\+Data\+Dumper\+::\+Save\+Shape\+Read\+Restart (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Saves shape information as a JSON file for read restart. 
+
+\Hypertarget{classnetdem_1_1_data_dumper_a76340982427f1bd0626f00aa38f11d34}\index{netdem::DataDumper@{netdem::DataDumper}!SaveWallInfoAsDump@{SaveWallInfoAsDump}}
 \index{SaveWallInfoAsDump@{SaveWallInfoAsDump}!netdem::DataDumper@{netdem::DataDumper}}
 \doxysubsubsection{\texorpdfstring{SaveWallInfoAsDump()}{SaveWallInfoAsDump()}}
-{\footnotesize\ttfamily void netdem\+::\+Data\+Dumper\+::\+Save\+Wall\+Info\+As\+Dump (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{classnetdem_1_1_data_dumper_a76340982427f1bd0626f00aa38f11d34} 
+void netdem\+::\+Data\+Dumper\+::\+Save\+Wall\+Info\+As\+Dump (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
 
 
 Saves wall information to dump format. 
 
-\Hypertarget{classnetdem_1_1_data_dumper_a06f3e5e7684ca8865a68a5edf2b90c87}\label{classnetdem_1_1_data_dumper_a06f3e5e7684ca8865a68a5edf2b90c87} 
-\index{netdem::DataDumper@{netdem::DataDumper}!SaveWallInfoAsVTK@{SaveWallInfoAsVTK}}
+\Hypertarget{classnetdem_1_1_data_dumper_a06f3e5e7684ca8865a68a5edf2b90c87}\index{netdem::DataDumper@{netdem::DataDumper}!SaveWallInfoAsVTK@{SaveWallInfoAsVTK}}
 \index{SaveWallInfoAsVTK@{SaveWallInfoAsVTK}!netdem::DataDumper@{netdem::DataDumper}}
 \doxysubsubsection{\texorpdfstring{SaveWallInfoAsVTK()}{SaveWallInfoAsVTK()}}
-{\footnotesize\ttfamily void netdem\+::\+Data\+Dumper\+::\+Save\+Wall\+Info\+As\+VTK (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{classnetdem_1_1_data_dumper_a06f3e5e7684ca8865a68a5edf2b90c87} 
+void netdem\+::\+Data\+Dumper\+::\+Save\+Wall\+Info\+As\+VTK (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
 
 
 Saves wall information to VTK format. 
 
-\Hypertarget{classnetdem_1_1_data_dumper_ac039050bdfd404465ef6829555f88926}\label{classnetdem_1_1_data_dumper_ac039050bdfd404465ef6829555f88926} 
-\index{netdem::DataDumper@{netdem::DataDumper}!SaveWallMeshAsVTK@{SaveWallMeshAsVTK}}
+\Hypertarget{classnetdem_1_1_data_dumper_ac039050bdfd404465ef6829555f88926}\index{netdem::DataDumper@{netdem::DataDumper}!SaveWallMeshAsVTK@{SaveWallMeshAsVTK}}
 \index{SaveWallMeshAsVTK@{SaveWallMeshAsVTK}!netdem::DataDumper@{netdem::DataDumper}}
 \doxysubsubsection{\texorpdfstring{SaveWallMeshAsVTK()}{SaveWallMeshAsVTK()}}
-{\footnotesize\ttfamily void netdem\+::\+Data\+Dumper\+::\+Save\+Wall\+Mesh\+As\+VTK (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{classnetdem_1_1_data_dumper_ac039050bdfd404465ef6829555f88926} 
+void netdem\+::\+Data\+Dumper\+::\+Save\+Wall\+Mesh\+As\+VTK (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
 
 
 Saves wall mesh in VTK format. 
 
-\Hypertarget{classnetdem_1_1_data_dumper_aac0ad109aadc3ad8e2f9829612bc68f4}\label{classnetdem_1_1_data_dumper_aac0ad109aadc3ad8e2f9829612bc68f4} 
-\index{netdem::DataDumper@{netdem::DataDumper}!SaveWallMeshVTKSeries@{SaveWallMeshVTKSeries}}
+\Hypertarget{classnetdem_1_1_data_dumper_aac0ad109aadc3ad8e2f9829612bc68f4}\index{netdem::DataDumper@{netdem::DataDumper}!SaveWallMeshVTKSeries@{SaveWallMeshVTKSeries}}
 \index{SaveWallMeshVTKSeries@{SaveWallMeshVTKSeries}!netdem::DataDumper@{netdem::DataDumper}}
 \doxysubsubsection{\texorpdfstring{SaveWallMeshVTKSeries()}{SaveWallMeshVTKSeries()}}
-{\footnotesize\ttfamily void netdem\+::\+Data\+Dumper\+::\+Save\+Wall\+Mesh\+VTKSeries (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{classnetdem_1_1_data_dumper_aac0ad109aadc3ad8e2f9829612bc68f4} 
+void netdem\+::\+Data\+Dumper\+::\+Save\+Wall\+Mesh\+VTKSeries (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
 
 
 Saves wall mesh as a VTK series. 
 
-\Hypertarget{classnetdem_1_1_data_dumper_ab02a94fee1226447df2b5f9b03ccf01b}\label{classnetdem_1_1_data_dumper_ab02a94fee1226447df2b5f9b03ccf01b} 
-\index{netdem::DataDumper@{netdem::DataDumper}!SaveWallVTKSeries@{SaveWallVTKSeries}}
+\Hypertarget{classnetdem_1_1_data_dumper_af9f8e0d8294791652342df18ce987256}\index{netdem::DataDumper@{netdem::DataDumper}!SaveWallReadRestart@{SaveWallReadRestart}}
+\index{SaveWallReadRestart@{SaveWallReadRestart}!netdem::DataDumper@{netdem::DataDumper}}
+\doxysubsubsection{\texorpdfstring{SaveWallReadRestart()}{SaveWallReadRestart()}}
+{\footnotesize\ttfamily \label{classnetdem_1_1_data_dumper_af9f8e0d8294791652342df18ce987256} 
+void netdem\+::\+Data\+Dumper\+::\+Save\+Wall\+Read\+Restart (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Saves wall information as a JSON file for read restart. 
+
+\Hypertarget{classnetdem_1_1_data_dumper_ab02a94fee1226447df2b5f9b03ccf01b}\index{netdem::DataDumper@{netdem::DataDumper}!SaveWallVTKSeries@{SaveWallVTKSeries}}
 \index{SaveWallVTKSeries@{SaveWallVTKSeries}!netdem::DataDumper@{netdem::DataDumper}}
 \doxysubsubsection{\texorpdfstring{SaveWallVTKSeries()}{SaveWallVTKSeries()}}
-{\footnotesize\ttfamily void netdem\+::\+Data\+Dumper\+::\+Save\+Wall\+VTKSeries (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{classnetdem_1_1_data_dumper_ab02a94fee1226447df2b5f9b03ccf01b} 
+void netdem\+::\+Data\+Dumper\+::\+Save\+Wall\+VTKSeries (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
 
 
 Saves wall information as a VTK series. 
 
-\Hypertarget{classnetdem_1_1_data_dumper_ac2900c13d55084b3dff31789c351dd3f}\label{classnetdem_1_1_data_dumper_ac2900c13d55084b3dff31789c351dd3f} 
-\index{netdem::DataDumper@{netdem::DataDumper}!SetDataType@{SetDataType}}
+\Hypertarget{classnetdem_1_1_data_dumper_ac2900c13d55084b3dff31789c351dd3f}\index{netdem::DataDumper@{netdem::DataDumper}!SetDataType@{SetDataType}}
 \index{SetDataType@{SetDataType}!netdem::DataDumper@{netdem::DataDumper}}
 \doxysubsubsection{\texorpdfstring{SetDataType()}{SetDataType()}}
-{\footnotesize\ttfamily void netdem\+::\+Data\+Dumper\+::\+Set\+Data\+Type (\begin{DoxyParamCaption}\item[{std\+::string const \&}]{data\+\_\+type }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{classnetdem_1_1_data_dumper_ac2900c13d55084b3dff31789c351dd3f} 
+void netdem\+::\+Data\+Dumper\+::\+Set\+Data\+Type (\begin{DoxyParamCaption}\item[{std\+::string const \&}]{data\+\_\+type}{}\end{DoxyParamCaption})}
 
 
 
@@ -488,11 +548,11 @@ Sets the data type of the output file (vtk or dump format).
 {\em data\+\_\+type} & The new data type. \\
 \hline
 \end{DoxyParams}
-\Hypertarget{classnetdem_1_1_data_dumper_ae4299f2162ba78ec3fbc0f0bc9e9b2d7}\label{classnetdem_1_1_data_dumper_ae4299f2162ba78ec3fbc0f0bc9e9b2d7} 
-\index{netdem::DataDumper@{netdem::DataDumper}!SetRootPath@{SetRootPath}}
+\Hypertarget{classnetdem_1_1_data_dumper_ae4299f2162ba78ec3fbc0f0bc9e9b2d7}\index{netdem::DataDumper@{netdem::DataDumper}!SetRootPath@{SetRootPath}}
 \index{SetRootPath@{SetRootPath}!netdem::DataDumper@{netdem::DataDumper}}
 \doxysubsubsection{\texorpdfstring{SetRootPath()}{SetRootPath()}}
-{\footnotesize\ttfamily void netdem\+::\+Data\+Dumper\+::\+Set\+Root\+Path (\begin{DoxyParamCaption}\item[{std\+::string const \&}]{root\+\_\+path }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{classnetdem_1_1_data_dumper_ae4299f2162ba78ec3fbc0f0bc9e9b2d7} 
+void netdem\+::\+Data\+Dumper\+::\+Set\+Root\+Path (\begin{DoxyParamCaption}\item[{std\+::string const \&}]{root\+\_\+path}{}\end{DoxyParamCaption})}
 
 
 
@@ -505,12 +565,12 @@ Sets the root directory path for the output file.
 \end{DoxyParams}
 \begin{Desc}
 \item[Examples]\par
-\mbox{\hyperlink{00_nut_in_bolt_8cpp-example}{00\+\_\+nut\+\_\+in\+\_\+bolt.\+cpp}}, \mbox{\hyperlink{02_energy_test_8cpp-example}{02\+\_\+energy\+\_\+test.\+cpp}}, \mbox{\hyperlink{0_geometric_solver_8cpp-example}{0\+\_\+geometric\+\_\+solver.\+cpp}}, \mbox{\hyperlink{0_plane_case_8cpp-example}{0\+\_\+plane\+\_\+case.\+cpp}}, \mbox{\hyperlink{1_gjk_solver_8cpp-example}{1\+\_\+gjk\+\_\+solver.\+cpp}}, \mbox{\hyperlink{1_test_triaxial_comp_8cpp-example}{1\+\_\+test\+\_\+triaxial\+\_\+comp.\+cpp}}, \mbox{\hyperlink{2_sdf_solver_8cpp-example}{2\+\_\+sdf\+\_\+solver.\+cpp}}, \mbox{\hyperlink{3_hybrid_solver_8cpp-example}{3\+\_\+hybrid\+\_\+solver.\+cpp}}, \mbox{\hyperlink{80_random_packing_8cpp-example}{80\+\_\+random\+\_\+packing.\+cpp}}, \mbox{\hyperlink{81_voronoi_packing_8cpp-example}{81\+\_\+voronoi\+\_\+packing.\+cpp}}, \mbox{\hyperlink{90_packing_demo_8cpp-example}{90\+\_\+packing\+\_\+demo.\+cpp}}, \mbox{\hyperlink{90_random_packing_8cpp-example}{90\+\_\+random\+\_\+packing.\+cpp}}, \mbox{\hyperlink{90_random_packing_trimesh_8cpp-example}{90\+\_\+random\+\_\+packing\+\_\+trimesh.\+cpp}}, \mbox{\hyperlink{91_packing_ellipsoid_8cpp-example}{91\+\_\+packing\+\_\+ellipsoid.\+cpp}}, \mbox{\hyperlink{91_triaixal_comp_8cpp-example}{91\+\_\+triaixal\+\_\+comp.\+cpp}}, \mbox{\hyperlink{91_triaixal_comp_trimesh_8cpp-example}{91\+\_\+triaixal\+\_\+comp\+\_\+trimesh.\+cpp}}, \mbox{\hyperlink{92_angle_of_repose_8cpp-example}{92\+\_\+angle\+\_\+of\+\_\+repose.\+cpp}}, \mbox{\hyperlink{92_angle_repose_trimesh_8cpp-example}{92\+\_\+angle\+\_\+repose\+\_\+trimesh.\+cpp}}, \mbox{\hyperlink{92_nut_in_bolt_8cpp-example}{92\+\_\+nut\+\_\+in\+\_\+bolt.\+cpp}}, \mbox{\hyperlink{93_triaixal_comp_trimesh_8cpp-example}{93\+\_\+triaixal\+\_\+comp\+\_\+trimesh.\+cpp}}, \mbox{\hyperlink{94_angle_repose_trimesh_8cpp-example}{94\+\_\+angle\+\_\+repose\+\_\+trimesh.\+cpp}}, \mbox{\hyperlink{96_random_packing_ellipsoid_8cpp-example}{96\+\_\+random\+\_\+packing\+\_\+ellipsoid.\+cpp}}, \mbox{\hyperlink{96_triaixal_comp_sphere_sh_8cpp-example}{96\+\_\+triaixal\+\_\+comp\+\_\+sphere\+\_\+sh.\+cpp}}, \mbox{\hyperlink{97_triaixal_comp_sphere_geom_8cpp-example}{97\+\_\+triaixal\+\_\+comp\+\_\+sphere\+\_\+geom.\+cpp}}, \mbox{\hyperlink{angle_repose_main_8cpp-example}{angle\+\_\+repose\+\_\+main.\+cpp}}, \mbox{\hyperlink{blade_mixing_main_8cpp-example}{blade\+\_\+mixing\+\_\+main.\+cpp}}, \mbox{\hyperlink{landslide_main_8cpp-example}{landslide\+\_\+main.\+cpp}}, and \mbox{\hyperlink{odemetric_comp_main_8cpp-example}{odemetric\+\_\+comp\+\_\+main.\+cpp}}.\end{Desc}
-\Hypertarget{classnetdem_1_1_data_dumper_ac80bd05d4083227c57b5f6598d53a095}\label{classnetdem_1_1_data_dumper_ac80bd05d4083227c57b5f6598d53a095} 
-\index{netdem::DataDumper@{netdem::DataDumper}!SetSaveByCycles@{SetSaveByCycles}}
+\mbox{\hyperlink{00_nut_in_bolt_8cpp-example}{00\+\_\+nut\+\_\+in\+\_\+bolt.\+cpp}}, \mbox{\hyperlink{02_energy_test_8cpp-example}{02\+\_\+energy\+\_\+test.\+cpp}}, \mbox{\hyperlink{0_geometric_solver_8cpp-example}{0\+\_\+geometric\+\_\+solver.\+cpp}}, \mbox{\hyperlink{0_plane_case_8cpp-example}{0\+\_\+plane\+\_\+case.\+cpp}}, \mbox{\hyperlink{1_gjk_solver_8cpp-example}{1\+\_\+gjk\+\_\+solver.\+cpp}}, \mbox{\hyperlink{1_test_triaxial_comp_8cpp-example}{1\+\_\+test\+\_\+triaxial\+\_\+comp.\+cpp}}, \mbox{\hyperlink{2_sdf_solver_8cpp-example}{2\+\_\+sdf\+\_\+solver.\+cpp}}, \mbox{\hyperlink{3_hybrid_solver_8cpp-example}{3\+\_\+hybrid\+\_\+solver.\+cpp}}, \mbox{\hyperlink{81_voronoi_packing_8cpp-example}{81\+\_\+voronoi\+\_\+packing.\+cpp}}, \mbox{\hyperlink{90_packing_demo_8cpp-example}{90\+\_\+packing\+\_\+demo.\+cpp}}, \mbox{\hyperlink{90_random_packing_8cpp-example}{90\+\_\+random\+\_\+packing.\+cpp}}, \mbox{\hyperlink{90_random_packing_trimesh_8cpp-example}{90\+\_\+random\+\_\+packing\+\_\+trimesh.\+cpp}}, \mbox{\hyperlink{91_packing_ellipsoid_8cpp-example}{91\+\_\+packing\+\_\+ellipsoid.\+cpp}}, \mbox{\hyperlink{91_triaixal_comp_8cpp-example}{91\+\_\+triaixal\+\_\+comp.\+cpp}}, \mbox{\hyperlink{91_triaixal_comp_trimesh_8cpp-example}{91\+\_\+triaixal\+\_\+comp\+\_\+trimesh.\+cpp}}, \mbox{\hyperlink{92_angle_of_repose_8cpp-example}{92\+\_\+angle\+\_\+of\+\_\+repose.\+cpp}}, \mbox{\hyperlink{92_angle_repose_trimesh_8cpp-example}{92\+\_\+angle\+\_\+repose\+\_\+trimesh.\+cpp}}, \mbox{\hyperlink{92_nut_in_bolt_8cpp-example}{92\+\_\+nut\+\_\+in\+\_\+bolt.\+cpp}}, \mbox{\hyperlink{93_triaixal_comp_trimesh_8cpp-example}{93\+\_\+triaixal\+\_\+comp\+\_\+trimesh.\+cpp}}, \mbox{\hyperlink{94_angle_repose_trimesh_8cpp-example}{94\+\_\+angle\+\_\+repose\+\_\+trimesh.\+cpp}}, \mbox{\hyperlink{96_random_packing_ellipsoid_8cpp-example}{96\+\_\+random\+\_\+packing\+\_\+ellipsoid.\+cpp}}, \mbox{\hyperlink{97_triaixal_comp_sphere_geom_8cpp-example}{97\+\_\+triaixal\+\_\+comp\+\_\+sphere\+\_\+geom.\+cpp}}, \mbox{\hyperlink{angle_repose_main_8cpp-example}{angle\+\_\+repose\+\_\+main.\+cpp}}, \mbox{\hyperlink{blade_mixing_main_8cpp-example}{blade\+\_\+mixing\+\_\+main.\+cpp}}, \mbox{\hyperlink{landslide_main_8cpp-example}{landslide\+\_\+main.\+cpp}}, and \mbox{\hyperlink{odemetric_comp_main_8cpp-example}{odemetric\+\_\+comp\+\_\+main.\+cpp}}.\end{Desc}
+\Hypertarget{classnetdem_1_1_data_dumper_ac80bd05d4083227c57b5f6598d53a095}\index{netdem::DataDumper@{netdem::DataDumper}!SetSaveByCycles@{SetSaveByCycles}}
 \index{SetSaveByCycles@{SetSaveByCycles}!netdem::DataDumper@{netdem::DataDumper}}
 \doxysubsubsection{\texorpdfstring{SetSaveByCycles()}{SetSaveByCycles()}}
-{\footnotesize\ttfamily void netdem\+::\+Data\+Dumper\+::\+Set\+Save\+By\+Cycles (\begin{DoxyParamCaption}\item[{double}]{interval }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{classnetdem_1_1_data_dumper_ac80bd05d4083227c57b5f6598d53a095} 
+void netdem\+::\+Data\+Dumper\+::\+Set\+Save\+By\+Cycles (\begin{DoxyParamCaption}\item[{double}]{interval}{}\end{DoxyParamCaption})}
 
 
 
@@ -523,12 +583,42 @@ Sets the interval for saving data by cycles.
 \end{DoxyParams}
 \begin{Desc}
 \item[Examples]\par
-\mbox{\hyperlink{00_nut_in_bolt_8cpp-example}{00\+\_\+nut\+\_\+in\+\_\+bolt.\+cpp}}, \mbox{\hyperlink{02_energy_test_8cpp-example}{02\+\_\+energy\+\_\+test.\+cpp}}, \mbox{\hyperlink{0_geometric_solver_8cpp-example}{0\+\_\+geometric\+\_\+solver.\+cpp}}, \mbox{\hyperlink{0_plane_case_8cpp-example}{0\+\_\+plane\+\_\+case.\+cpp}}, \mbox{\hyperlink{1_gjk_solver_8cpp-example}{1\+\_\+gjk\+\_\+solver.\+cpp}}, \mbox{\hyperlink{1_test_triaxial_comp_8cpp-example}{1\+\_\+test\+\_\+triaxial\+\_\+comp.\+cpp}}, \mbox{\hyperlink{2_sdf_solver_8cpp-example}{2\+\_\+sdf\+\_\+solver.\+cpp}}, \mbox{\hyperlink{3_hybrid_solver_8cpp-example}{3\+\_\+hybrid\+\_\+solver.\+cpp}}, \mbox{\hyperlink{80_random_packing_8cpp-example}{80\+\_\+random\+\_\+packing.\+cpp}}, \mbox{\hyperlink{81_voronoi_packing_8cpp-example}{81\+\_\+voronoi\+\_\+packing.\+cpp}}, \mbox{\hyperlink{90_packing_demo_8cpp-example}{90\+\_\+packing\+\_\+demo.\+cpp}}, \mbox{\hyperlink{90_random_packing_8cpp-example}{90\+\_\+random\+\_\+packing.\+cpp}}, \mbox{\hyperlink{90_random_packing_trimesh_8cpp-example}{90\+\_\+random\+\_\+packing\+\_\+trimesh.\+cpp}}, \mbox{\hyperlink{91_packing_ellipsoid_8cpp-example}{91\+\_\+packing\+\_\+ellipsoid.\+cpp}}, \mbox{\hyperlink{91_triaixal_comp_8cpp-example}{91\+\_\+triaixal\+\_\+comp.\+cpp}}, \mbox{\hyperlink{91_triaixal_comp_trimesh_8cpp-example}{91\+\_\+triaixal\+\_\+comp\+\_\+trimesh.\+cpp}}, \mbox{\hyperlink{92_angle_of_repose_8cpp-example}{92\+\_\+angle\+\_\+of\+\_\+repose.\+cpp}}, \mbox{\hyperlink{92_angle_repose_trimesh_8cpp-example}{92\+\_\+angle\+\_\+repose\+\_\+trimesh.\+cpp}}, \mbox{\hyperlink{92_nut_in_bolt_8cpp-example}{92\+\_\+nut\+\_\+in\+\_\+bolt.\+cpp}}, \mbox{\hyperlink{93_triaixal_comp_trimesh_8cpp-example}{93\+\_\+triaixal\+\_\+comp\+\_\+trimesh.\+cpp}}, \mbox{\hyperlink{94_angle_repose_trimesh_8cpp-example}{94\+\_\+angle\+\_\+repose\+\_\+trimesh.\+cpp}}, \mbox{\hyperlink{96_random_packing_ellipsoid_8cpp-example}{96\+\_\+random\+\_\+packing\+\_\+ellipsoid.\+cpp}}, \mbox{\hyperlink{96_triaixal_comp_sphere_sh_8cpp-example}{96\+\_\+triaixal\+\_\+comp\+\_\+sphere\+\_\+sh.\+cpp}}, \mbox{\hyperlink{97_triaixal_comp_sphere_geom_8cpp-example}{97\+\_\+triaixal\+\_\+comp\+\_\+sphere\+\_\+geom.\+cpp}}, \mbox{\hyperlink{angle_repose_main_8cpp-example}{angle\+\_\+repose\+\_\+main.\+cpp}}, \mbox{\hyperlink{blade_mixing_main_8cpp-example}{blade\+\_\+mixing\+\_\+main.\+cpp}}, \mbox{\hyperlink{landslide_main_8cpp-example}{landslide\+\_\+main.\+cpp}}, and \mbox{\hyperlink{odemetric_comp_main_8cpp-example}{odemetric\+\_\+comp\+\_\+main.\+cpp}}.\end{Desc}
-\Hypertarget{classnetdem_1_1_data_dumper_aef238f0678391663b358471eb6f643ae}\label{classnetdem_1_1_data_dumper_aef238f0678391663b358471eb6f643ae} 
-\index{netdem::DataDumper@{netdem::DataDumper}!SetSaveByTime@{SetSaveByTime}}
+\mbox{\hyperlink{00_nut_in_bolt_8cpp-example}{00\+\_\+nut\+\_\+in\+\_\+bolt.\+cpp}}, \mbox{\hyperlink{02_energy_test_8cpp-example}{02\+\_\+energy\+\_\+test.\+cpp}}, \mbox{\hyperlink{0_geometric_solver_8cpp-example}{0\+\_\+geometric\+\_\+solver.\+cpp}}, \mbox{\hyperlink{0_plane_case_8cpp-example}{0\+\_\+plane\+\_\+case.\+cpp}}, \mbox{\hyperlink{1_gjk_solver_8cpp-example}{1\+\_\+gjk\+\_\+solver.\+cpp}}, \mbox{\hyperlink{1_test_triaxial_comp_8cpp-example}{1\+\_\+test\+\_\+triaxial\+\_\+comp.\+cpp}}, \mbox{\hyperlink{2_sdf_solver_8cpp-example}{2\+\_\+sdf\+\_\+solver.\+cpp}}, \mbox{\hyperlink{3_hybrid_solver_8cpp-example}{3\+\_\+hybrid\+\_\+solver.\+cpp}}, \mbox{\hyperlink{81_voronoi_packing_8cpp-example}{81\+\_\+voronoi\+\_\+packing.\+cpp}}, \mbox{\hyperlink{90_packing_demo_8cpp-example}{90\+\_\+packing\+\_\+demo.\+cpp}}, \mbox{\hyperlink{90_random_packing_8cpp-example}{90\+\_\+random\+\_\+packing.\+cpp}}, \mbox{\hyperlink{90_random_packing_trimesh_8cpp-example}{90\+\_\+random\+\_\+packing\+\_\+trimesh.\+cpp}}, \mbox{\hyperlink{91_packing_ellipsoid_8cpp-example}{91\+\_\+packing\+\_\+ellipsoid.\+cpp}}, \mbox{\hyperlink{91_triaixal_comp_8cpp-example}{91\+\_\+triaixal\+\_\+comp.\+cpp}}, \mbox{\hyperlink{91_triaixal_comp_trimesh_8cpp-example}{91\+\_\+triaixal\+\_\+comp\+\_\+trimesh.\+cpp}}, \mbox{\hyperlink{92_angle_of_repose_8cpp-example}{92\+\_\+angle\+\_\+of\+\_\+repose.\+cpp}}, \mbox{\hyperlink{92_angle_repose_trimesh_8cpp-example}{92\+\_\+angle\+\_\+repose\+\_\+trimesh.\+cpp}}, \mbox{\hyperlink{92_nut_in_bolt_8cpp-example}{92\+\_\+nut\+\_\+in\+\_\+bolt.\+cpp}}, \mbox{\hyperlink{93_triaixal_comp_trimesh_8cpp-example}{93\+\_\+triaixal\+\_\+comp\+\_\+trimesh.\+cpp}}, \mbox{\hyperlink{94_angle_repose_trimesh_8cpp-example}{94\+\_\+angle\+\_\+repose\+\_\+trimesh.\+cpp}}, \mbox{\hyperlink{96_random_packing_ellipsoid_8cpp-example}{96\+\_\+random\+\_\+packing\+\_\+ellipsoid.\+cpp}}, \mbox{\hyperlink{97_triaixal_comp_sphere_geom_8cpp-example}{97\+\_\+triaixal\+\_\+comp\+\_\+sphere\+\_\+geom.\+cpp}}, \mbox{\hyperlink{angle_repose_main_8cpp-example}{angle\+\_\+repose\+\_\+main.\+cpp}}, \mbox{\hyperlink{blade_mixing_main_8cpp-example}{blade\+\_\+mixing\+\_\+main.\+cpp}}, \mbox{\hyperlink{landslide_main_8cpp-example}{landslide\+\_\+main.\+cpp}}, and \mbox{\hyperlink{odemetric_comp_main_8cpp-example}{odemetric\+\_\+comp\+\_\+main.\+cpp}}.\end{Desc}
+\Hypertarget{classnetdem_1_1_data_dumper_aef238f0678391663b358471eb6f643ae}\index{netdem::DataDumper@{netdem::DataDumper}!SetSaveByTime@{SetSaveByTime}}
 \index{SetSaveByTime@{SetSaveByTime}!netdem::DataDumper@{netdem::DataDumper}}
 \doxysubsubsection{\texorpdfstring{SetSaveByTime()}{SetSaveByTime()}}
-{\footnotesize\ttfamily void netdem\+::\+Data\+Dumper\+::\+Set\+Save\+By\+Time (\begin{DoxyParamCaption}\item[{double}]{interval }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{classnetdem_1_1_data_dumper_aef238f0678391663b358471eb6f643ae} 
+void netdem\+::\+Data\+Dumper\+::\+Set\+Save\+By\+Time (\begin{DoxyParamCaption}\item[{double}]{interval}{}\end{DoxyParamCaption})}
+
+
+
+Sets the interval for saving data by time. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em interval} & The new time interval for saving data. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classnetdem_1_1_data_dumper_a25a166711bb43d6ed0af8c701c46aba9}\index{netdem::DataDumper@{netdem::DataDumper}!SetSaveReadRestartByCycles@{SetSaveReadRestartByCycles}}
+\index{SetSaveReadRestartByCycles@{SetSaveReadRestartByCycles}!netdem::DataDumper@{netdem::DataDumper}}
+\doxysubsubsection{\texorpdfstring{SetSaveReadRestartByCycles()}{SetSaveReadRestartByCycles()}}
+{\footnotesize\ttfamily \label{classnetdem_1_1_data_dumper_a25a166711bb43d6ed0af8c701c46aba9} 
+void netdem\+::\+Data\+Dumper\+::\+Set\+Save\+Read\+Restart\+By\+Cycles (\begin{DoxyParamCaption}\item[{double}]{interval}{}\end{DoxyParamCaption})}
+
+
+
+Sets the interval for saving data by cycles. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em interval} & The new cycle interval for saving data. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classnetdem_1_1_data_dumper_a7c8c07c13eb6242bdc0da4d2dfbe1053}\index{netdem::DataDumper@{netdem::DataDumper}!SetSaveReadRestartByTime@{SetSaveReadRestartByTime}}
+\index{SetSaveReadRestartByTime@{SetSaveReadRestartByTime}!netdem::DataDumper@{netdem::DataDumper}}
+\doxysubsubsection{\texorpdfstring{SetSaveReadRestartByTime()}{SetSaveReadRestartByTime()}}
+{\footnotesize\ttfamily \label{classnetdem_1_1_data_dumper_a7c8c07c13eb6242bdc0da4d2dfbe1053} 
+void netdem\+::\+Data\+Dumper\+::\+Set\+Save\+Read\+Restart\+By\+Time (\begin{DoxyParamCaption}\item[{double}]{interval}{}\end{DoxyParamCaption})}
 
 
 
@@ -542,11 +632,11 @@ Sets the interval for saving data by time.
 
 
 \doxysubsection{Member Data Documentation}
-\Hypertarget{classnetdem_1_1_data_dumper_a800da85dfebff37c9cedfd69b3771533}\label{classnetdem_1_1_data_dumper_a800da85dfebff37c9cedfd69b3771533} 
-\index{netdem::DataDumper@{netdem::DataDumper}!dump\_contact\_info@{dump\_contact\_info}}
+\Hypertarget{classnetdem_1_1_data_dumper_a800da85dfebff37c9cedfd69b3771533}\index{netdem::DataDumper@{netdem::DataDumper}!dump\_contact\_info@{dump\_contact\_info}}
 \index{dump\_contact\_info@{dump\_contact\_info}!netdem::DataDumper@{netdem::DataDumper}}
 \doxysubsubsection{\texorpdfstring{dump\_contact\_info}{dump\_contact\_info}}
-{\footnotesize\ttfamily bool netdem\+::\+Data\+Dumper\+::dump\+\_\+contact\+\_\+info \{false\}}
+{\footnotesize\ttfamily \label{classnetdem_1_1_data_dumper_a800da85dfebff37c9cedfd69b3771533} 
+bool netdem\+::\+Data\+Dumper\+::dump\+\_\+contact\+\_\+info \{false\}}
 
 
 
@@ -554,12 +644,12 @@ A flag that determines whether to dump contact information.
 
 \begin{Desc}
 \item[Examples]\par
-\mbox{\hyperlink{00_nut_in_bolt_8cpp-example}{00\+\_\+nut\+\_\+in\+\_\+bolt.\+cpp}}, \mbox{\hyperlink{02_energy_test_8cpp-example}{02\+\_\+energy\+\_\+test.\+cpp}}, \mbox{\hyperlink{0_geometric_solver_8cpp-example}{0\+\_\+geometric\+\_\+solver.\+cpp}}, \mbox{\hyperlink{1_test_triaxial_comp_8cpp-example}{1\+\_\+test\+\_\+triaxial\+\_\+comp.\+cpp}}, \mbox{\hyperlink{2_sdf_solver_8cpp-example}{2\+\_\+sdf\+\_\+solver.\+cpp}}, \mbox{\hyperlink{3_hybrid_solver_8cpp-example}{3\+\_\+hybrid\+\_\+solver.\+cpp}}, \mbox{\hyperlink{90_packing_demo_8cpp-example}{90\+\_\+packing\+\_\+demo.\+cpp}}, \mbox{\hyperlink{90_random_packing_8cpp-example}{90\+\_\+random\+\_\+packing.\+cpp}}, \mbox{\hyperlink{90_random_packing_trimesh_8cpp-example}{90\+\_\+random\+\_\+packing\+\_\+trimesh.\+cpp}}, \mbox{\hyperlink{91_packing_ellipsoid_8cpp-example}{91\+\_\+packing\+\_\+ellipsoid.\+cpp}}, \mbox{\hyperlink{91_triaixal_comp_8cpp-example}{91\+\_\+triaixal\+\_\+comp.\+cpp}}, \mbox{\hyperlink{91_triaixal_comp_trimesh_8cpp-example}{91\+\_\+triaixal\+\_\+comp\+\_\+trimesh.\+cpp}}, \mbox{\hyperlink{92_angle_of_repose_8cpp-example}{92\+\_\+angle\+\_\+of\+\_\+repose.\+cpp}}, \mbox{\hyperlink{92_angle_repose_trimesh_8cpp-example}{92\+\_\+angle\+\_\+repose\+\_\+trimesh.\+cpp}}, \mbox{\hyperlink{92_nut_in_bolt_8cpp-example}{92\+\_\+nut\+\_\+in\+\_\+bolt.\+cpp}}, \mbox{\hyperlink{93_triaixal_comp_trimesh_8cpp-example}{93\+\_\+triaixal\+\_\+comp\+\_\+trimesh.\+cpp}}, \mbox{\hyperlink{94_angle_repose_trimesh_8cpp-example}{94\+\_\+angle\+\_\+repose\+\_\+trimesh.\+cpp}}, \mbox{\hyperlink{96_random_packing_ellipsoid_8cpp-example}{96\+\_\+random\+\_\+packing\+\_\+ellipsoid.\+cpp}}, \mbox{\hyperlink{96_triaixal_comp_sphere_sh_8cpp-example}{96\+\_\+triaixal\+\_\+comp\+\_\+sphere\+\_\+sh.\+cpp}}, \mbox{\hyperlink{97_triaixal_comp_sphere_geom_8cpp-example}{97\+\_\+triaixal\+\_\+comp\+\_\+sphere\+\_\+geom.\+cpp}}, and \mbox{\hyperlink{odemetric_comp_main_8cpp-example}{odemetric\+\_\+comp\+\_\+main.\+cpp}}.\end{Desc}
-\Hypertarget{classnetdem_1_1_data_dumper_ab5736a2fbd2ac4977af39b6323bc8aea}\label{classnetdem_1_1_data_dumper_ab5736a2fbd2ac4977af39b6323bc8aea} 
-\index{netdem::DataDumper@{netdem::DataDumper}!dump\_mesh@{dump\_mesh}}
+\mbox{\hyperlink{00_nut_in_bolt_8cpp-example}{00\+\_\+nut\+\_\+in\+\_\+bolt.\+cpp}}, \mbox{\hyperlink{02_energy_test_8cpp-example}{02\+\_\+energy\+\_\+test.\+cpp}}, \mbox{\hyperlink{0_geometric_solver_8cpp-example}{0\+\_\+geometric\+\_\+solver.\+cpp}}, \mbox{\hyperlink{1_test_triaxial_comp_8cpp-example}{1\+\_\+test\+\_\+triaxial\+\_\+comp.\+cpp}}, \mbox{\hyperlink{2_sdf_solver_8cpp-example}{2\+\_\+sdf\+\_\+solver.\+cpp}}, \mbox{\hyperlink{3_hybrid_solver_8cpp-example}{3\+\_\+hybrid\+\_\+solver.\+cpp}}, \mbox{\hyperlink{90_packing_demo_8cpp-example}{90\+\_\+packing\+\_\+demo.\+cpp}}, \mbox{\hyperlink{90_random_packing_8cpp-example}{90\+\_\+random\+\_\+packing.\+cpp}}, \mbox{\hyperlink{90_random_packing_trimesh_8cpp-example}{90\+\_\+random\+\_\+packing\+\_\+trimesh.\+cpp}}, \mbox{\hyperlink{91_packing_ellipsoid_8cpp-example}{91\+\_\+packing\+\_\+ellipsoid.\+cpp}}, \mbox{\hyperlink{91_triaixal_comp_8cpp-example}{91\+\_\+triaixal\+\_\+comp.\+cpp}}, \mbox{\hyperlink{91_triaixal_comp_trimesh_8cpp-example}{91\+\_\+triaixal\+\_\+comp\+\_\+trimesh.\+cpp}}, \mbox{\hyperlink{92_angle_of_repose_8cpp-example}{92\+\_\+angle\+\_\+of\+\_\+repose.\+cpp}}, \mbox{\hyperlink{92_angle_repose_trimesh_8cpp-example}{92\+\_\+angle\+\_\+repose\+\_\+trimesh.\+cpp}}, \mbox{\hyperlink{92_nut_in_bolt_8cpp-example}{92\+\_\+nut\+\_\+in\+\_\+bolt.\+cpp}}, \mbox{\hyperlink{93_triaixal_comp_trimesh_8cpp-example}{93\+\_\+triaixal\+\_\+comp\+\_\+trimesh.\+cpp}}, \mbox{\hyperlink{94_angle_repose_trimesh_8cpp-example}{94\+\_\+angle\+\_\+repose\+\_\+trimesh.\+cpp}}, \mbox{\hyperlink{96_random_packing_ellipsoid_8cpp-example}{96\+\_\+random\+\_\+packing\+\_\+ellipsoid.\+cpp}}, \mbox{\hyperlink{97_triaixal_comp_sphere_geom_8cpp-example}{97\+\_\+triaixal\+\_\+comp\+\_\+sphere\+\_\+geom.\+cpp}}, and \mbox{\hyperlink{odemetric_comp_main_8cpp-example}{odemetric\+\_\+comp\+\_\+main.\+cpp}}.\end{Desc}
+\Hypertarget{classnetdem_1_1_data_dumper_ab5736a2fbd2ac4977af39b6323bc8aea}\index{netdem::DataDumper@{netdem::DataDumper}!dump\_mesh@{dump\_mesh}}
 \index{dump\_mesh@{dump\_mesh}!netdem::DataDumper@{netdem::DataDumper}}
 \doxysubsubsection{\texorpdfstring{dump\_mesh}{dump\_mesh}}
-{\footnotesize\ttfamily bool netdem\+::\+Data\+Dumper\+::dump\+\_\+mesh \{false\}}
+{\footnotesize\ttfamily \label{classnetdem_1_1_data_dumper_ab5736a2fbd2ac4977af39b6323bc8aea} 
+bool netdem\+::\+Data\+Dumper\+::dump\+\_\+mesh \{false\}}
 
 
 
@@ -567,32 +657,42 @@ A flag that determines whether to dump mesh information.
 
 \begin{Desc}
 \item[Examples]\par
-\mbox{\hyperlink{80_random_packing_8cpp-example}{80\+\_\+random\+\_\+packing.\+cpp}}, \mbox{\hyperlink{81_voronoi_packing_8cpp-example}{81\+\_\+voronoi\+\_\+packing.\+cpp}}, and \mbox{\hyperlink{90_random_packing_8cpp-example}{90\+\_\+random\+\_\+packing.\+cpp}}.\end{Desc}
-\Hypertarget{classnetdem_1_1_data_dumper_a4702c077bcdf083dc5b8861a7c01e9eb}\label{classnetdem_1_1_data_dumper_a4702c077bcdf083dc5b8861a7c01e9eb} 
-\index{netdem::DataDumper@{netdem::DataDumper}!dump\_particle\_info@{dump\_particle\_info}}
+\mbox{\hyperlink{02_energy_test_8cpp-example}{02\+\_\+energy\+\_\+test.\+cpp}}, \mbox{\hyperlink{1_gjk_solver_8cpp-example}{1\+\_\+gjk\+\_\+solver.\+cpp}}, \mbox{\hyperlink{2_sdf_solver_8cpp-example}{2\+\_\+sdf\+\_\+solver.\+cpp}}, \mbox{\hyperlink{81_voronoi_packing_8cpp-example}{81\+\_\+voronoi\+\_\+packing.\+cpp}}, and \mbox{\hyperlink{90_random_packing_8cpp-example}{90\+\_\+random\+\_\+packing.\+cpp}}.\end{Desc}
+\Hypertarget{classnetdem_1_1_data_dumper_a4702c077bcdf083dc5b8861a7c01e9eb}\index{netdem::DataDumper@{netdem::DataDumper}!dump\_particle\_info@{dump\_particle\_info}}
 \index{dump\_particle\_info@{dump\_particle\_info}!netdem::DataDumper@{netdem::DataDumper}}
 \doxysubsubsection{\texorpdfstring{dump\_particle\_info}{dump\_particle\_info}}
-{\footnotesize\ttfamily bool netdem\+::\+Data\+Dumper\+::dump\+\_\+particle\+\_\+info \{true\}}
+{\footnotesize\ttfamily \label{classnetdem_1_1_data_dumper_a4702c077bcdf083dc5b8861a7c01e9eb} 
+bool netdem\+::\+Data\+Dumper\+::dump\+\_\+particle\+\_\+info \{true\}}
 
 
 
 A flag that determines whether to dump particle information. 
 
-\Hypertarget{classnetdem_1_1_data_dumper_aa9ea059ae46936e22a898ecce851f8d6}\label{classnetdem_1_1_data_dumper_aa9ea059ae46936e22a898ecce851f8d6} 
-\index{netdem::DataDumper@{netdem::DataDumper}!dump\_reconstructed@{dump\_reconstructed}}
+\Hypertarget{classnetdem_1_1_data_dumper_a0453c65685adfce7c628ace0a08dd1d9}\index{netdem::DataDumper@{netdem::DataDumper}!dump\_read\_restart@{dump\_read\_restart}}
+\index{dump\_read\_restart@{dump\_read\_restart}!netdem::DataDumper@{netdem::DataDumper}}
+\doxysubsubsection{\texorpdfstring{dump\_read\_restart}{dump\_read\_restart}}
+{\footnotesize\ttfamily \label{classnetdem_1_1_data_dumper_a0453c65685adfce7c628ace0a08dd1d9} 
+bool netdem\+::\+Data\+Dumper\+::dump\+\_\+read\+\_\+restart \{false\}}
+
+
+
+A flag that determines whether to dump read restart information. 
+
+\Hypertarget{classnetdem_1_1_data_dumper_aa9ea059ae46936e22a898ecce851f8d6}\index{netdem::DataDumper@{netdem::DataDumper}!dump\_reconstructed@{dump\_reconstructed}}
 \index{dump\_reconstructed@{dump\_reconstructed}!netdem::DataDumper@{netdem::DataDumper}}
 \doxysubsubsection{\texorpdfstring{dump\_reconstructed}{dump\_reconstructed}}
-{\footnotesize\ttfamily bool netdem\+::\+Data\+Dumper\+::dump\+\_\+reconstructed \{true\}}
+{\footnotesize\ttfamily \label{classnetdem_1_1_data_dumper_aa9ea059ae46936e22a898ecce851f8d6} 
+bool netdem\+::\+Data\+Dumper\+::dump\+\_\+reconstructed \{true\}}
 
 
 
 A flag that determines whether to dump reconstructed information. 
 
-\Hypertarget{classnetdem_1_1_data_dumper_a25b1cd6a1f55fb41ae1b94f9e3794a58}\label{classnetdem_1_1_data_dumper_a25b1cd6a1f55fb41ae1b94f9e3794a58} 
-\index{netdem::DataDumper@{netdem::DataDumper}!dump\_shape\_info@{dump\_shape\_info}}
+\Hypertarget{classnetdem_1_1_data_dumper_a25b1cd6a1f55fb41ae1b94f9e3794a58}\index{netdem::DataDumper@{netdem::DataDumper}!dump\_shape\_info@{dump\_shape\_info}}
 \index{dump\_shape\_info@{dump\_shape\_info}!netdem::DataDumper@{netdem::DataDumper}}
 \doxysubsubsection{\texorpdfstring{dump\_shape\_info}{dump\_shape\_info}}
-{\footnotesize\ttfamily bool netdem\+::\+Data\+Dumper\+::dump\+\_\+shape\+\_\+info \{false\}}
+{\footnotesize\ttfamily \label{classnetdem_1_1_data_dumper_a25b1cd6a1f55fb41ae1b94f9e3794a58} 
+bool netdem\+::\+Data\+Dumper\+::dump\+\_\+shape\+\_\+info \{false\}}
 
 
 
@@ -601,11 +701,11 @@ A flag that determines whether to dump shape information.
 \begin{Desc}
 \item[Examples]\par
 \mbox{\hyperlink{0_plane_case_8cpp-example}{0\+\_\+plane\+\_\+case.\+cpp}}, and \mbox{\hyperlink{blade_mixing_main_8cpp-example}{blade\+\_\+mixing\+\_\+main.\+cpp}}.\end{Desc}
-\Hypertarget{classnetdem_1_1_data_dumper_a5293b933c8d6a5576b613e681dab4102}\label{classnetdem_1_1_data_dumper_a5293b933c8d6a5576b613e681dab4102} 
-\index{netdem::DataDumper@{netdem::DataDumper}!dump\_wall\_info@{dump\_wall\_info}}
+\Hypertarget{classnetdem_1_1_data_dumper_a5293b933c8d6a5576b613e681dab4102}\index{netdem::DataDumper@{netdem::DataDumper}!dump\_wall\_info@{dump\_wall\_info}}
 \index{dump\_wall\_info@{dump\_wall\_info}!netdem::DataDumper@{netdem::DataDumper}}
 \doxysubsubsection{\texorpdfstring{dump\_wall\_info}{dump\_wall\_info}}
-{\footnotesize\ttfamily bool netdem\+::\+Data\+Dumper\+::dump\+\_\+wall\+\_\+info \{false\}}
+{\footnotesize\ttfamily \label{classnetdem_1_1_data_dumper_a5293b933c8d6a5576b613e681dab4102} 
+bool netdem\+::\+Data\+Dumper\+::dump\+\_\+wall\+\_\+info \{false\}}
 
 
 
@@ -613,12 +713,12 @@ A flag that determines whether to dump wall information.
 
 \begin{Desc}
 \item[Examples]\par
-\mbox{\hyperlink{02_energy_test_8cpp-example}{02\+\_\+energy\+\_\+test.\+cpp}}, \mbox{\hyperlink{0_geometric_solver_8cpp-example}{0\+\_\+geometric\+\_\+solver.\+cpp}}, \mbox{\hyperlink{0_plane_case_8cpp-example}{0\+\_\+plane\+\_\+case.\+cpp}}, \mbox{\hyperlink{1_test_triaxial_comp_8cpp-example}{1\+\_\+test\+\_\+triaxial\+\_\+comp.\+cpp}}, \mbox{\hyperlink{2_sdf_solver_8cpp-example}{2\+\_\+sdf\+\_\+solver.\+cpp}}, \mbox{\hyperlink{3_hybrid_solver_8cpp-example}{3\+\_\+hybrid\+\_\+solver.\+cpp}}, \mbox{\hyperlink{90_packing_demo_8cpp-example}{90\+\_\+packing\+\_\+demo.\+cpp}}, \mbox{\hyperlink{90_random_packing_8cpp-example}{90\+\_\+random\+\_\+packing.\+cpp}}, \mbox{\hyperlink{90_random_packing_trimesh_8cpp-example}{90\+\_\+random\+\_\+packing\+\_\+trimesh.\+cpp}}, \mbox{\hyperlink{91_packing_ellipsoid_8cpp-example}{91\+\_\+packing\+\_\+ellipsoid.\+cpp}}, \mbox{\hyperlink{91_triaixal_comp_8cpp-example}{91\+\_\+triaixal\+\_\+comp.\+cpp}}, \mbox{\hyperlink{91_triaixal_comp_trimesh_8cpp-example}{91\+\_\+triaixal\+\_\+comp\+\_\+trimesh.\+cpp}}, \mbox{\hyperlink{92_angle_of_repose_8cpp-example}{92\+\_\+angle\+\_\+of\+\_\+repose.\+cpp}}, \mbox{\hyperlink{92_angle_repose_trimesh_8cpp-example}{92\+\_\+angle\+\_\+repose\+\_\+trimesh.\+cpp}}, \mbox{\hyperlink{93_triaixal_comp_trimesh_8cpp-example}{93\+\_\+triaixal\+\_\+comp\+\_\+trimesh.\+cpp}}, \mbox{\hyperlink{94_angle_repose_trimesh_8cpp-example}{94\+\_\+angle\+\_\+repose\+\_\+trimesh.\+cpp}}, \mbox{\hyperlink{96_random_packing_ellipsoid_8cpp-example}{96\+\_\+random\+\_\+packing\+\_\+ellipsoid.\+cpp}}, \mbox{\hyperlink{96_triaixal_comp_sphere_sh_8cpp-example}{96\+\_\+triaixal\+\_\+comp\+\_\+sphere\+\_\+sh.\+cpp}}, \mbox{\hyperlink{97_triaixal_comp_sphere_geom_8cpp-example}{97\+\_\+triaixal\+\_\+comp\+\_\+sphere\+\_\+geom.\+cpp}}, \mbox{\hyperlink{blade_mixing_main_8cpp-example}{blade\+\_\+mixing\+\_\+main.\+cpp}}, and \mbox{\hyperlink{odemetric_comp_main_8cpp-example}{odemetric\+\_\+comp\+\_\+main.\+cpp}}.\end{Desc}
-\Hypertarget{classnetdem_1_1_data_dumper_acc3e9037bd9b43ee846c029364fcc4d1}\label{classnetdem_1_1_data_dumper_acc3e9037bd9b43ee846c029364fcc4d1} 
-\index{netdem::DataDumper@{netdem::DataDumper}!time\_stamp\_adjustable@{time\_stamp\_adjustable}}
+\mbox{\hyperlink{02_energy_test_8cpp-example}{02\+\_\+energy\+\_\+test.\+cpp}}, \mbox{\hyperlink{0_geometric_solver_8cpp-example}{0\+\_\+geometric\+\_\+solver.\+cpp}}, \mbox{\hyperlink{0_plane_case_8cpp-example}{0\+\_\+plane\+\_\+case.\+cpp}}, \mbox{\hyperlink{1_test_triaxial_comp_8cpp-example}{1\+\_\+test\+\_\+triaxial\+\_\+comp.\+cpp}}, \mbox{\hyperlink{2_sdf_solver_8cpp-example}{2\+\_\+sdf\+\_\+solver.\+cpp}}, \mbox{\hyperlink{3_hybrid_solver_8cpp-example}{3\+\_\+hybrid\+\_\+solver.\+cpp}}, \mbox{\hyperlink{90_packing_demo_8cpp-example}{90\+\_\+packing\+\_\+demo.\+cpp}}, \mbox{\hyperlink{90_random_packing_8cpp-example}{90\+\_\+random\+\_\+packing.\+cpp}}, \mbox{\hyperlink{90_random_packing_trimesh_8cpp-example}{90\+\_\+random\+\_\+packing\+\_\+trimesh.\+cpp}}, \mbox{\hyperlink{91_packing_ellipsoid_8cpp-example}{91\+\_\+packing\+\_\+ellipsoid.\+cpp}}, \mbox{\hyperlink{91_triaixal_comp_8cpp-example}{91\+\_\+triaixal\+\_\+comp.\+cpp}}, \mbox{\hyperlink{91_triaixal_comp_trimesh_8cpp-example}{91\+\_\+triaixal\+\_\+comp\+\_\+trimesh.\+cpp}}, \mbox{\hyperlink{92_angle_of_repose_8cpp-example}{92\+\_\+angle\+\_\+of\+\_\+repose.\+cpp}}, \mbox{\hyperlink{92_angle_repose_trimesh_8cpp-example}{92\+\_\+angle\+\_\+repose\+\_\+trimesh.\+cpp}}, \mbox{\hyperlink{93_triaixal_comp_trimesh_8cpp-example}{93\+\_\+triaixal\+\_\+comp\+\_\+trimesh.\+cpp}}, \mbox{\hyperlink{94_angle_repose_trimesh_8cpp-example}{94\+\_\+angle\+\_\+repose\+\_\+trimesh.\+cpp}}, \mbox{\hyperlink{96_random_packing_ellipsoid_8cpp-example}{96\+\_\+random\+\_\+packing\+\_\+ellipsoid.\+cpp}}, \mbox{\hyperlink{97_triaixal_comp_sphere_geom_8cpp-example}{97\+\_\+triaixal\+\_\+comp\+\_\+sphere\+\_\+geom.\+cpp}}, \mbox{\hyperlink{blade_mixing_main_8cpp-example}{blade\+\_\+mixing\+\_\+main.\+cpp}}, and \mbox{\hyperlink{odemetric_comp_main_8cpp-example}{odemetric\+\_\+comp\+\_\+main.\+cpp}}.\end{Desc}
+\Hypertarget{classnetdem_1_1_data_dumper_acc3e9037bd9b43ee846c029364fcc4d1}\index{netdem::DataDumper@{netdem::DataDumper}!time\_stamp\_adjustable@{time\_stamp\_adjustable}}
 \index{time\_stamp\_adjustable@{time\_stamp\_adjustable}!netdem::DataDumper@{netdem::DataDumper}}
 \doxysubsubsection{\texorpdfstring{time\_stamp\_adjustable}{time\_stamp\_adjustable}}
-{\footnotesize\ttfamily bool netdem\+::\+Data\+Dumper\+::time\+\_\+stamp\+\_\+adjustable \{true\}}
+{\footnotesize\ttfamily \label{classnetdem_1_1_data_dumper_acc3e9037bd9b43ee846c029364fcc4d1} 
+bool netdem\+::\+Data\+Dumper\+::time\+\_\+stamp\+\_\+adjustable \{true\}}
 
 
 

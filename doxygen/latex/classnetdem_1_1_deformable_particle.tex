@@ -24,6 +24,8 @@ Inheritance diagram for netdem\+::Deformable\+Particle\+:\begin{figure}[H]
 \begin{DoxyCompactList}\small\item\em Creates a new instance of this object. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classnetdem_1_1_deformable_particle_a5ee92016b8d861281eadaf84695a911d}{Set\+Shape}} (\mbox{\hyperlink{classnetdem_1_1_shape}{Shape}} \texorpdfstring{$\ast$}{*}s) override
 \begin{DoxyCompactList}\small\item\em Sets the shape of the particle. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classnetdem_1_1_deformable_particle_ac3e0c3660f3f19dbe949d04bb0440c04}{Init\+FEMMesh}} ()
+\begin{DoxyCompactList}\small\item\em Initialized the mesh for FEM analysis. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classnetdem_1_1_deformable_particle_a7023f5af76ec009d53265bfc6952a77b}{Set\+Density}} (double dens) override
 \begin{DoxyCompactList}\small\item\em Sets the density of the particle. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classnetdem_1_1_deformable_particle_a38232575e125e7304d82e288734b6a23}{Set\+Position}} (double x, double y, double z) override
@@ -34,9 +36,9 @@ void \mbox{\hyperlink{classnetdem_1_1_deformable_particle_ae7e8179351846286c9462
 \begin{DoxyCompactList}\small\item\em Sets the orientation of the particle using a quaternion. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classnetdem_1_1_deformable_particle_a208f8160ae055cb97ce851b2ace9fefb}{Set\+Velocity}} (double v\+\_\+x, double v\+\_\+y, double v\+\_\+z) override
 \begin{DoxyCompactList}\small\item\em Sets the velocity of the particle. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \mbox{\hyperlink{classnetdem_1_1_deformable_particle_a56ea9463633d0d0cf858d134256ce304}{Get\+Velocity}} (\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&\mbox{\hyperlink{classnetdem_1_1_particle_a99a725063b17af58b5abda99dc935dd9}{pos}}) override
+\mbox{\hyperlink{namespacenetdem_a510a89239abc51ed4d8d88ce7ee403df}{Vec3d}} \mbox{\hyperlink{classnetdem_1_1_deformable_particle_a56ea9463633d0d0cf858d134256ce304}{Get\+Velocity}} (\mbox{\hyperlink{namespacenetdem_a510a89239abc51ed4d8d88ce7ee403df}{Vec3d}} const \&\mbox{\hyperlink{classnetdem_1_1_particle_a99a725063b17af58b5abda99dc935dd9}{pos}}) override
 \begin{DoxyCompactList}\small\item\em Gets the velocity of the particle at a given position. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classnetdem_1_1_deformable_particle_ad119daee07ad91b901b7d41817189ed4}{Add\+Force}} (int node\+\_\+id, \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&f)
+void \mbox{\hyperlink{classnetdem_1_1_deformable_particle_ad119daee07ad91b901b7d41817189ed4}{Add\+Force}} (int \mbox{\hyperlink{namespacenetdem_a487da198a3d3c82f7c3e17a5e4b1f933}{node\+\_\+id}}, \mbox{\hyperlink{namespacenetdem_a510a89239abc51ed4d8d88ce7ee403df}{Vec3d}} const \&f)
 \begin{DoxyCompactList}\small\item\em Adds a force to a node on the particle\textquotesingle{}s mesh. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classnetdem_1_1_deformable_particle_a41df46b2a3ba9cf0e646206007072936}{Clear\+Force}} () override
 \begin{DoxyCompactList}\small\item\em Clears all forces on the particle\textquotesingle{}s mesh. \end{DoxyCompactList}\item 
@@ -48,6 +50,8 @@ void \mbox{\hyperlink{classnetdem_1_1_deformable_particle_a4cd11ccb26fc06a51a1f0
 \begin{DoxyCompactList}\small\item\em Updates the motion of the particle. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classnetdem_1_1_deformable_particle_af15278f7b1950663ac697fcc0232fd33}{Update\+Shape}} ()
 \begin{DoxyCompactList}\small\item\em Updates the shape of the particle. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classnetdem_1_1_deformable_particle_a4f4ea3f97c176c84f5f353c677689f7c}{Update\+Bound\+Fast}} () override
+\begin{DoxyCompactList}\small\item\em Updates the bounding box of the particle. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classnetdem_1_1_deformable_particle_a9d1ce0d8506a15bd10de786aea53b584}{Update\+Bound}} () override
 \begin{DoxyCompactList}\small\item\em Updates the bounding box of the particle. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classnetdem_1_1_deformable_particle_ac4d47fe1ba95931922cbbd2beb48fa26}{Save\+Surface\+As\+VTK}} (std\+::string const \&filename)
@@ -63,65 +67,45 @@ void \mbox{\hyperlink{classnetdem_1_1_deformable_particle_aaa3fe30e53372abc97acf
 \begin{DoxyCompactList}\small\item\em Default constructor for the \doxylink{classnetdem_1_1_particle}{Particle} class. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classnetdem_1_1_particle_a22cc010e09062ea74025c87854bc98ff}{Particle}} (\mbox{\hyperlink{classnetdem_1_1_shape}{Shape}} \texorpdfstring{$\ast$}{*}const \mbox{\hyperlink{classnetdem_1_1_particle_ac63a86094d1dcd92c3a08ddfd1db0103}{shape}})
 \begin{DoxyCompactList}\small\item\em Constructor for the \doxylink{classnetdem_1_1_particle}{Particle} class which specifies the shape of the particle. \end{DoxyCompactList}\item 
-virtual \mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classnetdem_1_1_particle_ac60dad04a881d50aa5376824dad94961}{Clone}} () const
-\begin{DoxyCompactList}\small\item\em Creates a new instance of the \doxylink{classnetdem_1_1_particle}{Particle} class that is a copy of the current instance. \end{DoxyCompactList}\item 
 virtual void \mbox{\hyperlink{classnetdem_1_1_particle_ad4131133df499c87e0a4e75ffdaae4a3}{Init}} ()
 \begin{DoxyCompactList}\small\item\em Initializes the particle by setting default values for all properties. \end{DoxyCompactList}\item 
-virtual void \mbox{\hyperlink{classnetdem_1_1_particle_a3bfcdc2ec9c18944e32d65e841c82607}{Set\+Shape}} (\mbox{\hyperlink{classnetdem_1_1_shape}{Shape}} \texorpdfstring{$\ast$}{*}const \mbox{\hyperlink{classnetdem_1_1_particle_ac63a86094d1dcd92c3a08ddfd1db0103}{shape}})
-\begin{DoxyCompactList}\small\item\em Sets the \doxylink{classnetdem_1_1_shape}{Shape} object representing the particle\textquotesingle{}s shape. \end{DoxyCompactList}\item 
-virtual void \mbox{\hyperlink{classnetdem_1_1_particle_a1ed42f57e728fba57254416319169ce5}{Set\+Density}} (double dens)
-\begin{DoxyCompactList}\small\item\em Sets the density of the particle. \end{DoxyCompactList}\item 
+virtual double \mbox{\hyperlink{classnetdem_1_1_particle_a4dcacfc2e431e832b2a619b74f9dcbee}{Get\+Density}} () const
+\begin{DoxyCompactList}\small\item\em Gets the density of the particle. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classnetdem_1_1_particle_aa2cc0f1d58c08a6a23b98229164e9c3c}{Set\+Margin}} (double m)
+\begin{DoxyCompactList}\small\item\em Sets the margin of the particle. \end{DoxyCompactList}\item 
+virtual double \mbox{\hyperlink{classnetdem_1_1_particle_ab11d670d50fba1fe6a58642e9668704f}{Get\+Margin}} () const
+\begin{DoxyCompactList}\small\item\em Gets the margin of the particle. \end{DoxyCompactList}\item 
 virtual void \mbox{\hyperlink{classnetdem_1_1_particle_af0e516233422cd967d6a7a0d4b6b3faa}{Set\+Force}} (double fx, double fy, double fz)
 \begin{DoxyCompactList}\small\item\em Sets the force acting on the particle. \end{DoxyCompactList}\item 
 virtual void \mbox{\hyperlink{classnetdem_1_1_particle_ab7b36eb9779d347a204c53be0402ced3}{Set\+Moment}} (double mx, double my, double mz)
 \begin{DoxyCompactList}\small\item\em Sets the moment acting on the particle. \end{DoxyCompactList}\item 
-virtual void \mbox{\hyperlink{classnetdem_1_1_particle_a3f272179dd1b248f9ea09638c1beecfb}{Set\+Position}} (double pos\+\_\+x, double pos\+\_\+y, double pos\+\_\+z)
-\begin{DoxyCompactList}\small\item\em Sets the position of the particle. \end{DoxyCompactList}\item 
-virtual void \mbox{\hyperlink{classnetdem_1_1_particle_a116ae8a62a290ca23e7d3a48cf45fbef}{Set\+Rodrigues}} (double angle, double axis\+\_\+x, double axis\+\_\+y, double axis\+\_\+z)
-\begin{DoxyCompactList}\small\item\em Sets the orientation of the particle using a Rodrigues rotation vector. \end{DoxyCompactList}\item 
-virtual void \mbox{\hyperlink{classnetdem_1_1_particle_a0696409eed30981670dd748997dc23b0}{Set\+Quaternion}} (double q\+\_\+0, double q\+\_\+1, double q\+\_\+2, double q\+\_\+3)
-\begin{DoxyCompactList}\small\item\em Sets the orientation of the particle using a quaternion. \end{DoxyCompactList}\item 
-virtual void \mbox{\hyperlink{classnetdem_1_1_particle_a710b20f430219dda84ffd515e760f157}{Set\+Velocity}} (double v\+\_\+x, double v\+\_\+y, double v\+\_\+z)
-\begin{DoxyCompactList}\small\item\em Sets the velocity of the particle. \end{DoxyCompactList}\item 
 virtual void \mbox{\hyperlink{classnetdem_1_1_particle_ac35ec33572992de23f66607f1635af3d}{Set\+Spin}} (double spin\+\_\+x, double spin\+\_\+y, double spin\+\_\+z)
 \begin{DoxyCompactList}\small\item\em Sets the angular velocity (spin) of the particle. \end{DoxyCompactList}\item 
-virtual \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \mbox{\hyperlink{classnetdem_1_1_particle_a6648cdf6d33db45228918999be87ae8b}{Get\+Velocity}} (\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&cnt\+\_\+pos)
-\begin{DoxyCompactList}\small\item\em Get the current velocity of the particle at the given position. \end{DoxyCompactList}\item 
 virtual void \mbox{\hyperlink{classnetdem_1_1_particle_a2edc40a2a45a730b331afce4192f7356}{Set\+Dynamic\+Property}} (std\+::string const \&key, double value)
 \begin{DoxyCompactList}\small\item\em Set the value of a dynamic property identified by the given key. \end{DoxyCompactList}\item 
 virtual double \mbox{\hyperlink{classnetdem_1_1_particle_a6d9b05f5e59e7595f1b8979105594588}{Get\+Dynamic\+Property}} (std\+::string const \&key)
 \begin{DoxyCompactList}\small\item\em Get the value of a dynamic property identified by the given key. \end{DoxyCompactList}\item 
-virtual void \mbox{\hyperlink{classnetdem_1_1_particle_aba10e1b321fadff64971932e2bc916d3}{Add\+Force}} (const \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \&\mbox{\hyperlink{classnetdem_1_1_particle_adfabbc70bb6b9ca4059a4ec08e5661f2}{force}})
+virtual void \mbox{\hyperlink{classnetdem_1_1_particle_aba10e1b321fadff64971932e2bc916d3}{Add\+Force}} (const \mbox{\hyperlink{namespacenetdem_a510a89239abc51ed4d8d88ce7ee403df}{Vec3d}} \&\mbox{\hyperlink{classnetdem_1_1_particle_adfabbc70bb6b9ca4059a4ec08e5661f2}{force}})
 \begin{DoxyCompactList}\small\item\em Add a force to the particle. \end{DoxyCompactList}\item 
-virtual void \mbox{\hyperlink{classnetdem_1_1_particle_a79a7a30b7f6eb80facec8103b9fde840}{Add\+Moment}} (const \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \&\mbox{\hyperlink{classnetdem_1_1_particle_ac11425c8bad91adc110a84e3c9ebc38a}{moment}})
+virtual void \mbox{\hyperlink{classnetdem_1_1_particle_a79a7a30b7f6eb80facec8103b9fde840}{Add\+Moment}} (const \mbox{\hyperlink{namespacenetdem_a510a89239abc51ed4d8d88ce7ee403df}{Vec3d}} \&\mbox{\hyperlink{classnetdem_1_1_particle_ac11425c8bad91adc110a84e3c9ebc38a}{moment}})
 \begin{DoxyCompactList}\small\item\em Add a moment (torque) to the particle. \end{DoxyCompactList}\item 
-virtual void \mbox{\hyperlink{classnetdem_1_1_particle_ad53548afe2ee35bd8f1101a520a689d3}{Add\+Force\+Atomic}} (const \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \&f)
+virtual void \mbox{\hyperlink{classnetdem_1_1_particle_ad53548afe2ee35bd8f1101a520a689d3}{Add\+Force\+Atomic}} (const \mbox{\hyperlink{namespacenetdem_a510a89239abc51ed4d8d88ce7ee403df}{Vec3d}} \&f)
 \begin{DoxyCompactList}\small\item\em Add a force to the particle atomically. \end{DoxyCompactList}\item 
-virtual void \mbox{\hyperlink{classnetdem_1_1_particle_a92e787e01a9a0ea4bffbc4b1ab67c6fb}{Add\+Moment\+Atomic}} (const \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \&m)
+virtual void \mbox{\hyperlink{classnetdem_1_1_particle_a92e787e01a9a0ea4bffbc4b1ab67c6fb}{Add\+Moment\+Atomic}} (const \mbox{\hyperlink{namespacenetdem_a510a89239abc51ed4d8d88ce7ee403df}{Vec3d}} \&m)
 \begin{DoxyCompactList}\small\item\em Add a moment (torque) to the particle atomically. \end{DoxyCompactList}\item 
-virtual void \mbox{\hyperlink{classnetdem_1_1_particle_aab0638163ac7ee8fb1d4a26f77f104c1}{Clear\+Force}} ()
-\begin{DoxyCompactList}\small\item\em Clear all forces applied to the particle. \end{DoxyCompactList}\item 
 virtual void \mbox{\hyperlink{classnetdem_1_1_particle_a064cc04b3a2a97e8f05156d6cc669511}{Clear\+Moment}} ()
 \begin{DoxyCompactList}\small\item\em Clear all moments applied to the particle. \end{DoxyCompactList}\item 
-virtual void \mbox{\hyperlink{classnetdem_1_1_particle_a2cf67a7d5df21f402fefd3eefd0b81dd}{Apply\+Contact\+Force}} (\mbox{\hyperlink{classnetdem_1_1_contact_p_p}{Contact\+PP}} const \texorpdfstring{$\ast$}{*}cnt)
-\begin{DoxyCompactList}\small\item\em Apply a contact force to the particle when it is in contact with another particle. \end{DoxyCompactList}\item 
-virtual void \mbox{\hyperlink{classnetdem_1_1_particle_a27ca2cd2ac76069d354faff630232144}{Apply\+Contact\+Force}} (\mbox{\hyperlink{classnetdem_1_1_contact_p_w}{Contact\+PW}} const \texorpdfstring{$\ast$}{*}cnt)
-\begin{DoxyCompactList}\small\item\em Apply a contact force to the particle when it is in contact with a wall. \end{DoxyCompactList}\item 
 virtual void \mbox{\hyperlink{classnetdem_1_1_particle_acff56d4e1f30c92675ac9a67808bcf1d}{Update\+Contact\+Force}} ()
 \begin{DoxyCompactList}\small\item\em Update the contact forces applied to the particle. \end{DoxyCompactList}\item 
-virtual void \mbox{\hyperlink{classnetdem_1_1_particle_a1d52612ad77e5e29a0c07641d93932a4}{Update\+Motion}} (double timestep)
-\begin{DoxyCompactList}\small\item\em Update the motion of the particle based on the applied forces and moments over a time step. \end{DoxyCompactList}\item 
-virtual void \mbox{\hyperlink{classnetdem_1_1_particle_a1e6617d2f0fa8f9ed875067e3ef151e6}{Update\+Bound}} ()
-\begin{DoxyCompactList}\small\item\em Update the bounding box of the particle, which is useful for collision detection. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classnetdem_1_1_particle_ae3fad5f071f1d17920eaa9d15b77c9e5}{Clear\+Linked\+Cells}} ()
 \begin{DoxyCompactList}\small\item\em Clear the linked cells of the particle. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classnetdem_1_1_particle_a0b3018c1ea18e1a58e24b5ee65dcef64}{Clear\+Linked\+Domains}} ()
 \begin{DoxyCompactList}\small\item\em Clear the linked domains of the particle. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classnetdem_1_1_particle_a009c4c797ae829e0ff6174d2bcd64bfb}{Clear\+Linked\+Neighs}} ()
 \begin{DoxyCompactList}\small\item\em Clear the linked neighbors of the particle. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classnetdem_1_1_particle_a5a8310ce972af0d8493b3574cf0cb474}{Build\+Contact\+Look\+Up\+Table}} ()
+void \mbox{\hyperlink{classnetdem_1_1_particle_a947400379f0f4b1f280f01a775f851a5}{Build\+Contact\+Ref\+Table}} ()
 \begin{DoxyCompactList}\small\item\em Build a look-\/up table for contacts between particles. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classnetdem_1_1_particle_a74405132bab8ebdb40048fd24cae1730}{Clear\+Contact\+Look\+Up\+Table}} ()
+void \mbox{\hyperlink{classnetdem_1_1_particle_a2315805a81c109ba6e75574939d430d3}{Clear\+Contact\+Ref\+Table}} ()
 \begin{DoxyCompactList}\small\item\em Clear the look-\/up table for contacts between particles. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classnetdem_1_1_particle_aef5a7313a524dbc11624c51b4e66d562}{Update\+Linked\+Domains}} (\mbox{\hyperlink{classnetdem_1_1_domain_manager}{Domain\+Manager}} \texorpdfstring{$\ast$}{*}const dm)
 \begin{DoxyCompactList}\small\item\em Update the linked domains of the particle based on the given domain manager. \end{DoxyCompactList}\item 
@@ -129,36 +113,44 @@ void \mbox{\hyperlink{classnetdem_1_1_particle_a6a4be656cc091df65ef57d3611624239
 \begin{DoxyCompactList}\small\item\em Update the linked cells of the particle based on the given cell manager. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classnetdem_1_1_particle_a589fe6c77578d3c68147460e091df083}{Update\+Linked\+Neighs}} (\mbox{\hyperlink{classnetdem_1_1_domain}{Domain}} \texorpdfstring{$\ast$}{*}const domain)
 \begin{DoxyCompactList}\small\item\em Update the linked neighbors of the particle based on the given domain. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{classnetdem_1_1_contact_p_p}{Contact\+PP}} \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{classnetdem_1_1_particle_aa124566c0cf74c1b46c61ffa9f516f90}{Get\+Contact\+PPs}} ()
+\mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{Vec\+XT}}$<$ \mbox{\hyperlink{classnetdem_1_1_contact_p_p}{Contact\+PP}} \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{classnetdem_1_1_particle_aa124566c0cf74c1b46c61ffa9f516f90}{Get\+Contact\+PPs}} ()
 \begin{DoxyCompactList}\small\item\em Get a vector of pointers to all contact points between particles. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{classnetdem_1_1_contact_p_w}{Contact\+PW}} \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{classnetdem_1_1_particle_a64557d9a8ff76a3398f97e7533a06056}{Get\+Contact\+PWs}} ()
+\mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{Vec\+XT}}$<$ \mbox{\hyperlink{classnetdem_1_1_contact_p_w}{Contact\+PW}} \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{classnetdem_1_1_particle_a64557d9a8ff76a3398f97e7533a06056}{Get\+Contact\+PWs}} ()
 \begin{DoxyCompactList}\small\item\em Get a vector of pointers to all contact points between particles and walls. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{Vec\+XT}}$<$ std\+::pair$<$ \mbox{\hyperlink{classnetdem_1_1_domain}{Domain}} \texorpdfstring{$\ast$}{*}, int $>$ $>$ const \& \mbox{\hyperlink{classnetdem_1_1_particle_ae796f1126cd74b625faa54bf0eac2f2c}{Get\+Linked\+Domains}} ()
+\begin{DoxyCompactList}\small\item\em Gets a vector of pointers to the domains that may be potentially overlapped this wall. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{Vec\+XT}}$<$ std\+::pair$<$ \mbox{\hyperlink{classnetdem_1_1_cell}{Cell}} \texorpdfstring{$\ast$}{*}, int $>$ $>$ const \& \mbox{\hyperlink{classnetdem_1_1_particle_ad30ccc4a06e03deee576ae872b3e93ba}{Get\+Linked\+Cells}} ()
+\begin{DoxyCompactList}\small\item\em Gets a vector of pointers to the cells that may be potentially overlapped this wall. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{Vec\+XT}}$<$ \mbox{\hyperlink{classnetdem_1_1_neigh_pof_p}{Neigh\+PofP}} $>$ const \& \mbox{\hyperlink{classnetdem_1_1_particle_a13dea88840a30a185dafdb9e5a2af658}{Get\+Linked\+Particles}} ()
+\begin{DoxyCompactList}\small\item\em Gets a vector of pointers to the particles that may be potentially overlapped this wall. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{Vec\+XT}}$<$ \mbox{\hyperlink{classnetdem_1_1_neigh_wof_p}{Neigh\+WofP}} $>$ const \& \mbox{\hyperlink{classnetdem_1_1_particle_a00fdd2ec245bfb73048283d27c437fcf}{Get\+Linked\+Walls}} ()
+\begin{DoxyCompactList}\small\item\em Gets a vector of pointers to the walls that may be potentially overlapped this wall. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classnetdem_1_1_neigh_pof_p}{Neigh\+PofP}} \texorpdfstring{$\ast$}{*}const \mbox{\hyperlink{classnetdem_1_1_particle_a90b4202008066e9767465161bdc9b73d}{Get\+Linked\+Particle}} (int lookup\+\_\+id)
+\begin{DoxyCompactList}\small\item\em Gets the neigh obj by look-\/up id. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classnetdem_1_1_neigh_wof_p}{Neigh\+WofP}} \texorpdfstring{$\ast$}{*}const \mbox{\hyperlink{classnetdem_1_1_particle_a1f9132ff374c2586dd62ff91c715230b}{Get\+Linked\+Wall}} (int lookup\+\_\+id)
+\begin{DoxyCompactList}\small\item\em Gets the neigh obj by look-\/up id. \end{DoxyCompactList}\item 
 virtual void \mbox{\hyperlink{classnetdem_1_1_particle_aeb1c40312871e9d9a10cf8fb956b771e}{Update\+STLModel}} ()
 \begin{DoxyCompactList}\small\item\em Update the geometry of the particle\textquotesingle{}s STL model. \end{DoxyCompactList}\item 
-virtual \mbox{\hyperlink{classnetdem_1_1_s_t_l_model}{STLModel}} \mbox{\hyperlink{classnetdem_1_1_particle_aac99b1682bd0388767df4712a214043e}{Get\+STLModel}} (int num\+\_\+facet=400)
+virtual \mbox{\hyperlink{classnetdem_1_1_s_t_l_model}{STLModel}} \mbox{\hyperlink{classnetdem_1_1_particle_a0868b49024bb3421bb8007a1ee61ea64}{Get\+STLModel}} (int num\+\_\+nodes=200)
 \begin{DoxyCompactList}\small\item\em Get a copy of the particle\textquotesingle{}s STL model as an object of type {\ttfamily \doxylink{classnetdem_1_1_s_t_l_model}{STLModel}}. \end{DoxyCompactList}\item 
-virtual void \mbox{\hyperlink{classnetdem_1_1_particle_a6863649703099735801d6a7f36a47809}{Save\+As\+VTK}} (std\+::string const \&filename)
-\begin{DoxyCompactList}\small\item\em Save the particle\textquotesingle{}s current state to a VTK file with the given filename. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{classnetdem_1_1_s_t_l_model}{STLModel}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classnetdem_1_1_particle_a8630ed220200d129a97037382e8c6f1e}{Get\+STLModel\+Internal}} ()
+\begin{DoxyCompactList}\small\item\em Get a copy of the particle\textquotesingle{}s STL model as an object of type {\ttfamily \doxylink{classnetdem_1_1_s_t_l_model}{STLModel}}. \end{DoxyCompactList}\item 
 virtual void \mbox{\hyperlink{classnetdem_1_1_particle_a4f61c86cfb9e43d06eebe2bf79e612d4}{Print}} () const
 \begin{DoxyCompactList}\small\item\em Print information about the particle to the console. \end{DoxyCompactList}\item 
 virtual \mbox{\hyperlink{classnetdem_1_1_particle_ad030d0fe7b88cf81744b127c99244ff4}{\texorpdfstring{$\sim$}{\string~}\+Particle}} ()
 \begin{DoxyCompactList}\small\item\em Destroy the particle object and free any resources it might be holding. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{classnetdem_1_1_neigh_pof_p}{Neigh\+PofP}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classnetdem_1_1_particle_a47af873550651038470ea6c3bae2a6e4}{Make\+Linked}} (\mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} \texorpdfstring{$\ast$}{*}const q)
+\mbox{\hyperlink{classnetdem_1_1_neigh_pof_p}{Neigh\+PofP}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classnetdem_1_1_particle_a144a076e26274c35966257cd213dd022}{Link\+To\+Particle}} (\mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} \texorpdfstring{$\ast$}{*}const q)
 \begin{DoxyCompactList}\small\item\em Create a new neighbor tuple between this particle and the given particle {\ttfamily q}, and return the newly created tuple. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{classnetdem_1_1_neigh_wof_p}{Neigh\+WofP}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classnetdem_1_1_particle_ac75704155fe82d2be7cbe66ff5ec7b73}{Make\+Linked}} (\mbox{\hyperlink{classnetdem_1_1_wall}{Wall}} \texorpdfstring{$\ast$}{*}const w)
+\mbox{\hyperlink{classnetdem_1_1_neigh_wof_p}{Neigh\+WofP}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classnetdem_1_1_particle_ac0a04873fbcc5ea25a55f2b7adbe9acf}{Link\+To\+Wall}} (\mbox{\hyperlink{classnetdem_1_1_wall}{Wall}} \texorpdfstring{$\ast$}{*}const w)
 \begin{DoxyCompactList}\small\item\em Create a new neighbor tuple between this particle and the given wall {\ttfamily w}, and return the newly created tuple. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{classnetdem_1_1_neigh_pof_p}{Neigh\+PofP}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classnetdem_1_1_particle_a153fd8cd12840aaa7eda831009881a51}{Build\+Contact\+Look\+Up\+Item}} (\mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} \texorpdfstring{$\ast$}{*}const q, \mbox{\hyperlink{classnetdem_1_1_contact_p_p}{Contact\+PP}} \texorpdfstring{$\ast$}{*}const cnt)
-\begin{DoxyCompactList}\small\item\em Create a new contact lookup table entry for the given pair of particles {\ttfamily q} and {\ttfamily cnt}, and return the newly created entry. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{classnetdem_1_1_neigh_wof_p}{Neigh\+WofP}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classnetdem_1_1_particle_a1f6698e7212f616e494fcacf67ae24a4}{Build\+Contact\+Look\+Up\+Item}} (\mbox{\hyperlink{classnetdem_1_1_wall}{Wall}} \texorpdfstring{$\ast$}{*}const w, \mbox{\hyperlink{classnetdem_1_1_contact_p_w}{Contact\+PW}} \texorpdfstring{$\ast$}{*}const cnt)
-\begin{DoxyCompactList}\small\item\em Create a new contact lookup table entry for the given wall {\ttfamily w} and contact point {\ttfamily cnt}, and return the newly created entry. \end{DoxyCompactList}\item 
-int \mbox{\hyperlink{classnetdem_1_1_particle_ab448286d8417817a52b6331958c63c61}{Find\+Linked}} (\mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} \texorpdfstring{$\ast$}{*}const q)
+int \mbox{\hyperlink{classnetdem_1_1_particle_a142433f3c6963caf54cf84058fd4fed1}{Link\+To\+Cell}} (\mbox{\hyperlink{classnetdem_1_1_cell}{Cell}} \texorpdfstring{$\ast$}{*}const cell)
+\begin{DoxyCompactList}\small\item\em Create a link between this particle and the given cell and return the look up id. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classnetdem_1_1_particle_a0471930db609a16815f7468e579ad847}{Link\+To\+Domain}} (\mbox{\hyperlink{classnetdem_1_1_domain}{Domain}} \texorpdfstring{$\ast$}{*}const domain)
+\begin{DoxyCompactList}\small\item\em Create a link between this particle and the given domain and return the look up id. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classnetdem_1_1_particle_a216d749e2aafd8abb00e8604a5538a7b}{Find\+Linked\+Particle}} (\mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} \texorpdfstring{$\ast$}{*}const q)
 \begin{DoxyCompactList}\small\item\em Find the index of the neighbor tuple belonging to this particle that is linked to the given particle {\ttfamily q}. \end{DoxyCompactList}\item 
-int \mbox{\hyperlink{classnetdem_1_1_particle_ab895837e8c01a8414d49f842fa81c0b9}{Find\+Linked}} (\mbox{\hyperlink{classnetdem_1_1_wall}{Wall}} \texorpdfstring{$\ast$}{*}const w)
-\begin{DoxyCompactList}\small\item\em Find the index of the neighbor tuple belonging to this particle that is linked to the given wall {\ttfamily w}. \end{DoxyCompactList}\item 
-int \mbox{\hyperlink{classnetdem_1_1_particle_a4745a950581b1145b348417a282d8ea6}{Find\+Contact\+Ref}} (\mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} \texorpdfstring{$\ast$}{*}const q)
-\begin{DoxyCompactList}\small\item\em Find the index of the contact lookup table entry belonging to this particle that references the given particle {\ttfamily q}. \end{DoxyCompactList}\item 
-int \mbox{\hyperlink{classnetdem_1_1_particle_ae99df66f5e285a172a17bec558800a6d}{Find\+Contact\+Ref}} (\mbox{\hyperlink{classnetdem_1_1_wall}{Wall}} \texorpdfstring{$\ast$}{*}const w)
-\begin{DoxyCompactList}\small\item\em Find the index of the contact lookup table entry belonging to this particle that references the given wall {\ttfamily w}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+int \mbox{\hyperlink{classnetdem_1_1_particle_ac070962c35fad402a57430d30756f240}{Find\+Linked\+Wall}} (\mbox{\hyperlink{classnetdem_1_1_wall}{Wall}} \texorpdfstring{$\ast$}{*}const w)
+\begin{DoxyCompactList}\small\item\em Find the index of the neighbor tuple belonging to this particle that is linked to the given wall {\ttfamily w}. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -177,66 +169,97 @@ int \mbox{\hyperlink{classnetdem_1_1_particle_a4964374de23d43e809983a1850b61e4c}
 \begin{DoxyCompactList}\small\item\em The ID of the particle. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classnetdem_1_1_shape}{Shape}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classnetdem_1_1_particle_ac63a86094d1dcd92c3a08ddfd1db0103}{shape}} \{nullptr\}
 \begin{DoxyCompactList}\small\item\em The shape of the particle. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \mbox{\hyperlink{classnetdem_1_1_particle_ad26b88f42dc92e933a245db6cd57666d}{bound\+\_\+min}} \{0, 0, 0\}
+\mbox{\hyperlink{namespacenetdem_a510a89239abc51ed4d8d88ce7ee403df}{Vec3d}} \mbox{\hyperlink{classnetdem_1_1_particle_ad26b88f42dc92e933a245db6cd57666d}{bound\+\_\+min}} \{0, 0, 0\}
 \begin{DoxyCompactList}\small\item\em The minimum bounds of the particle\textquotesingle{}s shape. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \mbox{\hyperlink{classnetdem_1_1_particle_a9d0f483a291179b369e1bbf335bfe8de}{bound\+\_\+max}} \{0, 0, 0\}
+\mbox{\hyperlink{namespacenetdem_a510a89239abc51ed4d8d88ce7ee403df}{Vec3d}} \mbox{\hyperlink{classnetdem_1_1_particle_a9d0f483a291179b369e1bbf335bfe8de}{bound\+\_\+max}} \{0, 0, 0\}
 \begin{DoxyCompactList}\small\item\em The maximum bounds of the particle\textquotesingle{}s shape. \end{DoxyCompactList}\item 
 double \mbox{\hyperlink{classnetdem_1_1_particle_a7bb890b2b0ad41e61a2202efb846aa0e}{margin}} \{0\}
 \begin{DoxyCompactList}\small\item\em The margin of the particle\textquotesingle{}s shape. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \mbox{\hyperlink{classnetdem_1_1_particle_a00a8575b6273b74fdb9fbf5f25e83a8c}{bound\+\_\+disp}} \{0, 0, 0\}
+\mbox{\hyperlink{namespacenetdem_a510a89239abc51ed4d8d88ce7ee403df}{Vec3d}} \mbox{\hyperlink{classnetdem_1_1_particle_a00a8575b6273b74fdb9fbf5f25e83a8c}{bound\+\_\+disp}} \{0, 0, 0\}
 \begin{DoxyCompactList}\small\item\em The displacement of the particle\textquotesingle{}s bounds for the linked list. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{classnetdem_1_1_particle_ac9aabb8e56e03ed8262ac8d5fdd1fdf2}{material\+\_\+type}} \{0\}
 \begin{DoxyCompactList}\small\item\em The material type of the particle. \end{DoxyCompactList}\item 
-double \mbox{\hyperlink{classnetdem_1_1_particle_aa63ca4ce3fa5b542a8fb2c3d66ce189f}{density}} \{2650\}
-\begin{DoxyCompactList}\small\item\em The density of the particle. \end{DoxyCompactList}\item 
 double \mbox{\hyperlink{classnetdem_1_1_particle_aad3ddef54c79a9ff49c10007b3b96355}{mass}} \{0.\+0\}
 \begin{DoxyCompactList}\small\item\em The mass of the particle. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \mbox{\hyperlink{classnetdem_1_1_particle_a8366dbe9c2b642bdef76ae724e829276}{moi\+\_\+principal}} \{0, 0, 0\}
+\mbox{\hyperlink{namespacenetdem_a510a89239abc51ed4d8d88ce7ee403df}{Vec3d}} \mbox{\hyperlink{classnetdem_1_1_particle_a8366dbe9c2b642bdef76ae724e829276}{moi\+\_\+principal}} \{0, 0, 0\}
 \begin{DoxyCompactList}\small\item\em The principal moment of inertia of the particle. \end{DoxyCompactList}\item 
-double \mbox{\hyperlink{classnetdem_1_1_particle_a1b111d30761e178def8f2f74783e1eba}{damp\+\_\+global}} \{0\}
-\begin{DoxyCompactList}\small\item\em The global damping coefficient of the particle. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \mbox{\hyperlink{classnetdem_1_1_particle_a99a725063b17af58b5abda99dc935dd9}{pos}} \{0, 0, 0\}
+double \mbox{\hyperlink{classnetdem_1_1_particle_aa4449dee02fee09aac84f6bc5d864420}{damp\+\_\+viscous}} \{0\}
+\begin{DoxyCompactList}\small\item\em The viscous damping coefficient of the particle. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classnetdem_1_1_particle_a8e7092b1552f32cc164754bbec249907}{damp\+\_\+numerical}} \{0\}
+\begin{DoxyCompactList}\small\item\em The numerical damping coefficient of the particle. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespacenetdem_a510a89239abc51ed4d8d88ce7ee403df}{Vec3d}} \mbox{\hyperlink{classnetdem_1_1_particle_a99a725063b17af58b5abda99dc935dd9}{pos}} \{0, 0, 0\}
 \begin{DoxyCompactList}\small\item\em The position of the particle. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{namespacenetdem_a13d5371f99b252a70fd5a5081b910370}{Vec4d}} \mbox{\hyperlink{classnetdem_1_1_particle_a419c571fbf7604011f11c2ce77388720}{quaternion}} \{1, 0, 0, 0\}
+\mbox{\hyperlink{namespacenetdem_aa088f3b9daf31efbeb49c18db267c791}{Vec4d}} \mbox{\hyperlink{classnetdem_1_1_particle_a419c571fbf7604011f11c2ce77388720}{quaternion}} \{1, 0, 0, 0\}
 \begin{DoxyCompactList}\small\item\em The quaternion of the particle. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \mbox{\hyperlink{classnetdem_1_1_particle_ac688521b75c58939970477eb8e621948}{vel}} \{0, 0, 0\}
+\mbox{\hyperlink{namespacenetdem_a510a89239abc51ed4d8d88ce7ee403df}{Vec3d}} \mbox{\hyperlink{classnetdem_1_1_particle_ac688521b75c58939970477eb8e621948}{vel}} \{0, 0, 0\}
 \begin{DoxyCompactList}\small\item\em The velocity of the particle. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \mbox{\hyperlink{classnetdem_1_1_particle_afb5d2bda55a1a1948b4e595e1d15aee4}{spin}} \{0, 0, 0\}
+\mbox{\hyperlink{namespacenetdem_a510a89239abc51ed4d8d88ce7ee403df}{Vec3d}} \mbox{\hyperlink{classnetdem_1_1_particle_afb5d2bda55a1a1948b4e595e1d15aee4}{spin}} \{0, 0, 0\}
 \begin{DoxyCompactList}\small\item\em The spin of the particle. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \mbox{\hyperlink{classnetdem_1_1_particle_a528be9bbcc7d7a40ab2e2e375d3a9d05}{vel\+\_\+m0p5}} \{0, 0, 0\}
+\mbox{\hyperlink{namespacenetdem_a510a89239abc51ed4d8d88ce7ee403df}{Vec3d}} \mbox{\hyperlink{classnetdem_1_1_particle_a528be9bbcc7d7a40ab2e2e375d3a9d05}{vel\+\_\+m0p5}} \{0, 0, 0\}
 \begin{DoxyCompactList}\small\item\em The square root velocity of the particle for half-\/step integration. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \mbox{\hyperlink{classnetdem_1_1_particle_aa440bc61015ee492a06e6908a7ab4004}{spin\+\_\+principal}} \{0, 0, 0\}
+\mbox{\hyperlink{namespacenetdem_a510a89239abc51ed4d8d88ce7ee403df}{Vec3d}} \mbox{\hyperlink{classnetdem_1_1_particle_aa440bc61015ee492a06e6908a7ab4004}{spin\+\_\+principal}} \{0, 0, 0\}
 \begin{DoxyCompactList}\small\item\em The principal spin axis of the particle. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \mbox{\hyperlink{classnetdem_1_1_particle_adfabbc70bb6b9ca4059a4ec08e5661f2}{force}} \{0, 0, 0\}
+\mbox{\hyperlink{namespacenetdem_a510a89239abc51ed4d8d88ce7ee403df}{Vec3d}} \mbox{\hyperlink{classnetdem_1_1_particle_adfabbc70bb6b9ca4059a4ec08e5661f2}{force}} \{0, 0, 0\}
 \begin{DoxyCompactList}\small\item\em The force acting on the particle. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} \mbox{\hyperlink{classnetdem_1_1_particle_ac11425c8bad91adc110a84e3c9ebc38a}{moment}} \{0, 0, 0\}
+\mbox{\hyperlink{namespacenetdem_a510a89239abc51ed4d8d88ce7ee403df}{Vec3d}} \mbox{\hyperlink{classnetdem_1_1_particle_ac11425c8bad91adc110a84e3c9ebc38a}{moment}} \{0, 0, 0\}
 \begin{DoxyCompactList}\small\item\em The moment acting on the particle. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classnetdem_1_1_mini_map}{Mini\+Map}}$<$ std\+::string, double $>$ \mbox{\hyperlink{classnetdem_1_1_particle_a10a19879967ad580f7e72f96ed290cd5}{dynamic\+\_\+properties}}
 \begin{DoxyCompactList}\small\item\em Map of dynamic properties of the particle. \end{DoxyCompactList}\item 
-bool \mbox{\hyperlink{classnetdem_1_1_particle_a07ad9eab91bfd53f6bbfcc74ab03b476}{enable\+\_\+rotation}} \{true\}
-\begin{DoxyCompactList}\small\item\em Flag indicating whether rotation is enabled for the particle. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{classnetdem_1_1_particle_ad3fce6918b4e3e2bd6f1ee030ab972b3}{enable\+\_\+bound\+\_\+aabb}} \{false\}
 \begin{DoxyCompactList}\small\item\em Flag indicating whether bounding sphere should be used to approximate axis-\/aligned bounding box (AABB). \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{classnetdem_1_1_particle_a5761082c56be60a6e90ef269f49bd8f0}{need\+\_\+update\+\_\+linked\+\_\+list}} \{true\}
 \begin{DoxyCompactList}\small\item\em Flag indicating whether linked-\/list algorithm should be used for broad-\/phase contact detection. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ std\+::pair$<$ \mbox{\hyperlink{classnetdem_1_1_cell}{Cell}} \texorpdfstring{$\ast$}{*}, int $>$ $>$ \mbox{\hyperlink{classnetdem_1_1_particle_a2cedf832f13c2603e5c75048ac74985e}{linked\+\_\+cell\+\_\+list}}
+bool \mbox{\hyperlink{classnetdem_1_1_particle_af762283470f206c8a0797d6ce04f6436}{need\+\_\+update\+\_\+stl\+\_\+model}} \{false\}
+\begin{DoxyCompactList}\small\item\em Flag indicating whether STl model intersection-\/based contact detection and resolution is needed. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Member Functions inherited from \mbox{\hyperlink{classnetdem_1_1_particle}{netdem\+::\+Particle}}}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classnetdem_1_1_particle_a84abb76ec52133d15d1a7ebbaf918523}{Remove\+Linked\+Cell}} (int lookup\+\_\+id)
+\begin{DoxyCompactList}\small\item\em Reomve a linked cell by look-\/up id. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classnetdem_1_1_particle_ab07cdb9884963441ea5591edd664ecae}{Remove\+Linked\+Domain}} (int lookup\+\_\+id)
+\begin{DoxyCompactList}\small\item\em Reomve a linked domain by look-\/up id. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classnetdem_1_1_particle_a952b7d70e922a3b2af383e7a68e8859f}{Remove\+Linked\+Particle}} (int lookup\+\_\+id)
+\begin{DoxyCompactList}\small\item\em Reomve a linked neighbor by look-\/up id. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classnetdem_1_1_particle_a6e9f6e0d69bc7071ee7864323de91059}{Remove\+Linked\+Wall}} (int lookup\+\_\+id)
+\begin{DoxyCompactList}\small\item\em Reomve a linked neighbor by look-\/up id. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classnetdem_1_1_particle_a8e450d8702bd646d8c1876d5d0174fba}{Remove\+Contact\+Ref\+PP}} (int lookup\+\_\+id)
+\begin{DoxyCompactList}\small\item\em Reomve a p-\/p contact by look-\/up id. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classnetdem_1_1_particle_ac61fd600cd6851eb34a95c8f72f003ae}{Remove\+Contact\+Ref\+PW}} (int lookup\+\_\+id)
+\begin{DoxyCompactList}\small\item\em Reomve a p-\/w contact by look-\/up id. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classnetdem_1_1_neigh_pof_p}{Neigh\+PofP}} \texorpdfstring{$\ast$}{*}const \mbox{\hyperlink{classnetdem_1_1_particle_af777b578b05c4da68e6f9df5f5307ff4}{Get\+Linked\+Contact\+Ref\+PP}} (int lookup\+\_\+id)
+\begin{DoxyCompactList}\small\item\em Gets the neigh obj by look-\/up id. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classnetdem_1_1_neigh_wof_p}{Neigh\+WofP}} \texorpdfstring{$\ast$}{*}const \mbox{\hyperlink{classnetdem_1_1_particle_ae017ece8a5622c7f22dde74535562df6}{Get\+Linked\+Contact\+Ref\+PW}} (int lookup\+\_\+id)
+\begin{DoxyCompactList}\small\item\em Gets the neigh obj by look-\/up id. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classnetdem_1_1_neigh_pof_p}{Neigh\+PofP}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classnetdem_1_1_particle_a0856d967fcca534b8b470b8f6515af1b}{Build\+Contact\+Ref\+PP}} (\mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} \texorpdfstring{$\ast$}{*}const q, \mbox{\hyperlink{classnetdem_1_1_contact_p_p}{Contact\+PP}} \texorpdfstring{$\ast$}{*}const cnt)
+\begin{DoxyCompactList}\small\item\em Create a new contact lookup table entry for the given pair of particles {\ttfamily q} and {\ttfamily cnt}, and return the newly created entry. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classnetdem_1_1_neigh_wof_p}{Neigh\+WofP}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classnetdem_1_1_particle_a63a6b363a6395234a8954eb9d74e6d05}{Build\+Contact\+Ref\+PW}} (\mbox{\hyperlink{classnetdem_1_1_wall}{Wall}} \texorpdfstring{$\ast$}{*}const w, \mbox{\hyperlink{classnetdem_1_1_contact_p_w}{Contact\+PW}} \texorpdfstring{$\ast$}{*}const cnt)
+\begin{DoxyCompactList}\small\item\em Create a new contact lookup table entry for the given wall {\ttfamily w} and contact point {\ttfamily cnt}, and return the newly created entry. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classnetdem_1_1_particle_ad74cc5f97a0d7eaebb52665ee722df7b}{Find\+Contact\+Ref\+PP}} (\mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} \texorpdfstring{$\ast$}{*}const q)
+\begin{DoxyCompactList}\small\item\em Find the index of the contact lookup table entry belonging to this particle that references the given particle {\ttfamily q}. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classnetdem_1_1_particle_a7e87f8749d0066b83c41a117f5886baf}{Find\+Contact\+Ref\+PW}} (\mbox{\hyperlink{classnetdem_1_1_wall}{Wall}} \texorpdfstring{$\ast$}{*}const w)
+\begin{DoxyCompactList}\small\item\em Find the index of the contact lookup table entry belonging to this particle that references the given wall {\ttfamily w}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{classnetdem_1_1_particle}{netdem\+::\+Particle}}}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{classnetdem_1_1_particle_aa63ca4ce3fa5b542a8fb2c3d66ce189f}{density}} \{2650\}
+\begin{DoxyCompactList}\small\item\em The density of the particle. Please use Set\+Density to change its value. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{Vec\+XT}}$<$ std\+::pair$<$ \mbox{\hyperlink{classnetdem_1_1_cell}{Cell}} \texorpdfstring{$\ast$}{*}, int $>$ $>$ \mbox{\hyperlink{classnetdem_1_1_particle_a2cedf832f13c2603e5c75048ac74985e}{linked\+\_\+cell\+\_\+list}}
 \begin{DoxyCompactList}\small\item\em List of linked cells used for broad-\/phase contact detection. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{classnetdem_1_1_neigh_pof_p}{Neigh\+PofP}} $>$ \mbox{\hyperlink{classnetdem_1_1_particle_a13604fb47369a16f068e3ec00617f8dd}{linked\+\_\+particle\+\_\+list}}
+\mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{Vec\+XT}}$<$ \mbox{\hyperlink{classnetdem_1_1_neigh_pof_p}{Neigh\+PofP}} $>$ \mbox{\hyperlink{classnetdem_1_1_particle_a13604fb47369a16f068e3ec00617f8dd}{linked\+\_\+particle\+\_\+list}}
 \begin{DoxyCompactList}\small\item\em List of linked particles used for narrow-\/phase contact detection with particles. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{classnetdem_1_1_neigh_wof_p}{Neigh\+WofP}} $>$ \mbox{\hyperlink{classnetdem_1_1_particle_aa628631ce0bef42dd64e21bf432aca91}{linked\+\_\+wall\+\_\+list}}
+\mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{Vec\+XT}}$<$ \mbox{\hyperlink{classnetdem_1_1_neigh_wof_p}{Neigh\+WofP}} $>$ \mbox{\hyperlink{classnetdem_1_1_particle_aa628631ce0bef42dd64e21bf432aca91}{linked\+\_\+wall\+\_\+list}}
 \begin{DoxyCompactList}\small\item\em List of linked walls used for narrow-\/phase contact detection with walls. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{classnetdem_1_1_neigh_pof_p}{Neigh\+PofP}} $>$ \mbox{\hyperlink{classnetdem_1_1_particle_a9c6b8b3839a7d1d25f3addf32d6f9a3e}{contact\+\_\+pp\+\_\+lookup\+\_\+table}}
+\mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{Vec\+XT}}$<$ \mbox{\hyperlink{classnetdem_1_1_neigh_pof_p}{Neigh\+PofP}} $>$ \mbox{\hyperlink{classnetdem_1_1_particle_a910a5057267a182ad1706aa1a00871df}{contact\+\_\+pp\+\_\+ref\+\_\+table}}
 \begin{DoxyCompactList}\small\item\em Lookup table used to reconstruct reference of contact history with particles. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ \mbox{\hyperlink{classnetdem_1_1_neigh_wof_p}{Neigh\+WofP}} $>$ \mbox{\hyperlink{classnetdem_1_1_particle_af933ba0c33234ccde31a38209510f2ae}{contact\+\_\+pw\+\_\+lookup\+\_\+table}}
+\mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{Vec\+XT}}$<$ \mbox{\hyperlink{classnetdem_1_1_neigh_wof_p}{Neigh\+WofP}} $>$ \mbox{\hyperlink{classnetdem_1_1_particle_a29011ff5970d0891c32b5d5813c90691}{contact\+\_\+pw\+\_\+ref\+\_\+table}}
 \begin{DoxyCompactList}\small\item\em Lookup table used to reconstruct reference of contact history with walls. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{classnetdem_1_1_particle_a390c65b299d0d9ec9d9cd1e60d3afafd}{is\+\_\+on\+\_\+edge}} \{false\}
 \begin{DoxyCompactList}\small\item\em Flag indicating whether particle is on domain edge. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{classnetdem_1_1_particle_a21eaff6dad11f86c7d0eb937ada80a53}{need\+\_\+send\+\_\+out}} \{false\}
 \begin{DoxyCompactList}\small\item\em Flag indicating whether data needs to be sent out to linked domains. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{Vec\+XT}}$<$ std\+::pair$<$ \mbox{\hyperlink{classnetdem_1_1_domain}{Domain}} \texorpdfstring{$\ast$}{*}, int $>$ $>$ \mbox{\hyperlink{classnetdem_1_1_particle_ad3fdc880b41134fb2334730a21b26ebc}{linked\+\_\+domain\+\_\+list}}
+\mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{Vec\+XT}}$<$ std\+::pair$<$ \mbox{\hyperlink{classnetdem_1_1_domain}{Domain}} \texorpdfstring{$\ast$}{*}, int $>$ $>$ \mbox{\hyperlink{classnetdem_1_1_particle_ad3fdc880b41134fb2334730a21b26ebc}{linked\+\_\+domain\+\_\+list}}
 \begin{DoxyCompactList}\small\item\em List of linked domains that overlap with the particle. \end{DoxyCompactList}\item 
-bool \mbox{\hyperlink{classnetdem_1_1_particle_af762283470f206c8a0797d6ce04f6436}{need\+\_\+update\+\_\+stl\+\_\+model}} \{false\}
-\begin{DoxyCompactList}\small\item\em Flag indicating whether STl model intersection-\/based contact detection and resolution is needed. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classnetdem_1_1_s_t_l_model}{STLModel}} \mbox{\hyperlink{classnetdem_1_1_particle_a4691eceb7114ac27ccbb732fab68a1ad}{stl\+\_\+model}}
 \begin{DoxyCompactList}\small\item\em \doxylink{classnetdem_1_1_s_t_l_model}{STLModel} object used for intersection-\/based contact detection and resolution. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
@@ -250,21 +273,21 @@ This class inherits from the {\ttfamily \doxylink{classnetdem_1_1_particle}{Part
 
 
 \doxysubsection{Constructor \& Destructor Documentation}
-\Hypertarget{classnetdem_1_1_deformable_particle_af40a945808dadd62c43f93078fe97e48}\label{classnetdem_1_1_deformable_particle_af40a945808dadd62c43f93078fe97e48} 
-\index{netdem::DeformableParticle@{netdem::DeformableParticle}!DeformableParticle@{DeformableParticle}}
+\Hypertarget{classnetdem_1_1_deformable_particle_af40a945808dadd62c43f93078fe97e48}\index{netdem::DeformableParticle@{netdem::DeformableParticle}!DeformableParticle@{DeformableParticle}}
 \index{DeformableParticle@{DeformableParticle}!netdem::DeformableParticle@{netdem::DeformableParticle}}
 \doxysubsubsection{\texorpdfstring{DeformableParticle()}{DeformableParticle()}}
-{\footnotesize\ttfamily netdem\+::\+Deformable\+Particle\+::\+Deformable\+Particle (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{classnetdem_1_1_deformable_particle_af40a945808dadd62c43f93078fe97e48} 
+netdem\+::\+Deformable\+Particle\+::\+Deformable\+Particle (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
 
 
 Constructs a new {\ttfamily \doxylink{classnetdem_1_1_deformable_particle}{Deformable\+Particle}} object. 
 
-\Hypertarget{classnetdem_1_1_deformable_particle_a862152a352c08319d7d0a16c48343be2}\label{classnetdem_1_1_deformable_particle_a862152a352c08319d7d0a16c48343be2} 
-\index{netdem::DeformableParticle@{netdem::DeformableParticle}!````~DeformableParticle@{\texorpdfstring{$\sim$}{\string~}DeformableParticle}}
+\Hypertarget{classnetdem_1_1_deformable_particle_a862152a352c08319d7d0a16c48343be2}\index{netdem::DeformableParticle@{netdem::DeformableParticle}!````~DeformableParticle@{\texorpdfstring{$\sim$}{\string~}DeformableParticle}}
 \index{````~DeformableParticle@{\texorpdfstring{$\sim$}{\string~}DeformableParticle}!netdem::DeformableParticle@{netdem::DeformableParticle}}
 \doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}DeformableParticle()}{\string~DeformableParticle()}}
-{\footnotesize\ttfamily netdem\+::\+Deformable\+Particle\+::\texorpdfstring{$\sim$}{\string~}\+Deformable\+Particle (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}}
+{\footnotesize\ttfamily \label{classnetdem_1_1_deformable_particle_a862152a352c08319d7d0a16c48343be2} 
+netdem\+::\+Deformable\+Particle\+::\texorpdfstring{$\sim$}{\string~}\+Deformable\+Particle (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}}
 
 
 
@@ -273,11 +296,11 @@ Destroys the {\ttfamily \doxylink{classnetdem_1_1_deformable_particle}{Deformabl
 
 
 \doxysubsection{Member Function Documentation}
-\Hypertarget{classnetdem_1_1_deformable_particle_ad119daee07ad91b901b7d41817189ed4}\label{classnetdem_1_1_deformable_particle_ad119daee07ad91b901b7d41817189ed4} 
-\index{netdem::DeformableParticle@{netdem::DeformableParticle}!AddForce@{AddForce}}
+\Hypertarget{classnetdem_1_1_deformable_particle_ad119daee07ad91b901b7d41817189ed4}\index{netdem::DeformableParticle@{netdem::DeformableParticle}!AddForce@{AddForce}}
 \index{AddForce@{AddForce}!netdem::DeformableParticle@{netdem::DeformableParticle}}
 \doxysubsubsection{\texorpdfstring{AddForce()}{AddForce()}}
-{\footnotesize\ttfamily void netdem\+::\+Deformable\+Particle\+::\+Add\+Force (\begin{DoxyParamCaption}\item[{int}]{node\+\_\+id,  }\item[{\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&}]{f }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{classnetdem_1_1_deformable_particle_ad119daee07ad91b901b7d41817189ed4} 
+void netdem\+::\+Deformable\+Particle\+::\+Add\+Force (\begin{DoxyParamCaption}\item[{int}]{node\+\_\+id}{, }\item[{\mbox{\hyperlink{namespacenetdem_a510a89239abc51ed4d8d88ce7ee403df}{Vec3d}} const \&}]{f}{}\end{DoxyParamCaption})}
 
 
 
@@ -295,11 +318,11 @@ This function adds a force to a specific node on the particle\textquotesingle{}s
 \begin{Desc}
 \item[Examples]\par
 \mbox{\hyperlink{00_hertz_contact_8cpp-example}{00\+\_\+hertz\+\_\+contact.\+cpp}}.\end{Desc}
-\Hypertarget{classnetdem_1_1_deformable_particle_a46a937860e9d9e0ac8e25886c8d66053}\label{classnetdem_1_1_deformable_particle_a46a937860e9d9e0ac8e25886c8d66053} 
-\index{netdem::DeformableParticle@{netdem::DeformableParticle}!ApplyContactForce@{ApplyContactForce}}
+\Hypertarget{classnetdem_1_1_deformable_particle_a46a937860e9d9e0ac8e25886c8d66053}\index{netdem::DeformableParticle@{netdem::DeformableParticle}!ApplyContactForce@{ApplyContactForce}}
 \index{ApplyContactForce@{ApplyContactForce}!netdem::DeformableParticle@{netdem::DeformableParticle}}
 \doxysubsubsection{\texorpdfstring{ApplyContactForce()}{ApplyContactForce()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily void netdem\+::\+Deformable\+Particle\+::\+Apply\+Contact\+Force (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_contact_p_p}{Contact\+PP}} const \texorpdfstring{$\ast$}{*}}]{cnt }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+{\footnotesize\ttfamily \label{classnetdem_1_1_deformable_particle_a46a937860e9d9e0ac8e25886c8d66053} 
+void netdem\+::\+Deformable\+Particle\+::\+Apply\+Contact\+Force (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_contact_p_p}{Contact\+PP}} const \texorpdfstring{$\ast$}{*}}]{cnt}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
@@ -319,11 +342,11 @@ Reimplemented from \mbox{\hyperlink{classnetdem_1_1_particle_a2cf67a7d5df21f402f
 \begin{Desc}
 \item[Examples]\par
 \mbox{\hyperlink{81_golf_ball_impact_8cpp-example}{81\+\_\+golf\+\_\+ball\+\_\+impact.\+cpp}}.\end{Desc}
-\Hypertarget{classnetdem_1_1_deformable_particle_a96e28a8588044435c652ac775d6b9073}\label{classnetdem_1_1_deformable_particle_a96e28a8588044435c652ac775d6b9073} 
-\index{netdem::DeformableParticle@{netdem::DeformableParticle}!ApplyContactForce@{ApplyContactForce}}
+\Hypertarget{classnetdem_1_1_deformable_particle_a96e28a8588044435c652ac775d6b9073}\index{netdem::DeformableParticle@{netdem::DeformableParticle}!ApplyContactForce@{ApplyContactForce}}
 \index{ApplyContactForce@{ApplyContactForce}!netdem::DeformableParticle@{netdem::DeformableParticle}}
 \doxysubsubsection{\texorpdfstring{ApplyContactForce()}{ApplyContactForce()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily void netdem\+::\+Deformable\+Particle\+::\+Apply\+Contact\+Force (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_contact_p_w}{Contact\+PW}} const \texorpdfstring{$\ast$}{*}}]{cnt }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+{\footnotesize\ttfamily \label{classnetdem_1_1_deformable_particle_a96e28a8588044435c652ac775d6b9073} 
+void netdem\+::\+Deformable\+Particle\+::\+Apply\+Contact\+Force (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_contact_p_w}{Contact\+PW}} const \texorpdfstring{$\ast$}{*}}]{cnt}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
@@ -340,11 +363,11 @@ This function applies a contact force between a particle and a wall using a poin
 
 Reimplemented from \mbox{\hyperlink{classnetdem_1_1_particle_a27ca2cd2ac76069d354faff630232144}{netdem\+::\+Particle}}.
 
-\Hypertarget{classnetdem_1_1_deformable_particle_a41df46b2a3ba9cf0e646206007072936}\label{classnetdem_1_1_deformable_particle_a41df46b2a3ba9cf0e646206007072936} 
-\index{netdem::DeformableParticle@{netdem::DeformableParticle}!ClearForce@{ClearForce}}
+\Hypertarget{classnetdem_1_1_deformable_particle_a41df46b2a3ba9cf0e646206007072936}\index{netdem::DeformableParticle@{netdem::DeformableParticle}!ClearForce@{ClearForce}}
 \index{ClearForce@{ClearForce}!netdem::DeformableParticle@{netdem::DeformableParticle}}
 \doxysubsubsection{\texorpdfstring{ClearForce()}{ClearForce()}}
-{\footnotesize\ttfamily void netdem\+::\+Deformable\+Particle\+::\+Clear\+Force (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+{\footnotesize\ttfamily \label{classnetdem_1_1_deformable_particle_a41df46b2a3ba9cf0e646206007072936} 
+void netdem\+::\+Deformable\+Particle\+::\+Clear\+Force (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
@@ -357,11 +380,11 @@ Reimplemented from \mbox{\hyperlink{classnetdem_1_1_particle_aab0638163ac7ee8fb1
 \begin{Desc}
 \item[Examples]\par
 \mbox{\hyperlink{00_hertz_contact_8cpp-example}{00\+\_\+hertz\+\_\+contact.\+cpp}}, and \mbox{\hyperlink{81_golf_ball_impact_8cpp-example}{81\+\_\+golf\+\_\+ball\+\_\+impact.\+cpp}}.\end{Desc}
-\Hypertarget{classnetdem_1_1_deformable_particle_aa09b1a0027e1bc32338473236d2bed5f}\label{classnetdem_1_1_deformable_particle_aa09b1a0027e1bc32338473236d2bed5f} 
-\index{netdem::DeformableParticle@{netdem::DeformableParticle}!Clone@{Clone}}
+\Hypertarget{classnetdem_1_1_deformable_particle_aa09b1a0027e1bc32338473236d2bed5f}\index{netdem::DeformableParticle@{netdem::DeformableParticle}!Clone@{Clone}}
 \index{Clone@{Clone}!netdem::DeformableParticle@{netdem::DeformableParticle}}
 \doxysubsubsection{\texorpdfstring{Clone()}{Clone()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} \texorpdfstring{$\ast$}{*} netdem\+::\+Deformable\+Particle\+::\+Clone (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+{\footnotesize\ttfamily \label{classnetdem_1_1_deformable_particle_aa09b1a0027e1bc32338473236d2bed5f} 
+\mbox{\hyperlink{classnetdem_1_1_particle}{Particle}} \texorpdfstring{$\ast$}{*} netdem\+::\+Deformable\+Particle\+::\+Clone (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
@@ -376,11 +399,11 @@ A pointer to the new {\ttfamily \doxylink{classnetdem_1_1_deformable_particle}{D
 
 Reimplemented from \mbox{\hyperlink{classnetdem_1_1_particle_ac60dad04a881d50aa5376824dad94961}{netdem\+::\+Particle}}.
 
-\Hypertarget{classnetdem_1_1_deformable_particle_a56ea9463633d0d0cf858d134256ce304}\label{classnetdem_1_1_deformable_particle_a56ea9463633d0d0cf858d134256ce304} 
-\index{netdem::DeformableParticle@{netdem::DeformableParticle}!GetVelocity@{GetVelocity}}
+\Hypertarget{classnetdem_1_1_deformable_particle_a56ea9463633d0d0cf858d134256ce304}\index{netdem::DeformableParticle@{netdem::DeformableParticle}!GetVelocity@{GetVelocity}}
 \index{GetVelocity@{GetVelocity}!netdem::DeformableParticle@{netdem::DeformableParticle}}
 \doxysubsubsection{\texorpdfstring{GetVelocity()}{GetVelocity()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} netdem\+::\+Deformable\+Particle\+::\+Get\+Velocity (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacenetdem_aa1676e16ca66301040ee8d50376c72b9}{Vec3d}} const \&}]{pos }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+{\footnotesize\ttfamily \label{classnetdem_1_1_deformable_particle_a56ea9463633d0d0cf858d134256ce304} 
+\mbox{\hyperlink{namespacenetdem_a510a89239abc51ed4d8d88ce7ee403df}{Vec3d}} netdem\+::\+Deformable\+Particle\+::\+Get\+Velocity (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacenetdem_a510a89239abc51ed4d8d88ce7ee403df}{Vec3d}} const \&}]{pos}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
@@ -400,11 +423,21 @@ The velocity vector at the specified position.
 
 Reimplemented from \mbox{\hyperlink{classnetdem_1_1_particle_a6648cdf6d33db45228918999be87ae8b}{netdem\+::\+Particle}}.
 
-\Hypertarget{classnetdem_1_1_deformable_particle_aaa3fe30e53372abc97acfe2e97f3ed0b}\label{classnetdem_1_1_deformable_particle_aaa3fe30e53372abc97acfe2e97f3ed0b} 
-\index{netdem::DeformableParticle@{netdem::DeformableParticle}!SaveAsVTK@{SaveAsVTK}}
+\Hypertarget{classnetdem_1_1_deformable_particle_ac3e0c3660f3f19dbe949d04bb0440c04}\index{netdem::DeformableParticle@{netdem::DeformableParticle}!InitFEMMesh@{InitFEMMesh}}
+\index{InitFEMMesh@{InitFEMMesh}!netdem::DeformableParticle@{netdem::DeformableParticle}}
+\doxysubsubsection{\texorpdfstring{InitFEMMesh()}{InitFEMMesh()}}
+{\footnotesize\ttfamily \label{classnetdem_1_1_deformable_particle_ac3e0c3660f3f19dbe949d04bb0440c04} 
+void netdem\+::\+Deformable\+Particle\+::\+Init\+FEMMesh (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Initialized the mesh for FEM analysis. 
+
+\Hypertarget{classnetdem_1_1_deformable_particle_aaa3fe30e53372abc97acfe2e97f3ed0b}\index{netdem::DeformableParticle@{netdem::DeformableParticle}!SaveAsVTK@{SaveAsVTK}}
 \index{SaveAsVTK@{SaveAsVTK}!netdem::DeformableParticle@{netdem::DeformableParticle}}
 \doxysubsubsection{\texorpdfstring{SaveAsVTK()}{SaveAsVTK()}}
-{\footnotesize\ttfamily void netdem\+::\+Deformable\+Particle\+::\+Save\+As\+VTK (\begin{DoxyParamCaption}\item[{std\+::string const \&}]{filename }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+{\footnotesize\ttfamily \label{classnetdem_1_1_deformable_particle_aaa3fe30e53372abc97acfe2e97f3ed0b} 
+void netdem\+::\+Deformable\+Particle\+::\+Save\+As\+VTK (\begin{DoxyParamCaption}\item[{std\+::string const \&}]{filename}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
@@ -424,11 +457,11 @@ Reimplemented from \mbox{\hyperlink{classnetdem_1_1_particle_a686364970309973580
 \begin{Desc}
 \item[Examples]\par
 \mbox{\hyperlink{00_hertz_contact_8cpp-example}{00\+\_\+hertz\+\_\+contact.\+cpp}}, and \mbox{\hyperlink{81_golf_ball_impact_8cpp-example}{81\+\_\+golf\+\_\+ball\+\_\+impact.\+cpp}}.\end{Desc}
-\Hypertarget{classnetdem_1_1_deformable_particle_ac4d47fe1ba95931922cbbd2beb48fa26}\label{classnetdem_1_1_deformable_particle_ac4d47fe1ba95931922cbbd2beb48fa26} 
-\index{netdem::DeformableParticle@{netdem::DeformableParticle}!SaveSurfaceAsVTK@{SaveSurfaceAsVTK}}
+\Hypertarget{classnetdem_1_1_deformable_particle_ac4d47fe1ba95931922cbbd2beb48fa26}\index{netdem::DeformableParticle@{netdem::DeformableParticle}!SaveSurfaceAsVTK@{SaveSurfaceAsVTK}}
 \index{SaveSurfaceAsVTK@{SaveSurfaceAsVTK}!netdem::DeformableParticle@{netdem::DeformableParticle}}
 \doxysubsubsection{\texorpdfstring{SaveSurfaceAsVTK()}{SaveSurfaceAsVTK()}}
-{\footnotesize\ttfamily void netdem\+::\+Deformable\+Particle\+::\+Save\+Surface\+As\+VTK (\begin{DoxyParamCaption}\item[{std\+::string const \&}]{filename }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{classnetdem_1_1_deformable_particle_ac4d47fe1ba95931922cbbd2beb48fa26} 
+void netdem\+::\+Deformable\+Particle\+::\+Save\+Surface\+As\+VTK (\begin{DoxyParamCaption}\item[{std\+::string const \&}]{filename}{}\end{DoxyParamCaption})}
 
 
 
@@ -444,11 +477,11 @@ This function saves the surface of the particle\textquotesingle{}s triangular me
 \begin{Desc}
 \item[Examples]\par
 \mbox{\hyperlink{81_golf_ball_impact_8cpp-example}{81\+\_\+golf\+\_\+ball\+\_\+impact.\+cpp}}.\end{Desc}
-\Hypertarget{classnetdem_1_1_deformable_particle_a7023f5af76ec009d53265bfc6952a77b}\label{classnetdem_1_1_deformable_particle_a7023f5af76ec009d53265bfc6952a77b} 
-\index{netdem::DeformableParticle@{netdem::DeformableParticle}!SetDensity@{SetDensity}}
+\Hypertarget{classnetdem_1_1_deformable_particle_a7023f5af76ec009d53265bfc6952a77b}\index{netdem::DeformableParticle@{netdem::DeformableParticle}!SetDensity@{SetDensity}}
 \index{SetDensity@{SetDensity}!netdem::DeformableParticle@{netdem::DeformableParticle}}
 \doxysubsubsection{\texorpdfstring{SetDensity()}{SetDensity()}}
-{\footnotesize\ttfamily void netdem\+::\+Deformable\+Particle\+::\+Set\+Density (\begin{DoxyParamCaption}\item[{double}]{dens }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+{\footnotesize\ttfamily \label{classnetdem_1_1_deformable_particle_a7023f5af76ec009d53265bfc6952a77b} 
+void netdem\+::\+Deformable\+Particle\+::\+Set\+Density (\begin{DoxyParamCaption}\item[{double}]{dens}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
@@ -468,11 +501,11 @@ Reimplemented from \mbox{\hyperlink{classnetdem_1_1_particle_a1ed42f57e728fba572
 \begin{Desc}
 \item[Examples]\par
 \mbox{\hyperlink{81_golf_ball_impact_8cpp-example}{81\+\_\+golf\+\_\+ball\+\_\+impact.\+cpp}}.\end{Desc}
-\Hypertarget{classnetdem_1_1_deformable_particle_a38232575e125e7304d82e288734b6a23}\label{classnetdem_1_1_deformable_particle_a38232575e125e7304d82e288734b6a23} 
-\index{netdem::DeformableParticle@{netdem::DeformableParticle}!SetPosition@{SetPosition}}
+\Hypertarget{classnetdem_1_1_deformable_particle_a38232575e125e7304d82e288734b6a23}\index{netdem::DeformableParticle@{netdem::DeformableParticle}!SetPosition@{SetPosition}}
 \index{SetPosition@{SetPosition}!netdem::DeformableParticle@{netdem::DeformableParticle}}
 \doxysubsubsection{\texorpdfstring{SetPosition()}{SetPosition()}}
-{\footnotesize\ttfamily void netdem\+::\+Deformable\+Particle\+::\+Set\+Position (\begin{DoxyParamCaption}\item[{double}]{x,  }\item[{double}]{y,  }\item[{double}]{z }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+{\footnotesize\ttfamily \label{classnetdem_1_1_deformable_particle_a38232575e125e7304d82e288734b6a23} 
+void netdem\+::\+Deformable\+Particle\+::\+Set\+Position (\begin{DoxyParamCaption}\item[{double}]{x}{, }\item[{double}]{y}{, }\item[{double}]{z}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
@@ -496,11 +529,11 @@ Reimplemented from \mbox{\hyperlink{classnetdem_1_1_particle_a3f272179dd1b248f9e
 \begin{Desc}
 \item[Examples]\par
 \mbox{\hyperlink{81_golf_ball_impact_8cpp-example}{81\+\_\+golf\+\_\+ball\+\_\+impact.\+cpp}}.\end{Desc}
-\Hypertarget{classnetdem_1_1_deformable_particle_ae7e8179351846286c9462134be8caa46}\label{classnetdem_1_1_deformable_particle_ae7e8179351846286c9462134be8caa46} 
-\index{netdem::DeformableParticle@{netdem::DeformableParticle}!SetQuaternion@{SetQuaternion}}
+\Hypertarget{classnetdem_1_1_deformable_particle_ae7e8179351846286c9462134be8caa46}\index{netdem::DeformableParticle@{netdem::DeformableParticle}!SetQuaternion@{SetQuaternion}}
 \index{SetQuaternion@{SetQuaternion}!netdem::DeformableParticle@{netdem::DeformableParticle}}
 \doxysubsubsection{\texorpdfstring{SetQuaternion()}{SetQuaternion()}}
-{\footnotesize\ttfamily void netdem\+::\+Deformable\+Particle\+::\+Set\+Quaternion (\begin{DoxyParamCaption}\item[{double}]{q\+\_\+0,  }\item[{double}]{q\+\_\+1,  }\item[{double}]{q\+\_\+2,  }\item[{double}]{q\+\_\+3 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+{\footnotesize\ttfamily \label{classnetdem_1_1_deformable_particle_ae7e8179351846286c9462134be8caa46} 
+void netdem\+::\+Deformable\+Particle\+::\+Set\+Quaternion (\begin{DoxyParamCaption}\item[{double}]{q\+\_\+0}{, }\item[{double}]{q\+\_\+1}{, }\item[{double}]{q\+\_\+2}{, }\item[{double}]{q\+\_\+3}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
@@ -523,11 +556,11 @@ This function sets the orientation of the particle using a quaternion representa
 
 Reimplemented from \mbox{\hyperlink{classnetdem_1_1_particle_a0696409eed30981670dd748997dc23b0}{netdem\+::\+Particle}}.
 
-\Hypertarget{classnetdem_1_1_deformable_particle_a3745ad3431a0ee912b055b9d66ae3f70}\label{classnetdem_1_1_deformable_particle_a3745ad3431a0ee912b055b9d66ae3f70} 
-\index{netdem::DeformableParticle@{netdem::DeformableParticle}!SetRodrigues@{SetRodrigues}}
+\Hypertarget{classnetdem_1_1_deformable_particle_a3745ad3431a0ee912b055b9d66ae3f70}\index{netdem::DeformableParticle@{netdem::DeformableParticle}!SetRodrigues@{SetRodrigues}}
 \index{SetRodrigues@{SetRodrigues}!netdem::DeformableParticle@{netdem::DeformableParticle}}
 \doxysubsubsection{\texorpdfstring{SetRodrigues()}{SetRodrigues()}}
-{\footnotesize\ttfamily void netdem\+::\+Deformable\+Particle\+::\+Set\+Rodrigues (\begin{DoxyParamCaption}\item[{double}]{angle,  }\item[{double}]{axis\+\_\+x,  }\item[{double}]{axis\+\_\+y,  }\item[{double}]{axis\+\_\+z }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+{\footnotesize\ttfamily \label{classnetdem_1_1_deformable_particle_a3745ad3431a0ee912b055b9d66ae3f70} 
+void netdem\+::\+Deformable\+Particle\+::\+Set\+Rodrigues (\begin{DoxyParamCaption}\item[{double}]{angle}{, }\item[{double}]{axis\+\_\+x}{, }\item[{double}]{axis\+\_\+y}{, }\item[{double}]{axis\+\_\+z}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
@@ -550,11 +583,11 @@ This function sets the angle and axis of rotation for the particle using Rodrigu
 
 Reimplemented from \mbox{\hyperlink{classnetdem_1_1_particle_a116ae8a62a290ca23e7d3a48cf45fbef}{netdem\+::\+Particle}}.
 
-\Hypertarget{classnetdem_1_1_deformable_particle_a5ee92016b8d861281eadaf84695a911d}\label{classnetdem_1_1_deformable_particle_a5ee92016b8d861281eadaf84695a911d} 
-\index{netdem::DeformableParticle@{netdem::DeformableParticle}!SetShape@{SetShape}}
+\Hypertarget{classnetdem_1_1_deformable_particle_a5ee92016b8d861281eadaf84695a911d}\index{netdem::DeformableParticle@{netdem::DeformableParticle}!SetShape@{SetShape}}
 \index{SetShape@{SetShape}!netdem::DeformableParticle@{netdem::DeformableParticle}}
 \doxysubsubsection{\texorpdfstring{SetShape()}{SetShape()}}
-{\footnotesize\ttfamily void netdem\+::\+Deformable\+Particle\+::\+Set\+Shape (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_shape}{Shape}} \texorpdfstring{$\ast$}{*}}]{s }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+{\footnotesize\ttfamily \label{classnetdem_1_1_deformable_particle_a5ee92016b8d861281eadaf84695a911d} 
+void netdem\+::\+Deformable\+Particle\+::\+Set\+Shape (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnetdem_1_1_shape}{Shape}} \texorpdfstring{$\ast$}{*}}]{s}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
@@ -574,11 +607,11 @@ Reimplemented from \mbox{\hyperlink{classnetdem_1_1_particle_a3bfcdc2ec9c18944e3
 \begin{Desc}
 \item[Examples]\par
 \mbox{\hyperlink{00_hertz_contact_8cpp-example}{00\+\_\+hertz\+\_\+contact.\+cpp}}, and \mbox{\hyperlink{81_golf_ball_impact_8cpp-example}{81\+\_\+golf\+\_\+ball\+\_\+impact.\+cpp}}.\end{Desc}
-\Hypertarget{classnetdem_1_1_deformable_particle_a208f8160ae055cb97ce851b2ace9fefb}\label{classnetdem_1_1_deformable_particle_a208f8160ae055cb97ce851b2ace9fefb} 
-\index{netdem::DeformableParticle@{netdem::DeformableParticle}!SetVelocity@{SetVelocity}}
+\Hypertarget{classnetdem_1_1_deformable_particle_a208f8160ae055cb97ce851b2ace9fefb}\index{netdem::DeformableParticle@{netdem::DeformableParticle}!SetVelocity@{SetVelocity}}
 \index{SetVelocity@{SetVelocity}!netdem::DeformableParticle@{netdem::DeformableParticle}}
 \doxysubsubsection{\texorpdfstring{SetVelocity()}{SetVelocity()}}
-{\footnotesize\ttfamily void netdem\+::\+Deformable\+Particle\+::\+Set\+Velocity (\begin{DoxyParamCaption}\item[{double}]{v\+\_\+x,  }\item[{double}]{v\+\_\+y,  }\item[{double}]{v\+\_\+z }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+{\footnotesize\ttfamily \label{classnetdem_1_1_deformable_particle_a208f8160ae055cb97ce851b2ace9fefb} 
+void netdem\+::\+Deformable\+Particle\+::\+Set\+Velocity (\begin{DoxyParamCaption}\item[{double}]{v\+\_\+x}{, }\item[{double}]{v\+\_\+y}{, }\item[{double}]{v\+\_\+z}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
@@ -602,11 +635,11 @@ Reimplemented from \mbox{\hyperlink{classnetdem_1_1_particle_a710b20f430219dda84
 \begin{Desc}
 \item[Examples]\par
 \mbox{\hyperlink{81_golf_ball_impact_8cpp-example}{81\+\_\+golf\+\_\+ball\+\_\+impact.\+cpp}}.\end{Desc}
-\Hypertarget{classnetdem_1_1_deformable_particle_a9d1ce0d8506a15bd10de786aea53b584}\label{classnetdem_1_1_deformable_particle_a9d1ce0d8506a15bd10de786aea53b584} 
-\index{netdem::DeformableParticle@{netdem::DeformableParticle}!UpdateBound@{UpdateBound}}
+\Hypertarget{classnetdem_1_1_deformable_particle_a9d1ce0d8506a15bd10de786aea53b584}\index{netdem::DeformableParticle@{netdem::DeformableParticle}!UpdateBound@{UpdateBound}}
 \index{UpdateBound@{UpdateBound}!netdem::DeformableParticle@{netdem::DeformableParticle}}
 \doxysubsubsection{\texorpdfstring{UpdateBound()}{UpdateBound()}}
-{\footnotesize\ttfamily void netdem\+::\+Deformable\+Particle\+::\+Update\+Bound (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+{\footnotesize\ttfamily \label{classnetdem_1_1_deformable_particle_a9d1ce0d8506a15bd10de786aea53b584} 
+void netdem\+::\+Deformable\+Particle\+::\+Update\+Bound (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
@@ -616,11 +649,25 @@ This function updates the bounding box of the particle\textquotesingle{}s tetrah
 
 Reimplemented from \mbox{\hyperlink{classnetdem_1_1_particle_a1e6617d2f0fa8f9ed875067e3ef151e6}{netdem\+::\+Particle}}.
 
-\Hypertarget{classnetdem_1_1_deformable_particle_a4cd11ccb26fc06a51a1f0928252deaaf}\label{classnetdem_1_1_deformable_particle_a4cd11ccb26fc06a51a1f0928252deaaf} 
-\index{netdem::DeformableParticle@{netdem::DeformableParticle}!UpdateMotion@{UpdateMotion}}
+\Hypertarget{classnetdem_1_1_deformable_particle_a4f4ea3f97c176c84f5f353c677689f7c}\index{netdem::DeformableParticle@{netdem::DeformableParticle}!UpdateBoundFast@{UpdateBoundFast}}
+\index{UpdateBoundFast@{UpdateBoundFast}!netdem::DeformableParticle@{netdem::DeformableParticle}}
+\doxysubsubsection{\texorpdfstring{UpdateBoundFast()}{UpdateBoundFast()}}
+{\footnotesize\ttfamily \label{classnetdem_1_1_deformable_particle_a4f4ea3f97c176c84f5f353c677689f7c} 
+void netdem\+::\+Deformable\+Particle\+::\+Update\+Bound\+Fast (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Updates the bounding box of the particle. 
+
+This function updates the bounding box of the particle\textquotesingle{}s tetrahedral mesh based on its current configuration. It overrides the {\ttfamily Update\+Bound} method from the {\ttfamily \doxylink{classnetdem_1_1_particle}{Particle}} class. 
+
+Reimplemented from \mbox{\hyperlink{classnetdem_1_1_particle_a655160ca2f2d5aa3b293089f76761b0e}{netdem\+::\+Particle}}.
+
+\Hypertarget{classnetdem_1_1_deformable_particle_a4cd11ccb26fc06a51a1f0928252deaaf}\index{netdem::DeformableParticle@{netdem::DeformableParticle}!UpdateMotion@{UpdateMotion}}
 \index{UpdateMotion@{UpdateMotion}!netdem::DeformableParticle@{netdem::DeformableParticle}}
 \doxysubsubsection{\texorpdfstring{UpdateMotion()}{UpdateMotion()}}
-{\footnotesize\ttfamily void netdem\+::\+Deformable\+Particle\+::\+Update\+Motion (\begin{DoxyParamCaption}\item[{double}]{dt }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+{\footnotesize\ttfamily \label{classnetdem_1_1_deformable_particle_a4cd11ccb26fc06a51a1f0928252deaaf} 
+void netdem\+::\+Deformable\+Particle\+::\+Update\+Motion (\begin{DoxyParamCaption}\item[{double}]{dt}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
 
 
 
@@ -640,11 +687,11 @@ Reimplemented from \mbox{\hyperlink{classnetdem_1_1_particle_a1d52612ad77e5e29a0
 \begin{Desc}
 \item[Examples]\par
 \mbox{\hyperlink{00_hertz_contact_8cpp-example}{00\+\_\+hertz\+\_\+contact.\+cpp}}, and \mbox{\hyperlink{81_golf_ball_impact_8cpp-example}{81\+\_\+golf\+\_\+ball\+\_\+impact.\+cpp}}.\end{Desc}
-\Hypertarget{classnetdem_1_1_deformable_particle_af15278f7b1950663ac697fcc0232fd33}\label{classnetdem_1_1_deformable_particle_af15278f7b1950663ac697fcc0232fd33} 
-\index{netdem::DeformableParticle@{netdem::DeformableParticle}!UpdateShape@{UpdateShape}}
+\Hypertarget{classnetdem_1_1_deformable_particle_af15278f7b1950663ac697fcc0232fd33}\index{netdem::DeformableParticle@{netdem::DeformableParticle}!UpdateShape@{UpdateShape}}
 \index{UpdateShape@{UpdateShape}!netdem::DeformableParticle@{netdem::DeformableParticle}}
 \doxysubsubsection{\texorpdfstring{UpdateShape()}{UpdateShape()}}
-{\footnotesize\ttfamily void netdem\+::\+Deformable\+Particle\+::\+Update\+Shape (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{classnetdem_1_1_deformable_particle_af15278f7b1950663ac697fcc0232fd33} 
+void netdem\+::\+Deformable\+Particle\+::\+Update\+Shape (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
 
 
@@ -653,11 +700,11 @@ Updates the shape of the particle.
 This function updates the shape of the particle\textquotesingle{}s tetrahedral mesh based on the current state of the triangular mesh shape. It is called automatically by {\ttfamily Update\+Motion}. 
 
 \doxysubsection{Member Data Documentation}
-\Hypertarget{classnetdem_1_1_deformable_particle_ad36ab5d51fbd4a0f3d39bf68a990d47c}\label{classnetdem_1_1_deformable_particle_ad36ab5d51fbd4a0f3d39bf68a990d47c} 
-\index{netdem::DeformableParticle@{netdem::DeformableParticle}!fem\_simulator@{fem\_simulator}}
+\Hypertarget{classnetdem_1_1_deformable_particle_ad36ab5d51fbd4a0f3d39bf68a990d47c}\index{netdem::DeformableParticle@{netdem::DeformableParticle}!fem\_simulator@{fem\_simulator}}
 \index{fem\_simulator@{fem\_simulator}!netdem::DeformableParticle@{netdem::DeformableParticle}}
 \doxysubsubsection{\texorpdfstring{fem\_simulator}{fem\_simulator}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classnetdem_1_1_f_e_m_simulator}{FEMSimulator}} netdem\+::\+Deformable\+Particle\+::fem\+\_\+simulator}
+{\footnotesize\ttfamily \label{classnetdem_1_1_deformable_particle_ad36ab5d51fbd4a0f3d39bf68a990d47c} 
+\mbox{\hyperlink{classnetdem_1_1_f_e_m_simulator}{FEMSimulator}} netdem\+::\+Deformable\+Particle\+::fem\+\_\+simulator}
 
 
 
@@ -666,11 +713,11 @@ The FEM simulator object used to simulate the particle.
 \begin{Desc}
 \item[Examples]\par
 \mbox{\hyperlink{00_hertz_contact_8cpp-example}{00\+\_\+hertz\+\_\+contact.\+cpp}}, and \mbox{\hyperlink{81_golf_ball_impact_8cpp-example}{81\+\_\+golf\+\_\+ball\+\_\+impact.\+cpp}}.\end{Desc}
-\Hypertarget{classnetdem_1_1_deformable_particle_a7566506d77cdf2a5af1445f6db652334}\label{classnetdem_1_1_deformable_particle_a7566506d77cdf2a5af1445f6db652334} 
-\index{netdem::DeformableParticle@{netdem::DeformableParticle}!mesh\_res@{mesh\_res}}
+\Hypertarget{classnetdem_1_1_deformable_particle_a7566506d77cdf2a5af1445f6db652334}\index{netdem::DeformableParticle@{netdem::DeformableParticle}!mesh\_res@{mesh\_res}}
 \index{mesh\_res@{mesh\_res}!netdem::DeformableParticle@{netdem::DeformableParticle}}
 \doxysubsubsection{\texorpdfstring{mesh\_res}{mesh\_res}}
-{\footnotesize\ttfamily int netdem\+::\+Deformable\+Particle\+::mesh\+\_\+res \{20\}}
+{\footnotesize\ttfamily \label{classnetdem_1_1_deformable_particle_a7566506d77cdf2a5af1445f6db652334} 
+int netdem\+::\+Deformable\+Particle\+::mesh\+\_\+res \{20\}}
 
 
 
@@ -679,21 +726,21 @@ The resolution of the tetrahedral mesh.
 \begin{Desc}
 \item[Examples]\par
 \mbox{\hyperlink{81_golf_ball_impact_8cpp-example}{81\+\_\+golf\+\_\+ball\+\_\+impact.\+cpp}}.\end{Desc}
-\Hypertarget{classnetdem_1_1_deformable_particle_a68c59e4be9e4faa9eff41c177ccf9c03}\label{classnetdem_1_1_deformable_particle_a68c59e4be9e4faa9eff41c177ccf9c03} 
-\index{netdem::DeformableParticle@{netdem::DeformableParticle}!tetmesh@{tetmesh}}
+\Hypertarget{classnetdem_1_1_deformable_particle_a68c59e4be9e4faa9eff41c177ccf9c03}\index{netdem::DeformableParticle@{netdem::DeformableParticle}!tetmesh@{tetmesh}}
 \index{tetmesh@{tetmesh}!netdem::DeformableParticle@{netdem::DeformableParticle}}
 \doxysubsubsection{\texorpdfstring{tetmesh}{tetmesh}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classnetdem_1_1_tet_mesh}{Tet\+Mesh}} netdem\+::\+Deformable\+Particle\+::tetmesh}
+{\footnotesize\ttfamily \label{classnetdem_1_1_deformable_particle_a68c59e4be9e4faa9eff41c177ccf9c03} 
+\mbox{\hyperlink{classnetdem_1_1_tet_mesh}{Tet\+Mesh}} netdem\+::\+Deformable\+Particle\+::tetmesh}
 
 
 
 The tetrahedral mesh used for the simulation. 
 
-\Hypertarget{classnetdem_1_1_deformable_particle_a60bdd11588944a909ef3981b8936a450}\label{classnetdem_1_1_deformable_particle_a60bdd11588944a909ef3981b8936a450} 
-\index{netdem::DeformableParticle@{netdem::DeformableParticle}!trimesh@{trimesh}}
+\Hypertarget{classnetdem_1_1_deformable_particle_a60bdd11588944a909ef3981b8936a450}\index{netdem::DeformableParticle@{netdem::DeformableParticle}!trimesh@{trimesh}}
 \index{trimesh@{trimesh}!netdem::DeformableParticle@{netdem::DeformableParticle}}
 \doxysubsubsection{\texorpdfstring{trimesh}{trimesh}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classnetdem_1_1_tri_mesh}{Tri\+Mesh}}\texorpdfstring{$\ast$}{*} netdem\+::\+Deformable\+Particle\+::trimesh \{nullptr\}}
+{\footnotesize\ttfamily \label{classnetdem_1_1_deformable_particle_a60bdd11588944a909ef3981b8936a450} 
+\mbox{\hyperlink{classnetdem_1_1_tri_mesh}{Tri\+Mesh}}\texorpdfstring{$\ast$}{*} netdem\+::\+Deformable\+Particle\+::trimesh \{nullptr\}}
 
 
 

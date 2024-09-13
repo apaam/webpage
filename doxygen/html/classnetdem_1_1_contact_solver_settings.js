@@ -11,5 +11,6 @@ var classnetdem_1_1_contact_solver_settings =
     [ "gjk_use_erosion", "classnetdem_1_1_contact_solver_settings.html#aaf0f4c17f2bd4443c11323b45cc8f752", null ],
     [ "sdf_potential_type", "classnetdem_1_1_contact_solver_settings.html#a42078a4cfb9c398ee7d3283dc13a1496", null ],
     [ "sdf_solve_two_sides", "classnetdem_1_1_contact_solver_settings.html#a07f7f35543fb182dcbe7b0039a401ea1", null ],
+    [ "sdf_use_equivalent_stiffness", "classnetdem_1_1_contact_solver_settings.html#a92b841192d17c57d00faa6fdea18b01e", null ],
     [ "solver_type", "classnetdem_1_1_contact_solver_settings.html#a3385a311115950587f496c976a3fa67f", null ]
 ];

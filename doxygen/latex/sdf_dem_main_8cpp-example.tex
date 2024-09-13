@@ -11,8 +11,8 @@
 \DoxyCodeLine{\textcolor{keywordtype}{void}\ SDFDemo(\textcolor{keywordtype}{int}\ argc,\ \textcolor{keywordtype}{char}\ **argv);}
 \DoxyCodeLine{\textcolor{keywordtype}{void}\ SDFError(\textcolor{keywordtype}{int}\ argc,\ \textcolor{keywordtype}{char}\ **argv);}
 \DoxyCodeLine{}
-\DoxyCodeLine{\textcolor{keywordtype}{void}\ ContactTestSphere(\textcolor{keywordtype}{int}\ potential\_case,\ \textcolor{keywordtype}{int}\ node\_num);}
-\DoxyCodeLine{\textcolor{keywordtype}{void}\ ContactTestTrimesh(\textcolor{keywordtype}{int}\ potential\_case,\ \textcolor{keywordtype}{int}\ node\_num);}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ ContactTestSphere(\textcolor{keywordtype}{int}\ potential\_case,\ \textcolor{keywordtype}{int}\ surface\_node\_num);}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ ContactTestTrimesh(\textcolor{keywordtype}{int}\ potential\_case,\ \textcolor{keywordtype}{int}\ surface\_node\_num);}
 \DoxyCodeLine{}
 \DoxyCodeLine{\textcolor{keywordtype}{void}\ NutInBolt(\textcolor{keywordtype}{int}\ argc,\ \textcolor{keywordtype}{char}\ **argv);}
 \DoxyCodeLine{\textcolor{keywordtype}{void}\ PackingDemo(\textcolor{keywordtype}{int}\ argc,\ \textcolor{keywordtype}{char}\ **argv);}
@@ -28,10 +28,10 @@
 \DoxyCodeLine{\ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}>>\ \ 0:\ signed\ distance\ field\ demo"{}}\ <<\ endl;}
 \DoxyCodeLine{\ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}>>\ \ 1:\ signed\ distance\ field\ error\ investigation"{}}\ <<\ endl;}
 \DoxyCodeLine{\ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}>>\ 10:\ contact\ potential\ test\ of\ sphere.\ option:\ [potential\_case]\ "{}}}
-\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}[node\_num]"{}}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}[surface\_node\_num]"{}}}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \ <<\ endl;}
 \DoxyCodeLine{\ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}>>\ 11:\ contact\ potential\ test\ of\ trimesh.\ option:\ "{}}}
-\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}[potential\_case]\ [node\_num]"{}}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}[potential\_case]\ [surface\_node\_num]"{}}}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ \ <<\ endl;}
 \DoxyCodeLine{\ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}>>\ 90:\ random\ packing"{}}\ <<\ endl;}
 \DoxyCodeLine{\ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}>>\ 91:\ ellipsoid\ with\ parametric\ shape\ parameters"{}}\ <<\ endl;}
@@ -53,10 +53,10 @@
 \DoxyCodeLine{\ \ \textcolor{keywordflow}{case}\ 10:}
 \DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{if}\ (argc\ ==\ 4)\ \{}
 \DoxyCodeLine{\ \ \ \ \ \ \textcolor{keywordtype}{int}\ potential\_case\ =\ atof(argv[2]);}
-\DoxyCodeLine{\ \ \ \ \ \ \textcolor{keywordtype}{int}\ node\_num\ =\ atof(argv[3]);}
-\DoxyCodeLine{\ \ \ \ \ \ ContactTestSphere(potential\_case,\ node\_num);}
+\DoxyCodeLine{\ \ \ \ \ \ \textcolor{keywordtype}{int}\ surface\_node\_num\ =\ atof(argv[3]);}
+\DoxyCodeLine{\ \ \ \ \ \ ContactTestSphere(potential\_case,\ surface\_node\_num);}
 \DoxyCodeLine{\ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}potential\ case:\ "{}}\ <<\ potential\_case\ <<\ \textcolor{stringliteral}{"{},\ "{}}}
-\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}node\ num:\ "{}}\ <<\ node\_num\ <<\ endl;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}node\ num:\ "{}}\ <<\ surface\_node\_num\ <<\ endl;}
 \DoxyCodeLine{\ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
 \DoxyCodeLine{\ \ \ \ \ \ ContactTestSphere(1,\ 1000);}
 \DoxyCodeLine{\ \ \ \ \}}
@@ -64,10 +64,10 @@
 \DoxyCodeLine{\ \ \textcolor{keywordflow}{case}\ 11:}
 \DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{if}\ (argc\ ==\ 4)\ \{}
 \DoxyCodeLine{\ \ \ \ \ \ \textcolor{keywordtype}{int}\ potential\_case\ =\ atof(argv[2]);}
-\DoxyCodeLine{\ \ \ \ \ \ \textcolor{keywordtype}{int}\ node\_num\ =\ atof(argv[3]);}
-\DoxyCodeLine{\ \ \ \ \ \ ContactTestTrimesh(potential\_case,\ node\_num);}
+\DoxyCodeLine{\ \ \ \ \ \ \textcolor{keywordtype}{int}\ surface\_node\_num\ =\ atof(argv[3]);}
+\DoxyCodeLine{\ \ \ \ \ \ ContactTestTrimesh(potential\_case,\ surface\_node\_num);}
 \DoxyCodeLine{\ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}potential\ case:\ "{}}\ <<\ potential\_case\ <<\ \textcolor{stringliteral}{"{},\ "{}}}
-\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}node\ num:\ "{}}\ <<\ node\_num\ <<\ endl;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}node\ num:\ "{}}\ <<\ surface\_node\_num\ <<\ endl;}
 \DoxyCodeLine{\ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
 \DoxyCodeLine{\ \ \ \ \ \ ContactTestTrimesh(1,\ 1000);}
 \DoxyCodeLine{\ \ \ \ \}}

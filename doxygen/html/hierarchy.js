@@ -67,6 +67,7 @@ var hierarchy =
     [ "netdem::EigenWrapper", "classnetdem_1_1_eigen_wrapper.html", null ],
     [ "netdem::FEMSimulator", "classnetdem_1_1_f_e_m_simulator.html", null ],
     [ "netdem::GeneralNet", "classnetdem_1_1_general_net.html", null ],
+    [ "netdem::GoldenSpiralSampler", "classnetdem_1_1_golden_spiral_sampler.html", null ],
     [ "netdem::IGLWrapper", "classnetdem_1_1_i_g_l_wrapper.html", null ],
     [ "netdem::InputProcessor", "classnetdem_1_1_input_processor.html", null ],
     [ "netdem::IO", "classnetdem_1_1_i_o.html", null ],
@@ -75,6 +76,7 @@ var hierarchy =
       [ "netdem::LevelSetSplittor", "classnetdem_1_1_level_set_splittor.html", null ]
     ] ],
     [ "netdem::Math", "classnetdem_1_1_math.html", null ],
+    [ "netdem::webgpu::Math", "classnetdem_1_1webgpu_1_1_math.html", null ],
     [ "netdem::Membrane", "classnetdem_1_1_membrane.html", [
       [ "netdem::MembraneWall", "classnetdem_1_1_membrane_wall.html", null ]
     ] ],
@@ -89,9 +91,11 @@ var hierarchy =
       [ "netdem::Gravity", "classnetdem_1_1_gravity.html", null ],
       [ "netdem::MembraneWall", "classnetdem_1_1_membrane_wall.html", null ],
       [ "netdem::ParticleGroup", "classnetdem_1_1_particle_group.html", [
+        [ "netdem::BreakageAnalysis", "classnetdem_1_1_breakage_analysis.html", null ],
         [ "netdem::BreakageAnalysisPD", "classnetdem_1_1_breakage_analysis_p_d.html", null ],
         [ "netdem::DeformationAnalysis", "classnetdem_1_1_deformation_analysis.html", null ],
-        [ "netdem::ParticleEnergyEvaluator", "classnetdem_1_1_particle_energy_evaluator.html", null ]
+        [ "netdem::ParticleEnergyEvaluator", "classnetdem_1_1_particle_energy_evaluator.html", null ],
+        [ "netdem::ParticleStressEvaluator", "classnetdem_1_1_particle_stress_evaluator.html", null ]
       ] ],
       [ "netdem::ParticleMotionControl", "classnetdem_1_1_particle_motion_control.html", null ],
       [ "netdem::UnbalancedForceRatioEvaluator", "classnetdem_1_1_unbalanced_force_ratio_evaluator.html", null ],
@@ -114,8 +118,10 @@ var hierarchy =
       [ "netdem::DeformableParticle", "classnetdem_1_1_deformable_particle.html", null ]
     ] ],
     [ "netdem::ParticleData", "structnetdem_1_1_particle_data.html", null ],
+    [ "netdem::ParticleDataGPU", "structnetdem_1_1_particle_data_g_p_u.html", null ],
     [ "netdem::ParticleEnergy", "structnetdem_1_1_particle_energy.html", null ],
     [ "netdem::ParticleParser", "classnetdem_1_1_particle_parser.html", null ],
+    [ "netdem::ParticleParserGPU", "classnetdem_1_1_particle_parser_g_p_u.html", null ],
     [ "netdem::PeriDigmBlock", "classnetdem_1_1_peri_digm_block.html", null ],
     [ "netdem::PeriDigmBoundaryCondition", "classnetdem_1_1_peri_digm_boundary_condition.html", null ],
     [ "netdem::PeriDigmDamageModel", "classnetdem_1_1_peri_digm_damage_model.html", null ],
@@ -125,12 +131,14 @@ var hierarchy =
     [ "netdem::PeriDigmSettings", "classnetdem_1_1_peri_digm_settings.html", null ],
     [ "netdem::PeriDigmSimulator", "classnetdem_1_1_peri_digm_simulator.html", null ],
     [ "netdem::PeriDigmStrength", "classnetdem_1_1_peri_digm_strength.html", null ],
+    [ "netdem::webgpu::PrefixSum", "classnetdem_1_1webgpu_1_1_prefix_sum.html", null ],
     [ "netdem::Math::Quaternion", "classnetdem_1_1_math_1_1_quaternion.html", null ],
+    [ "netdem::webgpu::RadixSort", "classnetdem_1_1webgpu_1_1_radix_sort.html", null ],
     [ "netdem::RandomEngine", "classnetdem_1_1_random_engine.html", null ],
     [ "netdem::RegressionNet", "classnetdem_1_1_regression_net.html", null ],
+    [ "netdem::webgpu::ResourceManager", "classnetdem_1_1webgpu_1_1_resource_manager.html", null ],
     [ "netdem::Scene", "classnetdem_1_1_scene.html", null ],
     [ "netdem::SDFCalculator", "classnetdem_1_1_s_d_f_calculator.html", null ],
-    [ "netdem::DeformationAnalysis::Settings", "classnetdem_1_1_deformation_analysis_1_1_settings.html", null ],
     [ "netdem::Shape", "classnetdem_1_1_shape.html", [
       [ "netdem::CodedNetSDF", "classnetdem_1_1_coded_net_s_d_f.html", null ],
       [ "netdem::Cylinder", "classnetdem_1_1_cylinder.html", null ],
@@ -158,5 +166,7 @@ var hierarchy =
     [ "netdem::Wall", "classnetdem_1_1_wall.html", null ],
     [ "netdem::WallBoxPlane", "classnetdem_1_1_wall_box_plane.html", null ],
     [ "netdem::WallBoxPlate", "classnetdem_1_1_wall_box_plate.html", null ],
+    [ "netdem::WebGPUManager", "classnetdem_1_1_web_g_p_u_manager.html", null ],
+    [ "netdem::WebGPUWrapper", "classnetdem_1_1_web_g_p_u_wrapper.html", null ],
     [ "netdem::WSCVTSampler", "classnetdem_1_1_w_s_c_v_t_sampler.html", null ]
 ];

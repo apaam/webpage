@@ -5,7 +5,7 @@
 \DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
 \DoxyCodeLine{00002\ }
 \DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{mpi__data__def_8hpp}{mpi\_data\_def.hpp}}"{}}}
-\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <list>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{utils__macros_8hpp}{utils\_macros.hpp}}"{}}}
 \DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <mpi.h>}}
 \DoxyCodeLine{00006\ }
 \DoxyCodeLine{00007\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacenetdem}{netdem}}\ \{}
@@ -13,226 +13,299 @@
 \DoxyCodeLine{00009\ \textcolor{keyword}{class\ }Simulation;}
 \DoxyCodeLine{00010\ }
 \DoxyCodeLine{00039\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classnetdem_1_1_m_p_i_manager}{MPIManager}}\ \{}
-\DoxyCodeLine{00040\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00042\ \ \ \mbox{\hyperlink{classnetdem_1_1_m_p_i_data_define}{MPIDataDefine}}\ \mbox{\hyperlink{classnetdem_1_1_m_p_i_manager_a0657353b2cad1d6b9e4491ae056e4704}{mpi\_data\_def}};}
+\DoxyCodeLine{00040\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00042\ \ \ \mbox{\hyperlink{classnetdem_1_1_m_p_i_data_define}{MPIDataDefine}}\ mpi\_data\_def;}
 \DoxyCodeLine{00043\ }
-\DoxyCodeLine{00045\ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classnetdem_1_1_m_p_i_manager_a595f702b35a768d39f873dec6ec6f185}{self\_rank}},\ \mbox{\hyperlink{classnetdem_1_1_m_p_i_manager_a10e2672119d87e4443b126e9931ff8ec}{total\_rank}};}
+\DoxyCodeLine{00045\ \ \ \textcolor{keywordtype}{int}\ self\_rank,\ total\_rank;}
 \DoxyCodeLine{00046\ }
-\DoxyCodeLine{00051\ \ \ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<Shape\ *>}}\ \mbox{\hyperlink{classnetdem_1_1_m_p_i_manager_a171b2bb24d0ca7212a7cdcc63701da37}{shape\_to\_sync\_list}};}
-\DoxyCodeLine{00052\ }
-\DoxyCodeLine{00054\ \ \ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<VecXT<Particle\ *>}}>\ \mbox{\hyperlink{classnetdem_1_1_m_p_i_manager_add5bb3190276fbae4478e6fef3424611}{particle\_proxy\_out\_list}};}
-\DoxyCodeLine{00055\ }
-\DoxyCodeLine{00057\ \ \ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<VecXT<ContactPP\ *>}}>\ \mbox{\hyperlink{classnetdem_1_1_m_p_i_manager_a56e129ea031a5780267d345ac565d92e}{contact\_pp\_proxy\_out\_list}};}
-\DoxyCodeLine{00058\ \ \ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<VecXT<BondEntry\ *>}}>\ \mbox{\hyperlink{classnetdem_1_1_m_p_i_manager_adc879bc2b7d8c4375cee752a3e4391de}{bond\_entry\_pp\_proxy\_out\_list}};}
-\DoxyCodeLine{00059\ \ \ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<VecXT<CollisionEntry\ *>}}>\ \mbox{\hyperlink{classnetdem_1_1_m_p_i_manager_a1a95363de875a18bb195091a88a2fdb6}{collision\_entry\_pp\_proxy\_out\_list}};}
-\DoxyCodeLine{00060\ }
-\DoxyCodeLine{00062\ \ \ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<VecXT<ContactPW\ *>}}>\ \mbox{\hyperlink{classnetdem_1_1_m_p_i_manager_a32f03d9109715b71eba9b350aeeb799a}{contact\_pw\_proxy\_out\_list}};}
-\DoxyCodeLine{00063\ \ \ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<VecXT<BondEntry\ *>}}>\ \mbox{\hyperlink{classnetdem_1_1_m_p_i_manager_a04629ec1fb50f96ccb05e6605b452b1f}{bond\_entry\_pw\_proxy\_out\_list}};}
-\DoxyCodeLine{00064\ \ \ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<VecXT<CollisionEntry\ *>}}>\ \mbox{\hyperlink{classnetdem_1_1_m_p_i_manager_ad87e54a8ce2951c6905717525f9082fd}{collision\_entry\_pw\_proxy\_out\_list}};}
+\DoxyCodeLine{00048\ \ \ \mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{VecXT<VecXT<Particle\ *>}}>\ particle\_proxy\_out\_list;}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00051\ \ \ \mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{VecXT<VecXT<ContactPP\ *>}}>\ contact\_pp\_proxy\_out\_list;}
+\DoxyCodeLine{00052\ \ \ \mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{VecXT<VecXT<BondEntry\ *>}}>\ bond\_entry\_pp\_proxy\_out\_list;}
+\DoxyCodeLine{00053\ \ \ \mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{VecXT<VecXT<CollisionEntry\ *>}}>\ collision\_entry\_pp\_proxy\_out\_list;}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00056\ \ \ \mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{VecXT<VecXT<ContactPW\ *>}}>\ contact\_pw\_proxy\_out\_list;}
+\DoxyCodeLine{00057\ \ \ \mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{VecXT<VecXT<BondEntry\ *>}}>\ bond\_entry\_pw\_proxy\_out\_list;}
+\DoxyCodeLine{00058\ \ \ \mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{VecXT<VecXT<CollisionEntry\ *>}}>\ collision\_entry\_pw\_proxy\_out\_list;}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00062\ \ \ \mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{VecXT<VecXT<ContactPP\ *>}}>\ contact\_pp\_back\_out\_list;}
+\DoxyCodeLine{00063\ \ \ \mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{VecXT<VecXT<BondEntry\ *>}}>\ bond\_entry\_pp\_back\_out\_list;}
+\DoxyCodeLine{00064\ \ \ \mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{VecXT<VecXT<CollisionEntry\ *>}}>\ collision\_entry\_pp\_back\_out\_list;}
 \DoxyCodeLine{00065\ }
-\DoxyCodeLine{00067\ \ \ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<VecXT<Particle\ *>}}>\ \mbox{\hyperlink{classnetdem_1_1_m_p_i_manager_a7ee098e5697cf6e01dfd6028460c5741}{particle\_proxy\_in\_list}};}
-\DoxyCodeLine{00068\ }
-\DoxyCodeLine{00071\ \ \ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<VecXT<ContactPP\ *>}}>\ \mbox{\hyperlink{classnetdem_1_1_m_p_i_manager_a4faa14a7ec5cac9b08014e5490de8008}{contact\_pp\_back\_out\_list}};}
-\DoxyCodeLine{00072\ \ \ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<VecXT<BondEntry\ *>}}>\ \mbox{\hyperlink{classnetdem_1_1_m_p_i_manager_ad90d274c886686fe46dcf1a388f696b9}{bond\_entry\_pp\_back\_out\_list}};}
-\DoxyCodeLine{00073\ \ \ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<VecXT<CollisionEntry\ *>}}>\ \mbox{\hyperlink{classnetdem_1_1_m_p_i_manager_a253077e3b5eceaa52a53238b8779170a}{collision\_entry\_pp\_back\_out\_list}};}
-\DoxyCodeLine{00074\ }
-\DoxyCodeLine{00076\ \ \ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<VecXT<ContactPW\ *>}}>\ \mbox{\hyperlink{classnetdem_1_1_m_p_i_manager_abdbfbe99bf446d438103625e25289e54}{contact\_pw\_back\_out\_list}};}
-\DoxyCodeLine{00077\ \ \ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<VecXT<BondEntry\ *>}}>\ \mbox{\hyperlink{classnetdem_1_1_m_p_i_manager_a42fff510a6d96bfd468deb363317cbc8}{bond\_entry\_pw\_back\_out\_list}};}
-\DoxyCodeLine{00078\ \ \ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<VecXT<CollisionEntry\ *>}}>\ \mbox{\hyperlink{classnetdem_1_1_m_p_i_manager_a475fac8faa080d10deee2a75b2e4e354}{collision\_entry\_pw\_back\_out\_list}};}
-\DoxyCodeLine{00079\ }
-\DoxyCodeLine{00081\ \ \ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<VecXT<Particle\ *>}}>\ \mbox{\hyperlink{classnetdem_1_1_m_p_i_manager_a1105630e63c67a9b6e124144b5089f9b}{particle\_transfer\_out\_list}};}
-\DoxyCodeLine{00082\ }
-\DoxyCodeLine{00084\ \ \ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<VecXT<ContactPP\ *>}}>\ \mbox{\hyperlink{classnetdem_1_1_m_p_i_manager_aba825f99701a0f046e384c2b61a2078f}{contact\_pp\_transfer\_out\_list}};}
-\DoxyCodeLine{00085\ \ \ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<VecXT<BondEntry\ *>}}>\ \mbox{\hyperlink{classnetdem_1_1_m_p_i_manager_aa291f738638e20653a49aaec4b6737ae}{bond\_entry\_pp\_transfer\_out\_list}};}
-\DoxyCodeLine{00086\ \ \ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<VecXT<CollisionEntry\ *>}}>\ \mbox{\hyperlink{classnetdem_1_1_m_p_i_manager_a6dd3957b42a45e6d9d57e3ea879b834f}{collision\_entry\_pp\_transfer\_out\_list}};}
-\DoxyCodeLine{00087\ }
-\DoxyCodeLine{00089\ \ \ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<VecXT<ContactPW\ *>}}>\ \mbox{\hyperlink{classnetdem_1_1_m_p_i_manager_af434fde3923299abee9129a0518a142d}{contact\_pw\_transfer\_out\_list}};}
-\DoxyCodeLine{00090\ \ \ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<VecXT<BondEntry\ *>}}>\ \mbox{\hyperlink{classnetdem_1_1_m_p_i_manager_af0263d339762df65c080fb04e2d9185e}{bond\_entry\_pw\_transfer\_out\_list}};}
-\DoxyCodeLine{00091\ \ \ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<VecXT<CollisionEntry\ *>}}>\ \mbox{\hyperlink{classnetdem_1_1_m_p_i_manager_aba33ce73e5b545e31a02e466aae6ba5c}{collision\_entry\_pw\_transfer\_out\_list}};}
+\DoxyCodeLine{00067\ \ \ \mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{VecXT<VecXT<ContactPW\ *>}}>\ contact\_pw\_back\_out\_list;}
+\DoxyCodeLine{00068\ \ \ \mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{VecXT<VecXT<BondEntry\ *>}}>\ bond\_entry\_pw\_back\_out\_list;}
+\DoxyCodeLine{00069\ \ \ \mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{VecXT<VecXT<CollisionEntry\ *>}}>\ collision\_entry\_pw\_back\_out\_list;}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00072\ \ \ \mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{VecXT<VecXT<Particle\ *>}}>\ particle\_transfer\_out\_list;}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00075\ \ \ \mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{VecXT<VecXT<ContactPP\ *>}}>\ contact\_pp\_transfer\_out\_list;}
+\DoxyCodeLine{00076\ \ \ \mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{VecXT<VecXT<BondEntry\ *>}}>\ bond\_entry\_pp\_transfer\_out\_list;}
+\DoxyCodeLine{00077\ \ \ \mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{VecXT<VecXT<CollisionEntry\ *>}}>\ collision\_entry\_pp\_transfer\_out\_list;}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00080\ \ \ \mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{VecXT<VecXT<ContactPW\ *>}}>\ contact\_pw\_transfer\_out\_list;}
+\DoxyCodeLine{00081\ \ \ \mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{VecXT<VecXT<BondEntry\ *>}}>\ bond\_entry\_pw\_transfer\_out\_list;}
+\DoxyCodeLine{00082\ \ \ \mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{VecXT<VecXT<CollisionEntry\ *>}}>\ collision\_entry\_pw\_transfer\_out\_list;}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00085\ \ \ \mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{VecXT<VecXT<Particle\ *>}}>\ particle\_proxy\_in\_list;}
+\DoxyCodeLine{00086\ \ \ \mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{VecXT<VecXT<ContactPP\ *>}}>\ contact\_pp\_proxy\_in\_list;}
+\DoxyCodeLine{00087\ \ \ \mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{VecXT<VecXT<ContactPW\ *>}}>\ contact\_pw\_proxy\_in\_list;}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00090\ \ \ \mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{VecXT<VecXT<ContactPP\ *>}}>\ contact\_pp\_back\_in\_list;}
+\DoxyCodeLine{00091\ \ \ \mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{VecXT<VecXT<ContactPW\ *>}}>\ contact\_pw\_back\_in\_list;}
 \DoxyCodeLine{00092\ }
-\DoxyCodeLine{00094\ \ \ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<VecXT<Particle\ *>}}>\ \mbox{\hyperlink{classnetdem_1_1_m_p_i_manager_a0d8653f25f7ee091dda36f0e12e208bc}{particle\_transfer\_in\_list}};}
-\DoxyCodeLine{00095\ }
-\DoxyCodeLine{00097\ \ \ \mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<VecXT<Particle\ *>}}>\ \mbox{\hyperlink{classnetdem_1_1_m_p_i_manager_a50c8fb32e1d52f188d700ff659abbfd7}{particle\_sync\_in\_list}};}
-\DoxyCodeLine{00098\ }
-\DoxyCodeLine{00102\ \ \ \mbox{\hyperlink{classnetdem_1_1_m_p_i_manager_a5044a6667e5426c7691dfe22a8e82521}{MPIManager}}();}
-\DoxyCodeLine{00103\ }
-\DoxyCodeLine{00109\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_m_p_i_manager_a651ed6f0c38a0ea64192b1f66d25ff2f}{Init}}(\mbox{\hyperlink{classnetdem_1_1_simulation}{Simulation}}\ *sim);}
-\DoxyCodeLine{00110\ }
-\DoxyCodeLine{00114\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_m_p_i_manager_a73163f474116ca71ba4cae9482e1f979}{CommitMPIDataType}}();}
+\DoxyCodeLine{00094\ \ \ \mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{VecXT<VecXT<Particle\ *>}}>\ particle\_transfer\_in\_list;}
+\DoxyCodeLine{00095\ \ \ \mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{VecXT<VecXT<ContactPP\ *>}}>\ contact\_pp\_transfer\_in\_list;}
+\DoxyCodeLine{00096\ \ \ \mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{VecXT<VecXT<ContactPW\ *>}}>\ contact\_pw\_transfer\_in\_list;}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00099\ \ \ \mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{VecXT<VecXT<Particle\ *>}}>\ particle\_sync\_in\_list;}
+\DoxyCodeLine{00100\ \ \ \mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{VecXT<VecXT<ContactPP\ *>}}>\ contact\_pp\_sync\_in\_list;}
+\DoxyCodeLine{00101\ \ \ \mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{VecXT<VecXT<ContactPW\ *>}}>\ contact\_pw\_sync\_in\_list;}
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00103\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00107\ \ \ \mbox{\hyperlink{classnetdem_1_1_m_p_i_manager_a5044a6667e5426c7691dfe22a8e82521}{MPIManager}}();}
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00114\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_m_p_i_manager_a651ed6f0c38a0ea64192b1f66d25ff2f}{Init}}(\mbox{\hyperlink{classnetdem_1_1_simulation}{Simulation}}\ *sim);}
 \DoxyCodeLine{00115\ }
-\DoxyCodeLine{00119\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_m_p_i_manager_aa12a57c9b5a6138beb3a854d9e6a213f}{BuildContactLookUpTable}}();}
+\DoxyCodeLine{00119\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_m_p_i_manager_a73163f474116ca71ba4cae9482e1f979}{CommitMPIDataType}}();}
 \DoxyCodeLine{00120\ }
-\DoxyCodeLine{00124\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_m_p_i_manager_af4c8115a7cd6720dd9df65d07d8228a4}{RecycleParticleProxy}}();}
+\DoxyCodeLine{00124\ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classnetdem_1_1_m_p_i_manager_a84c1bac0aecaf4a4c33f26bdd6316bad}{GetSelfRank}}()\ \textcolor{keyword}{const};}
 \DoxyCodeLine{00125\ }
-\DoxyCodeLine{00129\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_m_p_i_manager_a9a980b77397f4630984e1b5e439cf940}{ExchangeDataTransfer}}();}
+\DoxyCodeLine{00129\ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classnetdem_1_1_m_p_i_manager_a5e02f6c20def702cba3cd2567e1091cb}{GetTotalRank}}()\ \textcolor{keyword}{const};}
 \DoxyCodeLine{00130\ }
-\DoxyCodeLine{00134\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_m_p_i_manager_a1e4cff8e844c94326307103e10bde385}{ExchangeDataProxy}}();}
+\DoxyCodeLine{00134\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_m_p_i_manager_ac1e058578132b71d33a085c1cde45dc6}{BuildContactRefTable}}();}
 \DoxyCodeLine{00135\ }
-\DoxyCodeLine{00140\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_m_p_i_manager_a366db3882c19dcec8925e755a3d234ba}{ExchangeDataBack}}();}
-\DoxyCodeLine{00141\ }
-\DoxyCodeLine{00145\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_m_p_i_manager_af0f7d4d270cf516e6b0ff7d5c2b33680}{RecycleParticleGhost}}();}
-\DoxyCodeLine{00146\ }
-\DoxyCodeLine{00150\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_m_p_i_manager_af4c315df9beea27dbee9d96f63361b73}{ClearContactLookUpTable}}();}
-\DoxyCodeLine{00151\ }
-\DoxyCodeLine{00155\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_m_p_i_manager_a6ef70dc03ee2a8ca82fba14e6038bee0}{SyncShapeToAllProcessors}}();}
+\DoxyCodeLine{00139\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_m_p_i_manager_af4c8115a7cd6720dd9df65d07d8228a4}{RecycleParticleProxy}}();}
+\DoxyCodeLine{00140\ }
+\DoxyCodeLine{00144\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_m_p_i_manager_a9a980b77397f4630984e1b5e439cf940}{ExchangeDataTransfer}}();}
+\DoxyCodeLine{00145\ }
+\DoxyCodeLine{00149\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_m_p_i_manager_a1e4cff8e844c94326307103e10bde385}{ExchangeDataProxy}}();}
+\DoxyCodeLine{00150\ }
+\DoxyCodeLine{00155\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_m_p_i_manager_a366db3882c19dcec8925e755a3d234ba}{ExchangeDataBack}}();}
 \DoxyCodeLine{00156\ }
-\DoxyCodeLine{00160\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_m_p_i_manager_a814707039c87e377f2c34e891d3c9c0f}{SyncParticleToGhostSubDomains}}();}
+\DoxyCodeLine{00160\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_m_p_i_manager_af0f7d4d270cf516e6b0ff7d5c2b33680}{RecycleParticleGhost}}();}
 \DoxyCodeLine{00161\ }
-\DoxyCodeLine{00165\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_m_p_i_manager_a5d8f5a0a2763682918e7a51350d6b219}{SyncContactToGhostSubDomains}}();}
+\DoxyCodeLine{00165\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_m_p_i_manager_a6e5d063f8d4d769e569c75069d417c86}{ClearContactRefTable}}();}
 \DoxyCodeLine{00166\ }
-\DoxyCodeLine{00170\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_m_p_i_manager_a66131405901191af35a59b0f991bd77f}{SyncWallToGhostSubDomains}}();}
+\DoxyCodeLine{00170\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_m_p_i_manager_a6ef70dc03ee2a8ca82fba14e6038bee0}{SyncShapeToAllProcessors}}();}
 \DoxyCodeLine{00171\ }
-\DoxyCodeLine{00175\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_m_p_i_manager_a52b3de711ed63d86b8e935c5eb4c409e}{GatherDataProxy}}();}
+\DoxyCodeLine{00175\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_m_p_i_manager_a814707039c87e377f2c34e891d3c9c0f}{SyncParticleToGhostSubDomains}}();}
 \DoxyCodeLine{00176\ }
-\DoxyCodeLine{00181\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_m_p_i_manager_a00c36c98ebd4c82710efd6288721a328}{GatherDataBack}}();}
-\DoxyCodeLine{00182\ }
-\DoxyCodeLine{00186\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_m_p_i_manager_a26cdd7f1096170a9455ef3cad266d149}{GatherDataTransfer}}();}
-\DoxyCodeLine{00187\ }
-\DoxyCodeLine{00191\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_m_p_i_manager_a6b6f39df340021120fe0bc9fa9741a38}{SendDataProxy}}();}
+\DoxyCodeLine{00180\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_m_p_i_manager_a5d8f5a0a2763682918e7a51350d6b219}{SyncContactToGhostSubDomains}}();}
+\DoxyCodeLine{00181\ }
+\DoxyCodeLine{00185\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_m_p_i_manager_a66131405901191af35a59b0f991bd77f}{SyncWallToGhostSubDomains}}();}
+\DoxyCodeLine{00186\ }
+\DoxyCodeLine{00187\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00191\ \ \ \textcolor{keywordtype}{void}\ GatherDataProxy();}
 \DoxyCodeLine{00192\ }
-\DoxyCodeLine{00197\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_m_p_i_manager_a12b4c17312fd86db56ef7046515a12c0}{SendDataBack}}();}
+\DoxyCodeLine{00197\ \ \ \textcolor{keywordtype}{void}\ GatherDataBack();}
 \DoxyCodeLine{00198\ }
-\DoxyCodeLine{00202\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_m_p_i_manager_ad729deca7c58007e1a15fc9ebbe91bf7}{SendDataTransfer}}();}
+\DoxyCodeLine{00202\ \ \ \textcolor{keywordtype}{void}\ GatherDataTransfer();}
 \DoxyCodeLine{00203\ }
-\DoxyCodeLine{00207\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_m_p_i_manager_a4ca8acbd3877bbfe533cd06376063c30}{SendParticleSync}}();}
+\DoxyCodeLine{00207\ \ \ \textcolor{keywordtype}{void}\ SendDataProxy();}
 \DoxyCodeLine{00208\ }
-\DoxyCodeLine{00212\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_m_p_i_manager_a46f611a5ab3dbe7a3cf70abfed5f0c57}{SendContactSync}}();}
-\DoxyCodeLine{00213\ }
-\DoxyCodeLine{00217\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_m_p_i_manager_a592d99b3611e7c3a2b8699cdf67105a4}{RecvDataProxy}}();}
-\DoxyCodeLine{00218\ }
-\DoxyCodeLine{00223\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_m_p_i_manager_a486b06e923e4a7e4f6a6f6c249241c6d}{RecvDataBack}}();}
+\DoxyCodeLine{00213\ \ \ \textcolor{keywordtype}{void}\ SendDataBack();}
+\DoxyCodeLine{00214\ }
+\DoxyCodeLine{00218\ \ \ \textcolor{keywordtype}{void}\ SendDataTransfer();}
+\DoxyCodeLine{00219\ }
+\DoxyCodeLine{00223\ \ \ \textcolor{keywordtype}{void}\ SendParticleSync();}
 \DoxyCodeLine{00224\ }
-\DoxyCodeLine{00228\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_m_p_i_manager_ae40a12cbb759971e1f11b3cd0a9babaf}{RecvDataTransfer}}();}
+\DoxyCodeLine{00228\ \ \ \textcolor{keywordtype}{void}\ SendContactSync();}
 \DoxyCodeLine{00229\ }
-\DoxyCodeLine{00233\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_m_p_i_manager_ae9cc7d50cca933e2f16936a8d93dc189}{RecvParticleSync}}();}
+\DoxyCodeLine{00233\ \ \ \textcolor{keywordtype}{void}\ RecvDataProxy();}
 \DoxyCodeLine{00234\ }
-\DoxyCodeLine{00238\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_m_p_i_manager_ae20350e2d56817c977ce7512562305cf}{RecvContactSync}}();}
-\DoxyCodeLine{00239\ }
-\DoxyCodeLine{00245\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_m_p_i_manager_a4c9ab60a7410b3b3dcdfa4b370688237}{MergeParticleProxy}}(\textcolor{keywordtype}{int}\ source\_rank);}
-\DoxyCodeLine{00246\ }
-\DoxyCodeLine{00252\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_m_p_i_manager_aa84a30aa12900d252d62c37466b229a7}{MergeContactPPProxy}}(\textcolor{keywordtype}{int}\ source\_rank);}
-\DoxyCodeLine{00253\ }
-\DoxyCodeLine{00259\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_m_p_i_manager_a7a2fee3ce649cbc39bb94f62f4032c9c}{MergeContactPWProxy}}(\textcolor{keywordtype}{int}\ source\_rank);}
-\DoxyCodeLine{00260\ }
-\DoxyCodeLine{00266\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_m_p_i_manager_a0cb340337764b4e1e3f778577ff122d2}{MergeContactPPBack}}(\textcolor{keywordtype}{int}\ source\_rank);}
-\DoxyCodeLine{00267\ }
-\DoxyCodeLine{00273\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_m_p_i_manager_af12a92c3bbc51428a401564af54b4a29}{MergeContactPWBack}}(\textcolor{keywordtype}{int}\ source\_rank);}
-\DoxyCodeLine{00274\ }
-\DoxyCodeLine{00280\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_m_p_i_manager_a6ff06a78c3992dde88b19af26bdb276b}{MergeShapeTransfer}}(\textcolor{keywordtype}{int}\ source\_rank);}
-\DoxyCodeLine{00281\ }
-\DoxyCodeLine{00287\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_m_p_i_manager_a00f36d7c6256ac1071d411c5374860a0}{MergeParticleTransfer}}(\textcolor{keywordtype}{int}\ source\_rank);}
-\DoxyCodeLine{00288\ }
-\DoxyCodeLine{00294\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_m_p_i_manager_ab5ad4a7e6504d9cbc0638cae6f5a13e9}{MergeParticlePropTransfer}}(\textcolor{keywordtype}{int}\ source\_rank);}
-\DoxyCodeLine{00295\ }
-\DoxyCodeLine{00301\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_m_p_i_manager_a6fcae1c01511556597db4aa1518e60eb}{MergeContactPPTransfer}}(\textcolor{keywordtype}{int}\ source\_rank);}
-\DoxyCodeLine{00302\ }
-\DoxyCodeLine{00308\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_m_p_i_manager_a9d1b5344f9b56b1aaca8adee6d041243}{MergeContactPWTransfer}}(\textcolor{keywordtype}{int}\ source\_rank);}
-\DoxyCodeLine{00309\ }
-\DoxyCodeLine{00315\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_m_p_i_manager_a3df5a68cc1af470691b4db56ac62ab00}{MergeShapeSync}}(\textcolor{keywordtype}{int}\ source\_rank);}
-\DoxyCodeLine{00316\ }
-\DoxyCodeLine{00322\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_m_p_i_manager_ad5dfd5e7a190cdd07a1064f1b9daacbd}{MergeParticleSync}}(\textcolor{keywordtype}{int}\ source\_rank);}
-\DoxyCodeLine{00323\ }
-\DoxyCodeLine{00329\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_m_p_i_manager_a48a9670ff185b677b8d7321825377bc4}{MergeParticlePropSync}}(\textcolor{keywordtype}{int}\ source\_rank);}
-\DoxyCodeLine{00330\ }
-\DoxyCodeLine{00337\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_m_p_i_manager_a3182c61f73a492c21d005ce6f6314ab0}{MergeContactPPSync}}(\textcolor{keywordtype}{int}\ source\_rank);}
-\DoxyCodeLine{00338\ }
-\DoxyCodeLine{00344\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_m_p_i_manager_a4f2be4218ad8add92bfee1c0253a1db0}{MergeContactPWSync}}(\textcolor{keywordtype}{int}\ source\_rank);}
-\DoxyCodeLine{00345\ }
-\DoxyCodeLine{00351\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classnetdem_1_1_m_p_i_manager_a1763b5afae04f45f5f02cfa7d90e9008}{GetSelfRank}}();}
-\DoxyCodeLine{00352\ }
-\DoxyCodeLine{00358\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classnetdem_1_1_m_p_i_manager_a4c3af7308568f745d5494e41df666c4c}{GetTotalRank}}();}
-\DoxyCodeLine{00359\ }
-\DoxyCodeLine{00365\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_m_p_i_manager_a1b0a5b0c7dfd3213d2eb82db6c104f68}{SyncDataAmongProcessors}}(\mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<int>}}\ *\textcolor{keyword}{const}\ data);}
-\DoxyCodeLine{00366\ }
-\DoxyCodeLine{00372\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_m_p_i_manager_a1b0a5b0c7dfd3213d2eb82db6c104f68}{SyncDataAmongProcessors}}(\mbox{\hyperlink{namespacenetdem_a088168eeea9e6ce8d0500cdfd7ef9c87}{VecXT<double>}}\ *\textcolor{keyword}{const}\ data);}
-\DoxyCodeLine{00373\ }
-\DoxyCodeLine{00377\ \ \ \mbox{\hyperlink{classnetdem_1_1_m_p_i_manager_ab946367c48e6e367f47408e6ee5e1294}{\string~MPIManager}}();}
-\DoxyCodeLine{00378\ }
-\DoxyCodeLine{00379\ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00380\ \ \ \textcolor{keywordtype}{bool}\ mpi\_initialized\_here\{\textcolor{keyword}{false}\};}
-\DoxyCodeLine{00381\ }
-\DoxyCodeLine{00382\ \ \ \mbox{\hyperlink{classnetdem_1_1_simulation}{Simulation}}\ *sim\{\textcolor{keyword}{nullptr}\};}
-\DoxyCodeLine{00383\ }
-\DoxyCodeLine{00384\ \ \ VecXT<ParticleData\ *>\ particle\_data\_list\_send;}
-\DoxyCodeLine{00385\ \ \ VecXT<std::string>\ particle\_prop\_keys\_list\_send;}
-\DoxyCodeLine{00386\ \ \ VecXT<VecXT<double>>\ particle\_prop\_vals\_list\_send;}
-\DoxyCodeLine{00387\ \ \ VecXT<ContactPPData\ *>\ contact\_pp\_data\_list\_send;}
-\DoxyCodeLine{00388\ \ \ VecXT<BondEntryData\ *>\ bond\_entry\_pp\_data\_list\_send;}
-\DoxyCodeLine{00389\ \ \ VecXT<CollisionEntryData\ *>\ collision\_entry\_pp\_data\_list\_send;}
-\DoxyCodeLine{00390\ \ \ VecXT<ContactPWData\ *>\ contact\_pw\_data\_list\_send;}
-\DoxyCodeLine{00391\ \ \ VecXT<BondEntryData\ *>\ bond\_entry\_pw\_data\_list\_send;}
-\DoxyCodeLine{00392\ \ \ VecXT<CollisionEntryData\ *>\ collision\_entry\_pw\_data\_list\_send;}
-\DoxyCodeLine{00393\ }
-\DoxyCodeLine{00394\ \ \ VecXT<int>\ particle\_num\_list\_send;}
-\DoxyCodeLine{00395\ \ \ VecXT<int>\ contact\_pp\_num\_list\_send;}
-\DoxyCodeLine{00396\ \ \ VecXT<int>\ bond\_entry\_pp\_num\_list\_send;}
-\DoxyCodeLine{00397\ \ \ VecXT<int>\ collision\_entry\_pp\_num\_list\_send;}
-\DoxyCodeLine{00398\ \ \ VecXT<int>\ contact\_pw\_num\_list\_send;}
-\DoxyCodeLine{00399\ \ \ VecXT<int>\ bond\_entry\_pw\_num\_list\_send;}
-\DoxyCodeLine{00400\ \ \ VecXT<int>\ collision\_entry\_pw\_num\_list\_send;}
-\DoxyCodeLine{00401\ }
-\DoxyCodeLine{00402\ \ \ VecXT<MPI\_Request>\ particle\_req\_list\_send;}
-\DoxyCodeLine{00403\ \ \ VecXT<MPI\_Request>\ particle\_prop\_keys\_req\_list\_send;}
-\DoxyCodeLine{00404\ \ \ VecXT<MPI\_Request>\ particle\_prop\_vals\_req\_list\_send;}
-\DoxyCodeLine{00405\ \ \ VecXT<MPI\_Request>\ contact\_pp\_req\_list\_send;}
-\DoxyCodeLine{00406\ \ \ VecXT<MPI\_Request>\ bond\_entry\_pp\_req\_list\_send;}
-\DoxyCodeLine{00407\ \ \ VecXT<MPI\_Request>\ collision\_entry\_pp\_req\_list\_send;}
-\DoxyCodeLine{00408\ \ \ VecXT<MPI\_Request>\ contact\_pw\_req\_list\_send;}
-\DoxyCodeLine{00409\ \ \ VecXT<MPI\_Request>\ bond\_entry\_pw\_req\_list\_send;}
-\DoxyCodeLine{00410\ \ \ VecXT<MPI\_Request>\ collision\_entry\_pw\_req\_list\_send;}
-\DoxyCodeLine{00411\ }
-\DoxyCodeLine{00412\ \ \ std::string\ *shape\_data\_send\{\textcolor{keyword}{nullptr}\};}
-\DoxyCodeLine{00413\ \ \ VecXT<MPI\_Request>\ shape\_req\_list\_send;}
-\DoxyCodeLine{00414\ \ \ VecXT<std::string>\ shape\_data\_list\_recv;}
-\DoxyCodeLine{00415\ \ \ VecXT<MPI\_Request>\ shape\_req\_list\_recv;}
-\DoxyCodeLine{00416\ \ \ VecXT<bool>\ shape\_probed\_list;}
-\DoxyCodeLine{00417\ }
-\DoxyCodeLine{00418\ \ \ VecXT<ParticleData\ *>\ particle\_data\_list\_recv;}
-\DoxyCodeLine{00419\ \ \ VecXT<std::string>\ particle\_prop\_keys\_list\_recv;}
-\DoxyCodeLine{00420\ \ \ VecXT<VecXT<double>>\ particle\_prop\_vals\_list\_recv;}
-\DoxyCodeLine{00421\ \ \ VecXT<ContactPPData\ *>\ contact\_pp\_data\_list\_recv;}
-\DoxyCodeLine{00422\ \ \ VecXT<BondEntryData\ *>\ bond\_entry\_pp\_data\_list\_recv;}
-\DoxyCodeLine{00423\ \ \ VecXT<CollisionEntryData\ *>\ collision\_entry\_pp\_data\_list\_recv;}
-\DoxyCodeLine{00424\ \ \ VecXT<ContactPWData\ *>\ contact\_pw\_data\_list\_recv;}
-\DoxyCodeLine{00425\ \ \ VecXT<BondEntryData\ *>\ bond\_entry\_pw\_data\_list\_recv;}
-\DoxyCodeLine{00426\ \ \ VecXT<CollisionEntryData\ *>\ collision\_entry\_pw\_data\_list\_recv;}
-\DoxyCodeLine{00427\ }
-\DoxyCodeLine{00428\ \ \ VecXT<int>\ particle\_num\_list\_recv;}
-\DoxyCodeLine{00429\ \ \ VecXT<int>\ contact\_pp\_num\_list\_recv;}
-\DoxyCodeLine{00430\ \ \ VecXT<int>\ bond\_entry\_pp\_num\_list\_recv;}
-\DoxyCodeLine{00431\ \ \ VecXT<int>\ collision\_entry\_pp\_num\_list\_recv;}
-\DoxyCodeLine{00432\ \ \ VecXT<int>\ contact\_pw\_num\_list\_recv;}
-\DoxyCodeLine{00433\ \ \ VecXT<int>\ bond\_entry\_pw\_num\_list\_recv;}
-\DoxyCodeLine{00434\ \ \ VecXT<int>\ collision\_entry\_pw\_num\_list\_recv;}
-\DoxyCodeLine{00435\ }
-\DoxyCodeLine{00436\ \ \ VecXT<MPI\_Request>\ particle\_req\_list\_recv;}
-\DoxyCodeLine{00437\ \ \ VecXT<MPI\_Request>\ particle\_prop\_keys\_req\_list\_recv;}
-\DoxyCodeLine{00438\ \ \ VecXT<MPI\_Request>\ particle\_prop\_vals\_req\_list\_recv;}
-\DoxyCodeLine{00439\ \ \ VecXT<MPI\_Request>\ contact\_pp\_req\_list\_recv;}
-\DoxyCodeLine{00440\ \ \ VecXT<MPI\_Request>\ bond\_entry\_pp\_req\_list\_recv;}
-\DoxyCodeLine{00441\ \ \ VecXT<MPI\_Request>\ collision\_entry\_pp\_req\_list\_recv;}
-\DoxyCodeLine{00442\ \ \ VecXT<MPI\_Request>\ contact\_pw\_req\_list\_recv;}
-\DoxyCodeLine{00443\ \ \ VecXT<MPI\_Request>\ bond\_entry\_pw\_req\_list\_recv;}
-\DoxyCodeLine{00444\ \ \ VecXT<MPI\_Request>\ collision\_entry\_pw\_req\_list\_recv;}
-\DoxyCodeLine{00445\ }
-\DoxyCodeLine{00446\ \ \ VecXT<bool>\ particle\_probed\_list;}
-\DoxyCodeLine{00447\ \ \ VecXT<bool>\ particle\_prop\_keys\_probed\_list;}
-\DoxyCodeLine{00448\ \ \ VecXT<bool>\ particle\_prop\_vals\_probed\_list;}
-\DoxyCodeLine{00449\ \ \ VecXT<bool>\ contact\_pp\_probed\_list;}
-\DoxyCodeLine{00450\ \ \ VecXT<bool>\ bond\_entry\_pp\_probed\_list;}
-\DoxyCodeLine{00451\ \ \ VecXT<bool>\ collision\_entry\_pp\_probed\_list;}
-\DoxyCodeLine{00452\ \ \ VecXT<bool>\ contact\_pw\_probed\_list;}
-\DoxyCodeLine{00453\ \ \ VecXT<bool>\ bond\_entry\_pw\_probed\_list;}
-\DoxyCodeLine{00454\ \ \ VecXT<bool>\ collision\_entry\_pw\_probed\_list;}
-\DoxyCodeLine{00455\ }
-\DoxyCodeLine{00456\ \ \ std::list<int>\ GetOtherRanks();}
-\DoxyCodeLine{00457\ \ \ \textcolor{keywordtype}{void}\ RemoveParticle(\textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id},\ VecXT<Particle\ *>\ *p\_list);}
-\DoxyCodeLine{00458\ \ \ \textcolor{keywordtype}{void}\ ClearBuffer();}
-\DoxyCodeLine{00459\ }
-\DoxyCodeLine{00460\ \ \ \textcolor{keywordtype}{void}\ ClearBufferParticleSync();}
-\DoxyCodeLine{00461\ \ \ \textcolor{keywordtype}{void}\ ClearBufferContactSync();}
-\DoxyCodeLine{00462\ \};}
-\DoxyCodeLine{00463\ }
-\DoxyCodeLine{00464\ \}\ \textcolor{comment}{//\ namespace\ netdem}}
+\DoxyCodeLine{00239\ \ \ \textcolor{keywordtype}{void}\ RecvDataBack();}
+\DoxyCodeLine{00240\ }
+\DoxyCodeLine{00244\ \ \ \textcolor{keywordtype}{void}\ RecvDataTransfer();}
+\DoxyCodeLine{00245\ }
+\DoxyCodeLine{00249\ \ \ \textcolor{keywordtype}{void}\ RecvParticleSync();}
+\DoxyCodeLine{00250\ }
+\DoxyCodeLine{00254\ \ \ \textcolor{keywordtype}{void}\ RecvContactSync();}
+\DoxyCodeLine{00255\ }
+\DoxyCodeLine{00262\ \ \ \textcolor{keywordtype}{void}\ MergeShape(\textcolor{keywordtype}{int}\ source\_rank);}
+\DoxyCodeLine{00263\ }
+\DoxyCodeLine{00269\ \ \ \textcolor{keywordtype}{void}\ MergeShapeFast(\textcolor{keywordtype}{int}\ source\_rank);}
+\DoxyCodeLine{00270\ }
+\DoxyCodeLine{00276\ \ \ \textcolor{keywordtype}{void}\ MergeParticleProxy(\textcolor{keywordtype}{int}\ source\_rank);}
+\DoxyCodeLine{00277\ }
+\DoxyCodeLine{00283\ \ \ \textcolor{keywordtype}{void}\ MergeContactPPProxy(\textcolor{keywordtype}{int}\ source\_rank);}
+\DoxyCodeLine{00284\ }
+\DoxyCodeLine{00290\ \ \ \textcolor{keywordtype}{void}\ MergeContactPWProxy(\textcolor{keywordtype}{int}\ source\_rank);}
+\DoxyCodeLine{00291\ }
+\DoxyCodeLine{00297\ \ \ \textcolor{keywordtype}{void}\ MergeContactPPBack(\textcolor{keywordtype}{int}\ source\_rank);}
+\DoxyCodeLine{00298\ }
+\DoxyCodeLine{00304\ \ \ \textcolor{keywordtype}{void}\ MergeContactPWBack(\textcolor{keywordtype}{int}\ source\_rank);}
+\DoxyCodeLine{00305\ }
+\DoxyCodeLine{00311\ \ \ \textcolor{keywordtype}{void}\ MergeParticleTransfer(\textcolor{keywordtype}{int}\ source\_rank);}
+\DoxyCodeLine{00312\ }
+\DoxyCodeLine{00318\ \ \ \textcolor{keywordtype}{void}\ MergeContactPPTransfer(\textcolor{keywordtype}{int}\ source\_rank);}
+\DoxyCodeLine{00319\ }
+\DoxyCodeLine{00325\ \ \ \textcolor{keywordtype}{void}\ MergeContactPWTransfer(\textcolor{keywordtype}{int}\ source\_rank);}
+\DoxyCodeLine{00326\ }
+\DoxyCodeLine{00332\ \ \ \textcolor{keywordtype}{void}\ MergeParticleSync(\textcolor{keywordtype}{int}\ source\_rank);}
+\DoxyCodeLine{00333\ }
+\DoxyCodeLine{00340\ \ \ \textcolor{keywordtype}{void}\ MergeContactPPSync(\textcolor{keywordtype}{int}\ source\_rank);}
+\DoxyCodeLine{00341\ }
+\DoxyCodeLine{00347\ \ \ \textcolor{keywordtype}{void}\ MergeContactPWSync(\textcolor{keywordtype}{int}\ source\_rank);}
+\DoxyCodeLine{00348\ }
+\DoxyCodeLine{00349\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00355\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classnetdem_1_1_m_p_i_manager_a72e970a98b93b2881bd1be94b9ef8379}{GetSelfRankStatic}}();}
+\DoxyCodeLine{00356\ }
+\DoxyCodeLine{00362\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classnetdem_1_1_m_p_i_manager_ad49239ae473cd255f3eda317141437dd}{GetTotalRankStatic}}();}
+\DoxyCodeLine{00363\ }
+\DoxyCodeLine{00369\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_m_p_i_manager_a1b0a5b0c7dfd3213d2eb82db6c104f68}{SyncDataAmongProcessors}}(\mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{VecXT<int>}}\ *\textcolor{keyword}{const}\ data);}
+\DoxyCodeLine{00370\ }
+\DoxyCodeLine{00376\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classnetdem_1_1_m_p_i_manager_a1b0a5b0c7dfd3213d2eb82db6c104f68}{SyncDataAmongProcessors}}(\mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{VecXT<double>}}\ *\textcolor{keyword}{const}\ data);}
+\DoxyCodeLine{00377\ }
+\DoxyCodeLine{00381\ \ \ \mbox{\hyperlink{classnetdem_1_1_m_p_i_manager_ab946367c48e6e367f47408e6ee5e1294}{\string~MPIManager}}();}
+\DoxyCodeLine{00382\ }
+\DoxyCodeLine{00383\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00384\ \ \ \textcolor{comment}{//\ for\ basic\ properties}}
+\DoxyCodeLine{00385\ \ \ \textcolor{keywordtype}{void}\ GatherDataShape();}
+\DoxyCodeLine{00386\ }
+\DoxyCodeLine{00387\ \ \ \textcolor{keywordtype}{void}\ SendShape(\textcolor{keywordtype}{int}\ i\_rank);}
+\DoxyCodeLine{00388\ \ \ \textcolor{keywordtype}{void}\ SendParticle(\mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{VecXT<Particle\ *>}}\ \textcolor{keyword}{const}\ \&p\_list,\ \textcolor{keywordtype}{int}\ i\_rank);}
+\DoxyCodeLine{00389\ }
+\DoxyCodeLine{00390\ \ \ \textcolor{keywordtype}{void}\ SendBondEntryPP(\mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{VecXT<BondEntry\ *>}}\ \textcolor{keyword}{const}\ \&bond\_list,\ \textcolor{keywordtype}{int}\ i\_rank);}
+\DoxyCodeLine{00391\ \ \ \textcolor{keywordtype}{void}\ SendCollisionEntryPP(\mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{VecXT<CollisionEntry\ *>}}\ \textcolor{keyword}{const}\ \&collision\_list,}
+\DoxyCodeLine{00392\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ i\_rank);}
+\DoxyCodeLine{00393\ \ \ \textcolor{keywordtype}{void}\ SendContactPP(\mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{VecXT<ContactPP\ *>}}\ \textcolor{keyword}{const}\ \&cnt\_list,\ \textcolor{keywordtype}{int}\ i\_rank);}
+\DoxyCodeLine{00394\ }
+\DoxyCodeLine{00395\ \ \ \textcolor{keywordtype}{void}\ SendBondEntryPW(\mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{VecXT<BondEntry\ *>}}\ \textcolor{keyword}{const}\ \&bond\_list,\ \textcolor{keywordtype}{int}\ i\_rank);}
+\DoxyCodeLine{00396\ \ \ \textcolor{keywordtype}{void}\ SendCollisionEntryPW(\mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{VecXT<CollisionEntry\ *>}}\ \textcolor{keyword}{const}\ \&collision\_list,}
+\DoxyCodeLine{00397\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ i\_rank);}
+\DoxyCodeLine{00398\ \ \ \textcolor{keywordtype}{void}\ SendContactPW(\mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{VecXT<ContactPW\ *>}}\ \textcolor{keyword}{const}\ \&cnt\_list,\ \textcolor{keywordtype}{int}\ i\_rank);}
+\DoxyCodeLine{00399\ }
+\DoxyCodeLine{00400\ \ \ \textcolor{keywordtype}{void}\ RecvShape(\mbox{\hyperlink{classnetdem_1_1_m_p_i_manager}{MPIManager}}\ *obj,\ \textcolor{keywordtype}{void}\ (\mbox{\hyperlink{classnetdem_1_1_m_p_i_manager}{MPIManager}}::*MergeFunc)(\textcolor{keywordtype}{int}));}
+\DoxyCodeLine{00401\ \ \ \textcolor{keywordtype}{void}\ RecvParticle(\mbox{\hyperlink{classnetdem_1_1_m_p_i_manager}{MPIManager}}\ *obj,\ \textcolor{keywordtype}{void}\ (\mbox{\hyperlink{classnetdem_1_1_m_p_i_manager}{MPIManager}}::*MergeFunc)(\textcolor{keywordtype}{int}));}
+\DoxyCodeLine{00402\ }
+\DoxyCodeLine{00403\ \ \ \textcolor{keywordtype}{void}\ RecvBondEntryPP();}
+\DoxyCodeLine{00404\ \ \ \textcolor{keywordtype}{void}\ RecvCollisionEntryPP();}
+\DoxyCodeLine{00405\ \ \ \textcolor{keywordtype}{void}\ RecvContactPP(\mbox{\hyperlink{classnetdem_1_1_m_p_i_manager}{MPIManager}}\ *obj,\ \textcolor{keywordtype}{void}\ (\mbox{\hyperlink{classnetdem_1_1_m_p_i_manager}{MPIManager}}::*MergeFunc)(\textcolor{keywordtype}{int}));}
+\DoxyCodeLine{00406\ }
+\DoxyCodeLine{00407\ \ \ \textcolor{keywordtype}{void}\ RecvBondEntryPW();}
+\DoxyCodeLine{00408\ \ \ \textcolor{keywordtype}{void}\ RecvCollisionEntryPW();}
+\DoxyCodeLine{00409\ \ \ \textcolor{keywordtype}{void}\ RecvContactPW(\mbox{\hyperlink{classnetdem_1_1_m_p_i_manager}{MPIManager}}\ *obj,\ \textcolor{keywordtype}{void}\ (\mbox{\hyperlink{classnetdem_1_1_m_p_i_manager}{MPIManager}}::*MergeFunc)(\textcolor{keywordtype}{int}));}
+\DoxyCodeLine{00410\ }
+\DoxyCodeLine{00411\ \ \ \textcolor{comment}{//\ for\ dynamics\ properties}}
+\DoxyCodeLine{00412\ \ \ \textcolor{keywordtype}{void}\ SendParticleProp(\mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{VecXT<Particle\ *>}}\ \textcolor{keyword}{const}\ \&p\_list,\ \textcolor{keywordtype}{int}\ i\_rank);}
+\DoxyCodeLine{00413\ \ \ \textcolor{keywordtype}{void}\ SendContactPPProp(\mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{VecXT<ContactPP\ *>}}\ \textcolor{keyword}{const}\ \&cnt\_list,\ \textcolor{keywordtype}{int}\ i\_rank);}
+\DoxyCodeLine{00414\ \ \ \textcolor{keywordtype}{void}\ SendContactPWProp(\mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{VecXT<ContactPW\ *>}}\ \textcolor{keyword}{const}\ \&cnt\_list,\ \textcolor{keywordtype}{int}\ i\_rank);}
+\DoxyCodeLine{00415\ }
+\DoxyCodeLine{00416\ \ \ \textcolor{keywordtype}{void}\ RecvParticleProp(\mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{VecXT}}<\mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{VecXT<Particle\ *>}}>\ *\textcolor{keyword}{const}\ p\_list);}
+\DoxyCodeLine{00417\ \ \ \textcolor{keywordtype}{void}\ RecvContactPPProp(\mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{VecXT}}<\mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{VecXT<ContactPP\ *>}}>\ *\textcolor{keyword}{const}\ cnt\_list);}
+\DoxyCodeLine{00418\ \ \ \textcolor{keywordtype}{void}\ RecvContactPWProp(\mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{VecXT}}<\mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{VecXT<ContactPW\ *>}}>\ *\textcolor{keyword}{const}\ cnt\_list);}
+\DoxyCodeLine{00419\ }
+\DoxyCodeLine{00420\ \ \ \textcolor{keywordtype}{void}\ MergeParticleProp(\mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{VecXT<Particle\ *>}}\ *\textcolor{keyword}{const}\ p\_list,\ \textcolor{keywordtype}{int}\ source\_rank);}
+\DoxyCodeLine{00421\ \ \ \textcolor{keywordtype}{void}\ MergeContactPPProp(\mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{VecXT<ContactPP\ *>}}\ *\textcolor{keyword}{const}\ cnt\_list,\ \textcolor{keywordtype}{int}\ source\_rank);}
+\DoxyCodeLine{00422\ \ \ \textcolor{keywordtype}{void}\ MergeContactPWProp(\mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{VecXT<ContactPW\ *>}}\ *\textcolor{keyword}{const}\ cnt\_list,\ \textcolor{keywordtype}{int}\ source\_rank);}
+\DoxyCodeLine{00423\ }
+\DoxyCodeLine{00424\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00425\ \ \ \textcolor{keywordtype}{bool}\ mpi\_initialized\_here\{\textcolor{keyword}{false}\};}
+\DoxyCodeLine{00426\ }
+\DoxyCodeLine{00427\ \ \ \mbox{\hyperlink{classnetdem_1_1_simulation}{Simulation}}\ *sim\{\textcolor{keyword}{nullptr}\};}
+\DoxyCodeLine{00428\ }
+\DoxyCodeLine{00429\ \ \ \mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{VecXT<ParticleData\ *>}}\ particle\_data\_list\_send;}
+\DoxyCodeLine{00430\ \ \ \mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{VecXT<std::string>}}\ particle\_prop\_keys\_list\_send;}
+\DoxyCodeLine{00431\ \ \ \mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{VecXT<VecXT<double>}}>\ particle\_prop\_vals\_list\_send;}
+\DoxyCodeLine{00432\ \ \ \mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{VecXT<ContactPPData\ *>}}\ contact\_pp\_data\_list\_send;}
+\DoxyCodeLine{00433\ \ \ \mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{VecXT<std::string>}}\ contact\_pp\_prop\_keys\_list\_send;}
+\DoxyCodeLine{00434\ \ \ \mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{VecXT<VecXT<double>}}>\ contact\_pp\_prop\_vals\_list\_send;}
+\DoxyCodeLine{00435\ \ \ \mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{VecXT<BondEntryData\ *>}}\ bond\_entry\_pp\_data\_list\_send;}
+\DoxyCodeLine{00436\ \ \ \mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{VecXT<CollisionEntryData\ *>}}\ collision\_entry\_pp\_data\_list\_send;}
+\DoxyCodeLine{00437\ \ \ \mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{VecXT<ContactPWData\ *>}}\ contact\_pw\_data\_list\_send;}
+\DoxyCodeLine{00438\ \ \ \mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{VecXT<std::string>}}\ contact\_pw\_prop\_keys\_list\_send;}
+\DoxyCodeLine{00439\ \ \ \mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{VecXT<VecXT<double>}}>\ contact\_pw\_prop\_vals\_list\_send;}
+\DoxyCodeLine{00440\ \ \ \mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{VecXT<BondEntryData\ *>}}\ bond\_entry\_pw\_data\_list\_send;}
+\DoxyCodeLine{00441\ \ \ \mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{VecXT<CollisionEntryData\ *>}}\ collision\_entry\_pw\_data\_list\_send;}
+\DoxyCodeLine{00442\ }
+\DoxyCodeLine{00443\ \ \ \mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{VecXT<int>}}\ particle\_num\_list\_send;}
+\DoxyCodeLine{00444\ \ \ \mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{VecXT<int>}}\ contact\_pp\_num\_list\_send;}
+\DoxyCodeLine{00445\ \ \ \mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{VecXT<int>}}\ bond\_entry\_pp\_num\_list\_send;}
+\DoxyCodeLine{00446\ \ \ \mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{VecXT<int>}}\ collision\_entry\_pp\_num\_list\_send;}
+\DoxyCodeLine{00447\ \ \ \mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{VecXT<int>}}\ contact\_pw\_num\_list\_send;}
+\DoxyCodeLine{00448\ \ \ \mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{VecXT<int>}}\ bond\_entry\_pw\_num\_list\_send;}
+\DoxyCodeLine{00449\ \ \ \mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{VecXT<int>}}\ collision\_entry\_pw\_num\_list\_send;}
+\DoxyCodeLine{00450\ }
+\DoxyCodeLine{00451\ \ \ \mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{VecXT<MPI\_Request>}}\ particle\_req\_list\_send;}
+\DoxyCodeLine{00452\ \ \ \mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{VecXT<MPI\_Request>}}\ particle\_prop\_keys\_req\_list\_send;}
+\DoxyCodeLine{00453\ \ \ \mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{VecXT<MPI\_Request>}}\ particle\_prop\_vals\_req\_list\_send;}
+\DoxyCodeLine{00454\ \ \ \mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{VecXT<MPI\_Request>}}\ contact\_pp\_req\_list\_send;}
+\DoxyCodeLine{00455\ \ \ \mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{VecXT<MPI\_Request>}}\ contact\_pp\_prop\_keys\_req\_list\_send;}
+\DoxyCodeLine{00456\ \ \ \mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{VecXT<MPI\_Request>}}\ contact\_pp\_prop\_vals\_req\_list\_send;}
+\DoxyCodeLine{00457\ \ \ \mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{VecXT<MPI\_Request>}}\ bond\_entry\_pp\_req\_list\_send;}
+\DoxyCodeLine{00458\ \ \ \mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{VecXT<MPI\_Request>}}\ collision\_entry\_pp\_req\_list\_send;}
+\DoxyCodeLine{00459\ \ \ \mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{VecXT<MPI\_Request>}}\ contact\_pw\_req\_list\_send;}
+\DoxyCodeLine{00460\ \ \ \mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{VecXT<MPI\_Request>}}\ contact\_pw\_prop\_keys\_req\_list\_send;}
+\DoxyCodeLine{00461\ \ \ \mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{VecXT<MPI\_Request>}}\ contact\_pw\_prop\_vals\_req\_list\_send;}
+\DoxyCodeLine{00462\ \ \ \mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{VecXT<MPI\_Request>}}\ bond\_entry\_pw\_req\_list\_send;}
+\DoxyCodeLine{00463\ \ \ \mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{VecXT<MPI\_Request>}}\ collision\_entry\_pw\_req\_list\_send;}
+\DoxyCodeLine{00464\ }
+\DoxyCodeLine{00465\ \ \ std::string\ *shape\_data\_send\{\textcolor{keyword}{nullptr}\};}
+\DoxyCodeLine{00466\ \ \ \mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{VecXT<MPI\_Request>}}\ shape\_req\_list\_send;}
+\DoxyCodeLine{00467\ \ \ \mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{VecXT<std::string>}}\ shape\_data\_list\_recv;}
+\DoxyCodeLine{00468\ \ \ \mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{VecXT<MPI\_Request>}}\ shape\_req\_list\_recv;}
+\DoxyCodeLine{00469\ \ \ \mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{VecXT<bool>}}\ shape\_probed\_list;}
+\DoxyCodeLine{00470\ }
+\DoxyCodeLine{00471\ \ \ \mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{VecXT<ParticleData\ *>}}\ particle\_data\_list\_recv;}
+\DoxyCodeLine{00472\ \ \ \mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{VecXT<std::string>}}\ particle\_prop\_keys\_list\_recv;}
+\DoxyCodeLine{00473\ \ \ \mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{VecXT<VecXT<double>}}>\ particle\_prop\_vals\_list\_recv;}
+\DoxyCodeLine{00474\ \ \ \mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{VecXT<ContactPPData\ *>}}\ contact\_pp\_data\_list\_recv;}
+\DoxyCodeLine{00475\ \ \ \mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{VecXT<std::string>}}\ contact\_pp\_prop\_keys\_list\_recv;}
+\DoxyCodeLine{00476\ \ \ \mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{VecXT<VecXT<double>}}>\ contact\_pp\_prop\_vals\_list\_recv;}
+\DoxyCodeLine{00477\ \ \ \mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{VecXT<BondEntryData\ *>}}\ bond\_entry\_pp\_data\_list\_recv;}
+\DoxyCodeLine{00478\ \ \ \mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{VecXT<CollisionEntryData\ *>}}\ collision\_entry\_pp\_data\_list\_recv;}
+\DoxyCodeLine{00479\ \ \ \mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{VecXT<ContactPWData\ *>}}\ contact\_pw\_data\_list\_recv;}
+\DoxyCodeLine{00480\ \ \ \mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{VecXT<std::string>}}\ contact\_pw\_prop\_keys\_list\_recv;}
+\DoxyCodeLine{00481\ \ \ \mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{VecXT<VecXT<double>}}>\ contact\_pw\_prop\_vals\_list\_recv;}
+\DoxyCodeLine{00482\ \ \ \mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{VecXT<BondEntryData\ *>}}\ bond\_entry\_pw\_data\_list\_recv;}
+\DoxyCodeLine{00483\ \ \ \mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{VecXT<CollisionEntryData\ *>}}\ collision\_entry\_pw\_data\_list\_recv;}
+\DoxyCodeLine{00484\ }
+\DoxyCodeLine{00485\ \ \ \mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{VecXT<int>}}\ particle\_num\_list\_recv;}
+\DoxyCodeLine{00486\ \ \ \mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{VecXT<int>}}\ contact\_pp\_num\_list\_recv;}
+\DoxyCodeLine{00487\ \ \ \mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{VecXT<int>}}\ bond\_entry\_pp\_num\_list\_recv;}
+\DoxyCodeLine{00488\ \ \ \mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{VecXT<int>}}\ collision\_entry\_pp\_num\_list\_recv;}
+\DoxyCodeLine{00489\ \ \ \mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{VecXT<int>}}\ contact\_pw\_num\_list\_recv;}
+\DoxyCodeLine{00490\ \ \ \mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{VecXT<int>}}\ bond\_entry\_pw\_num\_list\_recv;}
+\DoxyCodeLine{00491\ \ \ \mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{VecXT<int>}}\ collision\_entry\_pw\_num\_list\_recv;}
+\DoxyCodeLine{00492\ }
+\DoxyCodeLine{00493\ \ \ \mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{VecXT<MPI\_Request>}}\ particle\_req\_list\_recv;}
+\DoxyCodeLine{00494\ \ \ \mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{VecXT<MPI\_Request>}}\ particle\_prop\_keys\_req\_list\_recv;}
+\DoxyCodeLine{00495\ \ \ \mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{VecXT<MPI\_Request>}}\ particle\_prop\_vals\_req\_list\_recv;}
+\DoxyCodeLine{00496\ \ \ \mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{VecXT<MPI\_Request>}}\ contact\_pp\_req\_list\_recv;}
+\DoxyCodeLine{00497\ \ \ \mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{VecXT<MPI\_Request>}}\ contact\_pp\_prop\_keys\_req\_list\_recv;}
+\DoxyCodeLine{00498\ \ \ \mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{VecXT<MPI\_Request>}}\ contact\_pp\_prop\_vals\_req\_list\_recv;}
+\DoxyCodeLine{00499\ \ \ \mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{VecXT<MPI\_Request>}}\ bond\_entry\_pp\_req\_list\_recv;}
+\DoxyCodeLine{00500\ \ \ \mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{VecXT<MPI\_Request>}}\ collision\_entry\_pp\_req\_list\_recv;}
+\DoxyCodeLine{00501\ \ \ \mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{VecXT<MPI\_Request>}}\ contact\_pw\_req\_list\_recv;}
+\DoxyCodeLine{00502\ \ \ \mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{VecXT<MPI\_Request>}}\ contact\_pw\_prop\_keys\_req\_list\_recv;}
+\DoxyCodeLine{00503\ \ \ \mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{VecXT<MPI\_Request>}}\ contact\_pw\_prop\_vals\_req\_list\_recv;}
+\DoxyCodeLine{00504\ \ \ \mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{VecXT<MPI\_Request>}}\ bond\_entry\_pw\_req\_list\_recv;}
+\DoxyCodeLine{00505\ \ \ \mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{VecXT<MPI\_Request>}}\ collision\_entry\_pw\_req\_list\_recv;}
+\DoxyCodeLine{00506\ }
+\DoxyCodeLine{00507\ \ \ \mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{VecXT<bool>}}\ particle\_probed\_list;}
+\DoxyCodeLine{00508\ \ \ \mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{VecXT<bool>}}\ particle\_prop\_keys\_probed\_list;}
+\DoxyCodeLine{00509\ \ \ \mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{VecXT<bool>}}\ particle\_prop\_vals\_probed\_list;}
+\DoxyCodeLine{00510\ \ \ \mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{VecXT<bool>}}\ contact\_pp\_probed\_list;}
+\DoxyCodeLine{00511\ \ \ \mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{VecXT<bool>}}\ contact\_pp\_prop\_keys\_probed\_list;}
+\DoxyCodeLine{00512\ \ \ \mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{VecXT<bool>}}\ contact\_pp\_prop\_vals\_probed\_list;}
+\DoxyCodeLine{00513\ \ \ \mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{VecXT<bool>}}\ bond\_entry\_pp\_probed\_list;}
+\DoxyCodeLine{00514\ \ \ \mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{VecXT<bool>}}\ collision\_entry\_pp\_probed\_list;}
+\DoxyCodeLine{00515\ \ \ \mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{VecXT<bool>}}\ contact\_pw\_probed\_list;}
+\DoxyCodeLine{00516\ \ \ \mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{VecXT<bool>}}\ contact\_pw\_prop\_keys\_probed\_list;}
+\DoxyCodeLine{00517\ \ \ \mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{VecXT<bool>}}\ contact\_pw\_prop\_vals\_probed\_list;}
+\DoxyCodeLine{00518\ \ \ \mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{VecXT<bool>}}\ bond\_entry\_pw\_probed\_list;}
+\DoxyCodeLine{00519\ \ \ \mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{VecXT<bool>}}\ collision\_entry\_pw\_probed\_list;}
+\DoxyCodeLine{00520\ }
+\DoxyCodeLine{00521\ \ \ \mbox{\hyperlink{namespacenetdem_a8d94cdaf8401c5321c11283693225945}{List<int>}}\ GetOtherRanks();}
+\DoxyCodeLine{00522\ \ \ \textcolor{keywordtype}{void}\ RemoveParticle(\textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id},\ \mbox{\hyperlink{namespacenetdem_a19bd090a5819e5163bd8d6aba69718bc}{VecXT<Particle\ *>}}\ *p\_list);}
+\DoxyCodeLine{00523\ }
+\DoxyCodeLine{00524\ \ \ \textcolor{keywordtype}{void}\ ClearBuffer();}
+\DoxyCodeLine{00525\ }
+\DoxyCodeLine{00526\ \ \ \textcolor{keywordtype}{void}\ ClearBufferShape();}
+\DoxyCodeLine{00527\ \ \ \textcolor{keywordtype}{void}\ ClearBufferParticle();}
+\DoxyCodeLine{00528\ \ \ \textcolor{keywordtype}{void}\ ClearBufferContact();}
+\DoxyCodeLine{00529\ \};}
+\DoxyCodeLine{00530\ }
+\DoxyCodeLine{00531\ \}\ \textcolor{comment}{//\ namespace\ netdem}}
 
 \end{DoxyCode}
