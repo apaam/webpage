@@ -230,65 +230,49 @@
 </a></p>
 </div>
 <p>NetDEM is a neural network enabled C++ library for discrete element methods.</p>
-<h2 id="features">Features</h2>
-<p>It is currently capable of performing basic and general DEM simulations, with following features:</p>
+<h2 id="documentation">Documentation</h2>
+<p>To get started with NetDEM, we recommend exploring the following resources:</p>
 <ul>
-<li>Sphere and triangle facets contact solver</li>
-<li>GJK contact solver for convex particles</li>
-<li>SDF contact solver for arbitrary (convex and concave) particles</li>
-<li>Hybrid OpenMP and MPI parallel computing</li>
-<li>Integrated <a href="https://www.mlpack.org/">mlpack</a> machine learning environment</li>
+<li>
+<p><strong><a href="documentation/user_manual/">Getting Started Guide</a></strong>: Step-by-step instructions for setting up and running basic simulations in NetDEM.</p>
+</li>
+<li>
+<p><strong><a href="gallery/animations/">Examples</a></strong>: A collection of example simulations, including animations, to illustrate the core functionality and diverse applications of the library.</p>
+</li>
+<li>
+<p><strong><a href="doxygen/html/">Code Doxygen</a></strong>: Full documentation for the NetDEM codebase, including function references, classes, and usage examples.</p>
+</li>
+<li>
+<p><strong><a href="https://github.com/apaam/netdem">GitHub Repository</a></strong>: The source code repository for NetDEM, containing the latest updates, releases, and community contributions.</p>
+</li>
 </ul>
-<p>The supported particle shapes include sphere, cylinder, poly-super-ellipsoid, poly-super-quadrics, spherical harmonics, triangle mesh, level set, etc.</p>
+<p>We recommend new users start by examining the <a href="https://github.com/apaam/netdem/tree/main/examples">example codes</a>. Currently, NetDEM uses <a href="https://www.paraview.org">ParaView</a> for visualization.</p>
+<h2 id="contact">Contact</h2>
+<p>Use the GitHub <a href="https://github.com/apaam/netdem/issues">issue tracker</a> to report <a href="https://github.com/apaam/netdem/issues/new?labels=bug">bugs</a>, post <a href="https://github.com/apaam/netdem/issues/new?labels=question">questions</a>, or share <a href="https://github.com/apaam/netdem/issues/new?labels=comment">comments</a>.</p>
 </div>
 <div class="col-md-6 news-table">
-<h2 id="news">News</h2>
-<table>
-<thead>
-<tr>
-<th>Date</th>
-<th>Message</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Apr 2023</td>
-<td>Intelligent NetDEM code searching using chatGPT and embedding.</td>
-</tr>
-<tr>
-<td>Dec 2022</td>
-<td>Fully resolved CFD-DEM, with unresolved, semi-resolved, resovled and hybrid solvers.</td>
-</tr>
-<tr>
-<td>Jun 2022</td>
-<td>Integrated with OpenFOAM for a resolved CFD-DEM.</td>
-</tr>
-<tr>
-<td>Dec 2021</td>
-<td>Exposed most APIs to python via pybind11, added python examples.</td>
-</tr>
-<tr>
-<td>Sep 2021</td>
-<td>Poly-super-ellipsoid, poly-super-quadric, spherical harmonics, level set, polyhedron and etc.</td>
-</tr>
-</tbody>
-</table>
-<!-- Aug 2021 | Generlized two types of contact solvers, namely GJK and SDF.
-Mar 2021 | Integrated the [mlpack](https://github.com/mlpack/mlpack.git) as the machine learning environment. -->
-<h2 id="documentation">Documentation</h2>
-<p><a href="documentation/user_manual/">Getting Started</a>
-┊ <a href="gallery/animations/">Examples</a>
-┊ <a href="doxygen/html/">Code doxygen</a>
-┊ <a href="https://github.com/apaam/netdem">Sources</a></p>
-<p>We recommend new users to start by examining the <a href="https://github.com/apaam/netdem/tree/main/examples">example codes</a>.</p>
-<p>Currently, we use <a href="https://www.paraview.org">paraview</a> for visualization.</p>
-<h2 id="contact">Contact</h2>
-<p>Use the GitHub <a href="https://github.com/apaam/netdem/issues">issue tracker</a>
-to report <a href="https://github.com/apaam/netdem/issues/new?labels=bug">bugs</a>
-or post <a href="https://github.com/apaam/netdem/issues/new?labels=question">questions</a>
-or <a href="https://github.com/apaam/netdem/issues/new?labels=comment">comments</a>.</p>
-<h2 id="license-citation">License &amp; citation</h2>
-<p>NetDEM is distributed under the GPL license, see <a href="about/acknowledgement/">copyright and license</a> for details.</p>
+<h2 id="features">Features</h2>
+<p>NetDEM is a versatile, neural network-enabled C++ library specifically designed for performing discrete element method (DEM) simulations. Its robust feature set includes:</p>
+<ul>
+<li>
+<p><strong>Sphere and Triangle Facet Contact Solver</strong>: A solver designed for accurate and efficient modeling of interactions between spherical particles and triangular surface facets.</p>
+</li>
+<li>
+<p><strong>GJK (Gilbert-Johnson-Keerthi) Contact Solver for Convex Particles</strong>: This solver efficiently handles contact detection between convex particles, utilizing the GJK algorithm to provide rapid collision detection and response.</p>
+</li>
+<li>
+<p><strong>SDF (Signed Distance Function) Contact Solver for Arbitrary Particles</strong>: The SDF contact solver supports both convex and concave particles, allowing for simulation of a broad range of particle geometries. This makes it especially useful for complex, irregularly shaped particles encountered in realistic scenarios.</p>
+</li>
+<li>
+<p><strong>Hybrid OpenMP and MPI Parallel Computing</strong>: NetDEM uses hybrid parallel computing approaches to optimize performance. OpenMP is employed for multi-threading on shared-memory architectures, while MPI supports parallelism across distributed systems. This hybrid approach enables efficient handling of large-scale simulations.</p>
+</li>
+<li>
+<p><strong>Integrated <a href="https://www.mlpack.org/">mlpack</a> Machine Learning Environment</strong>: With mlpack integration, NetDEM users can leverage machine learning techniques directly within DEM simulations. This enables data-driven decision-making and predictive modeling to improve simulation efficiency and analysis.</p>
+</li>
+</ul>
+<p>NetDEM supports a wide range of particle shapes, including spheres, cylinders, poly-super-ellipsoids, poly-super-quadrics, spherical harmonics, triangle meshes, level sets, and more. This extensive shape support allows for flexible, highly customizable simulations applicable across a range of scientific and engineering applications.</p>
+<h2 id="license-citation">License &amp; Citation</h2>
+<p>NetDEM is distributed under the GPL license. See <a href="about/acknowledgement/">copyright and license</a> for details.</p>
 <p>See the <a href="about/acknowledgement/">about</a> page for acknowledgements and citation information.</p>
 </div>
 <div class="col-md-12 bottom"></div></div>
