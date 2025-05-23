@@ -1,5 +1,7 @@
 This repository maintains the [documentation](https://apaam.github.io/webpage/) of the [NetDEM](https://github.com/apaam/netdem) project. It is built on [mkdocs](https://www.mkdocs.org/) and the template extracted from [mfem](https://mfem.org/).
 
+Documentation also available on deepwiki: [![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/apaam/webpage)
+
 ## To update the site:
 
 0. Install prerequisite: ``mkdocs`` packages using [pip](https://pip.pypa.io/en/stable/installing/) or [pip3](https://pip.pypa.io/en/stable/installing/).
