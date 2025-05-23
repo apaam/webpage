@@ -1,0 +1,2342 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="https://apaam.github.io/webpage/img/favicon.ico">
+        <meta name="keywords" content="Finite Element Library,Finite Element Code,Finite Element Method Library,Finite Element Method Code,Finite Element C++,Finite Element Method C++,Finite Element Library C++,Finite Element Code C++,FEM Code,FEM Library,FEM C++">
+        <meta name="google-site-verification" content="45K56TawSdzbgy-uDtfJdYwp7zaVdL3fIAGYt869wwU" />
+<!--	<title></title>  -->
+        <title>NetDEM - Neural Network Enabled Discret Element Method</title>
+
+        <link href="../../../css/bootstrap-bootstrap.min.css" rel="stylesheet">
+        <link href="../../../css/font-awesome-4.0.3.css" rel="stylesheet">
+        <link href="../../../css/highlight.css" rel="stylesheet">
+        <link href="../../../css/base.css" rel="stylesheet">
+
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+        
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <!-- Main title -->
+            <a class="navbar-brand" href="https://apaam.github.io/webpage/">NetDEM</a>
+        </div>
+
+        <script>var base_url = '../../..';</script>
+        <!-- <script data-main="../../../mkdocs/js/search.js" src="../../../mkdocs/js/require.js"></script> -->
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            <!-- Main navigation -->
+            <ul class="nav navbar-nav">
+            
+            
+            
+            
+            
+                <li >
+                    <!-- Replace "nav_item.url|url" with "nav_item.url" for older mkdocs (before 1.0) -->
+                    <a href="../../../examples/">Examples</a>
+                </li>
+            
+            
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Documentation <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+                            <li >
+                                 <a href="../../user_manual/">User manual</a>
+                            </li>
+                        
+                    
+                        
+                            <li >
+                                 <a href="../../developer_manual/">Developer manual</a>
+                            </li>
+                        
+                    
+                        
+                            <li >
+                                 <a href="../../dem_wiki/">DEM wiki</a>
+                            </li>
+                        
+                    
+                        
+                            <li >
+                                 <a href="../../../doxygen/html/">Code doxygen</a>
+                            </li>
+                        
+                    
+                    </ul>
+                </li>
+            
+            
+            
+            
+            
+                <li >
+                    <!-- Replace "nav_item.url|url" with "nav_item.url" for older mkdocs (before 1.0) -->
+                    <a href="../../../download/">Download</a>
+                </li>
+            
+            
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Gallery <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+                            <li >
+                                 <a href="../../../gallery/snapshots/">Snapshots</a>
+                            </li>
+                        
+                    
+                        
+                            <li >
+                                 <a href="../../../gallery/animations/">Animations</a>
+                            </li>
+                        
+                    
+                    </ul>
+                </li>
+            
+            
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">About <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+                            <li >
+                                 <a href="../../../about/help_%26_support/">Help & Support</a>
+                            </li>
+                        
+                    
+                        
+                            <li >
+                                 <a href="../../../about/publications/">Publications</a>
+                            </li>
+                        
+                    
+                        
+                            <li >
+                                 <a href="../../../about/acknowledgement/">Acknowledgements</a>
+                            </li>
+                        
+                    
+                    </ul>
+                </li>
+            
+            
+            
+            </ul>
+
+            <!-- Search, Navigation and Repo links -->
+            <ul class="nav navbar-nav navbar-right">
+                <li class="nav-item">
+                    <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                        <i class="fa fa-search"></i> Search
+                    </a>
+                </li>
+                
+                
+                <li>
+                    <a href="https://github.com/apaam/webpage">
+                        
+                            <i class="fa fa-github-square"></i>
+                        
+                        GitHub
+                    </a>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+
+        
+        <div class="container">
+            
+            <div class="col-md-3 visible-xs visible-sm"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+    
+        <li class="main active"><a href="#netdem-python-api-scene">NetDEM Python API 参考文档 - Scene模块</a></li>
+        
+            <li><a href="#_1"> &#9731; 目录</a></li>
+        
+            <li><a href="#demobjectpool"> &#9731; DEMObjectPool</a></li>
+        
+            <li><a href="#scene"> &#9731; Scene</a></li>
+        
+            <li><a href="#packgenerator"> &#9731; PackGenerator</a></li>
+        
+            <li><a href="#particle"> &#9731; Particle</a></li>
+        
+            <li><a href="#wall"> &#9731; Wall</a></li>
+        
+            <li><a href="#wallboxplane"> &#9731; WallBoxPlane</a></li>
+        
+            <li><a href="#wallboxplate"> &#9731; WallBoxPlate</a></li>
+        
+            <li><a href="#bondedspheres"> &#9731; BondedSpheres</a></li>
+        
+            <li><a href="#bondedvoronois"> &#9731; BondedVoronois</a></li>
+        
+            <li><a href="#contactpp"> &#9731; ContactPP</a></li>
+        
+            <li><a href="#contactpw"> &#9731; ContactPW</a></li>
+        
+    
+    </ul>
+</div></div> <!-- toc on top on mobile -->
+            <div class="col-md-3 hidden-xs hidden-sm"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+    
+        <li class="main active"><a href="#netdem-python-api-scene">NetDEM Python API 参考文档 - Scene模块</a></li>
+        
+            <li><a href="#_1"> &#9731; 目录</a></li>
+        
+            <li><a href="#demobjectpool"> &#9731; DEMObjectPool</a></li>
+        
+            <li><a href="#scene"> &#9731; Scene</a></li>
+        
+            <li><a href="#packgenerator"> &#9731; PackGenerator</a></li>
+        
+            <li><a href="#particle"> &#9731; Particle</a></li>
+        
+            <li><a href="#wall"> &#9731; Wall</a></li>
+        
+            <li><a href="#wallboxplane"> &#9731; WallBoxPlane</a></li>
+        
+            <li><a href="#wallboxplate"> &#9731; WallBoxPlate</a></li>
+        
+            <li><a href="#bondedspheres"> &#9731; BondedSpheres</a></li>
+        
+            <li><a href="#bondedvoronois"> &#9731; BondedVoronois</a></li>
+        
+            <li><a href="#contactpp"> &#9731; ContactPP</a></li>
+        
+            <li><a href="#contactpw"> &#9731; ContactPW</a></li>
+        
+    
+    </ul>
+</div></div>
+            <div class="col-md-9" role="main">
+
+<div><h1 id="netdem-python-api-scene">NetDEM Python API 参考文档 - Scene模块</h1>
+<p>本文档提供了NetDEM软件中Scene模块相关的Python API接口说明。Scene模块是NetDEM的核心部分，负责管理模拟中的所有元素，包括颗粒、墙体、形状和接触等。</p>
+<h2 id="_1">目录</h2>
+<ul>
+<li><a href="#demobjectpool">DEMObjectPool</a></li>
+<li><a href="#scene">Scene</a></li>
+<li><a href="#packgenerator">PackGenerator</a></li>
+<li><a href="#particle">Particle</a></li>
+<li><a href="#wall">Wall</a></li>
+<li><a href="#wallboxplane">WallBoxPlane</a></li>
+<li><a href="#wallboxplate">WallBoxPlate</a></li>
+<li><a href="#bondedspheres">BondedSpheres</a></li>
+<li><a href="#bondedvoronois">BondedVoronois</a></li>
+<li><a href="#contactpp">ContactPP</a></li>
+<li><a href="#contactpw">ContactPW</a></li>
+</ul>
+<h2 id="demobjectpool">DEMObjectPool</h2>
+<p><code>DEMObjectPool</code>是DEM对象池，用于管理DEM模拟中的颗粒和接触对象，采用对象池模式避免频繁的对象创建和销毁。</p>
+<h3 id="_2">方法</h3>
+<table>
+<thead>
+<tr>
+<th>方法名</th>
+<th>参数</th>
+<th>返回值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>init</code></td>
+<td>无</td>
+<td><code>DEMObjectPool</code></td>
+<td>初始化并获取DEM对象池实例（单例模式）</td>
+</tr>
+<tr>
+<td><code>GetParticle</code></td>
+<td>无</td>
+<td><code>Particle</code></td>
+<td>从对象池获取一个新的颗粒对象</td>
+</tr>
+<tr>
+<td><code>GetContactPP</code></td>
+<td>无</td>
+<td><code>ContactPP</code></td>
+<td>从对象池获取一个新的颗粒-颗粒接触对象</td>
+</tr>
+<tr>
+<td><code>GetContactPW</code></td>
+<td>无</td>
+<td><code>ContactPW</code></td>
+<td>从对象池获取一个新的颗粒-墙接触对象</td>
+</tr>
+</tbody>
+</table>
+<h2 id="scene">Scene</h2>
+<p><code>Scene</code>是DEM模拟中的场景类，管理所有的颗粒、墙体、形状和接触模型。</p>
+<h3 id="_3">属性</h3>
+<table>
+<thead>
+<tr>
+<th>属性名</th>
+<th>类型</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>contact_model_map</code></td>
+<td><code>MiniMap&lt;int, ContactModel*&gt;</code></td>
+<td>接触模型映射表，通过ID索引接触模型</td>
+</tr>
+<tr>
+<td><code>bond_model_table</code></td>
+<td><code>VecXT&lt;VecXT&lt;ContactModel*&gt;&gt;</code></td>
+<td>材料间粘结模型表，用于快速查找任意两种材料间的粘结模型</td>
+</tr>
+<tr>
+<td><code>collision_model_table</code></td>
+<td><code>VecXT&lt;VecXT&lt;ContactModel*&gt;&gt;</code></td>
+<td>材料间碰撞模型表，用于快速查找任意两种材料间的碰撞模型</td>
+</tr>
+<tr>
+<td><code>particle_list</code></td>
+<td><code>VecXT&lt;Particle*&gt;</code></td>
+<td>场景中的所有颗粒列表</td>
+</tr>
+<tr>
+<td><code>wall_list</code></td>
+<td><code>VecXT&lt;Wall*&gt;</code></td>
+<td>场景中的所有墙体列表</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_4">方法</h3>
+<table>
+<thead>
+<tr>
+<th>方法名</th>
+<th>参数</th>
+<th>返回值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>__init__</code></td>
+<td>无</td>
+<td>-</td>
+<td>创建一个新的Scene实例</td>
+</tr>
+<tr>
+<td><code>InsertContactModel</code></td>
+<td><code>contact_model: ContactModel</code></td>
+<td><code>ContactModel</code></td>
+<td>向场景中插入一个接触模型</td>
+</tr>
+<tr>
+<td><code>InsertContactModel</code></td>
+<td><code>contact_models: VecXT&lt;ContactModel*&gt;</code></td>
+<td><code>VecXT&lt;ContactModel*&gt;</code></td>
+<td>向场景中插入多个接触模型</td>
+</tr>
+<tr>
+<td><code>SetNumberOfMaterials</code></td>
+<td><code>num: int</code></td>
+<td>-</td>
+<td>设置场景中材料的数量</td>
+</tr>
+<tr>
+<td><code>SetBondModel</code></td>
+<td><code>mat_type_1: int, mat_type_2: int, model: ContactModel</code></td>
+<td>-</td>
+<td>设置两种材料之间的粘结模型</td>
+</tr>
+<tr>
+<td><code>SetBondModel</code></td>
+<td><code>mat_type_1: int, mat_type_2: int, label: str</code></td>
+<td>-</td>
+<td>通过标签设置两种材料之间的粘结模型</td>
+</tr>
+<tr>
+<td><code>SetCollisionModel</code></td>
+<td><code>mat_type_1: int, mat_type_2: int, model: ContactModel</code></td>
+<td>-</td>
+<td>设置两种材料之间的碰撞模型</td>
+</tr>
+<tr>
+<td><code>SetCollisionModel</code></td>
+<td><code>mat_type_1: int, mat_type_2: int, label: str</code></td>
+<td>-</td>
+<td>通过标签设置两种材料之间的碰撞模型</td>
+</tr>
+<tr>
+<td><code>InsertShape</code></td>
+<td><code>shape: Shape</code></td>
+<td><code>Shape</code></td>
+<td>向场景中插入一个形状</td>
+</tr>
+<tr>
+<td><code>InsertShape</code></td>
+<td><code>shapes: VecXT&lt;Shape*&gt;</code></td>
+<td><code>VecXT&lt;Shape*&gt;</code></td>
+<td>向场景中插入多个形状</td>
+</tr>
+<tr>
+<td><code>InsertParticleLocal</code></td>
+<td><code>particle: Particle</code></td>
+<td><code>Particle</code></td>
+<td>向场景中本地插入一个颗粒（无论其所属的子域）</td>
+</tr>
+<tr>
+<td><code>InsertParticle</code></td>
+<td><code>particle: Particle</code></td>
+<td><code>Particle</code></td>
+<td>向场景中插入一个颗粒</td>
+</tr>
+<tr>
+<td><code>InsertParticle</code></td>
+<td><code>particles: VecXT&lt;Particle&gt;</code></td>
+<td><code>VecXT&lt;Particle*&gt;</code></td>
+<td>向场景中插入多个颗粒</td>
+</tr>
+<tr>
+<td><code>InsertParticle</code></td>
+<td><code>particles: VecXT&lt;Particle*&gt;</code></td>
+<td><code>VecXT&lt;Particle*&gt;</code></td>
+<td>向场景中插入多个颗粒（通过指针）</td>
+</tr>
+<tr>
+<td><code>InsertWall</code></td>
+<td><code>wall: Wall</code></td>
+<td><code>Wall</code></td>
+<td>向场景中插入一个墙体</td>
+</tr>
+<tr>
+<td><code>InsertWall</code></td>
+<td><code>walls: VecXT&lt;Wall&gt;</code></td>
+<td><code>VecXT&lt;Wall*&gt;</code></td>
+<td>向场景中插入多个墙体</td>
+</tr>
+<tr>
+<td><code>InsertWall</code></td>
+<td><code>walls: VecXT&lt;Wall*&gt;</code></td>
+<td><code>VecXT&lt;Wall*&gt;</code></td>
+<td>向场景中插入多个墙体（通过指针）</td>
+</tr>
+<tr>
+<td><code>RemoveShape</code></td>
+<td><code>shape: Shape*</code></td>
+<td>-</td>
+<td>从场景中移除一个形状</td>
+</tr>
+<tr>
+<td><code>RemoveParticle</code></td>
+<td><code>particle: Particle*</code></td>
+<td>-</td>
+<td>从场景中移除一个颗粒</td>
+</tr>
+<tr>
+<td><code>RemoveParticle</code></td>
+<td><code>id: int</code></td>
+<td>-</td>
+<td>通过ID从场景中移除一个颗粒</td>
+</tr>
+<tr>
+<td><code>RemoveWall</code></td>
+<td><code>wall: Wall*</code></td>
+<td>-</td>
+<td>从场景中移除一个墙体</td>
+</tr>
+<tr>
+<td><code>RemoveWall</code></td>
+<td><code>id: int</code></td>
+<td>-</td>
+<td>通过ID从场景中移除一个墙体</td>
+</tr>
+<tr>
+<td><code>GetShapes</code></td>
+<td>无</td>
+<td><code>VecXT&lt;Shape*&gt;</code></td>
+<td>获取场景中的所有形状</td>
+</tr>
+<tr>
+<td><code>GetShapeMap</code></td>
+<td>无</td>
+<td><code>std::unordered_map&lt;int, Shape*&gt;</code></td>
+<td>获取场景中的形状映射表</td>
+</tr>
+<tr>
+<td><code>InScene</code></td>
+<td><code>shape: Shape*</code></td>
+<td><code>bool</code></td>
+<td>检查形状是否在场景中</td>
+</tr>
+<tr>
+<td><code>InScene</code></td>
+<td><code>contact_model: ContactModel*</code></td>
+<td><code>bool</code></td>
+<td>检查接触模型是否在场景中</td>
+</tr>
+<tr>
+<td><code>GetDomain</code></td>
+<td>无</td>
+<td><code>Domain</code></td>
+<td>获取场景的计算域</td>
+</tr>
+<tr>
+<td><code>GetBondModel</code></td>
+<td><code>p1: Particle*, p2: Particle*</code></td>
+<td><code>ContactModel*</code></td>
+<td>获取两个颗粒之间的粘结模型</td>
+</tr>
+<tr>
+<td><code>GetBondModel</code></td>
+<td><code>p: Particle*, w: Wall*</code></td>
+<td><code>ContactModel*</code></td>
+<td>获取颗粒和墙体之间的粘结模型</td>
+</tr>
+<tr>
+<td><code>GetBondModel</code></td>
+<td><code>mat_type_1: int, mat_type_2: int</code></td>
+<td><code>ContactModel*</code></td>
+<td>根据材料类型获取粘结模型</td>
+</tr>
+<tr>
+<td><code>GetCollisionModel</code></td>
+<td><code>p1: Particle*, p2: Particle*</code></td>
+<td><code>ContactModel*</code></td>
+<td>获取两个颗粒之间的碰撞模型</td>
+</tr>
+<tr>
+<td><code>GetCollisionModel</code></td>
+<td><code>p: Particle*, w: Wall*</code></td>
+<td><code>ContactModel*</code></td>
+<td>获取颗粒和墙体之间的碰撞模型</td>
+</tr>
+<tr>
+<td><code>GetCollisionModel</code></td>
+<td><code>mat_type_1: int, mat_type_2: int</code></td>
+<td><code>ContactModel*</code></td>
+<td>根据材料类型获取碰撞模型</td>
+</tr>
+<tr>
+<td><code>AutoReadRestart</code></td>
+<td><code>path: str, mech_cyc: int, use_json: bool=True</code></td>
+<td>-</td>
+<td>自动读取重启文件</td>
+</tr>
+<tr>
+<td><code>ReadRestartShapesVTK</code></td>
+<td><code>file: str</code></td>
+<td>-</td>
+<td>从VTK文件读取形状重启数据</td>
+</tr>
+<tr>
+<td><code>ReadRestartParticlesVTK</code></td>
+<td><code>file: str</code></td>
+<td>-</td>
+<td>从VTK文件读取颗粒重启数据</td>
+</tr>
+<tr>
+<td><code>ReadRestartWallsVTK</code></td>
+<td><code>file: str</code></td>
+<td>-</td>
+<td>从VTK文件读取墙体重启数据</td>
+</tr>
+<tr>
+<td><code>ReadRestartContactsVTK</code></td>
+<td><code>file: str</code></td>
+<td>-</td>
+<td>从VTK文件读取接触重启数据</td>
+</tr>
+<tr>
+<td><code>ReadRestartShapesJSON</code></td>
+<td><code>file: str</code></td>
+<td>-</td>
+<td>从JSON文件读取形状重启数据</td>
+</tr>
+<tr>
+<td><code>ReadRestartParticlesJSON</code></td>
+<td><code>file: str</code></td>
+<td>-</td>
+<td>从JSON文件读取颗粒重启数据</td>
+</tr>
+<tr>
+<td><code>ReadRestartWallsJSON</code></td>
+<td><code>file: str</code></td>
+<td>-</td>
+<td>从JSON文件读取墙体重启数据</td>
+</tr>
+<tr>
+<td><code>ReadRestartContactsJSON</code></td>
+<td><code>file: str</code></td>
+<td>-</td>
+<td>从JSON文件读取接触重启数据</td>
+</tr>
+<tr>
+<td><code>GetParticles</code></td>
+<td>无</td>
+<td><code>VecXT&lt;Particle*&gt;</code></td>
+<td>获取场景中的所有颗粒</td>
+</tr>
+<tr>
+<td><code>GetParticlesWithProxy</code></td>
+<td>无</td>
+<td><code>VecXT&lt;Particle*&gt;</code></td>
+<td>获取场景中的所有颗粒和代理颗粒（用于调试）</td>
+</tr>
+<tr>
+<td><code>GetWalls</code></td>
+<td>无</td>
+<td><code>VecXT&lt;Wall*&gt;</code></td>
+<td>获取场景中的所有墙体</td>
+</tr>
+<tr>
+<td><code>GetContactPPs</code></td>
+<td>无</td>
+<td><code>VecXT&lt;ContactPP*&gt;</code></td>
+<td>获取场景中的所有颗粒-颗粒接触</td>
+</tr>
+<tr>
+<td><code>GetContactPWs</code></td>
+<td>无</td>
+<td><code>VecXT&lt;ContactPW*&gt;</code></td>
+<td>获取场景中的所有颗粒-墙接触</td>
+</tr>
+<tr>
+<td><code>ClearShape</code></td>
+<td>无</td>
+<td>-</td>
+<td>清除场景中的所有形状</td>
+</tr>
+<tr>
+<td><code>ClearParticle</code></td>
+<td>无</td>
+<td>-</td>
+<td>清除场景中的所有颗粒</td>
+</tr>
+<tr>
+<td><code>ClearWall</code></td>
+<td>无</td>
+<td>-</td>
+<td>清除场景中的所有墙体</td>
+</tr>
+<tr>
+<td><code>ClearContactModels</code></td>
+<td>无</td>
+<td>-</td>
+<td>清除场景中的所有接触模型</td>
+</tr>
+<tr>
+<td><code>ClearContacts</code></td>
+<td>无</td>
+<td>-</td>
+<td>清除场景中的所有接触</td>
+</tr>
+<tr>
+<td><code>FindParticle</code></td>
+<td><code>id: int</code></td>
+<td><code>Particle*</code></td>
+<td>通过ID查找颗粒</td>
+</tr>
+<tr>
+<td><code>SwichParticles</code></td>
+<td><code>id_1: int, id_2: int</code></td>
+<td>-</td>
+<td>交换两个颗粒的ID</td>
+</tr>
+<tr>
+<td><code>FindWall</code></td>
+<td><code>id: int</code></td>
+<td><code>Wall*</code></td>
+<td>通过ID查找墙体</td>
+</tr>
+<tr>
+<td><code>ResetShapeID</code></td>
+<td>无</td>
+<td><code>std::unordered_map&lt;int, int&gt;</code></td>
+<td>重置形状ID，返回旧ID到新ID的映射</td>
+</tr>
+<tr>
+<td><code>ResetParticleID</code></td>
+<td>无</td>
+<td><code>std::unordered_map&lt;int, int&gt;</code></td>
+<td>重置颗粒ID，返回旧ID到新ID的映射</td>
+</tr>
+<tr>
+<td><code>ResetWallID</code></td>
+<td>无</td>
+<td><code>std::unordered_map&lt;int, int&gt;</code></td>
+<td>重置墙体ID，返回旧ID到新ID的映射</td>
+</tr>
+<tr>
+<td><code>UpdateContactForce</code></td>
+<td><code>dt: double</code></td>
+<td>-</td>
+<td>更新所有接触力</td>
+</tr>
+<tr>
+<td><code>UpdateMotion</code></td>
+<td><code>dt: double</code></td>
+<td>-</td>
+<td>更新所有运动状态</td>
+</tr>
+<tr>
+<td><code>UpdateBound</code></td>
+<td>无</td>
+<td>-</td>
+<td>更新所有包围盒</td>
+</tr>
+<tr>
+<td><code>UpdateBoundFast</code></td>
+<td>无</td>
+<td>-</td>
+<td>快速更新所有包围盒</td>
+</tr>
+<tr>
+<td><code>BackupContactToDict</code></td>
+<td>无</td>
+<td>-</td>
+<td>将接触信息备份到字典</td>
+</tr>
+<tr>
+<td><code>ClearContactDict</code></td>
+<td>无</td>
+<td>-</td>
+<td>清除接触信息字典</td>
+</tr>
+<tr>
+<td><code>UpdateLinkedCells</code></td>
+<td>无</td>
+<td>-</td>
+<td>更新链接单元格</td>
+</tr>
+<tr>
+<td><code>UpdateLinkedDomains</code></td>
+<td>无</td>
+<td>-</td>
+<td>更新链接域</td>
+</tr>
+<tr>
+<td><code>UpdateLinkedNeighs</code></td>
+<td>无</td>
+<td>-</td>
+<td>更新链接邻居</td>
+</tr>
+<tr>
+<td><code>GetContactPPs</code></td>
+<td><code>particle: Particle*</code></td>
+<td><code>VecXT&lt;ContactPP*&gt;</code></td>
+<td>获取指定颗粒的所有颗粒-颗粒接触</td>
+</tr>
+<tr>
+<td><code>GetContactPWs</code></td>
+<td><code>particle: Particle*</code></td>
+<td><code>VecXT&lt;ContactPW*&gt;</code></td>
+<td>获取指定颗粒的所有颗粒-墙接触</td>
+</tr>
+</tbody>
+</table>
+<h2 id="packgenerator">PackGenerator</h2>
+<p><code>PackGenerator</code>是用于生成颗粒包的工具类。</p>
+<h3 id="_5">方法</h3>
+<table>
+<thead>
+<tr>
+<th>方法名</th>
+<th>参数</th>
+<th>返回值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>GetGridPack</code></td>
+<td><code>len_x: float, len_y: float, len_z: float, center_x: float, center_y: float, center_z: float, num_x: int, num_y: int, num_z: int, shape: Shape*</code></td>
+<td><code>VecXT&lt;Particle&gt;</code></td>
+<td>生成单一形状的网格包</td>
+</tr>
+<tr>
+<td><code>GetGridPack</code></td>
+<td><code>len_x: float, len_y: float, len_z: float, center_x: float, center_y: float, center_z: float, num_x: int, num_y: int, num_z: int, shapes: VecXT&lt;Shape*&gt;</code></td>
+<td><code>VecXT&lt;Particle&gt;</code></td>
+<td>生成多种形状的网格包</td>
+</tr>
+<tr>
+<td><code>GetGridPack</code></td>
+<td><code>len_x: float, len_y: float, len_z: float, center_x: float, center_y: float, center_z: float, num_x: int, num_y: int, num_z: int, bonded_spheres: BondedSpheres</code></td>
+<td><code>VecXT&lt;Particle&gt;</code></td>
+<td>生成键合球体的网格包</td>
+</tr>
+<tr>
+<td><code>GetGridPack</code></td>
+<td><code>len_x: float, len_y: float, len_z: float, center_x: float, center_y: float, center_z: float, num_x: int, num_y: int, num_z: int, bonded_voronois: BondedVoronois</code></td>
+<td><code>VecXT&lt;Particle&gt;</code></td>
+<td>生成键合Voronoi的网格包</td>
+</tr>
+<tr>
+<td><code>GetVoronoiPack</code></td>
+<td><code>len_x: float, len_y: float, len_z: float, center_x: float, center_y: float, center_z: float, num_p: int, shape: Shape*</code></td>
+<td><code>VecXT&lt;Particle&gt;</code></td>
+<td>生成单一形状的Voronoi包</td>
+</tr>
+<tr>
+<td><code>GetVoronoiPack</code></td>
+<td><code>len_x: float, len_y: float, len_z: float, center_x: float, center_y: float, center_z: float, num_p: int, shapes: VecXT&lt;Shape*&gt;</code></td>
+<td><code>VecXT&lt;Particle&gt;</code></td>
+<td>生成多种形状的Voronoi包</td>
+</tr>
+<tr>
+<td><code>GetVoronoiPack</code></td>
+<td><code>stl_model: STLModel, num_p: int, shape: Shape*</code></td>
+<td><code>VecXT&lt;Particle&gt;</code></td>
+<td>在STL模型内生成单一形状的Voronoi包</td>
+</tr>
+<tr>
+<td><code>GetVoronoiPack</code></td>
+<td><code>stl_model: STLModel, num_p: int, shapes: VecXT&lt;Shape*&gt;</code></td>
+<td><code>VecXT&lt;Particle&gt;</code></td>
+<td>在STL模型内生成多种形状的Voronoi包</td>
+</tr>
+</tbody>
+</table>
+<h2 id="particle">Particle</h2>
+<p><code>Particle</code>是DEM模拟中的颗粒类。</p>
+<h3 id="_6">属性</h3>
+<table>
+<thead>
+<tr>
+<th>属性名</th>
+<th>类型</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td><code>int</code></td>
+<td>颗粒ID</td>
+</tr>
+<tr>
+<td><code>shape</code></td>
+<td><code>Shape*</code></td>
+<td>颗粒形状</td>
+</tr>
+<tr>
+<td><code>bound_min</code></td>
+<td><code>Vec3d</code></td>
+<td>包围盒最小点</td>
+</tr>
+<tr>
+<td><code>bound_max</code></td>
+<td><code>Vec3d</code></td>
+<td>包围盒最大点</td>
+</tr>
+<tr>
+<td><code>margin</code></td>
+<td><code>double</code></td>
+<td>颗粒边界余量</td>
+</tr>
+<tr>
+<td><code>bound_disp</code></td>
+<td><code>Vec3d</code></td>
+<td>包围盒位移</td>
+</tr>
+<tr>
+<td><code>material_type</code></td>
+<td><code>int</code></td>
+<td>材料类型</td>
+</tr>
+<tr>
+<td><code>mass</code></td>
+<td><code>double</code></td>
+<td>颗粒质量</td>
+</tr>
+<tr>
+<td><code>moi_principal</code></td>
+<td><code>Vec3d</code></td>
+<td>主惯性矩</td>
+</tr>
+<tr>
+<td><code>damp_viscous</code></td>
+<td><code>double</code></td>
+<td>粘性阻尼系数</td>
+</tr>
+<tr>
+<td><code>damp_numerical</code></td>
+<td><code>double</code></td>
+<td>数值阻尼系数</td>
+</tr>
+<tr>
+<td><code>pos</code></td>
+<td><code>Vec3d</code></td>
+<td>颗粒位置</td>
+</tr>
+<tr>
+<td><code>quaternion</code></td>
+<td><code>Vec4d</code></td>
+<td>颗粒四元数</td>
+</tr>
+<tr>
+<td><code>vel</code></td>
+<td><code>Vec3d</code></td>
+<td>颗粒速度</td>
+</tr>
+<tr>
+<td><code>spin</code></td>
+<td><code>Vec3d</code></td>
+<td>颗粒自旋</td>
+</tr>
+<tr>
+<td><code>vel_m0p5</code></td>
+<td><code>Vec3d</code></td>
+<td>半步速度（用于速度Verlet算法）</td>
+</tr>
+<tr>
+<td><code>spin_principal</code></td>
+<td><code>Vec3d</code></td>
+<td>主系中的自旋</td>
+</tr>
+<tr>
+<td><code>force</code></td>
+<td><code>Vec3d</code></td>
+<td>作用在颗粒上的力</td>
+</tr>
+<tr>
+<td><code>moment</code></td>
+<td><code>Vec3d</code></td>
+<td>作用在颗粒上的力矩</td>
+</tr>
+<tr>
+<td><code>dynamic_properties</code></td>
+<td><code>MiniMap&lt;string, double&gt;</code></td>
+<td>动态属性表</td>
+</tr>
+<tr>
+<td><code>enable_bound_aabb</code></td>
+<td><code>bool</code></td>
+<td>是否启用AABB包围盒</td>
+</tr>
+<tr>
+<td><code>need_update_stl_model</code></td>
+<td><code>bool</code></td>
+<td>是否需要更新STL模型</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_7">方法</h3>
+<table>
+<thead>
+<tr>
+<th>方法名</th>
+<th>参数</th>
+<th>返回值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>__init__</code></td>
+<td>无</td>
+<td>-</td>
+<td>创建一个空的颗粒</td>
+</tr>
+<tr>
+<td><code>__init__</code></td>
+<td><code>shape: Shape*</code></td>
+<td>-</td>
+<td>创建一个指定形状的颗粒</td>
+</tr>
+<tr>
+<td><code>Clone</code></td>
+<td>无</td>
+<td><code>Particle*</code></td>
+<td>克隆颗粒</td>
+</tr>
+<tr>
+<td><code>SetShape</code></td>
+<td><code>shape: Shape*</code></td>
+<td>-</td>
+<td>设置颗粒形状</td>
+</tr>
+<tr>
+<td><code>SetDensity</code></td>
+<td><code>density: double</code></td>
+<td>-</td>
+<td>设置颗粒密度</td>
+</tr>
+<tr>
+<td><code>GetDensity</code></td>
+<td>无</td>
+<td><code>double</code></td>
+<td>获取颗粒密度</td>
+</tr>
+<tr>
+<td><code>SetMargin</code></td>
+<td><code>margin: double</code></td>
+<td>-</td>
+<td>设置颗粒边界余量</td>
+</tr>
+<tr>
+<td><code>GetMargin</code></td>
+<td>无</td>
+<td><code>double</code></td>
+<td>获取颗粒边界余量</td>
+</tr>
+<tr>
+<td><code>SetForce</code></td>
+<td><code>fx: double, fy: double, fz: double</code></td>
+<td>-</td>
+<td>设置作用在颗粒上的力</td>
+</tr>
+<tr>
+<td><code>SetMoment</code></td>
+<td><code>mx: double, my: double, mz: double</code></td>
+<td>-</td>
+<td>设置作用在颗粒上的力矩</td>
+</tr>
+<tr>
+<td><code>SetPosition</code></td>
+<td><code>pos_x: double, pos_y: double, pos_z: double</code></td>
+<td>-</td>
+<td>设置颗粒位置</td>
+</tr>
+<tr>
+<td><code>SetRodrigues</code></td>
+<td><code>angle: double, axis_x: double, axis_y: double, axis_z: double</code></td>
+<td>-</td>
+<td>使用罗德里格公式设置颗粒旋转</td>
+</tr>
+<tr>
+<td><code>SetQuaternion</code></td>
+<td><code>q_0: double, q_1: double, q_2: double, q_3: double</code></td>
+<td>-</td>
+<td>设置颗粒四元数</td>
+</tr>
+<tr>
+<td><code>SetVelocity</code></td>
+<td><code>v_x: double, v_y: double, v_z: double</code></td>
+<td>-</td>
+<td>设置颗粒速度</td>
+</tr>
+<tr>
+<td><code>SetSpin</code></td>
+<td><code>spin_x: double, spin_y: double, spin_z: double</code></td>
+<td>-</td>
+<td>设置颗粒自旋</td>
+</tr>
+<tr>
+<td><code>GetVelocity</code></td>
+<td><code>cnt_pos: Vec3d</code></td>
+<td><code>Vec3d</code></td>
+<td>获取指定点的速度</td>
+</tr>
+<tr>
+<td><code>SetDynamicProperty</code></td>
+<td><code>key: str, value: double</code></td>
+<td>-</td>
+<td>设置动态属性</td>
+</tr>
+<tr>
+<td><code>GetDynamicProperty</code></td>
+<td><code>key: str</code></td>
+<td><code>double</code></td>
+<td>获取动态属性</td>
+</tr>
+<tr>
+<td><code>AddForce</code></td>
+<td><code>force: Vec3d</code></td>
+<td>-</td>
+<td>添加力</td>
+</tr>
+<tr>
+<td><code>AddMoment</code></td>
+<td><code>moment: Vec3d</code></td>
+<td>-</td>
+<td>添加力矩</td>
+</tr>
+<tr>
+<td><code>AddForceAtomic</code></td>
+<td><code>force: Vec3d</code></td>
+<td>-</td>
+<td>线程安全地添加力</td>
+</tr>
+<tr>
+<td><code>AddMomentAtomic</code></td>
+<td><code>moment: Vec3d</code></td>
+<td>-</td>
+<td>线程安全地添加力矩</td>
+</tr>
+<tr>
+<td><code>ClearForce</code></td>
+<td>无</td>
+<td>-</td>
+<td>清除力</td>
+</tr>
+<tr>
+<td><code>ClearMoment</code></td>
+<td>无</td>
+<td>-</td>
+<td>清除力矩</td>
+</tr>
+<tr>
+<td><code>ApplyContactForce</code></td>
+<td><code>contact_pp: ContactPP*</code></td>
+<td>-</td>
+<td>应用颗粒-颗粒接触力</td>
+</tr>
+<tr>
+<td><code>ApplyContactForce</code></td>
+<td><code>contact_pw: ContactPW*</code></td>
+<td>-</td>
+<td>应用颗粒-墙接触力</td>
+</tr>
+<tr>
+<td><code>UpdateContactForce</code></td>
+<td>无</td>
+<td>-</td>
+<td>更新接触力</td>
+</tr>
+<tr>
+<td><code>UpdateMotion</code></td>
+<td><code>dt: double</code></td>
+<td>-</td>
+<td>更新运动状态</td>
+</tr>
+<tr>
+<td><code>UpdateBound</code></td>
+<td>无</td>
+<td>-</td>
+<td>更新包围盒</td>
+</tr>
+<tr>
+<td><code>UpdateBoundFast</code></td>
+<td>无</td>
+<td>-</td>
+<td>快速更新包围盒</td>
+</tr>
+<tr>
+<td><code>BackupContactToDict</code></td>
+<td>无</td>
+<td>-</td>
+<td>将接触信息备份到字典</td>
+</tr>
+<tr>
+<td><code>ClearContactDict</code></td>
+<td>无</td>
+<td>-</td>
+<td>清除接触信息字典</td>
+</tr>
+<tr>
+<td><code>UpdateLinkedCells</code></td>
+<td>无</td>
+<td>-</td>
+<td>更新链接单元格</td>
+</tr>
+<tr>
+<td><code>UpdateLinkedDomains</code></td>
+<td>无</td>
+<td>-</td>
+<td>更新链接域</td>
+</tr>
+<tr>
+<td><code>UpdateLinkedNeighs</code></td>
+<td>无</td>
+<td>-</td>
+<td>更新链接邻居</td>
+</tr>
+<tr>
+<td><code>GetContactPPs</code></td>
+<td>无</td>
+<td><code>VecXT&lt;ContactPP*&gt;</code></td>
+<td>获取所有颗粒-颗粒接触</td>
+</tr>
+<tr>
+<td><code>GetContactPWs</code></td>
+<td>无</td>
+<td><code>VecXT&lt;ContactPW*&gt;</code></td>
+<td>获取所有颗粒-墙接触</td>
+</tr>
+</tbody>
+</table>
+<h2 id="wall">Wall</h2>
+<p><code>Wall</code>是DEM模拟中的墙体类。</p>
+<h3 id="_8">属性</h3>
+<table>
+<thead>
+<tr>
+<th>属性名</th>
+<th>类型</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td><code>int</code></td>
+<td>墙体ID</td>
+</tr>
+<tr>
+<td><code>id_in_list</code></td>
+<td><code>int</code></td>
+<td>墙体在墙体列表中的索引</td>
+</tr>
+<tr>
+<td><code>label</code></td>
+<td><code>str</code></td>
+<td>墙体标签</td>
+</tr>
+<tr>
+<td><code>shape</code></td>
+<td><code>Shape*</code></td>
+<td>墙体形状</td>
+</tr>
+<tr>
+<td><code>material_type</code></td>
+<td><code>int</code></td>
+<td>材料类型</td>
+</tr>
+<tr>
+<td><code>enable_rotation</code></td>
+<td><code>bool</code></td>
+<td>是否允许旋转</td>
+</tr>
+<tr>
+<td><code>enable_bound_aabb</code></td>
+<td><code>bool</code></td>
+<td>是否启用AABB包围盒</td>
+</tr>
+<tr>
+<td><code>bound_min</code></td>
+<td><code>Vec3d</code></td>
+<td>包围盒最小点</td>
+</tr>
+<tr>
+<td><code>bound_max</code></td>
+<td><code>Vec3d</code></td>
+<td>包围盒最大点</td>
+</tr>
+<tr>
+<td><code>bound_disp</code></td>
+<td><code>Vec3d</code></td>
+<td>包围盒位移</td>
+</tr>
+<tr>
+<td><code>pos</code></td>
+<td><code>Vec3d</code></td>
+<td>墙体位置</td>
+</tr>
+<tr>
+<td><code>quaternion</code></td>
+<td><code>Vec4d</code></td>
+<td>墙体四元数</td>
+</tr>
+<tr>
+<td><code>force</code></td>
+<td><code>Vec3d</code></td>
+<td>作用在墙体上的力</td>
+</tr>
+<tr>
+<td><code>moment</code></td>
+<td><code>Vec3d</code></td>
+<td>作用在墙体上的力矩</td>
+</tr>
+<tr>
+<td><code>vel</code></td>
+<td><code>Vec3d</code></td>
+<td>墙体速度</td>
+</tr>
+<tr>
+<td><code>spin</code></td>
+<td><code>Vec3d</code></td>
+<td>墙体自旋</td>
+</tr>
+<tr>
+<td><code>dynamic_properties</code></td>
+<td><code>MiniMap&lt;string, double&gt;</code></td>
+<td>动态属性表</td>
+</tr>
+<tr>
+<td><code>need_update_stl_model</code></td>
+<td><code>bool</code></td>
+<td>是否需要更新STL模型</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_9">方法</h3>
+<table>
+<thead>
+<tr>
+<th>方法名</th>
+<th>参数</th>
+<th>返回值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>__init__</code></td>
+<td>无</td>
+<td>-</td>
+<td>创建一个空的墙体</td>
+</tr>
+<tr>
+<td><code>__init__</code></td>
+<td><code>shape: Shape*</code></td>
+<td>-</td>
+<td>创建一个指定形状的墙体</td>
+</tr>
+<tr>
+<td><code>SetShape</code></td>
+<td><code>shape: Shape*</code></td>
+<td>-</td>
+<td>设置墙体形状</td>
+</tr>
+<tr>
+<td><code>SetPosition</code></td>
+<td><code>pos_x: double, pos_y: double, pos_z: double</code></td>
+<td>-</td>
+<td>设置墙体位置</td>
+</tr>
+<tr>
+<td><code>SetRodrigues</code></td>
+<td><code>angle: double, axis_x: double, axis_y: double, axis_z: double</code></td>
+<td>-</td>
+<td>使用罗德里格公式设置墙体旋转</td>
+</tr>
+<tr>
+<td><code>SetQuaternion</code></td>
+<td><code>q_0: double, q_1: double, q_2: double, q_3: double</code></td>
+<td>-</td>
+<td>设置墙体四元数</td>
+</tr>
+<tr>
+<td><code>SetVelocity</code></td>
+<td><code>v_x: double, v_y: double, v_z: double</code></td>
+<td>-</td>
+<td>设置墙体速度</td>
+</tr>
+<tr>
+<td><code>SetSpin</code></td>
+<td><code>spin_x: double, spin_y: double, spin_z: double</code></td>
+<td>-</td>
+<td>设置墙体自旋</td>
+</tr>
+<tr>
+<td><code>SetSpinWithRespectTo</code></td>
+<td><code>spin_x: double, spin_y: double, spin_z: double, pos_x: double, pos_y: double, pos_z: double</code></td>
+<td>-</td>
+<td>设置相对于指定点的自旋</td>
+</tr>
+<tr>
+<td><code>GetVelocity</code></td>
+<td><code>cnt_pos: Vec3d</code></td>
+<td><code>Vec3d</code></td>
+<td>获取指定点的速度</td>
+</tr>
+<tr>
+<td><code>SetDynamicProperty</code></td>
+<td><code>key: str, value: double</code></td>
+<td>-</td>
+<td>设置动态属性</td>
+</tr>
+<tr>
+<td><code>GetDynamicProperty</code></td>
+<td><code>key: str</code></td>
+<td><code>double</code></td>
+<td>获取动态属性</td>
+</tr>
+<tr>
+<td><code>AddForce</code></td>
+<td><code>force: Vec3d</code></td>
+<td>-</td>
+<td>添加力</td>
+</tr>
+<tr>
+<td><code>AddMoment</code></td>
+<td><code>moment: Vec3d</code></td>
+<td>-</td>
+<td>添加力矩</td>
+</tr>
+<tr>
+<td><code>AddForceAtomic</code></td>
+<td><code>force: Vec3d</code></td>
+<td>-</td>
+<td>线程安全地添加力</td>
+</tr>
+<tr>
+<td><code>AddMomentAtomic</code></td>
+<td><code>moment: Vec3d</code></td>
+<td>-</td>
+<td>线程安全地添加力矩</td>
+</tr>
+<tr>
+<td><code>ClearForce</code></td>
+<td>无</td>
+<td>-</td>
+<td>清除力</td>
+</tr>
+<tr>
+<td><code>ClearMoment</code></td>
+<td>无</td>
+<td>-</td>
+<td>清除力矩</td>
+</tr>
+<tr>
+<td><code>ClearMotion</code></td>
+<td>无</td>
+<td>-</td>
+<td>清除运动（速度和自旋）</td>
+</tr>
+<tr>
+<td><code>ApplyContactForce</code></td>
+<td><code>contact_pw: ContactPW*</code></td>
+<td>-</td>
+<td>应用颗粒-墙接触力</td>
+</tr>
+<tr>
+<td><code>UpdateSTLModel</code></td>
+<td>无</td>
+<td>-</td>
+<td>更新STL模型</td>
+</tr>
+<tr>
+<td><code>GetSTLModel</code></td>
+<td><code>num_nodes: int=200</code></td>
+<td><code>STLModel</code></td>
+<td>获取STL模型</td>
+</tr>
+<tr>
+<td><code>SaveAsVTK</code></td>
+<td><code>filename: str</code></td>
+<td>-</td>
+<td>保存为VTK文件</td>
+</tr>
+<tr>
+<td><code>Print</code></td>
+<td>无</td>
+<td>-</td>
+<td>打印墙体信息</td>
+</tr>
+<tr>
+<td><code>Clone</code></td>
+<td>无</td>
+<td><code>Wall*</code></td>
+<td>克隆墙体</td>
+</tr>
+<tr>
+<td><code>Init</code></td>
+<td>无</td>
+<td>-</td>
+<td>初始化墙体</td>
+</tr>
+<tr>
+<td><code>UpdateContactForce</code></td>
+<td>无</td>
+<td>-</td>
+<td>更新接触力</td>
+</tr>
+<tr>
+<td><code>UpdateMotion</code></td>
+<td><code>dt: double</code></td>
+<td>-</td>
+<td>更新运动状态</td>
+</tr>
+<tr>
+<td><code>UpdateMotion</code></td>
+<td><code>dt: double, pos: Vec3d</code></td>
+<td>-</td>
+<td>更新相对于指定点的运动状态</td>
+</tr>
+<tr>
+<td><code>UpdateBound</code></td>
+<td>无</td>
+<td>-</td>
+<td>更新包围盒</td>
+</tr>
+<tr>
+<td><code>UpdateBoundFast</code></td>
+<td>无</td>
+<td>-</td>
+<td>快速更新包围盒</td>
+</tr>
+<tr>
+<td><code>BackupContactToDict</code></td>
+<td>无</td>
+<td>-</td>
+<td>将接触信息备份到字典</td>
+</tr>
+<tr>
+<td><code>UpdateLinkedCells</code></td>
+<td>无</td>
+<td>-</td>
+<td>更新链接单元格</td>
+</tr>
+<tr>
+<td><code>UpdateLinkedNeighs</code></td>
+<td>无</td>
+<td>-</td>
+<td>更新链接邻居</td>
+</tr>
+</tbody>
+</table>
+<h2 id="wallboxplane">WallBoxPlane</h2>
+<p><code>WallBoxPlane</code>是一个用于创建盒子形状平面墙体的工具类，用平面（Plane）形状创建六个墙体组成一个矩形盒子。</p>
+<h3 id="_10">属性</h3>
+<table>
+<thead>
+<tr>
+<th>属性名</th>
+<th>类型</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>平面形状（私有）</td>
+<td><code>Plane</code></td>
+<td>六个平面形状（p_mx, p_px, p_my, p_py, p_mz, p_pz）</td>
+</tr>
+<tr>
+<td>墙体（私有）</td>
+<td><code>Wall</code></td>
+<td>六个墙体（w_mx, w_px, w_my, w_py, w_mz, w_pz）</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_11">方法</h3>
+<table>
+<thead>
+<tr>
+<th>方法名</th>
+<th>参数</th>
+<th>返回值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>__init__</code></td>
+<td><code>len_x: float, len_y: float, len_z: float, center_x: float, center_y: float, center_z: float</code></td>
+<td>-</td>
+<td>创建一个具有指定尺寸和中心位置的盒子墙体</td>
+</tr>
+<tr>
+<td><code>GetShapes</code></td>
+<td>无</td>
+<td><code>VecXT&lt;Shape*&gt;</code></td>
+<td>获取组成盒子的六个平面形状</td>
+</tr>
+<tr>
+<td><code>GetWall</code></td>
+<td>无</td>
+<td><code>VecXT&lt;Wall*&gt;</code></td>
+<td>获取组成盒子的六个墙体</td>
+</tr>
+<tr>
+<td><code>ImportToScene</code></td>
+<td><code>scene: Scene*</code></td>
+<td>-</td>
+<td>将盒子的形状和墙体导入到指定场景中</td>
+</tr>
+</tbody>
+</table>
+<h2 id="wallboxplate">WallBoxPlate</h2>
+<p><code>WallBoxPlate</code>是一个用于创建盒子形状板墙体的工具类，用三维网格（TriMesh）形状创建六个墙体组成一个矩形盒子。</p>
+<h3 id="_12">属性</h3>
+<table>
+<thead>
+<tr>
+<th>属性名</th>
+<th>类型</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>网格形状（私有）</td>
+<td><code>TriMesh</code></td>
+<td>三个网格形状（p_x0, p_y0, p_z0），分别用于创建x、y、z方向的墙体</td>
+</tr>
+<tr>
+<td>墙体（私有）</td>
+<td><code>Wall</code></td>
+<td>六个墙体（w_mx, w_px, w_my, w_py, w_mz, w_pz）</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_13">方法</h3>
+<table>
+<thead>
+<tr>
+<th>方法名</th>
+<th>参数</th>
+<th>返回值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>__init__</code></td>
+<td><code>len_x: float, len_y: float, len_z: float, center_x: float, center_y: float, center_z: float</code></td>
+<td>-</td>
+<td>创建一个具有指定尺寸和中心位置的盒子墙体</td>
+</tr>
+<tr>
+<td><code>GetShapes</code></td>
+<td>无</td>
+<td><code>VecXT&lt;Shape*&gt;</code></td>
+<td>获取组成盒子的三个网格形状</td>
+</tr>
+<tr>
+<td><code>GetWall</code></td>
+<td>无</td>
+<td><code>VecXT&lt;Wall*&gt;</code></td>
+<td>获取组成盒子的六个墙体</td>
+</tr>
+<tr>
+<td><code>ImportToScene</code></td>
+<td><code>scene: Scene*</code></td>
+<td>-</td>
+<td>将盒子的形状和墙体导入到指定场景中</td>
+</tr>
+</tbody>
+</table>
+<h2 id="bondedspheres">BondedSpheres</h2>
+<p><code>BondedSpheres</code>是键合球体类，用于创建由多个球体构成的复杂形状。</p>
+<h3 id="_14">属性</h3>
+<table>
+<thead>
+<tr>
+<th>属性名</th>
+<th>类型</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>center</code></td>
+<td><code>Vec3d</code></td>
+<td>中心位置</td>
+</tr>
+<tr>
+<td><code>quat</code></td>
+<td><code>Vec4d</code></td>
+<td>四元数</td>
+</tr>
+<tr>
+<td><code>sub_sphere_pos</code></td>
+<td><code>VecXT&lt;Vec3d&gt;</code></td>
+<td>子球体位置列表</td>
+</tr>
+<tr>
+<td><code>sub_sphere_radius</code></td>
+<td><code>VecXT&lt;double&gt;</code></td>
+<td>子球体半径列表</td>
+</tr>
+<tr>
+<td><code>sphere_list</code></td>
+<td><code>VecXT&lt;Shape*&gt;</code></td>
+<td>球体形状列表</td>
+</tr>
+<tr>
+<td><code>particle_list</code></td>
+<td><code>VecXT&lt;Particle*&gt;</code></td>
+<td>颗粒列表</td>
+</tr>
+<tr>
+<td><code>contact_list</code></td>
+<td><code>VecXT&lt;ContactPP*&gt;</code></td>
+<td>接触列表</td>
+</tr>
+<tr>
+<td><code>bond_pair_list</code></td>
+<td><code>VecXT&lt;std::pair&lt;int, int&gt;&gt;</code></td>
+<td>键合对列表</td>
+</tr>
+<tr>
+<td><code>bond_model</code></td>
+<td><code>ContactModel*</code></td>
+<td>键合接触模型</td>
+</tr>
+<tr>
+<td><code>bond_margin</code></td>
+<td><code>double</code></td>
+<td>键合边界余量</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_15">方法</h3>
+<table>
+<thead>
+<tr>
+<th>方法名</th>
+<th>参数</th>
+<th>返回值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>__init__</code></td>
+<td>无</td>
+<td>-</td>
+<td>创建一个空的键合球体</td>
+</tr>
+<tr>
+<td><code>SetPosition</code></td>
+<td><code>pos_x: double, pos_y: double, pos_z: double</code></td>
+<td>-</td>
+<td>设置位置</td>
+</tr>
+<tr>
+<td><code>SetQuaternion</code></td>
+<td><code>q_0: double, q_1: double, q_2: double, q_3: double</code></td>
+<td>-</td>
+<td>设置四元数</td>
+</tr>
+<tr>
+<td><code>SetBondModel</code></td>
+<td><code>model: ContactModel*</code></td>
+<td>-</td>
+<td>设置键合接触模型</td>
+</tr>
+<tr>
+<td><code>SetBondMargin</code></td>
+<td><code>margin: double</code></td>
+<td>-</td>
+<td>设置键合边界余量</td>
+</tr>
+<tr>
+<td><code>Translate</code></td>
+<td><code>dx: double, dy: double, dz: double</code></td>
+<td>-</td>
+<td>平移键合球体</td>
+</tr>
+<tr>
+<td><code>RotateByRodrigues</code></td>
+<td><code>angle: double, axis_x: double, axis_y: double, axis_z: double</code></td>
+<td>-</td>
+<td>使用罗德里格公式旋转键合球体</td>
+</tr>
+<tr>
+<td><code>GetCentroid</code></td>
+<td>无</td>
+<td><code>Vec3d</code></td>
+<td>获取质心位置</td>
+</tr>
+<tr>
+<td><code>AddSubSphere</code></td>
+<td><code>pos_x: double, pos_y: double, pos_z: double, radius: double</code></td>
+<td>-</td>
+<td>添加子球体</td>
+</tr>
+<tr>
+<td><code>InitFromSTL</code></td>
+<td><code>stl_file: str, resolution: int</code></td>
+<td>-</td>
+<td>从STL文件初始化</td>
+</tr>
+<tr>
+<td><code>InitFromSTL</code></td>
+<td><code>stl_model: STLModel, resolution: int</code></td>
+<td>-</td>
+<td>从STL模型初始化</td>
+</tr>
+<tr>
+<td><code>InitFromGrid</code></td>
+<td><code>len_x: float, len_y: float, len_z: float, num_x: int, num_y: int, num_z: int</code></td>
+<td>-</td>
+<td>从网格初始化</td>
+</tr>
+<tr>
+<td><code>InitFromSpheres</code></td>
+<td><code>spheres: VecXT&lt;Shape*&gt;</code></td>
+<td>-</td>
+<td>从球体列表初始化</td>
+</tr>
+<tr>
+<td><code>AddSphere</code></td>
+<td><code>sphere: Shape*</code></td>
+<td>-</td>
+<td>添加球体</td>
+</tr>
+<tr>
+<td><code>MakePorosity</code></td>
+<td>无</td>
+<td>-</td>
+<td>生成多孔结构</td>
+</tr>
+<tr>
+<td><code>InitBonds</code></td>
+<td>无</td>
+<td>-</td>
+<td>初始化键合</td>
+</tr>
+<tr>
+<td><code>GetParticles</code></td>
+<td>无</td>
+<td><code>VecXT&lt;Particle&gt;</code></td>
+<td>获取组成键合球体的颗粒列表</td>
+</tr>
+<tr>
+<td><code>ImportToScene</code></td>
+<td><code>scene: Scene*</code></td>
+<td>-</td>
+<td>将键合球体导入到场景中</td>
+</tr>
+<tr>
+<td><code>Clear</code></td>
+<td>无</td>
+<td>-</td>
+<td>清除所有子球体</td>
+</tr>
+</tbody>
+</table>
+<h2 id="bondedvoronois">BondedVoronois</h2>
+<p><code>BondedVoronois</code>是键合Voronoi类，用于创建由多个Voronoi单元构成的复杂形状。</p>
+<h3 id="_16">属性</h3>
+<table>
+<thead>
+<tr>
+<th>属性名</th>
+<th>类型</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>center</code></td>
+<td><code>Vec3d</code></td>
+<td>中心位置</td>
+</tr>
+<tr>
+<td><code>quat</code></td>
+<td><code>Vec4d</code></td>
+<td>四元数</td>
+</tr>
+<tr>
+<td><code>sub_points</code></td>
+<td><code>VecXT&lt;Vec3d&gt;</code></td>
+<td>子Voronoi点列表</td>
+</tr>
+<tr>
+<td><code>sub_radii</code></td>
+<td><code>VecXT&lt;double&gt;</code></td>
+<td>子Voronoi半径列表</td>
+</tr>
+<tr>
+<td><code>alpha</code></td>
+<td><code>double</code></td>
+<td>Alpha值，控制Voronoi形状</td>
+</tr>
+<tr>
+<td><code>beta</code></td>
+<td><code>double</code></td>
+<td>Beta值，控制Voronoi形状</td>
+</tr>
+<tr>
+<td><code>trimesh_list</code></td>
+<td><code>VecXT&lt;Shape*&gt;</code></td>
+<td>三维网格形状列表</td>
+</tr>
+<tr>
+<td><code>particle_list</code></td>
+<td><code>VecXT&lt;Particle*&gt;</code></td>
+<td>颗粒列表</td>
+</tr>
+<tr>
+<td><code>contact_list</code></td>
+<td><code>VecXT&lt;ContactPP*&gt;</code></td>
+<td>接触列表</td>
+</tr>
+<tr>
+<td><code>bond_pair_list</code></td>
+<td><code>VecXT&lt;std::pair&lt;int, int&gt;&gt;</code></td>
+<td>键合对列表</td>
+</tr>
+<tr>
+<td><code>cvt_max_iters</code></td>
+<td><code>int</code></td>
+<td>CVT最大迭代次数</td>
+</tr>
+<tr>
+<td><code>cvt_tol</code></td>
+<td><code>double</code></td>
+<td>CVT收敛容差</td>
+</tr>
+<tr>
+<td><code>bond_model</code></td>
+<td><code>ContactModel*</code></td>
+<td>键合接触模型</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_17">方法</h3>
+<table>
+<thead>
+<tr>
+<th>方法名</th>
+<th>参数</th>
+<th>返回值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>__init__</code></td>
+<td>无</td>
+<td>-</td>
+<td>创建一个空的键合Voronoi</td>
+</tr>
+<tr>
+<td><code>SetPosition</code></td>
+<td><code>pos_x: double, pos_y: double, pos_z: double</code></td>
+<td>-</td>
+<td>设置位置</td>
+</tr>
+<tr>
+<td><code>SetQuaternion</code></td>
+<td><code>q_0: double, q_1: double, q_2: double, q_3: double</code></td>
+<td>-</td>
+<td>设置四元数</td>
+</tr>
+<tr>
+<td><code>SetBondModel</code></td>
+<td><code>model: ContactModel*</code></td>
+<td>-</td>
+<td>设置键合接触模型</td>
+</tr>
+<tr>
+<td><code>Translate</code></td>
+<td><code>dx: double, dy: double, dz: double</code></td>
+<td>-</td>
+<td>平移键合Voronoi</td>
+</tr>
+<tr>
+<td><code>RotateByRodrigues</code></td>
+<td><code>angle: double, axis_x: double, axis_y: double, axis_z: double</code></td>
+<td>-</td>
+<td>使用罗德里格公式旋转键合Voronoi</td>
+</tr>
+<tr>
+<td><code>GetCentroid</code></td>
+<td>无</td>
+<td><code>Vec3d</code></td>
+<td>获取质心位置</td>
+</tr>
+<tr>
+<td><code>AddSubPoint</code></td>
+<td><code>pos_x: double, pos_y: double, pos_z: double, radius: double</code></td>
+<td>-</td>
+<td>添加子Voronoi点</td>
+</tr>
+<tr>
+<td><code>InitFromSTL</code></td>
+<td><code>stl_file: str, resolution: int</code></td>
+<td>-</td>
+<td>从STL文件初始化</td>
+</tr>
+<tr>
+<td><code>InitFromSTL</code></td>
+<td><code>stl_model: STLModel, resolution: int</code></td>
+<td>-</td>
+<td>从STL模型初始化</td>
+</tr>
+<tr>
+<td><code>MakePorosity</code></td>
+<td>无</td>
+<td>-</td>
+<td>生成多孔结构</td>
+</tr>
+<tr>
+<td><code>InitBonds</code></td>
+<td>无</td>
+<td>-</td>
+<td>初始化键合</td>
+</tr>
+<tr>
+<td><code>GetParticles</code></td>
+<td>无</td>
+<td><code>VecXT&lt;Particle&gt;</code></td>
+<td>获取组成键合Voronoi的颗粒列表</td>
+</tr>
+<tr>
+<td><code>SaveAsVTK</code></td>
+<td><code>filename: str</code></td>
+<td>-</td>
+<td>保存为VTK文件</td>
+</tr>
+<tr>
+<td><code>ImportToScene</code></td>
+<td><code>scene: Scene*</code></td>
+<td>-</td>
+<td>将键合Voronoi导入到场景中</td>
+</tr>
+<tr>
+<td><code>Clear</code></td>
+<td>无</td>
+<td>-</td>
+<td>清除所有子Voronoi点</td>
+</tr>
+</tbody>
+</table>
+<h2 id="contactpp">ContactPP</h2>
+<p><code>ContactPP</code>是颗粒-颗粒接触类。</p>
+<h3 id="_18">属性</h3>
+<table>
+<thead>
+<tr>
+<th>属性名</th>
+<th>类型</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>particle_1</code></td>
+<td><code>Particle*</code></td>
+<td>接触中的第一个颗粒</td>
+</tr>
+<tr>
+<td><code>particle_2</code></td>
+<td><code>Particle*</code></td>
+<td>接触中的第二个颗粒</td>
+</tr>
+<tr>
+<td><code>bond_model</code></td>
+<td><code>ContactModel*</code></td>
+<td>粘结接触模型</td>
+</tr>
+<tr>
+<td><code>collision_model</code></td>
+<td><code>ContactModel*</code></td>
+<td>碰撞接触模型</td>
+</tr>
+<tr>
+<td><code>bond_entries</code></td>
+<td><code>VecXT&lt;BondEntry&gt;</code></td>
+<td>粘结点列表</td>
+</tr>
+<tr>
+<td><code>collision_entries</code></td>
+<td><code>VecXT&lt;CollisionEntry&gt;</code></td>
+<td>碰撞点列表</td>
+</tr>
+<tr>
+<td><code>active</code></td>
+<td><code>bool</code></td>
+<td>接触是否活跃</td>
+</tr>
+<tr>
+<td><code>dynamic_properties</code></td>
+<td><code>MiniMap&lt;string, double&gt;</code></td>
+<td>动态属性表</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_19">方法</h3>
+<table>
+<thead>
+<tr>
+<th>方法名</th>
+<th>参数</th>
+<th>返回值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>__init__</code></td>
+<td>无</td>
+<td>-</td>
+<td>创建一个空的颗粒-颗粒接触</td>
+</tr>
+<tr>
+<td><code>__init__</code></td>
+<td><code>p1: Particle*, p2: Particle*</code></td>
+<td>-</td>
+<td>创建一个指定颗粒对的接触</td>
+</tr>
+<tr>
+<td><code>SetBondModel</code></td>
+<td><code>model: ContactModel*</code></td>
+<td>-</td>
+<td>设置粘结接触模型</td>
+</tr>
+<tr>
+<td><code>SetCollisionModel</code></td>
+<td><code>model: ContactModel*</code></td>
+<td>-</td>
+<td>设置碰撞接触模型</td>
+</tr>
+<tr>
+<td><code>SetDynamicProperty</code></td>
+<td><code>key: str, value: double</code></td>
+<td>-</td>
+<td>设置动态属性</td>
+</tr>
+<tr>
+<td><code>EvaluateForces</code></td>
+<td><code>dt: double</code></td>
+<td>-</td>
+<td>计算接触力</td>
+</tr>
+<tr>
+<td><code>ApplyToParticle</code></td>
+<td>无</td>
+<td>-</td>
+<td>将接触力应用到颗粒</td>
+</tr>
+<tr>
+<td><code>ApplyToParticle1</code></td>
+<td>无</td>
+<td>-</td>
+<td>将接触力应用到第一个颗粒</td>
+</tr>
+<tr>
+<td><code>ApplyToParticle2</code></td>
+<td>无</td>
+<td>-</td>
+<td>将接触力应用到第二个颗粒</td>
+</tr>
+<tr>
+<td><code>IsActive</code></td>
+<td>无</td>
+<td><code>bool</code></td>
+<td>检查接触是否活跃</td>
+</tr>
+<tr>
+<td><code>Clear</code></td>
+<td>无</td>
+<td>-</td>
+<td>清除接触</td>
+</tr>
+<tr>
+<td><code>Print</code></td>
+<td>无</td>
+<td>-</td>
+<td>打印接触信息</td>
+</tr>
+</tbody>
+</table>
+<h2 id="contactpw">ContactPW</h2>
+<p><code>ContactPW</code>是颗粒-墙接触类。</p>
+<h3 id="_20">属性</h3>
+<table>
+<thead>
+<tr>
+<th>属性名</th>
+<th>类型</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>particle</code></td>
+<td><code>Particle*</code></td>
+<td>接触中的颗粒</td>
+</tr>
+<tr>
+<td><code>wall</code></td>
+<td><code>Wall*</code></td>
+<td>接触中的墙体</td>
+</tr>
+<tr>
+<td><code>bond_model</code></td>
+<td><code>ContactModel*</code></td>
+<td>粘结接触模型</td>
+</tr>
+<tr>
+<td><code>collision_model</code></td>
+<td><code>ContactModel*</code></td>
+<td>碰撞接触模型</td>
+</tr>
+<tr>
+<td><code>bond_entries</code></td>
+<td><code>VecXT&lt;BondEntry&gt;</code></td>
+<td>粘结点列表</td>
+</tr>
+<tr>
+<td><code>collision_entries</code></td>
+<td><code>VecXT&lt;CollisionEntry&gt;</code></td>
+<td>碰撞点列表</td>
+</tr>
+<tr>
+<td><code>active</code></td>
+<td><code>bool</code></td>
+<td>接触是否活跃</td>
+</tr>
+<tr>
+<td><code>dynamic_properties</code></td>
+<td><code>MiniMap&lt;string, double&gt;</code></td>
+<td>动态属性表</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_21">方法</h3>
+<table>
+<thead>
+<tr>
+<th>方法名</th>
+<th>参数</th>
+<th>返回值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>__init__</code></td>
+<td>无</td>
+<td>-</td>
+<td>创建一个空的颗粒-墙接触</td>
+</tr>
+<tr>
+<td><code>__init__</code></td>
+<td><code>p: Particle*, w: Wall*</code></td>
+<td>-</td>
+<td>创建一个指定颗粒和墙体的接触</td>
+</tr>
+<tr>
+<td><code>SetBondModel</code></td>
+<td><code>model: ContactModel*</code></td>
+<td>-</td>
+<td>设置粘结接触模型</td>
+</tr>
+<tr>
+<td><code>SetCollisionModel</code></td>
+<td><code>model: ContactModel*</code></td>
+<td>-</td>
+<td>设置碰撞接触模型</td>
+</tr>
+<tr>
+<td><code>SetDynamicProperty</code></td>
+<td><code>key: str, value: double</code></td>
+<td>-</td>
+<td>设置动态属性</td>
+</tr>
+<tr>
+<td><code>EvaluateForces</code></td>
+<td><code>dt: double</code></td>
+<td>-</td>
+<td>计算接触力</td>
+</tr>
+<tr>
+<td><code>ApplyToParticle</code></td>
+<td>无</td>
+<td>-</td>
+<td>将接触力应用到颗粒</td>
+</tr>
+<tr>
+<td><code>ApplyToWall</code></td>
+<td>无</td>
+<td>-</td>
+<td>将接触力应用到墙体</td>
+</tr>
+<tr>
+<td><code>IsActive</code></td>
+<td>无</td>
+<td><code>bool</code></td>
+<td>检查接触是否活跃</td>
+</tr>
+<tr>
+<td><code>Clear</code></td>
+<td>无</td>
+<td>-</td>
+<td>清除接触</td>
+</tr>
+<tr>
+<td><code>Print</code></td>
+<td>无</td>
+<td>-</td>
+<td>打印接触信息</td>
+</tr>
+</tbody>
+</table></div></div>
+            <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>Enter your search keywords below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+            
+        </div>
+        
+
+        <footer class="footer">
+           <div class="container">
+              <p class="text-muted alignleft">
+                  <span id="busuanzi_container_site_uv" style='display:none'>Vistors: <span id="busuanzi_value_site_uv"></span>. </span>
+              </p>
+              <p class="text-muted alignright">
+                &copy; <a href="https://apaam.github.io/webpage/about/acknowledgement/">NetDEM Team</a>. SYSU, HKUST.
+              </p>
+           </div>
+        </footer>
+
+        <script src="../../../js/jquery-1.10.2.min.js"></script>
+        <script src="../../../js/bootstrap-3.0.3.min.js"></script>
+        <script src="../../../js/highlight.pack.js"></script>
+        <script src="../../../js/base.js"></script>
+        <script src="../../../js/retina.min.js"></script>
+        <!-- <script data-main="../../../mkdocs/js/search.js" src="../../../mkdocs/js/require.js"></script> -->
+        <script src="../../../mathjax-config.js"></script>
+        <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+        <script src="../../../search/main.js"></script>
+    </body>
+</html>
