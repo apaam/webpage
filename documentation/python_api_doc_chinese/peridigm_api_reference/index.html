@@ -1,0 +1,1333 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="https://apaam.github.io/webpage/img/favicon.ico">
+        <meta name="keywords" content="Finite Element Library,Finite Element Code,Finite Element Method Library,Finite Element Method Code,Finite Element C++,Finite Element Method C++,Finite Element Library C++,Finite Element Code C++,FEM Code,FEM Library,FEM C++">
+        <meta name="google-site-verification" content="45K56TawSdzbgy-uDtfJdYwp7zaVdL3fIAGYt869wwU" />
+<!--	<title></title>  -->
+        <title>NetDEM - Neural Network Enabled Discret Element Method</title>
+
+        <link href="../../../css/bootstrap-bootstrap.min.css" rel="stylesheet">
+        <link href="../../../css/font-awesome-4.0.3.css" rel="stylesheet">
+        <link href="../../../css/highlight.css" rel="stylesheet">
+        <link href="../../../css/base.css" rel="stylesheet">
+
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+        
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <!-- Main title -->
+            <a class="navbar-brand" href="https://apaam.github.io/webpage/">NetDEM</a>
+        </div>
+
+        <script>var base_url = '../../..';</script>
+        <!-- <script data-main="../../../mkdocs/js/search.js" src="../../../mkdocs/js/require.js"></script> -->
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            <!-- Main navigation -->
+            <ul class="nav navbar-nav">
+            
+            
+            
+            
+            
+                <li >
+                    <!-- Replace "nav_item.url|url" with "nav_item.url" for older mkdocs (before 1.0) -->
+                    <a href="../../../examples/">Examples</a>
+                </li>
+            
+            
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Documentation <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+                            <li >
+                                 <a href="../../user_manual/">User manual</a>
+                            </li>
+                        
+                    
+                        
+                            <li >
+                                 <a href="../../developer_manual/">Developer manual</a>
+                            </li>
+                        
+                    
+                        
+                            <li >
+                                 <a href="../../dem_wiki/">DEM wiki</a>
+                            </li>
+                        
+                    
+                        
+                            <li >
+                                 <a href="../../../doxygen/html/">Code doxygen</a>
+                            </li>
+                        
+                    
+                    </ul>
+                </li>
+            
+            
+            
+            
+            
+                <li >
+                    <!-- Replace "nav_item.url|url" with "nav_item.url" for older mkdocs (before 1.0) -->
+                    <a href="../../../download/">Download</a>
+                </li>
+            
+            
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Gallery <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+                            <li >
+                                 <a href="../../../gallery/snapshots/">Snapshots</a>
+                            </li>
+                        
+                    
+                        
+                            <li >
+                                 <a href="../../../gallery/animations/">Animations</a>
+                            </li>
+                        
+                    
+                    </ul>
+                </li>
+            
+            
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">About <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+                            <li >
+                                 <a href="../../../about/help_%26_support/">Help & Support</a>
+                            </li>
+                        
+                    
+                        
+                            <li >
+                                 <a href="../../../about/publications/">Publications</a>
+                            </li>
+                        
+                    
+                        
+                            <li >
+                                 <a href="../../../about/acknowledgement/">Acknowledgements</a>
+                            </li>
+                        
+                    
+                    </ul>
+                </li>
+            
+            
+            
+            </ul>
+
+            <!-- Search, Navigation and Repo links -->
+            <ul class="nav navbar-nav navbar-right">
+                <li class="nav-item">
+                    <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                        <i class="fa fa-search"></i> Search
+                    </a>
+                </li>
+                
+                
+                <li>
+                    <a href="https://github.com/apaam/webpage">
+                        
+                            <i class="fa fa-github-square"></i>
+                        
+                        GitHub
+                    </a>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+
+        
+        <div class="container">
+            
+            <div class="col-md-3 visible-xs visible-sm"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+    
+        <li class="main active"><a href="#netdem-python-api-peridigm">NetDEM Python API 参考文档 - PeriDigm模块</a></li>
+        
+            <li><a href="#_1"> &#9731; 目录</a></li>
+        
+            <li><a href="#domainsplittor"> &#9731; DomainSplittor</a></li>
+        
+            <li><a href="#levelsetsplittor"> &#9731; LevelSetSplittor</a></li>
+        
+            <li><a href="#tetmeshsplittor"> &#9731; TetMeshSplittor</a></li>
+        
+            <li><a href="#peridigmdiscretization"> &#9731; PeriDigmDiscretization</a></li>
+        
+            <li><a href="#peridigmmaterial"> &#9731; PeriDigmMaterial</a></li>
+        
+            <li><a href="#peridigmdamagemodel"> &#9731; PeriDigmDamageModel</a></li>
+        
+            <li><a href="#peridigmblock"> &#9731; PeriDigmBlock</a></li>
+        
+            <li><a href="#peridigmboundarycondition"> &#9731; PeriDigmBoundaryCondition</a></li>
+        
+            <li><a href="#peridigmsettings"> &#9731; PeriDigmSettings</a></li>
+        
+            <li><a href="#demfragment"> &#9731; DEMFragment</a></li>
+        
+            <li><a href="#peridigmstrength"> &#9731; PeriDigmStrength</a></li>
+        
+            <li><a href="#peridigmsimulator"> &#9731; PeriDigmSimulator</a></li>
+        
+            <li><a href="#peridigmdemcoupler"> &#9731; PeriDigmDEMCoupler</a></li>
+        
+    
+    </ul>
+</div></div> <!-- toc on top on mobile -->
+            <div class="col-md-3 hidden-xs hidden-sm"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+    
+        <li class="main active"><a href="#netdem-python-api-peridigm">NetDEM Python API 参考文档 - PeriDigm模块</a></li>
+        
+            <li><a href="#_1"> &#9731; 目录</a></li>
+        
+            <li><a href="#domainsplittor"> &#9731; DomainSplittor</a></li>
+        
+            <li><a href="#levelsetsplittor"> &#9731; LevelSetSplittor</a></li>
+        
+            <li><a href="#tetmeshsplittor"> &#9731; TetMeshSplittor</a></li>
+        
+            <li><a href="#peridigmdiscretization"> &#9731; PeriDigmDiscretization</a></li>
+        
+            <li><a href="#peridigmmaterial"> &#9731; PeriDigmMaterial</a></li>
+        
+            <li><a href="#peridigmdamagemodel"> &#9731; PeriDigmDamageModel</a></li>
+        
+            <li><a href="#peridigmblock"> &#9731; PeriDigmBlock</a></li>
+        
+            <li><a href="#peridigmboundarycondition"> &#9731; PeriDigmBoundaryCondition</a></li>
+        
+            <li><a href="#peridigmsettings"> &#9731; PeriDigmSettings</a></li>
+        
+            <li><a href="#demfragment"> &#9731; DEMFragment</a></li>
+        
+            <li><a href="#peridigmstrength"> &#9731; PeriDigmStrength</a></li>
+        
+            <li><a href="#peridigmsimulator"> &#9731; PeriDigmSimulator</a></li>
+        
+            <li><a href="#peridigmdemcoupler"> &#9731; PeriDigmDEMCoupler</a></li>
+        
+    
+    </ul>
+</div></div>
+            <div class="col-md-9" role="main">
+
+<div><h1 id="netdem-python-api-peridigm">NetDEM Python API 参考文档 - PeriDigm模块</h1>
+<p>本文档提供了NetDEM软件中PeriDigm相关的Python API接口说明。这些接口用于支持基于近场动力学（Peridynamics）的物体断裂和破碎模拟。</p>
+<h2 id="_1">目录</h2>
+<ul>
+<li><a href="#domainsplittor">DomainSplittor</a></li>
+<li><a href="#levelsetsplittor">LevelSetSplittor</a></li>
+<li><a href="#tetmeshsplittor">TetMeshSplittor</a></li>
+<li><a href="#peridigmdiscretization">PeriDigmDiscretization</a></li>
+<li><a href="#peridigmmaterial">PeriDigmMaterial</a></li>
+<li><a href="#peridigmdamagemodel">PeriDigmDamageModel</a></li>
+<li><a href="#peridigmblock">PeriDigmBlock</a></li>
+<li><a href="#peridigmboundarycondition">PeriDigmBoundaryCondition</a></li>
+<li><a href="#peridigmsettings">PeriDigmSettings</a></li>
+<li><a href="#demfragment">DEMFragment</a></li>
+<li><a href="#peridigmstrength">PeriDigmStrength</a></li>
+<li><a href="#peridigmsimulator">PeriDigmSimulator</a></li>
+<li><a href="#peridigmdemcoupler">PeriDigmDEMCoupler</a></li>
+</ul>
+<h2 id="domainsplittor">DomainSplittor</h2>
+<p><code>DomainSplittor</code>是域划分器的基类，用于将计算域分割成适合近场动力学计算的节点。</p>
+<h3 id="_2">方法</h3>
+<table>
+<thead>
+<tr>
+<th>方法名</th>
+<th>参数</th>
+<th>返回值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>InitFromSTL</code></td>
+<td><code>stl_file: str, resolution: int</code></td>
+<td>-</td>
+<td>从STL文件初始化域划分器</td>
+</tr>
+</tbody>
+</table>
+<h2 id="levelsetsplittor">LevelSetSplittor</h2>
+<p><code>LevelSetSplittor</code>是基于水平集方法的域划分器，继承自<code>DomainSplittor</code>。</p>
+<h3 id="_3">方法</h3>
+<table>
+<thead>
+<tr>
+<th>方法名</th>
+<th>参数</th>
+<th>返回值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>__init__</code></td>
+<td>无</td>
+<td>-</td>
+<td>创建一个新的LevelSetSplittor实例</td>
+</tr>
+<tr>
+<td><code>InitFromDistanceMap</code></td>
+<td><code>distance_map_file: str</code></td>
+<td>-</td>
+<td>从距离图文件初始化水平集</td>
+</tr>
+<tr>
+<td><code>InitFromDistanceMap</code></td>
+<td><code>min_x: float, min_y: float, min_z: float, grid_size: float, nx: int, ny: int, nz: int, distance_values: VecXT&lt;double&gt;</code></td>
+<td>-</td>
+<td>从距离值数组初始化水平集</td>
+</tr>
+<tr>
+<td><code>InitFromSTL</code></td>
+<td><code>stl_model: STLModel, resolution: int</code></td>
+<td>-</td>
+<td>从STL模型初始化水平集</td>
+</tr>
+<tr>
+<td><code>GetPeriDigmNodes</code></td>
+<td>无</td>
+<td><code>tuple[VecXT&lt;Vec3d&gt;, VecXT&lt;double&gt;]</code></td>
+<td>获取PeriDigm节点和体积</td>
+</tr>
+<tr>
+<td><code>MakePorosity</code></td>
+<td>无</td>
+<td>-</td>
+<td>生成多孔结构</td>
+</tr>
+<tr>
+<td><code>GetSTLModel</code></td>
+<td>无</td>
+<td><code>STLModel</code></td>
+<td>获取STL模型</td>
+</tr>
+<tr>
+<td><code>GetSTLModel</code></td>
+<td><code>indices: VecXT&lt;int&gt;</code></td>
+<td><code>STLModel</code></td>
+<td>根据索引获取STL模型的子集</td>
+</tr>
+</tbody>
+</table>
+<h2 id="tetmeshsplittor">TetMeshSplittor</h2>
+<p><code>TetMeshSplittor</code>是基于四面体网格的域划分器，继承自<code>DomainSplittor</code>。</p>
+<h3 id="_4">方法</h3>
+<table>
+<thead>
+<tr>
+<th>方法名</th>
+<th>参数</th>
+<th>返回值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>__init__</code></td>
+<td>无</td>
+<td>-</td>
+<td>创建一个新的TetMeshSplittor实例</td>
+</tr>
+<tr>
+<td><code>InitFromSTL</code></td>
+<td><code>stl_model: STLModel, resolution: int</code></td>
+<td>-</td>
+<td>从STL模型初始化四面体网格</td>
+</tr>
+<tr>
+<td><code>GetPeriDigmNodes</code></td>
+<td>无</td>
+<td><code>tuple[VecXT&lt;Vec3d&gt;, VecXT&lt;double&gt;]</code></td>
+<td>获取PeriDigm节点和体积</td>
+</tr>
+<tr>
+<td><code>MakePorosity</code></td>
+<td>无</td>
+<td>-</td>
+<td>生成多孔结构</td>
+</tr>
+<tr>
+<td><code>GetSTLModel</code></td>
+<td>无</td>
+<td><code>STLModel</code></td>
+<td>获取STL模型</td>
+</tr>
+<tr>
+<td><code>GetSTLModel</code></td>
+<td><code>indices: VecXT&lt;int&gt;</code></td>
+<td><code>STLModel</code></td>
+<td>根据索引获取STL模型的子集</td>
+</tr>
+</tbody>
+</table>
+<h2 id="peridigmdiscretization">PeriDigmDiscretization</h2>
+<p><code>PeriDigmDiscretization</code>用于管理PeriDigm的空间离散化。</p>
+<h3 id="_5">属性</h3>
+<table>
+<thead>
+<tr>
+<th>属性名</th>
+<th>类型</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>type</code></td>
+<td><code>PeriDigmDiscretization.Type</code></td>
+<td>离散化类型（level_set或tetmesh）</td>
+</tr>
+<tr>
+<td><code>domain_splittor</code></td>
+<td><code>DomainSplittor</code></td>
+<td>域划分器</td>
+</tr>
+<tr>
+<td><code>nodes</code></td>
+<td><code>VecXT&lt;Vec3d&gt;</code></td>
+<td>节点坐标列表</td>
+</tr>
+<tr>
+<td><code>node_block_indices</code></td>
+<td><code>VecXT&lt;int&gt;</code></td>
+<td>节点块索引</td>
+</tr>
+<tr>
+<td><code>node_vols</code></td>
+<td><code>VecXT&lt;double&gt;</code></td>
+<td>节点体积</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_6">枚举</h3>
+<table>
+<thead>
+<tr>
+<th>枚举值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Type.level_set</code></td>
+<td>基于水平集的离散化</td>
+</tr>
+<tr>
+<td><code>Type.tetmesh</code></td>
+<td>基于四面体网格的离散化</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_7">方法</h3>
+<table>
+<thead>
+<tr>
+<th>方法名</th>
+<th>参数</th>
+<th>返回值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>__init__</code></td>
+<td>无</td>
+<td>-</td>
+<td>创建一个新的PeriDigmDiscretization实例</td>
+</tr>
+<tr>
+<td><code>InitFromSTL</code></td>
+<td><code>stl_file: str, resolution: int</code></td>
+<td>-</td>
+<td>从STL文件初始化离散化</td>
+</tr>
+<tr>
+<td><code>InitFromSTL</code></td>
+<td><code>stl_model: STLModel, resolution: int</code></td>
+<td>-</td>
+<td>从STL模型初始化离散化</td>
+</tr>
+<tr>
+<td><code>InitFromDistanceMap</code></td>
+<td><code>distance_map_file: str</code></td>
+<td>-</td>
+<td>从距离图文件初始化离散化</td>
+</tr>
+<tr>
+<td><code>InitFromGrid</code></td>
+<td>无</td>
+<td>-</td>
+<td>从网格初始化离散化</td>
+</tr>
+<tr>
+<td><code>MakePorosity</code></td>
+<td>无</td>
+<td>-</td>
+<td>生成多孔结构</td>
+</tr>
+<tr>
+<td><code>WriteInputFile</code></td>
+<td><code>file_name: str</code></td>
+<td>-</td>
+<td>将节点信息写入输入文件</td>
+</tr>
+<tr>
+<td><code>GetNodeSize</code></td>
+<td>无</td>
+<td><code>float</code></td>
+<td>获取平均节点大小</td>
+</tr>
+</tbody>
+</table>
+<h2 id="peridigmmaterial">PeriDigmMaterial</h2>
+<p><code>PeriDigmMaterial</code>用于定义PeriDigm中的材料属性。</p>
+<h3 id="_8">属性</h3>
+<table>
+<thead>
+<tr>
+<th>属性名</th>
+<th>类型</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>type</code></td>
+<td><code>PeriDigmMaterial.Type</code></td>
+<td>材料类型</td>
+</tr>
+<tr>
+<td><code>density</code></td>
+<td><code>float</code></td>
+<td>材料密度</td>
+</tr>
+<tr>
+<td><code>youngs_modulus</code></td>
+<td><code>float</code></td>
+<td>杨氏模量</td>
+</tr>
+<tr>
+<td><code>poissons_ratio</code></td>
+<td><code>float</code></td>
+<td>泊松比</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_9">枚举</h3>
+<table>
+<thead>
+<tr>
+<th>枚举值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Type.Elastic</code></td>
+<td>弹性材料</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_10">方法</h3>
+<table>
+<thead>
+<tr>
+<th>方法名</th>
+<th>参数</th>
+<th>返回值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>__init__</code></td>
+<td>无</td>
+<td>-</td>
+<td>创建一个新的PeriDigmMaterial实例</td>
+</tr>
+<tr>
+<td><code>WriteInputFile</code></td>
+<td><code>file_name: str</code></td>
+<td>-</td>
+<td>将材料属性写入输入文件</td>
+</tr>
+</tbody>
+</table>
+<h2 id="peridigmdamagemodel">PeriDigmDamageModel</h2>
+<p><code>PeriDigmDamageModel</code>用于定义PeriDigm中的损伤模型。</p>
+<h3 id="_11">属性</h3>
+<table>
+<thead>
+<tr>
+<th>属性名</th>
+<th>类型</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>type</code></td>
+<td><code>str</code></td>
+<td>损伤模型类型</td>
+</tr>
+<tr>
+<td><code>critical_stretch</code></td>
+<td><code>float</code></td>
+<td>临界拉伸值</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_12">方法</h3>
+<table>
+<thead>
+<tr>
+<th>方法名</th>
+<th>参数</th>
+<th>返回值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>__init__</code></td>
+<td>无</td>
+<td>-</td>
+<td>创建一个新的PeriDigmDamageModel实例</td>
+</tr>
+<tr>
+<td><code>InitFromEnergyReleaseRate</code></td>
+<td><code>energy_release_rate: float, horizon: float, bulk_modulus: float</code></td>
+<td>-</td>
+<td>从能量释放率初始化损伤模型</td>
+</tr>
+<tr>
+<td><code>GetStretchFromEnergyReleaseRate</code></td>
+<td><code>energy_release_rate: float, horizon: float, bulk_modulus: float</code></td>
+<td><code>float</code></td>
+<td>从能量释放率计算临界拉伸值</td>
+</tr>
+<tr>
+<td><code>WriteInputFile</code></td>
+<td><code>file_name: str</code></td>
+<td>-</td>
+<td>将损伤模型写入输入文件</td>
+</tr>
+</tbody>
+</table>
+<h2 id="peridigmblock">PeriDigmBlock</h2>
+<p><code>PeriDigmBlock</code>用于定义PeriDigm中的计算块。</p>
+<h3 id="_13">属性</h3>
+<table>
+<thead>
+<tr>
+<th>属性名</th>
+<th>类型</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>node_indices</code></td>
+<td><code>VecXT&lt;int&gt;</code></td>
+<td>节点索引列表</td>
+</tr>
+<tr>
+<td><code>material_id</code></td>
+<td><code>int</code></td>
+<td>材料ID</td>
+</tr>
+<tr>
+<td><code>damage_model_id</code></td>
+<td><code>int</code></td>
+<td>损伤模型ID</td>
+</tr>
+<tr>
+<td><code>horizon</code></td>
+<td><code>float</code></td>
+<td>近场动力学视界半径</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_14">方法</h3>
+<table>
+<thead>
+<tr>
+<th>方法名</th>
+<th>参数</th>
+<th>返回值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>__init__</code></td>
+<td>无</td>
+<td>-</td>
+<td>创建一个新的PeriDigmBlock实例</td>
+</tr>
+<tr>
+<td><code>WriteInputFile</code></td>
+<td><code>file_name: str</code></td>
+<td>-</td>
+<td>将块配置写入输入文件</td>
+</tr>
+</tbody>
+</table>
+<h2 id="peridigmboundarycondition">PeriDigmBoundaryCondition</h2>
+<p><code>PeriDigmBoundaryCondition</code>用于定义PeriDigm中的边界条件。</p>
+<h3 id="_15">属性</h3>
+<table>
+<thead>
+<tr>
+<th>属性名</th>
+<th>类型</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>type</code></td>
+<td><code>PeriDigmBoundaryCondition.Type</code></td>
+<td>边界条件类型</td>
+</tr>
+<tr>
+<td><code>node_indices</code></td>
+<td><code>VecXT&lt;int&gt;</code></td>
+<td>边界节点索引</td>
+</tr>
+<tr>
+<td><code>dim_activated</code></td>
+<td><code>Vec3i</code></td>
+<td>激活的维度（xyz方向）</td>
+</tr>
+<tr>
+<td><code>disp_rate</code></td>
+<td><code>Vec3d</code></td>
+<td>位移速率</td>
+</tr>
+<tr>
+<td><code>loading_rate</code></td>
+<td><code>Vec3d</code></td>
+<td>载荷速率</td>
+</tr>
+<tr>
+<td><code>disp</code></td>
+<td><code>Vec3d</code></td>
+<td>最终位移</td>
+</tr>
+<tr>
+<td><code>loading</code></td>
+<td><code>Vec3d</code></td>
+<td>最终载荷</td>
+</tr>
+<tr>
+<td><code>mech_time</code></td>
+<td><code>float</code></td>
+<td>机械加载时间</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_16">枚举</h3>
+<table>
+<thead>
+<tr>
+<th>枚举值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Type.Prescribed_Displacement</code></td>
+<td>预设位移边界条件</td>
+</tr>
+<tr>
+<td><code>Type.Body_Force</code></td>
+<td>体力边界条件</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_17">方法</h3>
+<table>
+<thead>
+<tr>
+<th>方法名</th>
+<th>参数</th>
+<th>返回值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>__init__</code></td>
+<td>无</td>
+<td>-</td>
+<td>创建一个新的PeriDigmBoundaryCondition实例</td>
+</tr>
+<tr>
+<td><code>InsertNode</code></td>
+<td><code>node_id: int</code></td>
+<td>-</td>
+<td>添加边界节点</td>
+</tr>
+<tr>
+<td><code>SetActivatedDimensions</code></td>
+<td><code>activated: Vec3i</code></td>
+<td>-</td>
+<td>设置激活的维度</td>
+</tr>
+<tr>
+<td><code>SetByDisplacementRate</code></td>
+<td><code>disp_rate: Vec3d, mech_time: float</code></td>
+<td>-</td>
+<td>通过位移速率设置边界条件</td>
+</tr>
+<tr>
+<td><code>SetByLoadingRate</code></td>
+<td><code>loading_rate: Vec3d, mech_time: float</code></td>
+<td>-</td>
+<td>通过载荷速率设置边界条件</td>
+</tr>
+<tr>
+<td><code>SetByUltimateDisplacement</code></td>
+<td><code>disp: Vec3d, mech_time: float</code></td>
+<td>-</td>
+<td>通过最终位移设置边界条件</td>
+</tr>
+<tr>
+<td><code>SetByUltimateLoading</code></td>
+<td><code>loading: Vec3d, mech_time: float</code></td>
+<td>-</td>
+<td>通过最终载荷设置边界条件</td>
+</tr>
+<tr>
+<td><code>WriteInputFile</code></td>
+<td><code>file_name: str</code></td>
+<td>-</td>
+<td>将边界条件写入输入文件</td>
+</tr>
+</tbody>
+</table>
+<h2 id="peridigmsettings">PeriDigmSettings</h2>
+<p><code>PeriDigmSettings</code>用于配置PeriDigm求解器的参数。</p>
+<h3 id="_18">属性</h3>
+<table>
+<thead>
+<tr>
+<th>属性名</th>
+<th>类型</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>result_dir</code></td>
+<td><code>str</code></td>
+<td>结果目录</td>
+</tr>
+<tr>
+<td><code>peridigm_exe</code></td>
+<td><code>str</code></td>
+<td>PeriDigm可执行文件路径</td>
+</tr>
+<tr>
+<td><code>horizon_factor</code></td>
+<td><code>float</code></td>
+<td>视界因子</td>
+</tr>
+<tr>
+<td><code>use_auto_timestep</code></td>
+<td><code>bool</code></td>
+<td>是否自动计算时间步长</td>
+</tr>
+<tr>
+<td><code>timestep</code></td>
+<td><code>float</code></td>
+<td>时间步长</td>
+</tr>
+<tr>
+<td><code>timestep_factor</code></td>
+<td><code>float</code></td>
+<td>时间步长因子</td>
+</tr>
+<tr>
+<td><code>mech_time</code></td>
+<td><code>float</code></td>
+<td>机械加载时间</td>
+</tr>
+<tr>
+<td><code>loading_radius_factor</code></td>
+<td><code>float</code></td>
+<td>载荷半径因子</td>
+</tr>
+<tr>
+<td><code>constrain_radius_factor</code></td>
+<td><code>float</code></td>
+<td>约束半径因子</td>
+</tr>
+<tr>
+<td><code>output_freqency</code></td>
+<td><code>int</code></td>
+<td>输出频率</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_19">方法</h3>
+<table>
+<thead>
+<tr>
+<th>方法名</th>
+<th>参数</th>
+<th>返回值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>__init__</code></td>
+<td>无</td>
+<td>-</td>
+<td>创建一个新的PeriDigmSettings实例</td>
+</tr>
+<tr>
+<td><code>WriteInputFile</code></td>
+<td><code>file_name: str</code></td>
+<td>-</td>
+<td>将设置写入输入文件</td>
+</tr>
+</tbody>
+</table>
+<h2 id="demfragment">DEMFragment</h2>
+<p><code>DEMFragment</code>表示离散元破碎后的碎片。</p>
+<h3 id="_20">属性</h3>
+<table>
+<thead>
+<tr>
+<th>属性名</th>
+<th>类型</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>shape_type</code></td>
+<td><code>str</code></td>
+<td>形状类型</td>
+</tr>
+<tr>
+<td><code>sphere_size</code></td>
+<td><code>float</code></td>
+<td>球体大小</td>
+</tr>
+<tr>
+<td><code>stl_model</code></td>
+<td><code>STLModel</code></td>
+<td>STL模型</td>
+</tr>
+<tr>
+<td><code>vel</code></td>
+<td><code>Vec3d</code></td>
+<td>碎片速度</td>
+</tr>
+<tr>
+<td><code>spin</code></td>
+<td><code>Vec3d</code></td>
+<td>碎片旋转速度</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_21">方法</h3>
+<table>
+<thead>
+<tr>
+<th>方法名</th>
+<th>参数</th>
+<th>返回值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>__init__</code></td>
+<td>无</td>
+<td>-</td>
+<td>创建一个新的DEMFragment实例</td>
+</tr>
+<tr>
+<td><code>InitLevelSet</code></td>
+<td>无</td>
+<td>-</td>
+<td>初始化水平集</td>
+</tr>
+<tr>
+<td><code>ResolverOverlap</code></td>
+<td>无</td>
+<td>-</td>
+<td>解决重叠问题</td>
+</tr>
+<tr>
+<td><code>ReInitSTLModel</code></td>
+<td>无</td>
+<td>-</td>
+<td>重新初始化STL模型</td>
+</tr>
+</tbody>
+</table>
+<h2 id="peridigmstrength">PeriDigmStrength</h2>
+<p><code>PeriDigmStrength</code>用于定义材料强度参数。</p>
+<h3 id="_22">属性</h3>
+<table>
+<thead>
+<tr>
+<th>属性名</th>
+<th>类型</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ref_size</code></td>
+<td><code>float</code></td>
+<td>参考尺寸</td>
+</tr>
+<tr>
+<td><code>ref_energy_release_rate</code></td>
+<td><code>float</code></td>
+<td>参考能量释放率</td>
+</tr>
+<tr>
+<td><code>weibull_modulus</code></td>
+<td><code>float</code></td>
+<td>韦布尔模量</td>
+</tr>
+<tr>
+<td><code>weibull_coef_a</code></td>
+<td><code>float</code></td>
+<td>韦布尔系数a</td>
+</tr>
+<tr>
+<td><code>weibull_coef_b</code></td>
+<td><code>float</code></td>
+<td>韦布尔系数b</td>
+</tr>
+<tr>
+<td><code>min_breakable_size</code></td>
+<td><code>float</code></td>
+<td>最小可破碎尺寸</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_23">方法</h3>
+<table>
+<thead>
+<tr>
+<th>方法名</th>
+<th>参数</th>
+<th>返回值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>__init__</code></td>
+<td>无</td>
+<td>-</td>
+<td>创建一个新的PeriDigmStrength实例</td>
+</tr>
+<tr>
+<td><code>GetEnergyReleaseRate</code></td>
+<td><code>size: float</code></td>
+<td><code>float</code></td>
+<td>计算给定尺寸的能量释放率</td>
+</tr>
+<tr>
+<td><code>GetEnergyReleaseRate</code></td>
+<td><code>size: float, random_value: float</code></td>
+<td><code>float</code></td>
+<td>计算给定尺寸和随机值的能量释放率</td>
+</tr>
+</tbody>
+</table>
+<h2 id="peridigmsimulator">PeriDigmSimulator</h2>
+<p><code>PeriDigmSimulator</code>是PeriDigm模拟器的主类，用于进行近场动力学模拟。</p>
+<h3 id="_24">属性</h3>
+<table>
+<thead>
+<tr>
+<th>属性名</th>
+<th>类型</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>discretization</code></td>
+<td><code>PeriDigmDiscretization</code></td>
+<td>空间离散化</td>
+</tr>
+<tr>
+<td><code>materials</code></td>
+<td><code>VecXT&lt;PeriDigmMaterial&gt;</code></td>
+<td>材料列表</td>
+</tr>
+<tr>
+<td><code>damage_models</code></td>
+<td><code>VecXT&lt;PeriDigmDamageModel&gt;</code></td>
+<td>损伤模型列表</td>
+</tr>
+<tr>
+<td><code>blocks</code></td>
+<td><code>VecXT&lt;PeriDigmBlock&gt;</code></td>
+<td>计算块列表</td>
+</tr>
+<tr>
+<td><code>boundary_conditions</code></td>
+<td><code>VecXT&lt;PeriDigmBoundaryCondition&gt;</code></td>
+<td>边界条件列表</td>
+</tr>
+<tr>
+<td><code>settings</code></td>
+<td><code>PeriDigmSettings</code></td>
+<td>求解器设置</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_25">方法</h3>
+<table>
+<thead>
+<tr>
+<th>方法名</th>
+<th>参数</th>
+<th>返回值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>__init__</code></td>
+<td>无</td>
+<td>-</td>
+<td>创建一个新的PeriDigmSimulator实例</td>
+</tr>
+<tr>
+<td><code>Clear</code></td>
+<td>无</td>
+<td>-</td>
+<td>清除所有数据</td>
+</tr>
+<tr>
+<td><code>InsertMaterial</code></td>
+<td>无</td>
+<td><code>PeriDigmMaterial&amp;</code></td>
+<td>添加材料并返回引用</td>
+</tr>
+<tr>
+<td><code>InsertDamageModel</code></td>
+<td>无</td>
+<td><code>PeriDigmDamageModel&amp;</code></td>
+<td>添加损伤模型并返回引用</td>
+</tr>
+<tr>
+<td><code>InsertBlock</code></td>
+<td>无</td>
+<td><code>PeriDigmBlock&amp;</code></td>
+<td>添加计算块并返回引用</td>
+</tr>
+<tr>
+<td><code>InsertBoundaryCondition</code></td>
+<td>无</td>
+<td><code>PeriDigmBoundaryCondition&amp;</code></td>
+<td>添加边界条件并返回引用</td>
+</tr>
+<tr>
+<td><code>InitDefaultSetup</code></td>
+<td>无</td>
+<td>-</td>
+<td>初始化默认设置</td>
+</tr>
+<tr>
+<td><code>InitAutoTimestep</code></td>
+<td>无</td>
+<td>-</td>
+<td>初始化自动时间步长</td>
+</tr>
+<tr>
+<td><code>WriteNodeFile</code></td>
+<td><code>file_name: str</code></td>
+<td>-</td>
+<td>将节点信息写入文件</td>
+</tr>
+<tr>
+<td><code>WriteNodeSetFile</code></td>
+<td><code>file_name: str</code></td>
+<td>-</td>
+<td>将节点集信息写入文件</td>
+</tr>
+<tr>
+<td><code>WriteInputFile</code></td>
+<td><code>file_name: str</code></td>
+<td>-</td>
+<td>将输入信息写入文件</td>
+</tr>
+<tr>
+<td><code>Solve</code></td>
+<td>无</td>
+<td>-</td>
+<td>执行求解</td>
+</tr>
+<tr>
+<td><code>SetUpResultDirectory</code></td>
+<td>无</td>
+<td>-</td>
+<td>设置结果目录</td>
+</tr>
+<tr>
+<td><code>CleanUpResultDirectory</code></td>
+<td>无</td>
+<td>-</td>
+<td>清理结果目录</td>
+</tr>
+</tbody>
+</table>
+<h2 id="peridigmdemcoupler">PeriDigmDEMCoupler</h2>
+<p><code>PeriDigmDEMCoupler</code>用于耦合PeriDigm和DEM模拟。</p>
+<h3 id="_26">属性</h3>
+<table>
+<thead>
+<tr>
+<th>属性名</th>
+<th>类型</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>particle</code></td>
+<td><code>Particle</code></td>
+<td>颗粒</td>
+</tr>
+<tr>
+<td><code>pd_sim</code></td>
+<td><code>PeriDigmSimulator</code></td>
+<td>PeriDigm模拟器</td>
+</tr>
+<tr>
+<td><code>base_dir</code></td>
+<td><code>str</code></td>
+<td>基础目录</td>
+</tr>
+<tr>
+<td><code>sub_dir_index</code></td>
+<td><code>int</code></td>
+<td>子目录索引</td>
+</tr>
+<tr>
+<td><code>mesh_res</code></td>
+<td>`</td>
+<td></td>
+</tr>
+</tbody>
+</table></div></div>
+            <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>Enter your search keywords below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+            
+        </div>
+        
+
+        <footer class="footer">
+           <div class="container">
+              <p class="text-muted alignleft">
+                  <span id="busuanzi_container_site_uv" style='display:none'>Vistors: <span id="busuanzi_value_site_uv"></span>. </span>
+              </p>
+              <p class="text-muted alignright">
+                &copy; <a href="https://apaam.github.io/webpage/about/acknowledgement/">NetDEM Team</a>. SYSU, HKUST.
+              </p>
+           </div>
+        </footer>
+
+        <script src="../../../js/jquery-1.10.2.min.js"></script>
+        <script src="../../../js/bootstrap-3.0.3.min.js"></script>
+        <script src="../../../js/highlight.pack.js"></script>
+        <script src="../../../js/base.js"></script>
+        <script src="../../../js/retina.min.js"></script>
+        <!-- <script data-main="../../../mkdocs/js/search.js" src="../../../mkdocs/js/require.js"></script> -->
+        <script src="../../../mathjax-config.js"></script>
+        <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+        <script src="../../../search/main.js"></script>
+    </body>
+</html>

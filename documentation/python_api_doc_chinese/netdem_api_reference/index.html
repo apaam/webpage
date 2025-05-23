@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="https://apaam.github.io/webpage/img/favicon.ico">
+        <meta name="keywords" content="Finite Element Library,Finite Element Code,Finite Element Method Library,Finite Element Method Code,Finite Element C++,Finite Element Method C++,Finite Element Library C++,Finite Element Code C++,FEM Code,FEM Library,FEM C++">
+        <meta name="google-site-verification" content="45K56TawSdzbgy-uDtfJdYwp7zaVdL3fIAGYt869wwU" />
+<!--	<title></title>  -->
+        <title>NetDEM - Neural Network Enabled Discret Element Method</title>
+
+        <link href="../../../css/bootstrap-bootstrap.min.css" rel="stylesheet">
+        <link href="../../../css/font-awesome-4.0.3.css" rel="stylesheet">
+        <link href="../../../css/highlight.css" rel="stylesheet">
+        <link href="../../../css/base.css" rel="stylesheet">
+
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+        
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <!-- Main title -->
+            <a class="navbar-brand" href="https://apaam.github.io/webpage/">NetDEM</a>
+        </div>
+
+        <script>var base_url = '../../..';</script>
+        <!-- <script data-main="../../../mkdocs/js/search.js" src="../../../mkdocs/js/require.js"></script> -->
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            <!-- Main navigation -->
+            <ul class="nav navbar-nav">
+            
+            
+            
+            
+            
+                <li >
+                    <!-- Replace "nav_item.url|url" with "nav_item.url" for older mkdocs (before 1.0) -->
+                    <a href="../../../examples/">Examples</a>
+                </li>
+            
+            
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Documentation <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+                            <li >
+                                 <a href="../../user_manual/">User manual</a>
+                            </li>
+                        
+                    
+                        
+                            <li >
+                                 <a href="../../developer_manual/">Developer manual</a>
+                            </li>
+                        
+                    
+                        
+                            <li >
+                                 <a href="../../dem_wiki/">DEM wiki</a>
+                            </li>
+                        
+                    
+                        
+                            <li >
+                                 <a href="../../../doxygen/html/">Code doxygen</a>
+                            </li>
+                        
+                    
+                    </ul>
+                </li>
+            
+            
+            
+            
+            
+                <li >
+                    <!-- Replace "nav_item.url|url" with "nav_item.url" for older mkdocs (before 1.0) -->
+                    <a href="../../../download/">Download</a>
+                </li>
+            
+            
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Gallery <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+                            <li >
+                                 <a href="../../../gallery/snapshots/">Snapshots</a>
+                            </li>
+                        
+                    
+                        
+                            <li >
+                                 <a href="../../../gallery/animations/">Animations</a>
+                            </li>
+                        
+                    
+                    </ul>
+                </li>
+            
+            
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">About <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+                            <li >
+                                 <a href="../../../about/help_%26_support/">Help & Support</a>
+                            </li>
+                        
+                    
+                        
+                            <li >
+                                 <a href="../../../about/publications/">Publications</a>
+                            </li>
+                        
+                    
+                        
+                            <li >
+                                 <a href="../../../about/acknowledgement/">Acknowledgements</a>
+                            </li>
+                        
+                    
+                    </ul>
+                </li>
+            
+            
+            
+            </ul>
+
+            <!-- Search, Navigation and Repo links -->
+            <ul class="nav navbar-nav navbar-right">
+                <li class="nav-item">
+                    <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                        <i class="fa fa-search"></i> Search
+                    </a>
+                </li>
+                
+                
+                <li>
+                    <a href="https://github.com/apaam/webpage">
+                        
+                            <i class="fa fa-github-square"></i>
+                        
+                        GitHub
+                    </a>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+
+        
+        <div class="container">
+            
+            <div class="col-md-3 visible-xs visible-sm"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+    
+        <li class="main active"><a href="#netdem-python-api">NetDEM Python API 参考文档</a></li>
+        
+            <li><a href="#_1"> &#9731; 模块划分</a></li>
+        
+            <li><a href="#_2"> &#9731; 基础模块</a></li>
+        
+            <li><a href="#fem"> &#9731; FEM模块</a></li>
+        
+            <li><a href="#modifier"> &#9731; Modifier模块</a></li>
+        
+            <li><a href="#mpi"> &#9731; MPI模块</a></li>
+        
+            <li><a href="#peridigm"> &#9731; PeriDigm模块</a></li>
+        
+            <li><a href="#scene"> &#9731; Scene模块</a></li>
+        
+            <li><a href="#shape"> &#9731; Shape模块</a></li>
+        
+            <li><a href="#simulation"> &#9731; Simulation模块</a></li>
+        
+            <li><a href="#solver"> &#9731; Solver模块</a></li>
+        
+            <li><a href="#utils"> &#9731; Utils模块</a></li>
+        
+    
+    </ul>
+</div></div> <!-- toc on top on mobile -->
+            <div class="col-md-3 hidden-xs hidden-sm"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+    
+        <li class="main active"><a href="#netdem-python-api">NetDEM Python API 参考文档</a></li>
+        
+            <li><a href="#_1"> &#9731; 模块划分</a></li>
+        
+            <li><a href="#_2"> &#9731; 基础模块</a></li>
+        
+            <li><a href="#fem"> &#9731; FEM模块</a></li>
+        
+            <li><a href="#modifier"> &#9731; Modifier模块</a></li>
+        
+            <li><a href="#mpi"> &#9731; MPI模块</a></li>
+        
+            <li><a href="#peridigm"> &#9731; PeriDigm模块</a></li>
+        
+            <li><a href="#scene"> &#9731; Scene模块</a></li>
+        
+            <li><a href="#shape"> &#9731; Shape模块</a></li>
+        
+            <li><a href="#simulation"> &#9731; Simulation模块</a></li>
+        
+            <li><a href="#solver"> &#9731; Solver模块</a></li>
+        
+            <li><a href="#utils"> &#9731; Utils模块</a></li>
+        
+    
+    </ul>
+</div></div>
+            <div class="col-md-9" role="main">
+
+<div><h1 id="netdem-python-api">NetDEM Python API 参考文档</h1>
+<p>本文档提供了NetDEM软件的Python API接口说明，这些接口通过pybind11从C++代码绑定到Python。</p>
+<h2 id="_1">模块划分</h2>
+<p>NetDEM的Python API分为以下十个模块：</p>
+<ol>
+<li><a href="base_api_reference.md">基础模块</a>：包含基本的几何和物理对象，如向量、矩阵、颗粒、墙体等。</li>
+<li><a href="../fem_api_reference/">FEM模块</a>：包含有限元相关的类，用于模拟可变形物体。</li>
+<li><a href="../modifier_api_reference/">Modifier模块</a>：包含各种修改器，用于数据导出、力和运动控制、边界条件和分析工具。</li>
+<li><a href="../mpi_api_reference/">MPI模块</a>：包含并行计算相关的类，用于大规模离散元模拟。</li>
+<li><a href="../peridigm_api_reference/">PeriDigm模块</a>：包含近场动力学相关的类，用于模拟物体断裂和破碎。</li>
+<li><a href="../scene_api_reference/">Scene模块</a>：包含场景管理相关的类，用于管理颗粒、墙体、形状和接触。</li>
+<li><a href="../shape_api_reference/">Shape模块</a>：包含各种几何形状的定义和操作，为离散元模拟提供几何表示。</li>
+<li><a href="../simulation_api_reference/">Simulation模块</a>：包含模拟管理相关的类，用于控制和执行整个DEM模拟过程。</li>
+<li><a href="solver_api_reference.md">Solver模块</a>：包含求解器相关的类，用于模拟系统的动力学演化。</li>
+<li><a href="../utils_api_reference/">Utils模块</a>：包含各种实用工具类和函数，为其他模块提供基础功能支持。</li>
+</ol>
+<h2 id="_2">基础模块</h2>
+<p>基础模块包含了NetDEM中最基本的数据结构和功能类。详细信息请参考<a href="base_api_reference.md">基础模块文档</a>。</p>
+<h2 id="fem">FEM模块</h2>
+<p>FEM模块提供了有限元分析相关的功能。详细信息请参考<a href="../fem_api_reference/">FEM模块文档</a>。</p>
+<h2 id="modifier">Modifier模块</h2>
+<p>Modifier模块包含了各种用于控制和分析模拟过程的工具。详细信息请参考<a href="../modifier_api_reference/">Modifier模块文档</a>。</p>
+<h2 id="mpi">MPI模块</h2>
+<p>MPI模块提供了并行计算相关的功能，用于支持大规模离散元模拟。目前主要包含：</p>
+<ul>
+<li><code>MPIManager</code>类：用于管理MPI进程，提供进程间通信和数据同步功能</li>
+<li>获取当前进程的等级和进程总数的方法</li>
+<li>进程间数据同步功能</li>
+</ul>
+<p>详细信息请参考<a href="../mpi_api_reference/">MPI模块文档</a>。</p>
+<h2 id="peridigm">PeriDigm模块</h2>
+<p>PeriDigm模块实现了基于近场动力学的物体断裂和破碎模拟功能。主要包含：</p>
+<ul>
+<li>域离散化工具（<code>DomainSplittor</code>、<code>LevelSetSplittor</code>和<code>TetMeshSplittor</code>）</li>
+<li>材料和损伤模型（<code>PeriDigmMaterial</code>和<code>PeriDigmDamageModel</code>）</li>
+<li>边界条件和计算块（<code>PeriDigmBoundaryCondition</code>和<code>PeriDigmBlock</code>）</li>
+<li>模拟器和DEM耦合（<code>PeriDigmSimulator</code>和<code>PeriDigmDEMCoupler</code>）</li>
+</ul>
+<p>详细信息请参考<a href="../peridigm_api_reference/">PeriDigm模块文档</a>。</p>
+<h2 id="scene">Scene模块</h2>
+<p>Scene模块是NetDEM的核心部分，负责管理模拟中的所有元素。主要包含：</p>
+<ul>
+<li>场景管理（<code>Scene</code>类，管理颗粒、墙体、形状和接触）</li>
+<li>颗粒和墙体（<code>Particle</code>、<code>Wall</code>及其衍生类）</li>
+<li>接触处理（<code>ContactPP</code>和<code>ContactPW</code>类）</li>
+<li>颗粒生成工具（<code>PackGenerator</code>、<code>BondedSpheres</code>和<code>BondedVoronois</code>类）</li>
+</ul>
+<p>详细信息请参考<a href="../scene_api_reference/">Scene模块文档</a>。</p>
+<h2 id="shape">Shape模块</h2>
+<p>Shape模块提供了丰富的几何形状定义和操作功能，为模拟中的颗粒和墙体提供几何表示。主要包含：</p>
+<ul>
+<li>基础形状类（<code>Shape</code>类及其衍生类）</li>
+<li>简单形状（<code>Sphere</code>、<code>Plane</code>、<code>Triangle</code>、<code>Cylinder</code>、<code>Ellipsoid</code>等）</li>
+<li>复杂形状（<code>SphericalHarmonics</code>、<code>PolySuperEllipsoid</code>、<code>TriMesh</code>等）</li>
+<li>隐式形状表示（<code>LevelSet</code>、<code>NetSDF</code>等）</li>
+</ul>
+<p>详细信息请参考<a href="../shape_api_reference/">Shape模块文档</a>。</p>
+<h2 id="simulation">Simulation模块</h2>
+<p>Simulation模块是NetDEM的顶层模块，负责管理和执行整个离散元模拟过程。主要包含：</p>
+<ul>
+<li>模拟管理（<code>Simulation</code>类，整合所有必要的组件）</li>
+<li>场景和求解器管理</li>
+<li>并行计算支持</li>
+<li>修改器系统集成</li>
+<li>模拟状态控制</li>
+</ul>
+<p>详细信息请参考<a href="../simulation_api_reference/">Simulation模块文档</a>。</p>
+<h2 id="solver">Solver模块</h2>
+<p>Solver模块包含了各种求解器，用于模拟颗粒系统的动力学行为。详细信息请参考<a href="solver_api_reference.md">Solver模块文档</a>。</p>
+<h2 id="utils">Utils模块</h2>
+<p>Utils模块提供了各种实用工具类和函数，为其他模块提供基础功能支持。主要包含：</p>
+<ul>
+<li>数学工具（<code>Math</code>子模块，提供数学常量和函数）</li>
+<li>几何处理（<code>STLModel</code>、<code>LevelSetFunction</code>等，用于处理3D模型和隐式几何）</li>
+<li>网格生成（<code>WSCVTSampler</code>、<code>Voronoi</code>等，用于生成高质量的点分布和网格）</li>
+<li>布尔运算（<code>CorkWrapper</code>，用于进行网格布尔运算）</li>
+</ul>
+<p>详细信息请参考<a href="../utils_api_reference/">Utils模块文档</a>。</p>
+<p>请点击上述链接查看各模块的详细API说明。 </p></div></div>
+            <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>Enter your search keywords below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+            
+        </div>
+        
+
+        <footer class="footer">
+           <div class="container">
+              <p class="text-muted alignleft">
+                  <span id="busuanzi_container_site_uv" style='display:none'>Vistors: <span id="busuanzi_value_site_uv"></span>. </span>
+              </p>
+              <p class="text-muted alignright">
+                &copy; <a href="https://apaam.github.io/webpage/about/acknowledgement/">NetDEM Team</a>. SYSU, HKUST.
+              </p>
+           </div>
+        </footer>
+
+        <script src="../../../js/jquery-1.10.2.min.js"></script>
+        <script src="../../../js/bootstrap-3.0.3.min.js"></script>
+        <script src="../../../js/highlight.pack.js"></script>
+        <script src="../../../js/base.js"></script>
+        <script src="../../../js/retina.min.js"></script>
+        <!-- <script data-main="../../../mkdocs/js/search.js" src="../../../mkdocs/js/require.js"></script> -->
+        <script src="../../../mathjax-config.js"></script>
+        <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+        <script src="../../../search/main.js"></script>
+    </body>
+</html>
