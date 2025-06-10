@@ -302,7 +302,7 @@ data_dumper.SetSaveReadRestartByTime(1.0)  # Save restart data every 1.0 seconds
 <p>In restart scenarios, it is recommended <strong>not</strong> to use the default <code>Allrun-parallel</code> or <code>Allclean</code> scripts, as they may overwrite or delete necessary data such as decomposed time directories or previous simulation logs.</p>
 <p>Instead, use a minimal execution script (e.g., named <code>All-restart</code>) based on <code>Allrun-parallel</code>, with the following modifications:
 - Skip mesh generation and decomposition steps.
-- Back up and remove the previous solver log.
+- Back up the previous solver log.
 - Directly launch the solver using the existing decomposed case.</p>
 <h4 id="example-all-restart-script">Example: <code>All-restart</code> script</h4>
 <pre><code class="language-bash">#!/bin/sh
@@ -310,9 +310,8 @@ cd "${0%/*}" || exit                                # Run from this directory
 . ${WM_PROJECT_DIR:?}/bin/tools/RunFunctions        # Tutorial run functions
 #------------------------------------------------------------------------------
 
-# Backup and clean previous log
+# Backup previous log
 mv log.$(getApplication) log.$(getApplication)-bak
-rm -f log.$(getApplication)
 
 # Run the solver in parallel (assumes case is already decomposed)
 runParallel $(getApplication)
