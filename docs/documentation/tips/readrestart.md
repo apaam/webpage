@@ -109,7 +109,7 @@ In restart scenarios, it is recommended **not** to use the default `Allrun-paral
 
 Instead, use a minimal execution script (e.g., named `All-restart`) based on `Allrun-parallel`, with the following modifications:
 - Skip mesh generation and decomposition steps.
-- Back up and remove the previous solver log.
+- Back up the previous solver log.
 - Directly launch the solver using the existing decomposed case.
 
 #### Example: `All-restart` script
@@ -120,9 +120,8 @@ cd "${0%/*}" || exit                                # Run from this directory
 . ${WM_PROJECT_DIR:?}/bin/tools/RunFunctions        # Tutorial run functions
 #------------------------------------------------------------------------------
 
-# Backup and clean previous log
+# Backup previous log
 mv log.$(getApplication) log.$(getApplication)-bak
-rm -f log.$(getApplication)
 
 # Run the solver in parallel (assumes case is already decomposed)
 runParallel $(getApplication)
