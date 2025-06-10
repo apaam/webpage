@@ -13,10 +13,10 @@
 <!--	<title></title>  -->
         <title>NetDEM - Neural Network Enabled Discret Element Method</title>
 
-        <link href="../../css/bootstrap-bootstrap.min.css" rel="stylesheet">
-        <link href="../../css/font-awesome-4.0.3.css" rel="stylesheet">
-        <link href="../../css/highlight.css" rel="stylesheet">
-        <link href="../../css/base.css" rel="stylesheet">
+        <link href="../../../css/bootstrap-bootstrap.min.css" rel="stylesheet">
+        <link href="../../../css/font-awesome-4.0.3.css" rel="stylesheet">
+        <link href="../../../css/highlight.css" rel="stylesheet">
+        <link href="../../../css/base.css" rel="stylesheet">
 
         <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!--[if lt IE 9]>
@@ -46,8 +46,8 @@
             <a class="navbar-brand" href="https://apaam.github.io/webpage/">NetDEM</a>
         </div>
 
-        <script>var base_url = '../..';</script>
-        <!-- <script data-main="../../mkdocs/js/search.js" src="../../mkdocs/js/require.js"></script> -->
+        <script>var base_url = '../../..';</script>
+        <!-- <script data-main="../../../mkdocs/js/search.js" src="../../../mkdocs/js/require.js"></script> -->
 
         <!-- Expanded navigation -->
         <div class="navbar-collapse collapse">
@@ -60,7 +60,7 @@
             
                 <li >
                     <!-- Replace "nav_item.url|url" with "nav_item.url" for older mkdocs (before 1.0) -->
-                    <a href="../../examples/">Examples</a>
+                    <a href="../../../examples/">Examples</a>
                 </li>
             
             
@@ -73,25 +73,25 @@
                     
                         
                             <li >
-                                 <a href="../user_manual/">User manual</a>
+                                 <a href="../../user_manual/">User manual</a>
                             </li>
                         
                     
                         
                             <li >
-                                 <a href="../developer_manual/">Developer manual</a>
+                                 <a href="../../developer_manual/">Developer manual</a>
                             </li>
                         
                     
                         
                             <li >
-                                 <a href="../dem_wiki/">DEM wiki</a>
+                                 <a href="../../dem_wiki/">DEM wiki</a>
                             </li>
                         
                     
                         
                             <li >
-                                 <a href="../../doxygen/html/">Code doxygen</a>
+                                 <a href="../../../doxygen/html/">Code doxygen</a>
                             </li>
                         
                     
@@ -104,7 +104,7 @@
             
                 <li >
                     <!-- Replace "nav_item.url|url" with "nav_item.url" for older mkdocs (before 1.0) -->
-                    <a href="../../download/">Download</a>
+                    <a href="../../../download/">Download</a>
                 </li>
             
             
@@ -117,13 +117,13 @@
                     
                         
                             <li >
-                                 <a href="../../gallery/snapshots/">Snapshots</a>
+                                 <a href="../../../gallery/snapshots/">Snapshots</a>
                             </li>
                         
                     
                         
                             <li >
-                                 <a href="../../gallery/animations/">Animations</a>
+                                 <a href="../../../gallery/animations/">Animations</a>
                             </li>
                         
                     
@@ -140,19 +140,19 @@
                     
                         
                             <li >
-                                 <a href="../../about/help_%26_support/">Help & Support</a>
+                                 <a href="../../../about/help_%26_support/">Help & Support</a>
                             </li>
                         
                     
                         
                             <li >
-                                 <a href="../../about/publications/">Publications</a>
+                                 <a href="../../../about/publications/">Publications</a>
                             </li>
                         
                     
                         
                             <li >
-                                 <a href="../../about/acknowledgement/">Acknowledgements</a>
+                                 <a href="../../../about/acknowledgement/">Acknowledgements</a>
                             </li>
                         
                     
@@ -195,22 +195,27 @@
         <li class="main active"><a href="#_1"></a></li>
         
     
-        <li class="main "><a href="#tetmesh">TetMesh</a></li>
+        <li class="main "><a href="#cellmanager">CellManager</a></li>
         
             <li><a href="#constructor"> &#9731; Constructor</a></li>
-        
-            <li><a href="#attribution"> &#9731; Attribution</a></li>
         
             <li><a href="#methods"> &#9731; Methods</a></li>
         
     
-        <li class="main "><a href="#membrane">Membrane</a></li>
+        <li class="main "><a href="#domain">Domain</a></li>
         
             <li><a href="#constructor_1"> &#9731; Constructor</a></li>
         
             <li><a href="#attributes"> &#9731; Attributes</a></li>
         
             <li><a href="#methods_1"> &#9731; Methods</a></li>
+        
+    
+        <li class="main "><a href="#domainmanager">DomainManager</a></li>
+        
+            <li><a href="#constructor_2"> &#9731; Constructor</a></li>
+        
+            <li><a href="#methods_2"> &#9731; Methods</a></li>
         
     
     </ul>
@@ -221,16 +226,14 @@
         <li class="main active"><a href="#_1"></a></li>
         
     
-        <li class="main "><a href="#tetmesh">TetMesh</a></li>
+        <li class="main "><a href="#cellmanager">CellManager</a></li>
         
             <li><a href="#constructor"> &#9731; Constructor</a></li>
-        
-            <li><a href="#attribution"> &#9731; Attribution</a></li>
         
             <li><a href="#methods"> &#9731; Methods</a></li>
         
     
-        <li class="main "><a href="#membrane">Membrane</a></li>
+        <li class="main "><a href="#domain">Domain</a></li>
         
             <li><a href="#constructor_1"> &#9731; Constructor</a></li>
         
@@ -239,133 +242,117 @@
             <li><a href="#methods_1"> &#9731; Methods</a></li>
         
     
+        <li class="main "><a href="#domainmanager">DomainManager</a></li>
+        
+            <li><a href="#constructor_2"> &#9731; Constructor</a></li>
+        
+            <li><a href="#methods_2"> &#9731; Methods</a></li>
+        
+    
     </ul>
 </div></div>
             <div class="col-md-9" role="main">
 
 <div><h3 id="_1"></h3>
-<p><a href="../user_manual/">User manual</a>
-┊ <a href="../ref_domain/">Previous</a>
-┊ <a href="../ref_modifier/">Next</a></p>
+<p><a href="user_manual.md">User manual</a>
+┊ <a href="../ref_dem/">Previous</a>
+┊ <a href="../ref_fem/">Next</a></p>
 <hr>
-<h3 id="tetmesh">TetMesh</h3>
-<p>This class represents a tetrahedral mesh.</p>
+<h3 id="cellmanager">CellManager</h3>
+<p>This class represents a cell manager.</p>
 <h4 id="constructor">Constructor</h4>
-<h5 id="tetmesh_1"><code>TetMesh()</code></h5>
-<p>Creates a new instance of the TetMesh class.</p>
-<h5 id="tetmeshnodes-elements-scale"><code>TetMesh(nodes, elements, scale)</code></h5>
-<p>Creates a new instance of the TetMesh class from the given nodes and elements, with the specified scale.</p>
-<ul>
-<li><code>nodes</code> (list of Vec3d): The list of nodes.</li>
-<li><code>elements</code> (list of Vec3i): The list of elements.</li>
-<li><code>scale</code> (float): The scaling factor.</li>
-</ul>
-<h4 id="attribution">Attribution</h4>
-<h5 id="nodes"><code>nodes</code></h5>
-<p>The list of nodes.</p>
-<h5 id="elements"><code>elements</code></h5>
-<p>The list of elements.</p>
-<h5 id="bound_facets"><code>bound_facets</code></h5>
-<p>The list of boundary facets.</p>
-<h5 id="bound_edges"><code>bound_edges</code></h5>
-<p>The list of boundary edges.</p>
-<h5 id="bound_nodes"><code>bound_nodes</code></h5>
-<p>The list of boundary nodes.</p>
-<h5 id="surface_nodes"><code>surface_nodes</code></h5>
-<p>The list of surface nodes.</p>
-<h5 id="surface_facets"><code>surface_facets</code></h5>
-<p>The list of surface facets.</p>
-<h5 id="surface_node_linked_boundaries"><code>surface_node_linked_boundaries</code></h5>
-<p>The list of surface node linked boundaries.</p>
+<h5 id="cellmanager_1"><code>CellManager()</code></h5>
+<p>Creates a new instance of the CellManager class.</p>
 <h4 id="methods">Methods</h4>
-<h5 id="getsurfacestl"><code>GetSurfaceSTL()</code></h5>
-<p>Returns the surface mesh in STL format.</p>
-<h5 id="saveasvtkfilename"><code>SaveAsVTK(filename)</code></h5>
-<p>Saves the mesh in VTK format to the specified file.</p>
+<h5 id="setspacingspacing"><code>SetSpacing(spacing)</code></h5>
+<p>Set the spacing of the cell manager.</p>
 <ul>
-<li><code>filename</code> (str): The name of the file to save to.</li>
+<li><code>spacing</code> (float): The value of the spacing to set.</li>
 </ul>
-<h5 id="init"><code>Init()</code></h5>
-<p>Initializes the mesh.</p>
 <hr>
-<h3 id="membrane">Membrane</h3>
-<p>This class represents a membrane in a simulation.</p>
+<h3 id="domain">Domain</h3>
+<p>This class represents a computational domain.</p>
 <h4 id="constructor_1">Constructor</h4>
-<h5 id="__init__radius-height"><code>__init__(radius, height)</code></h5>
-<p>Creates a new instance of the PyMembrane class.</p>
-<ul>
-<li><code>radius</code> (float): The radius of the membrane.</li>
-<li><code>height</code> (float): The height of the membrane.</li>
-</ul>
-<h5 id="__init__radius-height-mesh_size"><code>__init__(radius, height, mesh_size)</code></h5>
-<p>Creates a new instance of the PyMembrane class.</p>
-<ul>
-<li><code>radius</code> (float): The radius of the membrane.</li>
-<li><code>height</code> (float): The height of the membrane.</li>
-<li><code>mesh_size</code> (float): The size of the mesh.</li>
-</ul>
-<h5 id="__init__radius-height-mesh_size-neo_k-neo_mu-density"><code>__init__(radius, height, mesh_size, neo_k, neo_mu, density)</code></h5>
-<p>Creates a new instance of the PyMembrane class.</p>
-<ul>
-<li><code>radius</code> (float): The radius of the membrane.</li>
-<li><code>height</code> (float): The height of the membrane.</li>
-<li><code>mesh_size</code> (float): The size of the mesh.</li>
-<li><code>neo_k</code> (float): The Neo-Hookean constant of the membrane.</li>
-<li><code>neo_mu</code> (float): The Neo-Hookean coefficient of the membrane.</li>
-<li><code>density</code> (float): The density of the membrane.</li>
-</ul>
+<h5 id="domain_1"><code>Domain()</code></h5>
+<p>Creates a new instance of the Domain class.</p>
 <h4 id="attributes">Attributes</h4>
-<h5 id="radius-float"><code>radius</code> (float):</h5>
-<p>The radius of the membrane.</p>
-<h5 id="height-float"><code>height</code> (float):</h5>
-<p>The height of the membrane.</p>
-<h5 id="mesh_size-float"><code>mesh_size</code> (float):</h5>
-<p>The size of the mesh.</p>
-<h5 id="center-tuple-of-floats"><code>center</code> (tuple of floats):</h5>
-<p>The center coordinates of the membrane.</p>
-<ul>
-<li><code>neo_k</code> (float): The Neo-Hookean constant of the membrane.</li>
-<li><code>neo_mu</code> (float): The Neo-Hookean coefficient of the membrane.</li>
-<li><code>density</code> (float): The density of the membrane.</li>
-<li><code>thickness</code> (float): The thickness of the membrane.</li>
-<li><code>damp_coef</code> (float): The damping coefficient of the membrane.</li>
-<li>
-<p><code>timestep</code> (float): The timestep of the membrane.</p>
-</li>
-<li>
-<p><code>nodes</code> (list of tuples of floats): The coordinates of the nodes in the membrane.</p>
-</li>
-<li><code>elements</code> (list of tuples of ints): The connectivity of the elements in the membrane.</li>
-<li><code>elemental_stress</code> (list of tuples of floats): The elemental stress of the membrane.</li>
-<li><code>nodal_vols</code> (list of floats): The nodal volumes of the membrane.</li>
-<li><code>nodal_vels</code> (list of tuples of floats): The nodal velocities of the membrane.</li>
-<li><code>bc_facet_pressure</code> (list of floats): The boundary condition pressure of the membrane.</li>
-<li><code>bc_facet_forces</code> (list of tuples of floats): The boundary condition forces of the membrane.</li>
-<li><code>bc_nodal_vels</code> 
-(list of tuples of floats): </li>
-</ul>
-<p>The boundary condition nodal velocities of the membrane.</p>
+<h5 id="cell_manager"><code>cell_manager</code></h5>
+<p>An instance of the CellManager class.</p>
+<h5 id="self_rank"><code>self_rank</code></h5>
+<p>The rank of the current process.</p>
+<h5 id="total_rank"><code>total_rank</code></h5>
+<p>The total number of processes.</p>
+<h5 id="bound_min"><code>bound_min</code></h5>
+<p>The minimum bound of the domain.</p>
+<h5 id="bound_max"><code>bound_max</code></h5>
+<p>The maximum bound of the domain.</p>
 <h4 id="methods_1">Methods</h4>
-<h5 id="remesh"><code>Remesh()</code></h5>
-<p>Remeshes the membrane.</p>
-<h5 id="setbcnodalvelocitynodal_vels"><code>SetBCNodalVelocity(nodal_vels)</code></h5>
-<p>Sets the boundary condition nodal velocities of the membrane.</p>
+<h5 id="setboundbound_min-bound_max"><code>SetBound(bound_min, bound_max)</code></h5>
+<p>Set the bounds of the domain.</p>
 <ul>
-<li><code>nodal_vels</code> (list of tuples of floats): The boundary condition nodal velocities of the membrane.</li>
+<li><code>bound_min</code> (Vec3): The minimum bound of the domain.</li>
+<li><code>bound_max</code> (Vec3): The maximum bound of the domain.</li>
 </ul>
-<h5 id="init_1"><code>Init()</code></h5>
-<p>Initializes the membrane.</p>
-<h5 id="solve"><code>Solve()</code></h5>
-<p>Solves the membrane.</p>
-<h5 id="saveasvtkfilename-str"><code>SaveAsVTK(filename: str)</code></h5>
-<p>Saves the membrane as a VTK file.</p>
+<h5 id="setcellspacingspacing"><code>SetCellSpacing(spacing)</code></h5>
+<p>Set the spacing between cells.</p>
 <ul>
-<li><code>filename</code> (str): The filename of the VTK file.</li>
+<li><code>spacing</code> (Vec3): The spacing between cells.</li>
+</ul>
+<h5 id="isjudgedomainparticle1-particle2"><code>IsJudgeDomain(particle1, particle2)</code></h5>
+<p>Check if two particles belong to the same domain.</p>
+<ul>
+<li><code>particle1</code> (Particle): The first particle.</li>
+<li><code>particle2</code> (Particle): The second particle.</li>
+</ul>
+<h5 id="isjudgedomainparticle-wall"><code>IsJudgeDomain(particle, wall)</code></h5>
+<p>Check if a particle and a wall belong to the same domain.</p>
+<ul>
+<li><code>particle</code> (Particle): The particle.</li>
+<li><code>wall</code> (Wall): The wall.</li>
+</ul>
+<h5 id="isbelongtodomainparticle"><code>IsBelongToDomain(particle)</code></h5>
+<p>Check if a particle belongs to the domain.</p>
+<ul>
+<li><code>particle</code> (Particle): The particle.</li>
+</ul>
+<h5 id="isbelongtodomainparticle_data"><code>IsBelongToDomain(particle_data)</code></h5>
+<p>Check if a particle data belongs to the domain.</p>
+<ul>
+<li><code>particle_data</code> (ParticleData): The particle data. </li>
 </ul>
 <hr>
-<p><a href="../user_manual/">User manual</a>
-┊ <a href="../ref_domain/">Previous</a>
-┊ <a href="../ref_modifier/">Next</a></p></div></div>
+<h3 id="domainmanager">DomainManager</h3>
+<p>This class manages the domains in a distributed computing environment.</p>
+<h4 id="constructor_2">Constructor</h4>
+<h5 id="domainmanager_1"><code>DomainManager()</code></h5>
+<p>Creates a new instance of the DomainManager class.</p>
+<h4 id="methods_2">Methods</h4>
+<h5 id="setboundbound_min-bound_max_1"><code>SetBound(bound_min, bound_max)</code></h5>
+<p>Sets the bounding box of the domains.</p>
+<ul>
+<li><code>bound_min</code> (tuple of floats): The minimum coordinates of the bounding box.</li>
+<li><code>bound_max</code> (tuple of floats): The maximum coordinates of the bounding box.</li>
+</ul>
+<h5 id="setdecompositionnum_subdomains"><code>SetDecomposition(num_subdomains)</code></h5>
+<p>Sets the number of subdomains for decomposition.</p>
+<ul>
+<li><code>num_subdomains</code> (int): The number of subdomains to decompose the domain into.</li>
+</ul>
+<h5 id="setcellspacingspacing_1"><code>SetCellSpacing(spacing)</code></h5>
+<p>Sets the cell spacing for the subdomains.</p>
+<ul>
+<li><code>spacing</code> (float): The cell spacing for the subdomains.</li>
+</ul>
+<h5 id="getghostsubdomains"><code>GetGhostSubDomains()</code></h5>
+<p>Returns a list of ghost subdomains.</p>
+<h5 id="getselfghostsubdomain"><code>GetSelfGhostSubDomain()</code></h5>
+<p>Returns the ghost subdomain for the current process.</p>
+<h5 id="getselfsubdomain"><code>GetSelfSubDomain()</code></h5>
+<p>Returns the subdomain for the current process.</p>
+<hr>
+<p><a href="user_manual.md">User manual</a>
+┊ <a href="../ref_dem/">Previous</a>
+┊ <a href="../ref_fem/">Next</a></p></div></div>
             <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
@@ -402,15 +389,15 @@
            </div>
         </footer>
 
-        <script src="../../js/jquery-1.10.2.min.js"></script>
-        <script src="../../js/bootstrap-3.0.3.min.js"></script>
-        <script src="../../js/highlight.pack.js"></script>
-        <script src="../../js/base.js"></script>
-        <script src="../../js/retina.min.js"></script>
-        <!-- <script data-main="../../mkdocs/js/search.js" src="../../mkdocs/js/require.js"></script> -->
-        <script src="../../mathjax-config.js"></script>
+        <script src="../../../js/jquery-1.10.2.min.js"></script>
+        <script src="../../../js/bootstrap-3.0.3.min.js"></script>
+        <script src="../../../js/highlight.pack.js"></script>
+        <script src="../../../js/base.js"></script>
+        <script src="../../../js/retina.min.js"></script>
+        <!-- <script data-main="../../../mkdocs/js/search.js" src="../../../mkdocs/js/require.js"></script> -->
+        <script src="../../../mathjax-config.js"></script>
         <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
         <script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-        <script src="../../search/main.js"></script>
+        <script src="../../../search/main.js"></script>
     </body>
 </html>
