@@ -13,10 +13,10 @@
 <!--	<title></title>  -->
         <title>NetDEM - Neural Network Enabled Discret Element Method</title>
 
-        <link href="../../css/bootstrap-bootstrap.min.css" rel="stylesheet">
-        <link href="../../css/font-awesome-4.0.3.css" rel="stylesheet">
-        <link href="../../css/highlight.css" rel="stylesheet">
-        <link href="../../css/base.css" rel="stylesheet">
+        <link href="../../../css/bootstrap-bootstrap.min.css" rel="stylesheet">
+        <link href="../../../css/font-awesome-4.0.3.css" rel="stylesheet">
+        <link href="../../../css/highlight.css" rel="stylesheet">
+        <link href="../../../css/base.css" rel="stylesheet">
 
         <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!--[if lt IE 9]>
@@ -46,8 +46,8 @@
             <a class="navbar-brand" href="https://apaam.github.io/webpage/">NetDEM</a>
         </div>
 
-        <script>var base_url = '../..';</script>
-        <!-- <script data-main="../../mkdocs/js/search.js" src="../../mkdocs/js/require.js"></script> -->
+        <script>var base_url = '../../..';</script>
+        <!-- <script data-main="../../../mkdocs/js/search.js" src="../../../mkdocs/js/require.js"></script> -->
 
         <!-- Expanded navigation -->
         <div class="navbar-collapse collapse">
@@ -60,7 +60,7 @@
             
                 <li >
                     <!-- Replace "nav_item.url|url" with "nav_item.url" for older mkdocs (before 1.0) -->
-                    <a href="../../examples/">Examples</a>
+                    <a href="../../../examples/">Examples</a>
                 </li>
             
             
@@ -73,25 +73,25 @@
                     
                         
                             <li >
-                                 <a href="../user_manual/">User manual</a>
+                                 <a href="../../user_manual/">User manual</a>
                             </li>
                         
                     
                         
                             <li >
-                                 <a href="../developer_manual/">Developer manual</a>
+                                 <a href="../../developer_manual/">Developer manual</a>
                             </li>
                         
                     
                         
                             <li >
-                                 <a href="../dem_wiki/">DEM wiki</a>
+                                 <a href="../../dem_wiki/">DEM wiki</a>
                             </li>
                         
                     
                         
                             <li >
-                                 <a href="../../doxygen/html/">Code doxygen</a>
+                                 <a href="../../../doxygen/html/">Code doxygen</a>
                             </li>
                         
                     
@@ -104,7 +104,7 @@
             
                 <li >
                     <!-- Replace "nav_item.url|url" with "nav_item.url" for older mkdocs (before 1.0) -->
-                    <a href="../../download/">Download</a>
+                    <a href="../../../download/">Download</a>
                 </li>
             
             
@@ -117,13 +117,13 @@
                     
                         
                             <li >
-                                 <a href="../../gallery/snapshots/">Snapshots</a>
+                                 <a href="../../../gallery/snapshots/">Snapshots</a>
                             </li>
                         
                     
                         
                             <li >
-                                 <a href="../../gallery/animations/">Animations</a>
+                                 <a href="../../../gallery/animations/">Animations</a>
                             </li>
                         
                     
@@ -140,19 +140,19 @@
                     
                         
                             <li >
-                                 <a href="../../about/help_%26_support/">Help & Support</a>
+                                 <a href="../../../about/help_%26_support/">Help & Support</a>
                             </li>
                         
                     
                         
                             <li >
-                                 <a href="../../about/publications/">Publications</a>
+                                 <a href="../../../about/publications/">Publications</a>
                             </li>
                         
                     
                         
                             <li >
-                                 <a href="../../about/acknowledgement/">Acknowledgements</a>
+                                 <a href="../../../about/acknowledgement/">Acknowledgements</a>
                             </li>
                         
                     
@@ -195,9 +195,9 @@
         <li class="main active"><a href="#_1"></a></li>
         
     
-        <li class="main "><a href="#mpimanager">MPIManager</a></li>
+        <li class="main "><a href="#simulation">Simulation</a></li>
         
-            <li><a href="#constructor"> &#9731; Constructor</a></li>
+            <li><a href="#attributes"> &#9731; Attributes</a></li>
         
             <li><a href="#methods"> &#9731; Methods</a></li>
         
@@ -210,9 +210,9 @@
         <li class="main active"><a href="#_1"></a></li>
         
     
-        <li class="main "><a href="#mpimanager">MPIManager</a></li>
+        <li class="main "><a href="#simulation">Simulation</a></li>
         
-            <li><a href="#constructor"> &#9731; Constructor</a></li>
+            <li><a href="#attributes"> &#9731; Attributes</a></li>
         
             <li><a href="#methods"> &#9731; Methods</a></li>
         
@@ -222,35 +222,42 @@
             <div class="col-md-9" role="main">
 
 <div><h3 id="_1"></h3>
-<p><a href="../user_manual/">User manual</a>
-┊ <a href="../ref_modifier/">Previous</a>
-┊ <a href="../ref_netdem/">Next</a></p>
+<p><a href="user_manual.md">User manual</a>
+┊ <a href="../ref_shape/">Previous</a>
+┊ <a href="../ref_utils/">Next</a></p>
 <hr>
-<h3 id="mpimanager">MPIManager</h3>
-<p>This class provides an interface for MPI-based parallelism.</p>
-<h4 id="constructor">Constructor</h4>
-<h5 id="mpimanager_1"><code>MPIManager()</code></h5>
-<p>Creates a new instance of the MPIManager class.</p>
+<h3 id="simulation">Simulation</h3>
+<p>This class represents a simulation.</p>
+<h4 id="attributes">Attributes</h4>
+<h5 id="domain_manager"><code>domain_manager</code></h5>
+<p>The domain manager used in the simulation.</p>
+<h5 id="mpi_manager"><code>mpi_manager</code></h5>
+<p>The MPI manager used in the simulation.</p>
+<h5 id="modifier_manager"><code>modifier_manager</code></h5>
+<p>The modifier manager used in the simulation.</p>
+<h5 id="scene"><code>scene</code></h5>
+<p>The scene used in the simulation.</p>
+<h5 id="dem_solver"><code>dem_solver</code></h5>
+<p>The DEM solver used in the simulation.</p>
+<h5 id="mech_time"><code>mech_time</code></h5>
+<p>The mechanical time used in the simulation.</p>
+<h5 id="mech_cycles"><code>mech_cycles</code></h5>
+<p>The mechanical cycles used in the simulation.</p>
+<h5 id="enable_logging"><code>enable_logging</code></h5>
+<p>A flag indicating whether logging is enabled for the simulation.</p>
 <h4 id="methods">Methods</h4>
-<h5 id="getselfrank"><code>GetSelfRank()</code></h5>
-<p>Returns the rank of the current process.</p>
-<h5 id="gettotalrank"><code>GetTotalRank()</code></h5>
-<p>Returns the total number of processes.</p>
-<h5 id="syncshapetoallprocessorsshape"><code>SyncShapeToAllProcessors(shape)</code></h5>
-<p>Synchronizes the shape of an array among all the processes.</p>
-<ul>
-<li><code>shape</code> (numpy array): A numpy array that represents the shape to synchronize.</li>
-</ul>
-<h5 id="syncdataamongprocessorsdata"><code>SyncDataAmongProcessors(data)</code></h5>
-<p>Synchronizes the data of an array among all the processes.</p>
-<ul>
-<li><code>data</code> (numpy array): A numpy array that represents the data to synchronize.</li>
-</ul>
-<p>Note: This method can be called with either an array of integers or an array of doubles.</p>
+<h5 id="run"><code>Run()</code></h5>
+<p>Run the simulation.</p>
+<h5 id="autoreadrestart"><code>AutoReadRestart()</code></h5>
+<p>Automatically read the restart file for the simulation.</p>
+<h5 id="settimeandcyclestime-cycles"><code>SetTimeAndCycles()</code>(time, cycles)</h5>
+<p>Set the mechanical time and cycles for the simulation.</p>
+<p>time (float): The mechanical time to set.
+cycles (int): The mechanical cycles to set.</p>
 <hr>
-<p><a href="../user_manual/">User manual</a>
-┊ <a href="../ref_modifier/">Previous</a>
-┊ <a href="../ref_netdem/">Next</a></p></div></div>
+<p><a href="user_manual.md">User manual</a>
+┊ <a href="../ref_shape/">Previous</a>
+┊ <a href="../ref_utils/">Next</a></p></div></div>
             <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
@@ -287,15 +294,15 @@
            </div>
         </footer>
 
-        <script src="../../js/jquery-1.10.2.min.js"></script>
-        <script src="../../js/bootstrap-3.0.3.min.js"></script>
-        <script src="../../js/highlight.pack.js"></script>
-        <script src="../../js/base.js"></script>
-        <script src="../../js/retina.min.js"></script>
-        <!-- <script data-main="../../mkdocs/js/search.js" src="../../mkdocs/js/require.js"></script> -->
-        <script src="../../mathjax-config.js"></script>
+        <script src="../../../js/jquery-1.10.2.min.js"></script>
+        <script src="../../../js/bootstrap-3.0.3.min.js"></script>
+        <script src="../../../js/highlight.pack.js"></script>
+        <script src="../../../js/base.js"></script>
+        <script src="../../../js/retina.min.js"></script>
+        <!-- <script data-main="../../../mkdocs/js/search.js" src="../../../mkdocs/js/require.js"></script> -->
+        <script src="../../../mathjax-config.js"></script>
         <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
         <script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-        <script src="../../search/main.js"></script>
+        <script src="../../../search/main.js"></script>
     </body>
 </html>
