@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="https://apaam.github.io/webpage/img/favicon.ico">
+        <meta name="keywords" content="Finite Element Library,Finite Element Code,Finite Element Method Library,Finite Element Method Code,Finite Element C++,Finite Element Method C++,Finite Element Library C++,Finite Element Code C++,FEM Code,FEM Library,FEM C++">
+        <meta name="google-site-verification" content="45K56TawSdzbgy-uDtfJdYwp7zaVdL3fIAGYt869wwU" />
+<!--	<title></title>  -->
+        <title>NetDEM - Neural Network Enabled Discret Element Method</title>
+
+        <link href="../../../css/bootstrap-bootstrap.min.css" rel="stylesheet">
+        <link href="../../../css/font-awesome-4.0.3.css" rel="stylesheet">
+        <link href="../../../css/highlight.css" rel="stylesheet">
+        <link href="../../../css/base.css" rel="stylesheet">
+
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+        
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <!-- Main title -->
+            <a class="navbar-brand" href="https://apaam.github.io/webpage/">NetDEM</a>
+        </div>
+
+        <script>var base_url = '../../..';</script>
+        <!-- <script data-main="../../../mkdocs/js/search.js" src="../../../mkdocs/js/require.js"></script> -->
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            <!-- Main navigation -->
+            <ul class="nav navbar-nav">
+            
+            
+            
+            
+            
+                <li >
+                    <!-- Replace "nav_item.url|url" with "nav_item.url" for older mkdocs (before 1.0) -->
+                    <a href="../../../examples/">Examples</a>
+                </li>
+            
+            
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Documentation <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+                            <li >
+                                 <a href="../../user_manual/">User manual</a>
+                            </li>
+                        
+                    
+                        
+                            <li >
+                                 <a href="../../developer_manual/">Developer manual</a>
+                            </li>
+                        
+                    
+                        
+                            <li >
+                                 <a href="../../dem_wiki/">DEM wiki</a>
+                            </li>
+                        
+                    
+                        
+                            <li >
+                                 <a href="../../../doxygen/html/">Code doxygen</a>
+                            </li>
+                        
+                    
+                    </ul>
+                </li>
+            
+            
+            
+            
+            
+                <li >
+                    <!-- Replace "nav_item.url|url" with "nav_item.url" for older mkdocs (before 1.0) -->
+                    <a href="../../../download/">Download</a>
+                </li>
+            
+            
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Gallery <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+                            <li >
+                                 <a href="../../../gallery/snapshots/">Snapshots</a>
+                            </li>
+                        
+                    
+                        
+                            <li >
+                                 <a href="../../../gallery/animations/">Animations</a>
+                            </li>
+                        
+                    
+                    </ul>
+                </li>
+            
+            
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">About <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+                            <li >
+                                 <a href="../../../about/help_%26_support/">Help & Support</a>
+                            </li>
+                        
+                    
+                        
+                            <li >
+                                 <a href="../../../about/publications/">Publications</a>
+                            </li>
+                        
+                    
+                        
+                            <li >
+                                 <a href="../../../about/acknowledgement/">Acknowledgements</a>
+                            </li>
+                        
+                    
+                    </ul>
+                </li>
+            
+            
+            
+            </ul>
+
+            <!-- Search, Navigation and Repo links -->
+            <ul class="nav navbar-nav navbar-right">
+                <li class="nav-item">
+                    <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                        <i class="fa fa-search"></i> Search
+                    </a>
+                </li>
+                
+                
+                <li>
+                    <a href="https://github.com/apaam/webpage">
+                        
+                            <i class="fa fa-github-square"></i>
+                        
+                        GitHub
+                    </a>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+
+        
+        <div class="container">
+            
+            <div class="col-md-3 visible-xs visible-sm"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+    
+        <li class="main active"><a href="#_1"></a></li>
+        
+    
+        <li class="main "><a href="#read-restart-usage">Read Restart Usage</a></li>
+        
+            <li><a href="#overview-of-restart-mechanisms"> &#9731; Overview of Restart Mechanisms</a></li>
+        
+            <li><a href="#usage-instructions"> &#9731; Usage Instructions</a></li>
+        
+            <li><a href="#resetting-simulation-time-and-step"> &#9731; Resetting Simulation Time and Step</a></li>
+        
+            <li><a href="#configuring-datadumper-for-restart"> &#9731; Configuring DataDumper for Restart</a></li>
+        
+            <li><a href="#restarting-of-the-cfd-side-openfoam"> &#9731; Restarting of the CFD Side (OpenFOAM)</a></li>
+        
+            <li><a href="#restart-execution-script"> &#9731; Restart Execution Script</a></li>
+        
+    
+        <li class="main "><a href="#example-all-restart-script">Example: All-restart script</a></li>
+        
+    
+    </ul>
+</div></div> <!-- toc on top on mobile -->
+            <div class="col-md-3 hidden-xs hidden-sm"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+    
+        <li class="main active"><a href="#_1"></a></li>
+        
+    
+        <li class="main "><a href="#read-restart-usage">Read Restart Usage</a></li>
+        
+            <li><a href="#overview-of-restart-mechanisms"> &#9731; Overview of Restart Mechanisms</a></li>
+        
+            <li><a href="#usage-instructions"> &#9731; Usage Instructions</a></li>
+        
+            <li><a href="#resetting-simulation-time-and-step"> &#9731; Resetting Simulation Time and Step</a></li>
+        
+            <li><a href="#configuring-datadumper-for-restart"> &#9731; Configuring DataDumper for Restart</a></li>
+        
+            <li><a href="#restarting-of-the-cfd-side-openfoam"> &#9731; Restarting of the CFD Side (OpenFOAM)</a></li>
+        
+            <li><a href="#restart-execution-script"> &#9731; Restart Execution Script</a></li>
+        
+    
+        <li class="main "><a href="#example-all-restart-script">Example: All-restart script</a></li>
+        
+    
+    </ul>
+</div></div>
+            <div class="col-md-9" role="main">
+
+<div><h3 id="_1"></h3>
+<p><a href="user_manual.md">User manual</a>
+┊ <a href="user_manual.md">Previous</a>
+┊ <a href="user_manual.md">Next</a></p>
+<hr>
+<h3 id="read-restart-usage">Read Restart Usage</h3>
+<p>NetDEM supports two restart mechanisms to facilitate flexible and efficient continuation of large-scale discrete element simulations. Users can choose between <strong>VTK-based</strong> and <strong>JSON-based</strong> restart options depending on the fidelity required and the intended use (e.g., visualization vs. simulation continuation).</p>
+<h4 id="overview-of-restart-mechanisms">Overview of Restart Mechanisms</h4>
+<h5 id="vtk-based-restart">VTK-Based Restart</h5>
+<p>The <strong>VTK</strong> format is used to export basic simulation results through the <code>DataDumper</code> module. It supports reading geometry information such as particles and walls but <strong>does not currently support restoring contact information</strong>. </p>
+<h5 id="json-based-restart">JSON-Based Restart</h5>
+<p>The <strong>JSON</strong> format is generated when <code>dump_read_restart</code> is enabled in <code>DataDumper</code>. It contains comprehensive simulation state data, including particle properties, wall status, and contact information. This mechanism is recommended for high-fidelity restart scenarios where exact simulation continuation is required.</p>
+<h4 id="usage-instructions">Usage Instructions</h4>
+<p>A restart can be initiated using the following command:</p>
+<pre><code class="language-python">sim.scene.AutoReadRestart("packing/", 40000, 0, "json")
+</code></pre>
+<p>Where:
+- <code>"packing/"</code> is the directory containing the saved restart data.
+- <code>40000</code> specifies the target cycle or time step.
+- <code>0</code> is the subdomain ID (used in parallel simulations).
+- <code>"json"</code> or <code>"vtk"</code> sets the data format to be loaded.</p>
+<p>If the <code>"vtk"</code> format is selected, please note that contact information will not be recovered. Use <code>"json"</code> if full state recovery is needed.</p>
+<h4 id="resetting-simulation-time-and-step">Resetting Simulation Time and Step</h4>
+<p>After reading restart data, the simulation clock and cycle count can be reset using:</p>
+<pre><code class="language-python">sim.SetTimeAndCycles(0, 0)
+</code></pre>
+<p>This is useful for cleanly defining the start of a new simulation stage and for consistent time tracking in post-processing.</p>
+<p>Alternatively, users may set the original time and cycle values (e.g., from a previous run) using:</p>
+<pre><code class="language-python">sim.SetTimeAndCycles(4.0, 40000)
+</code></pre>
+<p>This allows the simulation to resume from the actual interruption point, ensuring continuity in both numerical progression and temporal tracking. It is especially important when simulation results need to be seamlessly integrated across different stages.</p>
+<p>When restarting from a previous simulation, it is often necessary to recover the time series used by ParaView for animation and analysis. This can be done via:</p>
+<pre><code class="language-python">data_dumper.ReadTimeSeries("dem/")
+</code></pre>
+<p>This function reads the existing <code>.series</code> file to restore consistent visualization timelines. Without this, the file may be overwritten during restart.</p>
+<h4 id="configuring-datadumper-for-restart">Configuring DataDumper for Restart</h4>
+<p>To enable restart functionality and data output during the initial simulation, configure the <code>DataDumper</code> module accordingly.</p>
+<h5 id="vtk-output">VTK Output</h5>
+<p>To export results in VTK format for visualization in ParaView:</p>
+<pre><code class="language-python">data_dumper.SetSaveByTime(0.01)  # Save VTK files every 0.01 seconds
+</code></pre>
+<p>This generates geometry and field data at fixed time intervals, but does not include full simulation state (e.g., contact info). Use this option when your goal is primarily visualization and post-processing.</p>
+<h5 id="json-output-for-simulation-restart">JSON Output for Simulation Restart</h5>
+<p>To save full simulation state for accurate restart:</p>
+<pre><code class="language-python">data_dumper.dump_read_restart = True
+data_dumper.SetSaveReadRestartByTime(1.0)  # Save restart data every 1.0 seconds
+</code></pre>
+<p>These settings enable periodic dumping of complete simulation snapshots in JSON format, including contact models, particle states, wall conditions, and other metadata required for exact restart.</p>
+<h4 id="restarting-of-the-cfd-side-openfoam">Restarting of the CFD Side (OpenFOAM)</h4>
+<p>On the CFD side (e.g., using OpenFOAM), restart is configured via the <code>controlDict</code> file located in the <code>system/</code> directory. To resume from a previously saved simulation state, modify the <code>startFrom</code> and <code>startTime</code> entries as follows:</p>
+<pre><code class="language-plaintext">startFrom       latestTime;
+</code></pre>
+<p>Where:
+- startFrom latestTime tells OpenFOAM to automatically start from the latest available time folder in the case directory.
+- You may alternatively replace latestTime with a specific time value, such as 4.0, to restart from that point explicitly.</p>
+<p>Note: If you manually set startTime, make sure the corresponding time folder exists. Otherwise, OpenFOAM will return an error.</p>
+<p>This configuration enables smooth continuation of a CFD simulation either from the latest available time or a chosen earlier time step, and is especially useful when coupling with DEM restart logic in hybrid simulations.</p>
+<h4 id="restart-execution-script">Restart Execution Script</h4>
+<p>In restart scenarios, it is recommended <strong>not</strong> to use the default <code>Allrun-parallel</code> or <code>Allclean</code> scripts, as they may overwrite or delete necessary data such as decomposed time directories or previous simulation logs.</p>
+<p>Instead, use a minimal execution script (e.g., named <code>All-restart</code>) based on <code>Allrun-parallel</code>, with the following modifications:
+- Skip mesh generation and decomposition steps.
+- Back up and remove the previous solver log.
+- Directly launch the solver using the existing decomposed case.</p>
+<h3 id="example-all-restart-script">Example: <code>All-restart</code> script</h3>
+<pre><code class="language-bash">#!/bin/sh
+cd "${0%/*}" || exit                                # Run from this directory
+. ${WM_PROJECT_DIR:?}/bin/tools/RunFunctions        # Tutorial run functions
+#------------------------------------------------------------------------------
+
+# Backup and clean previous log
+mv log.$(getApplication) log.$(getApplication)-bak
+rm -f log.$(getApplication)
+
+# Run the solver in parallel (assumes case is already decomposed)
+runParallel $(getApplication)
+
+#------------------------------------------------------------------------------
+</code></pre>
+<p>Note: Ensure that the case has already been decomposed (i.e., decomposePar has been run previously), and that the necessary processor*/ directories exist before executing this script.</p>
+<p>This streamlined script ensures a clean restart without overwriting mesh or field files, and is especially useful in CFD-DEM coupled simulations where DEM restart is coordinated in parallel.</p>
+<hr>
+<p><a href="user_manual.md">User manual</a>
+┊ <a href="user_manual.md">Previous</a>
+┊ <a href="user_manual.md">Next</a></p></div></div>
+            <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>Enter your search keywords below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+            
+        </div>
+        
+
+        <footer class="footer">
+           <div class="container">
+              <p class="text-muted alignleft">
+                  <span id="busuanzi_container_site_uv" style='display:none'>Vistors: <span id="busuanzi_value_site_uv"></span>. </span>
+              </p>
+              <p class="text-muted alignright">
+                &copy; <a href="https://apaam.github.io/webpage/about/acknowledgement/">NetDEM Team</a>. SYSU, HKUST.
+              </p>
+           </div>
+        </footer>
+
+        <script src="../../../js/jquery-1.10.2.min.js"></script>
+        <script src="../../../js/bootstrap-3.0.3.min.js"></script>
+        <script src="../../../js/highlight.pack.js"></script>
+        <script src="../../../js/base.js"></script>
+        <script src="../../../js/retina.min.js"></script>
+        <!-- <script data-main="../../../mkdocs/js/search.js" src="../../../mkdocs/js/require.js"></script> -->
+        <script src="../../../mathjax-config.js"></script>
+        <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+        <script src="../../../search/main.js"></script>
+    </body>
+</html>
