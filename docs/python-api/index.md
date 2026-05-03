@@ -12,9 +12,9 @@ Phynexis exposes its C++ core through pybind11 bindings. The table below lists t
 
 | Module | Python Import | C++ Namespace | Description |
 |--------|--------------|---------------|-------------|
-| **utils** | `phynexis.utils` | `phynexis::utils` | Utilities: console, SDF, string helpers |
-| **fields** | `phynexis.fields` | `phynexis::fields` | Field quantities and level sets |
-| **parsim** | `phynexis.parsim` | `phynexis::parsim` | Parallel simulation framework |
+| **utils** | `phynexis.utils` | `phynexis::utils` | [Utilities: console, SDF, string helpers](utils/index.md) |
+| **fields** | `phynexis.fields` | `phynexis::fields` | [Field quantities and level sets](fields/index.md) |
+| **parsim** | `phynexis.parsim` | `phynexis::parsim` | [Parallel simulation framework](parsim/index.md) |
 | **netdem** | `phynexis.netdem` | `phynexis::netdem` | Discrete Element Method (DEM) |
 | **netfem** | `phynexis.netfem` | `phynexis::netfem` | Finite Element Method (FEM) |
 | **cfddem** | `phynexis.cfddem` | `phynexis::cfddem` | CFD-DEM coupling |
