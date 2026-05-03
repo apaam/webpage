@@ -1,9 +1,23 @@
-local:
-	mkdocs serve
+.PHONY: dev build serve deploy doxygen install clean
+
+install:
+	npm install
+
+dev:
+	npm run dev
+
+build:
+	npm run build
+
+serve: build
+	npm run serve
+
 deploy:
-	mkdocs gh-deploy
-doxygen: 
-	rm -rf docs/doxygen/
+	npm run deploy
+
+doxygen:
+	rm -rf static/doxygen
 	doxygen Doxyfile
 
-.PHONY: local remote doxygen 
+clean:
+	rm -rf .docusaurus build node_modules static/doxygen

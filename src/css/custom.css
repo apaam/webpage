@@ -1,0 +1,995 @@
+/**
+ * APAAM Lab - Refined Academic Color System
+ * Apple-inspired minimalist design with warm undertones
+ */
+
+/* ============================================================================
+   CSS Variables - Light Mode (Warm Off-White)
+   ============================================================================ */
+
+:root {
+  /* Primary Accent - Deep Teal */
+  --ifm-color-primary: #0d7377;
+  --ifm-color-primary-dark: #0a5c5f;
+  --ifm-color-primary-darker: #08494c;
+  --ifm-color-primary-darkest: #063638;
+  --ifm-color-primary-light: #108f94;
+  --ifm-color-primary-lighter: #14ab6f;
+  --ifm-color-primary-lightest: #18c78a;
+
+  /* Background Colors - 3-layer hierarchy: page → card → hover */
+  --ifm-background-color: #ffffff;
+  --ifm-background-surface-color: #f5f5f7;
+  --ifm-background-secondary: #ececee;
+  --ifm-background-tertiary: #e2e2e5;
+
+  /* Text Colors - Apple-style neutral gray */
+  --ifm-font-color-base: #1d1d1f;
+  --ifm-font-color-secondary: #6e6e73;
+  --ifm-font-color-tertiary: #86868b;
+  --ifm-font-color-muted: #a1a1a6;
+
+  /* Interactive States */
+  --ifm-link-color: #0d7377;
+  --ifm-link-hover-color: #108f94;
+  --ifm-menu-hover-background: rgba(13, 115, 119, 0.08);
+  --ifm-menu-color-background-active: rgba(13, 115, 119, 0.12);
+
+  /* Borders - Apple-style subtle gray */
+  --ifm-border-color: rgba(0, 0, 0, 0.06);
+  --ifm-border-color-strong: rgba(0, 0, 0, 0.1);
+  --ifm-border-color-subtle: rgba(0, 0, 0, 0.04);
+
+  /* Code Blocks */
+  --ifm-code-background: #f5f5f7;
+  --ifm-code-color: #1d1d1f;
+  --docusaurus-highlighted-code-line-bg: rgba(13, 115, 119, 0.1);
+
+  /* Component-specific - Unified background system */
+  --ifm-navbar-background-color: rgba(255, 255, 255, 0.92);
+  --ifm-sidebar-background-color: #f5f5f7;
+  --ifm-footer-background-color: #f0f0f2;
+
+  /* Card backgrounds */
+  --ifm-card-background-color: #f5f5f7;
+  --ifm-card-background-hover: #ececee;
+
+  /* Shadows - Clean neutral */
+  --ifm-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.04);
+  --ifm-shadow-md: 0 4px 12px rgba(0, 0, 0, 0.06);
+  --ifm-shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.08);
+
+  /* Typography */
+  --ifm-font-family-base: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  --ifm-font-family-monospace: 'SF Mono', 'Fira Code', 'JetBrains Mono', monospace;
+  --ifm-heading-font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
+  --ifm-heading-font-weight: 600;
+  --ifm-heading-line-height: 1.2;
+  --ifm-h1-font-size: 2rem;
+  --ifm-h2-font-size: 1.5rem;
+  --ifm-h3-font-size: 1.25rem;
+
+  /* Spacing */
+  --ifm-leading-desktop: 1.8;
+  --ifm-leading-mobile: 1.6;
+  --ifm-navbar-height: 70px;
+  --ifm-navbar-padding-horizontal: 2rem;
+  --ifm-navbar-shadow: none;
+}
+
+/* ============================================================================
+   Dark Mode - Deep Navy-Black
+   ============================================================================ */
+
+[data-theme='dark'] {
+  /* Primary Accent - Bright Teal for dark */
+  --ifm-color-primary: #14a3a8;
+  --ifm-color-primary-dark: #0d7377;
+  --ifm-color-primary-darker: #0a5c5f;
+  --ifm-color-primary-darkest: #08494c;
+  --ifm-color-primary-light: #1ac2c8;
+  --ifm-color-primary-lighter: #20e1e8;
+  --ifm-color-primary-lightest: #4ef0f5;
+
+  /* Background Colors - 3-layer hierarchy: page → card → hover */
+  --ifm-background-color: #0a0a0c;
+  --ifm-background-surface-color: #161618;
+  --ifm-background-secondary: #222224;
+  --ifm-background-tertiary: #2e2e30;
+
+  /* Text Colors - Apple-style soft white */
+  --ifm-font-color-base: #f5f5f7;
+  --ifm-font-color-secondary: #a1a1a6;
+  --ifm-font-color-tertiary: #86868b;
+  --ifm-font-color-muted: #6e6e73;
+
+  /* Interactive States */
+  --ifm-link-color: #14a3a8;
+  --ifm-link-hover-color: #1ac2c8;
+  --ifm-menu-hover-background: rgba(20, 163, 168, 0.12);
+  --ifm-menu-color-background-active: rgba(20, 163, 168, 0.18);
+
+  /* Borders - Subtle light borders on dark */
+  --ifm-border-color: rgba(255, 255, 255, 0.08);
+  --ifm-border-color-strong: rgba(255, 255, 255, 0.12);
+  --ifm-border-color-subtle: rgba(255, 255, 255, 0.04);
+
+  /* Code Blocks */
+  --ifm-code-background: #2a2a2c;
+  --ifm-code-color: #f5f5f7;
+  --docusaurus-highlighted-code-line-bg: rgba(20, 163, 168, 0.15);
+
+  /* Component-specific - Unified background system */
+  --ifm-navbar-background-color: rgba(10, 10, 12, 0.92);
+  --ifm-sidebar-background-color: #0a0a0c;
+  --ifm-footer-background-color: #0e0e10;
+
+  /* Card backgrounds */
+  --ifm-card-background-color: #161618;
+  --ifm-card-background-hover: #222224;
+
+  /* Shadows - More subtle in dark mode */
+  --ifm-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.2);
+  --ifm-shadow-md: 0 4px 12px rgba(0, 0, 0, 0.3);
+  --ifm-shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+/* ============================================================================
+   Global Styles
+   ============================================================================ */
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--ifm-background-color);
+  color: var(--ifm-font-color-base);
+  font-family: var(--ifm-font-family-base);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Selection */
+::selection {
+  background: rgba(13, 115, 119, 0.2);
+  color: inherit;
+}
+
+[data-theme='dark'] ::selection {
+  background: rgba(20, 163, 168, 0.25);
+}
+
+/* ============================================================================
+   Navbar Styles
+   ============================================================================ */
+
+.navbar {
+  background: var(--ifm-navbar-background-color) !important;
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-bottom: 1px solid var(--ifm-border-color);
+  box-shadow: var(--ifm-shadow-sm);
+  z-index: 300;
+}
+
+.navbar__brand {
+  font-weight: 600;
+  font-size: 1.25rem;
+  color: var(--ifm-font-color-base);
+}
+
+.navbar__brand:hover {
+  color: var(--ifm-color-primary);
+}
+
+.navbar__logo {
+  height: 32px;
+  margin-right: 0.75rem;
+}
+
+.navbar__link {
+  font-weight: 500;
+  color: var(--ifm-font-color-secondary);
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.navbar__link:hover {
+  color: var(--ifm-font-color-base);
+  background: var(--ifm-menu-hover-background);
+}
+
+.navbar__link--active {
+  color: var(--ifm-color-primary);
+}
+
+/* Locale dropdown */
+.dropdown > .navbar__link:after {
+  border-color: currentColor transparent;
+}
+
+.dropdown__menu {
+  background: var(--ifm-background-surface-color);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--ifm-border-color);
+  border-radius: 12px;
+  box-shadow: var(--ifm-shadow-lg);
+}
+
+.dropdown__link {
+  color: var(--ifm-font-color-secondary);
+  border-radius: 8px;
+  margin: 0 0.5rem;
+  padding: 0.5rem 1rem;
+  transition: all 0.2s ease;
+}
+
+.dropdown__link:hover {
+  background: var(--ifm-menu-hover-background);
+  color: var(--ifm-font-color-base);
+}
+
+/* Color mode toggle */
+.toggleButton_node_modules-\@docusaurus-theme-classic-lib-theme-ColorModeToggle-styles-module {
+  color: var(--ifm-font-color-secondary);
+}
+
+/* ============================================================================
+   Sidebar Styles - Match blog sidebar: transparent bg, no right border, inset
+   ============================================================================ */
+
+/* Center the docs layout like blog (1140px container, narrower sidebar) */
+/* Use attribute selector because .docsWrapper is a hashed CSS Module class */
+[class*="docsWrapper"] {
+  max-width: 1260px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+:root {
+  --doc-sidebar-width: 300px;
+}
+
+.theme-doc-sidebar-container {
+  background: transparent !important;
+  border-right: none !important;
+}
+
+.theme-doc-sidebar-menu {
+  padding: 1rem 0.5rem 1rem 1.5rem;
+  font-size: 0.9rem;
+}
+
+/* Clean sidebar links - no background padding on hover */
+.menu__link,
+.theme-doc-sidebar-item-link {
+  border-radius: 0;
+  margin: 0;
+  padding: 0.3rem 0.5rem;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: var(--ifm-font-color-base) !important;
+  transition: color 0.15s ease;
+  background: transparent !important;
+}
+
+.menu__link:hover,
+.theme-doc-sidebar-item-link:hover {
+  background: transparent !important;
+  color: var(--ifm-color-primary) !important;
+}
+
+.menu__link--active,
+.theme-doc-sidebar-item-link--active {
+  background: transparent !important;
+  color: var(--ifm-color-primary) !important;
+  font-weight: 600;
+}
+
+.menu__link--active:hover,
+.theme-doc-sidebar-item-link--active:hover {
+  background: transparent !important;
+  color: var(--ifm-color-primary) !important;
+}
+
+.theme-doc-sidebar-item-category {
+  margin: 0;
+}
+
+.theme-doc-sidebar-item-category > .menu__list-item-collapsible,
+.menu__list-item-collapsible {
+  border-radius: 0;
+  font-weight: 500;
+  font-size: 0.9rem;
+  padding: 0.3rem 0.5rem;
+  color: var(--ifm-font-color-base) !important;
+  transition: color 0.15s ease;
+  background: transparent !important;
+}
+
+.theme-doc-sidebar-item-category > .menu__list-item-collapsible:hover,
+.menu__list-item-collapsible:hover {
+  background: transparent !important;
+  color: var(--ifm-color-primary) !important;
+}
+
+/* Nested menu items */
+.menu__list .menu__list {
+  padding-left: 0.75rem;
+  border-left: none;
+  margin-left: 0.5rem;
+}
+
+.menu__list-item {
+  margin: 0.15rem 0;
+}
+
+.menu__caret {
+  border-radius: 4px;
+  color: var(--ifm-font-color-tertiary) !important;
+  padding: 0.25rem;
+}
+
+.menu__caret:hover {
+  background: transparent;
+  color: var(--ifm-color-primary) !important;
+}
+
+/* ============================================================================
+   Content Styles - Coordinated font sizes
+   ============================================================================ */
+
+.theme-doc-markdown {
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.theme-doc-markdown h1 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.875rem;
+  color: var(--ifm-font-color-base);
+}
+
+.theme-doc-markdown h2 {
+  font-size: 1.375rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  margin-top: 1.75rem;
+  margin-bottom: 0.625rem;
+  padding-bottom: 0.375rem;
+  border-bottom: 1px solid var(--ifm-border-color);
+  color: var(--ifm-font-color-base);
+}
+
+.theme-doc-markdown h3 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-top: 1.25rem;
+  margin-bottom: 0.5rem;
+  color: var(--ifm-font-color-base);
+}
+
+/* Blog and generic markdown heading sizes */
+.markdown h1 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.875rem;
+  color: var(--ifm-font-color-base);
+}
+
+.markdown h2 {
+  font-size: 1.375rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  margin-top: 1.75rem;
+  margin-bottom: 0.625rem;
+  padding-bottom: 0.375rem;
+  border-bottom: 1px solid var(--ifm-border-color);
+  color: var(--ifm-font-color-base);
+}
+
+.markdown h3 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-top: 1.25rem;
+  margin-bottom: 0.5rem;
+  color: var(--ifm-font-color-base);
+}
+
+.theme-doc-markdown p {
+  margin-bottom: 1rem;
+  color: var(--ifm-font-color-base);
+}
+
+.theme-doc-markdown a {
+  color: var(--ifm-link-color);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s ease;
+}
+
+.theme-doc-markdown a:hover {
+  border-bottom-color: var(--ifm-link-color);
+}
+
+.theme-doc-markdown ul,
+.theme-doc-markdown ol {
+  padding-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.theme-doc-markdown li {
+  margin-bottom: 0.375rem;
+  color: var(--ifm-font-color-base);
+}
+
+.theme-doc-markdown blockquote {
+  border-left: 4px solid var(--ifm-color-primary);
+  background: var(--ifm-background-secondary);
+  padding: 0.75rem 1rem;
+  border-radius: 0 8px 8px 0;
+  margin: 1rem 0;
+}
+
+.theme-doc-markdown blockquote p {
+  margin-bottom: 0;
+  color: var(--ifm-font-color-base);
+}
+
+.theme-doc-markdown code {
+  background: var(--ifm-code-background);
+  color: var(--ifm-code-color);
+  border-radius: 4px;
+  padding: 0.15rem 0.35rem;
+  font-size: 0.875em;
+}
+
+.theme-doc-markdown pre {
+  background: var(--ifm-code-background);
+  border-radius: 8px;
+  padding: 1rem;
+  margin: 1rem 0;
+  overflow-x: auto;
+}
+
+.theme-doc-markdown pre code {
+  background: transparent;
+  padding: 0;
+}
+
+/* ============================================================================
+   Table Styles
+   ============================================================================ */
+
+table {
+  border-collapse: separate;
+  border-spacing: 0;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid var(--ifm-border-color);
+  margin: 1rem 0;
+  background: var(--ifm-background-surface-color);
+  font-size: 0.9375rem;
+}
+
+table thead {
+  background: var(--ifm-background-secondary);
+}
+
+table th {
+  font-weight: 600;
+  padding: 0.625rem 0.75rem;
+  border-bottom: 1px solid var(--ifm-border-color);
+  color: var(--ifm-font-color-base);
+}
+
+table td {
+  padding: 0.625rem 0.75rem;
+  border-bottom: 1px solid var(--ifm-border-color-subtle);
+  color: var(--ifm-font-color-secondary);
+}
+
+table tr:last-child td {
+  border-bottom: none;
+}
+
+table tr:hover td {
+  background: var(--ifm-background-secondary);
+}
+
+/* ============================================================================
+   Footer Styles
+   ============================================================================ */
+
+.footer {
+  background: var(--ifm-footer-background-color) !important;
+  border-top: 1px solid var(--ifm-border-color);
+  padding: 3rem 0;
+}
+
+.footer__title {
+  color: var(--ifm-font-color-base);
+  font-weight: 600;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+.footer__item {
+  margin-bottom: 0.5rem;
+}
+
+.footer__link-item {
+  color: var(--ifm-font-color-secondary);
+  transition: color 0.2s ease;
+}
+
+.footer__link-item:hover {
+  color: var(--ifm-color-primary);
+  text-decoration: none;
+}
+
+.footer__copyright {
+  color: var(--ifm-font-color-tertiary);
+  font-size: 0.875rem;
+  margin-top: 2rem;
+}
+
+/* ============================================================================
+   Button Styles
+   ============================================================================ */
+
+.button {
+  border-radius: 100px;
+  font-weight: 500;
+  padding: 0.75rem 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.button--primary {
+  background: var(--ifm-color-primary);
+  border: none;
+  color: #ffffff;
+}
+
+.button--primary:hover {
+  background: var(--ifm-color-primary-dark);
+  transform: translateY(-2px);
+  box-shadow: var(--ifm-shadow-md);
+}
+
+.button--secondary {
+  background: var(--ifm-background-secondary);
+  border: 1px solid var(--ifm-border-color);
+  color: var(--ifm-font-color-base);
+}
+
+.button--secondary:hover {
+  background: var(--ifm-background-tertiary);
+  border-color: var(--ifm-border-color-strong);
+}
+
+/* Horizontal rule - more compact */
+.theme-doc-markdown hr {
+  margin: 1.5rem 0;
+  border: none;
+  border-top: 1px solid var(--ifm-border-color);
+}
+
+/* ============================================================================
+   Pagination Styles
+   ============================================================================ */
+
+.pagination-nav__link {
+  background: var(--ifm-card-background-color);
+  border: 1px solid var(--ifm-border-color);
+  border-radius: 12px;
+  padding: 1rem;
+  transition: all 0.3s ease;
+}
+
+.pagination-nav__link:hover {
+  background: var(--ifm-card-background-hover);
+  border-color: var(--ifm-border-color-strong);
+  transform: translateY(-2px);
+  box-shadow: var(--ifm-shadow-sm);
+}
+
+.pagination-nav__label {
+  font-weight: 600;
+  color: var(--ifm-font-color-base);
+}
+
+.pagination-nav__sublabel {
+  color: var(--ifm-font-color-tertiary);
+}
+
+/* ============================================================================
+   Scrollbar Styles
+   ============================================================================ */
+
+/* Firefox */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.08) transparent;
+}
+
+[data-theme='dark'] html {
+  scrollbar-color: rgba(255, 255, 255, 0.28) transparent;
+}
+
+/* WebKit */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.08);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.15);
+}
+
+[data-theme='dark'] ::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.28);
+}
+
+[data-theme='dark'] ::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.45);
+}
+
+/* ============================================================================
+   GitHub Icon in Navbar
+   ============================================================================ */
+
+.header-github-link {
+  width: 32px;
+  height: 32px;
+  padding: 6px;
+  margin-right: 0.5rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.header-github-link:hover {
+  background: var(--ifm-menu-hover-background);
+}
+
+.header-github-link::before {
+  content: '';
+  width: 20px;
+  height: 20px;
+  display: flex;
+  background-color: var(--ifm-font-color-base);
+  mask-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12'/%3E%3C/svg%3E");
+  mask-repeat: no-repeat;
+  mask-position: center;
+  mask-size: contain;
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12'/%3E%3C/svg%3E");
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  -webkit-mask-size: contain;
+}
+
+/* ============================================================================
+   Footer Icons - Modern Style
+   ============================================================================ */
+
+.footer__link-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Email Icon */
+.footer-email-link::before {
+  content: '';
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+  background-color: currentColor;
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='2' y='4' width='20' height='16' rx='2'/%3E%3Cpath d='m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7'/%3E%3C/svg%3E");
+  mask-repeat: no-repeat;
+  mask-position: center;
+  mask-size: contain;
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='2' y='4' width='20' height='16' rx='2'/%3E%3Cpath d='m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7'/%3E%3C/svg%3E");
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  -webkit-mask-size: contain;
+  opacity: 0.7;
+  transition: opacity 0.2s ease;
+}
+
+.footer-email-link:hover::before {
+  opacity: 1;
+}
+
+
+
+/* Phone Icon (if needed) */
+.footer-phone-link::before {
+  content: '';
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+  background-color: currentColor;
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z'/%3E%3C/svg%3E");
+  mask-repeat: no-repeat;
+  mask-position: center;
+  mask-size: contain;
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z'/%3E%3C/svg%3E");
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  -webkit-mask-size: contain;
+  opacity: 0.7;
+  transition: opacity 0.2s ease;
+}
+
+.footer-phone-link:hover::before {
+  opacity: 1;
+}
+
+/* ============================================================================
+   Mobile Responsive
+   ============================================================================ */
+
+@media screen and (max-width: 996px) {
+  .navbar {
+    padding: 0 1rem;
+  }
+
+  .navbar-sidebar {
+    background: var(--ifm-background-surface-color);
+  }
+
+  .theme-doc-markdown {
+    font-size: 0.9375rem;
+  }
+
+  .theme-doc-markdown h1 {
+    font-size: 1.5rem;
+  }
+
+  .theme-doc-markdown h2 {
+    font-size: 1.25rem;
+  }
+
+  .theme-doc-markdown h3 {
+    font-size: 1.0625rem;
+  }
+
+  table {
+    font-size: 0.875rem;
+  }
+
+  table th,
+  table td {
+    padding: 0.5rem 0.625rem;
+  }
+}
+
+/* ============================================================================
+   Print Styles
+   ============================================================================ */
+
+@media print {
+  .navbar,
+  .theme-doc-sidebar-container,
+  .pagination-nav,
+  .footer {
+    display: none !important;
+  }
+
+  .theme-doc-markdown {
+    font-size: 11pt;
+    line-height: 1.5;
+  }
+
+  .theme-doc-markdown pre {
+    background: #f5f5f5 !important;
+    border: 1px solid #ddd;
+  }
+}
+
+/* ============================================================================
+   Footer Icons - Modern Style (Updated)
+   ============================================================================ */
+
+.footer__link-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Email Icon - Match by href containing mailto */
+.footer__link-item[href^="mailto:"]::before {
+  content: '';
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+  flex-shrink: 0;
+  background-color: currentColor;
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='2' y='4' width='20' height='16' rx='2'/%3E%3Cpath d='m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7'/%3E%3C/svg%3E");
+  mask-repeat: no-repeat;
+  mask-position: center;
+  mask-size: contain;
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='2' y='4' width='20' height='16' rx='2'/%3E%3Cpath d='m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7'/%3E%3C/svg%3E");
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  -webkit-mask-size: contain;
+  opacity: 0.7;
+  transition: opacity 0.2s ease;
+}
+
+.footer__link-item[href^="mailto:"]:hover::before {
+  opacity: 1;
+}
+
+
+
+/* Phone Icon - Match by href containing tel: */
+.footer__link-item[href^="tel:"]::before {
+  content: '';
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+  flex-shrink: 0;
+  background-color: currentColor;
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z'/%3E%3C/svg%3E");
+  mask-repeat: no-repeat;
+  mask-position: center;
+  mask-size: contain;
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z'/%3E%3C/svg%3E");
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  -webkit-mask-size: contain;
+  opacity: 0.7;
+  transition: opacity 0.2s ease;
+}
+
+.footer__link-item[href^="tel:"]:hover::before {
+  opacity: 1;
+}
+
+/* Hide external link icons in footer */
+.footer__link-item .iconExternalLink_nPIU,
+.footer__link-item svg[class*="iconExternalLink"] {
+  display: none !important;
+}
+
+/* Hide email icon in footer contact */
+.footer__link-item[href^="mailto:"]::before,
+.footer__item a[href^="mailto:"]::before {
+  display: none !important;
+}
+
+/* Hide location icon in footer contact */
+.footer__item a[href*="/about"]::before,
+.footer__link-item[href*="/about"]::before {
+  display: none !important;
+}
+
+/* Ensure navbar sidebar backdrop does not block clicks when closed */
+.navbar-sidebar__backdrop {
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
+.navbar-sidebar--show .navbar-sidebar__backdrop {
+  opacity: 1 !important;
+  visibility: visible !important;
+  pointer-events: auto !important;
+}
+
+/* ============================================================================
+   Blog Styles - Font size harmonization
+   ============================================================================ */
+
+/* Blog list page titles */
+.blog-list-page h1,
+.blog-list-page .hero__title {
+  font-size: 1.75rem;
+}
+
+.blog-list-page article h2 a {
+  font-size: 1.25rem;
+}
+
+.blog-list-page article .markdown {
+  font-size: 0.9375rem;
+  line-height: 1.7;
+}
+
+/* Blog post page */
+.blog-post-page h1 {
+  font-size: 1.75rem;
+}
+
+.blog-post-page .markdown {
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+/* Blog metadata (date, reading time, tags) */
+.blog-post-page .margin-vert--md,
+.blog-list-page .margin-vert--md {
+  font-size: 0.875rem;
+}
+
+/* Pagination */
+.pagination-nav__link {
+  font-size: 0.9375rem;
+}
+
+/* Author bio */
+.avatar__name {
+  font-size: 1rem;
+}
+
+.avatar__subtitle {
+  font-size: 0.8125rem;
+}
+
+/* ============================================================================
+   Theme Toggle - Ensure clickable
+   ============================================================================ */
+
+.navbar__items--right {
+  z-index: 301;
+}
+
+.navbar__items--right .navbar__item {
+  z-index: 302;
+}
+
+/* Ensure color mode toggle is always clickable */
+.colorModeToggle_DEke,
+[class*="colorModeToggle"] {
+  z-index: 303;
+  position: relative;
+}
+
+/* ============================================================================
+   Video gallery grid (used by docs/gallery/animations.md)
+   ============================================================================ */
+
+.videoGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.videoGrid figure {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.videoGrid video {
+  width: 100%;
+  border-radius: 8px;
+  background: #000;
+}
+
+.videoGrid figcaption {
+  font-size: 0.9rem;
+  color: var(--ifm-color-emphasis-700);
+  line-height: 1.5;
+}

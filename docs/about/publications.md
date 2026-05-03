@@ -1,5 +1,3 @@
-###
-
 ### Journal articles
 
 #### 2023

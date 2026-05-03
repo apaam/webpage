@@ -1,47 +1,62 @@
-This repository maintains the [documentation](https://apaam.github.io/webpage/) of the [NetDEM](https://github.com/apaam/netdem) project. It is built on [mkdocs](https://www.mkdocs.org/) and the template extracted from [mfem](https://mfem.org/).
+# Phynexis webpage
 
-Documentation also available on deepwiki: [![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/apaam/webpage)
+Source for the Phynexis documentation site, published at <https://apaam.github.io/webpage/>. Built with [Docusaurus](https://docusaurus.io/), API reference generated with [Doxygen](https://www.doxygen.nl/) and styled with [doxygen-awesome-css](https://github.com/jothepro/doxygen-awesome-css).
 
-## To update the site:
+[![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/apaam/webpage)
 
-0. Install prerequisite: ``mkdocs`` packages using [pip](https://pip.pypa.io/en/stable/installing/) or [pip3](https://pip.pypa.io/en/stable/installing/).
-  
-```bash
-pip3 install mkdocs
-pip3 install mkdocs-bootswatch
-pip3 install pymdown-extensions
-pip3 install attr
-pip3 install mkdocs-bibtex
-pip3 install mkdocs-video
-```
-          
-1. Make changes in ``docs/``. If a new page are added, please index this page in the ``nav`` section of ``mkdocs.yml`` in the root directory, otherwise the new added page will not be rendered.
+## Prerequisites
 
-2. Preview or review the site by running the following command in a terminal, and then visit http://127.0.0.1:8000 in a browser.
-      
-```bash
-mkdocs serve
-```
-      
-3. Update the remote site using
+- Node.js >= 18 (recommend the latest LTS)
+- `doxygen` (only needed when regenerating the C++ API reference)
+
+## Setup
 
 ```bash
-mkdocs gh-deploy
+# clone with the doxygen-awesome-css submodule
+git clone --recurse-submodules https://github.com/apaam/webpage.git
+cd webpage
+
+# install Docusaurus deps
+make install   # equivalent to: npm install
 ```
 
-4. Push the change of site source to remote using 
+## Common tasks
+
+| Task | Command |
+|------|---------|
+| Local dev server (hot reload) | `make dev` |
+| Production build (`./build/`) | `make build` |
+| Preview the production build | `make serve` |
+| Regenerate Doxygen HTML in `static/doxygen/` | `make doxygen` |
+| Deploy to `gh-pages` branch | `make deploy` |
+| Wipe build artifacts | `make clean` |
+
+The dev server hosts the site at <http://localhost:3000/webpage/>.
+
+## Authoring
+
+- Markdown source lives in `docs/`. Sidebars are defined in `sidebars.ts`.
+- Static assets (images, video posters, downloadable files) go under `static/`. They are served at the site root, so `static/img/foo.png` is referenced from Markdown as `/img/foo.png`.
+- The landing page is React (`src/pages/index.tsx`); update copy or features there.
+- Math uses KaTeX via `remark-math` + `rehype-katex`. Use `$inline$` and `$$display$$`.
+
+## Doxygen API reference
+
+`Doxyfile` writes its output to `static/doxygen/` so Docusaurus serves it as a static asset:
 
 ```bash
-git add .
-git commit -m [message]
-git push
+make doxygen           # writes static/doxygen/html/...
 ```
 
-## To update the code doxygen
+The navbar entry **API (Doxygen)** links to `/webpage/doxygen/html/index.html`. The `Doxyfile` expects the Phynexis source tree at `../phynexis/src` (see `INPUT` directive).
 
-Update the doxygen files in ``docs/`` using command ``doxygen Doxyfile``, then follow the previsous procedures to update the files to the remote and website. Make sure that the directory of the source code (i.e., ``INPUT = ../netdem/readme.md ../netdem/src``, near line 867 in ``Doxyfile``) is correct.
+`static/doxygen/` is `.gitignore`d — regenerate locally before each deploy.
 
+## File / folder naming
 
-## Tips
+Per the project convention, file and folder names use **kebab-case** (e.g. `dem-basics.md`, `doxygen-css/`). Code identifiers stay in **snake_case**.
 
-- mkdocs does not support ``http``, please make sure the web links are starting with ``https``. For example, the videl links copied from ``tecent cloud`` are starting with ``http`` by default, which could result in no response when using ``http`` links in the ``Animations`` page.
+## Notes
+
+- All external links in Markdown should use `https://`. Tencent Cloud video URLs sometimes default to `http://`; replace them with `https://` to avoid mixed-content blocking.
+- The `doxygen-css` git submodule is required for the styled API reference. Run `git submodule update --init` if you forgot `--recurse-submodules` at clone time.

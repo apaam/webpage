@@ -1,10 +1,3 @@
-###
-
-[User manual](user_manual.md)
-┊ [Next](basic_usage.md)
-
--------
-
 ### Installation
 
 #### Prerequisites
@@ -43,12 +36,12 @@ If some third-party libraries have not been or cannot be downloaded successfully
 
 (As of Dec. 20 2021)
 
-- OpenMP seems not compitible with Apple M1. To enforce an OpenMP installation, set ``USE_INTERNAL_OPENMP`` in netdem ``CMakeLists.txt`` to ``OFF``, and use ``brew install libomp`` to install a pre-built copy of OpenMP.
+- OpenMP seems not compitible with Apple M1. To enforce an OpenMP installation, set ``USE_INTERNAL_OPENMP`` in phynexis ``CMakeLists.txt`` to ``OFF``, and use ``brew install libomp`` to install a pre-built copy of OpenMP.
 
 - Add M1 support to ``fast_winding_number`` functional in ``igl`` via ``SIMDE`` (please see the discussion in [https://github.com/sideeffects/WindingNumber/pull/3/files](https://github.com/sideeffects/WindingNumber/pull/3/files)): 
 
     - Install simde using ``brew install simde``.
-    - Add ``-flax-vector-conversions`` to the gcc complier flag in netdem ``CMakeLists.txt``.
+    - Add ``-flax-vector-conversions`` to the gcc complier flag in phynexis ``CMakeLists.txt``.
     - Add the following lines to the ``FastWindingNumberForSoups`` in igl and comment out the ``#include <emmintrin.h>`` line.
 
 ```cpp
@@ -62,7 +55,7 @@ If some third-party libraries have not been or cannot be downloaded successfully
 #endif
 ```
 
-- Build netdem following the original procedures.
+- Build phynexis following the original procedures.
 
 #### Dependencies
 
@@ -92,16 +85,7 @@ Using dependencies already in the system would save the time required by the com
         sudo apt-get install libopenmpi-dev openmpi-bin zlib1g-dev libboost-all-dev
         sudo apt-get install flex bison gnuplot libreadline-dev libncurses-dev libxt-dev 
 
- - Install ``netdem`` from [https://github.com/apaam](https://github.com/apaam).
-
-        mkdir apaam
-        cd apaam
-          
-        git clone https://github.com/apaam/netdem.git .
-        cd netdem
-        make
-        make pip_install
-        cd ..
+ - Install ``phynexis``. Please contact the authors for access to the source code and installation instructions.
 
  - Install ``openfoam`` from [https://github.com/apaam](https://github.com/apaam).
 
@@ -129,7 +113,3 @@ Using dependencies already in the system would save the time required by the com
 
         export PATH=$PATH:$path_apaam/cfddem/build/bin
 
--------
-
-[User manual](user_manual.md)
-┊ [Next](basic_usage.md)

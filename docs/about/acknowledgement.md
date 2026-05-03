@@ -1,5 +1,3 @@
-###
-
 ### How to cite
 
 We do not have a paper for this extire library for now. Please cite our relevant works when approperiate: 
@@ -15,7 +13,7 @@ We would like to thank all the peer researchers that have directly or indrectly 
 
 We would also like to thank the authors of thrid party software packages (in [dependencies](../documentation/installation.md)) that are used by this project and have greatly faciliated the development of this project. 
 
-This website is built on [mkdocs](https://www.mkdocs.org/) and the template extracted from [mfem](https://mfem.org/).
+This website is built with [Docusaurus](https://docusaurus.io/).
 
 ### Fundings
 
@@ -27,6 +25,6 @@ This project is under active development. The fundings that have supported the d
 
 ### Copyright & License
 
-Copyright &copy; 2020-, NetDEM team, Applied Process Analysis and Modeling Group. 
+Copyright &copy; 2020-, Phynexis team, Applied Process Analysis and Modeling Group. 
 
 Copyright &copy; 2020-, Sun Yat-sen University and The Hong Kong University of Science and Technology.
