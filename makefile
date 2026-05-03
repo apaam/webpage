@@ -20,7 +20,7 @@ deploy:
 	git checkout gh-pages
 	@if git rev-parse --verify origin/gh-pages >/dev/null 2>&1; then git reset --hard origin/gh-pages; fi
 	@if [ -n "$$(git ls-files)" ]; then git ls-files -z | xargs -0 git rm -f; fi
-	git clean -fdx --exclude=build
+	git clean -fdx --exclude=build --exclude=node_modules --exclude=.docusaurus --exclude=local
 	cp -a build/. .
 	git add -A
 	@if git diff --cached --quiet; then \
