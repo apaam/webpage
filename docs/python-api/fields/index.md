@@ -27,6 +27,8 @@ Field data structures for structured and unstructured grids. Provides typed scal
 | `FieldSlot` | done | [field-slot](field-slot.md) |
 | `FieldSchema` | done | [field-schema](field-schema.md) |
 | `CSRMatrix` | done | [csr-matrix](csr-matrix.md) |
+| `FieldViewBase` / `ScalarFieldView` / `Vec3FieldView` / `Vec4FieldView` / `Vec6FieldView` / `VecNFieldView` / `VecXFieldView` | done | [field-views](field-views.md) |
+| `LinkedFieldView` / `LinkedFieldRowView` | done | [linked-field-view](linked-field-view.md) |
 | Others | pending | — |
 
 ---
