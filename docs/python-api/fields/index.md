@@ -24,6 +24,7 @@ Field data structures for structured and unstructured grids. Provides typed scal
 | `FieldBase` | done | [field-base](field-base.md) |
 | `FieldLayout` | done | [field-layout](field-layout.md) |
 | `FieldManager` | done | [field-manager](field-manager.md) |
+| `FieldSlot` | done | [field-slot](field-slot.md) |
 | Others | pending | — |
 
 ---
