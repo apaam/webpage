@@ -45,6 +45,8 @@ title: "Discovery Log"
 | 2026-05-03 | fields | fix | `pymanager.cpp`: `get_field_names()` returned `VecX<String>` (unregistered). Wrapped to return `py::list`. | fixed |
 | 2026-05-03 | fields | fix | `pymanager.cpp`: `get_inconsistent_fields()` returned `VecX<String>` (unregistered). Wrapped to return `py::list`. | fixed |
 | 2026-05-03 | fields | fix | `pymanager.cpp`: `get_field_ptrs()` returned `VecX<FieldBase*>` (unregistered). Wrapped to return `py::list` with RTTI-resolved concrete types. | fixed |
+| 2026-05-03 | fields | fix | `pyfield_schema.cpp`: missing `#include <pybind11_json/pybind11_json.hpp>` caused `resolve_json()` to reject Python dicts. Added include. | fixed |
+| 2026-05-03 | fields | fix | `pyfield_schema.cpp`: `append()` methods not exposed. Added overloads for `append(FieldSlot)` and `append(FieldSchema)`. | fixed |
 | 2026-05-03 | fields | issue | `Field<T>` not registered as subclass of `FieldBase` in pybind. `pybind11::class_<Field<T>>(m, name)` should be `pybind11::class_<Field<T>, FieldBase>(m, name)`. Effect: `isinstance(sf, FieldBase)` is False, `FieldBase` methods (`ensure_capacity`, `is_same_type`, `erase_indices`, `reorder`, `reset_value`, `swap_elements`, `copy_element`) are unreachable from any field instance. | open |
 | 2026-05-03 | fields | issue | `Field` declares `pybind11::buffer_protocol()` but no `def_buffer` callback. `np.array(field, copy=False)` and `memoryview(field)` segfault. Use `to_numpy()` (always copies). | open |
 | 2026-05-03 | fields | issue | `Field<T>::operator==` compares `data_` pointer + `name_` (identity), not values. Two fields with identical contents and names compare unequal. Document the semantics; consider exposing a value-equality helper. | noted |
