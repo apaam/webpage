@@ -20,12 +20,16 @@ deploy:
 	git checkout gh-pages
 	@if git rev-parse --verify origin/gh-pages >/dev/null 2>&1; then git reset --hard origin/gh-pages; fi
 	@if [ -n "$$(git ls-files)" ]; then git ls-files -z | xargs -0 git rm -f; fi
-	find . -mindepth 1 -maxdepth 1 ! -name .git ! -name build -exec rm -rf {} +
+	git clean -fdx --exclude=build
 	cp -a build/. .
 	git add -A
-	git commit -m "Deploy website - based on $$(git rev-parse main)"
+	@if git diff --cached --quiet; then \
+		echo "deploy: nothing to commit"; \
+	else \
+		git commit -m "Deploy website - based on $$(git rev-parse main)"; \
+	fi
 	git checkout main
-	@echo "gh-pages updated locally. Push: git push origin gh-pages"
+	@echo "Local gh-pages updated. Push when ready: git push origin gh-pages"
 
 doxygen:
 	rm -rf static/doxygen
