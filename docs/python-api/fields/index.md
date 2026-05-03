@@ -26,6 +26,7 @@ Field data structures for structured and unstructured grids. Provides typed scal
 | `FieldManager` | done | [field-manager](field-manager.md) |
 | `FieldSlot` | done | [field-slot](field-slot.md) |
 | `FieldSchema` | done | [field-schema](field-schema.md) |
+| `CSRMatrix` | done | [csr-matrix](csr-matrix.md) |
 | Others | pending | — |
 
 ---
