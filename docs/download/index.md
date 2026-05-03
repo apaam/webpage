@@ -1,21 +1,56 @@
+---
+title: "Software & Tools"
+---
+
+## Software & Tools
+
 ### Phynexis
 
-- Website: [https://apaam.github.io/webpage](https://apaam.github.io/webpage)
+Phynexis is distributed to academic and industrial collaborators under a research license agreement. For access to the source code, pre-built binaries, or licensing inquiries, please [contact us](../about/index.md).
 
-### Post-processing scripts
+### Post-Processing Scripts
 
-- Matlab: [https://github.com/apaam/postprocess_scripts](https://github.com/apaam/postprocess_scripts)
+A collection of MATLAB and Python scripts for common post-processing tasks is available separately:
 
-### Other relevant softwares
+- VTK file I/O and field extraction
+- Stress–strain analysis from DEM simulations
+- Contact anisotropy histograms and fabric tensors
+- Spherical harmonic shape reconstruction
 
-- [Easybuild](https://github.com/apaam/easy_build): a software environment for easing the configuration, building and installation computational packages. Now support:
+Contact the authors to request access to the post-processing toolkit.
 
-    - [deal.II](https://github.com/dealii/dealii): a C++ program library targeted at the computational solution of partial differential equations using adaptive finite elements.
+### Python API Reference
 
-    - [liggghts](https://github.com/CFDEMproject/LIGGGHTS-PUBLIC.git): an open source discrete element method particle simulation software that is improved from LAMMPS for general granular and granular heat transfer simulations. This project used a modified [version](https://github.com/schrummy14/LIGGGHTS_Flexible_Fibers.git) that includes granular bond formulations.
+A complete PDF reference of the phynexis Python API (auto-generated from documentation):
 
-    - phynexis: a universal particle engine integrating NetDEM, CFDDEM, and computational mechanics modules with machine-learning acceleration.
+[Download phynexis-python-api.pdf](pathname:///pdf/phynexis-python-api.pdf)
 
-    - [openfoam](https://github.com/OpenFOAM/OpenFOAM-dev): a free, open source computational fluid dynamics (CFD) software package released by the OpenFOAM Foundation.
+### Related Open-Source Software
 
-    - [peridigm](https://github.com/peridigm/peridigm.git): an open-source computational peridynamics code developed, originally at Sandia National Laboratories and open-sourced in 2011, for massively-parallel multi-physics simulations.
+Keep this table aligned with **Third-Party Software** on [About](../about/index.md); edit both when dependencies change.
+
+Projects Phynexis **interfaces with directly** or ships **wrappers** for:
+
+| Package | Role | License (typical) |
+|---------|------|-------------------|
+| [OpenFOAM](https://www.openfoam.com) | CFD–DEM coupling | Open Source |
+| [Peridigm](https://github.com/peridigm/peridigm) | Peridynamics / breakage | BSD |
+| [Eigen](https://eigen.tuxfamily.org) | Linear algebra | MPL2 |
+| [Boost](https://www.boost.org) | C++ utilities | Boost |
+| [CGAL](https://www.cgal.org) | Computational geometry | GPL/LGPL (depends on component) |
+| [libigl](https://libigl.github.io/) | Mesh algorithms | MPL2 |
+| [Cork](https://github.com/gilvi/cork) | Mesh booleans (wrappers) | LGPL |
+| [TetGen](https://wias-berlin.de/software/index.jsp?id=TetGen) | Tetrahedral meshing (wrappers) | AGPL / commercial |
+| [mlpack](https://www.mlpack.org) | ML algorithms | BSD |
+| [pybind11](https://pybind11.readthedocs.io) | Python bindings | BSD |
+| [PyTorch](https://pytorch.org) | Optional Python ML (NetSDF, ANN contact, …) | BSD-style |
+| MPI / OpenMP | Distributed and shared-memory parallelism | (implementation-dependent) |
+
+Common **workflow tools** (visualization, meshes, etc.) used alongside Phynexis:
+
+| Package | Role | License |
+|---------|------|---------|
+| [ParaView](https://www.paraview.org) | VTK visualization | BSD |
+| [Blender](https://www.blender.org) | Offline rendering | GPL |
+
+Paper references and bibliographies are listed on the [APAAM lab site](https://apaam.github.io/mywebpage/), not in this download section.

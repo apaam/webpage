@@ -4,6 +4,18 @@ import type * as Preset from '@docusaurus/preset-classic';
 import remarkMath from 'remark-math';
 import rehypeKatex from 'rehype-katex';
 
+const baseUrl = '/webpage/';
+
+/**
+ * Escape hatch for static files under `static/`: same pattern as Markdown `pathname:///pdf/...`.
+ * Link strips `pathname://` and prepends `baseUrl` so the browser loads `/webpage/...`, not `/...`
+ * (otherwise `docusaurus serve` redirects `/doxygen/...` → `/webpage/`).
+ */
+function pathnameForStaticAsset(pathFromStaticRoot: string): string {
+  const relative = pathFromStaticRoot.replace(/^\/+/, '');
+  return `pathname:///${relative}`;
+}
+
 const config: Config = {
   title: 'Phynexis',
   tagline: 'A universal particle engine integrating NetDEM, CFDDEM, and computational mechanics modules',
@@ -14,7 +26,7 @@ const config: Config = {
   },
 
   url: 'https://apaam.github.io',
-  baseUrl: '/webpage/',
+  baseUrl,
   trailingSlash: true,
 
   organizationName: 'apaam',
@@ -78,9 +90,26 @@ const config: Config = {
       },
       items: [
         {
-          to: '/docs/documentation/user-manual',
+          to: '/docs/manual/',
+          label: 'Docs',
           position: 'left',
-          label: 'Documentation',
+        },
+        {
+          type: 'dropdown',
+          label: 'API',
+          position: 'left',
+          items: [
+            {
+              to: '/docs/python-api/',
+              label: 'Python',
+            },
+            {
+              href: pathnameForStaticAsset('doxygen/html/'),
+              label: 'C++ (Doxygen)',
+              target: '_blank',
+              rel: 'noopener noreferrer',
+            },
+          ],
         },
         {
           to: '/docs/examples/',
@@ -88,7 +117,7 @@ const config: Config = {
           label: 'Examples',
         },
         {
-          to: '/docs/gallery/animations',
+          to: '/docs/gallery/animations/',
           position: 'left',
           label: 'Gallery',
         },
@@ -98,14 +127,9 @@ const config: Config = {
           label: 'Download',
         },
         {
-          href: 'pathname:///doxygen/html/index.html',
-          position: 'left',
-          label: 'API (Doxygen)',
-        },
-        {
-          to: '/docs/about/help-and-support',
-          position: 'left',
+          to: '/docs/about/',
           label: 'About',
+          position: 'left',
         },
       ],
     },
@@ -113,27 +137,39 @@ const config: Config = {
       style: 'light',
       links: [
         {
-          title: 'Project',
+          title: 'Manual',
           items: [
-            {label: 'Documentation', to: '/docs/documentation/user-manual'},
-            {label: 'Examples', to: '/docs/examples/'},
-            {label: 'Download', to: '/docs/download/'},
-            {label: 'API (Doxygen)', href: 'pathname:///doxygen/html/index.html'},
+            {label: 'Manual home', to: '/docs/manual/'},
+            {label: 'Installation', to: '/docs/manual/installation/'},
           ],
         },
         {
-          title: 'Links',
+          title: 'API',
           items: [
-            {label: 'DeepWiki', href: 'https://deepwiki.com/apaam/webpage'},
-            {label: 'APAAM Lab', href: 'https://apaam.github.io'},
+            {label: 'Python API', to: '/docs/python-api/'},
+            {
+              label: 'C++ (Doxygen)',
+              href: pathnameForStaticAsset('doxygen/html/'),
+              target: '_blank',
+              rel: 'noopener noreferrer',
+            },
+          ],
+        },
+        {
+          title: 'Resources',
+          items: [
+            {label: 'Examples', to: '/docs/examples/'},
+            {label: 'Download', to: '/docs/download/'},
           ],
         },
         {
           title: 'About',
           items: [
-            {label: 'Publications', to: '/docs/about/publications'},
-            {label: 'Acknowledgements', to: '/docs/about/acknowledgement'},
-            {label: 'Help & Support', to: '/docs/about/help-and-support'},
+            {label: 'About', to: '/docs/about/'},
+            {
+              label: 'APAAM lab site',
+              href: 'https://apaam.github.io/mywebpage/',
+            },
           ],
         },
       ],

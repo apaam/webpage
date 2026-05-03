@@ -1,62 +1,88 @@
 # Phynexis webpage
 
-Source for the Phynexis documentation site, published at <https://apaam.github.io/webpage/>. Built with [Docusaurus](https://docusaurus.io/), API reference generated with [Doxygen](https://www.doxygen.nl/) and styled with [doxygen-awesome-css](https://github.com/jothepro/doxygen-awesome-css).
+Source for the **Phynexis documentation site**, published at <https://apaam.github.io/webpage/>. Built with [Docusaurus](https://docusaurus.io/). The C++ API reference is generated with [Doxygen](https://www.doxygen.nl/) and styled with [doxygen-awesome-css](https://github.com/jothepro/doxygen-awesome-css).
+
+**Site language:** Most guides, examples, API reference pages, and the landing copy are **English**. Two theory-topic pages (`manual/discrete-to-continuum.md`, `manual/particle-models.md`) are **Chinese drafts**; the sidebar shows English labels marking them as drafts. The Docusaurus UI is English (`en`) only.
 
 [![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/apaam/webpage)
 
-## Prerequisites
+---
 
-- Node.js >= 18 (recommend the latest LTS)
-- `doxygen` (only needed when regenerating the C++ API reference)
+## License and what is public (read this first)
 
-## Setup
+- **The Phynexis simulation core and full product source code are not released as open-source software.** Distribution is typically under a research license (or similar) to academic and industrial collaborators. For binaries, source access, or licensing, use [About](https://apaam.github.io/webpage/docs/about/) on the site.
+- **What we primarily expose for external use is the Python interface:** this site publishes user guides, examples, and **Python API** reference (in-docs pages plus a downloadable API PDF). If you use Phynexis through the Python library, treat this site and the documentation shipped with your distribution as authoritative.
+- **This repository contains only the documentation website and related static-generation tooling**, not the Phynexis engine sources. Contributions that improve docs or the site are welcome; that **does not** mean the Phynexis core is open source.
+
+If you only want to **use Phynexis (Python)**, open **[Manual home](https://apaam.github.io/webpage/docs/manual/)** (header **Docs**), then [Installation](https://apaam.github.io/webpage/docs/manual/installation/), and [Software & Tools](https://apaam.github.io/webpage/docs/download/) for the API PDF and other assets.
+
+---
+
+## For users
+
+| Goal | Where to go |
+|------|-------------|
+| Install, get started, examples | [Manual home](https://apaam.github.io/webpage/docs/manual/) (**Docs**), [Installation](https://apaam.github.io/webpage/docs/manual/installation/), [Examples](https://apaam.github.io/webpage/docs/examples/) |
+| Distribution overview, PDFs, software tables | [Software & Tools](https://apaam.github.io/webpage/docs/download/) |
+| Contact, collaboration, licensing | [About](https://apaam.github.io/webpage/docs/about/) (also linked from Download where relevant) |
+| Python API lookup | **API → Python** on the site, plus **phynexis-python-api.pdf** on the download page |
+
+New or updated material under `docs/` should stay in **English** so it matches the live site. The sections below describe how to build and maintain the site.
+
+---
+
+## For developers / doc maintainers
+
+### Prerequisites
+
+- Node.js ≥ 18 (latest LTS recommended)
+- `doxygen` (only when regenerating the C++ API static pages)
+
+### Setup
 
 ```bash
-# clone with the doxygen-awesome-css submodule
 git clone --recurse-submodules https://github.com/apaam/webpage.git
 cd webpage
-
-# install Docusaurus deps
-make install   # equivalent to: npm install
+make install   # same as npm install
 ```
 
-## Common tasks
+If you cloned without submodules, run `git submodule update --init` (required for the `doxygen-awesome-css` theme).
+
+### Common tasks
 
 | Task | Command |
 |------|---------|
 | Local dev server (hot reload) | `make dev` |
 | Production build (`./build/`) | `make build` |
 | Preview the production build | `make serve` |
-| Regenerate Doxygen HTML in `static/doxygen/` | `make doxygen` |
-| Deploy to `gh-pages` branch | `make deploy` |
-| Wipe build artifacts | `make clean` |
+| Regenerate Doxygen under `static/doxygen/` | `make doxygen` |
+| Deploy to `gh-pages` | `make deploy` |
+| Remove build artifacts | `make clean` |
 
-The dev server hosts the site at <http://localhost:3000/webpage/>.
+Local dev URL (see `package.json` / `Makefile` for the port): <http://localhost:3001/webpage/>.
 
-## Authoring
+### Authoring
 
-- Markdown source lives in `docs/`. Sidebars are defined in `sidebars.ts`.
-- Static assets (images, video posters, downloadable files) go under `static/`. They are served at the site root, so `static/img/foo.png` is referenced from Markdown as `/img/foo.png`.
-- The landing page is React (`src/pages/index.tsx`); update copy or features there.
-- Math uses KaTeX via `remark-math` + `rehype-katex`. Use `$inline$` and `$$display$$`.
+- **Language:** Write documentation in **English** (same as the deployed site).
+- Markdown lives in `docs/`; sidebars in `sidebars.ts`. Narrative guides sit under **`docs/manual/`** (`userGuideSidebar`). Python API pages under **`docs/python-api/`** use a separate **`pythonApiSidebar`** (module tree + link back to the manual) so the manual nav is not cluttered with API entries.
+- Static assets go under `static/` (e.g. `static/img/foo.png` → `/img/foo.png` in Markdown).
+- Landing page: `src/pages/index.tsx`.
+- Math: KaTeX via `remark-math` + `rehype-katex` — `$inline$` and `$$display$$`.
 
-## Doxygen API reference
+### Doxygen (C++ API reference)
 
-`Doxyfile` writes its output to `static/doxygen/` so Docusaurus serves it as a static asset:
+`Doxyfile` writes to `static/doxygen/` so Docusaurus serves it as static files. The navbar entry **API → C++ (Doxygen)** opens `/webpage/doxygen/html/index.html` in a **new tab** (`target="_blank"`) because Doxygen uses separate styling from the Docusaurus site.
 
 ```bash
-make doxygen           # writes static/doxygen/html/...
+make doxygen   # writes static/doxygen/html/...
 ```
 
-The navbar entry **API (Doxygen)** links to `/webpage/doxygen/html/index.html`. The `Doxyfile` expects the Phynexis source tree at `../phynexis/src` (see `INPUT` directive).
+The `INPUT` paths in `Doxyfile` expect a Phynexis source tree on your machine (e.g. `../phynexis/src`). **Regenerating Doxygen requires access to the corresponding licensed sources.** `static/doxygen/` is usually `.gitignore`d — generate in a trusted environment before deploy when needed.
 
-`static/doxygen/` is `.gitignore`d — regenerate locally before each deploy.
+### File / folder naming
 
-## File / folder naming
+Use **kebab-case** for files and directories (e.g. `dem-basics.md`). Keep code identifiers in each language’s usual style (e.g. **snake_case** where applicable).
 
-Per the project convention, file and folder names use **kebab-case** (e.g. `dem-basics.md`, `doxygen-css/`). Code identifiers stay in **snake_case**.
+### Notes
 
-## Notes
-
-- All external links in Markdown should use `https://`. Tencent Cloud video URLs sometimes default to `http://`; replace them with `https://` to avoid mixed-content blocking.
-- The `doxygen-css` git submodule is required for the styled API reference. Run `git submodule update --init` if you forgot `--recurse-submodules` at clone time.
+- Use `https://` for external links in Markdown. Some Tencent Cloud video URLs default to `http://`; switch them to `https://` to avoid mixed-content blocking.

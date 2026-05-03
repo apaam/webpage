@@ -344,6 +344,7 @@ body {
 .theme-doc-markdown {
   font-size: 1rem;
   line-height: 1.7;
+  overflow-x: auto;
 }
 
 .theme-doc-markdown h1 {
@@ -465,6 +466,19 @@ body {
 /* ============================================================================
    Table Styles
    ============================================================================ */
+
+/*
+ * Infima sets `table { display: block; overflow: auto; }` for horizontal scroll.
+ * That breaks normal column stretching — tables stay content-width with empty space.
+ * Restore table layout in markdown so `width: 100%` fills the article column.
+ */
+.theme-doc-markdown table,
+.markdown table {
+  display: table;
+  width: 100%;
+  max-width: 100%;
+  table-layout: auto;
+}
 
 table {
   border-collapse: separate;
@@ -865,8 +879,8 @@ html {
   opacity: 1;
 }
 
-/* Hide external link icons in footer */
-.footer__link-item .iconExternalLink_nPIU,
+/* Hide external link icons in navbar and footer */
+.navbar__link svg[class*="iconExternalLink"],
 .footer__link-item svg[class*="iconExternalLink"] {
   display: none !important;
 }

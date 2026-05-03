@@ -1,39 +1,28 @@
-/* ============================================================================
-   Phynexis Website - Apple-inspired Academic Style (forked from mywebpage)
-   ============================================================================ */
+/* Phynexis landing — light editorial layout, teal accent (aligned with site theme) */
 
 :root {
-  --color-bg: #f0f0f2;
-  --color-bg-elevated: #f5f5f7;
-  --color-text: #1d1d1f;
-  --color-text-secondary: #6e6e73;
-  --color-text-tertiary: #86868b;
-  --color-border: rgba(0, 0, 0, 0.05);
-  --color-accent: #0d7377;
-  --color-accent-light: #108f94;
-
-  --font-body: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --font-mono: 'SF Mono', Monaco, monospace;
-
-  --grid-max-width: 1100px;
-  --section-spacing: 4rem;
+  --landing-bg: #f0f0f2;
+  --landing-bg-alt: #f5f5f7;
+  --landing-text: #1d1d1f;
+  --landing-muted: #6e6e73;
+  --landing-faint: #86868b;
+  --landing-border: rgba(0, 0, 0, 0.06);
+  --landing-accent: #0d7377;
+  --landing-accent-hover: #108f94;
+  --landing-max: 1080px;
 }
-
-/* ============================================================================
-   Layout
-   ============================================================================ */
 
 .main {
   min-height: 100vh;
-  background: var(--color-bg);
-  color: var(--color-text);
-  font-family: var(--font-body);
+  background: var(--landing-bg);
+  color: var(--landing-text);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
 }
 
 .container {
-  max-width: var(--grid-max-width);
+  max-width: var(--landing-max);
   margin: 0 auto;
   padding: 0 1.5rem;
 }
@@ -44,23 +33,30 @@
   }
 }
 
-/* ============================================================================
-   Hero Section
-   ============================================================================ */
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
 
-.header {
+/* ----- Hero ----- */
+
+.hero {
   position: relative;
-  padding: 7rem 0 5rem;
+  padding: 6.5rem 0 4.5rem;
   text-align: center;
   overflow: hidden;
 }
 
 .heroBg {
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  inset: 0;
   background: url('/img/hero-bg.png') center/cover no-repeat;
   z-index: 0;
   pointer-events: none;
@@ -69,308 +65,407 @@
 .heroBg::after {
   content: '';
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0.55) 100%);
+  inset: 0;
+  background: linear-gradient(
+    165deg,
+    rgba(0, 0, 0, 0.42) 0%,
+    rgba(0, 0, 0, 0.62) 100%
+  );
   pointer-events: none;
 }
 
-.heroContent {
+.heroInner {
   position: relative;
   z-index: 1;
-  max-width: 800px;
+  max-width: 42rem;
   margin: 0 auto;
-  pointer-events: auto;
 }
 
-.labAcronym {
-  font-family: var(--font-mono);
-  font-size: 0.875rem;
+.heroEyebrow {
+  font-family: 'SF Mono', Monaco, ui-monospace, monospace;
+  font-size: 0.8125rem;
   font-weight: 500;
-  color: rgba(255, 255, 255, 0.75);
-  letter-spacing: 0.2em;
-  margin: 0 0 1rem;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+  color: rgba(255, 255, 255, 0.78);
+  margin: 0 0 1rem;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.45);
 }
 
-.labName {
-  font-size: clamp(1.75rem, 5vw, 2.5rem);
-  font-weight: 600;
-  line-height: 1.3;
-  color: #ffffff;
-  margin: 0 0 0.75rem;
-  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
+.heroTitle {
+  font-size: clamp(1.65rem, 4.2vw, 2.35rem);
+  font-weight: 650;
+  line-height: 1.22;
+  color: #fff;
+  margin: 0 0 1rem;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.45);
 }
 
-.labNameEn {
-  font-size: 1rem;
-  font-weight: 400;
-  color: rgba(255, 255, 255, 0.9);
-  margin: 0 auto 2rem;
-  max-width: 640px;
-  line-height: 1.7;
-  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.5);
+.heroLead {
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.92);
+  margin: 0 0 1.75rem;
+  text-shadow: 0 1px 10px rgba(0, 0, 0, 0.4);
 }
 
 .heroActions {
   display: flex;
-  gap: 0.75rem;
-  justify-content: center;
   flex-wrap: wrap;
+  gap: 0.65rem;
+  justify-content: center;
 }
 
-.primaryButton {
-  display: inline-block;
-  padding: 0.7rem 1.5rem;
-  background: #ffffff;
-  color: var(--color-accent);
-  border-radius: 100px;
-  font-weight: 500;
-  font-size: 0.95rem;
+.btnPrimary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.65rem 1.35rem;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.9375rem;
   text-decoration: none;
-  transition: all 0.2s ease;
+  background: #fff;
+  color: var(--landing-accent);
   border: none;
+  transition:
+    transform 0.18s ease,
+    box-shadow 0.18s ease,
+    background 0.18s ease;
 }
 
-.primaryButton:hover {
-  background: rgba(255, 255, 255, 0.92);
-  color: var(--color-accent);
+.btnPrimary:hover {
+  color: var(--landing-accent-hover);
   text-decoration: none;
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.18);
 }
 
-.secondaryButton {
-  display: inline-block;
-  padding: 0.7rem 1.5rem;
+.btnGhost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.65rem 1.35rem;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.9375rem;
+  text-decoration: none;
   background: transparent;
-  color: #ffffff;
-  border-radius: 100px;
-  font-weight: 500;
-  font-size: 0.95rem;
-  text-decoration: none;
-  border: 1px solid rgba(255, 255, 255, 0.55);
-  transition: all 0.2s ease;
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.52);
+  transition:
+    background 0.18s ease,
+    border-color 0.18s ease;
 }
 
-.secondaryButton:hover {
-  background: rgba(255, 255, 255, 0.12);
-  color: #ffffff;
+.btnGhost:hover {
+  color: #fff;
   text-decoration: none;
+  background: rgba(255, 255, 255, 0.1);
   border-color: rgba(255, 255, 255, 0.85);
 }
 
-/* ============================================================================
-   Intro Section
-   ============================================================================ */
-
-.introSection {
-  padding: 3rem 0;
-  background: var(--color-bg-elevated);
+.heroHint {
+  margin: 1.25rem 0 0;
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.72);
 }
 
-.introText {
-  font-size: 1.125rem;
-  line-height: 1.8;
-  color: var(--color-text-secondary);
-  max-width: 760px;
-  margin: 0 auto;
-  text-align: center;
+.heroHintLink {
+  color: rgba(255, 255, 255, 0.95);
+  font-weight: 500;
+  text-decoration: underline;
+  text-decoration-color: rgba(255, 255, 255, 0.35);
+  text-underline-offset: 3px;
 }
 
-/* ============================================================================
-   Features (Areas) Section
-   ============================================================================ */
+.heroHintLink:hover {
+  color: #fff;
+  text-decoration-color: rgba(255, 255, 255, 0.65);
+}
 
-.areasSection {
-  padding: var(--section-spacing) 0;
-  background: var(--color-bg);
+.heroHintSep {
+  margin: 0 0.35rem;
+  opacity: 0.65;
+}
+
+/* ----- Scope ----- */
+
+.scope {
+  padding: 3rem 0 3.25rem;
+  background: var(--landing-bg-alt);
+  border-bottom: 1px solid var(--landing-border);
 }
 
 .sectionTitle {
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: var(--color-text);
-  margin: 0 0 2rem;
+  font-size: 1.35rem;
+  font-weight: 650;
   text-align: center;
+  margin: 0 0 1rem;
+  color: var(--landing-text);
 }
 
-.areasGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 1.5rem;
+.sectionLead {
+  max-width: 38rem;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 1.0625rem;
+  line-height: 1.75;
+  color: var(--landing-muted);
 }
 
-.areaCard {
-  background: transparent;
-  border: 1px solid var(--color-border);
-  border-radius: 12px;
-  overflow: hidden;
-  padding: 1.5rem 1.25rem;
-  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
-}
-
-.areaCard:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-}
-
-.areaTitle {
-  font-size: 1.125rem;
+.scopeEm {
+  color: var(--landing-text);
   font-weight: 600;
-  color: var(--color-text);
-  margin: 0 0 0.75rem;
 }
 
-.areaDesc {
+/* ----- Pillars ----- */
+
+.pillars {
+  padding: 3.75rem 0 4rem;
+  background: var(--landing-bg);
+}
+
+.sectionSubtitle {
+  text-align: center;
   font-size: 0.9375rem;
-  color: var(--color-text-secondary);
+  color: var(--landing-faint);
+  margin: -0.25rem 0 2rem;
+  max-width: 32rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.pillarGrid {
+  list-style: none;
   margin: 0;
-  line-height: 1.6;
-}
-
-/* ============================================================================
-   Quick Links Section
-   ============================================================================ */
-
-.linksSection {
-  padding: var(--section-spacing) 0;
-  background: var(--color-bg-elevated);
-  border-top: 1px solid var(--color-border);
-  border-bottom: 1px solid var(--color-border);
-}
-
-.linksGrid {
+  padding: 0;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
   gap: 1rem;
+  grid-template-columns: 1fr;
 }
 
 @media (min-width: 640px) {
-  .linksGrid {
-    grid-template-columns: repeat(4, 1fr);
+  .pillarGrid {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
-.linkCard {
+.pillarCard {
+  margin: 0;
+  padding: 1.35rem 1.25rem;
+  border: 1px solid var(--landing-border);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.35);
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+.pillarCard:hover {
+  border-color: rgba(13, 115, 119, 0.28);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.06);
+  transform: translateY(-2px);
+}
+
+.pillarTitle {
+  font-size: 1.0625rem;
+  font-weight: 650;
+  margin: 0 0 0.5rem;
+  color: var(--landing-text);
+}
+
+.pillarBody {
+  margin: 0;
+  font-size: 0.9375rem;
+  line-height: 1.62;
+  color: var(--landing-muted);
+}
+
+/* ----- Paths ----- */
+
+.paths {
+  padding: 3.75rem 0 4rem;
+  background: var(--landing-bg-alt);
+  border-top: 1px solid var(--landing-border);
+}
+
+.pathFeatured {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 720px) {
+  .pathFeatured {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.pathTile {
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
+  gap: 0.35rem;
+  padding: 1.35rem 1.25rem;
+  border-radius: 14px;
+  border: 1px solid var(--landing-border);
+  background: var(--landing-bg);
+  text-decoration: none;
+  color: inherit;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+.pathTile:hover {
+  text-decoration: none;
+  border-color: rgba(13, 115, 119, 0.35);
+  box-shadow: 0 10px 32px rgba(0, 0, 0, 0.07);
+  transform: translateY(-2px);
+}
+
+.pathIconWrap {
+  display: flex;
   align-items: center;
-  gap: 0.75rem;
-  padding: 1.5rem 1rem;
-  background: transparent;
-  border: 1px solid var(--color-border);
-  border-radius: 8px;
-  text-decoration: none;
-  transition: all 0.2s ease;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 10px;
+  background: rgba(13, 115, 119, 0.1);
+  color: var(--landing-accent);
+  margin-bottom: 0.25rem;
 }
 
-.linkCard:hover {
-  background: var(--ifm-menu-hover-background);
-  border-color: var(--color-accent);
-  text-decoration: none;
+.pathIcon {
+  width: 1.25rem;
+  height: 1.25rem;
 }
 
-.linkCard:hover .linkText {
-  color: var(--color-accent);
+.pathLabel {
+  font-weight: 650;
+  font-size: 1.0625rem;
+  color: var(--landing-text);
 }
 
-.linkText {
-  font-size: 0.9375rem;
-  font-weight: 500;
-  color: var(--color-text);
-  transition: color 0.2s ease;
+.pathDesc {
+  font-size: 0.875rem;
+  color: var(--landing-muted);
+  line-height: 1.45;
 }
 
-.linkIconSvg {
-  width: 24px;
-  height: 24px;
-  flex-shrink: 0;
-  color: var(--ifm-color-primary);
-  transition: transform 0.2s ease;
+.pathMore {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+  margin-top: 1.5rem;
 }
 
-.linkCard:hover .linkIconSvg {
-  transform: scale(1.1);
-  color: var(--color-accent);
-}
-
-/* ============================================================================
-   Contact Section
-   ============================================================================ */
-
-.contactSection {
-  padding: var(--section-spacing) 0;
-  background: var(--color-bg);
-}
-
-.contactCard {
-  background: transparent;
-  border: 1px solid var(--color-border);
-  border-radius: 8px;
-  padding: 2rem;
-  text-align: center;
-  max-width: 600px;
-  margin: 0 auto;
-}
-
-.contactTitle {
-  font-size: 1.25rem;
+.pathChip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.45rem 0.95rem;
+  border-radius: 999px;
+  font-size: 0.875rem;
   font-weight: 600;
-  color: var(--color-text);
-  margin: 0 0 1.5rem;
+  text-decoration: none;
+  color: var(--landing-text);
+  border: 1px solid var(--landing-border);
+  background: transparent;
+  transition:
+    border-color 0.18s ease,
+    color 0.18s ease,
+    background 0.18s ease;
 }
 
-.contactInfo {
-  font-size: 1rem;
-  color: var(--color-text-secondary);
+.pathChip:hover {
+  text-decoration: none;
+  border-color: rgba(13, 115, 119, 0.45);
+  color: var(--landing-accent);
+  background: rgba(13, 115, 119, 0.06);
+}
+
+.externalGlyph {
+  width: 0.9rem;
+  height: 0.9rem;
+  flex-shrink: 0;
+  opacity: 0.75;
+}
+
+/* ----- Outro ----- */
+
+.outro {
+  padding: 3.25rem 0 4.5rem;
+  background: var(--landing-bg);
+}
+
+.outroCard {
+  max-width: 32rem;
+  margin: 0 auto;
+  text-align: center;
+  padding: 2rem 1.5rem;
+  border: 1px solid var(--landing-border);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.outroTitle {
+  font-size: 1.125rem;
+  font-weight: 650;
   margin: 0 0 0.75rem;
-  line-height: 1.7;
 }
 
-.contactAddress {
-  font-family: var(--font-mono);
+.outroText {
+  margin: 0 0 1rem;
   font-size: 0.9375rem;
-  color: var(--color-text-tertiary);
-  margin: 0;
+  color: var(--landing-muted);
+  line-height: 1.65;
 }
 
-/* ============================================================================
-   Dark Mode Support
-   ============================================================================ */
+.outroMail {
+  margin: 0;
+  font-family: 'SF Mono', Monaco, ui-monospace, monospace;
+  font-size: 0.875rem;
+}
+
+.outroMail a {
+  color: var(--landing-accent);
+  font-weight: 500;
+}
+
+.outroMail a:hover {
+  color: var(--landing-accent-hover);
+}
+
+/* ----- Dark mode ----- */
 
 [data-theme='dark'] {
-  --color-bg: #0c0c0e;
-  --color-bg-elevated: #141416;
-  --color-text: #f5f5f7;
-  --color-text-secondary: #a1a1a6;
-  --color-text-tertiary: #86868b;
-  --color-border: rgba(255, 255, 255, 0.08);
-  --color-accent: #14a3a8;
+  --landing-bg: #0c0c0e;
+  --landing-bg-alt: #141416;
+  --landing-text: #f5f5f7;
+  --landing-muted: #a1a1a6;
+  --landing-faint: #86868b;
+  --landing-border: rgba(255, 255, 255, 0.09);
+  --landing-accent: #14a3a8;
+  --landing-accent-hover: #2db8bd;
 }
 
-[data-theme='dark'] .main {
-  background: var(--color-bg);
-  color: var(--color-text);
+[data-theme='dark'] .pillarCard {
+  background: rgba(255, 255, 255, 0.03);
 }
 
-[data-theme='dark'] .introSection,
-[data-theme='dark'] .linksSection {
-  background: var(--color-bg-elevated);
+[data-theme='dark'] .pathTile {
+  background: var(--landing-bg);
 }
 
-[data-theme='dark'] .areasSection,
-[data-theme='dark'] .contactSection {
-  background: var(--color-bg);
+[data-theme='dark'] .outroCard {
+  background: rgba(255, 255, 255, 0.03);
 }
 
-[data-theme='dark'] .primaryButton {
-  color: var(--color-accent);
-}
-
-[data-theme='dark'] .linkCard:hover {
-  background: var(--ifm-menu-hover-background);
+[data-theme='dark'] .btnPrimary {
+  color: var(--landing-accent);
 }

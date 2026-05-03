@@ -1,4 +1,10 @@
-This page collects animations from various simulations based on Phynexis.
+---
+title: "Animations"
+---
+
+## Animations
+
+Short clips below are streamed from **Tencent Cloud VOD** (URLs embedded in this page). If playback fails, check browser codecs, corporate firewall rules, or regional network restrictions.
 
 <div className="videoGrid">
 
