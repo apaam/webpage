@@ -3,6 +3,7 @@ import type {Config} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 import remarkMath from 'remark-math';
 import rehypeKatex from 'rehype-katex';
+import rehypeCitation from 'rehype-citation';
 
 const baseUrl = '/webpage/';
 
@@ -55,7 +56,10 @@ const config: Config = {
           sidebarPath: './sidebars.ts',
           editUrl: 'https://github.com/apaam/webpage/edit/main/',
           remarkPlugins: [remarkMath],
-          rehypePlugins: [rehypeKatex],
+          rehypePlugins: [
+            rehypeKatex,
+            [rehypeCitation, {bibliography: './static/files/refs.bib'}],
+          ],
         },
         blog: false,
         theme: {
