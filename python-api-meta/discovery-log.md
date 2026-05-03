@@ -206,11 +206,21 @@ phynexis.utils.omp_set_num_threads(4)
 2. **Discovering new issues**: append to this file with date, module, and type
 3. **Fix verification**: after modifying phynexis bindings, run the corresponding example to verify, then update this file's status to `fix`
 4. **Completing docs**: update the corresponding class status in `progress.json` to `done`
+5. **Before committing**: run `cd webpage && npm run build` to ensure no broken links
+
+---
+
+## Recent Fixes (2026-05-03)
+
+| Date | Module | Type | Content | Status |
+|------|--------|------|---------|--------|
 | 2026-05-03 | fields | fix | `pyvecx_field.cpp`: `VecXField<Int64>` not bound — added `bind_vecx_field<Int64>(m, "VecXlField")` for `LinkedFieldView` constructor | fixed |
 | 2026-05-03 | fields | fix | `pyvecx_field.cpp`: missing `pyvecx_type_caster.hpp` include caused `get_row()` to return unregistered `VecX<T>`. Added include | fixed |
 | 2026-05-03 | fields | fix | `pyscalar_field_view.cpp`: `ScalarFieldView` had no constructors. Added default, `Field<T>*`, and `FieldBase*` constructors with `keep_alive` | fixed |
 | 2026-05-03 | fields | fix | `pyvecn_field_view.cpp`: `VecNFieldView` had no default constructor. Added `pybind11::init<>()` | fixed |
+| 2026-05-03 | fields | fix | `pyfield_io.cpp`: missing `pybind11_json/pybind11_json.hpp` include caused `field_to_json()` to return unregistered `nlohmann::json`. Added include | fixed |
 | 2026-05-03 | fields | note | `LinkedFieldRowView.data()` segfaults when iterating — possibly due to `RowView` being a temporary/proxy type | noted |
 | 2026-05-03 | fields | note | Multiple view classes (`ScalarFieldView`, `VecXFieldView`, etc.) bind `get_name()` without default arg for `delimiter`. C++ has default `"."` but pybind does not pass it through | noted |
-
-5. **Before committing**: run `cd webpage && npm run build` to ensure no broken links
+| 2026-05-03 | fields | note | `VecNFieldView` list constructor not exposed | noted |
+| 2026-05-03 | fields | note | `Vec6FieldView` indexed accessors not bound | noted |
+| 2026-05-03 | fields | note | `cross()` returns `_Vec3dFieldCrossResult`; `.get()` may segfault due to `shared_ptr` lifetime issues | noted |
