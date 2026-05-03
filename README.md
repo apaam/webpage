@@ -48,6 +48,35 @@ make install   # same as npm install
 
 If you cloned without submodules, run `git submodule update --init` (required for the `doxygen-awesome-css` theme).
 
+### GitHub access via local proxy (FastGithub)
+
+If GitHub is unreachable or Git fails (`git clone` / `pull` / `push` timeouts, **HTTP/2 framing** errors, etc.), run a local accelerator such as **[FastGithub](https://github.com/dotnetcore/fastgithub)** and route Git through its HTTP proxy.
+
+1. **Start FastGithub** on your machine. The default HTTP proxy is **`http://127.0.0.1:38457`** (confirm in the app logs or upstream docs for your OS).
+2. **One terminal session** — export proxy variables, then use Git as usual:
+
+   ```bash
+   export http_proxy=http://127.0.0.1:38457 https_proxy=http://127.0.0.1:38457
+   export HTTP_PROXY=http://127.0.0.1:38457 HTTPS_PROXY=http://127.0.0.1:38457
+   ```
+
+3. **TLS / certificate warnings** — FastGithub may MITM HTTPS; trust its CA per upstream instructions (`cacert/fastgithub.cer`), or only if you accept the risk use per-command `git -c http.sslVerify=false` for GitHub.
+4. **HTTP/2 issues** — try `git -c http.version=HTTP/1.1 …` on top of the proxy.
+
+Optional shell helpers (e.g. in `~/.zshrc`):
+
+```bash
+git_proxy_set_fastgithub() {
+  export http_proxy=http://127.0.0.1:38457 https_proxy=http://127.0.0.1:38457
+  export HTTP_PROXY=http://127.0.0.1:38457 HTTPS_PROXY=http://127.0.0.1:38457
+}
+git_proxy_unset() { unset http_proxy https_proxy HTTP_PROXY HTTPS_PROXY; }
+```
+
+**Deploy (`make deploy`):** Docusaurus clones a temp repo and pushes **`gh-pages`**; keep FastGithub running with the same exports in that terminal. You still need working GitHub auth for HTTPS (`gh auth setup-git`, SSH, or a credential helper)—otherwise `git push` may fail with “could not read Password”.
+
+**Protected `main`:** if force-push to **`main`** is disabled on GitHub, push a **feature branch** and open a **pull request** instead.
+
 ### Common tasks
 
 | Task | Command |
