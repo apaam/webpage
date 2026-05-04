@@ -11,7 +11,6 @@ displayed_sidebar: pythonApiSidebar
 
 Numeric-to-string conversion with consistent formatting.
 
----
 
 ## Functions
 
@@ -52,7 +51,6 @@ print(phynexis.utils.to_string(-2.5e3))
 -2.500000e+03
 ```
 
----
 
 ## Unexposed C++ API
 

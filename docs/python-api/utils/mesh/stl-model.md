@@ -11,7 +11,6 @@ displayed_sidebar: pythonApiSidebar
 
 3D triangle mesh model supporting STL/OFF file I/O, geometric transformations, decimation, convex hull, and mesh analysis.
 
----
 
 ## Constructor
 
@@ -34,7 +33,6 @@ Creates a model from vertex and face arrays.
 
 Load from a file path (auto-detects format).
 
----
 
 ## Properties
 
@@ -43,7 +41,6 @@ Load from a file path (auto-detects format).
 | `vertices` | `list[Vec3d]` | Model vertices (read/write) |
 | `facets` | `list[Vec3i]` | Triangle face indices (read/write) |
 
----
 
 ## Methods
 
@@ -115,7 +112,6 @@ Return axis-aligned bounding box.
 
 Print model summary.
 
----
 
 ## Static Methods
 
@@ -123,7 +119,6 @@ Print model summary.
 
 Compute properties from raw mesh data without creating an STLModel instance.
 
----
 
 ## Example
 
@@ -155,7 +150,6 @@ is convex: True
 after standardize, size: 1.0
 ```
 
----
 
 ## Example: Create from vertices and facets
 
@@ -186,7 +180,64 @@ volume: 0.0
 surface area: 0.5
 ```
 
----
+
+## Mesh I/O Functions
+
+Top-level functions for reading and writing mesh files.
+
+### `read(filename)`
+
+Read a mesh from an STL file.
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `filename` | `str` | Path to STL file |
+
+**Returns:** `STLModel`
+
+### `read_off(filename)`
+
+Read a mesh from an OFF file.
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `filename` | `str` | Path to OFF file |
+
+**Returns:** `STLModel`
+
+### `write_off(filename, model)`
+
+Write an `STLModel` to an OFF file.
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `filename` | `str` | Output OFF file path |
+| `model` | `STLModel` | Model to save |
+
+**Example:**
+```python
+import phynexis
+
+# Read STL
+model = phynexis.utils.read("/Users/lzhshou/Documents/myResearch/myProjects/apaam/repo/phynexis/data/sphere.stl")
+print("vertices:", len(model.vertices), "facets:", len(model.facets))
+
+# Write OFF
+phynexis.utils.write_off("/tmp/sphere.off", model)
+```
+
+**Output:**
+```text
+vertices: 162
+facets: 320
+```
+
 
 ## Unexposed C++ API
 

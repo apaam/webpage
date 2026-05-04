@@ -10,7 +10,6 @@ displayed_sidebar: pythonApiSidebar
 
 Contact models, node generation utilities, and spatial indexing helpers.
 
----
 
 ## RepulsionModel
 
@@ -23,7 +22,6 @@ Base class for contact repulsion models.
 | `name()` | `str` | Model name |
 | `clone()` | `RepulsionModel*` | Deep copy |
 
----
 
 ## LinearRepulsionModel
 
@@ -56,7 +54,6 @@ clone = model.clone()
 print(type(clone).__name__)  # LinearRepulsionModel
 ```
 
----
 
 ## RepulsionModelFactory
 
@@ -77,7 +74,6 @@ print(pm.RepulsionModelFactory.get_available_models())
 model = pm.RepulsionModelFactory.create_model("LinearRepulsionModel")
 ```
 
----
 
 ## NodeGenerator
 
@@ -130,7 +126,6 @@ print(len(nodes))  # 3
 print(nodes[0])    # {'radius': 0.5, 'pos': [x, y, z]}
 ```
 
----
 
 ## FieldSampler
 
@@ -148,7 +143,6 @@ Factory for creating field samplers used by `NodeGenerator`.
 | `make_vec4(sampler)` | `FieldSampler` | From orientation sampler |
 | `make_json(generator)` | `FieldSampler` | From callable `() -> dict` |
 
----
 
 ## Node Property Utils
 
@@ -174,7 +168,6 @@ ns = pm.NodeSet()
 pm.update_node_bounds(ns, 0.05, 0.1)
 ```
 
----
 
 ## SpatialIndex / UniformGridIndex
 
@@ -193,7 +186,6 @@ result = idx.query(U.Vec3d(5, 5, 5), 2.0)
 print(result)  # list of node indices within radius 2.0
 ```
 
----
 
 ## Known Issues
 

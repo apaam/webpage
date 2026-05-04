@@ -10,7 +10,6 @@ displayed_sidebar: pythonApiSidebar
 
 Graph data structures for particle simulations. `ComputationalGraph` is the top-level container holding `NodeSet`, `EdgeSet`, `HyperEdgeSet`, and `ShapeStore`.
 
----
 
 ## ComputationalGraph
 
@@ -51,7 +50,6 @@ ns = g.nodes()
 print(type(ns).__name__)  # NodeSet
 ```
 
----
 
 ## SetBase
 
@@ -76,7 +74,6 @@ Abstract base class for `NodeSet`, `EdgeSet`, `HyperEdgeSet`.
 | `load_from(path, file, opt)` | — | Load set data |
 | `inspect(filepath)` | — | Inspect file metadata |
 
----
 
 ## NodeSet
 
@@ -123,7 +120,6 @@ ns.add_node(1, {"pos": [1.0, 0.0, 0.0]})
 print(ns.size())  # 2
 ```
 
----
 
 ## EdgeSet
 
@@ -145,7 +141,6 @@ Pairwise edge/link storage.
 
 **Note:** No direct `add_edge` / `remove_edge` methods are exposed. Use `SetBase.emplace()` / `erase()` for bulk operations.
 
----
 
 ## HyperEdgeSet
 
@@ -165,7 +160,6 @@ Many-to-many hyperedge storage.
 | `print_info()` | Print debug info |
 | `views()` | Return hyperedge views |
 
----
 
 ## ShapeStore
 
@@ -233,7 +227,6 @@ Read-only entry returned by `ShapeStore.get()`.
 
 Lightweight handle with `index` and `epoch` fields.
 
----
 
 ## Views
 
@@ -262,7 +255,6 @@ Lightweight handle with `index` and `epoch` fields.
 
 Generic property accessor view for nodes/edges.
 
----
 
 ## Known Issues
 

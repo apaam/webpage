@@ -11,7 +11,6 @@ displayed_sidebar: pythonApiSidebar
 
 Particle simulation framework. Provides node/edge/hyperedge graph structures, spatial indexing, operator-based simulation loop, and model factories for contact mechanics.
 
----
 
 ## Module Status
 
@@ -21,8 +20,9 @@ Particle simulation framework. Provides node/edge/hyperedge graph structures, sp
 | Graph (NodeSet, EdgeSet, HyperEdgeSet, ComputationalGraph) | done | [graph](graph/graph.md) |
 | Simulator, Context, OperatorSystem | done | [simulator](simulator/simulator.md) |
 | Models & Utils | done | [models-utils](models/models-utils.md) |
+| Operators | done | [operators](operators/operators.md) |
+| Views | done | [views](views/views.md) |
 
----
 
 ## Submodules
 
@@ -33,7 +33,6 @@ Particle simulation framework. Provides node/edge/hyperedge graph structures, sp
 - **utils** — `NodeGenerator`, `FieldSampler`, `SpatialIndex`, `UniformGridIndex`
 - **operators** — `phases`, `integration`, `forces`, `interaction`, `output` submodules
 
----
 
 ## Quick Start
 
@@ -55,7 +54,6 @@ ns.initialize()
 print(ns.size())  # 0
 ```
 
----
 
 ## See also
 

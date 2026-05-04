@@ -11,7 +11,6 @@ displayed_sidebar: pythonApiSidebar
 
 Base class for all geometric shapes in phynexis. Provides common interface for volume, inertia, bounding box, signed distance, surface sampling, and serialization. Subclasses implement specific geometries (sphere, cuboid, ellipsoid, etc.).
 
----
 
 ## Constructor
 
@@ -19,7 +18,6 @@ Base class for all geometric shapes in phynexis. Provides common interface for v
 
 Creates a default shape (sphere-like defaults: size=1.0, volume=0.5236).
 
----
 
 ## Properties
 
@@ -31,7 +29,6 @@ Creates a default shape (sphere-like defaults: size=1.0, volume=0.5236).
 | `name` | `str` | read-only | Registered shape name |
 | `render_mesh` | `STLModel` | read-only | Surface mesh for rendering |
 
----
 
 ## Methods
 
@@ -164,6 +161,36 @@ Return surface node count and spacing.
 
 **Returns:** `int` / `float`
 
+### `surface_nodes()` / `surface_node_areas()`
+
+Access surface node positions and per-node areas.
+
+**Returns:** `list[Vec3d]` / `list[float]`
+
+### `sample_surface_points(n)`
+
+Sample random points on the shape surface.
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `n` | `int` | Number of points to sample |
+
+**Returns:** `list[Vec3d]`
+
+### `support_points(dir)`
+
+Get support points (all contact-relevant points in a direction).
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `dir` | `Vec3d` | Direction vector |
+
+**Returns:** `list[Vec3d]`
+
 ### `set_size(d)` / `set_surface_node_num(num)`
 
 Set shape size or surface node count.
@@ -202,7 +229,6 @@ Save/load shape to/from file.
 
 Serialize/deserialize shape to/from JSON.
 
----
 
 ## Example
 
@@ -249,7 +275,6 @@ stl size: 0.18819206523895264
 aabb after translate: (Vec3d(0, -1, -1), Vec3d(2, 1, 1))
 ```
 
----
 
 ## Shape Subclasses
 
@@ -344,11 +369,34 @@ The following shapes are also exposed but have more specialized APIs:
 - `PolySuperQuadrics` — Super-quadric shapes
 - `SphericalHarmonics` — Shapes represented by spherical harmonic coefficients
 - `TriMesh` — Triangle mesh shape wrapper
-- `LevelSet` — Implicit level-set shape
+- `LevelSet` — Implicit surface shape (see [`LevelSetField`](../level-set-function.md) for the underlying grid representation)
 - `Polybezier` — Bezier curve-based shape
 - `BoundingBox` — Axis-aligned bounding box shape
 
----
+
+## ShapeFactory
+
+Static factory for creating shapes by name.
+
+| Method | Description |
+|--------|-------------|
+| `create(name, js)` | Create a shape by registered name with JSON parameters |
+
+**Note:** `ShapeFactory` has no public constructor; use `ShapeFactory.create()` directly.
+
+
+## ShapeRegistry
+
+Singleton registry of available shape types.
+
+| Method | Description |
+|--------|-------------|
+| `instance()` | Get the singleton registry instance |
+| `is_registered(name)` | Check if a shape type is registered |
+| `print_info()` | Print registered shape types |
+
+**Note:** `get_registered_types()` returns `VecX<String>` (unregistered type); use `print_info()` as a workaround.
+
 
 ## Example: Surface nodes and sampling
 
@@ -402,7 +450,6 @@ support points: [Vec3d(1, 0, 0)]
 render_mesh size: 0.18819206523895264
 ```
 
----
 
 ## Unexposed C++ API
 

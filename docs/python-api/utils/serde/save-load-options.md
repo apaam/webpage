@@ -11,7 +11,6 @@ displayed_sidebar: pythonApiSidebar
 
 Configuration objects for file save/load operations used by `Shape.save_to()` / `Shape.load_from()` and other serializable types.
 
----
 
 ## FileFormat
 
@@ -26,7 +25,6 @@ Enum defining supported file formats.
 | `FileFormat.Stl` | STL mesh format |
 | `FileFormat.Off` | OFF mesh format |
 
----
 
 ## SaveOptions
 
@@ -44,7 +42,6 @@ Default: `overwrite=True`, `create_directories=True`, `format_hint=Auto`.
 | `create_directories` | `bool` | read/write | Create parent directories |
 | `format_hint` | `FormatHint` | read/write | Format override hint |
 
----
 
 ## SaveVtkOptions
 
@@ -63,7 +60,6 @@ Default: `binary=False`, `use_double=False`.
 | `binary` | `bool` | read/write | Write VTK in binary mode |
 | `use_double` | `bool` | read/write | Use double precision |
 
----
 
 ## LoadOptions
 
@@ -80,7 +76,6 @@ Default: `create_directories=False`, `format_hint=Auto`.
 | `create_directories` | `bool` | read/write | Create parent directories |
 | `format_hint` | `FormatHint` | read/write | Format override hint |
 
----
 
 ## Example
 
@@ -111,4 +106,69 @@ print("load create_dirs:", load_opt.create_directories)
 format: FileFormat.Json
 vtk binary: True
 load create_dirs: False
+```
+
+
+## Format Utility Functions
+
+Top-level utility functions for resolving file formats.
+
+### `format_from_extension(ext)`
+
+Look up the `FileFormat` enum value from a file extension (with dot).
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `ext` | `str` | File extension including dot, e.g. `".stl"` |
+
+**Returns:** `FileFormat`
+
+### `format_from_path(path)`
+
+Look up the `FileFormat` enum value from a file path by extracting its extension.
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `path` | `str` | File path |
+
+**Returns:** `FileFormat`
+
+### `join_path_file(path, file)`
+
+Join a base directory path and a filename.
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `path` | `str` | Base directory path |
+| `file` | `str` | Filename |
+
+**Returns:** `str`
+
+**Example:**
+```python
+import phynexis
+
+# Format resolution
+fmt_ext = phynexis.utils.format_from_extension(".stl")
+print("from .stl:", fmt_ext)
+
+fmt_path = phynexis.utils.format_from_path("/data/model.stl")
+print("from path:", fmt_path)
+
+# Path joining
+joined = phynexis.utils.join_path_file("/output", "result.txt")
+print("joined:", joined)
+```
+
+**Output:**
+```text
+from .stl: FileFormat.Stl
+from path: FileFormat.Stl
+joined: /output/result.txt
 ```

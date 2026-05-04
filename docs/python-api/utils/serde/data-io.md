@@ -11,7 +11,6 @@ displayed_sidebar: pythonApiSidebar
 
 Utility class for importing and exporting tabular data (CSV, TSV, space-separated) with automatic delimiter detection.
 
----
 
 ## Methods
 
@@ -52,7 +51,6 @@ Check if a file exists.
 
 **Returns:** `bool`
 
----
 
 ## Example
 
@@ -93,7 +91,6 @@ exists: True
 missing: False
 ```
 
----
 
 ## Unexposed C++ API
 

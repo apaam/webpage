@@ -11,7 +11,6 @@ displayed_sidebar: pythonApiSidebar
 
 Lightweight hash map optimized for index-to-index lookups. Uses flat hash map internally for cache-friendly access.
 
----
 
 ## Constructor
 
@@ -19,7 +18,6 @@ Lightweight hash map optimized for index-to-index lookups. Uses flat hash map in
 
 Creates an empty map.
 
----
 
 ## Methods
 
@@ -45,7 +43,6 @@ Return the number of entries.
 
 Remove all entries.
 
----
 
 ## Python Protocols
 
@@ -61,7 +58,6 @@ Insert or update a key-value pair.
 
 Check membership. Equivalent to `exist(key)`.
 
----
 
 ## Example
 
@@ -101,7 +97,6 @@ updated m[10] = 999
 after clear: 0
 ```
 
----
 
 ## Unexposed C++ API
 

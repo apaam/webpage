@@ -17,7 +17,6 @@ way to obtain one from Python is via `Field<T>.subset(mask)`.
 `FieldHolder` is non-copyable; the move constructor is not exposed to Python, so
 treat each holder as single-use.
 
----
 
 ## Constructors
 
@@ -56,7 +55,6 @@ holder bool: True
 inner field: [10. 30. 50.]
 ```
 
----
 
 ## Methods
 
@@ -108,7 +106,6 @@ Down-cast the inner field to `Field<Int32>` (alias `Int32Field`). Raises
 
 `True` when the holder owns a non-null pointer.
 
----
 
 ## Examples
 
@@ -200,7 +197,6 @@ before reset: True
 after reset(): False
 ```
 
----
 
 ## Known Issues
 
@@ -215,7 +211,6 @@ after reset(): False
   resolves to the concrete subclass via runtime type info — but
   `isinstance(holder.get(), FieldBase)` is still `False`.
 
----
 
 ## Unexposed C++ API
 

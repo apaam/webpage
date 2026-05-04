@@ -43,7 +43,7 @@ The navbar links route to the correct sidebar via `type: 'doc'` with explicit `s
 ### Python API Docs
 
 - Source pages: `docs/python-api/{module}/` — one Markdown file per class
-- Meta tracking: `python-api-meta/progress.json` (module/class completion status)
+- Meta tracking: `logs/python-api-meta/progress.json` (module/class completion status)
 - Old reference: `docs/python-api/deprecated/ref-*.md` (not authoritative)
 - PDF export script: `scripts/export-python-api-pdf.py` — collects all `.md`, merges, converts via `pandoc → typst` using the `manual` template
 

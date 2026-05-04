@@ -11,7 +11,6 @@ displayed_sidebar: pythonApiSidebar
 
 Small fixed-size vector and matrix types used throughout phynexis. Exposed with Pythonic protocols (`len()`, indexing, iteration) where supported.
 
----
 
 ## Vector Types
 
@@ -75,7 +74,6 @@ Compute cross product.
 
 **Returns:** `Vec3d`
 
----
 
 ## Matrix Types
 
@@ -97,7 +95,6 @@ Creates a zero-initialized matrix.
 | `mat[i]` | Returns `Vec2d` | Returns `Vec3d` |
 | `mat[i] = row_vec` | Yes | Yes |
 
----
 
 ## Example
 
@@ -162,7 +159,6 @@ Mat3d: Mat3d([0, 0, 0], [0, 0, 0], [0, 0, 0])
 identity: Mat3d([1, 0, 0], [0, 1, 0], [0, 0, 1])
 ```
 
----
 
 ## Known Issues
 
@@ -170,7 +166,6 @@ identity: Mat3d([1, 0, 0], [0, 1, 0], [0, 0, 1])
 - `Vec6d` does **not** support `len()`, indexing, or iteration. Only named component access (`xx`, `yy`, etc.) is available.
 - `Vec4d` constructor: the C++ order is `(w, x, y, z)`, but Python passes `(x, y, z, w)`. The repr output `Vec4d(x, y, z, w)` matches the property names, so `Vec4d(1, 2, 3, 4)` gives `x=2, y=3, z=4, w=1` which is confusing. Prefer constructing with explicit intent or avoid `Vec4d` unless the w-component semantics are well understood.
 
----
 
 ## Unexposed C++ API
 

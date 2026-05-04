@@ -11,7 +11,6 @@ displayed_sidebar: pythonApiSidebar
 
 Schema-level metadata describing a field's name, value type, and field type (scalar vs variable-length vector). Used by `FieldSchema` and `FieldManager` for runtime field registration and I/O.
 
----
 
 ## Enums
 
@@ -39,7 +38,6 @@ Type tag for scalar values. Maps to phynexis primitive types.
 | `Int32` | `int32_t` | 4 bytes |
 | `Int64` | `int64_t` | 8 bytes |
 
----
 
 ## Constructors
 
@@ -59,7 +57,6 @@ Create metadata with explicit parameters.
 | `field_type` | `FieldType` | `FieldType.Scalar` or `FieldType.VecX` |
 | `value_type` | `ValueType` | One of the `ValueType` enum values |
 
----
 
 ## Properties
 
@@ -69,7 +66,6 @@ Create metadata with explicit parameters.
 | `field_type` | `FieldType` | read/write | Scalar or VecX |
 | `value_type` | `ValueType` | read/write | Primitive value type |
 
----
 
 ## Example
 
@@ -109,7 +105,6 @@ FieldType: ['Scalar', 'VecX']
 ValueType: ['Bool', 'Char', 'Float', 'Double', 'Int8', 'Int16', 'Int32', 'Int64']
 ```
 
----
 
 ## Unexposed C++ API
 

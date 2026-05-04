@@ -1,5 +1,6 @@
 ---
 title: "FieldLayout"
+displayed_sidebar: pythonApiSidebar
 ---
 
 # FieldLayout
@@ -32,7 +33,6 @@ print(len(fl), fl.empty())
 0 True
 ```
 
----
 
 ### `FieldLayout(metas)`
 
@@ -68,7 +68,6 @@ Returns the number of `FieldMeta` entries.
 
 **Returns:** `int`
 
----
 
 ### `__getitem__(index)`
 
@@ -99,7 +98,6 @@ print(fl[0])
 <FieldMeta object at 0x...>
 ```
 
----
 
 ### `size()`
 
@@ -107,7 +105,6 @@ Same as `len(layout)`. Returns the number of entries.
 
 **Returns:** `int`
 
----
 
 ### `empty()`
 
@@ -115,7 +112,6 @@ Returns `True` if the layout contains no entries.
 
 **Returns:** `bool`
 
----
 
 ### `append(meta)`
 

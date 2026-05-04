@@ -11,7 +11,6 @@ displayed_sidebar: pythonApiSidebar
 
 High-resolution time measurement utilities.
 
----
 
 ## Functions
 
@@ -39,7 +38,6 @@ print(f"elapsed: {elapsed_ms:.2f} ms")
 elapsed: 100.12 ms
 ```
 
----
 
 ## Unexposed C++ API
 

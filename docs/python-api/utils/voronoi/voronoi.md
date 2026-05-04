@@ -11,7 +11,6 @@ displayed_sidebar: pythonApiSidebar
 
 Voronoi tessellation on surfaces and in volumes. The Python API exposes `Tessellation` (static computation methods) and `Diagram` (result container).
 
----
 
 ## TessellationParams
 
@@ -31,7 +30,6 @@ Defaults: `max_iter=1000`, `tol=0.001`, `use_cork=True`.
 | `tol` | `float` | Convergence tolerance |
 | `use_cork` | `bool` | Use Cork for boolean clipping |
 
----
 
 ## Tessellation
 
@@ -65,13 +63,11 @@ Compute centroidal Voronoi tessellation (CVT) with automatic seed placement.
 
 **Returns:**`Diagram`
 
----
 
 ## Diagram
 
 Result container for tessellation (no public constructor).
 
----
 
 ## Example
 
@@ -96,7 +92,6 @@ print("diagram:", diag)
 diagram: <phynexis.lib.pyutils.voronoi.Diagram object at 0x...>
 ```
 
----
 
 ## Unexposed C++ API
 

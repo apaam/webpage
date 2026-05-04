@@ -10,7 +10,6 @@ displayed_sidebar: pythonApiSidebar
 
 Simulation driver, context management, and operator system.
 
----
 
 ## Simulator
 
@@ -44,7 +43,6 @@ ctx = sim.context()
 print(type(ctx).__name__)  # Context
 ```
 
----
 
 ## SimulationConfig
 
@@ -59,7 +57,6 @@ Configuration struct.
 | `gravity` | `Vec3d` | Gravity vector |
 | `enable_logging` | `bool` | Enable logging |
 
----
 
 ## Context
 
@@ -95,7 +92,6 @@ g = ctx.graph()
 print(g.is_empty())  # True
 ```
 
----
 
 ## OperatorSystem
 
@@ -129,7 +125,6 @@ Metadata for an operator.
 | `op` | `handle` | Operator handle |
 | `label` | `str` | Operator label |
 
----
 
 ## RuntimeState
 
@@ -148,7 +143,6 @@ Time and step tracking.
 | `advance(dt)` | — | Advance time by dt |
 | `history()` | — | Get history recorder |
 
----
 
 ## DomainSystem
 
@@ -175,7 +169,6 @@ Spatial domain decomposition for MPI.
 | `max_bound` | `Vec3d` | Domain maximum corner |
 | `subdivisions` | `Vec3i` | Subdivision counts per axis |
 
----
 
 ## SpatialIndex
 
@@ -189,7 +182,6 @@ Abstract base for spatial indexing.
 | `query(position, radius)` | `list[int]` | Query nodes within radius |
 | `update()` | — | Update index |
 
----
 
 ## UniformGridIndex
 
@@ -213,7 +205,6 @@ Uniform grid spatial index.
 | `grid_size` | `Vec3d` | Cell size |
 | `update_mode` | `str` | Update strategy |
 
----
 
 ## ResourceRegistry / ContextResource
 
@@ -230,7 +221,6 @@ Resource factory pattern for extensible context resources.
 
 Base class for context-managed resources.
 
----
 
 ## Known Issues
 

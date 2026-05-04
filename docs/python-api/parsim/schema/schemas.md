@@ -12,7 +12,6 @@ Schema definitions for particle node properties. Each schema describes a set of 
 
 All schemas inherit from `phynexis.fields.FieldSchema`.
 
----
 
 ## Schema Types
 
@@ -42,7 +41,6 @@ Returns a copy of the schema with the given slot name prefix. Static method.
 schema = pm.NodeNodeLinkSchema.with_prefix("bond_")
 ```
 
----
 
 ## BoundLayout
 
@@ -111,7 +109,6 @@ pos_fields = layout.slot_fields("pos")
 print(len(pos_fields))
 ```
 
----
 
 ## Known Issues
 

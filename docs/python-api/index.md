@@ -8,7 +8,7 @@ sidebar_position: 0
 
 Use the header **Docs** item for the [manual / guides](../manual/index.md). On API pages the left sidebar shows **only** this Python reference tree (no manual outline).
 
-Phynexis exposes its C++ core through pybind11 bindings. The table below lists the **nine lazy-loaded Python submodules** in a typical build. **On this documentation site**, detailed reference pages are maintained primarily under **`utils`** and **`fields`** (plus historical notes under **`deprecated`**). Other rows describe modules that ship with the package; page-level coverage may still be thin—use the **[coverage tracker](pathname:///python-api-meta/progress.json)** and the **[PDF export](#pdf-export)** for the broadest automated snapshot.
+Phynexis exposes its C++ core through pybind11 bindings. The table below lists the **nine lazy-loaded Python submodules** in a typical build. **On this documentation site**, detailed reference pages are maintained primarily under **`utils`** and **`fields`** (plus historical notes under **`deprecated`**). Other rows describe modules that ship with the package; page-level coverage may still be thin—use the **[coverage tracker](pathname:///logs/python-api-meta/progress.json)** and the **[PDF export](#pdf-export)** for the broadest automated snapshot.
 
 | Module | Python Import | C++ Namespace | Description |
 |--------|--------------|---------------|-------------|
@@ -34,7 +34,7 @@ mesh = phynexis.netfem.TetMesh()
 
 ## Coverage Status
 
-See [progress tracker](pathname:///python-api-meta/progress.json) for the current documentation coverage by module.
+See [progress tracker](pathname:///logs/python-api-meta/progress.json) for the current documentation coverage by module.
 
 ## PDF Export
 

@@ -11,7 +11,6 @@ displayed_sidebar: pythonApiSidebar
 
 Flat hash map with open addressing. Optimized for cache-friendly iteration and small data performance. Exposed as template instantiations with Pythonic dict-like interface.
 
----
 
 ## Available Instantiations
 
@@ -23,7 +22,6 @@ Flat hash map with open addressing. Optimized for cache-friendly iteration and s
 | `FlatHashMap32_32` | `int32` | `int32` | 32-bit key, 32-bit value |
 | `FlatHashMap64_64i` | `int64` | `int64` | Alias for `FlatHashMap64_64` |
 
----
 
 ## Constructor
 
@@ -41,7 +39,6 @@ Creates a hash map with pre-allocated bucket count.
 |------|------|------|
 | `bucket_count` | `int` | Initial number of buckets |
 
----
 
 ## Methods
 
@@ -101,7 +98,6 @@ Get or set the maximum load factor threshold for rehashing.
 
 Force rehash to at least `count` buckets.
 
----
 
 ## Python Protocols
 
@@ -125,7 +121,6 @@ Iterate over key-value pairs.
 
 Return element count.
 
----
 
 ## Example
 
@@ -231,7 +226,6 @@ m2 size: 0
 32_32 size: 1
 ```
 
----
 
 ## Unexposed C++ API
 
@@ -242,7 +236,6 @@ The following methods are not yet exposed to Python:
 - Iterator-based `erase(pos)` — iterator not fully exposed
 - `cbegin()` / `cend()` — const iterators
 
----
 
 ## Binding Fix Record
 

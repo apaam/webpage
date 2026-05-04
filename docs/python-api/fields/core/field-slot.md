@@ -1,5 +1,6 @@
 ---
 title: "FieldSlot"
+displayed_sidebar: pythonApiSidebar
 ---
 
 # FieldSlot
@@ -63,7 +64,6 @@ print(s.name, s.dimension, s.get_field_names())
 pressure 1 ['pressure']
 ```
 
----
 
 ### `FieldSlot.make_vec3(name, type=ValueType.Double)`
 
@@ -94,7 +94,6 @@ print(s.get_component_names())
 ['x', 'y', 'z']
 ```
 
----
 
 ### `FieldSlot.make_vec4(name, type=ValueType.Double)`
 
@@ -109,7 +108,6 @@ Creates a 4-component vector slot. Component names default to `['x', 'y', 'z', '
 
 **Returns:** `FieldSlot`
 
----
 
 ### `FieldSlot.make_vec6(name, type=ValueType.Double)`
 
@@ -124,7 +122,6 @@ Creates a 6-component vector slot. Component names default to `['xx', 'yy', 'zz'
 
 **Returns:** `FieldSlot`
 
----
 
 ### `FieldSlot.make_vecn(name, dimension, type=ValueType.Double, delimiter=".", component_names=[])`
 
@@ -156,7 +153,6 @@ print(s.get_field_names())
 ['pos_c0', 'pos_c1', 'pos_c2', 'pos_c3', 'pos_c4']
 ```
 
----
 
 ### `FieldSlot.make_vecx(name, type=ValueType.Double)`
 
@@ -229,7 +225,6 @@ print(s3.get_field_names())
 ['c.r', 'c.g']
 ```
 
----
 
 ### `get_component_names()`
 

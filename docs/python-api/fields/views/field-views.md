@@ -13,7 +13,6 @@ Field views are **non-owning wrappers** over existing scalar/vector fields. They
 
 All view types inherit from `FieldViewBase`.
 
----
 
 ## Type Summary
 
@@ -32,7 +31,6 @@ All view types inherit from `FieldViewBase`.
 | `VecXdFieldView` | `VecXFieldView<Double>` | `float` |
 | `VecXiFieldView` | `VecXFieldView<Int32>` | `int` (32-bit) |
 
----
 
 ## Common API (FieldViewBase)
 
@@ -70,7 +68,6 @@ Returns the base name of the view. For compound views (Vec3, Vec4, etc.), this s
 
 Returns a `list[str]` of the underlying field names.
 
----
 
 ## ScalarFieldView
 
@@ -122,7 +119,6 @@ Direct element read/write. No bounds checking; use with caution.
 
 Forwards unknown attribute access to the underlying field object. Allows calling field methods through the view.
 
----
 
 ## Vec3FieldView
 
@@ -180,7 +176,6 @@ print(v3[0])            # Vec3d(1.0, 2.0, 3.0)
 | `y(i)` | `float` / `int` | Value of y at index `i` |
 | `z(i)` | `float` / `int` | Value of z at index `i` |
 
----
 
 ## Vec4FieldView
 
@@ -205,7 +200,6 @@ View over four scalar fields interpreted as `(w, x, y, z)` components. Exposed a
 | `y(i)` | `float` | Value of y at index `i` |
 | `z(i)` | `float` | Value of z at index `i` |
 
----
 
 ## Vec6FieldView
 
@@ -230,7 +224,6 @@ View over six scalar fields interpreted as symmetric tensor components `(xx, yy,
 
 **Note:** Indexed component access (`xx(i)`, etc.) is **not bound** in Python.
 
----
 
 ## VecNFieldView
 
@@ -248,7 +241,6 @@ View over N scalar fields of arbitrary dimension. Unlike Vec3/Vec4/Vec6, the dim
 
 Returns a `ScalarFieldView` over the field at the given index.
 
----
 
 ## VecXFieldView
 
@@ -291,7 +283,6 @@ Returns the total number of stored elements across all rows.
 
 Returns a `VecXFieldRowView<T>` for row `i`.
 
----
 
 ## Known Issues
 

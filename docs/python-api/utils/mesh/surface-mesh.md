@@ -11,7 +11,6 @@ displayed_sidebar: pythonApiSidebar
 
 Minimal struct representing a surface mesh as vertices and triangular facets.
 
----
 
 ## Constructor
 
@@ -19,7 +18,6 @@ Minimal struct representing a surface mesh as vertices and triangular facets.
 
 Creates an empty mesh.
 
----
 
 ## Properties
 
@@ -28,7 +26,6 @@ Creates an empty mesh.
 | `vertices` | `list[Vec3d]` | Vertex positions (read/write) |
 | `facets` | `list[Vec3u]` | Triangle face indices (read/write) |
 
----
 
 ## Example
 
@@ -55,7 +52,6 @@ facets: 1
 first vertex: Vec3d(0, 0, 0)
 ```
 
----
 
 ## Unexposed C++ API
 

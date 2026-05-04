@@ -11,7 +11,6 @@ displayed_sidebar: pythonApiSidebar
 
 Thread-level parallelism control. These functions map directly to OpenMP runtime calls.
 
----
 
 ## Functions
 
@@ -39,7 +38,6 @@ Alias for `omp_get_max_threads()`.
 
 Alias for `omp_set_num_threads()`.
 
----
 
 ## Example
 
@@ -57,7 +55,6 @@ max threads: 10
 set to 4 threads
 ```
 
----
 
 ## Note
 

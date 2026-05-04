@@ -1,5 +1,6 @@
 ---
 title: "FieldManager"
+displayed_sidebar: pythonApiSidebar
 ---
 
 # FieldManager
@@ -63,7 +64,6 @@ FieldHandle(index=0, epoch=0)
 10
 ```
 
----
 
 ### `create_fields(metas)`
 
@@ -96,7 +96,6 @@ print([str(h) for h in handles])
 ['FieldHandle(index=0, epoch=0)', 'FieldHandle(index=1, epoch=0)']
 ```
 
----
 
 ### `ensure_fields(layout)` / `ensure_fields(metas)` / `ensure_fields(schema)`
 
@@ -134,7 +133,6 @@ print(fm.get_field_count())
 2
 ```
 
----
 
 ### `remove_field(name)` / `remove_field(handle)`
 
@@ -163,7 +161,6 @@ print(fm.has_field("x"))
 False
 ```
 
----
 
 ### `has_field(name)`
 
@@ -177,7 +174,6 @@ Returns `True` if a field with the given name exists.
 
 **Returns:** `bool`
 
----
 
 ### `valid_field_handle(handle)`
 
@@ -191,7 +187,6 @@ Checks if a handle is still valid (index in range and epoch matches).
 
 **Returns:** `bool`
 
----
 
 ### `get_field(handle)`
 
@@ -222,7 +217,6 @@ print(type(f).__name__)
 ScalarField
 ```
 
----
 
 ### `find_field(name)`
 
@@ -236,7 +230,6 @@ Finds a field by name and returns its handle.
 
 **Returns:** `FieldHandle`
 
----
 
 ### `field_size()`
 
@@ -244,7 +237,6 @@ Returns the shared element count of all managed fields.
 
 **Returns:** `int`
 
----
 
 ### `resize_fields(new_size)`
 
@@ -256,7 +248,6 @@ Resizes **all** managed fields to `new_size`.
 |-----------|------|-------------|
 | `new_size` | `int` | New element count for all fields |
 
----
 
 ### `reserve_fields(capacity)`
 
@@ -268,19 +259,16 @@ Reserves capacity for all managed fields without changing their sizes.
 |-----------|------|-------------|
 | `capacity` | `int` | Capacity to reserve |
 
----
 
 ### `clear_fields()`
 
 Clears all elements from all fields (size becomes 0). Fields themselves remain registered.
 
----
 
 ### `clear()`
 
 Removes all fields and resets the manager to its initial empty state.
 
----
 
 ### `subset_fields(mask)`
 
@@ -318,7 +306,6 @@ print(fm2.get_field_count(), fm2.get_field_names())
 1 ['x']
 ```
 
----
 
 ### `subset_fields_inplace(mask)`
 
@@ -330,7 +317,6 @@ Same as `subset_fields` but modifies the current manager in-place.
 |-----------|------|-------------|
 | `mask` | `BoolField` | Boolean mask field |
 
----
 
 ### `check_size_consistency()`
 
@@ -338,7 +324,6 @@ Returns `True` if all fields have the same size.
 
 **Returns:** `bool`
 
----
 
 ### `get_inconsistent_fields()`
 
@@ -346,7 +331,6 @@ Returns the names of fields whose size differs from the majority.
 
 **Returns:** `list[str]`
 
----
 
 ### `reset_field_values(index)`
 
@@ -358,7 +342,6 @@ Resets all field values at `index` to their type defaults.
 |-----------|------|-------------|
 | `index` | `int` | Element index to reset |
 
----
 
 ### `copy_field_values(src_index, dst_index)`
 
@@ -371,7 +354,6 @@ Copies all field values from `src_index` to `dst_index`.
 | `src_index` | `int` | Source index |
 | `dst_index` | `int` | Destination index |
 
----
 
 ### `set_field_value(index, name, value)`
 
@@ -403,7 +385,6 @@ print(val)
 {'p': 99.5}
 ```
 
----
 
 ### `get_field_value(index, name)`
 
@@ -418,7 +399,6 @@ Reads a single field value by name at the given index.
 
 **Returns:** `tuple[bool, dict]` — `(success, {name: value})`
 
----
 
 ### `set_field_values(index, values)`
 
@@ -431,7 +411,6 @@ Sets multiple field values at an index from a JSON-like dict.
 | `index` | `int` | Element index |
 | `values` | `dict` | `{field_name: value, ...}` |
 
----
 
 ### `get_field_values(index)`
 
@@ -464,7 +443,6 @@ print(fm.get_field_values(0))
 {'p': 1.0, 't': 300.0}
 ```
 
----
 
 ### `save_to(path, file, opt=None)`
 
@@ -478,7 +456,6 @@ Saves all fields to a binary file.
 | `file` | `str` | — | Filename |
 | `opt` | `SaveOptions` | `SaveOptions()` | Save options |
 
----
 
 ### `load_from(path, file, opt=None)`
 
@@ -513,7 +490,6 @@ with tempfile.TemporaryDirectory() as td:
 1 5
 ```
 
----
 
 ### `inspect(filepath)`
 
@@ -525,7 +501,6 @@ Reads metadata from a snapshot file without loading data.
 |-----------|------|-------------|
 | `filepath` | `str` | Full path to the snapshot file |
 
----
 
 ### `get_field_layout()`
 
@@ -533,7 +508,6 @@ Returns the current `FieldLayout` describing all registered fields.
 
 **Returns:** `FieldLayout`
 
----
 
 ### `get_field_count()`
 
@@ -541,7 +515,6 @@ Returns the number of registered fields.
 
 **Returns:** `int`
 
----
 
 ### `get_field_names()`
 
@@ -549,7 +522,6 @@ Returns the names of all registered fields.
 
 **Returns:** `list[str]`
 
----
 
 ### `get_field_ptrs()`
 
@@ -557,7 +529,6 @@ Returns a list of concrete field instances. Each element is the runtime-resolved
 
 **Returns:** `list[Field]`
 
----
 
 ### `print_info()`
 

@@ -11,7 +11,21 @@ displayed_sidebar: pythonApiSidebar
 
 Console logging and output control for phynexis. Supports leveled output (debug/info/warning/error/fatal), colorized terminal output, timestamps, and MPI rank display.
 
----
+## Level
+
+> **C++**: `phynexis::utils::console::Level`
+> **Python**: `phynexis.utils.Level`
+
+Enum controlling the minimum log level for output filtering.
+
+| Value | Numeric | Description |
+|-------|---------|-------------|
+| `Level.DEBUG` | 0 | Debug messages |
+| `Level.INFO` | 1 | Informational messages (default minimum) |
+| `Level.WARNING` | 2 | Warning messages |
+| `Level.ERROR` | 3 | Error messages |
+| `Level.FATAL` | 4 | Fatal error messages |
+
 
 ## Config
 
@@ -30,7 +44,7 @@ Creates a config with default settings (min_level=info, timestamps on, colors on
 
 | Property | Type | Access | Description |
 |----------|------|--------|-------------|
-| `min_level` | `int` | read/write | Minimum log level to display |
+| `min_level` | `Level` | read/write | Minimum log level to display |
 | `show_timestamp` | `bool` | read/write | Show timestamps in output |
 | `show_level` | `bool` | read/write | Show level tag (INFO, WARN, etc.) |
 | `show_location` | `bool` | read/write | Show file/line location |
@@ -41,38 +55,37 @@ Creates a config with default settings (min_level=info, timestamps on, colors on
 
 #### `set_min_level(level)`
 
-Set minimum display level. Levels: 0=debug, 1=info, 2=warning, 3=error, 4=fatal.
+Set minimum display level. Returns the Config object for chaining.
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |------|------|------|
-| `level` | `int` | Minimum level to display |
+| `level` | `Level` | Minimum level to display |
 
 #### `set_show_timestamp(enabled)`
 
-Toggle timestamp display.
+Toggle timestamp display. Returns the Config object for chaining.
 
 #### `set_show_level(enabled)`
 
-Toggle level tag display.
+Toggle level tag display. Returns the Config object for chaining.
 
 #### `set_show_location(enabled)`
 
-Toggle source location display.
+Toggle source location display. Returns the Config object for chaining.
 
 #### `set_color_output(enabled)`
 
-Toggle colorized output.
+Toggle colorized output. Returns the Config object for chaining.
 
 **Example:**
 ```python
 import phynexis
 
-cfg = phynexis.utils.Config()
-cfg.set_show_timestamp(False)
-cfg.set_color_output(False)
-phynexis.utils.custom(cfg)
+cfg = phynexis.utils.custom()
+cfg.show_timestamp = False
+cfg.color_output = False
 
 phynexis.utils.info("no timestamp, no color")
 ```
@@ -82,7 +95,6 @@ phynexis.utils.info("no timestamp, no color")
 [INFO] no timestamp, no color
 ```
 
----
 
 ## Logging Functions
 
@@ -146,13 +158,18 @@ phynexis.utils.plain("raw output without prefix")
 raw output without prefix
 ```
 
----
 
 ## Control Functions
 
 ### `set_level(level)`
 
 Set the global minimum log level.
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `level` | `Level` or `int` | Minimum level, e.g. `Level.WARNING` or `2` |
 
 ### `set_verbose(enabled)`
 
@@ -162,9 +179,11 @@ Enable or disable verbose (debug) output. Equivalent to `set_level(0)`.
 
 Enable or disable colorized output globally.
 
-### `custom(config)`
+### `custom()`
 
-Apply a custom `Config` object to the console.
+Return a reference to the global `Config` object. Modifications to the returned object take effect immediately.
+
+**Returns:** `Config` — global configuration (mutable reference)
 
 **Example:**
 ```python

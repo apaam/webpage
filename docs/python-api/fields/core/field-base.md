@@ -1,5 +1,6 @@
 ---
 title: "FieldBase"
+displayed_sidebar: pythonApiSidebar
 ---
 
 # FieldBase
@@ -40,7 +41,6 @@ print(sf.size())
 100
 ```
 
----
 
 ### `empty()`
 
@@ -60,7 +60,6 @@ print(sf.empty())
 True
 ```
 
----
 
 ### `resize(new_size, value=None)`
 
@@ -89,7 +88,6 @@ size after resize: 5
 values: [1.0, 1.0, 1.0, 7.0, 7.0]
 ```
 
----
 
 ### `reserve(capacity)`
 
@@ -101,7 +99,6 @@ Pre-allocates internal storage for at least `capacity` elements without changing
 |-----------|------|-------------|
 | `capacity` | `int` | Minimum storage capacity |
 
----
 
 ### `clear()`
 
@@ -120,7 +117,6 @@ print(sf.size(), sf.empty())
 0 True
 ```
 
----
 
 ### `ensure_capacity(total_needed)`
 
@@ -134,7 +130,6 @@ Ensures the field can hold at least `total_needed` elements. Equivalent to `rese
 
 **Status**: ⚠️ Unreachable — see Known Issues below.
 
----
 
 ### `erase_indices(idx_sorted_unique)`
 
@@ -148,7 +143,6 @@ Removes elements at the given indices. Indices must be sorted in ascending order
 
 **Status**: ⚠️ Unreachable — see Known Issues below.
 
----
 
 ### `reorder(new_to_old)`
 
@@ -162,7 +156,6 @@ Reorders elements in-place according to the permutation map.
 
 **Status**: ⚠️ Unreachable — see Known Issues below.
 
----
 
 ### `swap_elements(i, j)`
 
@@ -177,7 +170,6 @@ Swaps the elements at indices `i` and `j`.
 
 **Status**: ⚠️ Unreachable — see Known Issues below.
 
----
 
 ### `copy_element(src_index, dst_index)`
 
@@ -192,7 +184,6 @@ Copies the value at `src_index` to `dst_index`.
 
 **Status**: ⚠️ Unreachable — see Known Issues below.
 
----
 
 ### `reset_value(index)`
 
@@ -206,7 +197,6 @@ Resets the element at `index` to its type's default value (`0.0`, `0`, or `False
 
 **Status**: ⚠️ Unreachable — see Known Issues below.
 
----
 
 ### `is_same_type(other)`
 

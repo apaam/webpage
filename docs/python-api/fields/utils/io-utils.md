@@ -10,7 +10,6 @@ displayed_sidebar: pythonApiSidebar
 
 Free functions for field serialization, MPI communication, and console output. These are utility functions that complement the core field data structures.
 
----
 
 ## Console Output
 
@@ -43,7 +42,6 @@ Returns a string representation of a `VecXdField` or `VecXiField`.
 
 **Supported types:** `VecXdField`, `VecXiField`
 
----
 
 ## Field I/O
 
@@ -136,7 +134,6 @@ print(f2[0])  # 10.0
 
 **Supported types for all I/O operations:** `ScalarField`, `Int32Field`, `Int64Field`, `BoolField`
 
----
 
 ## Manager I/O
 
@@ -178,7 +175,6 @@ fm2 = F.FieldManager()
 F.unpack_manager(blob, fm2, [10, 11])
 ```
 
----
 
 ## VecXField I/O
 
@@ -220,7 +216,6 @@ F.unpack_vecx_field(vf2, blob, [3])
 print(vf2.get_row(3))  # [1.0, 2.0]
 ```
 
----
 
 ## MPI Utilities
 
@@ -275,7 +270,6 @@ else:
 F.gather_data(local, global_field)
 ```
 
----
 
 ## Known Issues
 

@@ -13,7 +13,6 @@ Bidirectional many-to-many link view over two `VecXField<Int64>` storages (`a_to
 
 `LinkedFieldView` also supports **attached data**: `VecXField<T>` objects can be registered via `attach()`. When a link is created or removed, the attached fields are updated in sync (append on link, swap-remove on unlink).
 
----
 
 ## Related Types
 
@@ -25,7 +24,6 @@ Bidirectional many-to-many link view over two `VecXField<Int64>` storages (`a_to
 | `VecXFieldAttachedAdapterDouble` | `VecXFieldAttachedAdapter<Double>` | Adapter for `VecXdField` attached data |
 | `VecXFieldAttachedAdapterInt32` | `VecXFieldAttachedAdapter<Int32>` | Adapter for `VecXiField` attached data |
 
----
 
 ## LinkedFieldView
 
@@ -99,7 +97,6 @@ Attaches a `VecXdField` or `VecXiField` to be kept in sync with links. On `link(
 
 Returns the number of attached data fields.
 
----
 
 ## LinkedFieldRowView
 
@@ -119,7 +116,6 @@ Returns the raw row data as a Python `list`. **Known issue:** This method may se
 
 **Workaround:** Iterate using `__getitem__` or `for i in range(row.size()): row[i]`.
 
----
 
 ## Attached Data Adapters
 
@@ -148,7 +144,6 @@ print(lfv.attached_count())  # 1
 lfv.link(0, 2)
 ```
 
----
 
 ## Known Issues
 

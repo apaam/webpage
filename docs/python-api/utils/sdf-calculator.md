@@ -11,7 +11,6 @@ displayed_sidebar: pythonApiSidebar
 
 Computes signed distance fields (SDFs) from triangle meshes using an AABB tree accelerated by libigl. Supports point queries, surface projections, closest facet lookups, and batch evaluation.
 
----
 
 ## Constructor
 
@@ -19,7 +18,6 @@ Computes signed distance fields (SDFs) from triangle meshes using an AABB tree a
 
 Creates an empty calculator. Must be initialized via `init_from_stl()` before use.
 
----
 
 ## Methods
 
@@ -96,7 +94,6 @@ Batch compute signed distances for multiple points.
 
 **Returns:**`list[float]` — Signed distances
 
----
 
 ## Example
 
@@ -129,7 +126,6 @@ surface proj: Vec3d(-0.21319, 0.411084, -0.188573)
 closest facet: 0
 ```
 
----
 
 ## Unexposed C++ API
 

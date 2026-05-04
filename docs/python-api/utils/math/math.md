@@ -11,7 +11,6 @@ displayed_sidebar: pythonApiSidebar
 
 Mathematical constants, vector operations, and quaternion utilities.
 
----
 
 ## Constants
 
@@ -24,7 +23,6 @@ Mathematical constants, vector operations, and quaternion utilities.
 | `SQRT_2` | 1.41421... | Square root of 2 |
 | `SQRT_3` | 1.73205... | Square root of 3 |
 
----
 
 ## Vector Operations
 
@@ -57,7 +55,6 @@ Compute L2 norm (magnitude) of a vector.
 
 Normalize a vector in-place.
 
----
 
 ## Quaternion
 
@@ -84,7 +81,6 @@ Convert quaternion to/from Rodrigues, rotation matrix.
 
 Quaternion arithmetic.
 
----
 
 ## Example
 
@@ -120,9 +116,71 @@ norm: 1.0
 quaternion: Vec4d(0, 0, 0.707107, 0.707107)
 ```
 
----
+
+## Spherical Harmonics
+
+Spherical harmonics evaluation functions used internally by `SphericalHarmonics` shape.
+
+### `legendre_p(n, m, x)`
+
+Associated Legendre polynomial P(n, m, x).
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `n` | `int` | Degree |
+| `m` | `int` | Order |
+| `x` | `float` | Input value |
+
+**Returns:** `float`
+
+### `normalization_factor(n, m)`
+
+Compute spherical harmonic normalization factor.
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `n` | `int` | Degree |
+| `m` | `int` | Order |
+
+**Returns:** `float`
+
+### `calculate_ynm_fast(theta, phi, deg)`
+
+Evaluate spherical harmonics at given angles up to specified degree. Accepts scalar or array inputs.
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `theta` | `float` or `list[float]` | Polar angle(s) |
+| `phi` | `float` or `list[float]` | Azimuthal angle(s) |
+| `deg` | `int` | Maximum degree |
+
+**Returns:** `list[float]` — Ynm coefficients
+
+**Example:**
+```python
+import phynexis
+
+# Associated Legendre polynomial
+p = phynexis.utils.math.legendre_p(2, 1, 0.5)
+print("legendre P(2,1,0.5):", p)
+
+# Normalization factor
+nf = phynexis.utils.math.normalization_factor(2, 1)
+print("normalization factor:", nf)
+```
+
+**Output:**
+```text
+legendre P(2,1,0.5): -1.299038105676658
+normalization factor: 2.958039891549808
+```
 
 ## Unexposed C++ API
 
-- `legendre_p`, `calculate_ynm_fast`, `normalization_factor` — spherical harmonics functions
-- `flat_array3d` utilities
+- `flat_array3d` utilities (internal 3D array layout, not exposed via pybind)

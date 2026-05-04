@@ -10,7 +10,6 @@ displayed_sidebar: pythonApiSidebar
 
 Free functions for element-wise math, reductions, prefix sums, and sorting on `Field` objects. All functions operate on `phynexis.fields` types and return new fields or scalar values.
 
----
 
 ## Math
 
@@ -101,7 +100,6 @@ print(cv.x(0), cv.y(0), cv.z(0))
 
 **Known issue:** Calling `.get()` may produce a segfault in some cases due to lifetime issues with the internal `shared_ptr` fields.
 
----
 
 ## Reduction
 
@@ -127,7 +125,6 @@ print(F.max_element(f)) # 25.0
 print(F.min_element(f)) # 1.0
 ```
 
----
 
 ## Prefix Sum
 
@@ -165,7 +162,6 @@ ps2 = F.prefix_sum_exclusive(f)
 print([ps2[i] for i in range(5)])  # [0, 1, 3, 6, 10]
 ```
 
----
 
 ## Sort
 
@@ -195,7 +191,6 @@ F.sort_by_value(k, v)
 print([k[i] for i in range(5)])  # [0, 1, 2, 3, 4]
 ```
 
----
 
 ## Radix Sort
 
@@ -223,7 +218,6 @@ F.radix_sort(k, v)
 print([k[i] for i in range(5)])  # [0, 1, 2, 3, 4]
 ```
 
----
 
 ## Known Issues
 

@@ -10,7 +10,6 @@ displayed_sidebar: pythonApiSidebar
 
 Field data structures for structured and unstructured grids. Provides typed scalar/vector fields, field layouts, views, schemas, and mathematical operators.
 
----
 
 ## Module Status
 
@@ -33,7 +32,6 @@ Field data structures for structured and unstructured grids. Provides typed scal
 | `I/O and Utilities` (VTK, binary, JSON, MPI, console) | done | [io-utils](utils/io-utils.md) |
 | Others | pending | — |
 
----
 
 ## Submodules
 
@@ -44,7 +42,6 @@ Field data structures for structured and unstructured grids. Provides typed scal
 - **operators** — Math, reduction, prefix sum, sort, radix sort
 - **utils** — I/O, MPI, console output
 
----
 
 ## See also
 

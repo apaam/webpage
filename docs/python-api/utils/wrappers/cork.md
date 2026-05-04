@@ -11,13 +11,11 @@ displayed_sidebar: pythonApiSidebar
 
 Boolean operations on triangle meshes (intersection, union, difference, XOR) via the Cork library.
 
----
 
 ## Description
 
 `CorkWrapper` has no default constructor in Python. It is typically accessed through the `wrappers` submodule or used via the `Tessellation` class when `use_cork=True`.
 
----
 
 ## Methods
 
@@ -47,7 +45,6 @@ Compute symmetric difference.
 | `out_f` | `list[Vec3i]` | Output faces (inout) |
 | `out_info` | `list[int]` | Output labels (inout, optional) |
 
----
 
 ## Note
 
@@ -55,7 +52,6 @@ Compute symmetric difference.
 - A specialized `mesh_intersect` with tolerance and direction exists for ray-like intersection tests.
 - `CorkWrapper` instance access in Python is currently limited. Consider using STLModel-based boolean operations if available.
 
----
 
 ## Unexposed C++ API
 

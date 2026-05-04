@@ -1,5 +1,6 @@
 ---
 title: "FieldSchema"
+displayed_sidebar: pythonApiSidebar
 ---
 
 # FieldSchema
@@ -66,7 +67,6 @@ print(schema.num_slots())
 3
 ```
 
----
 
 ### `name()`
 
@@ -74,7 +74,6 @@ Returns the schema name.
 
 **Returns:** `str`
 
----
 
 ### `num_slots()`
 
@@ -82,7 +81,6 @@ Returns the number of slots.
 
 **Returns:** `int`
 
----
 
 ### `slots()`
 
@@ -108,7 +106,6 @@ p 1
 v 3
 ```
 
----
 
 ### `slot(index)`
 
@@ -122,7 +119,6 @@ Returns the slot at the given index.
 
 **Returns:** `FieldSlot`
 
----
 
 ### `make_layout()`
 
@@ -156,7 +152,6 @@ velocity.z FieldType.Scalar ValueType.Double
 features FieldType.VecX ValueType.Double
 ```
 
----
 
 ### `resolve_json(j)`
 
@@ -198,7 +193,6 @@ print(result)
 {'pressure': 1.0, 'velocity.x': 2.0, 'velocity.y': 3.0, 'velocity.z': 4.0}
 ```
 
----
 
 ### `print_info()`
 

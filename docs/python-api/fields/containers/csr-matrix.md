@@ -1,5 +1,6 @@
 ---
 title: "CSRMatrix"
+displayed_sidebar: pythonApiSidebar
 ---
 
 # CSRMatrix
@@ -61,7 +62,6 @@ Resizes the matrix. Existing data is preserved where possible.
 | `num_rows` | `int` | New row count |
 | `num_cols` | `int` | New column count |
 
----
 
 ### `set_element(row, col, value)`
 
@@ -90,7 +90,6 @@ print(m.get_element(0, 0), m.get_element(1, 1))
 1.0 2.0
 ```
 
----
 
 ### `get_element(row, col)`
 
@@ -105,7 +104,6 @@ Returns the value at `(row, col)`. Returns `0.0` if the element is not explicitl
 
 **Returns:** `float` / `int`
 
----
 
 ### `has_element(row, col)`
 
@@ -120,7 +118,6 @@ Returns `True` if the element is explicitly stored (non-zero and inserted).
 
 **Returns:** `bool`
 
----
 
 ### `set_row(row, cols, vals)`
 
@@ -149,7 +146,6 @@ print(m.get_row_indices(0))
 [0, 2]
 ```
 
----
 
 ### `get_row(row)`
 
@@ -163,7 +159,6 @@ Returns the non-zero values in the given row.
 
 **Returns:** `list[float]` / `list[int]`
 
----
 
 ### `get_row_indices(row)`
 
@@ -177,7 +172,6 @@ Returns the column indices of non-zero values in the given row.
 
 **Returns:** `list[int]`
 
----
 
 ### `get_row_size(row)`
 
@@ -191,7 +185,6 @@ Returns the number of non-zero elements in the given row.
 
 **Returns:** `int`
 
----
 
 ### `set_elements(rows, cols, vals)`
 
@@ -218,7 +211,6 @@ print(m.get_row(0), m.get_row(1))
 [5.0] [7.0]
 ```
 
----
 
 ### `add_elements(rows, cols, vals)`
 
@@ -246,7 +238,6 @@ print(m.get_element(0, 0))
 15.0
 ```
 
----
 
 ### `multiply(other)`
 
@@ -260,7 +251,6 @@ Matrix–matrix multiplication. Returns a new `CSRMatrix`.
 
 **Returns:** `CSRMatrix`
 
----
 
 ### `multiply(vector)`
 
@@ -288,7 +278,6 @@ print(v)
 [2.0, 3.0]
 ```
 
----
 
 ### `transpose()`
 
@@ -312,7 +301,6 @@ print(mt.get_element(1, 0))
 5.0
 ```
 
----
 
 ### `get_num_rows()` / `get_num_cols()`
 
@@ -320,7 +308,6 @@ Returns the matrix dimensions.
 
 **Returns:** `int`
 
----
 
 ### `get_total_elements()`
 
@@ -328,7 +315,6 @@ Returns the total number of stored elements (including duplicates if any).
 
 **Returns:** `int`
 
----
 
 ### `get_nnz()`
 
@@ -336,7 +322,6 @@ Returns the number of non-zero elements.
 
 **Returns:** `int`
 
----
 
 ### `get_sparsity()`
 
@@ -344,7 +329,6 @@ Returns the sparsity ratio (`1 - nnz / (rows * cols)`).
 
 **Returns:** `float`
 
----
 
 ### `get_memory_usage()`
 
@@ -352,13 +336,11 @@ Returns the estimated memory usage in bytes.
 
 **Returns:** `int`
 
----
 
 ### `optimize_memory()`
 
 Reclaims unused capacity in all rows.
 
----
 
 ### `size()`
 
@@ -366,7 +348,6 @@ Returns the total number of stored elements. Same as `get_total_elements()`.
 
 **Returns:** `int`
 
----
 
 ### `empty()`
 

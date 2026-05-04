@@ -22,7 +22,6 @@ aliases for `Int32Field` / `Int64Field`.
 | `Int64Field` (alias `Idx64Field`) | `Field<Int64>` | `int` (64-bit) |
 | `BoolField` | `Field<bool>` | `bool` |
 
----
 
 ## Constructors
 
@@ -64,7 +63,6 @@ ScalarField(size=5, name='rho')
 ScalarField(size=5, name='rho')
 ```
 
----
 
 ## NumPy Interop
 
@@ -106,7 +104,6 @@ ScalarField(size=5, name='')
 [0.   0.25 0.5  0.75 1.  ]
 ```
 
----
 
 ## Element Access
 
@@ -151,7 +148,6 @@ sf.at(2): IndexError('Field index out of range')
 `field.at(idx)` whenever the index is not statically known.
 :::
 
----
 
 ## Capacity
 
@@ -207,7 +203,6 @@ resize(3): [0. 0. 0.]
 resize(5, 9.0): [0. 0. 0. 9. 9.]
 ```
 
----
 
 ## Bulk Operations
 
@@ -262,7 +257,6 @@ after swap: a name=b data=[2. 2. 2.]
 subset returns: FieldHolder
 ```
 
----
 
 ## Arithmetic (Double only)
 
@@ -312,7 +306,6 @@ a + 5: [6. 6. 6. 6.]
 
 The mismatched-size case raises `RuntimeError("Field sizes must match")`.
 
----
 
 ## Comparison Semantics
 
@@ -346,7 +339,6 @@ self-comparison           a == a: True
 
 For **value-equality**, compare `to_numpy()` arrays.
 
----
 
 ## Properties
 
@@ -354,7 +346,6 @@ For **value-equality**, compare `to_numpy()` arrays.
 |----------|------|--------|-------------|
 | `name` | `str` | read/write | Field name (used by `FieldManager`, I/O, etc.). |
 
----
 
 ## Type Aliases and Integer / Bool Fields
 
@@ -390,7 +381,6 @@ Int64Field: [1000000000000 1000000000000 1000000000000]
 BoolField : [ True False  True  True]
 ```
 
----
 
 ## Known Issues
 
@@ -408,7 +398,6 @@ BoolField : [ True False  True  True]
   `swap_elements`, `copy_element`) are unreachable from Python field instances.
   Tracked in `binding-repair-backlog.md` (2026-05-03 entry).
 
----
 
 ## Unexposed C++ API
 
