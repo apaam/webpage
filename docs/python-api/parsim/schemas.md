@@ -66,6 +66,7 @@ A `BoundLayout` binds a schema to a concrete `FieldManager`, allocating the actu
 Static factory. Creates a bound layout and allocates fields in the given `FieldManager`.
 
 **Parameters:**
+
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `manager` | `FieldManager` | Target field manager |

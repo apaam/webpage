@@ -38,6 +38,7 @@ Compute difference (mesh1 − mesh2).
 Compute symmetric difference.
 
 **Parameters:**
+
 | Parameter | Type | Description |
 |------|------|------|
 | `v1, v2` | `list[Vec3d]` | Input mesh vertices |

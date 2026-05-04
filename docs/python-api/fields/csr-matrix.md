@@ -30,6 +30,7 @@ Creates an empty 0×0 matrix.
 Creates a matrix with the given dimensions. All entries are initially zero (not stored).
 
 **Parameters:**
+
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `num_rows` | `int` | Number of rows |
@@ -54,6 +55,7 @@ print(m.get_num_rows(), m.get_num_cols())
 Resizes the matrix. Existing data is preserved where possible.
 
 **Parameters:**
+
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `num_rows` | `int` | New row count |
@@ -66,6 +68,7 @@ Resizes the matrix. Existing data is preserved where possible.
 Sets a single element. If the element already exists, its value is overwritten.
 
 **Parameters:**
+
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `row` | `int` | Row index |
@@ -94,6 +97,7 @@ print(m.get_element(0, 0), m.get_element(1, 1))
 Returns the value at `(row, col)`. Returns `0.0` if the element is not explicitly stored.
 
 **Parameters:**
+
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `row` | `int` | Row index |
@@ -108,6 +112,7 @@ Returns the value at `(row, col)`. Returns `0.0` if the element is not explicitl
 Returns `True` if the element is explicitly stored (non-zero and inserted).
 
 **Parameters:**
+
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `row` | `int` | Row index |
@@ -122,6 +127,7 @@ Returns `True` if the element is explicitly stored (non-zero and inserted).
 Replaces the entire row with the given column indices and values.
 
 **Parameters:**
+
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `row` | `int` | Row index |
@@ -150,6 +156,7 @@ print(m.get_row_indices(0))
 Returns the non-zero values in the given row.
 
 **Parameters:**
+
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `row` | `int` | Row index |
@@ -163,6 +170,7 @@ Returns the non-zero values in the given row.
 Returns the column indices of non-zero values in the given row.
 
 **Parameters:**
+
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `row` | `int` | Row index |
@@ -176,6 +184,7 @@ Returns the column indices of non-zero values in the given row.
 Returns the number of non-zero elements in the given row.
 
 **Parameters:**
+
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `row` | `int` | Row index |
@@ -189,6 +198,7 @@ Returns the number of non-zero elements in the given row.
 Batch-sets multiple elements.
 
 **Parameters:**
+
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `rows` | `list[int]` | Row indices |
@@ -215,6 +225,7 @@ print(m.get_row(0), m.get_row(1))
 Adds values to existing elements. If an element does not exist, it is created.
 
 **Parameters:**
+
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `rows` | `list[int]` | Row indices |
@@ -242,6 +253,7 @@ print(m.get_element(0, 0))
 Matrix–matrix multiplication. Returns a new `CSRMatrix`.
 
 **Parameters:**
+
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `other` | `CSRMatrix` | Right-hand side matrix |
@@ -255,6 +267,7 @@ Matrix–matrix multiplication. Returns a new `CSRMatrix`.
 Matrix–vector multiplication.
 
 **Parameters:**
+
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `vector` | `list[float]` | Dense vector (length must match column count) |

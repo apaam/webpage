@@ -37,6 +37,7 @@ print(fm.field_size(), fm.get_field_count())
 Creates a single field from metadata and registers it.
 
 **Parameters:**
+
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `meta` | `FieldMeta` | Metadata for the new field |
@@ -69,6 +70,7 @@ FieldHandle(index=0, epoch=0)
 Creates multiple fields from a `FieldLayout` (or list of `FieldMeta`).
 
 **Parameters:**
+
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `metas` | `FieldLayout` or `list[FieldMeta]` | Layout describing the fields to create |
@@ -101,6 +103,7 @@ print([str(h) for h in handles])
 Ensures all fields described by the layout/schema exist; creates any that are missing. Existing fields are left untouched.
 
 **Parameters:**
+
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `layout` | `FieldLayout` | Layout to ensure |
@@ -138,6 +141,7 @@ print(fm.get_field_count())
 Removes a field by name or by handle.
 
 **Parameters:**
+
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `name` | `str` | Field name |
@@ -166,6 +170,7 @@ False
 Returns `True` if a field with the given name exists.
 
 **Parameters:**
+
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `name` | `str` | Field name to check |
@@ -179,6 +184,7 @@ Returns `True` if a field with the given name exists.
 Checks if a handle is still valid (index in range and epoch matches).
 
 **Parameters:**
+
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `handle` | `FieldHandle` | Handle to validate |
@@ -192,6 +198,7 @@ Checks if a handle is still valid (index in range and epoch matches).
 Retrieves the concrete field instance for a handle. The runtime type is resolved via RTTI (e.g. `ScalarField`, `VecXdField`).
 
 **Parameters:**
+
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `handle` | `FieldHandle` | Field handle |
@@ -222,6 +229,7 @@ ScalarField
 Finds a field by name and returns its handle.
 
 **Parameters:**
+
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `name` | `str` | Field name |
@@ -243,6 +251,7 @@ Returns the shared element count of all managed fields.
 Resizes **all** managed fields to `new_size`.
 
 **Parameters:**
+
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `new_size` | `int` | New element count for all fields |
@@ -254,6 +263,7 @@ Resizes **all** managed fields to `new_size`.
 Reserves capacity for all managed fields without changing their sizes.
 
 **Parameters:**
+
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `capacity` | `int` | Capacity to reserve |
@@ -277,6 +287,7 @@ Removes all fields and resets the manager to its initial empty state.
 Extracts a subset of elements where `mask[i]` is `True`, returning a new `FieldManager`.
 
 **Parameters:**
+
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `mask` | `BoolField` | Boolean mask field |
@@ -314,6 +325,7 @@ print(fm2.get_field_count(), fm2.get_field_names())
 Same as `subset_fields` but modifies the current manager in-place.
 
 **Parameters:**
+
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `mask` | `BoolField` | Boolean mask field |
@@ -341,6 +353,7 @@ Returns the names of fields whose size differs from the majority.
 Resets all field values at `index` to their type defaults.
 
 **Parameters:**
+
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `index` | `int` | Element index to reset |
@@ -352,6 +365,7 @@ Resets all field values at `index` to their type defaults.
 Copies all field values from `src_index` to `dst_index`.
 
 **Parameters:**
+
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `src_index` | `int` | Source index |
@@ -364,6 +378,7 @@ Copies all field values from `src_index` to `dst_index`.
 Sets a single field value by name at the given index.
 
 **Parameters:**
+
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `index` | `int` | Element index |
@@ -395,6 +410,7 @@ print(val)
 Reads a single field value by name at the given index.
 
 **Parameters:**
+
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `index` | `int` | Element index |
@@ -409,6 +425,7 @@ Reads a single field value by name at the given index.
 Sets multiple field values at an index from a JSON-like dict.
 
 **Parameters:**
+
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `index` | `int` | Element index |
@@ -421,6 +438,7 @@ Sets multiple field values at an index from a JSON-like dict.
 Reads all field values at an index as a dict.
 
 **Parameters:**
+
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `index` | `int` | Element index |
@@ -453,6 +471,7 @@ print(fm.get_field_values(0))
 Saves all fields to a binary file.
 
 **Parameters:**
+
 | Parameter | Type | Default | Description |
 |-----------|------|---------|-------------|
 | `path` | `str` | — | Parent directory |
@@ -466,6 +485,7 @@ Saves all fields to a binary file.
 Loads fields from a binary file.
 
 **Parameters:**
+
 | Parameter | Type | Default | Description |
 |-----------|------|---------|-------------|
 | `path` | `str` | — | Parent directory |
@@ -500,6 +520,7 @@ with tempfile.TemporaryDirectory() as td:
 Reads metadata from a snapshot file without loading data.
 
 **Parameters:**
+
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `filepath` | `str` | Full path to the snapshot file |

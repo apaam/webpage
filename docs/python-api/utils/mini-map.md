@@ -28,6 +28,7 @@ Creates an empty map.
 Check if a key exists in the map.
 
 **Parameters:**
+
 | Parameter | Type | Description |
 |------|------|------|
 | `key` | `int` | Key to look up |

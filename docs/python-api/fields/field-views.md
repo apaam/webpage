@@ -59,6 +59,7 @@ Returns `True` if `size() == 0`.
 Returns the base name of the view. For compound views (Vec3, Vec4, etc.), this strips the component suffix using the given delimiter.
 
 **Parameters:**
+
 | Parameter | Type | Default | Description |
 |-----------|------|---------|-------------|
 | `delimiter` | `str` | `"."` | Delimiter used to split component names |

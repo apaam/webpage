@@ -13,7 +13,8 @@ Requirements:
     - typst
 
 The script:
-    1. Collects all .md files under docs/ (excluding python-api/)
+    1. Collects .md files in navbar order (Docs → Examples → Gallery → Download → About),
+       with each section ordered like the Docusaurus sidebar (see sidebars.ts)
     2. Extracts title from the first file's frontmatter (fallback to default)
     3. Fixes Docusaurus absolute image paths (/img/... -> absolute filesystem paths)
     4. Disables pandoc citation processing to avoid Typst @label errors
@@ -27,6 +28,11 @@ import sys
 import tempfile
 import uuid
 from pathlib import Path
+
+_SCRIPT_DIR = Path(__file__).resolve().parent
+if str(_SCRIPT_DIR) not in sys.path:
+    sys.path.insert(0, str(_SCRIPT_DIR))
+import pdf_doc_order  # noqa: E402
 
 
 def get_project_root() -> Path:
@@ -49,34 +55,6 @@ def parse_frontmatter_title(content: str) -> str | None:
     if title_m:
         return title_m.group(1).strip().strip('"\'')
     return None
-
-
-def collect_markdown_files(docs_dir: Path) -> list[Path]:
-    """Collect all .md files under docs/, excluding python-api/ and deprecated."""
-    files: list[Path] = []
-
-    for subdir in sorted(docs_dir.iterdir()):
-        if not subdir.is_dir():
-            continue
-        if subdir.name.startswith("_") or subdir.name.startswith("."):
-            continue
-        if subdir.name == "python-api":
-            continue
-
-        # Subdir index first
-        sub_index = subdir / "index.md"
-        if sub_index.exists():
-            files.append(sub_index)
-
-        # Then other .md files recursively
-        for md in sorted(subdir.rglob("*.md")):
-            if md.name == "index.md":
-                continue
-            if "_category_" in md.name:
-                continue
-            files.append(md)
-
-    return files
 
 
 def merge_markdown(files: list[Path], project_root: Path) -> str:
@@ -224,7 +202,7 @@ def main() -> None:
         print(f"Docs directory not found: {docs_dir}", file=sys.stderr)
         sys.exit(1)
 
-    files = collect_markdown_files(docs_dir)
+    files = pdf_doc_order.ordered_paths_for_combined_docs_pdf(project_root)
     if not files:
         print("No markdown files found.", file=sys.stderr)
         sys.exit(1)

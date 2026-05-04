@@ -39,6 +39,7 @@ print(len(fl), fl.empty())
 Creates a layout from a list of `FieldMeta` objects.
 
 **Parameters:**
+
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `metas` | `list[FieldMeta]` | Initial field metadata entries |
@@ -74,6 +75,7 @@ Returns the number of `FieldMeta` entries.
 Returns the `FieldMeta` at `index`.
 
 **Parameters:**
+
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `index` | `int` | Zero-based index |
@@ -120,6 +122,7 @@ Returns `True` if the layout contains no entries.
 Appends a `FieldMeta` to the end of the layout.
 
 **Parameters:**
+
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `meta` | `FieldMeta` | Metadata to append |

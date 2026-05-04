@@ -20,12 +20,14 @@ Numeric-to-string conversion with consistent formatting.
 Convert a numeric value to a formatted string.
 
 **Overloads:**
+
 | Signature | Description |
 |------|------|
 | `to_string(value: int) -> str` | Integer formatting |
 | `to_string(value: float) -> str` | Scientific notation for doubles |
 
 **Parameters:**
+
 | Parameter | Type | Description |
 |------|------|------|
 | `value` | `int` \| `float` | Numeric value to convert |

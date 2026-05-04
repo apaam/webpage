@@ -36,6 +36,7 @@ Creates an empty hash map with default capacity.
 Creates a hash map with pre-allocated bucket count.
 
 **Parameters:**
+
 | Parameter | Type | Description |
 |------|------|------|
 | `bucket_count` | `int` | Initial number of buckets |

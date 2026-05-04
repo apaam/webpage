@@ -37,6 +37,7 @@ default 0
 Appends a `FieldSlot` or merges another `FieldSchema`. Duplicate slot names are silently skipped.
 
 **Parameters:**
+
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `slot` | `FieldSlot` | Slot to append |
@@ -114,6 +115,7 @@ v 3
 Returns the slot at the given index.
 
 **Parameters:**
+
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `index` | `int` | Zero-based slot index |
@@ -166,6 +168,7 @@ Normalizes a JSON dictionary according to the schema.
 - `null` values are skipped.
 
 **Parameters:**
+
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `j` | `dict` | Input dictionary |

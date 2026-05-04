@@ -70,6 +70,7 @@ Return bounding sphere radius for broad-phase contact detection.
 Return axis-aligned bounding box as `(min, max)` tuple.
 
 **Parameters (overloaded):**
+
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `pos` | `Vec3d` | Position offset |
@@ -94,6 +95,7 @@ Return a stable integer signature for solver lookup and caching.
 Compute signed distance from a point to the shape surface.
 
 **Parameters:**
+
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `pos` | `Vec3d` | Query point |
@@ -105,6 +107,7 @@ Compute signed distance from a point to the shape surface.
 Check if a point is inside the shape.
 
 **Parameters:**
+
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `pos` | `Vec3d` | Query point |
@@ -116,6 +119,7 @@ Check if a point is inside the shape.
 Get the support point in a given direction.
 
 **Parameters:**
+
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `dir` | `Vec3d` | Direction vector |
@@ -127,6 +131,7 @@ Get the support point in a given direction.
 Find the closest surface point to an intruding node.
 
 **Parameters:**
+
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `pos` | `Vec3d` | Query point |
@@ -138,6 +143,7 @@ Find the closest surface point to an intruding node.
 Generate an STL model representation of the shape.
 
 **Parameters:**
+
 | Parameter | Type | Default | Description |
 |-----------|------|---------|-------------|
 | `num_nodes` | `int` | 200 | Number of nodes for mesh generation |
@@ -167,6 +173,7 @@ Set shape size or surface node count.
 Translate the shape to a new position.
 
 **Parameters:**
+
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `pos` | `Vec3d` | New position |

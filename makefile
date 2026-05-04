@@ -1,4 +1,4 @@
-.PHONY: dev build serve deploy doxygen pdf install clean
+.PHONY: dev build serve deploy doxygen pdf install clean check-python-api-md-tables
 
 install:
 	npm install
@@ -22,6 +22,9 @@ doxygen:
 pdf:
 	python3 scripts/export-docs-pdf.py
 	python3 scripts/export-python-api-pdf.py
+
+check-python-api-md-tables:
+	python3 scripts/check-python-api-md-tables.py
 
 clean:
 	rm -rf .docusaurus build node_modules static/doxygen

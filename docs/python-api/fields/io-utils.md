@@ -54,6 +54,7 @@ Returns a string representation of a `VecXdField` or `VecXiField`.
 Writes a scalar field to a VTK file.
 
 **Parameters:**
+
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `field` | `ScalarField` / `Int32Field` / `Int64Field` / `BoolField` | Field to write |
@@ -65,6 +66,7 @@ Writes a scalar field to a VTK file.
 Reads a VTK file into an existing field.
 
 **Parameters:**
+
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `field` | `ScalarField` / `Int32Field` / `Int64Field` / `BoolField` | Field to populate |
@@ -119,6 +121,7 @@ print(j)
 Populates a field from a Python `dict`.
 
 **Parameters:**
+
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `field` | `ScalarField` / `Int32Field` / `Int64Field` / `BoolField` | Field to populate |
@@ -142,6 +145,7 @@ print(f2[0])  # 10.0
 Serializes a subset of fields from a `FieldManager` into a `bytes` buffer.
 
 **Parameters:**
+
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `manager` | `FieldManager` | Source manager |
@@ -154,6 +158,7 @@ Serializes a subset of fields from a `FieldManager` into a `bytes` buffer.
 Deserializes a `bytes` buffer into a `FieldManager` at the specified target indices.
 
 **Parameters:**
+
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `data` | `bytes` | Buffer from `pack_manager` |
@@ -182,6 +187,7 @@ F.unpack_manager(blob, fm2, [10, 11])
 Packs a subset of elements from a `VecXdField` or `VecXiField` into a `bytes` buffer.
 
 **Parameters:**
+
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `field` | `VecXdField` / `VecXiField` | Source field |
@@ -194,6 +200,7 @@ Packs a subset of elements from a `VecXdField` or `VecXiField` into a `bytes` bu
 Unpacks a `bytes` buffer into a `VecXdField` or `VecXiField` at target rows.
 
 **Parameters:**
+
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `field` | `VecXdField` / `VecXiField` | Target field |
@@ -224,6 +231,7 @@ print(vf2.get_row(3))  # [1.0, 2.0]
 Gathers data from all MPI ranks into a single `global` field on the root rank.
 
 **Parameters:**
+
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `local` | `ScalarField` / `Int32Field` | Local data on each rank |
@@ -236,6 +244,7 @@ Gathers data from all MPI ranks into a single `global` field on the root rank.
 Scatters data from a `global` field on the root rank to `local` fields on all ranks.
 
 **Parameters:**
+
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `global` | `ScalarField` / `Int32Field` | Global data on root |

@@ -26,6 +26,7 @@ Return the maximum number of threads available.
 Set the number of threads for subsequent parallel regions.
 
 **Parameters:**
+
 | Parameter | Type | Description |
 |------|------|------|
 | `num_threads` | `int` | Number of threads |

@@ -56,6 +56,7 @@ Symmetric tensor storage (e.g. stress/strain components).
 Compute dot product.
 
 **Parameters:**
+
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `other` | `Vec3d` | Other vector |
@@ -67,6 +68,7 @@ Compute dot product.
 Compute cross product.
 
 **Parameters:**
+
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `other` | `Vec3d` | Other vector |

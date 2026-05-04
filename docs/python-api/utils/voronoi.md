@@ -42,6 +42,7 @@ Static methods for computing Voronoi diagrams.
 Compute Voronoi tessellation from seed points on a surface mesh.
 
 **Parameters:**
+
 | Parameter | Type | Description |
 |------|------|------|
 | `vt_seeds` | `list[Vec3d]` | Seed points |
@@ -55,6 +56,7 @@ Compute Voronoi tessellation from seed points on a surface mesh.
 Compute centroidal Voronoi tessellation (CVT) with automatic seed placement.
 
 **Parameters:**
+
 | Parameter | Type | Description |
 |------|------|------|
 | `num_seeds` | `int` | Number of seeds |

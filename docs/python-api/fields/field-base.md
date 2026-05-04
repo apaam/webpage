@@ -67,6 +67,7 @@ True
 Changes the number of elements. If `value` is provided, new elements are initialized to it; otherwise default construction is used.
 
 **Parameters:**
+
 | Parameter | Type | Default | Description |
 |-----------|------|---------|-------------|
 | `new_size` | `int` | — | New element count |
@@ -95,6 +96,7 @@ values: [1.0, 1.0, 1.0, 7.0, 7.0]
 Pre-allocates internal storage for at least `capacity` elements without changing the logical size.
 
 **Parameters:**
+
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `capacity` | `int` | Minimum storage capacity |
@@ -125,6 +127,7 @@ print(sf.size(), sf.empty())
 Ensures the field can hold at least `total_needed` elements. Equivalent to `reserve(total_needed)` if capacity is insufficient.
 
 **Parameters:**
+
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `total_needed` | `int` | Required minimum capacity |
@@ -138,6 +141,7 @@ Ensures the field can hold at least `total_needed` elements. Equivalent to `rese
 Removes elements at the given indices. Indices must be sorted in ascending order and unique.
 
 **Parameters:**
+
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `idx_sorted_unique` | `list[int]` | Sorted unique indices to remove |
@@ -151,6 +155,7 @@ Removes elements at the given indices. Indices must be sorted in ascending order
 Reorders elements in-place according to the permutation map.
 
 **Parameters:**
+
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `new_to_old` | `list[int]` | For each new position `i`, `new_to_old[i]` gives the old index |
@@ -164,6 +169,7 @@ Reorders elements in-place according to the permutation map.
 Swaps the elements at indices `i` and `j`.
 
 **Parameters:**
+
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `i` | `int` | First index |
@@ -178,6 +184,7 @@ Swaps the elements at indices `i` and `j`.
 Copies the value at `src_index` to `dst_index`.
 
 **Parameters:**
+
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `src_index` | `int` | Source index |
@@ -192,6 +199,7 @@ Copies the value at `src_index` to `dst_index`.
 Resets the element at `index` to its type's default value (`0.0`, `0`, or `False`).
 
 **Parameters:**
+
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `index` | `int` | Index to reset |
@@ -205,6 +213,7 @@ Resets the element at `index` to its type's default value (`0.0`, `0`, or `False
 Returns `True` if `other` has the same `ValueType` and `FieldType`.
 
 **Parameters:**
+
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `other` | `FieldBase` | Another field to compare with |

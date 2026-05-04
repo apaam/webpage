@@ -24,6 +24,7 @@ Creates an empty model.
 Creates a model from vertex and face arrays.
 
 **Parameters:**
+
 | Parameter | Type | Description |
 |------|------|------|
 | `vertices` | `list[Vec3d]` | Vertex positions |

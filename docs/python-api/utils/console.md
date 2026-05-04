@@ -44,6 +44,7 @@ Creates a config with default settings (min_level=info, timestamps on, colors on
 Set minimum display level. Levels: 0=debug, 1=info, 2=warning, 3=error, 4=fatal.
 
 **Parameters:**
+
 | Parameter | Type | Description |
 |------|------|------|
 | `level` | `int` | Minimum level to display |
@@ -112,6 +113,7 @@ Print an error-level message.
 Print a fatal-level message and terminate.
 
 **Parameters:**
+
 | Parameter | Type | Description |
 |------|------|------|
 | `msg` | `str` | Message string to print |

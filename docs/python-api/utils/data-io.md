@@ -20,6 +20,7 @@ Utility class for importing and exporting tabular data (CSV, TSV, space-separate
 Import numeric data from a file. Supports comma, tab, and space delimiters with auto-detection.
 
 **Parameters:**
+
 | Parameter | Type | Default | Description |
 |-----------|------|---------|-------------|
 | `filename` | `str` | — | Path to data file |
@@ -32,6 +33,7 @@ Import numeric data from a file. Supports comma, tab, and space delimiters with 
 Save tabular data to a file with the given header string.
 
 **Parameters:**
+
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `data` | `list[list[int]]` or `list[list[float]]` | 2D data array |
@@ -43,6 +45,7 @@ Save tabular data to a file with the given header string.
 Check if a file exists.
 
 **Parameters:**
+
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `filename` | `str` | File path to check |

@@ -49,6 +49,7 @@ Return the grid dimensions.
 Set the grid corner.
 
 **Parameters:**
+
 | Parameter | Type | Description |
 |------|------|------|
 | `corner` | `Vec3d` | Lower corner of the grid |
@@ -58,6 +59,7 @@ Set the grid corner.
 Set the grid spacing.
 
 **Parameters:**
+
 | Parameter | Type | Description |
 |------|------|------|
 | `sp` | `float` | Cell spacing |
@@ -67,6 +69,7 @@ Set the grid spacing.
 Set the grid dimensions.
 
 **Parameters:**
+
 | Parameter | Type | Description |
 |------|------|------|
 | `dim` | `Vec3u` | Number of cells in each dimension |
@@ -76,6 +79,7 @@ Set the grid dimensions.
 Access level set values at grid cells.
 
 **Parameters:**
+
 | Parameter | Type | Description |
 |------|------|------|
 | `id` | `Vec3u` | Grid cell index |

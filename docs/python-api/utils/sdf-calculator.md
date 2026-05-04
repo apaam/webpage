@@ -28,6 +28,7 @@ Creates an empty calculator. Must be initialized via `init_from_stl()` before us
 Initialize from raw vertex and face arrays.
 
 **Parameters:**
+
 | Parameter | Type | Description |
 |------|------|------|
 | `vertices` | `list[Vec3d]` | Mesh vertex positions |
@@ -38,6 +39,7 @@ Initialize from raw vertex and face arrays.
 Initialize from an `STLModel` object.
 
 **Parameters:**
+
 | Parameter | Type | Description |
 |------|------|------|
 | `stl_model` | `STLModel` | Loaded STL model |
@@ -51,6 +53,7 @@ Reset to empty state.
 Compute signed distance at a point. Negative = inside, positive = outside (depending on mesh orientation).
 
 **Parameters:**
+
 | Parameter | Type | Description |
 |------|------|------|
 | `pos` | `Vec3d` | Query point |
@@ -62,6 +65,7 @@ Compute signed distance at a point. Negative = inside, positive = outside (depen
 Find the closest surface point on the mesh.
 
 **Parameters:**
+
 | Parameter | Type | Description |
 |------|------|------|
 | `pos` | `Vec3d` | Query point |
@@ -73,6 +77,7 @@ Find the closest surface point on the mesh.
 Find the index of the closest triangle facet.
 
 **Parameters:**
+
 | Parameter | Type | Description |
 |------|------|------|
 | `pos` | `Vec3d` | Query point |
@@ -84,6 +89,7 @@ Find the index of the closest triangle facet.
 Batch compute signed distances for multiple points.
 
 **Parameters:**
+
 | Parameter | Type | Description |
 |------|------|------|
 | `points` | `list[Vec3d]` | Query points |

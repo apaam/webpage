@@ -41,6 +41,7 @@ Factory methods are the recommended way to create `FieldSlot` instances. They se
 Creates a scalar slot.
 
 **Parameters:**
+
 | Parameter | Type | Default | Description |
 |-----------|------|---------|-------------|
 | `name` | `str` | — | Field name |
@@ -69,6 +70,7 @@ pressure 1 ['pressure']
 Creates a 3-component vector slot. Component names default to `['x', 'y', 'z']`.
 
 **Parameters:**
+
 | Parameter | Type | Default | Description |
 |-----------|------|---------|-------------|
 | `name` | `str` | — | Base name (prefix) |
@@ -99,6 +101,7 @@ print(s.get_component_names())
 Creates a 4-component vector slot. Component names default to `['x', 'y', 'z', 'w']`.
 
 **Parameters:**
+
 | Parameter | Type | Default | Description |
 |-----------|------|---------|-------------|
 | `name` | `str` | — | Base name |
@@ -113,6 +116,7 @@ Creates a 4-component vector slot. Component names default to `['x', 'y', 'z', '
 Creates a 6-component vector slot. Component names default to `['xx', 'yy', 'zz', 'xy', 'xz', 'yz']`.
 
 **Parameters:**
+
 | Parameter | Type | Default | Description |
 |-----------|------|---------|-------------|
 | `name` | `str` | — | Base name |
@@ -127,6 +131,7 @@ Creates a 6-component vector slot. Component names default to `['xx', 'yy', 'zz'
 Creates an N-component vector slot with arbitrary dimension.
 
 **Parameters:**
+
 | Parameter | Type | Default | Description |
 |-----------|------|---------|-------------|
 | `name` | `str` | — | Base name |
@@ -158,6 +163,7 @@ print(s.get_field_names())
 Creates a variable-length vector (`VecX`) slot.
 
 **Parameters:**
+
 | Parameter | Type | Default | Description |
 |-----------|------|---------|-------------|
 | `name` | `str` | — | Field name |

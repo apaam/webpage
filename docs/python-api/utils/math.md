@@ -33,6 +33,7 @@ Mathematical constants, vector operations, and quaternion utilities.
 Compute dot product of two vectors.
 
 **Parameters:**
+
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `a` | `Vec3d` | First vector |
@@ -67,6 +68,7 @@ Module `phynexis.utils.math.quaternion` provides quaternion operations.
 Create a quaternion from angle-axis (Rodrigues) representation.
 
 **Parameters:**
+
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `angle` | `float` | Rotation angle in radians |
