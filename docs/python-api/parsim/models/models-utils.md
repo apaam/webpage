@@ -178,7 +178,7 @@ pm.update_node_bounds(ns, 0.05, 0.1)
 
 ## SpatialIndex / UniformGridIndex
 
-See [simulator](simulator.md) for full documentation.
+See [simulator](../simulator/simulator.md) for full documentation.
 
 Quick example:
 ```python

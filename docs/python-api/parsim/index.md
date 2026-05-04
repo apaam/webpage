@@ -17,10 +17,10 @@ Particle simulation framework. Provides node/edge/hyperedge graph structures, sp
 
 | Class / Group | Status | Doc |
 |---------------|--------|-----|
-| Schemas & BoundLayouts | done | [schemas](schemas.md) |
-| Graph (NodeSet, EdgeSet, HyperEdgeSet, ComputationalGraph) | done | [graph](graph.md) |
-| Simulator, Context, OperatorSystem | done | [simulator](simulator.md) |
-| Models & Utils | done | [models-utils](models-utils.md) |
+| Schemas & BoundLayouts | done | [schemas](schema/schemas.md) |
+| Graph (NodeSet, EdgeSet, HyperEdgeSet, ComputationalGraph) | done | [graph](graph/graph.md) |
+| Simulator, Context, OperatorSystem | done | [simulator](simulator/simulator.md) |
+| Models & Utils | done | [models-utils](models/models-utils.md) |
 
 ---
 
