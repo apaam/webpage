@@ -52,6 +52,18 @@ Load from STL or OFF file.
 
 Save model to file with format options.
 
+### `load_from(path, file, opt=LoadOptions())`
+
+Load model from file with load options.
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|------|------|------|
+| `path` | `str` | Directory path |
+| `file` | `str` | File name |
+| `opt` | `LoadOptions` | Load options (create_directories, format_hint) |
+
 ### `transpose()` / `rotate(rotation)`
 
 Apply geometric transformations.
@@ -125,14 +137,10 @@ Compute properties from raw mesh data without creating an STLModel instance.
 ```python
 import phynexis
 
-# Load from file
-model = phynexis.utils.STLModel()
-model.init_from_stl("/path/to/sphere.stl")
+# Create a mesh from a sphere shape
+model = phynexis.utils.shape.Sphere(2.0).get_stl_model(200)
 
 print("size:", model.size())
-model.print_info()
-
-# Geometric analysis
 print("center:", model.get_center())
 print("volume:", model.volume())
 print("surface area:", model.get_surface_area())
@@ -145,9 +153,12 @@ print("after standardize, size:", model.size())
 
 **Output:**
 ```text
-size: 0.08174285936076031
+size: 1.9814485316774066
+center: Vec3d(-3.05057e-06, -1.61383e-05, -4.46186e-05)
+volume: 4.073305749647874
+surface area: 12.374617224062705
 is convex: True
-after standardize, size: 1.0
+after standardize, size: 0.9999999999999999
 ```
 
 
@@ -242,3 +253,26 @@ facets: 320
 ## Unexposed C++ API
 
 - `get_triangle_strips()` — return type not fully exposed
+
+
+## Visual Preview
+
+Export the mesh to VTK and render with `vtk-snap` for visual verification:
+
+```python
+import phynexis
+
+model = phynexis.utils.shape.Sphere(2.0).get_stl_model(200)
+opts = phynexis.utils.SaveOptions()
+opts.overwrite = True
+model.save_to('/tmp/', 'stl_preview.vtk', opts)
+```
+
+```bash
+# requires vtk-snap skill + pyvista
+python3 .claude/skills/vtk-snap/vtk-snap.py /tmp/stl_preview.vtk -o /tmp/stl_preview.png
+```
+
+![STLModel visual preview](/img/python-api/stlmodel-preview.png){width=240}
+
+![STLModel with edges (parallel projection)](/img/python-api/stlmodel-preview-edges.png){width=240}

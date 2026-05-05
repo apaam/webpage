@@ -87,6 +87,16 @@ def build_pdf(
     with tempfile.NamedTemporaryFile(
         mode="w", suffix=".md", encoding="utf-8", delete=False
     ) as f:
+        import re
+        # Convert HTML <img> to markdown syntax (for Docusaurus compat → pandoc)
+        merged_md = re.sub(
+            r'<img\s+src="([^"]+)"\s+alt="([^"]*)"[^>]*/?>',
+            r'![\2](\1)',
+            merged_md,
+        )
+        # Docusaurus /img/ → absolute path for Typst (--root /)
+        project_root = get_project_root()
+        merged_md = merged_md.replace('](/img/', f']({project_root}/static/img/')
         f.write(merged_md)
         tmp_md = Path(f.name)
 
@@ -127,6 +137,8 @@ def build_pdf(
                 f.write(f"#show: manual.with({param_str})\n\n")
             else:
                 f.write(f"#show: manual.with()\n\n")
+            # Override template lang to English for figure captions
+            f.write("#set text(lang: \"en\")\n\n")
             f.write(typ_body)
 
         try:

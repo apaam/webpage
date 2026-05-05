@@ -66,6 +66,13 @@ def merge_markdown(files: list[Path], project_root: Path) -> str:
         # Remove frontmatter
         content = re.sub(r"^---\s*\n.*?---\s*\n", "", content, count=1, flags=re.DOTALL)
 
+        # Convert HTML <img> to markdown syntax for pandoc/Typst compat
+        content = re.sub(
+            r'<img\s+src="([^"]+)"\s+alt="([^"]*)"[^>]*/?>',
+            r'![\2](\1)',
+            content,
+        )
+
         # Fix Docusaurus absolute paths: /img/xxx -> absolute filesystem path
         def fix_abs_img(m: re.Match) -> str:
             alt = m.group(1)
@@ -150,6 +157,8 @@ def build_pdf(
                 f.write(f"#show: manual.with({param_str})\n\n")
             else:
                 f.write(f"#show: manual.with()\n\n")
+            # Override template lang to English for figure captions
+            f.write("#set text(lang: \"en\")\n\n")
             f.write(typ_body)
 
         try:
