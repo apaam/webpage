@@ -257,7 +257,7 @@ facets: 320
 
 ## Visual Preview
 
-Export the mesh to VTK and render with `vtk-snap` for visual verification:
+Export the mesh to VTK and view it with any VTK-compatible viewer:
 
 ```python
 import phynexis
@@ -266,11 +266,6 @@ model = phynexis.utils.shape.Sphere(2.0).get_stl_model(200)
 opts = phynexis.utils.SaveOptions()
 opts.overwrite = True
 model.save_to('/tmp/', 'stl_preview.vtk', opts)
-```
-
-```bash
-# requires vtk-snap skill + pyvista
-python3 .claude/skills/vtk-snap/vtk-snap.py /tmp/stl_preview.vtk -o /tmp/stl_preview.png
 ```
 
 ![STLModel visual preview](/img/python-api/stlmodel-preview.png){width=240}
