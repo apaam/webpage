@@ -119,9 +119,9 @@ Aggregate operations that return a single scalar value.
 
 **Example:**
 ```python
-print(F.sum(f))         # 55.0
-print(F.mean(f))        # 11.0
-print(F.max_element(f)) # 25.0
+print(F.sum(f))         # 14.0
+print(F.mean(f))        # 4.666666666666667
+print(F.max_element(f)) # 9.0
 print(F.min_element(f)) # 1.0
 ```
 
@@ -182,13 +182,13 @@ Sort `keys` by the corresponding `values` (indirect sort).
 **Example:**
 ```python
 k = F.Int32Field(5)
-v = F.ScalarField(5)
+v = F.Int32Field(5)
 for i in range(5):
     k[i] = 4 - i
-    v[i] = float(i)
+    v[i] = i
 
 F.sort_by_value(k, v)
-print([k[i] for i in range(5)])  # [0, 1, 2, 3, 4]
+print([k[i] for i in range(5)])  # [4, 3, 2, 1, 0] (k permuted so v is sorted)
 ```
 
 

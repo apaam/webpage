@@ -71,12 +71,10 @@ Reads a VTK file into an existing field.
 | `path` | `str` | Directory path |
 | `file` | `str` | Filename |
 
-**Example:**
-```python
-# Write
-F.write_vtk(f, "/tmp/data", "field.vtk")
+**Note:** VTK I/O requires the field to be part of a `FieldManager` with associated coordinate data. Standalone fields without point positions are not writable.
 
-# Read
+**Example (read_vtk):**
+```python
 f2 = F.ScalarField()
 F.read_vtk(f2, "/tmp/data", "field.vtk")
 ```
@@ -97,6 +95,7 @@ F.write_binary(f, "/tmp/data", "field.bin")
 
 f2 = F.ScalarField()
 F.read_binary(f2, "/tmp/data", "field.bin")
+print([f2[i] for i in range(f2.size())])
 ```
 
 ### JSON I/O

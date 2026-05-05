@@ -205,7 +205,49 @@ golden spiral points: 5 first: Vec3d(0.530863, 0, 0.847458)
 ```
 
 
+## Factory
+
+String-based sampler factory for creating sampler instances by type name.
+
+| Method | Returns | Description |
+|--------|---------|-------------|
+| `create_uniform_distribution(min, max)` | `UniformDistribution` | Uniform distribution sampler |
+| `create_normal_distribution(mean, std)` | `Normal` | Normal distribution sampler |
+| `create_exponential_distribution(lambda)` | `Exponential` | Exponential distribution sampler |
+| `create_random_spatial_sampler(shape)` | `Random` | Random spatial sampler |
+| `create_grid_spatial_sampler(shape, resolution)` | `Grid` | Grid spatial sampler |
+| `create_spatial_sampler_cvt(shape)` | `CVT` | CVT spatial sampler |
+| `create_spatial_sampler_voronoi(shape, seeds)` | `Voronoi` | Voronoi spatial sampler |
+| `create_spatial_sampler_wcvt(shape, weight_func)` | `WCVT` | WCVT spatial sampler |
+| `create_orientation_sampler_uniform()` | — | Uniform orientation sampler |
+| `create_orientation_sampler_cone_dir(...)` | — | Cone-dir orientation sampler |
+| `create_orientation_sampler_cone_ref(ref_quat, max_angle)` | — | Cone-ref orientation sampler |
+| `create_spherical_sampler_uniform()` | — | Uniform spherical sampler |
+| `create_spherical_sampler_golden_spiral()` | — | Golden spiral spherical sampler |
+| `create_spherical_sampler_cvt()` | — | CVT spherical sampler |
+| `create_spherical_sampler_voronoi()` | — | Voronoi spherical sampler |
+| `create_spherical_sampler_wcvt(weight_func)` | — | WCVT spherical sampler |
+
+### Strategy Parsers
+
+The Factory also provides string-based strategy parsers:
+
+| Method | Returns | Description |
+|--------|---------|-------------|
+| `parse_distribution_strategy(str)` | `DistributionStrategy` | Parse strategy name: `"uniform"`, `"normal"`, `"exponential"` |
+| `parse_spatial_strategy(str)` | `SpatialStrategy` | Parse spatial strategy: `"random"`, `"grid"`, `"voronoi"`, `"cvt"`, `"wcvt"` |
+| `parse_spherical_strategy(str)` | `SphericalStrategy` | Parse spherical strategy: `"uniform"`, `"golden_spiral"`, `"voronoi"`, `"cvt"`, `"wcvt"` |
+| `parse_orientation_strategy(str)` | `OrientationStrategy` | Parse orientation strategy: `"uniform"`, `"cone_ref"`, `"cone_dir"` |
+
+### SamplerType Enum
+
+| Value | Description |
+|-------|-------------|
+| `DISTRIBUTION` | Probability distribution sampler |
+| `SPATIAL` | Spatial point sampler |
+| `SPHERICAL` | Spherical surface sampler |
+| `ORIENTATION` | Orientation (quaternion) sampler |
+
 ## Unexposed C++ API
 
-- `Factory` — string-based sampler factory (creates samplers by name)
 - `DistributionStrategy` / `SpatialStrategy` / `OrientationStrategy` / `SphericalStrategy` — internal strategy base classes

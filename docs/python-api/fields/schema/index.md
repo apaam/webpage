@@ -9,7 +9,7 @@ displayed_sidebar: pythonApiSidebar
 > **Python**: `phynexis.fields.{ScalarFieldSchema,Vec3FieldSchema,Vec4FieldSchema,Vec6FieldSchema,VecNFieldSchema,VecXFieldSchema}`
 > **Header**: `src/fields/schema/*.hpp`
 
-Typed field schema classes that extend [FieldSchema](core/field-schema.md). Each defines a single-slot field with a specific component layout (scalar, fixed-vector, variable-length, or runtime-sized).
+Typed field schema classes that extend [FieldSchema](../core/field-schema.md). Each defines a single-slot field with a specific component layout (scalar, fixed-vector, variable-length, or runtime-sized).
 
 All constructors accept a `base_name` (the slot name prefix) and an optional `ValueType` (default `Double`).
 

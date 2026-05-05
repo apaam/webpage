@@ -70,7 +70,7 @@ Set the grid dimensions.
 
 | Parameter | Type | Description |
 |------|------|------|
-| `dim` | `Vec3u` | Number of cells in each dimension |
+| `dim` | `Vec3i` | Number of cells in each dimension |
 
 ### `get_phi(id)` / `set_phi(id, value)` / `phi(i, j, k)`
 
@@ -80,7 +80,7 @@ Access level set values at grid cells.
 
 | Parameter | Type | Description |
 |------|------|------|
-| `id` | `Vec3u` | Grid cell index |
+| `id` | `Vec3i` | Grid cell index |
 | `i, j, k` | `int` | Individual indices |
 | `value` | `float` | New phi value |
 
@@ -110,6 +110,26 @@ Check if phi_table has been allocated.
 
 **Returns:**`bool`
 
+### `index_3d(i, j, k)`
+
+Compute the flat array index for a 3D grid coordinate.
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `i` | `int` | First dimension index |
+| `j` | `int` | Second dimension index |
+| `k` | `int` | Third dimension index |
+
+**Returns:** `int` — Flat array index
+
+### `get_phi_table()`
+
+Return a reference to the internal phi table (flat `VecX<double>` array).
+
+**Returns:** `list[float]` — Internal phi values
+
 
 ## Example
 
@@ -120,14 +140,14 @@ import phynexis
 lsf = phynexis.utils.LevelSetField()
 lsf.set_corner(phynexis.utils.Vec3d(0.0, 0.0, 0.0))
 lsf.set_spacing(0.1)
-lsf.set_dimension(phynexis.utils.Vec3u(11, 11, 11))
+lsf.set_dimension(phynexis.utils.Vec3i(11, 11, 11))
 
 print("corner:", lsf.get_corner())
 print("spacing:", lsf.get_spacing())
 print("dimensions:", lsf.get_dimensions())
 
 # Set phi values
-lsf.set_phi(phynexis.utils.Vec3u(5, 5, 5), 1.0)
+lsf.set_phi(phynexis.utils.Vec3i(5, 5, 5), 1.0)
 print("phi at center:", lsf.phi(5, 5, 5))
 
 # Query signed distance
@@ -147,6 +167,4 @@ sd at Vec3d(0.5, 0.5, 0.5) : -0.5
 
 ## Unexposed C++ API
 
-- `get_phi_array()` — FlatArray3D wrapper
-- `get_phi_table()` — Direct vector access
-- `index_3d(i, j, k)` — Flat index computation
+- `get_phi_array()` — Returns `FlatArray3D<double>` (template type, not directly exposable)

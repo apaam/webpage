@@ -40,7 +40,8 @@ utils.info("hello")
 | [Voronoi](voronoi/voronoi.md) | Voronoi tessellation (Tessellation / Diagram) |
 | [Cork](wrappers/cork.md) | Boolean mesh operations (CorkWrapper) |
 | [OpenMP / parallel](parallel/open-mp.md) | Thread control bindings |
-| [Vec2d/Vec3d/Vec3i/Vec3u/Vec4d/Vec6d](types/vector-matrix.md) | Fixed-size vectors |
+| [FPE Traps](fpe-trap.md) | Floating-point exception trap utilities |
+| [Vec2d/Vec2i/Vec3d/Vec3i/Vec4d/Vec4i/Vec6d](types/vector-matrix.md) | Fixed-size vectors |
 | [Mat2d/Mat3d](types/vector-matrix.md) | Fixed-size matrices |
 | [FlatHashMap](types/flat-hash-map.md) | Flat hash map |
 | [Shape](shape/index.md) | Geometric shapes (Sphere, Cuboid, Ellipsoid, Cylinder, ...) |

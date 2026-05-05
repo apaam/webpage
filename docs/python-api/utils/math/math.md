@@ -55,6 +55,18 @@ Compute L2 norm (magnitude) of a vector.
 
 Normalize a vector in-place.
 
+### `to_int64(val)`
+
+Convert a 32-bit integer to a 64-bit integer.
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `val` | `int` | 32-bit integer value |
+
+**Returns:** `int` — 64-bit integer
+
 
 ## Quaternion
 

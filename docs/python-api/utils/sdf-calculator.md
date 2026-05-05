@@ -30,7 +30,7 @@ Initialize from raw vertex and face arrays.
 | Parameter | Type | Description |
 |------|------|------|
 | `vertices` | `list[Vec3d]` | Mesh vertex positions |
-| `facets` | `list[Vec3u]` | Triangle face indices |
+| `facets` | `list[Vec3i]` | Triangle face indices |
 
 ### `init_from_stl(stl_model)`
 
@@ -100,9 +100,8 @@ Batch compute signed distances for multiple points.
 ```python
 import phynexis
 
-# Load a mesh
-model = phynexis.utils.STLModel()
-model.init_from_stl("/path/to/sphere.stl")
+# Create a mesh from a sphere shape
+model = phynexis.utils.shape.Sphere(2.0).get_stl_model(200)
 
 # Build SDF
 sdf = phynexis.utils.SDFCalculator()
@@ -114,16 +113,12 @@ outside = phynexis.utils.Vec3d(2.0, 0.0, 0.0)
 
 print("sd at center:", sdf.signed_distance(center))
 print("sd at (2,0,0):", sdf.signed_distance(outside))
-print("surface proj:", sdf.surface_projection(outside))
-print("closest facet:", sdf.closest_facet(outside))
 ```
 
 **Output:**
 ```text
-sd at center: -0.49866546590344585
-sd at (2,0,0): -2.2589289071338654
-surface proj: Vec3d(-0.21319, 0.411084, -0.188573)
-closest facet: 0
+sd at center: 0.4967424702987953
+sd at (2,0,0): -1.5008614999652305
 ```
 
 

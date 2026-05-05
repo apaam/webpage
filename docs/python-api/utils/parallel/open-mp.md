@@ -38,6 +38,24 @@ Alias for `omp_get_max_threads()`.
 
 Alias for `omp_set_num_threads()`.
 
+### `parallel_in_parallel()`
+
+Return `True` if the current code is executing inside a parallel region.
+
+**Returns:**`bool`
+
+### `parallel_num_procs()`
+
+Return the number of processors available.
+
+**Returns:**`int`
+
+### `parallel_thread_num()`
+
+Return the current thread number within a parallel region (0-based).
+
+**Returns:**`int`
+
 
 ## Example
 
@@ -47,12 +65,16 @@ import phynexis
 print("max threads:", phynexis.utils.omp_get_max_threads())
 phynexis.utils.omp_set_num_threads(4)
 print("set to 4 threads")
+print("num procs:", phynexis.utils.parallel_num_procs())
+print("in parallel:", phynexis.utils.parallel_in_parallel())
 ```
 
 **Output:**
 ```text
 max threads: 10
 set to 4 threads
+num procs: 10
+in parallel: False
 ```
 
 

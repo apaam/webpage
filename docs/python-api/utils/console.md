@@ -27,6 +27,18 @@ Enum controlling the minimum log level for output filtering.
 | `Level.FATAL` | 4 | Fatal error messages |
 
 
+## MPIOutputMode
+
+> **C++**: `phynexis::utils::console::MPIOutputMode`
+> **Python**: `phynexis.utils.MPIOutputMode`
+
+Enum controlling MPI output behavior.
+
+| Value | Description |
+|-------|-------------|
+| `MPIOutputMode.ONLY_MASTER` | Only rank 0 outputs (default) |
+| `MPIOutputMode.ALL_WITH_RANK` | All ranks output with rank prefix |
+
 ## Config
 
 > **C++**: `phynexis::utils::console::Config`
@@ -39,6 +51,20 @@ Configuration object controlling the appearance and filtering of console output.
 #### `Config()`
 
 Creates a config with default settings (min_level=info, timestamps on, colors on).
+
+### Static Methods
+
+#### `Config.debug()`
+
+Create a Config with `min_level=DEBUG` for verbose debugging output.
+
+#### `Config.release()`
+
+Create a Config with `min_level=WARNING` for production/release output (only warnings and above).
+
+#### `Config.verbose()`
+
+Create a Config with `min_level=DEBUG` and `show_location=True` for detailed debug output.
 
 ### Properties
 
@@ -79,6 +105,10 @@ Toggle source location display. Returns the Config object for chaining.
 
 Toggle colorized output. Returns the Config object for chaining.
 
+#### `set_show_rank(enabled)`
+
+Toggle MPI rank prefix display. Returns the Config object for chaining.
+
 **Example:**
 ```python
 import phynexis
@@ -88,11 +118,19 @@ cfg.show_timestamp = False
 cfg.color_output = False
 
 phynexis.utils.info("no timestamp, no color")
+
+# Config factory methods
+debug_cfg = phynexis.utils.Config.debug()
+release_cfg = phynexis.utils.Config.release()
+print("debug min_level:", debug_cfg.min_level)
+print("release min_level:", release_cfg.min_level)
 ```
 
 **Output:**
 ```text
 [INFO] no timestamp, no color
+debug min_level: Level.DEBUG
+release min_level: Level.WARNING
 ```
 
 
@@ -169,7 +207,7 @@ Set the global minimum log level.
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `level` | `Level` or `int` | Minimum level, e.g. `Level.WARNING` or `2` |
+| `level` | `Level` | Minimum level, e.g. `Level.WARNING` |
 
 ### `set_verbose(enabled)`
 
@@ -189,7 +227,7 @@ Return a reference to the global `Config` object. Modifications to the returned 
 ```python
 import phynexis
 
-phynexis.utils.set_level(2)   # Only warning and above
+phynexis.utils.set_level(phynexis.utils.Level.WARNING)  # Only warning and above
 phynexis.utils.info("hidden")
 phynexis.utils.warning("visible")
 ```

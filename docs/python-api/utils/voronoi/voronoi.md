@@ -74,16 +74,15 @@ Result container for tessellation (no public constructor).
 ```python
 import phynexis
 
-# Load mesh
-model = phynexis.utils.STLModel()
-model.init_from_stl("/path/to/sphere.stl")
+# Create a mesh from a sphere shape
+model = phynexis.utils.shape.Sphere(2.0).get_stl_model(200)
 
 # Compute CVT
 params = phynexis.utils.voronoi.TessellationParams()
 params.max_iter = 100
 params.tol = 0.01
 
-diag = phynexis.utils.voronoi.Tessellation.compute_centroidal(10, model, params)
+diag = phynexis.utils.voronoi.Tessellation.compute_centroidal(5, model, params)
 print("diagram:", diag)
 ```
 

@@ -195,6 +195,16 @@ Get support points (all contact-relevant points in a direction).
 
 Set shape size or surface node count.
 
+### `set_surface_nodes(nodes)`
+
+Set surface node positions directly.
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `nodes` | `list[Vec3d]` | Surface node positions |
+
 ### `transpose(pos)`
 
 Translate the shape to a new position.
@@ -290,8 +300,7 @@ s = phynexis.utils.shape.Sphere(2.0)   # size=2.0
 ### Cuboid
 
 ```python
-c = phynexis.utils.shape.Cuboid()                               # center=(0,0,0), length=(1,1,1)
-c = phynexis.utils.shape.Cuboid(center, length)                 # custom center and dimensions
+c = phynexis.utils.shape.Cuboid()  # default center=(0,0,0), length=(1,1,1)
 ```
 
 | Property | Type | Description |
@@ -327,11 +336,10 @@ cy = phynexis.utils.shape.Cylinder(1.0, 2.0) # radius=1.0, height=2.0
 ### Plane
 
 ```python
-p = phynexis.utils.shape.Plane()                              # default at origin, normal +z
-p = phynexis.utils.shape.Plane(center, normal)                # custom center and normal
+p = phynexis.utils.shape.Plane()
 p.set_extent(10.0)
-p.set_center(phynexis.utils.Vec3d(0, 0, 0))
-p.set_normal(phynexis.utils.Vec3d(0, 0, 1))
+p.set_center(0, 0, 0)
+p.set_normal(0, 1, 0)
 ```
 
 | Property | Type | Description |

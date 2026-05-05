@@ -20,7 +20,7 @@ Phynexis exposes its C++ core through pybind11 bindings. The table below lists t
 | **cfddem** | `phynexis.cfddem` | `phynexis::cfddem` | CFD-DEM coupling |
 | **ml** | `phynexis.ml` | `phynexis::ml` | Machine learning interfaces |
 | **peridigm** | `phynexis.peridigm` | `phynexis::peridigm` | Peridynamics |
-| **workflow** | `phynexis.workflow` | `phynexis::workflow` | Workflow automation |
+| **workflow** | `phynexis.workflow` | `phynexis::workflow` | [Workflow automation](workflow/index.md) |
 
 ## Import Pattern
 

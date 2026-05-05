@@ -6,7 +6,7 @@ displayed_sidebar: pythonApiSidebar
 # Vectors and Matrices
 
 > **C++**: `phynexis::utils::Vec2`, `Vec3`, `Vec4`, `Vec6`, `Mat2`, `Mat3`
-> **Python**: `phynexis.utils.Vec2d`, `Vec3d`, `Vec3i`, `Vec3u`, `Vec4d`, `Vec6d`, `Mat2d`, `Mat3d`
+> **Python**: `phynexis.utils.Vec2d`, `Vec2i`, `Vec3d`, `Vec3i`, `Vec4d`, `Vec4i`, `Vec6d`, `Mat2d`, `Mat3d`
 > **Header**: `src/utils/types/vec*.hpp`, `mat*.hpp`
 
 Small fixed-size vector and matrix types used throughout phynexis. Exposed with Pythonic protocols (`len()`, indexing, iteration) where supported.
@@ -20,7 +20,6 @@ Small fixed-size vector and matrix types used throughout phynexis. Exposed with 
 | `Vec2i` | `Vec2<int>` | 2 ints | `x`, `y` | `+`, `-` |
 | `Vec3d` | `Vec3<double>` | 3 floats | `x`, `y`, `z` | `+`, `-`, `*`, `/` with scalar and vector |
 | `Vec3i` | `Vec3<int>` | 3 ints | `x`, `y`, `z` | `+`, `-` |
-| `Vec3u` | `Vec3<Int64>` | 3 ints | `x`, `y`, `z` | `+`, `-` |
 | `Vec4d` | `Vec4<double>` | 4 floats | `x`, `y`, `z`, `w` | `+`, `-`, `*`, `/` with scalar and vector |
 | `Vec4i` | `Vec4<int>` | 4 ints | `x`, `y`, `z`, `w` | `+`, `-` |
 | `Vec6d` | `Vec6<double>` | 6 floats | `xx`, `yy`, `zz`, `xy`, `xz`, `yz` | — |
@@ -29,7 +28,7 @@ Small fixed-size vector and matrix types used throughout phynexis. Exposed with 
 
 #### `Vec2d(x, y)` / `Vec2i(x, y)`
 
-#### `Vec3d(x, y, z)` / `Vec3i(x, y, z)` / `Vec3u(x, y, z)`
+#### `Vec3d(x, y, z)` / `Vec3i(x, y, z)`
 
 #### `Vec4d(x, y, z, w)` / `Vec4i(x, y, z, w)`
 
@@ -162,7 +161,7 @@ identity: Mat3d([1, 0, 0], [0, 1, 0], [0, 0, 1])
 
 ## Known Issues
 
-- `Vec3u` reports its Python type name as `Vec3i` (the repr also shows `Vec3i`). Functionally it works as unsigned 64-bit integers, but this is a binding quirk.
+- `Vec3u` (`Vec3<Int64>`) and `Vec4u` (`Vec4<Int64>`) are not exposed in Python. Use `Vec3i` / `Vec4i` instead for integer vector types.
 - `Vec6d` does **not** support `len()`, indexing, or iteration. Only named component access (`xx`, `yy`, etc.) is available.
 - `Vec4d` constructor: the C++ order is `(w, x, y, z)`, but Python passes `(x, y, z, w)`. The repr output `Vec4d(x, y, z, w)` matches the property names, so `Vec4d(1, 2, 3, 4)` gives `x=2, y=3, z=4, w=1` which is confusing. Prefer constructing with explicit intent or avoid `Vec4d` unless the w-component semantics are well understood.
 

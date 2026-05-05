@@ -132,7 +132,7 @@ Generate a tetrahedral mesh from a surface mesh using TetGen.
 | `facets` | `list[Vec3i]` | Surface triangle indices |
 | `options` | `TetGenOptions` | Optional (default: `default_options()`) |
 
-**Returns:** `tuple(list[Vec3d], list[Vec4u])` — Tetrahedral mesh (vertices, tets)
+**Returns:** `tuple(list[Vec3d], list[Vec4i])` — Tetrahedral mesh (vertices, tets)
 
 
 ## Example

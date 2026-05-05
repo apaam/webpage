@@ -24,7 +24,7 @@ Creates an empty mesh.
 | Property | Type | Description |
 |----------|------|-------------|
 | `vertices` | `list[Vec3d]` | Vertex positions (read/write) |
-| `facets` | `list[Vec3u]` | Triangle face indices (read/write) |
+| `facets` | `list[Vec3i]` | Triangle face indices (read/write) |
 
 
 ## Example
@@ -38,7 +38,7 @@ sm.vertices = [
     phynexis.utils.Vec3d(1.0, 0.0, 0.0),
     phynexis.utils.Vec3d(0.0, 1.0, 0.0),
 ]
-sm.facets = [phynexis.utils.Vec3u(0, 1, 2)]
+sm.facets = [phynexis.utils.Vec3i(0, 1, 2)]
 
 print("vertices:", len(sm.vertices))
 print("facets:", len(sm.facets))
