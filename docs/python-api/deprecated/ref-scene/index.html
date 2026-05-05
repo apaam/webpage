@@ -1,0 +1,830 @@
+<!doctype html><html lang=en dir=ltr class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-python-api/deprecated/ref-scene" data-has-hydrated=false><head><meta charset=UTF-8><meta name=generator content="Docusaurus v3.10.0"><title data-rh=true>DEMObjectPool | Phynexis</title><meta data-rh=true name=viewport content="width=device-width, initial-scale=1.0"/><meta data-rh=true name=twitter:card content=summary_large_image /><meta data-rh=true property=og:image content=https://apaam.github.io/webpage/img/logo.svg /><meta data-rh=true name=twitter:image content=https://apaam.github.io/webpage/img/logo.svg /><meta data-rh=true property=og:url content=https://apaam.github.io/webpage/docs/python-api/deprecated/ref-scene/ /><meta data-rh=true property=og:locale content=en /><meta data-rh=true name=docusaurus_locale content=en /><meta data-rh=true name=docsearch:language content=en /><meta data-rh=true name=docusaurus_version content=current /><meta data-rh=true name=docusaurus_tag content=docs-default-current /><meta data-rh=true name=docsearch:version content=current /><meta data-rh=true name=docsearch:docusaurus_tag content=docs-default-current /><meta data-rh=true property=og:title content="DEMObjectPool | Phynexis"/><meta data-rh=true name=description content=DEMObjectPool /><meta data-rh=true property=og:description content=DEMObjectPool /><link data-rh=true rel=icon href=/webpage/img/favicon.svg /><link data-rh=true rel=canonical href=https://apaam.github.io/webpage/docs/python-api/deprecated/ref-scene/ /><link data-rh=true rel=alternate href=https://apaam.github.io/webpage/docs/python-api/deprecated/ref-scene/ hreflang=en /><link data-rh=true rel=alternate href=https://apaam.github.io/webpage/docs/python-api/deprecated/ref-scene/ hreflang=x-default /><script data-rh=true type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://apaam.github.io/webpage/docs/python-api/deprecated/","name":"Deprecated","position":1},{"@type":"ListItem","item":"https://apaam.github.io/webpage/docs/python-api/deprecated/ref-scene","name":"DEMObjectPool","position":2}]}</script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css type=text/css integrity=sha384-odtC+0UGzzFL/6PNoE8rX/SPcQDXBJ+uRepguP4QkPCm2LBxH3FA3y+fKSiJ+AmM crossorigin=anonymous><link rel=stylesheet href=/webpage/assets/css/styles.05e5b33e.css /><script src=/webpage/assets/js/runtime~main.951d27c2.js defer></script><script src=/webpage/assets/js/main.b20f2f5c.js defer></script></head><body><svg style="display: none;"><defs>
+<symbol id=theme-svg-external-link viewBox="0 0 24 24"><path fill=currentColor d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme-154")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")),document.documentElement.setAttribute("data-theme-choice",t||"system")}(),function(){try{for(var[t,e]of new URLSearchParams(window.location.search).entries())if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id=__docusaurus><link rel=preload as=image href=/webpage/img/logo.svg /><div role=region aria-label="Skip to main content"><a class=skipToContent_fXgn href=#__docusaurus_skipToContent_fallback>Skip to main content</a></div><nav aria-label=Main class="theme-layout-navbar navbar navbar--fixed-top"><div class=navbar__inner><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded=false class="navbar__toggle clean-btn" type=button><svg width=30 height=30 viewBox="0 0 30 30" aria-hidden=true><path stroke=currentColor stroke-linecap=round stroke-miterlimit=10 stroke-width=2 d="M4 7h22M4 15h22M4 23h22"/></svg></button><a class=navbar__brand href=/webpage/><div class=navbar__logo><img src=/webpage/img/logo.svg alt=Phynexis class="themedComponent_mlkZ themedComponent--light_NVdE"/><img src=/webpage/img/logo.svg alt=Phynexis class="themedComponent_mlkZ themedComponent--dark_xIcU"/></div><b class="navbar__title text--truncate">Phynexis</b></a><a class="navbar__item navbar__link" href=/webpage/docs/manual/>Docs</a><div class="navbar__item dropdown dropdown--hoverable"><a href=# aria-haspopup=true aria-expanded=false role=button class=navbar__link>API</a><ul class=dropdown__menu><li><a aria-current=page class="dropdown__link dropdown__link--active" href=/webpage/docs/python-api/>Python</a><li><a href=/webpage/doxygen/html/ target=_blank rel="noopener noreferrer" class=dropdown__link>C++ (Doxygen)<svg width=12 height=12 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a></ul></div><a class="navbar__item navbar__link" href=/webpage/docs/examples/>Examples</a><a class="navbar__item navbar__link" href=/webpage/docs/gallery/animations/>Gallery</a><a class="navbar__item navbar__link" href=/webpage/docs/download/>Download</a><a class="navbar__item navbar__link" href=/webpage/docs/about/>About</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type=button disabled title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill=currentColor d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill=currentColor d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill=currentColor d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"/></svg></button></div><div class=navbarSearchContainer_Bca1></div></div></div><div role=presentation class=navbar-sidebar__backdrop></div></nav><div id=__docusaurus_skipToContent_fallback class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class=docsWrapper_hBAB><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type=button></button><div class=docRoot_UBD9><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class=sidebarViewport_aRkj><div class=sidebar_njMd><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class=menu__link href=/webpage/docs/python-api/><span title="Python API Overview" class=linkLabel_WmDU>Python API Overview</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist" href=/webpage/docs/python-api/utils/><span title=utils class=categoryLinkLabel_W154>utils</span></a><button aria-label="Expand sidebar category 'utils'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist" href=/webpage/docs/python-api/fields/><span title=fields class=categoryLinkLabel_W154>fields</span></a><button aria-label="Expand sidebar category 'fields'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist" href=/webpage/docs/python-api/parsim/><span title=parsim class=categoryLinkLabel_W154>parsim</span></a><button aria-label="Expand sidebar category 'parsim'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist" href=/webpage/docs/python-api/workflow/><span title=workflow class=categoryLinkLabel_W154>workflow</span></a><button aria-label="Expand sidebar category 'workflow'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--active" href=/webpage/docs/python-api/deprecated/><span title=Deprecated class=categoryLinkLabel_W154>Deprecated</span></a><button aria-label="Collapse sidebar category 'Deprecated'" aria-expanded=true type=button class="clean-btn menu__caret"></button></div><ul class=menu__list><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/webpage/docs/python-api/deprecated/ref-dem/><span title=ContactModel class=linkLabel_WmDU>ContactModel</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/webpage/docs/python-api/deprecated/ref-domain/><span title=CellManager class=linkLabel_WmDU>CellManager</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/webpage/docs/python-api/deprecated/ref-fem/><span title=TetMesh class=linkLabel_WmDU>TetMesh</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/webpage/docs/python-api/deprecated/ref-modifier/><span title=ModifierManager class=linkLabel_WmDU>ModifierManager</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/webpage/docs/python-api/deprecated/ref-mpi/><span title=MPIManager class=linkLabel_WmDU>MPIManager</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/webpage/docs/python-api/deprecated/ref-netdem/><span title=PyNetDEM class=linkLabel_WmDU>PyNetDEM</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/webpage/docs/python-api/deprecated/ref-peridigm/><span title=Peridigm class=linkLabel_WmDU>Peridigm</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link menu__link--active" aria-current=page tabindex=0 href=/webpage/docs/python-api/deprecated/ref-scene/><span title=DEMObjectPool class=linkLabel_WmDU>DEMObjectPool</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/webpage/docs/python-api/deprecated/ref-shape/><span title=Shape class=linkLabel_WmDU>Shape</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/webpage/docs/python-api/deprecated/ref-simulation/><span title=Simulation class=linkLabel_WmDU>Simulation</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/webpage/docs/python-api/deprecated/ref-utils/><span title=LevelSetFunction class=linkLabel_WmDU>LevelSetFunction</span></a></ul></ul></nav></div></div></aside><main class=docMainContainer_TBSr><div class="container padding-top--md padding-bottom--lg"><div class=row><div class="col docItemCol_VOVn"><div class=docItemContainer_Djhp><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label=Breadcrumbs><ul class=breadcrumbs><li class=breadcrumbs__item><a aria-label="Home page" class=breadcrumbs__link href=/webpage/><svg viewBox="0 0 24 24" class=breadcrumbHomeIcon_YNFT><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill=currentColor /></svg></a><li class=breadcrumbs__item><a class=breadcrumbs__link href=/webpage/docs/python-api/deprecated/><span>Deprecated</span></a><li class="breadcrumbs__item breadcrumbs__item--active"><span class=breadcrumbs__link>DEMObjectPool</span></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type=button class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>DEMObjectPool</h1></header><h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=demobjectpool>DEMObjectPool<a href=#demobjectpool class=hash-link aria-label="Direct link to DEMObjectPool" title="Direct link to DEMObjectPool" translate=no>​</a></h2>
+<p>This class represents a pool of DEM objects.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=constructor>Constructor<a href=#constructor class=hash-link aria-label="Direct link to Constructor" title="Direct link to Constructor" translate=no>​</a></h3>
+<p>The DEMObjectPool class does not have a constructor.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=methods>Methods<a href=#methods class=hash-link aria-label="Direct link to Methods" title="Direct link to Methods" translate=no>​</a></h3>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=init><code>init()</code><a href=#init class=hash-link aria-label="Direct link to init" title="Direct link to init" translate=no>​</a></h4>
+<p>Initialize the DEMObjectPool.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=getparticle><code>GetParticle()</code><a href=#getparticle class=hash-link aria-label="Direct link to getparticle" title="Direct link to getparticle" translate=no>​</a></h4>
+<p>Get a reference to a particle object in the pool.</p>
+<ul>
+<li class="">Returns: A reference to a Particle object.</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=getcontactpp><code>GetContactPP()</code><a href=#getcontactpp class=hash-link aria-label="Direct link to getcontactpp" title="Direct link to getcontactpp" translate=no>​</a></h4>
+<p>Get a reference to a ContactPP object in the pool.</p>
+<ul>
+<li class="">Returns: A reference to a ContactPP object.</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=getcontactpw><code>GetContactPW()</code><a href=#getcontactpw class=hash-link aria-label="Direct link to getcontactpw" title="Direct link to getcontactpw" translate=no>​</a></h4>
+<p>Get a reference to a ContactPW object in the pool.</p>
+<ul>
+<li class="">Returns: A reference to a ContactPW object.</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=clonecontact_pp><code>Clone(contact_pp)</code><a href=#clonecontact_pp class=hash-link aria-label="Direct link to clonecontact_pp" title="Direct link to clonecontact_pp" translate=no>​</a></h4>
+<p>Create a copy of a ContactPP object in the pool.</p>
+<p><code>contact_pp</code> (ContactPP const*): A pointer to the ContactPP object to clone.</p>
+<ul>
+<li class="">Returns: A reference to a new ContactPP object.</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=clonecontact_pw><code>Clone(contact_pw)</code><a href=#clonecontact_pw class=hash-link aria-label="Direct link to clonecontact_pw" title="Direct link to clonecontact_pw" translate=no>​</a></h4>
+<p>Create a copy of a ContactPW object in the pool.</p>
+<p><code>contact_pw</code> (ContactPW const*): A pointer to the ContactPW object to clone.</p>
+<ul>
+<li class="">Returns:A reference to a new ContactPW object.</li>
+</ul>
+<hr/>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=scene>Scene<a href=#scene class=hash-link aria-label="Direct link to Scene" title="Direct link to Scene" translate=no>​</a></h2>
+<p>This class represents a simulation scene.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=constructor-1>Constructor<a href=#constructor-1 class=hash-link aria-label="Direct link to Constructor" title="Direct link to Constructor" translate=no>​</a></h3>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=scene-1><code>Scene()</code><a href=#scene-1 class=hash-link aria-label="Direct link to scene-1" title="Direct link to scene-1" translate=no>​</a></h4>
+<p>Creates a new instance of the Scene class.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=attributes>Attributes<a href=#attributes class=hash-link aria-label="Direct link to Attributes" title="Direct link to Attributes" translate=no>​</a></h3>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=gravity_coef><code>gravity_coef</code><a href=#gravity_coef class=hash-link aria-label="Direct link to gravity_coef" title="Direct link to gravity_coef" translate=no>​</a></h4>
+<p>A float representing the gravitational acceleration coefficient.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=contact_model_map><code>contact_model_map</code><a href=#contact_model_map class=hash-link aria-label="Direct link to contact_model_map" title="Direct link to contact_model_map" translate=no>​</a></h4>
+<p>A dictionary mapping contact model labels to their corresponding ContactModel objects.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=bond_model_table><code>bond_model_table</code><a href=#bond_model_table class=hash-link aria-label="Direct link to bond_model_table" title="Direct link to bond_model_table" translate=no>​</a></h4>
+<p>A list of bond model names.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=collision_model_table><code>collision_model_table</code><a href=#collision_model_table class=hash-link aria-label="Direct link to collision_model_table" title="Direct link to collision_model_table" translate=no>​</a></h4>
+<p>A list of collision model names.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=particle_list><code>particle_list</code><a href=#particle_list class=hash-link aria-label="Direct link to particle_list" title="Direct link to particle_list" translate=no>​</a></h4>
+<p>A list of Particle objects.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=particle_proxy_list><code>particle_proxy_list</code><a href=#particle_proxy_list class=hash-link aria-label="Direct link to particle_proxy_list" title="Direct link to particle_proxy_list" translate=no>​</a></h4>
+<p>A list of ParticleProxy objects.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=particle_ghost_list><code>particle_ghost_list</code><a href=#particle_ghost_list class=hash-link aria-label="Direct link to particle_ghost_list" title="Direct link to particle_ghost_list" translate=no>​</a></h4>
+<p>A list of ParticleGhost objects.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=wall_list><code>wall_list</code><a href=#wall_list class=hash-link aria-label="Direct link to wall_list" title="Direct link to wall_list" translate=no>​</a></h4>
+<p>A list of Wall objects.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=wall_ghost_list><code>wall_ghost_list</code><a href=#wall_ghost_list class=hash-link aria-label="Direct link to wall_ghost_list" title="Direct link to wall_ghost_list" translate=no>​</a></h4>
+<p>A list of WallGhost objects.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=particle_map><code>particle_map</code><a href=#particle_map class=hash-link aria-label="Direct link to particle_map" title="Direct link to particle_map" translate=no>​</a></h4>
+<p>A dictionary mapping particle IDs to their corresponding Particle objects.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=shape_map><code>shape_map</code><a href=#shape_map class=hash-link aria-label="Direct link to shape_map" title="Direct link to shape_map" translate=no>​</a></h4>
+<p>A dictionary mapping shape IDs to their corresponding Shape objects.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=local_shape_list><code>local_shape_list</code><a href=#local_shape_list class=hash-link aria-label="Direct link to local_shape_list" title="Direct link to local_shape_list" translate=no>​</a></h4>
+<p>A list of local shape IDs.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=methods-1>Methods<a href=#methods-1 class=hash-link aria-label="Direct link to Methods" title="Direct link to Methods" translate=no>​</a></h3>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=insertcontactmodelcontact_model><code>InsertContactModel(contact_model)</code><a href=#insertcontactmodelcontact_model class=hash-link aria-label="Direct link to insertcontactmodelcontact_model" title="Direct link to insertcontactmodelcontact_model" translate=no>​</a></h4>
+<p>Inserts a contact model into the scene.</p>
+<ul>
+<li class=""><code>contact_model</code> (ContactModel): The contact model to insert.</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=setnumberofmaterialsnum_materials><code>SetNumberOfMaterials(num_materials)</code><a href=#setnumberofmaterialsnum_materials class=hash-link aria-label="Direct link to setnumberofmaterialsnum_materials" title="Direct link to setnumberofmaterialsnum_materials" translate=no>​</a></h4>
+<p>Sets the number of materials in the scene.</p>
+<ul>
+<li class=""><code>num_materials</code> (int): The number of materials.</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=setcollisionmodeli-j-contact_model><code>SetCollisionModel(i, j, contact_model)</code><a href=#setcollisionmodeli-j-contact_model class=hash-link aria-label="Direct link to setcollisionmodeli-j-contact_model" title="Direct link to setcollisionmodeli-j-contact_model" translate=no>​</a></h4>
+<p>Sets the collision model between two materials.</p>
+<ul>
+<li class=""><code>i</code> (int): The index of the first material.</li>
+<li class=""><code>j</code> (int): The index of the second material.</li>
+<li class=""><code>contact_model</code> (ContactModel): The contact model to use for the collision.</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=insertshapeshape><code>InsertShape(shape)</code><a href=#insertshapeshape class=hash-link aria-label="Direct link to insertshapeshape" title="Direct link to insertshapeshape" translate=no>​</a></h4>
+<p>Inserts a shape into the scene.</p>
+<ul>
+<li class=""><code>shape</code> (Shape): The shape to insert.</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=insertshapeshapes><code>InsertShape(shapes)</code><a href=#insertshapeshapes class=hash-link aria-label="Direct link to insertshapeshapes" title="Direct link to insertshapeshapes" translate=no>​</a></h4>
+<p>Inserts multiple shapes into the scene.</p>
+<ul>
+<li class=""><code>shapes</code> (list of Shape): The shapes to insert.</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=insertparticleparticle><code>InsertParticle(particle)</code><a href=#insertparticleparticle class=hash-link aria-label="Direct link to insertparticleparticle" title="Direct link to insertparticleparticle" translate=no>​</a></h4>
+<p>Inserts a particle into the scene.</p>
+<ul>
+<li class=""><code>particle</code> (Particle): The particle to insert.</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=insertparticleparticles><code>InsertParticle(particles)</code><a href=#insertparticleparticles class=hash-link aria-label="Direct link to insertparticleparticles" title="Direct link to insertparticleparticles" translate=no>​</a></h4>
+<p>Inserts multiple particles into the scene.</p>
+<ul>
+<li class=""><code>particles</code> (list of Particle): The particles to insert.</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=insertparticlebonded_spheres><code>InsertParticle(bonded_spheres)</code><a href=#insertparticlebonded_spheres class=hash-link aria-label="Direct link to insertparticlebonded_spheres" title="Direct link to insertparticlebonded_spheres" translate=no>​</a></h4>
+<p>Inserts a bonded sphere into the scene.</p>
+<ul>
+<li class=""><code>bonded_spheres</code> (BondedSpheres): The bonded sphere to insert.</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=insertparticlebonded_spheres_list><code>InsertParticle(bonded_spheres_list)</code><a href=#insertparticlebonded_spheres_list class=hash-link aria-label="Direct link to insertparticlebonded_spheres_list" title="Direct link to insertparticlebonded_spheres_list" translate=no>​</a></h4>
+<p>Inserts multiple bonded spheres into the scene.</p>
+<ul>
+<li class=""><code>bonded_spheres_list</code> (list of BondedSpheres): The bonded spheres to insert.</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=insertparticlebonded_voronois><code>InsertParticle(bonded_voronois)</code><a href=#insertparticlebonded_voronois class=hash-link aria-label="Direct link to insertparticlebonded_voronois" title="Direct link to insertparticlebonded_voronois" translate=no>​</a></h4>
+<p>Inserts a bonded Voronoi into the scene.</p>
+<ul>
+<li class=""><code>bonded_voronois</code> (BondedVoronois): The bonded Voronoi to insert.</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=insertparticlebonded_voronois_list><code>InsertParticle(bonded_voronois_list)</code><a href=#insertparticlebonded_voronois_list class=hash-link aria-label="Direct link to insertparticlebonded_voronois_list" title="Direct link to insertparticlebonded_voronois_list" translate=no>​</a></h4>
+<p>Inserts multiple bonded Voronois into the scene.</p>
+<ul>
+<li class=""><code>bonded_voronois_list</code> (list of BondedVoronois): The bonded Voronois to insert.</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=insertwallwall><code>InsertWall(wall)</code><a href=#insertwallwall class=hash-link aria-label="Direct link to insertwallwall" title="Direct link to insertwallwall" translate=no>​</a></h4>
+<p>Inserts a wall into the scene.</p>
+<ul>
+<li class=""><code>wall</code> (Wall): The wall to insert.</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=insertwallwalls><code>InsertWall(walls)</code><a href=#insertwallwalls class=hash-link aria-label="Direct link to insertwallwalls" title="Direct link to insertwallwalls" translate=no>​</a></h4>
+<p>Inserts multiple walls into the scene.</p>
+<ul>
+<li class=""><code>walls</code> (list of Wall): The walls to insert.</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=removeshapeshape><code>RemoveShape(shape)</code><a href=#removeshapeshape class=hash-link aria-label="Direct link to removeshapeshape" title="Direct link to removeshapeshape" translate=no>​</a></h4>
+<p>Removes a shape from the scene.</p>
+<ul>
+<li class=""><code>shape</code> (Shape): The shape to remove.</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=removeparticleparticle><code>RemoveParticle(particle)</code><a href=#removeparticleparticle class=hash-link aria-label="Direct link to removeparticleparticle" title="Direct link to removeparticleparticle" translate=no>​</a></h4>
+<p>Removes a particle from the scene.</p>
+<ul>
+<li class=""><code>particle</code> (Particle): The particle to remove.</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=removeparticleindex><code>RemoveParticle(index)</code><a href=#removeparticleindex class=hash-link aria-label="Direct link to removeparticleindex" title="Direct link to removeparticleindex" translate=no>​</a></h4>
+<p>Removes a particle from the scene by its index.</p>
+<ul>
+<li class=""><code>index</code> (int): The index of the particle to remove.</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=removewallwall><code>RemoveWall(wall)</code><a href=#removewallwall class=hash-link aria-label="Direct link to removewallwall" title="Direct link to removewallwall" translate=no>​</a></h4>
+<p>Removes a wall from the scene.</p>
+<ul>
+<li class=""><code>wall</code> (Wall): The wall to remove.</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=removewallindex><code>RemoveWall(index)</code><a href=#removewallindex class=hash-link aria-label="Direct link to removewallindex" title="Direct link to removewallindex" translate=no>​</a></h4>
+<p>Removes a wall from the scene by its index.</p>
+<ul>
+<li class=""><code>index</code> (int): The index of the wall to remove.</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=insertcontactmodelcontact_model-1><code>InsertContactModel(contact_model)</code><a href=#insertcontactmodelcontact_model-1 class=hash-link aria-label="Direct link to insertcontactmodelcontact_model-1" title="Direct link to insertcontactmodelcontact_model-1" translate=no>​</a></h4>
+<p>Inserts a contact model into the scene.</p>
+<ul>
+<li class=""><code>contact_model</code> (ContactModel): The contact model to insert.</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=getshapes><code>GetShapes()</code><a href=#getshapes class=hash-link aria-label="Direct link to getshapes" title="Direct link to getshapes" translate=no>​</a></h4>
+<p>Returns a reference to the vector of shapes in the scene.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=insceneshape><code>InScene(shape)</code><a href=#insceneshape class=hash-link aria-label="Direct link to insceneshape" title="Direct link to insceneshape" translate=no>​</a></h4>
+<p>Checks if a shape is in the scene.</p>
+<ul>
+<li class=""><code>shape</code> (Shape): The shape to check.</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=inscenecontact_model><code>InScene(contact_model)</code><a href=#inscenecontact_model class=hash-link aria-label="Direct link to inscenecontact_model" title="Direct link to inscenecontact_model" translate=no>​</a></h4>
+<p>Checks if a contact model is in the scene.</p>
+<ul>
+<li class=""><code>contact_model</code> (ContactModel): The contact model to check.</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=setnumberofmaterialsnum_materials-1><code>SetNumberOfMaterials(num_materials)</code><a href=#setnumberofmaterialsnum_materials-1 class=hash-link aria-label="Direct link to setnumberofmaterialsnum_materials-1" title="Direct link to setnumberofmaterialsnum_materials-1" translate=no>​</a></h4>
+<p>Sets the number of materials in the scene.</p>
+<ul>
+<li class=""><code>num_materials</code> (int): The number of materials.</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=setbondmodeli-j-contact_model><code>SetBondModel(i, j, contact_model)</code><a href=#setbondmodeli-j-contact_model class=hash-link aria-label="Direct link to setbondmodeli-j-contact_model" title="Direct link to setbondmodeli-j-contact_model" translate=no>​</a></h4>
+<p>Sets the bond model between two particles.</p>
+<ul>
+<li class=""><code>i</code> (int): The index of the first particle.</li>
+<li class=""><code>j</code> (int): The index of the second particle.</li>
+<li class=""><code>contact_model</code> (ContactModel): The contact model to use for the bond.</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=setbondmodeli-j-contact_model_label><code>SetBondModel(i, j, contact_model_label)</code><a href=#setbondmodeli-j-contact_model_label class=hash-link aria-label="Direct link to setbondmodeli-j-contact_model_label" title="Direct link to setbondmodeli-j-contact_model_label" translate=no>​</a></h4>
+<p>Sets the bond model between two particles.</p>
+<ul>
+<li class=""><code>i</code> (int): The index of the first particle.</li>
+<li class=""><code>j</code> (int): The index of the second particle.</li>
+<li class=""><code>contact_model_label</code> (str): The label of the contact model to use for the bond.</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=setcollisionmodeli-j-contact_model-1><code>SetCollisionModel(i, j, contact_model)</code><a href=#setcollisionmodeli-j-contact_model-1 class=hash-link aria-label="Direct link to setcollisionmodeli-j-contact_model-1" title="Direct link to setcollisionmodeli-j-contact_model-1" translate=no>​</a></h4>
+<p>Sets the collision model between two particles.</p>
+<ul>
+<li class=""><code>i</code> (int): The index of the first particle.</li>
+<li class=""><code>j</code> (int): The index of the second particle.</li>
+<li class=""><code>contact_model</code> (ContactModel): The contact model to use for the collision.</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=setcollisionmodeli-j-contact_model_label><code>SetCollisionModel(i, j, contact_model_label)</code><a href=#setcollisionmodeli-j-contact_model_label class=hash-link aria-label="Direct link to setcollisionmodeli-j-contact_model_label" title="Direct link to setcollisionmodeli-j-contact_model_label" translate=no>​</a></h4>
+<p>Sets the collision model between two particles.</p>
+<ul>
+<li class=""><code>i</code> (int): The index of the first particle.</li>
+<li class=""><code>j</code> (int): The index of the second particle.</li>
+<li class=""><code>contact_model_label</code> (str): The label of the contact model to use for the collision.</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=setgravitygravity><code>SetGravity(gravity)</code><a href=#setgravitygravity class=hash-link aria-label="Direct link to setgravitygravity" title="Direct link to setgravitygravity" translate=no>​</a></h4>
+<p>Sets the gravity vector for the scene.</p>
+<ul>
+<li class=""><code>gravity</code> (Vec3): The gravity vector.</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=getbondmodelparticle1-particle2><code>GetBondModel(particle1, particle2)</code><a href=#getbondmodelparticle1-particle2 class=hash-link aria-label="Direct link to getbondmodelparticle1-particle2" title="Direct link to getbondmodelparticle1-particle2" translate=no>​</a></h4>
+<p>Gets the bond model between two particles.</p>
+<ul>
+<li class=""><code>particle1</code> (Particle): The first particle.</li>
+<li class=""><code>particle2</code> (Particle): The second particle.</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=getbondmodelparticle-wall><code>GetBondModel(particle, wall)</code><a href=#getbondmodelparticle-wall class=hash-link aria-label="Direct link to getbondmodelparticle-wall" title="Direct link to getbondmodelparticle-wall" translate=no>​</a></h4>
+<p>Gets the bond model between a particle and a wall.</p>
+<ul>
+<li class=""><code>particle</code> (Particle): The particle.</li>
+<li class=""><code>wall</code> (Wall): The wall.</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=getcollisionmodelparticle1-particle2><code>GetCollisionModel(particle1, particle2)</code><a href=#getcollisionmodelparticle1-particle2 class=hash-link aria-label="Direct link to getcollisionmodelparticle1-particle2" title="Direct link to getcollisionmodelparticle1-particle2" translate=no>​</a></h4>
+<p>Returns a reference to the collision model between two particles.</p>
+<ul>
+<li class=""><code>particle1</code> (Particle): The first particle.</li>
+<li class=""><code>particle2</code> (Particle): The second particle.</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=getcollisionmodelparticle-wall><code>GetCollisionModel(particle, wall)</code><a href=#getcollisionmodelparticle-wall class=hash-link aria-label="Direct link to getcollisionmodelparticle-wall" title="Direct link to getcollisionmodelparticle-wall" translate=no>​</a></h4>
+<p>Returns a reference to the collision model between a particle and a wall.</p>
+<ul>
+<li class=""><code>particle</code> (Particle): The particle.</li>
+<li class=""><code>wall</code> (Wall): The wall.</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=autoreadrestart><code>AutoReadRestart()</code><a href=#autoreadrestart class=hash-link aria-label="Direct link to autoreadrestart" title="Direct link to autoreadrestart" translate=no>​</a></h4>
+<p>Automatically reads restart files and sets up the simulation accordingly.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=readrestartshapes><code>ReadRestartShapes()</code><a href=#readrestartshapes class=hash-link aria-label="Direct link to readrestartshapes" title="Direct link to readrestartshapes" translate=no>​</a></h4>
+<p>Reads the shape data from a restart file.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=readrestartparticles><code>ReadRestartParticles()</code><a href=#readrestartparticles class=hash-link aria-label="Direct link to readrestartparticles" title="Direct link to readrestartparticles" translate=no>​</a></h4>
+<p>Reads the particle data from a restart file.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=readrestartwalls><code>ReadRestartWalls()</code><a href=#readrestartwalls class=hash-link aria-label="Direct link to readrestartwalls" title="Direct link to readrestartwalls" translate=no>​</a></h4>
+<p>Reads the wall data from a restart file.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=readrestartcontacts><code>ReadRestartContacts()</code><a href=#readrestartcontacts class=hash-link aria-label="Direct link to readrestartcontacts" title="Direct link to readrestartcontacts" translate=no>​</a></h4>
+<p>Reads the contact data from a restart file.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=getcontactpps><code>GetContactPPs()</code><a href=#getcontactpps class=hash-link aria-label="Direct link to getcontactpps" title="Direct link to getcontactpps" translate=no>​</a></h4>
+<p>Returns a list of all particle-particle contacts in the simulation.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=getcontactpws><code>GetContactPWs()</code><a href=#getcontactpws class=hash-link aria-label="Direct link to getcontactpws" title="Direct link to getcontactpws" translate=no>​</a></h4>
+<p>Returns a list of all particle-wall contacts in the simulation.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=clearshapes><code>ClearShapes()</code><a href=#clearshapes class=hash-link aria-label="Direct link to clearshapes" title="Direct link to clearshapes" translate=no>​</a></h4>
+<p>Removes all shapes from the scene.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=clearparticles><code>ClearParticles()</code><a href=#clearparticles class=hash-link aria-label="Direct link to clearparticles" title="Direct link to clearparticles" translate=no>​</a></h4>
+<p>Removes all particles from the scene.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=clearwalls><code>ClearWalls()</code><a href=#clearwalls class=hash-link aria-label="Direct link to clearwalls" title="Direct link to clearwalls" translate=no>​</a></h4>
+<p>Removes all walls from the scene.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=clearcontactmodels><code>ClearContactModels()</code><a href=#clearcontactmodels class=hash-link aria-label="Direct link to clearcontactmodels" title="Direct link to clearcontactmodels" translate=no>​</a></h4>
+<p>Removes all contact models from the scene.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=clearcontacts><code>ClearContacts()</code><a href=#clearcontacts class=hash-link aria-label="Direct link to clearcontacts" title="Direct link to clearcontacts" translate=no>​</a></h4>
+<p>Removes all contacts from the scene.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=findparticleparticle_id><code>FindParticle(particle_id)</code><a href=#findparticleparticle_id class=hash-link aria-label="Direct link to findparticleparticle_id" title="Direct link to findparticleparticle_id" translate=no>​</a></h4>
+<p>Finds a particle in the simulation by its ID.</p>
+<ul>
+<li class=""><code>particle_id</code> (int): The ID of the particle.</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=findwallwall_id><code>FindWall(wall_id)</code><a href=#findwallwall_id class=hash-link aria-label="Direct link to findwallwall_id" title="Direct link to findwallwall_id" translate=no>​</a></h4>
+<p>Finds a wall in the simulation by its ID.</p>
+<ul>
+<li class=""><code>wall_id</code> (int): The ID of the wall.</li>
+</ul>
+<hr/>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=packgenerator>PackGenerator<a href=#packgenerator class=hash-link aria-label="Direct link to PackGenerator" title="Direct link to PackGenerator" translate=no>​</a></h2>
+<p>This class represents a pack generator.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=constructor-2>Constructor<a href=#constructor-2 class=hash-link aria-label="Direct link to Constructor" title="Direct link to Constructor" translate=no>​</a></h3>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=packgenerator-1><code>PackGenerator()</code><a href=#packgenerator-1 class=hash-link aria-label="Direct link to packgenerator-1" title="Direct link to packgenerator-1" translate=no>​</a></h4>
+<p>Creates a new instance of the PackGenerator class.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=static-methods>Static Methods<a href=#static-methods class=hash-link aria-label="Direct link to Static Methods" title="Direct link to Static Methods" translate=no>​</a></h3>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=getgridpack><code>GetGridPack()</code><a href=#getgridpack class=hash-link aria-label="Direct link to getgridpack" title="Direct link to getgridpack" translate=no>​</a></h4>
+<p>Generates a pack using a grid-based algorithm.</p>
+<p>GetGridPack(xmin, xmax, ymin, ymax, zmin, zmax, nx, ny, nz, shapes): Generates a pack using a grid-based algorithm with the given dimensions and number of cells in each direction, using the provided shapes.</p>
+<p>GetGridPack(xmin, xmax, ymin, ymax, zmin, zmax, nx, ny, nz, shape_vec): Generates a pack using a grid-based algorithm with the given dimensions and number of cells in each direction, using the provided vector of shapes.</p>
+<p>GetGridPack(xmin, xmax, ymin, ymax, zmin, zmax, nx, ny, nz, bonded_spheres): Generates a pack using a grid-based algorithm with the given dimensions and number of cells in each direction, using the provided bonded spheres.</p>
+<p>GetGridPack(xmin, xmax, ymin, ymax, zmin, zmax, nx, ny, nz, bonded_voronois): Generates a pack using a grid-based algorithm with the given dimensions and number of cells in each direction, using the provided bonded Voronois.</p>
+<p>GetVoronoiPack
+Generates a pack using a Voronoi-based algorithm.</p>
+<p>GetVoronoiPack(xmin, xmax, ymin, ymax, zmin, zmax, n, shapes): Generates a pack using a Voronoi-based algorithm with the given dimensions and number of cells in each direction, using the provided shapes.</p>
+<p>GetVoronoiPack(xmin, xmax, ymin, ymax, zmin, zmax, n, shape_vec): Generates a pack using a Voronoi-based algorithm with the given dimensions and number of cells in each direction, using the provided vector of shapes.</p>
+<p>GetVoronoiPack(stl_model, n, shape): Generates a pack using a Voronoi-based algorithm with the given STL model and number of cells in each direction, using the provided shape.</p>
+<p>GetVoronoiPack(stl_model, n, shape_vec): Generates a pack using a Voronoi-based algorithm with the given STL model and number of cells in each direction, using the provided vector of shapes.</p>
+<hr/>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=particle>Particle<a href=#particle class=hash-link aria-label="Direct link to Particle" title="Direct link to Particle" translate=no>​</a></h2>
+<p>This class represents a particle in a simulation.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=constructor-3>Constructor<a href=#constructor-3 class=hash-link aria-label="Direct link to Constructor" title="Direct link to Constructor" translate=no>​</a></h3>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=particle-1><code>Particle()</code><a href=#particle-1 class=hash-link aria-label="Direct link to particle-1" title="Direct link to particle-1" translate=no>​</a></h4>
+<p>Creates a new instance of the Particle class.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=attributes-1>Attributes<a href=#attributes-1 class=hash-link aria-label="Direct link to Attributes" title="Direct link to Attributes" translate=no>​</a></h3>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=id><code>id</code><a href=#id class=hash-link aria-label="Direct link to id" title="Direct link to id" translate=no>​</a></h4>
+<p>The ID of the particle.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=shape><code>shape</code><a href=#shape class=hash-link aria-label="Direct link to shape" title="Direct link to shape" translate=no>​</a></h4>
+<p>A reference to the shape of the particle.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=bound_min><code>bound_min</code><a href=#bound_min class=hash-link aria-label="Direct link to bound_min" title="Direct link to bound_min" translate=no>​</a></h4>
+<p>The minimum bound of the particle.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=bound_max><code>bound_max</code><a href=#bound_max class=hash-link aria-label="Direct link to bound_max" title="Direct link to bound_max" translate=no>​</a></h4>
+<p>The maximum bound of the particle.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=margin><code>margin</code><a href=#margin class=hash-link aria-label="Direct link to margin" title="Direct link to margin" translate=no>​</a></h4>
+<p>The margin of the particle.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=bound_disp><code>bound_disp</code><a href=#bound_disp class=hash-link aria-label="Direct link to bound_disp" title="Direct link to bound_disp" translate=no>​</a></h4>
+<p>The displacement of the particle.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=material_type><code>material_type</code><a href=#material_type class=hash-link aria-label="Direct link to material_type" title="Direct link to material_type" translate=no>​</a></h4>
+<p>The type of material of the particle.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=density><code>density</code><a href=#density class=hash-link aria-label="Direct link to density" title="Direct link to density" translate=no>​</a></h4>
+<p>The density of the particle.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=mass><code>mass</code><a href=#mass class=hash-link aria-label="Direct link to mass" title="Direct link to mass" translate=no>​</a></h4>
+<p>The mass of the particle.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=moi_principal><code>moi_principal</code><a href=#moi_principal class=hash-link aria-label="Direct link to moi_principal" title="Direct link to moi_principal" translate=no>​</a></h4>
+<p>The moment of inertia of the particle.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=damp_global><code>damp_global</code><a href=#damp_global class=hash-link aria-label="Direct link to damp_global" title="Direct link to damp_global" translate=no>​</a></h4>
+<p>The global damping of the particle.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=pos><code>pos</code><a href=#pos class=hash-link aria-label="Direct link to pos" title="Direct link to pos" translate=no>​</a></h4>
+<p>The position of the particle.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=quaternion><code>quaternion</code><a href=#quaternion class=hash-link aria-label="Direct link to quaternion" title="Direct link to quaternion" translate=no>​</a></h4>
+<p>The quaternion of the particle.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=vel><code>vel</code><a href=#vel class=hash-link aria-label="Direct link to vel" title="Direct link to vel" translate=no>​</a></h4>
+<p>The velocity of the particle.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=spin><code>spin</code><a href=#spin class=hash-link aria-label="Direct link to spin" title="Direct link to spin" translate=no>​</a></h4>
+<p>The spin of the particle.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=vel_m0p5><code>vel_m0p5</code><a href=#vel_m0p5 class=hash-link aria-label="Direct link to vel_m0p5" title="Direct link to vel_m0p5" translate=no>​</a></h4>
+<p>The velocity of the particle divided by 0.5.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=spin_principal><code>spin_principal</code><a href=#spin_principal class=hash-link aria-label="Direct link to spin_principal" title="Direct link to spin_principal" translate=no>​</a></h4>
+<p>The principal spin of the particle.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=force><code>force</code><a href=#force class=hash-link aria-label="Direct link to force" title="Direct link to force" translate=no>​</a></h4>
+<p>The force acting on the particle.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=moment><code>moment</code><a href=#moment class=hash-link aria-label="Direct link to moment" title="Direct link to moment" translate=no>​</a></h4>
+<p>The moment acting on the particle.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=dynamic_properties><code>dynamic_properties</code><a href=#dynamic_properties class=hash-link aria-label="Direct link to dynamic_properties" title="Direct link to dynamic_properties" translate=no>​</a></h4>
+<p>The dynamic properties of the particle.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=enable_rotation><code>enable_rotation</code><a href=#enable_rotation class=hash-link aria-label="Direct link to enable_rotation" title="Direct link to enable_rotation" translate=no>​</a></h4>
+<p>Whether the particle is allowed to rotate.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=enable_bound_aabb><code>enable_bound_aabb</code><a href=#enable_bound_aabb class=hash-link aria-label="Direct link to enable_bound_aabb" title="Direct link to enable_bound_aabb" translate=no>​</a></h4>
+<p>Whether the particle is bound by an AABB.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=need_update_linked_list><code>need_update_linked_list</code><a href=#need_update_linked_list class=hash-link aria-label="Direct link to need_update_linked_list" title="Direct link to need_update_linked_list" translate=no>​</a></h4>
+<p>Whether the particle's linked list needs to be updated.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=linked_cell_list><code>linked_cell_list</code><a href=#linked_cell_list class=hash-link aria-label="Direct link to linked_cell_list" title="Direct link to linked_cell_list" translate=no>​</a></h4>
+<p>The linked cell list of the particle.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=linked_particle_list><code>linked_particle_list</code><a href=#linked_particle_list class=hash-link aria-label="Direct link to linked_particle_list" title="Direct link to linked_particle_list" translate=no>​</a></h4>
+<p>The linked particle list of the particle.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=linked_wall_list><code>linked_wall_list</code><a href=#linked_wall_list class=hash-link aria-label="Direct link to linked_wall_list" title="Direct link to linked_wall_list" translate=no>​</a></h4>
+<p>The linked wall list of the particle.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=contact_pp_lookup_table><code>contact_pp_lookup_table</code><a href=#contact_pp_lookup_table class=hash-link aria-label="Direct link to contact_pp_lookup_table" title="Direct link to contact_pp_lookup_table" translate=no>​</a></h4>
+<p>The lookup table for particle-particle contact.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=contact_pw_lookup_table><code>contact_pw_lookup_table</code><a href=#contact_pw_lookup_table class=hash-link aria-label="Direct link to contact_pw_lookup_table" title="Direct link to contact_pw_lookup_table" translate=no>​</a></h4>
+<p>The lookup table for particle-wall contact.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=is_on_edge><code>is_on_edge</code><a href=#is_on_edge class=hash-link aria-label="Direct link to is_on_edge" title="Direct link to is_on_edge" translate=no>​</a></h4>
+<p>Whether the particle is on an edge.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=need_send_out><code>need_send_out</code><a href=#need_send_out class=hash-link aria-label="Direct link to need_send_out" title="Direct link to need_send_out" translate=no>​</a></h4>
+<p>Whether the particle needs to be sent out.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=linked_domain_list><code>linked_domain_list</code><a href=#linked_domain_list class=hash-link aria-label="Direct link to linked_domain_list" title="Direct link to linked_domain_list" translate=no>​</a></h4>
+<p>The linked domain list of the particle.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=need_update_stl_model><code>need_update_stl_model</code><a href=#need_update_stl_model class=hash-link aria-label="Direct link to need_update_stl_model" title="Direct link to need_update_stl_model" translate=no>​</a></h4>
+<p>Whether the particle's STL model needs to be updated.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=stl_model><code>stl_model</code><a href=#stl_model class=hash-link aria-label="Direct link to stl_model" title="Direct link to stl_model" translate=no>​</a></h4>
+<p>The STL model of the particle.</p>
+<hr/>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=wall>Wall<a href=#wall class=hash-link aria-label="Direct link to Wall" title="Direct link to Wall" translate=no>​</a></h2>
+<p>This class represents a wall object.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=constructor-4>Constructor<a href=#constructor-4 class=hash-link aria-label="Direct link to Constructor" title="Direct link to Constructor" translate=no>​</a></h3>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=wall-1><code>Wall()</code><a href=#wall-1 class=hash-link aria-label="Direct link to wall-1" title="Direct link to wall-1" translate=no>​</a></h4>
+<p>Creates a new instance of the Wall class.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=wallshape><code>Wall(shape)</code><a href=#wallshape class=hash-link aria-label="Direct link to wallshape" title="Direct link to wallshape" translate=no>​</a></h4>
+<p>Creates a new instance of the Wall class with a specified shape.</p>
+<ul>
+<li class=""><code>shape</code> (Shape): The shape of the wall.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=attributes-2>Attributes<a href=#attributes-2 class=hash-link aria-label="Direct link to Attributes" title="Direct link to Attributes" translate=no>​</a></h3>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=id-1><code>id</code><a href=#id-1 class=hash-link aria-label="Direct link to id-1" title="Direct link to id-1" translate=no>​</a></h4>
+<p>An integer ID for the wall.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=label><code>label</code><a href=#label class=hash-link aria-label="Direct link to label" title="Direct link to label" translate=no>​</a></h4>
+<p>A string label for the wall.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=shape-1><code>shape</code><a href=#shape-1 class=hash-link aria-label="Direct link to shape-1" title="Direct link to shape-1" translate=no>​</a></h4>
+<p>The shape of the wall.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=material_type-1><code>material_type</code><a href=#material_type-1 class=hash-link aria-label="Direct link to material_type-1" title="Direct link to material_type-1" translate=no>​</a></h4>
+<p>The material type of the wall.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=enable_rotation-1><code>enable_rotation</code><a href=#enable_rotation-1 class=hash-link aria-label="Direct link to enable_rotation-1" title="Direct link to enable_rotation-1" translate=no>​</a></h4>
+<p>A boolean indicating whether the wall is allowed to rotate.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=enable_bound_aabb-1><code>enable_bound_aabb</code><a href=#enable_bound_aabb-1 class=hash-link aria-label="Direct link to enable_bound_aabb-1" title="Direct link to enable_bound_aabb-1" translate=no>​</a></h4>
+<p>A boolean indicating whether the wall has an axis-aligned bounding box.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=bound_min-1><code>bound_min</code><a href=#bound_min-1 class=hash-link aria-label="Direct link to bound_min-1" title="Direct link to bound_min-1" translate=no>​</a></h4>
+<p>The minimum position of the bounding box.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=bound_max-1><code>bound_max</code><a href=#bound_max-1 class=hash-link aria-label="Direct link to bound_max-1" title="Direct link to bound_max-1" translate=no>​</a></h4>
+<p>The maximum position of the bounding box.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=bound_disp-1><code>bound_disp</code><a href=#bound_disp-1 class=hash-link aria-label="Direct link to bound_disp-1" title="Direct link to bound_disp-1" translate=no>​</a></h4>
+<p>The displacement of the bounding box.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=pos-1><code>pos</code><a href=#pos-1 class=hash-link aria-label="Direct link to pos-1" title="Direct link to pos-1" translate=no>​</a></h4>
+<p>The position of the wall.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=quaternion-1><code>quaternion</code><a href=#quaternion-1 class=hash-link aria-label="Direct link to quaternion-1" title="Direct link to quaternion-1" translate=no>​</a></h4>
+<p>The quaternion orientation of the wall.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=force-1><code>force</code><a href=#force-1 class=hash-link aria-label="Direct link to force-1" title="Direct link to force-1" translate=no>​</a></h4>
+<p>The force acting on the wall.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=moment-1><code>moment</code><a href=#moment-1 class=hash-link aria-label="Direct link to moment-1" title="Direct link to moment-1" translate=no>​</a></h4>
+<p>The moment acting on the wall.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=vel-1><code>vel</code><a href=#vel-1 class=hash-link aria-label="Direct link to vel-1" title="Direct link to vel-1" translate=no>​</a></h4>
+<p>The velocity of the wall.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=spin-1><code>spin</code><a href=#spin-1 class=hash-link aria-label="Direct link to spin-1" title="Direct link to spin-1" translate=no>​</a></h4>
+<p>The spin of the wall.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=vel_spin><code>vel_spin</code><a href=#vel_spin class=hash-link aria-label="Direct link to vel_spin" title="Direct link to vel_spin" translate=no>​</a></h4>
+<p>The velocity spin of the wall.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=dynamic_properties-1><code>dynamic_properties</code><a href=#dynamic_properties-1 class=hash-link aria-label="Direct link to dynamic_properties-1" title="Direct link to dynamic_properties-1" translate=no>​</a></h4>
+<p>A map containing the dynamic properties of the wall.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=need_update_linked_list-1><code>need_update_linked_list</code><a href=#need_update_linked_list-1 class=hash-link aria-label="Direct link to need_update_linked_list-1" title="Direct link to need_update_linked_list-1" translate=no>​</a></h4>
+<p>A boolean indicating whether the wall's linked list needs to be updated.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=linked_cell_list-1><code>linked_cell_list</code><a href=#linked_cell_list-1 class=hash-link aria-label="Direct link to linked_cell_list-1" title="Direct link to linked_cell_list-1" translate=no>​</a></h4>
+<p>A list of linked cells.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=linked_particle_list-1><code>linked_particle_list</code><a href=#linked_particle_list-1 class=hash-link aria-label="Direct link to linked_particle_list-1" title="Direct link to linked_particle_list-1" translate=no>​</a></h4>
+<p>A list of linked particles.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=contact_pw_lookup_table-1><code>contact_pw_lookup_table</code><a href=#contact_pw_lookup_table-1 class=hash-link aria-label="Direct link to contact_pw_lookup_table-1" title="Direct link to contact_pw_lookup_table-1" translate=no>​</a></h4>
+<p>A lookup table for pairwise contacts.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=need_update_stl_model-1><code>need_update_stl_model</code><a href=#need_update_stl_model-1 class=hash-link aria-label="Direct link to need_update_stl_model-1" title="Direct link to need_update_stl_model-1" translate=no>​</a></h4>
+<p>A boolean indicating whether the wall's STL model needs to be updated.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=stl_model-1><code>stl_model</code><a href=#stl_model-1 class=hash-link aria-label="Direct link to stl_model-1" title="Direct link to stl_model-1" translate=no>​</a></h4>
+<p>The STL model of the wall.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=methods-2>Methods<a href=#methods-2 class=hash-link aria-label="Direct link to Methods" title="Direct link to Methods" translate=no>​</a></h3>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=setshapeshape><code>SetShape(shape)</code><a href=#setshapeshape class=hash-link aria-label="Direct link to setshapeshape" title="Direct link to setshapeshape" translate=no>​</a></h4>
+<p>Sets the shape of the wall.</p>
+<ul>
+<li class=""><code>shape</code> (Shape): The shape of the wall.</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=setpositionpos><code>SetPosition(pos)</code><a href=#setpositionpos class=hash-link aria-label="Direct link to setpositionpos" title="Direct link to setpositionpos" translate=no>​</a></h4>
+<p>Sets the position of the wall.</p>
+<ul>
+<li class=""><code>pos</code> (Vec3d): The position of the wall.</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=setrodriguesrot><code>SetRodrigues(rot)</code><a href=#setrodriguesrot class=hash-link aria-label="Direct link to setrodriguesrot" title="Direct link to setrodriguesrot" translate=no>​</a></h4>
+<p>Sets the Rodrigues rotation of the wall.</p>
+<ul>
+<li class=""><code>rot</code> (Vec3d): The Rodrigues rotation of the wall.</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=setquaternionquat><code>SetQuaternion(quat)</code><a href=#setquaternionquat class=hash-link aria-label="Direct link to setquaternionquat" title="Direct link to setquaternionquat" translate=no>​</a></h4>
+<p>Sets the quaternion orientation of the wall.</p>
+<ul>
+<li class=""><code>quat</code> (Vec4d): The quaternion orientation of the wall.</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=setvelocityvel><code>SetVelocity(vel)</code><a href=#setvelocityvel class=hash-link aria-label="Direct link to setvelocityvel" title="Direct link to setvelocityvel" translate=no>​</a></h4>
+<p>Sets the velocity of the wall.</p>
+<ul>
+<li class=""><code>vel</code> (Vec3d): The velocity of the wall.</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=setspinspin><code>SetSpin(spin)</code><a href=#setspinspin class=hash-link aria-label="Direct link to setspinspin" title="Direct link to setspinspin" translate=no>​</a></h4>
+<p>Sets the spin of the wall.</p>
+<ul>
+<li class=""><code>spin</code> (Vec3d): The spin of the wall.</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=setvelocityspinvel-spin><code>SetVelocitySpin(vel, spin)</code><a href=#setvelocityspinvel-spin class=hash-link aria-label="Direct link to setvelocityspinvel-spin" title="Direct link to setvelocityspinvel-spin" translate=no>​</a></h4>
+<p>Sets the velocity and spin of the wall.</p>
+<ul>
+<li class=""><code>vel</code> (Vec3d): The velocity of the wall.</li>
+<li class=""><code>spin</code> (Vec3d): The spin of the wall.</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=getvelocity><code>GetVelocity()</code><a href=#getvelocity class=hash-link aria-label="Direct link to getvelocity" title="Direct link to getvelocity" translate=no>​</a></h4>
+<p>Return: the velocity of the wall.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=setdynamicpropertyprop_name-prop_value><code>SetDynamicProperty(prop_name, prop_value)</code><a href=#setdynamicpropertyprop_name-prop_value class=hash-link aria-label="Direct link to setdynamicpropertyprop_name-prop_value" title="Direct link to setdynamicpropertyprop_name-prop_value" translate=no>​</a></h4>
+<p>Sets a dynamic property of the wall.</p>
+<ul>
+<li class=""><code>prop_name</code> (string): The name of the dynamic property to set.</li>
+<li class=""><code>prop_value</code> (float): The value to set for the dynamic property.</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=getdynamicpropertyprop_name><code>GetDynamicProperty(prop_name)</code><a href=#getdynamicpropertyprop_name class=hash-link aria-label="Direct link to getdynamicpropertyprop_name" title="Direct link to getdynamicpropertyprop_name" translate=no>​</a></h4>
+<p>Returns the value of a dynamic property of the wall.</p>
+<ul>
+<li class=""><code>prop_name</code> (string): The name of the dynamic property.</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=addforceforce><code>AddForce(force)</code><a href=#addforceforce class=hash-link aria-label="Direct link to addforceforce" title="Direct link to addforceforce" translate=no>​</a></h4>
+<p>Adds a force to the wall.</p>
+<ul>
+<li class=""><code>force</code> (Vec3d): The force to add.</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=addmomentmoment><code>AddMoment(moment)</code><a href=#addmomentmoment class=hash-link aria-label="Direct link to addmomentmoment" title="Direct link to addmomentmoment" translate=no>​</a></h4>
+<p>Adds a moment to the wall.</p>
+<ul>
+<li class=""><code>moment</code> (Vec3d): The moment to add.</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=addforcef><code>AddForce(f)</code><a href=#addforcef class=hash-link aria-label="Direct link to addforcef" title="Direct link to addforcef" translate=no>​</a></h4>
+<p>Add a force to the wall.</p>
+<ul>
+<li class=""><code>f</code> (Vec3d): The force to add.</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=addmomentm><code>AddMoment(m)</code><a href=#addmomentm class=hash-link aria-label="Direct link to addmomentm" title="Direct link to addmomentm" translate=no>​</a></h4>
+<p>Add a moment to the wall.</p>
+<ul>
+<li class=""><code>m</code> (Vec3d): The moment to add.</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=addforceatomicf><code>AddForceAtomic(f)</code><a href=#addforceatomicf class=hash-link aria-label="Direct link to addforceatomicf" title="Direct link to addforceatomicf" translate=no>​</a></h4>
+<p>Add an atomic force to the wall.</p>
+<ul>
+<li class=""><code>f</code> (Vec3d): The atomic force to add.</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=addmomentatomicm><code>AddMomentAtomic(m)</code><a href=#addmomentatomicm class=hash-link aria-label="Direct link to addmomentatomicm" title="Direct link to addmomentatomicm" translate=no>​</a></h4>
+<p>Add an atomic moment to the wall.</p>
+<ul>
+<li class=""><code>m</code> (Vec3d): The atomic moment to add.</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=clearforce><code>ClearForce()</code><a href=#clearforce class=hash-link aria-label="Direct link to clearforce" title="Direct link to clearforce" translate=no>​</a></h4>
+<p>Clear the total force on the wall.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=clearmoment><code>ClearMoment()</code><a href=#clearmoment class=hash-link aria-label="Direct link to clearmoment" title="Direct link to clearmoment" translate=no>​</a></h4>
+<p>Clear the total moment on the wall.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=applycontactforcecontact_pw-contact_force><code>ApplyContactForce(contact_pw, contact_force)</code><a href=#applycontactforcecontact_pw-contact_force class=hash-link aria-label="Direct link to applycontactforcecontact_pw-contact_force" title="Direct link to applycontactforcecontact_pw-contact_force" translate=no>​</a></h4>
+<p>Apply a contact force to the wall.</p>
+<ul>
+<li class=""><code>contact_pw</code> : The contact point on the wall.</li>
+<li class=""><code>contact_force</code> : The contact force to apply.</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=updatecontactforcecontact_pw-contact_force><code>UpdateContactForce(contact_pw, contact_force)</code><a href=#updatecontactforcecontact_pw-contact_force class=hash-link aria-label="Direct link to updatecontactforcecontact_pw-contact_force" title="Direct link to updatecontactforcecontact_pw-contact_force" translate=no>​</a></h4>
+<p>Update the contact force on the wall.</p>
+<ul>
+<li class=""><code>contact_pw</code> (Vec3d): The contact point on the wall.</li>
+<li class=""><code>contact_force</code> (Vec3d): The new contact force.</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=updatemotion><code>UpdateMotion()</code><a href=#updatemotion class=hash-link aria-label="Direct link to updatemotion" title="Direct link to updatemotion" translate=no>​</a></h4>
+<p>Update the motion of the wall.</p>
+<ul>
+<li class=""><code>t</code> (double, optional): The time step. Default is 0.</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=updatemotionpos-quat-t><code>UpdateMotion(pos, quat, t)</code><a href=#updatemotionpos-quat-t class=hash-link aria-label="Direct link to updatemotionpos-quat-t" title="Direct link to updatemotionpos-quat-t" translate=no>​</a></h4>
+<p>Update the motion of the wall.</p>
+<ul>
+<li class=""><code>pos</code> (Vec3d): The position of the wall.</li>
+<li class=""><code>quat</code> (Vec4d): The quaternion of the wall.</li>
+<li class=""><code>t</code> (double, optional): The time step. Default is 0.</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=updatemotionpos-euler-t><code>UpdateMotion(pos, euler, t)</code><a href=#updatemotionpos-euler-t class=hash-link aria-label="Direct link to updatemotionpos-euler-t" title="Direct link to updatemotionpos-euler-t" translate=no>​</a></h4>
+<p>Update the motion of the wall.</p>
+<ul>
+<li class=""><code>pos</code> (Vec3d): The position of the wall.</li>
+<li class=""><code>euler</code> (Vec3d): The Euler angles of the wall.</li>
+<li class=""><code>t</code> (double, optional): The time step. Default is 0.</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=updatebound><code>UpdateBound()</code><a href=#updatebound class=hash-link aria-label="Direct link to updatebound" title="Direct link to updatebound" translate=no>​</a></h4>
+<p>Update the bounding box of the wall.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=clearlinkedcells><code>ClearLinkedCells()</code><a href=#clearlinkedcells class=hash-link aria-label="Direct link to clearlinkedcells" title="Direct link to clearlinkedcells" translate=no>​</a></h4>
+<p>Clear the linked cells of the wall.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=clearlinkedneighs><code>ClearLinkedNeighs()</code><a href=#clearlinkedneighs class=hash-link aria-label="Direct link to clearlinkedneighs" title="Direct link to clearlinkedneighs" translate=no>​</a></h4>
+<p>Clear the linked neighbors of the wall.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=buildcontactlookuptable><code>BuildContactLookUpTable()</code><a href=#buildcontactlookuptable class=hash-link aria-label="Direct link to buildcontactlookuptable" title="Direct link to buildcontactlookuptable" translate=no>​</a></h4>
+<p>Build the contact lookup table of the wall.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=clearcontactlookuptable><code>ClearContactLookUpTable()</code><a href=#clearcontactlookuptable class=hash-link aria-label="Direct link to clearcontactlookuptable" title="Direct link to clearcontactlookuptable" translate=no>​</a></h4>
+<p>Clear the contact lookup table of the wall.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=updatelinkedcells><code>UpdateLinkedCells()</code><a href=#updatelinkedcells class=hash-link aria-label="Direct link to updatelinkedcells" title="Direct link to updatelinkedcells" translate=no>​</a></h4>
+<p>Update the linked cells of the wall.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=updatelinkedneighs><code>UpdateLinkedNeighs()</code><a href=#updatelinkedneighs class=hash-link aria-label="Direct link to updatelinkedneighs" title="Direct link to updatelinkedneighs" translate=no>​</a></h4>
+<p>Update the linked neighbors of the wall.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=getcontactpws-1><code>GetContactPWs()</code><a href=#getcontactpws-1 class=hash-link aria-label="Direct link to getcontactpws-1" title="Direct link to getcontactpws-1" translate=no>​</a></h4>
+<p>Get the contact points and weights of the wall.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=updatestlmodel-><code>UpdateSTLModel() </code><a href=#updatestlmodel- class=hash-link aria-label="Direct link to updatestlmodel-" title="Direct link to updatestlmodel-" translate=no>​</a></h4>
+<p>Update the STL model of the wall.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=saveasvtkfile_name><code>SaveAsVTK(file_name)</code><a href=#saveasvtkfile_name class=hash-link aria-label="Direct link to saveasvtkfile_name" title="Direct link to saveasvtkfile_name" translate=no>​</a></h4>
+<p>Save the wall as a VTK file.</p>
+<ul>
+<li class=""><code>file_name</code> (string): The name of the file to save.</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=print><code>Print()</code><a href=#print class=hash-link aria-label="Direct link to print" title="Direct link to print" translate=no>​</a></h4>
+<p>Print the wall.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=findlinked><code>FindLinked()</code><a href=#findlinked class=hash-link aria-label="Direct link to findlinked" title="Direct link to findlinked" translate=no>​</a></h4>
+<p>Find the linked objects of the wall.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=findcontactrefcontact_pw><code>FindContactRef(contact_pw)</code><a href=#findcontactrefcontact_pw class=hash-link aria-label="Direct link to findcontactrefcontact_pw" title="Direct link to findcontactrefcontact_pw" translate=no>​</a></h4>
+<p>Find the contact reference object of the wall.</p>
+<hr/>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=wallboxplane>WallBoxPlane<a href=#wallboxplane class=hash-link aria-label="Direct link to WallBoxPlane" title="Direct link to WallBoxPlane" translate=no>​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=constructor-5>Constructor<a href=#constructor-5 class=hash-link aria-label="Direct link to Constructor" title="Direct link to Constructor" translate=no>​</a></h3>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=wallboxplanex-y-z-w-h-d><code>WallBoxPlane(x, y, z, w, h, d)</code><a href=#wallboxplanex-y-z-w-h-d class=hash-link aria-label="Direct link to wallboxplanex-y-z-w-h-d" title="Direct link to wallboxplanex-y-z-w-h-d" translate=no>​</a></h4>
+<p>Creates a new instance of the WallBoxPlane class with the following parameters:</p>
+<ul>
+<li class=""><code>x</code> (float): x coordinate of the center of the box</li>
+<li class=""><code>y</code> (float): y coordinate of the center of the box</li>
+<li class=""><code>z</code> (float): z coordinate of the center of the box</li>
+<li class=""><code>w</code> (float): width of the box</li>
+<li class=""><code>h</code> (float): height of the box</li>
+<li class=""><code>d</code> (float): depth of the box</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=methods-3>Methods<a href=#methods-3 class=hash-link aria-label="Direct link to Methods" title="Direct link to Methods" translate=no>​</a></h3>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=getshapes-1><code>GetShapes()</code><a href=#getshapes-1 class=hash-link aria-label="Direct link to getshapes-1" title="Direct link to getshapes-1" translate=no>​</a></h4>
+<p>Returns a list of shape objects of the wall.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=getwalls><code>GetWalls()</code><a href=#getwalls class=hash-link aria-label="Direct link to getwalls" title="Direct link to getwalls" translate=no>​</a></h4>
+<p>Returns a list of wall objects of the wall.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=importtoscene><code>ImportToScene()</code><a href=#importtoscene class=hash-link aria-label="Direct link to importtoscene" title="Direct link to importtoscene" translate=no>​</a></h4>
+<p>Imports the wall object to the simulation scene.</p>
+<hr/>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=wallboxplate>WallBoxPlate<a href=#wallboxplate class=hash-link aria-label="Direct link to WallBoxPlate" title="Direct link to WallBoxPlate" translate=no>​</a></h2>
+<p>These classes represent wall objects in the simulation scene, with a box shape and a plane or a plate surface.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=constructor-6>Constructor<a href=#constructor-6 class=hash-link aria-label="Direct link to Constructor" title="Direct link to Constructor" translate=no>​</a></h3>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=wallboxplatex-y-z-w-h-d><code>WallBoxPlate(x, y, z, w, h, d)</code><a href=#wallboxplatex-y-z-w-h-d class=hash-link aria-label="Direct link to wallboxplatex-y-z-w-h-d" title="Direct link to wallboxplatex-y-z-w-h-d" translate=no>​</a></h4>
+<p>Creates a new instance of the WallBoxPlate class with the following parameters:</p>
+<ul>
+<li class=""><code>x</code> (float): x coordinate of the center of the box</li>
+<li class=""><code>y</code> (float): y coordinate of the center of the box</li>
+<li class=""><code>z</code> (float): z coordinate of the center of the box</li>
+<li class=""><code>w</code> (float): width of the box</li>
+<li class=""><code>h</code> (float): height of the box</li>
+<li class=""><code>d</code> (float): depth of the box</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=methods-4>Methods<a href=#methods-4 class=hash-link aria-label="Direct link to Methods" title="Direct link to Methods" translate=no>​</a></h3>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=getshapes-2><code>GetShapes()</code><a href=#getshapes-2 class=hash-link aria-label="Direct link to getshapes-2" title="Direct link to getshapes-2" translate=no>​</a></h4>
+<p>Returns a list of shape objects of the wall.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=getwalls-1><code>GetWalls()</code><a href=#getwalls-1 class=hash-link aria-label="Direct link to getwalls-1" title="Direct link to getwalls-1" translate=no>​</a></h4>
+<p>Returns a list of wall objects of the wall.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=importtoscene-1><code>ImportToScene()</code><a href=#importtoscene-1 class=hash-link aria-label="Direct link to importtoscene-1" title="Direct link to importtoscene-1" translate=no>​</a></h4>
+<p>Imports the wall object to the simulation scene.</p>
+<hr/>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=bondedspheres>BondedSpheres<a href=#bondedspheres class=hash-link aria-label="Direct link to BondedSpheres" title="Direct link to BondedSpheres" translate=no>​</a></h2>
+<p>This function initializes a PyBind11 module for the BondedSpheres class.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=attributes-3>Attributes<a href=#attributes-3 class=hash-link aria-label="Direct link to Attributes" title="Direct link to Attributes" translate=no>​</a></h3>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=sphere><code>sphere</code><a href=#sphere class=hash-link aria-label="Direct link to sphere" title="Direct link to sphere" translate=no>​</a></h4>
+<p>A Sphere object representing the bonded sphere.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=particle_list-1><code>particle_list</code><a href=#particle_list-1 class=hash-link aria-label="Direct link to particle_list-1" title="Direct link to particle_list-1" translate=no>​</a></h4>
+<p>A list of Particle objects.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=contact_list><code>contact_list</code><a href=#contact_list class=hash-link aria-label="Direct link to contact_list" title="Direct link to contact_list" translate=no>​</a></h4>
+<p>A list of Contact objects.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=bond_pair_list><code>bond_pair_list</code><a href=#bond_pair_list class=hash-link aria-label="Direct link to bond_pair_list" title="Direct link to bond_pair_list" translate=no>​</a></h4>
+<p>A list of bonded particle pairs.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=bond_model><code>bond_model</code><a href=#bond_model class=hash-link aria-label="Direct link to bond_model" title="Direct link to bond_model" translate=no>​</a></h4>
+<p>A reference to the BondModel object used to calculate bonds.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=methods-5>Methods<a href=#methods-5 class=hash-link aria-label="Direct link to Methods" title="Direct link to Methods" translate=no>​</a></h3>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=init-1><code>init()</code><a href=#init-1 class=hash-link aria-label="Direct link to init-1" title="Direct link to init-1" translate=no>​</a></h4>
+<p>The default constructor.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=initbondedspheres><code>init(BondedSpheres)</code><a href=#initbondedspheres class=hash-link aria-label="Direct link to initbondedspheres" title="Direct link to initbondedspheres" translate=no>​</a></h4>
+<p>A copy constructor that initializes a BondedSpheres object from another BondedSpheres object.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=setbondmodel><code>SetBondModel()</code><a href=#setbondmodel class=hash-link aria-label="Direct link to setbondmodel" title="Direct link to setbondmodel" translate=no>​</a></h4>
+<p>Sets the bond model used to calculate bonds.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=translate><code>Translate()</code><a href=#translate class=hash-link aria-label="Direct link to translate" title="Direct link to translate" translate=no>​</a></h4>
+<p>Translates the BondedSpheres object.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=rotatebyrodrigues><code>RotateByRodrigues()</code><a href=#rotatebyrodrigues class=hash-link aria-label="Direct link to rotatebyrodrigues" title="Direct link to rotatebyrodrigues" translate=no>​</a></h4>
+<p>Rotates the BondedSpheres object using Rodrigues' rotation formula.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=getcentroid><code>GetCentroid()</code><a href=#getcentroid class=hash-link aria-label="Direct link to getcentroid" title="Direct link to getcentroid" translate=no>​</a></h4>
+<p>Returns the centroid of the BondedSpheres object.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=initfromstl><code>InitFromSTL()</code><a href=#initfromstl class=hash-link aria-label="Direct link to initfromstl" title="Direct link to initfromstl" translate=no>​</a></h4>
+<p>Initializes the BondedSpheres object from an STL file.</p>
+<ul>
+<li class=""><code>filename</code> (string): The path to the STL file.</li>
+<li class=""><code>radius</code> (float): The radius of the sphere.</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=initfromgrid><code>InitFromGrid()</code><a href=#initfromgrid class=hash-link aria-label="Direct link to initfromgrid" title="Direct link to initfromgrid" translate=no>​</a></h4>
+<p>Initializes the BondedSpheres object from a grid.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=makeporosity><code>MakePorosity()</code><a href=#makeporosity class=hash-link aria-label="Direct link to makeporosity" title="Direct link to makeporosity" translate=no>​</a></h4>
+<p>Creates porosity in the BondedSpheres object.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=initbonds><code>InitBonds()</code><a href=#initbonds class=hash-link aria-label="Direct link to initbonds" title="Direct link to initbonds" translate=no>​</a></h4>
+<p>Initializes the bonded pairs in the BondedSpheres object.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=importtoscene-2><code>ImportToScene()</code><a href=#importtoscene-2 class=hash-link aria-label="Direct link to importtoscene-2" title="Direct link to importtoscene-2" translate=no>​</a></h4>
+<p>Imports the BondedSpheres object to a scene.</p>
+<hr/>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=bondedvoronois>BondedVoronois<a href=#bondedvoronois class=hash-link aria-label="Direct link to BondedVoronois" title="Direct link to BondedVoronois" translate=no>​</a></h2>
+<p>This class represents a bonded Voronois object.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=constructor-7>Constructor<a href=#constructor-7 class=hash-link aria-label="Direct link to Constructor" title="Direct link to Constructor" translate=no>​</a></h3>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=bondedvoronois-1><code>BondedVoronois()</code><a href=#bondedvoronois-1 class=hash-link aria-label="Direct link to bondedvoronois-1" title="Direct link to bondedvoronois-1" translate=no>​</a></h4>
+<p>Creates a new instance of the BondedVoronois class.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=attributes-4>Attributes<a href=#attributes-4 class=hash-link aria-label="Direct link to Attributes" title="Direct link to Attributes" translate=no>​</a></h3>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=trimesh_list><code>trimesh_list</code><a href=#trimesh_list class=hash-link aria-label="Direct link to trimesh_list" title="Direct link to trimesh_list" translate=no>​</a></h4>
+<p>A list of trimeshes.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=particle_list-2><code>particle_list</code><a href=#particle_list-2 class=hash-link aria-label="Direct link to particle_list-2" title="Direct link to particle_list-2" translate=no>​</a></h4>
+<p>A list of particles.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=contact_list-1><code>contact_list</code><a href=#contact_list-1 class=hash-link aria-label="Direct link to contact_list-1" title="Direct link to contact_list-1" translate=no>​</a></h4>
+<p>A list of contacts.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=bond_pair_list-1><code>bond_pair_list</code><a href=#bond_pair_list-1 class=hash-link aria-label="Direct link to bond_pair_list-1" title="Direct link to bond_pair_list-1" translate=no>​</a></h4>
+<p>A list of bond pairs.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=cvt_max_iters><code>cvt_max_iters</code><a href=#cvt_max_iters class=hash-link aria-label="Direct link to cvt_max_iters" title="Direct link to cvt_max_iters" translate=no>​</a></h4>
+<p>The maximum number of iterations for the CVT algorithm.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=cvt_tol><code>cvt_tol</code><a href=#cvt_tol class=hash-link aria-label="Direct link to cvt_tol" title="Direct link to cvt_tol" translate=no>​</a></h4>
+<p>The tolerance for the CVT algorithm.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=bond_model-1><code>bond_model</code><a href=#bond_model-1 class=hash-link aria-label="Direct link to bond_model-1" title="Direct link to bond_model-1" translate=no>​</a></h4>
+<p>The bond model used by the BondedVoronois object.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=methods-6>Methods<a href=#methods-6 class=hash-link aria-label="Direct link to Methods" title="Direct link to Methods" translate=no>​</a></h3>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=setbondmodelbond_model><code>SetBondModel(bond_model)</code><a href=#setbondmodelbond_model class=hash-link aria-label="Direct link to setbondmodelbond_model" title="Direct link to setbondmodelbond_model" translate=no>​</a></h4>
+<p>Set the bond model used by the BondedVoronois object.</p>
+<ul>
+<li class=""><code>bond_model</code> (BondModel): The bond model to set.</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=translatex-y-z><code>Translate(x, y, z)</code><a href=#translatex-y-z class=hash-link aria-label="Direct link to translatex-y-z" title="Direct link to translatex-y-z" translate=no>​</a></h4>
+<p>Translate the BondedVoronois object.</p>
+<ul>
+<li class=""><code>x</code> (float): The amount to translate in the x direction.</li>
+<li class=""><code>y</code> (float): The amount to translate in the y direction.</li>
+<li class=""><code>z</code> (float): The amount to translate in the z direction.</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=rotatebyrodriguestheta-u><code>RotateByRodrigues(theta, u)</code><a href=#rotatebyrodriguestheta-u class=hash-link aria-label="Direct link to rotatebyrodriguestheta-u" title="Direct link to rotatebyrodriguestheta-u" translate=no>​</a></h4>
+<p>Rotate the BondedVoronois object by the Rodrigues formula.</p>
+<ul>
+<li class=""><code>theta</code> (float): The angle of rotation.</li>
+<li class=""><code>u</code> (array-like): The axis of rotation.</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=getcentroid-1>GetCentroid()<a href=#getcentroid-1 class=hash-link aria-label="Direct link to GetCentroid()" title="Direct link to GetCentroid()" translate=no>​</a></h4>
+<p>Get the centroid of the BondedVoronois object.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=initfromstlstl_file-label><code>InitFromSTL(stl_file, label='')</code><a href=#initfromstlstl_file-label class=hash-link aria-label="Direct link to initfromstlstl_file-label" title="Direct link to initfromstlstl_file-label" translate=no>​</a></h4>
+<p>Initialize the BondedVoronois object from an STL file.</p>
+<ul>
+<li class="">
+<p><code>stl_file</code> (string): The path to the STL file.</p>
+</li>
+<li class="">
+<p><code>label</code> (string, optional): A label for the object. Default is an empty string.</p>
+</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=makeporosityporosity><code>MakePorosity(porosity)</code><a href=#makeporosityporosity class=hash-link aria-label="Direct link to makeporosityporosity" title="Direct link to makeporosityporosity" translate=no>​</a></h4>
+<p>Make the BondedVoronois object porous.</p>
+<ul>
+<li class=""><code>porosity</code> (float): The desired porosity.</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=initbonds-1><code>InitBonds()</code><a href=#initbonds-1 class=hash-link aria-label="Direct link to initbonds-1" title="Direct link to initbonds-1" translate=no>​</a></h4>
+<p>Initialize the bonds of the BondedVoronois object.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=refreshpointers><code>RefreshPointers()</code><a href=#refreshpointers class=hash-link aria-label="Direct link to refreshpointers" title="Direct link to refreshpointers" translate=no>​</a></h4>
+<p>Refresh the pointers of the BondedVoronois object.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=saveasvtkfilename><code>SaveAsVTK(filename)</code><a href=#saveasvtkfilename class=hash-link aria-label="Direct link to saveasvtkfilename" title="Direct link to saveasvtkfilename" translate=no>​</a></h4>
+<p>Save the BondedVoronois object as a VTK file.</p>
+<ul>
+<li class=""><code>filename</code> (string): The name of the VTK file.</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=importtoscenescene><code>ImportToScene(scene)</code><a href=#importtoscenescene class=hash-link aria-label="Direct link to importtoscenescene" title="Direct link to importtoscenescene" translate=no>​</a></h4>
+<p>Import the BondedVoronois object to a scene.</p>
+<ul>
+<li class=""><code>scene</code> (Scene): The scene to import to.</li>
+</ul>
+<hr/>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=contactpp>ContactPP<a href=#contactpp class=hash-link aria-label="Direct link to ContactPP" title="Direct link to ContactPP" translate=no>​</a></h2>
+<p>This class represents a contact model between two particles.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=constructor-8>Constructor<a href=#constructor-8 class=hash-link aria-label="Direct link to Constructor" title="Direct link to Constructor" translate=no>​</a></h3>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=contactpp-1><code>ContactPP()</code><a href=#contactpp-1 class=hash-link aria-label="Direct link to contactpp-1" title="Direct link to contactpp-1" translate=no>​</a></h4>
+<p>Creates a new instance of the ContactPP class.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=contactppparticle_1-particle_2><code>ContactPP(particle_1, particle_2)</code><a href=#contactppparticle_1-particle_2 class=hash-link aria-label="Direct link to contactppparticle_1-particle_2" title="Direct link to contactppparticle_1-particle_2" translate=no>​</a></h4>
+<p>Creates a new instance of the ContactPP class with the given particles.</p>
+<ul>
+<li class="">
+<p><code>particle_1</code> (Particle* const): Pointer to the first particle.</p>
+</li>
+<li class="">
+<p><code>particle_2</code> (Particle* const): Pointer to the second particle.</p>
+</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=attributes-5>Attributes<a href=#attributes-5 class=hash-link aria-label="Direct link to Attributes" title="Direct link to Attributes" translate=no>​</a></h3>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=particle_1><code>particle_1</code><a href=#particle_1 class=hash-link aria-label="Direct link to particle_1" title="Direct link to particle_1" translate=no>​</a></h4>
+<p>Pointer to the first particle involved in the contact.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=particle_2><code>particle_2</code><a href=#particle_2 class=hash-link aria-label="Direct link to particle_2" title="Direct link to particle_2" translate=no>​</a></h4>
+<p>Pointer to the second particle involved in the contact.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=bond_entries><code>bond_entries</code><a href=#bond_entries class=hash-link aria-label="Direct link to bond_entries" title="Direct link to bond_entries" translate=no>​</a></h4>
+<p>A vector of bond entries for the contact.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=collision_entries><code>collision_entries</code><a href=#collision_entries class=hash-link aria-label="Direct link to collision_entries" title="Direct link to collision_entries" translate=no>​</a></h4>
+<p>A vector of collision entries for the contact.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=active><code>active</code><a href=#active class=hash-link aria-label="Direct link to active" title="Direct link to active" translate=no>​</a></h4>
+<p>A boolean value indicating whether the contact is active or not.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=dynamic_properties-2><code>dynamic_properties</code><a href=#dynamic_properties-2 class=hash-link aria-label="Direct link to dynamic_properties-2" title="Direct link to dynamic_properties-2" translate=no>​</a></h4>
+<p>A dictionary of dynamic properties for the contact.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=methods-7>Methods<a href=#methods-7 class=hash-link aria-label="Direct link to Methods" title="Direct link to Methods" translate=no>​</a></h3>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=setbondmodelbond_model-1><code>SetBondModel(bond_model)</code><a href=#setbondmodelbond_model-1 class=hash-link aria-label="Direct link to setbondmodelbond_model-1" title="Direct link to setbondmodelbond_model-1" translate=no>​</a></h4>
+<p>Set the bond model for the contact.</p>
+<ul>
+<li class=""><code>bond_model</code> (BondModel*): Pointer to the bond model.</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=setcollisionmodelcollision_model><code>SetCollisionModel(collision_model)</code><a href=#setcollisionmodelcollision_model class=hash-link aria-label="Direct link to setcollisionmodelcollision_model" title="Direct link to setcollisionmodelcollision_model" translate=no>​</a></h4>
+<p>Set the collision model for the contact.</p>
+<ul>
+<li class=""><code>collision_model</code> (CollisionModel*): Pointer to the collision model.</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=evaluateforcemoment><code>EvaluateForceMoment()</code><a href=#evaluateforcemoment class=hash-link aria-label="Direct link to evaluateforcemoment" title="Direct link to evaluateforcemoment" translate=no>​</a></h4>
+<p>Evaluate the force and moment for the contact.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=applytoparticle><code>ApplyToParticle()</code><a href=#applytoparticle class=hash-link aria-label="Direct link to applytoparticle" title="Direct link to applytoparticle" translate=no>​</a></h4>
+<p>Apply the contact force and moment to the particles.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=applytoparticle1><code>ApplyToParticle1()</code><a href=#applytoparticle1 class=hash-link aria-label="Direct link to applytoparticle1" title="Direct link to applytoparticle1" translate=no>​</a></h4>
+<p>Apply the contact force and moment to the first particle.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=applytoparticle2><code>ApplyToParticle2()</code><a href=#applytoparticle2 class=hash-link aria-label="Direct link to applytoparticle2" title="Direct link to applytoparticle2" translate=no>​</a></h4>
+<p>Apply the contact force and moment to the second particle.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=isactive><code>IsActive()</code><a href=#isactive class=hash-link aria-label="Direct link to isactive" title="Direct link to isactive" translate=no>​</a></h4>
+<p>Return a boolean indicating whether the contact is active or not.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=clear><code>Clear()</code><a href=#clear class=hash-link aria-label="Direct link to clear" title="Direct link to clear" translate=no>​</a></h4>
+<p>Clear the contact data.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=print-1><code>Print()</code><a href=#print-1 class=hash-link aria-label="Direct link to print-1" title="Direct link to print-1" translate=no>​</a></h4>
+<p>Print the contact data.</p>
+<hr/>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=contactpw>ContactPW<a href=#contactpw class=hash-link aria-label="Direct link to ContactPW" title="Direct link to ContactPW" translate=no>​</a></h2>
+<p>This class represents a contact between a particle and a wall.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=constructor-9>Constructor<a href=#constructor-9 class=hash-link aria-label="Direct link to Constructor" title="Direct link to Constructor" translate=no>​</a></h3>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=contactpwparticle-wall><code>ContactPW(particle, wall)</code><a href=#contactpwparticle-wall class=hash-link aria-label="Direct link to contactpwparticle-wall" title="Direct link to contactpwparticle-wall" translate=no>​</a></h4>
+<p>Creates a new instance of the <code>ContactPW</code> class with a given particle and wall.</p>
+<ul>
+<li class="">
+<p><code>particle</code> (Particle object): The particle involved in the contact.</p>
+</li>
+<li class="">
+<p><code>wall</code> (Wall object): The wall involved in the contact.</p>
+</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=attributes-6>Attributes<a href=#attributes-6 class=hash-link aria-label="Direct link to Attributes" title="Direct link to Attributes" translate=no>​</a></h3>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=particle-2><code>particle</code><a href=#particle-2 class=hash-link aria-label="Direct link to particle-2" title="Direct link to particle-2" translate=no>​</a></h4>
+<p>The particle involved in the contact.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=wall-2><code>wall</code><a href=#wall-2 class=hash-link aria-label="Direct link to wall-2" title="Direct link to wall-2" translate=no>​</a></h4>
+<p>The wall involved in the contact.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=bond_model-2><code>bond_model</code><a href=#bond_model-2 class=hash-link aria-label="Direct link to bond_model-2" title="Direct link to bond_model-2" translate=no>​</a></h4>
+<p>The bond model used for the contact.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=collision_model><code>collision_model</code><a href=#collision_model class=hash-link aria-label="Direct link to collision_model" title="Direct link to collision_model" translate=no>​</a></h4>
+<p>The collision model used for the contact.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=bond_entries-1><code>bond_entries</code><a href=#bond_entries-1 class=hash-link aria-label="Direct link to bond_entries-1" title="Direct link to bond_entries-1" translate=no>​</a></h4>
+<p>A list of bond entries for the contact.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=collision_entries-1><code>collision_entries</code><a href=#collision_entries-1 class=hash-link aria-label="Direct link to collision_entries-1" title="Direct link to collision_entries-1" translate=no>​</a></h4>
+<p>A list of collision entries for the contact.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=active-1><code>active</code><a href=#active-1 class=hash-link aria-label="Direct link to active-1" title="Direct link to active-1" translate=no>​</a></h4>
+<p>A boolean flag indicating whether the contact is currently active.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=dynamic_properties-3><code>dynamic_properties</code><a href=#dynamic_properties-3 class=hash-link aria-label="Direct link to dynamic_properties-3" title="Direct link to dynamic_properties-3" translate=no>​</a></h4>
+<p>A dictionary of dynamic properties associated with the contact.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=methods-8>Methods<a href=#methods-8 class=hash-link aria-label="Direct link to Methods" title="Direct link to Methods" translate=no>​</a></h3>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=setbondmodelbond_model-2><code>SetBondModel(bond_model)</code><a href=#setbondmodelbond_model-2 class=hash-link aria-label="Direct link to setbondmodelbond_model-2" title="Direct link to setbondmodelbond_model-2" translate=no>​</a></h4>
+<p>Set the bond model for the contact.</p>
+<ul>
+<li class=""><code>bond_model</code> (BondModel object): The bond model to use for the contact.</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=setcollisionmodelcollision_model-1><code>SetCollisionModel(collision_model)</code><a href=#setcollisionmodelcollision_model-1 class=hash-link aria-label="Direct link to setcollisionmodelcollision_model-1" title="Direct link to setcollisionmodelcollision_model-1" translate=no>​</a></h4>
+<p>Set the collision model for the contact.</p>
+<ul>
+<li class=""><code>collision_model</code> (CollisionModel object): The collision model to use for the contact.</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=evaluateforcemoment-1><code>EvaluateForceMoment()</code><a href=#evaluateforcemoment-1 class=hash-link aria-label="Direct link to evaluateforcemoment-1" title="Direct link to evaluateforcemoment-1" translate=no>​</a></h4>
+<p>Calculate and return the force and moment of the contact.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=applytoparticle-1><code>ApplyToParticle()</code><a href=#applytoparticle-1 class=hash-link aria-label="Direct link to applytoparticle-1" title="Direct link to applytoparticle-1" translate=no>​</a></h4>
+<p>Apply the contact to the particle involved in the contact.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=applytowall><code>ApplyToWall()</code><a href=#applytowall class=hash-link aria-label="Direct link to applytowall" title="Direct link to applytowall" translate=no>​</a></h4>
+<p>Apply the contact to the wall involved in the contact.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=isactive-1><code>IsActive()</code><a href=#isactive-1 class=hash-link aria-label="Direct link to isactive-1" title="Direct link to isactive-1" translate=no>​</a></h4>
+<p>Return True if the contact is currently active, False otherwise.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=clear-1><code>Clear()</code><a href=#clear-1 class=hash-link aria-label="Direct link to clear-1" title="Direct link to clear-1" translate=no>​</a></h4>
+<p>Clear all bond and collision entries for the contact.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id=print-2><code>Print()</code><a href=#print-2 class=hash-link aria-label="Direct link to print-2" title="Direct link to print-2" translate=no>​</a></h4>
+<p>Print information about the contact.</p>
+<hr/></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col noPrint_WFHX"><a href=https://github.com/apaam/webpage/edit/main/docs/python-api/deprecated/ref-scene.md target=_blank rel="noopener noreferrer" class=theme-edit-this-page><svg fill=currentColor height=20 width=20 viewBox="0 0 40 40" class=iconEdit_Z9Sw aria-hidden=true><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"/></g></svg>Edit this page</a></div><div class="col lastUpdated_JAkA"></div></div></footer></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href=/webpage/docs/python-api/deprecated/ref-peridigm/><div class=pagination-nav__sublabel>Previous</div><div class=pagination-nav__label>Peridigm</div></a><a class="pagination-nav__link pagination-nav__link--next" href=/webpage/docs/python-api/deprecated/ref-shape/><div class=pagination-nav__sublabel>Next</div><div class=pagination-nav__label>Shape</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href=#demobjectpool class="table-of-contents__link toc-highlight">DEMObjectPool</a><ul><li><a href=#constructor class="table-of-contents__link toc-highlight">Constructor</a><li><a href=#methods class="table-of-contents__link toc-highlight">Methods</a></ul><li><a href=#scene class="table-of-contents__link toc-highlight">Scene</a><ul><li><a href=#constructor-1 class="table-of-contents__link toc-highlight">Constructor</a><li><a href=#attributes class="table-of-contents__link toc-highlight">Attributes</a><li><a href=#methods-1 class="table-of-contents__link toc-highlight">Methods</a></ul><li><a href=#packgenerator class="table-of-contents__link toc-highlight">PackGenerator</a><ul><li><a href=#constructor-2 class="table-of-contents__link toc-highlight">Constructor</a><li><a href=#static-methods class="table-of-contents__link toc-highlight">Static Methods</a></ul><li><a href=#particle class="table-of-contents__link toc-highlight">Particle</a><ul><li><a href=#constructor-3 class="table-of-contents__link toc-highlight">Constructor</a><li><a href=#attributes-1 class="table-of-contents__link toc-highlight">Attributes</a></ul><li><a href=#wall class="table-of-contents__link toc-highlight">Wall</a><ul><li><a href=#constructor-4 class="table-of-contents__link toc-highlight">Constructor</a><li><a href=#attributes-2 class="table-of-contents__link toc-highlight">Attributes</a><li><a href=#methods-2 class="table-of-contents__link toc-highlight">Methods</a></ul><li><a href=#wallboxplane class="table-of-contents__link toc-highlight">WallBoxPlane</a><ul><li><a href=#constructor-5 class="table-of-contents__link toc-highlight">Constructor</a><li><a href=#methods-3 class="table-of-contents__link toc-highlight">Methods</a></ul><li><a href=#wallboxplate class="table-of-contents__link toc-highlight">WallBoxPlate</a><ul><li><a href=#constructor-6 class="table-of-contents__link toc-highlight">Constructor</a><li><a href=#methods-4 class="table-of-contents__link toc-highlight">Methods</a></ul><li><a href=#bondedspheres class="table-of-contents__link toc-highlight">BondedSpheres</a><ul><li><a href=#attributes-3 class="table-of-contents__link toc-highlight">Attributes</a><li><a href=#methods-5 class="table-of-contents__link toc-highlight">Methods</a></ul><li><a href=#bondedvoronois class="table-of-contents__link toc-highlight">BondedVoronois</a><ul><li><a href=#constructor-7 class="table-of-contents__link toc-highlight">Constructor</a><li><a href=#attributes-4 class="table-of-contents__link toc-highlight">Attributes</a><li><a href=#methods-6 class="table-of-contents__link toc-highlight">Methods</a></ul><li><a href=#contactpp class="table-of-contents__link toc-highlight">ContactPP</a><ul><li><a href=#constructor-8 class="table-of-contents__link toc-highlight">Constructor</a><li><a href=#attributes-5 class="table-of-contents__link toc-highlight">Attributes</a><li><a href=#methods-7 class="table-of-contents__link toc-highlight">Methods</a></ul><li><a href=#contactpw class="table-of-contents__link toc-highlight">ContactPW</a><ul><li><a href=#constructor-9 class="table-of-contents__link toc-highlight">Constructor</a><li><a href=#attributes-6 class="table-of-contents__link toc-highlight">Attributes</a><li><a href=#methods-8 class="table-of-contents__link toc-highlight">Methods</a></ul></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class=footer__title>Manual</div><ul class="footer__items clean-list"><li class=footer__item><a class=footer__link-item href=/webpage/docs/manual/>Manual home</a><li class=footer__item><a class=footer__link-item href=/webpage/docs/manual/installation/>Installation</a></ul></div><div class="theme-layout-footer-column col footer__col"><div class=footer__title>API</div><ul class="footer__items clean-list"><li class=footer__item><a class=footer__link-item href=/webpage/docs/python-api/>Python API</a><li class=footer__item><a href=/webpage/doxygen/html/ target=_blank rel="noopener noreferrer" class=footer__link-item>C++ (Doxygen)<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a></ul></div><div class="theme-layout-footer-column col footer__col"><div class=footer__title>Resources</div><ul class="footer__items clean-list"><li class=footer__item><a class=footer__link-item href=/webpage/docs/examples/>Examples</a><li class=footer__item><a class=footer__link-item href=/webpage/docs/download/>Download</a></ul></div><div class="theme-layout-footer-column col footer__col"><div class=footer__title>About</div><ul class="footer__items clean-list"><li class=footer__item><a class=footer__link-item href=/webpage/docs/about/>About</a><li class=footer__item><a href=https://apaam.github.io/mywebpage/ target=_blank rel="noopener noreferrer" class=footer__link-item>APAAM lab site<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a></ul></div></div><div class="footer__bottom text--center"><div class=footer__copyright>© 2026 Phynexis · APAAM Lab</div></div></div></footer></div></body>

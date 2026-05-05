@@ -1,0 +1,574 @@
+<!doctype html><html lang=en dir=ltr class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-python-api/fields/core/field-manager" data-has-hydrated=false><head><meta charset=UTF-8><meta name=generator content="Docusaurus v3.10.0"><title data-rh=true>FieldManager | Phynexis</title><meta data-rh=true name=viewport content="width=device-width, initial-scale=1.0"/><meta data-rh=true name=twitter:card content=summary_large_image /><meta data-rh=true property=og:image content=https://apaam.github.io/webpage/img/logo.svg /><meta data-rh=true name=twitter:image content=https://apaam.github.io/webpage/img/logo.svg /><meta data-rh=true property=og:url content=https://apaam.github.io/webpage/docs/python-api/fields/core/field-manager/ /><meta data-rh=true property=og:locale content=en /><meta data-rh=true name=docusaurus_locale content=en /><meta data-rh=true name=docsearch:language content=en /><meta data-rh=true name=docusaurus_version content=current /><meta data-rh=true name=docusaurus_tag content=docs-default-current /><meta data-rh=true name=docsearch:version content=current /><meta data-rh=true name=docsearch:docusaurus_tag content=docs-default-current /><meta data-rh=true property=og:title content="FieldManager | Phynexis"/><meta data-rh=true name=description content=C++:FieldManager /><meta data-rh=true property=og:description content=C++:FieldManager /><link data-rh=true rel=icon href=/webpage/img/favicon.svg /><link data-rh=true rel=canonical href=https://apaam.github.io/webpage/docs/python-api/fields/core/field-manager/ /><link data-rh=true rel=alternate href=https://apaam.github.io/webpage/docs/python-api/fields/core/field-manager/ hreflang=en /><link data-rh=true rel=alternate href=https://apaam.github.io/webpage/docs/python-api/fields/core/field-manager/ hreflang=x-default /><script data-rh=true type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://apaam.github.io/webpage/docs/python-api/fields/","name":"fields","position":1},{"@type":"ListItem","item":"https://apaam.github.io/webpage/docs/python-api/fields/core/field","name":"core","position":2},{"@type":"ListItem","item":"https://apaam.github.io/webpage/docs/python-api/fields/core/field-manager","name":"FieldManager","position":3}]}</script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css type=text/css integrity=sha384-odtC+0UGzzFL/6PNoE8rX/SPcQDXBJ+uRepguP4QkPCm2LBxH3FA3y+fKSiJ+AmM crossorigin=anonymous><link rel=stylesheet href=/webpage/assets/css/styles.05e5b33e.css /><script src=/webpage/assets/js/runtime~main.951d27c2.js defer></script><script src=/webpage/assets/js/main.b20f2f5c.js defer></script></head><body><svg style="display: none;"><defs>
+<symbol id=theme-svg-external-link viewBox="0 0 24 24"><path fill=currentColor d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme-154")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")),document.documentElement.setAttribute("data-theme-choice",t||"system")}(),function(){try{for(var[t,e]of new URLSearchParams(window.location.search).entries())if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id=__docusaurus><link rel=preload as=image href=/webpage/img/logo.svg /><div role=region aria-label="Skip to main content"><a class=skipToContent_fXgn href=#__docusaurus_skipToContent_fallback>Skip to main content</a></div><nav aria-label=Main class="theme-layout-navbar navbar navbar--fixed-top"><div class=navbar__inner><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded=false class="navbar__toggle clean-btn" type=button><svg width=30 height=30 viewBox="0 0 30 30" aria-hidden=true><path stroke=currentColor stroke-linecap=round stroke-miterlimit=10 stroke-width=2 d="M4 7h22M4 15h22M4 23h22"/></svg></button><a class=navbar__brand href=/webpage/><div class=navbar__logo><img src=/webpage/img/logo.svg alt=Phynexis class="themedComponent_mlkZ themedComponent--light_NVdE"/><img src=/webpage/img/logo.svg alt=Phynexis class="themedComponent_mlkZ themedComponent--dark_xIcU"/></div><b class="navbar__title text--truncate">Phynexis</b></a><a class="navbar__item navbar__link" href=/webpage/docs/manual/>Docs</a><div class="navbar__item dropdown dropdown--hoverable"><a href=# aria-haspopup=true aria-expanded=false role=button class=navbar__link>API</a><ul class=dropdown__menu><li><a aria-current=page class="dropdown__link dropdown__link--active" href=/webpage/docs/python-api/>Python</a><li><a href=/webpage/doxygen/html/ target=_blank rel="noopener noreferrer" class=dropdown__link>C++ (Doxygen)<svg width=12 height=12 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a></ul></div><a class="navbar__item navbar__link" href=/webpage/docs/examples/>Examples</a><a class="navbar__item navbar__link" href=/webpage/docs/gallery/animations/>Gallery</a><a class="navbar__item navbar__link" href=/webpage/docs/download/>Download</a><a class="navbar__item navbar__link" href=/webpage/docs/about/>About</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type=button disabled title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill=currentColor d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill=currentColor d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill=currentColor d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"/></svg></button></div><div class=navbarSearchContainer_Bca1></div></div></div><div role=presentation class=navbar-sidebar__backdrop></div></nav><div id=__docusaurus_skipToContent_fallback class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class=docsWrapper_hBAB><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type=button></button><div class=docRoot_UBD9><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class=sidebarViewport_aRkj><div class=sidebar_njMd><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class=menu__link href=/webpage/docs/python-api/><span title="Python API Overview" class=linkLabel_WmDU>Python API Overview</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist" href=/webpage/docs/python-api/utils/><span title=utils class=categoryLinkLabel_W154>utils</span></a><button aria-label="Expand sidebar category 'utils'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--active" href=/webpage/docs/python-api/fields/><span title=fields class=categoryLinkLabel_W154>fields</span></a><button aria-label="Collapse sidebar category 'fields'" aria-expanded=true type=button class="clean-btn menu__caret"></button></div><ul class=menu__list><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--active" tabindex=0 href=/webpage/docs/python-api/fields/core/field/><span title=core class=categoryLinkLabel_W154>core</span></a><button aria-label="Collapse sidebar category 'core'" aria-expanded=true type=button class="clean-btn menu__caret"></button></div><ul class=menu__list><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/webpage/docs/python-api/fields/core/field-base/><span title=FieldBase class=linkLabel_WmDU>FieldBase</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/webpage/docs/python-api/fields/core/field-holder/><span title=FieldHolder class=linkLabel_WmDU>FieldHolder</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/webpage/docs/python-api/fields/core/field-layout/><span title=FieldLayout class=linkLabel_WmDU>FieldLayout</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link menu__link--active" aria-current=page tabindex=0 href=/webpage/docs/python-api/fields/core/field-manager/><span title=FieldManager class=linkLabel_WmDU>FieldManager</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/webpage/docs/python-api/fields/core/field-meta/><span title=FieldMeta class=linkLabel_WmDU>FieldMeta</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/webpage/docs/python-api/fields/core/field-schema/><span title=FieldSchema class=linkLabel_WmDU>FieldSchema</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/webpage/docs/python-api/fields/core/field-slot/><span title=FieldSlot class=linkLabel_WmDU>FieldSlot</span></a></ul><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/webpage/docs/python-api/fields/schema/><span title=schema class=linkLabel_WmDU>schema</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/webpage/docs/python-api/fields/containers/csr-matrix/><span title=containers class=linkLabel_WmDU>containers</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist" tabindex=0 href=/webpage/docs/python-api/fields/views/field-views/><span title=views class=categoryLinkLabel_W154>views</span></a><button aria-label="Expand sidebar category 'views'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/webpage/docs/python-api/fields/operators/><span title=operators class=linkLabel_WmDU>operators</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/webpage/docs/python-api/fields/utils/io-utils/><span title=utils class=linkLabel_WmDU>utils</span></a></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist" href=/webpage/docs/python-api/parsim/><span title=parsim class=categoryLinkLabel_W154>parsim</span></a><button aria-label="Expand sidebar category 'parsim'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist" href=/webpage/docs/python-api/workflow/><span title=workflow class=categoryLinkLabel_W154>workflow</span></a><button aria-label="Expand sidebar category 'workflow'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist" href=/webpage/docs/python-api/deprecated/><span title=Deprecated class=categoryLinkLabel_W154>Deprecated</span></a><button aria-label="Expand sidebar category 'Deprecated'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div></ul></nav></div></div></aside><main class=docMainContainer_TBSr><div class="container padding-top--md padding-bottom--lg"><div class=row><div class="col docItemCol_VOVn"><div class=docItemContainer_Djhp><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label=Breadcrumbs><ul class=breadcrumbs><li class=breadcrumbs__item><a aria-label="Home page" class=breadcrumbs__link href=/webpage/><svg viewBox="0 0 24 24" class=breadcrumbHomeIcon_YNFT><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill=currentColor /></svg></a><li class=breadcrumbs__item><a class=breadcrumbs__link href=/webpage/docs/python-api/fields/><span>fields</span></a><li class=breadcrumbs__item><a class=breadcrumbs__link href=/webpage/docs/python-api/fields/core/field/><span>core</span></a><li class="breadcrumbs__item breadcrumbs__item--active"><span class=breadcrumbs__link>FieldManager</span></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type=button class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>FieldManager</h1></header>
+<blockquote>
+<p><strong>C++</strong>: <code>phynexis::fields::FieldManager</code>
+<strong>Python</strong>: <code>phynexis.fields.FieldManager</code>
+<strong>Header</strong>: <code>src/fields/core/manager.hpp</code></p>
+</blockquote>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=description>Description<a href=#description class=hash-link aria-label="Direct link to Description" title="Direct link to Description" translate=no>​</a></h2>
+<p><code>FieldManager</code> provides centralized lifecycle management for a collection of fields. It maintains a <code>KeyedObjectPool</code> of <code>FieldBase*</code> pointers, tracks a <code>FieldLayout</code>, and ensures all managed fields share the same size. Use it to create, resize, subset, and persist groups of fields together.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=constructors>Constructors<a href=#constructors class=hash-link aria-label="Direct link to Constructors" title="Direct link to Constructors" translate=no>​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=fieldmanager-1><code>FieldManager()</code><a href=#fieldmanager-1 class=hash-link aria-label="Direct link to fieldmanager-1" title="Direct link to fieldmanager-1" translate=no>​</a></h3>
+<p>Creates an empty manager with no fields and size 0.</p>
+<p><strong>Example:</strong></p>
+<div class="language-python codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-python codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token keyword" style=color:#00009f>import</span><span class="token plain"> phynexis</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">fm </span><span class="token operator" style=color:#393A34>=</span><span class="token plain"> phynexis</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">fields</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">FieldManager</span><span class="token punctuation" style=color:#393A34>(</span><span class="token punctuation" style=color:#393A34>)</span><span class="token plain"></span><br/></div><div class=token-line style=color:#393A34><span class="token plain"></span><span class="token keyword" style=color:#00009f>print</span><span class="token punctuation" style=color:#393A34>(</span><span class="token plain">fm</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">field_size</span><span class="token punctuation" style=color:#393A34>(</span><span class="token punctuation" style=color:#393A34>)</span><span class="token punctuation" style=color:#393A34>,</span><span class="token plain"> fm</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">get_field_count</span><span class="token punctuation" style=color:#393A34>(</span><span class="token punctuation" style=color:#393A34>)</span><span class="token punctuation" style=color:#393A34>)</span><br/></div></code></pre></div></div>
+<p><strong>Output:</strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">0 0</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=methods>Methods<a href=#methods class=hash-link aria-label="Direct link to Methods" title="Direct link to Methods" translate=no>​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=create_fieldmeta><code>create_field(meta)</code><a href=#create_fieldmeta class=hash-link aria-label="Direct link to create_fieldmeta" title="Direct link to create_fieldmeta" translate=no>​</a></h3>
+<p>Creates a single field from metadata and registers it.</p>
+<p><strong>Parameters:</strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Parameter<th>Type<th>Description<tbody><tr><td><code>meta</code><td><code>FieldMeta</code><td>Metadata for the new field</table>
+<p><strong>Returns:</strong> <code>FieldHandle</code> — handle to the created field</p>
+<p><strong>Example:</strong></p>
+<div class="language-python codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-python codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token keyword" style=color:#00009f>import</span><span class="token plain"> phynexis</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">F </span><span class="token operator" style=color:#393A34>=</span><span class="token plain"> phynexis</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">fields</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">fm </span><span class="token operator" style=color:#393A34>=</span><span class="token plain"> F</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">FieldManager</span><span class="token punctuation" style=color:#393A34>(</span><span class="token punctuation" style=color:#393A34>)</span><span class="token plain"></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">meta </span><span class="token operator" style=color:#393A34>=</span><span class="token plain"> F</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">FieldMeta</span><span class="token punctuation" style=color:#393A34>(</span><span class="token string" style=color:#e3116c>"pressure"</span><span class="token punctuation" style=color:#393A34>,</span><span class="token plain"> F</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">FieldType</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">Scalar</span><span class="token punctuation" style=color:#393A34>,</span><span class="token plain"> F</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">ValueType</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">Double</span><span class="token punctuation" style=color:#393A34>)</span><span class="token plain"></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">h </span><span class="token operator" style=color:#393A34>=</span><span class="token plain"> fm</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">create_field</span><span class="token punctuation" style=color:#393A34>(</span><span class="token plain">meta</span><span class="token punctuation" style=color:#393A34>)</span><span class="token plain"></span><br/></div><div class=token-line style=color:#393A34><span class="token plain"></span><span class="token keyword" style=color:#00009f>print</span><span class="token punctuation" style=color:#393A34>(</span><span class="token plain">h</span><span class="token punctuation" style=color:#393A34>)</span><span class="token plain"></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">fm</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">resize_fields</span><span class="token punctuation" style=color:#393A34>(</span><span class="token number" style=color:#36acaa>10</span><span class="token punctuation" style=color:#393A34>)</span><span class="token plain"></span><br/></div><div class=token-line style=color:#393A34><span class="token plain"></span><span class="token keyword" style=color:#00009f>print</span><span class="token punctuation" style=color:#393A34>(</span><span class="token plain">fm</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">field_size</span><span class="token punctuation" style=color:#393A34>(</span><span class="token punctuation" style=color:#393A34>)</span><span class="token punctuation" style=color:#393A34>)</span><br/></div></code></pre></div></div>
+<p><strong>Output:</strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">FieldHandle(index=0, epoch=0)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">10</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=create_fieldsmetas><code>create_fields(metas)</code><a href=#create_fieldsmetas class=hash-link aria-label="Direct link to create_fieldsmetas" title="Direct link to create_fieldsmetas" translate=no>​</a></h3>
+<p>Creates multiple fields from a <code>FieldLayout</code> (or list of <code>FieldMeta</code>).</p>
+<p><strong>Parameters:</strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Parameter<th>Type<th>Description<tbody><tr><td><code>metas</code><td><code>FieldLayout</code> or <code>list[FieldMeta]</code><td>Layout describing the fields to create</table>
+<p><strong>Returns:</strong> <code>list[FieldHandle]</code></p>
+<p><strong>Example:</strong></p>
+<div class="language-python codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-python codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token keyword" style=color:#00009f>import</span><span class="token plain"> phynexis</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">F </span><span class="token operator" style=color:#393A34>=</span><span class="token plain"> phynexis</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">fields</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">fm </span><span class="token operator" style=color:#393A34>=</span><span class="token plain"> F</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">FieldManager</span><span class="token punctuation" style=color:#393A34>(</span><span class="token punctuation" style=color:#393A34>)</span><span class="token plain"></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">layout </span><span class="token operator" style=color:#393A34>=</span><span class="token plain"> F</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">FieldLayout</span><span class="token punctuation" style=color:#393A34>(</span><span class="token punctuation" style=color:#393A34>[</span><span class="token plain"></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    F</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">FieldMeta</span><span class="token punctuation" style=color:#393A34>(</span><span class="token string" style=color:#e3116c>"x"</span><span class="token punctuation" style=color:#393A34>,</span><span class="token plain"> F</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">FieldType</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">Scalar</span><span class="token punctuation" style=color:#393A34>,</span><span class="token plain"> F</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">ValueType</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">Double</span><span class="token punctuation" style=color:#393A34>)</span><span class="token punctuation" style=color:#393A34>,</span><span class="token plain"></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    F</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">FieldMeta</span><span class="token punctuation" style=color:#393A34>(</span><span class="token string" style=color:#e3116c>"v"</span><span class="token punctuation" style=color:#393A34>,</span><span class="token plain"> F</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">FieldType</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">VecX</span><span class="token punctuation" style=color:#393A34>,</span><span class="token plain"> F</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">ValueType</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">Double</span><span class="token punctuation" style=color:#393A34>)</span><span class="token punctuation" style=color:#393A34>,</span><span class="token plain"></span><br/></div><div class=token-line style=color:#393A34><span class="token plain"></span><span class="token punctuation" style=color:#393A34>]</span><span class="token punctuation" style=color:#393A34>)</span><span class="token plain"></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">handles </span><span class="token operator" style=color:#393A34>=</span><span class="token plain"> fm</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">create_fields</span><span class="token punctuation" style=color:#393A34>(</span><span class="token plain">layout</span><span class="token punctuation" style=color:#393A34>)</span><span class="token plain"></span><br/></div><div class=token-line style=color:#393A34><span class="token plain"></span><span class="token keyword" style=color:#00009f>print</span><span class="token punctuation" style=color:#393A34>(</span><span class="token punctuation" style=color:#393A34>[</span><span class="token builtin">str</span><span class="token punctuation" style=color:#393A34>(</span><span class="token plain">h</span><span class="token punctuation" style=color:#393A34>)</span><span class="token plain"> </span><span class="token keyword" style=color:#00009f>for</span><span class="token plain"> h </span><span class="token keyword" style=color:#00009f>in</span><span class="token plain"> handles</span><span class="token punctuation" style=color:#393A34>]</span><span class="token punctuation" style=color:#393A34>)</span><br/></div></code></pre></div></div>
+<p><strong>Output:</strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">['FieldHandle(index=0, epoch=0)', 'FieldHandle(index=1, epoch=0)']</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=ensure_fieldslayout--ensure_fieldsmetas--ensure_fieldsschema><code>ensure_fields(layout)</code> / <code>ensure_fields(metas)</code> / <code>ensure_fields(schema)</code><a href=#ensure_fieldslayout--ensure_fieldsmetas--ensure_fieldsschema class=hash-link aria-label="Direct link to ensure_fieldslayout--ensure_fieldsmetas--ensure_fieldsschema" title="Direct link to ensure_fieldslayout--ensure_fieldsmetas--ensure_fieldsschema" translate=no>​</a></h3>
+<p>Ensures all fields described by the layout/schema exist; creates any that are missing. Existing fields are left untouched.</p>
+<p><strong>Parameters:</strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Parameter<th>Type<th>Description<tbody><tr><td><code>layout</code><td><code>FieldLayout</code><td>Layout to ensure<tr><td><code>metas</code><td><code>list[FieldMeta]</code><td>List of metadata (auto-converted to layout)<tr><td><code>schema</code><td><code>FieldSchema</code><td>Schema to ensure</table>
+<p><strong>Returns:</strong> <code>bool</code> — <code>True</code> if any new field was created</p>
+<p><strong>Example:</strong></p>
+<div class="language-python codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-python codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token keyword" style=color:#00009f>import</span><span class="token plain"> phynexis</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">F </span><span class="token operator" style=color:#393A34>=</span><span class="token plain"> phynexis</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">fields</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">fm </span><span class="token operator" style=color:#393A34>=</span><span class="token plain"> F</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">FieldManager</span><span class="token punctuation" style=color:#393A34>(</span><span class="token punctuation" style=color:#393A34>)</span><span class="token plain"></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">fm</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">create_field</span><span class="token punctuation" style=color:#393A34>(</span><span class="token plain">F</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">FieldMeta</span><span class="token punctuation" style=color:#393A34>(</span><span class="token string" style=color:#e3116c>"x"</span><span class="token punctuation" style=color:#393A34>,</span><span class="token plain"> F</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">FieldType</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">Scalar</span><span class="token punctuation" style=color:#393A34>,</span><span class="token plain"> F</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">ValueType</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">Double</span><span class="token punctuation" style=color:#393A34>)</span><span class="token punctuation" style=color:#393A34>)</span><span class="token plain"></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">fm</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">resize_fields</span><span class="token punctuation" style=color:#393A34>(</span><span class="token number" style=color:#36acaa>5</span><span class="token punctuation" style=color:#393A34>)</span><span class="token plain"></span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain"></span><span class="token comment" style=color:#999988;font-style:italic># "x" already exists, "y" will be created</span><span class="token plain"></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">fm</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">ensure_fields</span><span class="token punctuation" style=color:#393A34>(</span><span class="token punctuation" style=color:#393A34>[</span><span class="token plain"></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    F</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">FieldMeta</span><span class="token punctuation" style=color:#393A34>(</span><span class="token string" style=color:#e3116c>"x"</span><span class="token punctuation" style=color:#393A34>,</span><span class="token plain"> F</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">FieldType</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">Scalar</span><span class="token punctuation" style=color:#393A34>,</span><span class="token plain"> F</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">ValueType</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">Double</span><span class="token punctuation" style=color:#393A34>)</span><span class="token punctuation" style=color:#393A34>,</span><span class="token plain"></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    F</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">FieldMeta</span><span class="token punctuation" style=color:#393A34>(</span><span class="token string" style=color:#e3116c>"y"</span><span class="token punctuation" style=color:#393A34>,</span><span class="token plain"> F</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">FieldType</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">Scalar</span><span class="token punctuation" style=color:#393A34>,</span><span class="token plain"> F</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">ValueType</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">Double</span><span class="token punctuation" style=color:#393A34>)</span><span class="token punctuation" style=color:#393A34>,</span><span class="token plain"></span><br/></div><div class=token-line style=color:#393A34><span class="token plain"></span><span class="token punctuation" style=color:#393A34>]</span><span class="token punctuation" style=color:#393A34>)</span><span class="token plain"></span><br/></div><div class=token-line style=color:#393A34><span class="token plain"></span><span class="token keyword" style=color:#00009f>print</span><span class="token punctuation" style=color:#393A34>(</span><span class="token plain">fm</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">get_field_count</span><span class="token punctuation" style=color:#393A34>(</span><span class="token punctuation" style=color:#393A34>)</span><span class="token punctuation" style=color:#393A34>)</span><br/></div></code></pre></div></div>
+<p><strong>Output:</strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">2</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=remove_fieldname--remove_fieldhandle><code>remove_field(name)</code> / <code>remove_field(handle)</code><a href=#remove_fieldname--remove_fieldhandle class=hash-link aria-label="Direct link to remove_fieldname--remove_fieldhandle" title="Direct link to remove_fieldname--remove_fieldhandle" translate=no>​</a></h3>
+<p>Removes a field by name or by handle.</p>
+<p><strong>Parameters:</strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Parameter<th>Type<th>Description<tbody><tr><td><code>name</code><td><code>str</code><td>Field name<tr><td><code>handle</code><td><code>FieldHandle</code><td>Field handle</table>
+<p><strong>Example:</strong></p>
+<div class="language-python codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-python codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token keyword" style=color:#00009f>import</span><span class="token plain"> phynexis</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">F </span><span class="token operator" style=color:#393A34>=</span><span class="token plain"> phynexis</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">fields</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">fm </span><span class="token operator" style=color:#393A34>=</span><span class="token plain"> F</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">FieldManager</span><span class="token punctuation" style=color:#393A34>(</span><span class="token punctuation" style=color:#393A34>)</span><span class="token plain"></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">fm</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">create_field</span><span class="token punctuation" style=color:#393A34>(</span><span class="token plain">F</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">FieldMeta</span><span class="token punctuation" style=color:#393A34>(</span><span class="token string" style=color:#e3116c>"x"</span><span class="token punctuation" style=color:#393A34>,</span><span class="token plain"> F</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">FieldType</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">Scalar</span><span class="token punctuation" style=color:#393A34>,</span><span class="token plain"> F</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">ValueType</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">Double</span><span class="token punctuation" style=color:#393A34>)</span><span class="token punctuation" style=color:#393A34>)</span><span class="token plain"></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">fm</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">remove_field</span><span class="token punctuation" style=color:#393A34>(</span><span class="token string" style=color:#e3116c>"x"</span><span class="token punctuation" style=color:#393A34>)</span><span class="token plain"></span><br/></div><div class=token-line style=color:#393A34><span class="token plain"></span><span class="token keyword" style=color:#00009f>print</span><span class="token punctuation" style=color:#393A34>(</span><span class="token plain">fm</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">has_field</span><span class="token punctuation" style=color:#393A34>(</span><span class="token string" style=color:#e3116c>"x"</span><span class="token punctuation" style=color:#393A34>)</span><span class="token punctuation" style=color:#393A34>)</span><br/></div></code></pre></div></div>
+<p><strong>Output:</strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">False</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=has_fieldname><code>has_field(name)</code><a href=#has_fieldname class=hash-link aria-label="Direct link to has_fieldname" title="Direct link to has_fieldname" translate=no>​</a></h3>
+<p>Returns <code>True</code> if a field with the given name exists.</p>
+<p><strong>Parameters:</strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Parameter<th>Type<th>Description<tbody><tr><td><code>name</code><td><code>str</code><td>Field name to check</table>
+<p><strong>Returns:</strong> <code>bool</code></p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=valid_field_handlehandle><code>valid_field_handle(handle)</code><a href=#valid_field_handlehandle class=hash-link aria-label="Direct link to valid_field_handlehandle" title="Direct link to valid_field_handlehandle" translate=no>​</a></h3>
+<p>Checks if a handle is still valid (index in range and epoch matches).</p>
+<p><strong>Parameters:</strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Parameter<th>Type<th>Description<tbody><tr><td><code>handle</code><td><code>FieldHandle</code><td>Handle to validate</table>
+<p><strong>Returns:</strong> <code>bool</code></p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=get_fieldhandle><code>get_field(handle)</code><a href=#get_fieldhandle class=hash-link aria-label="Direct link to get_fieldhandle" title="Direct link to get_fieldhandle" translate=no>​</a></h3>
+<p>Retrieves the concrete field instance for a handle. The runtime type is resolved via RTTI (e.g. <code>ScalarField</code>, <code>VecXdField</code>).</p>
+<p><strong>Parameters:</strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Parameter<th>Type<th>Description<tbody><tr><td><code>handle</code><td><code>FieldHandle</code><td>Field handle</table>
+<p><strong>Returns:</strong> concrete <code>Field</code> subclass (e.g. <code>ScalarField</code>)</p>
+<p><strong>Example:</strong></p>
+<div class="language-python codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-python codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token keyword" style=color:#00009f>import</span><span class="token plain"> phynexis</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">F </span><span class="token operator" style=color:#393A34>=</span><span class="token plain"> phynexis</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">fields</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">fm </span><span class="token operator" style=color:#393A34>=</span><span class="token plain"> F</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">FieldManager</span><span class="token punctuation" style=color:#393A34>(</span><span class="token punctuation" style=color:#393A34>)</span><span class="token plain"></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">h </span><span class="token operator" style=color:#393A34>=</span><span class="token plain"> fm</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">create_field</span><span class="token punctuation" style=color:#393A34>(</span><span class="token plain">F</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">FieldMeta</span><span class="token punctuation" style=color:#393A34>(</span><span class="token string" style=color:#e3116c>"p"</span><span class="token punctuation" style=color:#393A34>,</span><span class="token plain"> F</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">FieldType</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">Scalar</span><span class="token punctuation" style=color:#393A34>,</span><span class="token plain"> F</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">ValueType</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">Double</span><span class="token punctuation" style=color:#393A34>)</span><span class="token punctuation" style=color:#393A34>)</span><span class="token plain"></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">fm</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">resize_fields</span><span class="token punctuation" style=color:#393A34>(</span><span class="token number" style=color:#36acaa>5</span><span class="token punctuation" style=color:#393A34>)</span><span class="token plain"></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">f </span><span class="token operator" style=color:#393A34>=</span><span class="token plain"> fm</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">get_field</span><span class="token punctuation" style=color:#393A34>(</span><span class="token plain">h</span><span class="token punctuation" style=color:#393A34>)</span><span class="token plain"></span><br/></div><div class=token-line style=color:#393A34><span class="token plain"></span><span class="token keyword" style=color:#00009f>print</span><span class="token punctuation" style=color:#393A34>(</span><span class="token builtin">type</span><span class="token punctuation" style=color:#393A34>(</span><span class="token plain">f</span><span class="token punctuation" style=color:#393A34>)</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">__name__</span><span class="token punctuation" style=color:#393A34>)</span><br/></div></code></pre></div></div>
+<p><strong>Output:</strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">ScalarField</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=find_fieldname><code>find_field(name)</code><a href=#find_fieldname class=hash-link aria-label="Direct link to find_fieldname" title="Direct link to find_fieldname" translate=no>​</a></h3>
+<p>Finds a field by name and returns its handle.</p>
+<p><strong>Parameters:</strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Parameter<th>Type<th>Description<tbody><tr><td><code>name</code><td><code>str</code><td>Field name</table>
+<p><strong>Returns:</strong> <code>FieldHandle</code></p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=field_size><code>field_size()</code><a href=#field_size class=hash-link aria-label="Direct link to field_size" title="Direct link to field_size" translate=no>​</a></h3>
+<p>Returns the shared element count of all managed fields.</p>
+<p><strong>Returns:</strong> <code>int</code></p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=resize_fieldsnew_size><code>resize_fields(new_size)</code><a href=#resize_fieldsnew_size class=hash-link aria-label="Direct link to resize_fieldsnew_size" title="Direct link to resize_fieldsnew_size" translate=no>​</a></h3>
+<p>Resizes <strong>all</strong> managed fields to <code>new_size</code>.</p>
+<p><strong>Parameters:</strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Parameter<th>Type<th>Description<tbody><tr><td><code>new_size</code><td><code>int</code><td>New element count for all fields</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=reserve_fieldscapacity><code>reserve_fields(capacity)</code><a href=#reserve_fieldscapacity class=hash-link aria-label="Direct link to reserve_fieldscapacity" title="Direct link to reserve_fieldscapacity" translate=no>​</a></h3>
+<p>Reserves capacity for all managed fields without changing their sizes.</p>
+<p><strong>Parameters:</strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Parameter<th>Type<th>Description<tbody><tr><td><code>capacity</code><td><code>int</code><td>Capacity to reserve</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=clear_fields><code>clear_fields()</code><a href=#clear_fields class=hash-link aria-label="Direct link to clear_fields" title="Direct link to clear_fields" translate=no>​</a></h3>
+<p>Clears all elements from all fields (size becomes 0). Fields themselves remain registered.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=clear><code>clear()</code><a href=#clear class=hash-link aria-label="Direct link to clear" title="Direct link to clear" translate=no>​</a></h3>
+<p>Removes all fields and resets the manager to its initial empty state.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=subset_fieldsmask><code>subset_fields(mask)</code><a href=#subset_fieldsmask class=hash-link aria-label="Direct link to subset_fieldsmask" title="Direct link to subset_fieldsmask" translate=no>​</a></h3>
+<p>Extracts a subset of elements where <code>mask[i]</code> is <code>True</code>, returning a new <code>FieldManager</code>.</p>
+<p><strong>Parameters:</strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Parameter<th>Type<th>Description<tbody><tr><td><code>mask</code><td><code>BoolField</code><td>Boolean mask field</table>
+<p><strong>Returns:</strong> <code>FieldManager</code> — new manager containing the subset</p>
+<p><strong>Known Issue</strong>: The returned manager may have <code>field_size() == 0</code> even when the subset is non-empty. This appears to be a C++ source behavior; the field count and names are correct.</p>
+<p><strong>Example:</strong></p>
+<div class="language-python codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-python codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token keyword" style=color:#00009f>import</span><span class="token plain"> phynexis</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">F </span><span class="token operator" style=color:#393A34>=</span><span class="token plain"> phynexis</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">fields</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">fm </span><span class="token operator" style=color:#393A34>=</span><span class="token plain"> F</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">FieldManager</span><span class="token punctuation" style=color:#393A34>(</span><span class="token punctuation" style=color:#393A34>)</span><span class="token plain"></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">fm</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">create_field</span><span class="token punctuation" style=color:#393A34>(</span><span class="token plain">F</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">FieldMeta</span><span class="token punctuation" style=color:#393A34>(</span><span class="token string" style=color:#e3116c>"x"</span><span class="token punctuation" style=color:#393A34>,</span><span class="token plain"> F</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">FieldType</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">Scalar</span><span class="token punctuation" style=color:#393A34>,</span><span class="token plain"> F</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">ValueType</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">Double</span><span class="token punctuation" style=color:#393A34>)</span><span class="token punctuation" style=color:#393A34>)</span><span class="token plain"></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">fm</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">resize_fields</span><span class="token punctuation" style=color:#393A34>(</span><span class="token number" style=color:#36acaa>5</span><span class="token punctuation" style=color:#393A34>)</span><span class="token plain"></span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">mask </span><span class="token operator" style=color:#393A34>=</span><span class="token plain"> F</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">BoolField</span><span class="token punctuation" style=color:#393A34>(</span><span class="token string" style=color:#e3116c>"mask"</span><span class="token punctuation" style=color:#393A34>,</span><span class="token plain"> </span><span class="token number" style=color:#36acaa>5</span><span class="token punctuation" style=color:#393A34>,</span><span class="token plain"> </span><span class="token boolean" style=color:#36acaa>True</span><span class="token punctuation" style=color:#393A34>)</span><span class="token plain"></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">mask</span><span class="token punctuation" style=color:#393A34>[</span><span class="token number" style=color:#36acaa>0</span><span class="token punctuation" style=color:#393A34>]</span><span class="token plain"> </span><span class="token operator" style=color:#393A34>=</span><span class="token plain"> </span><span class="token boolean" style=color:#36acaa>False</span><span class="token plain"></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">mask</span><span class="token punctuation" style=color:#393A34>[</span><span class="token number" style=color:#36acaa>2</span><span class="token punctuation" style=color:#393A34>]</span><span class="token plain"> </span><span class="token operator" style=color:#393A34>=</span><span class="token plain"> </span><span class="token boolean" style=color:#36acaa>False</span><span class="token plain"></span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">fm2 </span><span class="token operator" style=color:#393A34>=</span><span class="token plain"> fm</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">subset_fields</span><span class="token punctuation" style=color:#393A34>(</span><span class="token plain">mask</span><span class="token punctuation" style=color:#393A34>)</span><span class="token plain"></span><br/></div><div class=token-line style=color:#393A34><span class="token plain"></span><span class="token keyword" style=color:#00009f>print</span><span class="token punctuation" style=color:#393A34>(</span><span class="token plain">fm2</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">get_field_count</span><span class="token punctuation" style=color:#393A34>(</span><span class="token punctuation" style=color:#393A34>)</span><span class="token punctuation" style=color:#393A34>,</span><span class="token plain"> fm2</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">get_field_names</span><span class="token punctuation" style=color:#393A34>(</span><span class="token punctuation" style=color:#393A34>)</span><span class="token punctuation" style=color:#393A34>)</span><br/></div></code></pre></div></div>
+<p><strong>Output:</strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">1 ['x']</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=subset_fields_inplacemask><code>subset_fields_inplace(mask)</code><a href=#subset_fields_inplacemask class=hash-link aria-label="Direct link to subset_fields_inplacemask" title="Direct link to subset_fields_inplacemask" translate=no>​</a></h3>
+<p>Same as <code>subset_fields</code> but modifies the current manager in-place.</p>
+<p><strong>Parameters:</strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Parameter<th>Type<th>Description<tbody><tr><td><code>mask</code><td><code>BoolField</code><td>Boolean mask field</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=check_size_consistency><code>check_size_consistency()</code><a href=#check_size_consistency class=hash-link aria-label="Direct link to check_size_consistency" title="Direct link to check_size_consistency" translate=no>​</a></h3>
+<p>Returns <code>True</code> if all fields have the same size.</p>
+<p><strong>Returns:</strong> <code>bool</code></p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=get_inconsistent_fields><code>get_inconsistent_fields()</code><a href=#get_inconsistent_fields class=hash-link aria-label="Direct link to get_inconsistent_fields" title="Direct link to get_inconsistent_fields" translate=no>​</a></h3>
+<p>Returns the names of fields whose size differs from the majority.</p>
+<p><strong>Returns:</strong> <code>list[str]</code></p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=reset_field_valuesindex><code>reset_field_values(index)</code><a href=#reset_field_valuesindex class=hash-link aria-label="Direct link to reset_field_valuesindex" title="Direct link to reset_field_valuesindex" translate=no>​</a></h3>
+<p>Resets all field values at <code>index</code> to their type defaults.</p>
+<p><strong>Parameters:</strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Parameter<th>Type<th>Description<tbody><tr><td><code>index</code><td><code>int</code><td>Element index to reset</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=copy_field_valuessrc_index-dst_index><code>copy_field_values(src_index, dst_index)</code><a href=#copy_field_valuessrc_index-dst_index class=hash-link aria-label="Direct link to copy_field_valuessrc_index-dst_index" title="Direct link to copy_field_valuessrc_index-dst_index" translate=no>​</a></h3>
+<p>Copies all field values from <code>src_index</code> to <code>dst_index</code>.</p>
+<p><strong>Parameters:</strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Parameter<th>Type<th>Description<tbody><tr><td><code>src_index</code><td><code>int</code><td>Source index<tr><td><code>dst_index</code><td><code>int</code><td>Destination index</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=set_field_valueindex-name-value><code>set_field_value(index, name, value)</code><a href=#set_field_valueindex-name-value class=hash-link aria-label="Direct link to set_field_valueindex-name-value" title="Direct link to set_field_valueindex-name-value" translate=no>​</a></h3>
+<p>Sets a single field value by name at the given index.</p>
+<p><strong>Parameters:</strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Parameter<th>Type<th>Description<tbody><tr><td><code>index</code><td><code>int</code><td>Element index<tr><td><code>name</code><td><code>str</code><td>Field name<tr><td><code>value</code><td><code>float</code> / <code>int</code> / <code>bool</code><td>Value to set</table>
+<p><strong>Example:</strong></p>
+<div class="language-python codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-python codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token keyword" style=color:#00009f>import</span><span class="token plain"> phynexis</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">F </span><span class="token operator" style=color:#393A34>=</span><span class="token plain"> phynexis</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">fields</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">fm </span><span class="token operator" style=color:#393A34>=</span><span class="token plain"> F</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">FieldManager</span><span class="token punctuation" style=color:#393A34>(</span><span class="token punctuation" style=color:#393A34>)</span><span class="token plain"></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">fm</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">create_field</span><span class="token punctuation" style=color:#393A34>(</span><span class="token plain">F</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">FieldMeta</span><span class="token punctuation" style=color:#393A34>(</span><span class="token string" style=color:#e3116c>"p"</span><span class="token punctuation" style=color:#393A34>,</span><span class="token plain"> F</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">FieldType</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">Scalar</span><span class="token punctuation" style=color:#393A34>,</span><span class="token plain"> F</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">ValueType</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">Double</span><span class="token punctuation" style=color:#393A34>)</span><span class="token punctuation" style=color:#393A34>)</span><span class="token plain"></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">fm</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">resize_fields</span><span class="token punctuation" style=color:#393A34>(</span><span class="token number" style=color:#36acaa>3</span><span class="token punctuation" style=color:#393A34>)</span><span class="token plain"></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">fm</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">set_field_value</span><span class="token punctuation" style=color:#393A34>(</span><span class="token number" style=color:#36acaa>1</span><span class="token punctuation" style=color:#393A34>,</span><span class="token plain"> </span><span class="token string" style=color:#e3116c>"p"</span><span class="token punctuation" style=color:#393A34>,</span><span class="token plain"> </span><span class="token number" style=color:#36acaa>99.5</span><span class="token punctuation" style=color:#393A34>)</span><span class="token plain"></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">ok</span><span class="token punctuation" style=color:#393A34>,</span><span class="token plain"> val </span><span class="token operator" style=color:#393A34>=</span><span class="token plain"> fm</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">get_field_value</span><span class="token punctuation" style=color:#393A34>(</span><span class="token number" style=color:#36acaa>1</span><span class="token punctuation" style=color:#393A34>,</span><span class="token plain"> </span><span class="token string" style=color:#e3116c>"p"</span><span class="token punctuation" style=color:#393A34>)</span><span class="token plain"></span><br/></div><div class=token-line style=color:#393A34><span class="token plain"></span><span class="token keyword" style=color:#00009f>print</span><span class="token punctuation" style=color:#393A34>(</span><span class="token plain">val</span><span class="token punctuation" style=color:#393A34>)</span><br/></div></code></pre></div></div>
+<p><strong>Output:</strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">{'p': 99.5}</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=get_field_valueindex-name><code>get_field_value(index, name)</code><a href=#get_field_valueindex-name class=hash-link aria-label="Direct link to get_field_valueindex-name" title="Direct link to get_field_valueindex-name" translate=no>​</a></h3>
+<p>Reads a single field value by name at the given index.</p>
+<p><strong>Parameters:</strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Parameter<th>Type<th>Description<tbody><tr><td><code>index</code><td><code>int</code><td>Element index<tr><td><code>name</code><td><code>str</code><td>Field name</table>
+<p><strong>Returns:</strong> <code>tuple[bool, dict]</code> — <code>(success, {name: value})</code></p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=set_field_valuesindex-values><code>set_field_values(index, values)</code><a href=#set_field_valuesindex-values class=hash-link aria-label="Direct link to set_field_valuesindex-values" title="Direct link to set_field_valuesindex-values" translate=no>​</a></h3>
+<p>Sets multiple field values at an index from a JSON-like dict.</p>
+<p><strong>Parameters:</strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Parameter<th>Type<th>Description<tbody><tr><td><code>index</code><td><code>int</code><td>Element index<tr><td><code>values</code><td><code>dict</code><td><code>{field_name: value, ...}</code></table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=get_field_valuesindex><code>get_field_values(index)</code><a href=#get_field_valuesindex class=hash-link aria-label="Direct link to get_field_valuesindex" title="Direct link to get_field_valuesindex" translate=no>​</a></h3>
+<p>Reads all field values at an index as a dict.</p>
+<p><strong>Parameters:</strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Parameter<th>Type<th>Description<tbody><tr><td><code>index</code><td><code>int</code><td>Element index</table>
+<p><strong>Returns:</strong> <code>dict</code> — <code>{field_name: value, ...}</code></p>
+<p><strong>Example:</strong></p>
+<div class="language-python codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-python codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token keyword" style=color:#00009f>import</span><span class="token plain"> phynexis</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">F </span><span class="token operator" style=color:#393A34>=</span><span class="token plain"> phynexis</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">fields</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">fm </span><span class="token operator" style=color:#393A34>=</span><span class="token plain"> F</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">FieldManager</span><span class="token punctuation" style=color:#393A34>(</span><span class="token punctuation" style=color:#393A34>)</span><span class="token plain"></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">fm</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">create_field</span><span class="token punctuation" style=color:#393A34>(</span><span class="token plain">F</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">FieldMeta</span><span class="token punctuation" style=color:#393A34>(</span><span class="token string" style=color:#e3116c>"p"</span><span class="token punctuation" style=color:#393A34>,</span><span class="token plain"> F</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">FieldType</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">Scalar</span><span class="token punctuation" style=color:#393A34>,</span><span class="token plain"> F</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">ValueType</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">Double</span><span class="token punctuation" style=color:#393A34>)</span><span class="token punctuation" style=color:#393A34>)</span><span class="token plain"></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">fm</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">create_field</span><span class="token punctuation" style=color:#393A34>(</span><span class="token plain">F</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">FieldMeta</span><span class="token punctuation" style=color:#393A34>(</span><span class="token string" style=color:#e3116c>"t"</span><span class="token punctuation" style=color:#393A34>,</span><span class="token plain"> F</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">FieldType</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">Scalar</span><span class="token punctuation" style=color:#393A34>,</span><span class="token plain"> F</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">ValueType</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">Double</span><span class="token punctuation" style=color:#393A34>)</span><span class="token punctuation" style=color:#393A34>)</span><span class="token plain"></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">fm</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">resize_fields</span><span class="token punctuation" style=color:#393A34>(</span><span class="token number" style=color:#36acaa>2</span><span class="token punctuation" style=color:#393A34>)</span><span class="token plain"></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">fm</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">set_field_value</span><span class="token punctuation" style=color:#393A34>(</span><span class="token number" style=color:#36acaa>0</span><span class="token punctuation" style=color:#393A34>,</span><span class="token plain"> </span><span class="token string" style=color:#e3116c>"p"</span><span class="token punctuation" style=color:#393A34>,</span><span class="token plain"> </span><span class="token number" style=color:#36acaa>1.0</span><span class="token punctuation" style=color:#393A34>)</span><span class="token plain"></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">fm</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">set_field_value</span><span class="token punctuation" style=color:#393A34>(</span><span class="token number" style=color:#36acaa>0</span><span class="token punctuation" style=color:#393A34>,</span><span class="token plain"> </span><span class="token string" style=color:#e3116c>"t"</span><span class="token punctuation" style=color:#393A34>,</span><span class="token plain"> </span><span class="token number" style=color:#36acaa>300.0</span><span class="token punctuation" style=color:#393A34>)</span><span class="token plain"></span><br/></div><div class=token-line style=color:#393A34><span class="token plain"></span><span class="token keyword" style=color:#00009f>print</span><span class="token punctuation" style=color:#393A34>(</span><span class="token plain">fm</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">get_field_values</span><span class="token punctuation" style=color:#393A34>(</span><span class="token number" style=color:#36acaa>0</span><span class="token punctuation" style=color:#393A34>)</span><span class="token punctuation" style=color:#393A34>)</span><br/></div></code></pre></div></div>
+<p><strong>Output:</strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">{'p': 1.0, 't': 300.0}</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=save_topath-file-optnone><code>save_to(path, file, opt=None)</code><a href=#save_topath-file-optnone class=hash-link aria-label="Direct link to save_topath-file-optnone" title="Direct link to save_topath-file-optnone" translate=no>​</a></h3>
+<p>Saves all fields to a binary file.</p>
+<p><strong>Parameters:</strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Parameter<th>Type<th>Default<th>Description<tbody><tr><td><code>path</code><td><code>str</code><td>—<td>Parent directory<tr><td><code>file</code><td><code>str</code><td>—<td>Filename<tr><td><code>opt</code><td><code>SaveOptions</code><td><code>SaveOptions()</code><td>Save options</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=load_frompath-file-optnone><code>load_from(path, file, opt=None)</code><a href=#load_frompath-file-optnone class=hash-link aria-label="Direct link to load_frompath-file-optnone" title="Direct link to load_frompath-file-optnone" translate=no>​</a></h3>
+<p>Loads fields from a binary file.</p>
+<p><strong>Parameters:</strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Parameter<th>Type<th>Default<th>Description<tbody><tr><td><code>path</code><td><code>str</code><td>—<td>Parent directory<tr><td><code>file</code><td><code>str</code><td>—<td>Filename<tr><td><code>opt</code><td><code>LoadOptions</code><td><code>LoadOptions()</code><td>Load options</table>
+<p><strong>Example:</strong></p>
+<div class="language-python codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-python codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token keyword" style=color:#00009f>import</span><span class="token plain"> phynexis</span><span class="token punctuation" style=color:#393A34>,</span><span class="token plain"> tempfile</span><span class="token punctuation" style=color:#393A34>,</span><span class="token plain"> os</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">F </span><span class="token operator" style=color:#393A34>=</span><span class="token plain"> phynexis</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">fields</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">fm </span><span class="token operator" style=color:#393A34>=</span><span class="token plain"> F</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">FieldManager</span><span class="token punctuation" style=color:#393A34>(</span><span class="token punctuation" style=color:#393A34>)</span><span class="token plain"></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">fm</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">create_field</span><span class="token punctuation" style=color:#393A34>(</span><span class="token plain">F</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">FieldMeta</span><span class="token punctuation" style=color:#393A34>(</span><span class="token string" style=color:#e3116c>"p"</span><span class="token punctuation" style=color:#393A34>,</span><span class="token plain"> F</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">FieldType</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">Scalar</span><span class="token punctuation" style=color:#393A34>,</span><span class="token plain"> F</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">ValueType</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">Double</span><span class="token punctuation" style=color:#393A34>)</span><span class="token punctuation" style=color:#393A34>)</span><span class="token plain"></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">fm</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">resize_fields</span><span class="token punctuation" style=color:#393A34>(</span><span class="token number" style=color:#36acaa>5</span><span class="token punctuation" style=color:#393A34>)</span><span class="token plain"></span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain"></span><span class="token keyword" style=color:#00009f>with</span><span class="token plain"> tempfile</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">TemporaryDirectory</span><span class="token punctuation" style=color:#393A34>(</span><span class="token punctuation" style=color:#393A34>)</span><span class="token plain"> </span><span class="token keyword" style=color:#00009f>as</span><span class="token plain"> td</span><span class="token punctuation" style=color:#393A34>:</span><span class="token plain"></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    fm</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">save_to</span><span class="token punctuation" style=color:#393A34>(</span><span class="token plain">td</span><span class="token punctuation" style=color:#393A34>,</span><span class="token plain"> </span><span class="token string" style=color:#e3116c>"snapshot.dat"</span><span class="token punctuation" style=color:#393A34>)</span><span class="token plain"></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    fm2 </span><span class="token operator" style=color:#393A34>=</span><span class="token plain"> F</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">FieldManager</span><span class="token punctuation" style=color:#393A34>(</span><span class="token punctuation" style=color:#393A34>)</span><span class="token plain"></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    fm2</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">load_from</span><span class="token punctuation" style=color:#393A34>(</span><span class="token plain">td</span><span class="token punctuation" style=color:#393A34>,</span><span class="token plain"> </span><span class="token string" style=color:#e3116c>"snapshot.dat"</span><span class="token punctuation" style=color:#393A34>)</span><span class="token plain"></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    </span><span class="token keyword" style=color:#00009f>print</span><span class="token punctuation" style=color:#393A34>(</span><span class="token plain">fm2</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">get_field_count</span><span class="token punctuation" style=color:#393A34>(</span><span class="token punctuation" style=color:#393A34>)</span><span class="token punctuation" style=color:#393A34>,</span><span class="token plain"> fm2</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">field_size</span><span class="token punctuation" style=color:#393A34>(</span><span class="token punctuation" style=color:#393A34>)</span><span class="token punctuation" style=color:#393A34>)</span><br/></div></code></pre></div></div>
+<p><strong>Output:</strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">1 5</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=inspectfilepath><code>inspect(filepath)</code><a href=#inspectfilepath class=hash-link aria-label="Direct link to inspectfilepath" title="Direct link to inspectfilepath" translate=no>​</a></h3>
+<p>Reads metadata from a snapshot file without loading data.</p>
+<p><strong>Parameters:</strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Parameter<th>Type<th>Description<tbody><tr><td><code>filepath</code><td><code>str</code><td>Full path to the snapshot file</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=get_field_layout><code>get_field_layout()</code><a href=#get_field_layout class=hash-link aria-label="Direct link to get_field_layout" title="Direct link to get_field_layout" translate=no>​</a></h3>
+<p>Returns the current <code>FieldLayout</code> describing all registered fields.</p>
+<p><strong>Returns:</strong> <code>FieldLayout</code></p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=get_field_count><code>get_field_count()</code><a href=#get_field_count class=hash-link aria-label="Direct link to get_field_count" title="Direct link to get_field_count" translate=no>​</a></h3>
+<p>Returns the number of registered fields.</p>
+<p><strong>Returns:</strong> <code>int</code></p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=get_field_names><code>get_field_names()</code><a href=#get_field_names class=hash-link aria-label="Direct link to get_field_names" title="Direct link to get_field_names" translate=no>​</a></h3>
+<p>Returns the names of all registered fields.</p>
+<p><strong>Returns:</strong> <code>list[str]</code></p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=get_field_ptrs><code>get_field_ptrs()</code><a href=#get_field_ptrs class=hash-link aria-label="Direct link to get_field_ptrs" title="Direct link to get_field_ptrs" translate=no>​</a></h3>
+<p>Returns a list of concrete field instances. Each element is the runtime-resolved type (e.g. <code>ScalarField</code>, <code>VecXdField</code>).</p>
+<p><strong>Returns:</strong> <code>list[Field]</code></p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=print_info><code>print_info()</code><a href=#print_info class=hash-link aria-label="Direct link to print_info" title="Direct link to print_info" translate=no>​</a></h3>
+<p>Prints a summary of the manager to stdout.</p>
+<p><strong>Example:</strong></p>
+<div class="language-python codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-python codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token keyword" style=color:#00009f>import</span><span class="token plain"> phynexis</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">F </span><span class="token operator" style=color:#393A34>=</span><span class="token plain"> phynexis</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">fields</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">fm </span><span class="token operator" style=color:#393A34>=</span><span class="token plain"> F</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">FieldManager</span><span class="token punctuation" style=color:#393A34>(</span><span class="token punctuation" style=color:#393A34>)</span><span class="token plain"></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">fm</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">create_field</span><span class="token punctuation" style=color:#393A34>(</span><span class="token plain">F</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">FieldMeta</span><span class="token punctuation" style=color:#393A34>(</span><span class="token string" style=color:#e3116c>"p"</span><span class="token punctuation" style=color:#393A34>,</span><span class="token plain"> F</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">FieldType</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">Scalar</span><span class="token punctuation" style=color:#393A34>,</span><span class="token plain"> F</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">ValueType</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">Double</span><span class="token punctuation" style=color:#393A34>)</span><span class="token punctuation" style=color:#393A34>)</span><span class="token plain"></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">fm</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">resize_fields</span><span class="token punctuation" style=color:#393A34>(</span><span class="token number" style=color:#36acaa>5</span><span class="token punctuation" style=color:#393A34>)</span><span class="token plain"></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">fm</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">print_info</span><span class="token punctuation" style=color:#393A34>(</span><span class="token punctuation" style=color:#393A34>)</span><br/></div></code></pre></div></div>
+<p><strong>Output:</strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">=== FieldManager ===</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">field count: 1</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">field size: 5</span><br/></div><div class=token-line style=color:#393A34><span class="token plain"> - p (double)</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=unexposed-c-api>Unexposed C++ API<a href=#unexposed-c-api class=hash-link aria-label="Direct link to Unexposed C++ API" title="Direct link to Unexposed C++ API" translate=no>​</a></h2>
+<p>The following C++ APIs are not exposed via pybind:</p>
+<ul>
+<li class=""><code>remove_fields(handles)</code> / <code>remove_fields(names)</code> — batch remove by <code>VecX&lt;FieldHandle></code> or <code>VecX&lt;String></code></li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=known-issues>Known Issues<a href=#known-issues class=hash-link aria-label="Direct link to Known Issues" title="Direct link to Known Issues" translate=no>​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=subset_fields-returns-manager-with-field_size--0><code>subset_fields</code> returns manager with <code>field_size() == 0</code><a href=#subset_fields-returns-manager-with-field_size--0 class=hash-link aria-label="Direct link to subset_fields-returns-manager-with-field_size--0" title="Direct link to subset_fields-returns-manager-with-field_size--0" translate=no>​</a></h3>
+<p>When calling <code>subset_fields(mask)</code>, the returned <code>FieldManager</code> correctly contains the subset fields (names and count are accurate), but <code>field_size()</code> reports 0. This appears to be a C++ source-side behavior rather than a binding issue.</p>
+<p><strong>Workaround</strong>: Use <code>subset_fields_inplace(mask)</code> if in-place mutation is acceptable, or verify field sizes with <code>get_field_count()</code> and per-field <code>size()</code>.</p>
+<p><strong>Status</strong>: noted — source issue, not binding bug</div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col noPrint_WFHX"><a href=https://github.com/apaam/webpage/edit/main/docs/python-api/fields/core/field-manager.md target=_blank rel="noopener noreferrer" class=theme-edit-this-page><svg fill=currentColor height=20 width=20 viewBox="0 0 40 40" class=iconEdit_Z9Sw aria-hidden=true><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"/></g></svg>Edit this page</a></div><div class="col lastUpdated_JAkA"></div></div></footer></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href=/webpage/docs/python-api/fields/core/field-layout/><div class=pagination-nav__sublabel>Previous</div><div class=pagination-nav__label>FieldLayout</div></a><a class="pagination-nav__link pagination-nav__link--next" href=/webpage/docs/python-api/fields/core/field-meta/><div class=pagination-nav__sublabel>Next</div><div class=pagination-nav__label>FieldMeta</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href=#description class="table-of-contents__link toc-highlight">Description</a><li><a href=#constructors class="table-of-contents__link toc-highlight">Constructors</a><ul><li><a href=#fieldmanager-1 class="table-of-contents__link toc-highlight"><code>FieldManager()</code></a></ul><li><a href=#methods class="table-of-contents__link toc-highlight">Methods</a><ul><li><a href=#create_fieldmeta class="table-of-contents__link toc-highlight"><code>create_field(meta)</code></a><li><a href=#create_fieldsmetas class="table-of-contents__link toc-highlight"><code>create_fields(metas)</code></a><li><a href=#ensure_fieldslayout--ensure_fieldsmetas--ensure_fieldsschema class="table-of-contents__link toc-highlight"><code>ensure_fields(layout)</code> / <code>ensure_fields(metas)</code> / <code>ensure_fields(schema)</code></a><li><a href=#remove_fieldname--remove_fieldhandle class="table-of-contents__link toc-highlight"><code>remove_field(name)</code> / <code>remove_field(handle)</code></a><li><a href=#has_fieldname class="table-of-contents__link toc-highlight"><code>has_field(name)</code></a><li><a href=#valid_field_handlehandle class="table-of-contents__link toc-highlight"><code>valid_field_handle(handle)</code></a><li><a href=#get_fieldhandle class="table-of-contents__link toc-highlight"><code>get_field(handle)</code></a><li><a href=#find_fieldname class="table-of-contents__link toc-highlight"><code>find_field(name)</code></a><li><a href=#field_size class="table-of-contents__link toc-highlight"><code>field_size()</code></a><li><a href=#resize_fieldsnew_size class="table-of-contents__link toc-highlight"><code>resize_fields(new_size)</code></a><li><a href=#reserve_fieldscapacity class="table-of-contents__link toc-highlight"><code>reserve_fields(capacity)</code></a><li><a href=#clear_fields class="table-of-contents__link toc-highlight"><code>clear_fields()</code></a><li><a href=#clear class="table-of-contents__link toc-highlight"><code>clear()</code></a><li><a href=#subset_fieldsmask class="table-of-contents__link toc-highlight"><code>subset_fields(mask)</code></a><li><a href=#subset_fields_inplacemask class="table-of-contents__link toc-highlight"><code>subset_fields_inplace(mask)</code></a><li><a href=#check_size_consistency class="table-of-contents__link toc-highlight"><code>check_size_consistency()</code></a><li><a href=#get_inconsistent_fields class="table-of-contents__link toc-highlight"><code>get_inconsistent_fields()</code></a><li><a href=#reset_field_valuesindex class="table-of-contents__link toc-highlight"><code>reset_field_values(index)</code></a><li><a href=#copy_field_valuessrc_index-dst_index class="table-of-contents__link toc-highlight"><code>copy_field_values(src_index, dst_index)</code></a><li><a href=#set_field_valueindex-name-value class="table-of-contents__link toc-highlight"><code>set_field_value(index, name, value)</code></a><li><a href=#get_field_valueindex-name class="table-of-contents__link toc-highlight"><code>get_field_value(index, name)</code></a><li><a href=#set_field_valuesindex-values class="table-of-contents__link toc-highlight"><code>set_field_values(index, values)</code></a><li><a href=#get_field_valuesindex class="table-of-contents__link toc-highlight"><code>get_field_values(index)</code></a><li><a href=#save_topath-file-optnone class="table-of-contents__link toc-highlight"><code>save_to(path, file, opt=None)</code></a><li><a href=#load_frompath-file-optnone class="table-of-contents__link toc-highlight"><code>load_from(path, file, opt=None)</code></a><li><a href=#inspectfilepath class="table-of-contents__link toc-highlight"><code>inspect(filepath)</code></a><li><a href=#get_field_layout class="table-of-contents__link toc-highlight"><code>get_field_layout()</code></a><li><a href=#get_field_count class="table-of-contents__link toc-highlight"><code>get_field_count()</code></a><li><a href=#get_field_names class="table-of-contents__link toc-highlight"><code>get_field_names()</code></a><li><a href=#get_field_ptrs class="table-of-contents__link toc-highlight"><code>get_field_ptrs()</code></a><li><a href=#print_info class="table-of-contents__link toc-highlight"><code>print_info()</code></a></ul><li><a href=#unexposed-c-api class="table-of-contents__link toc-highlight">Unexposed C++ API</a><li><a href=#known-issues class="table-of-contents__link toc-highlight">Known Issues</a><ul><li><a href=#subset_fields-returns-manager-with-field_size--0 class="table-of-contents__link toc-highlight"><code>subset_fields</code> returns manager with <code>field_size() == 0</code></a></ul></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class=footer__title>Manual</div><ul class="footer__items clean-list"><li class=footer__item><a class=footer__link-item href=/webpage/docs/manual/>Manual home</a><li class=footer__item><a class=footer__link-item href=/webpage/docs/manual/installation/>Installation</a></ul></div><div class="theme-layout-footer-column col footer__col"><div class=footer__title>API</div><ul class="footer__items clean-list"><li class=footer__item><a class=footer__link-item href=/webpage/docs/python-api/>Python API</a><li class=footer__item><a href=/webpage/doxygen/html/ target=_blank rel="noopener noreferrer" class=footer__link-item>C++ (Doxygen)<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a></ul></div><div class="theme-layout-footer-column col footer__col"><div class=footer__title>Resources</div><ul class="footer__items clean-list"><li class=footer__item><a class=footer__link-item href=/webpage/docs/examples/>Examples</a><li class=footer__item><a class=footer__link-item href=/webpage/docs/download/>Download</a></ul></div><div class="theme-layout-footer-column col footer__col"><div class=footer__title>About</div><ul class="footer__items clean-list"><li class=footer__item><a class=footer__link-item href=/webpage/docs/about/>About</a><li class=footer__item><a href=https://apaam.github.io/mywebpage/ target=_blank rel="noopener noreferrer" class=footer__link-item>APAAM lab site<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a></ul></div></div><div class="footer__bottom text--center"><div class=footer__copyright>© 2026 Phynexis · APAAM Lab</div></div></div></footer></div></body>

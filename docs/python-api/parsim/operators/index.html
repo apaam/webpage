@@ -1,0 +1,635 @@
+<!doctype html><html lang=en dir=ltr class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-python-api/parsim/operators/operators" data-has-hydrated=false><head><meta charset=UTF-8><meta name=generator content="Docusaurus v3.10.0"><title data-rh=true>operators | Phynexis</title><meta data-rh=true name=viewport content="width=device-width, initial-scale=1.0"/><meta data-rh=true name=twitter:card content=summary_large_image /><meta data-rh=true property=og:image content=https://apaam.github.io/webpage/img/logo.svg /><meta data-rh=true name=twitter:image content=https://apaam.github.io/webpage/img/logo.svg /><meta data-rh=true property=og:url content=https://apaam.github.io/webpage/docs/python-api/parsim/operators/ /><meta data-rh=true property=og:locale content=en /><meta data-rh=true name=docusaurus_locale content=en /><meta data-rh=true name=docsearch:language content=en /><meta data-rh=true name=docusaurus_version content=current /><meta data-rh=true name=docusaurus_tag content=docs-default-current /><meta data-rh=true name=docsearch:version content=current /><meta data-rh=true name=docsearch:docusaurus_tag content=docs-default-current /><meta data-rh=true property=og:title content="operators | Phynexis"/><meta data-rh=true name=description content=C++:operators /><meta data-rh=true property=og:description content=C++:operators /><link data-rh=true rel=icon href=/webpage/img/favicon.svg /><link data-rh=true rel=canonical href=https://apaam.github.io/webpage/docs/python-api/parsim/operators/ /><link data-rh=true rel=alternate href=https://apaam.github.io/webpage/docs/python-api/parsim/operators/ hreflang=en /><link data-rh=true rel=alternate href=https://apaam.github.io/webpage/docs/python-api/parsim/operators/ hreflang=x-default /><script data-rh=true type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://apaam.github.io/webpage/docs/python-api/parsim/","name":"parsim","position":1},{"@type":"ListItem","item":"https://apaam.github.io/webpage/docs/python-api/parsim/operators/","name":"operators","position":2}]}</script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css type=text/css integrity=sha384-odtC+0UGzzFL/6PNoE8rX/SPcQDXBJ+uRepguP4QkPCm2LBxH3FA3y+fKSiJ+AmM crossorigin=anonymous><link rel=stylesheet href=/webpage/assets/css/styles.05e5b33e.css /><script src=/webpage/assets/js/runtime~main.951d27c2.js defer></script><script src=/webpage/assets/js/main.b20f2f5c.js defer></script></head><body><svg style="display: none;"><defs>
+<symbol id=theme-svg-external-link viewBox="0 0 24 24"><path fill=currentColor d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme-154")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")),document.documentElement.setAttribute("data-theme-choice",t||"system")}(),function(){try{for(var[t,e]of new URLSearchParams(window.location.search).entries())if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id=__docusaurus><link rel=preload as=image href=/webpage/img/logo.svg /><div role=region aria-label="Skip to main content"><a class=skipToContent_fXgn href=#__docusaurus_skipToContent_fallback>Skip to main content</a></div><nav aria-label=Main class="theme-layout-navbar navbar navbar--fixed-top"><div class=navbar__inner><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded=false class="navbar__toggle clean-btn" type=button><svg width=30 height=30 viewBox="0 0 30 30" aria-hidden=true><path stroke=currentColor stroke-linecap=round stroke-miterlimit=10 stroke-width=2 d="M4 7h22M4 15h22M4 23h22"/></svg></button><a class=navbar__brand href=/webpage/><div class=navbar__logo><img src=/webpage/img/logo.svg alt=Phynexis class="themedComponent_mlkZ themedComponent--light_NVdE"/><img src=/webpage/img/logo.svg alt=Phynexis class="themedComponent_mlkZ themedComponent--dark_xIcU"/></div><b class="navbar__title text--truncate">Phynexis</b></a><a class="navbar__item navbar__link" href=/webpage/docs/manual/>Docs</a><div class="navbar__item dropdown dropdown--hoverable"><a href=# aria-haspopup=true aria-expanded=false role=button class=navbar__link>API</a><ul class=dropdown__menu><li><a aria-current=page class="dropdown__link dropdown__link--active" href=/webpage/docs/python-api/>Python</a><li><a href=/webpage/doxygen/html/ target=_blank rel="noopener noreferrer" class=dropdown__link>C++ (Doxygen)<svg width=12 height=12 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a></ul></div><a class="navbar__item navbar__link" href=/webpage/docs/examples/>Examples</a><a class="navbar__item navbar__link" href=/webpage/docs/gallery/animations/>Gallery</a><a class="navbar__item navbar__link" href=/webpage/docs/download/>Download</a><a class="navbar__item navbar__link" href=/webpage/docs/about/>About</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type=button disabled title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill=currentColor d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill=currentColor d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill=currentColor d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"/></svg></button></div><div class=navbarSearchContainer_Bca1></div></div></div><div role=presentation class=navbar-sidebar__backdrop></div></nav><div id=__docusaurus_skipToContent_fallback class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class=docsWrapper_hBAB><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type=button></button><div class=docRoot_UBD9><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class=sidebarViewport_aRkj><div class=sidebar_njMd><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class=menu__link href=/webpage/docs/python-api/><span title="Python API Overview" class=linkLabel_WmDU>Python API Overview</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist" href=/webpage/docs/python-api/utils/><span title=utils class=categoryLinkLabel_W154>utils</span></a><button aria-label="Expand sidebar category 'utils'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist" href=/webpage/docs/python-api/fields/><span title=fields class=categoryLinkLabel_W154>fields</span></a><button aria-label="Expand sidebar category 'fields'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--active" href=/webpage/docs/python-api/parsim/><span title=parsim class=categoryLinkLabel_W154>parsim</span></a><button aria-label="Collapse sidebar category 'parsim'" aria-expanded=true type=button class="clean-btn menu__caret"></button></div><ul class=menu__list><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/webpage/docs/python-api/parsim/schema/schemas/><span title=schema class=linkLabel_WmDU>schema</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/webpage/docs/python-api/parsim/graph/><span title=graph class=linkLabel_WmDU>graph</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/webpage/docs/python-api/parsim/simulator/><span title=simulator class=linkLabel_WmDU>simulator</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link menu__link--active" aria-current=page tabindex=0 href=/webpage/docs/python-api/parsim/operators/><span title=operators class=linkLabel_WmDU>operators</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/webpage/docs/python-api/parsim/models/models-utils/><span title=models class=linkLabel_WmDU>models</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/webpage/docs/python-api/parsim/views/><span title=views class=linkLabel_WmDU>views</span></a></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist" href=/webpage/docs/python-api/workflow/><span title=workflow class=categoryLinkLabel_W154>workflow</span></a><button aria-label="Expand sidebar category 'workflow'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist" href=/webpage/docs/python-api/deprecated/><span title=Deprecated class=categoryLinkLabel_W154>Deprecated</span></a><button aria-label="Expand sidebar category 'Deprecated'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div></ul></nav></div></div></aside><main class=docMainContainer_TBSr><div class="container padding-top--md padding-bottom--lg"><div class=row><div class="col docItemCol_VOVn"><div class=docItemContainer_Djhp><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label=Breadcrumbs><ul class=breadcrumbs><li class=breadcrumbs__item><a aria-label="Home page" class=breadcrumbs__link href=/webpage/><svg viewBox="0 0 24 24" class=breadcrumbHomeIcon_YNFT><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill=currentColor /></svg></a><li class=breadcrumbs__item><a class=breadcrumbs__link href=/webpage/docs/python-api/parsim/><span>parsim</span></a><li class="breadcrumbs__item breadcrumbs__item--active"><span class=breadcrumbs__link>operators</span></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type=button class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>operators</h1></header>
+<blockquote>
+<p><strong>C++</strong>: <code>phynexis::parsim::operators</code>
+<strong>Python</strong>: <code>phynexis.parsim.operators</code>
+<strong>Header</strong>: <code>src/parsim/operators/*.hpp</code></p>
+</blockquote>
+<p>Simulation operators that are registered with <code>OperatorSystem</code> and execute during specific simulation phases. Each operator defines <code>order()</code> (execution priority) and <code>enabled()</code> state.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=base-classes>Base Classes<a href=#base-classes class=hash-link aria-label="Direct link to Base Classes" title="Direct link to Base Classes" translate=no>​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=baseoperator><code>BaseOperator</code><a href=#baseoperator class=hash-link aria-label="Direct link to baseoperator" title="Direct link to baseoperator" translate=no>​</a></h3>
+<p>Abstract base class for all simulation operators.</p>
+<p><strong>Methods:</strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Method<th>Returns<th>Description<tbody><tr><td><code>name()</code><td><code>str</code><td>Operator name<tr><td><code>order()</code><td><code>int</code><td>Execution priority (lower = earlier)<tr><td><code>set_order(n)</code><td>—<td>Set execution priority<tr><td><code>enabled()</code><td><code>bool</code><td>Whether operator is active<tr><td><code>set_enabled(b)</code><td>—<td>Enable or disable operator<tr><td><code>timings()</code><td>—<td>Print timing statistics<tr><td><code>print_info()</code><td>—<td>Print operator info</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=phase-identifiers>Phase Identifiers<a href=#phase-identifiers class=hash-link aria-label="Direct link to Phase Identifiers" title="Direct link to Phase Identifiers" translate=no>​</a></h2>
+<p>Phase constants define when operators execute in the simulation loop.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Constant<th>Value<th>Description<tbody><tr><td><code>PreStep</code><td>0<td>Before step begins<tr><td><code>PreBoundary</code><td>1<td>Before boundary conditions<tr><td><code>PostBoundary</code><td>2<td>After boundary conditions<tr><td><code>PreInteraction</code><td>3<td>Before interaction detection<tr><td><code>PostInteraction</code><td>4<td>After interaction detection<tr><td><code>PreForces</code><td>5<td>Before force computation<tr><td><code>PostForces</code><td>6<td>After force computation<tr><td><code>PreIntegration</code><td>7<td>Before integration<tr><td><code>PostIntegration</code><td>8<td>After integration<tr><td><code>PostStep</code><td>9<td>After step completes</table>
+<p><strong>Example:</strong></p>
+<div class="language-python codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-python codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token keyword" style=color:#00009f>import</span><span class="token plain"> phynexis</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">ops </span><span class="token operator" style=color:#393A34>=</span><span class="token plain"> phynexis</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">parsim</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">operators</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain"></span><span class="token keyword" style=color:#00009f>print</span><span class="token punctuation" style=color:#393A34>(</span><span class="token string" style=color:#e3116c>"Phase IDs:"</span><span class="token punctuation" style=color:#393A34>,</span><span class="token plain"> ops</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">PreStep</span><span class="token punctuation" style=color:#393A34>,</span><span class="token plain"> ops</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">PreForces</span><span class="token punctuation" style=color:#393A34>,</span><span class="token plain"> ops</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">PostStep</span><span class="token punctuation" style=color:#393A34>)</span><br/></div></code></pre></div></div>
+<p><strong>Output:</strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">Phase IDs: 0 5 9</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=integration-operators-operatorsintegration>Integration Operators (<code>operators.integration</code>)<a href=#integration-operators-operatorsintegration class=hash-link aria-label="Direct link to integration-operators-operatorsintegration" title="Direct link to integration-operators-operatorsintegration" translate=no>​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=integratoroperatormethodverlet><code>IntegratorOperator(method=Verlet)</code><a href=#integratoroperatormethodverlet class=hash-link aria-label="Direct link to integratoroperatormethodverlet" title="Direct link to integratoroperatormethodverlet" translate=no>​</a></h3>
+<p>Time integration operator using Euler or Verlet scheme.</p>
+<p><strong>Constructor:</strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Parameter<th>Type<th>Default<th>Description<tbody><tr><td><code>method</code><td><code>IntegratorMethod</code><td><code>Verlet</code><td>Integration scheme</table>
+<p><strong>Methods:</strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Method<th>Returns<th>Description<tbody><tr><td><code>initialize(nodes)</code><td>—<td>Bind to a <code>NodeSet</code><tr><td><code>set_time_step(dt)</code><td>—<td>Set time step size<tr><td><code>time_step()</code><td><code>float</code><td>Current time step<tr><td><code>config()</code><td><code>IntegratorOperatorConfig</code><td>Current configuration<tr><td><code>set_config(cfg)</code><td>—<td>Set configuration</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=integratormethod><code>IntegratorMethod</code><a href=#integratormethod class=hash-link aria-label="Direct link to integratormethod" title="Direct link to integratormethod" translate=no>​</a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Value<th>Description<tbody><tr><td><code>Euler</code><td>Forward Euler integration<tr><td><code>Verlet</code><td>Velocity Verlet integration (default)</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=integratoroperatorconfig><code>IntegratorOperatorConfig</code><a href=#integratoroperatorconfig class=hash-link aria-label="Direct link to integratoroperatorconfig" title="Direct link to integratoroperatorconfig" translate=no>​</a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Property<th>Type<th>Access<th>Description<tbody><tr><td><code>method</code><td><code>IntegratorMethod</code><td>read/write<td>Integration method</table>
+<p><strong>Example:</strong></p>
+<div class="language-python codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-python codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token keyword" style=color:#00009f>import</span><span class="token plain"> phynexis</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">ops </span><span class="token operator" style=color:#393A34>=</span><span class="token plain"> phynexis</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">parsim</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">operators</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain"></span><span class="token comment" style=color:#999988;font-style:italic># Velocity Verlet (default)</span><span class="token plain"></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">io </span><span class="token operator" style=color:#393A34>=</span><span class="token plain"> ops</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">integration</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">IntegratorOperator</span><span class="token punctuation" style=color:#393A34>(</span><span class="token punctuation" style=color:#393A34>)</span><span class="token plain"></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">io</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">set_time_step</span><span class="token punctuation" style=color:#393A34>(</span><span class="token number" style=color:#36acaa>0.001</span><span class="token punctuation" style=color:#393A34>)</span><span class="token plain"></span><br/></div><div class=token-line style=color:#393A34><span class="token plain"></span><span class="token keyword" style=color:#00009f>print</span><span class="token punctuation" style=color:#393A34>(</span><span class="token string" style=color:#e3116c>"method:"</span><span class="token punctuation" style=color:#393A34>,</span><span class="token plain"> io</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">config</span><span class="token punctuation" style=color:#393A34>(</span><span class="token punctuation" style=color:#393A34>)</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">method</span><span class="token punctuation" style=color:#393A34>)</span><span class="token plain"></span><br/></div><div class=token-line style=color:#393A34><span class="token plain"></span><span class="token keyword" style=color:#00009f>print</span><span class="token punctuation" style=color:#393A34>(</span><span class="token string" style=color:#e3116c>"dt:"</span><span class="token punctuation" style=color:#393A34>,</span><span class="token plain"> io</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">time_step</span><span class="token punctuation" style=color:#393A34>(</span><span class="token punctuation" style=color:#393A34>)</span><span class="token punctuation" style=color:#393A34>)</span><span class="token plain"></span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain"></span><span class="token comment" style=color:#999988;font-style:italic># Euler</span><span class="token plain"></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">io2 </span><span class="token operator" style=color:#393A34>=</span><span class="token plain"> ops</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">integration</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">IntegratorOperator</span><span class="token punctuation" style=color:#393A34>(</span><span class="token plain"></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    ops</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">integration</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">IntegratorMethod</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">Euler</span><span class="token punctuation" style=color:#393A34>)</span><span class="token plain"></span><br/></div><div class=token-line style=color:#393A34><span class="token plain"></span><span class="token keyword" style=color:#00009f>print</span><span class="token punctuation" style=color:#393A34>(</span><span class="token string" style=color:#e3116c>"Euler method:"</span><span class="token punctuation" style=color:#393A34>,</span><span class="token plain"> io2</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">config</span><span class="token punctuation" style=color:#393A34>(</span><span class="token punctuation" style=color:#393A34>)</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">method</span><span class="token punctuation" style=color:#393A34>)</span><br/></div></code></pre></div></div>
+<p><strong>Output:</strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">method: IntegratorMethod.Verlet</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">dt: 0.001</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">Euler method: IntegratorMethod.Euler</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=force-operators-operatorsforces>Force Operators (<code>operators.forces</code>)<a href=#force-operators-operatorsforces class=hash-link aria-label="Direct link to force-operators-operatorsforces" title="Direct link to force-operators-operatorsforces" translate=no>​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=gravitylabelgravity><code>Gravity(label="gravity")</code><a href=#gravitylabelgravity class=hash-link aria-label="Direct link to gravitylabelgravity" title="Direct link to gravitylabelgravity" translate=no>​</a></h3>
+<p>Gravitational force operator. Applies gravity to all nodes.</p>
+<p><strong>Constructor:</strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Parameter<th>Type<th>Default<th>Description<tbody><tr><td><code>label</code><td><code>str</code><td>—<td>Operator label<tr><td><code>gx, gy, gz</code><td><code>float</code><td>—<td>Gravity components<tr><td><code>gravity_vector</code><td><code>Vec3d</code><td>—<td>Gravity as vector (requires label)</table>
+<p><strong>Properties:</strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Property<th>Type<th>Access<th>Description<tbody><tr><td><code>gravity_vector</code><td><code>Vec3d</code><td>read/write<td>Gravity vector (default <code>(0,0,-9.81)</code>)</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=dampinglabel-coefficient><code>Damping(label, coefficient)</code><a href=#dampinglabel-coefficient class=hash-link aria-label="Direct link to dampinglabel-coefficient" title="Direct link to dampinglabel-coefficient" translate=no>​</a></h3>
+<p>Viscous damping operator. Applies damping proportional to velocity.</p>
+<p><strong>Constructor:</strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Parameter<th>Type<th>Default<th>Description<tbody><tr><td><code>label</code><td><code>str</code><td>—<td>Operator label<tr><td><code>coefficient</code><td><code>float</code><td>—<td>Damping coefficient</table>
+<p><strong>Properties:</strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Property<th>Type<th>Access<th>Description<tbody><tr><td><code>coefficient</code><td><code>float</code><td>read/write<td>Damping coefficient</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=repulsionforce><code>RepulsionForce</code><a href=#repulsionforce class=hash-link aria-label="Direct link to repulsionforce" title="Direct link to repulsionforce" translate=no>​</a></h3>
+<p>Contact repulsion force operator. Requires a <code>RepulsionModel</code> to define the force law.</p>
+<p><strong>Methods:</strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Method<th>Returns<th>Description<tbody><tr><td><code>initialize(nodes, edges)</code><td>—<td>Bind to <code>NodeSet</code> and <code>EdgeSet</code><tr><td><code>set_model(model)</code><td>—<td>Set repulsion model (cloned)<tr><td><code>set_model_by_name(name)</code><td>—<td>Set model by name from factory<tr><td><code>model()</code><td><code>RepulsionModel</code><td>Get current model (reference)</table>
+<p><strong>Example:</strong></p>
+<div class="language-python codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-python codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token keyword" style=color:#00009f>import</span><span class="token plain"> phynexis</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">ops </span><span class="token operator" style=color:#393A34>=</span><span class="token plain"> phynexis</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">parsim</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">operators</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain"></span><span class="token comment" style=color:#999988;font-style:italic># Gravity</span><span class="token plain"></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">g </span><span class="token operator" style=color:#393A34>=</span><span class="token plain"> ops</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">forces</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">Gravity</span><span class="token punctuation" style=color:#393A34>(</span><span class="token punctuation" style=color:#393A34>)</span><span class="token plain"></span><br/></div><div class=token-line style=color:#393A34><span class="token plain"></span><span class="token keyword" style=color:#00009f>print</span><span class="token punctuation" style=color:#393A34>(</span><span class="token string" style=color:#e3116c>"gravity:"</span><span class="token punctuation" style=color:#393A34>,</span><span class="token plain"> g</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">name</span><span class="token punctuation" style=color:#393A34>(</span><span class="token punctuation" style=color:#393A34>)</span><span class="token punctuation" style=color:#393A34>,</span><span class="token plain"> g</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">gravity_vector</span><span class="token punctuation" style=color:#393A34>)</span><span class="token plain"></span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain"></span><span class="token comment" style=color:#999988;font-style:italic># Damping</span><span class="token plain"></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">d </span><span class="token operator" style=color:#393A34>=</span><span class="token plain"> ops</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">forces</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">Damping</span><span class="token punctuation" style=color:#393A34>(</span><span class="token string" style=color:#e3116c>"viscous"</span><span class="token punctuation" style=color:#393A34>,</span><span class="token plain"> </span><span class="token number" style=color:#36acaa>0.1</span><span class="token punctuation" style=color:#393A34>)</span><span class="token plain"></span><br/></div><div class=token-line style=color:#393A34><span class="token plain"></span><span class="token keyword" style=color:#00009f>print</span><span class="token punctuation" style=color:#393A34>(</span><span class="token string" style=color:#e3116c>"damping:"</span><span class="token punctuation" style=color:#393A34>,</span><span class="token plain"> d</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">name</span><span class="token punctuation" style=color:#393A34>(</span><span class="token punctuation" style=color:#393A34>)</span><span class="token punctuation" style=color:#393A34>,</span><span class="token plain"> d</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">coefficient</span><span class="token punctuation" style=color:#393A34>)</span><br/></div></code></pre></div></div>
+<p><strong>Output:</strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">gravity: gravity Vec3d(0, 0, -9.81)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">damping: damping 0.1</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=interaction-operators-operatorsinteraction>Interaction Operators (<code>operators.interaction</code>)<a href=#interaction-operators-operatorsinteraction class=hash-link aria-label="Direct link to interaction-operators-operatorsinteraction" title="Direct link to interaction-operators-operatorsinteraction" translate=no>​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=interactionupdatelabel><code>InteractionUpdate(label="")</code><a href=#interactionupdatelabel class=hash-link aria-label="Direct link to interactionupdatelabel" title="Direct link to interactionupdatelabel" translate=no>​</a></h3>
+<p>Updates interactions (edges/hyperedges) based on current node positions.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=adjacencybuilder><code>AdjacencyBuilder</code><a href=#adjacencybuilder class=hash-link aria-label="Direct link to adjacencybuilder" title="Direct link to adjacencybuilder" translate=no>​</a></h3>
+<p>Builds adjacency structures using spatial index.</p>
+<p><strong>Methods:</strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Method<th>Returns<th>Description<tbody><tr><td><code>initialize(spatial_index, nodes, domain_system)</code><td>—<td>Initialize with spatial index<tr><td><code>config()</code><td><code>AdjacencyBuilderConfig</code><td>Current config<tr><td><code>set_config(cfg)</code><td>—<td>Set config</table>
+<p><strong><code>AdjacencyBuilderConfig</code> properties:</strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Property<th>Type<th>Default<th>Description<tbody><tr><td><code>max_dirty_ratio</code><td><code>float</code><td>0.3<td>Max dirty rebuild ratio<tr><td><code>max_invalid_ratio</code><td><code>float</code><td>0.3<td>Max invalid rebuild ratio</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=uniformgridindexbuilder><code>UniformGridIndexBuilder</code><a href=#uniformgridindexbuilder class=hash-link aria-label="Direct link to uniformgridindexbuilder" title="Direct link to uniformgridindexbuilder" translate=no>​</a></h3>
+<p>Builds the uniform grid spatial index.</p>
+<p><strong>Methods:</strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Method<th>Returns<th>Description<tbody><tr><td><code>initialize(uniform_grid_index, nodes)</code><td>—<td>Initialize with grid index and nodes</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=output-operators-operatorsoutput>Output Operators (<code>operators.output</code>)<a href=#output-operators-operatorsoutput class=hash-link aria-label="Direct link to output-operators-operatorsoutput" title="Direct link to output-operators-operatorsoutput" translate=no>​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=unifiedoutputoutput_diroutput-formatvtk-frequency100><code>UnifiedOutput(output_dir="output/", format=VTK, frequency=100)</code><a href=#unifiedoutputoutput_diroutput-formatvtk-frequency100 class=hash-link aria-label="Direct link to unifiedoutputoutput_diroutput-formatvtk-frequency100" title="Direct link to unifiedoutputoutput_diroutput-formatvtk-frequency100" translate=no>​</a></h3>
+<p>Simulation output writer supporting VTK and HDF5 formats.</p>
+<p><strong>Constructor:</strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Parameter<th>Type<th>Default<th>Description<tbody><tr><td><code>output_dir</code><td><code>str</code><td><code>"output/"</code><td>Output directory<tr><td><code>format</code><td><code>OutputFormat</code><td><code>VTK</code><td>File format<tr><td><code>frequency</code><td><code>int</code><td>100<td>Output frequency (steps)</table>
+<p><strong>Methods:</strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Method<th>Returns<th>Description<tbody><tr><td><code>initialize(graph, state)</code><td>—<td>Bind to graph and runtime state<tr><td><code>config()</code><td><code>UnifiedOutputConfig</code><td>Current configuration</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=outputformat><code>OutputFormat</code><a href=#outputformat class=hash-link aria-label="Direct link to outputformat" title="Direct link to outputformat" translate=no>​</a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Value<th>Description<tbody><tr><td><code>VTK</code><td>VTK file format<tr><td><code>HDF5</code><td>HDF5 file format</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=outputlogstyle><code>OutputLogStyle</code><a href=#outputlogstyle class=hash-link aria-label="Direct link to outputlogstyle" title="Direct link to outputlogstyle" translate=no>​</a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Value<th>Description<tbody><tr><td><code>Summary</code><td>Compact log output<tr><td><code>Verbose</code><td>Detailed log output<tr><td><code>Silence</code><td>No log output</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=outputmode><code>OutputMode</code><a href=#outputmode class=hash-link aria-label="Direct link to outputmode" title="Direct link to outputmode" translate=no>​</a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Value<th>Description<tbody><tr><td><code>ByStep</code><td>Output every N steps<tr><td><code>ByTime</code><td>Output every N time units</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=unifiedoutputconfig><code>UnifiedOutputConfig</code><a href=#unifiedoutputconfig class=hash-link aria-label="Direct link to unifiedoutputconfig" title="Direct link to unifiedoutputconfig" translate=no>​</a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Property<th>Type<th>Access<th>Description<tbody><tr><td><code>format</code><td><code>OutputFormat</code><td>read/write<td>Output file format<tr><td><code>output_dir</code><td><code>str</code><td>read/write<td>Output directory<tr><td><code>frequency</code><td><code>int</code><td>read/write<td>Output frequency<tr><td><code>output_mode</code><td><code>OutputMode</code><td>read/write<td>Output mode (step/time based)<tr><td><code>time_interval</code><td><code>float</code><td>read/write<td>Time interval for ByTime mode<tr><td><code>time_stamp_adjustable</code><td><code>bool</code><td>read/write<td>Adjustable timestamps<tr><td><code>edges</code><td><code>bool</code><td>read/write<td>Output edges<tr><td><code>hyper_edges</code><td><code>bool</code><td>read/write<td>Output hyperedges<tr><td><code>shapes</code><td><code>bool</code><td>read/write<td>Output shapes<tr><td><code>log_style</code><td><code>OutputLogStyle</code><td>read/write<td>Log verbosity</table>
+<p><strong>Example:</strong></p>
+<div class="language-python codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-python codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token keyword" style=color:#00009f>import</span><span class="token plain"> phynexis</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">ops </span><span class="token operator" style=color:#393A34>=</span><span class="token plain"> phynexis</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">parsim</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">operators</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain"></span><span class="token comment" style=color:#999988;font-style:italic># VTK output (default)</span><span class="token plain"></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">uo </span><span class="token operator" style=color:#393A34>=</span><span class="token plain"> ops</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">output</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">UnifiedOutput</span><span class="token punctuation" style=color:#393A34>(</span><span class="token string" style=color:#e3116c>"sim_output/"</span><span class="token punctuation" style=color:#393A34>,</span><span class="token plain"> ops</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">output</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">OutputFormat</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">VTK</span><span class="token punctuation" style=color:#393A34>)</span><span class="token plain"></span><br/></div><div class=token-line style=color:#393A34><span class="token plain"></span><span class="token keyword" style=color:#00009f>print</span><span class="token punctuation" style=color:#393A34>(</span><span class="token string" style=color:#e3116c>"output:"</span><span class="token punctuation" style=color:#393A34>,</span><span class="token plain"> uo</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">name</span><span class="token punctuation" style=color:#393A34>(</span><span class="token punctuation" style=color:#393A34>)</span><span class="token punctuation" style=color:#393A34>)</span><span class="token plain"></span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">cfg </span><span class="token operator" style=color:#393A34>=</span><span class="token plain"> uo</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">config</span><span class="token punctuation" style=color:#393A34>(</span><span class="token punctuation" style=color:#393A34>)</span><span class="token plain"></span><br/></div><div class=token-line style=color:#393A34><span class="token plain"></span><span class="token keyword" style=color:#00009f>print</span><span class="token punctuation" style=color:#393A34>(</span><span class="token string" style=color:#e3116c>"format:"</span><span class="token punctuation" style=color:#393A34>,</span><span class="token plain"> cfg</span><span class="token punctuation" style=color:#393A34>.</span><span class="token builtin">format</span><span class="token punctuation" style=color:#393A34>)</span><span class="token plain"></span><br/></div><div class=token-line style=color:#393A34><span class="token plain"></span><span class="token keyword" style=color:#00009f>print</span><span class="token punctuation" style=color:#393A34>(</span><span class="token string" style=color:#e3116c>"frequency:"</span><span class="token punctuation" style=color:#393A34>,</span><span class="token plain"> cfg</span><span class="token punctuation" style=color:#393A34>.</span><span class="token plain">frequency</span><span class="token punctuation" style=color:#393A34>)</span><br/></div></code></pre></div></div>
+<p><strong>Output:</strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">output: unified_output</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">format: OutputFormat.VTK</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">frequency: 100</span><br/></div></code></pre></div></div></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col noPrint_WFHX"><a href=https://github.com/apaam/webpage/edit/main/docs/python-api/parsim/operators/operators.md target=_blank rel="noopener noreferrer" class=theme-edit-this-page><svg fill=currentColor height=20 width=20 viewBox="0 0 40 40" class=iconEdit_Z9Sw aria-hidden=true><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"/></g></svg>Edit this page</a></div><div class="col lastUpdated_JAkA"></div></div></footer></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href=/webpage/docs/python-api/parsim/simulator/><div class=pagination-nav__sublabel>Previous</div><div class=pagination-nav__label>simulator</div></a><a class="pagination-nav__link pagination-nav__link--next" href=/webpage/docs/python-api/parsim/models/models-utils/><div class=pagination-nav__sublabel>Next</div><div class=pagination-nav__label>models</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href=#base-classes class="table-of-contents__link toc-highlight">Base Classes</a><ul><li><a href=#baseoperator class="table-of-contents__link toc-highlight"><code>BaseOperator</code></a></ul><li><a href=#phase-identifiers class="table-of-contents__link toc-highlight">Phase Identifiers</a><li><a href=#integration-operators-operatorsintegration class="table-of-contents__link toc-highlight">Integration Operators (<code>operators.integration</code>)</a><ul><li><a href=#integratoroperatormethodverlet class="table-of-contents__link toc-highlight"><code>IntegratorOperator(method=Verlet)</code></a><li><a href=#integratormethod class="table-of-contents__link toc-highlight"><code>IntegratorMethod</code></a><li><a href=#integratoroperatorconfig class="table-of-contents__link toc-highlight"><code>IntegratorOperatorConfig</code></a></ul><li><a href=#force-operators-operatorsforces class="table-of-contents__link toc-highlight">Force Operators (<code>operators.forces</code>)</a><ul><li><a href=#gravitylabelgravity class="table-of-contents__link toc-highlight"><code>Gravity(label="gravity")</code></a><li><a href=#dampinglabel-coefficient class="table-of-contents__link toc-highlight"><code>Damping(label, coefficient)</code></a><li><a href=#repulsionforce class="table-of-contents__link toc-highlight"><code>RepulsionForce</code></a></ul><li><a href=#interaction-operators-operatorsinteraction class="table-of-contents__link toc-highlight">Interaction Operators (<code>operators.interaction</code>)</a><ul><li><a href=#interactionupdatelabel class="table-of-contents__link toc-highlight"><code>InteractionUpdate(label="")</code></a><li><a href=#adjacencybuilder class="table-of-contents__link toc-highlight"><code>AdjacencyBuilder</code></a><li><a href=#uniformgridindexbuilder class="table-of-contents__link toc-highlight"><code>UniformGridIndexBuilder</code></a></ul><li><a href=#output-operators-operatorsoutput class="table-of-contents__link toc-highlight">Output Operators (<code>operators.output</code>)</a><ul><li><a href=#unifiedoutputoutput_diroutput-formatvtk-frequency100 class="table-of-contents__link toc-highlight"><code>UnifiedOutput(output_dir="output/", format=VTK, frequency=100)</code></a><li><a href=#outputformat class="table-of-contents__link toc-highlight"><code>OutputFormat</code></a><li><a href=#outputlogstyle class="table-of-contents__link toc-highlight"><code>OutputLogStyle</code></a><li><a href=#outputmode class="table-of-contents__link toc-highlight"><code>OutputMode</code></a><li><a href=#unifiedoutputconfig class="table-of-contents__link toc-highlight"><code>UnifiedOutputConfig</code></a></ul></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class=footer__title>Manual</div><ul class="footer__items clean-list"><li class=footer__item><a class=footer__link-item href=/webpage/docs/manual/>Manual home</a><li class=footer__item><a class=footer__link-item href=/webpage/docs/manual/installation/>Installation</a></ul></div><div class="theme-layout-footer-column col footer__col"><div class=footer__title>API</div><ul class="footer__items clean-list"><li class=footer__item><a class=footer__link-item href=/webpage/docs/python-api/>Python API</a><li class=footer__item><a href=/webpage/doxygen/html/ target=_blank rel="noopener noreferrer" class=footer__link-item>C++ (Doxygen)<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a></ul></div><div class="theme-layout-footer-column col footer__col"><div class=footer__title>Resources</div><ul class="footer__items clean-list"><li class=footer__item><a class=footer__link-item href=/webpage/docs/examples/>Examples</a><li class=footer__item><a class=footer__link-item href=/webpage/docs/download/>Download</a></ul></div><div class="theme-layout-footer-column col footer__col"><div class=footer__title>About</div><ul class="footer__items clean-list"><li class=footer__item><a class=footer__link-item href=/webpage/docs/about/>About</a><li class=footer__item><a href=https://apaam.github.io/mywebpage/ target=_blank rel="noopener noreferrer" class=footer__link-item>APAAM lab site<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a></ul></div></div><div class="footer__bottom text--center"><div class=footer__copyright>© 2026 Phynexis · APAAM Lab</div></div></div></footer></div></body>
