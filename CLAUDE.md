@@ -19,7 +19,6 @@ Phynexis documentation site built with **Docusaurus v3**. Published at `https://
 | Dev server (hot reload, port 3001) | `make dev` |
 | Production build | `make build` |
 | Preview production build (port 3011) | `make serve` |
-| Deploy to `gh-pages` | `make deploy` |
 | Regenerate C++ Doxygen docs | `make doxygen` |
 | Export Python API docs to PDF | `make pdf` (runs `scripts/export-python-api-pdf.py`) |
 | Export all docs to PDF | `python3 scripts/export-docs-pdf.py` |

@@ -73,8 +73,6 @@ git_proxy_set_fastgithub() {
 git_proxy_unset() { unset http_proxy https_proxy HTTP_PROXY HTTPS_PROXY; }
 ```
 
-**Deploy (`make deploy`):** Docusaurus clones a temp repo and pushes **`gh-pages`**; keep FastGithub running with the same exports in that terminal. You still need working GitHub auth for HTTPS (`gh auth setup-git`, SSH, or a credential helper)—otherwise `git push` may fail with “could not read Password”.
-
 **Protected `main`:** if force-push to **`main`** is disabled on GitHub, push a **feature branch** and open a **pull request** instead.
 
 ### Common tasks
@@ -85,7 +83,6 @@ git_proxy_unset() { unset http_proxy https_proxy HTTP_PROXY HTTPS_PROXY; }
 | Production build (`./build/`) | `make build` |
 | Preview the production build | `make serve` |
 | Regenerate Doxygen under `static/doxygen/` | `make doxygen` |
-| Deploy to `gh-pages` | `make deploy` |
 | Remove build artifacts | `make clean` |
 
 Local dev URL (see `package.json` / `Makefile` for the port): <http://localhost:3001/webpage/>.

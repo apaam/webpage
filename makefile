@@ -1,4 +1,4 @@
-.PHONY: dev build serve deploy doxygen pdf install clean check-python-api-md-tables
+.PHONY: dev build serve doxygen pdf install clean check-python-api-md-tables
 
 install:
 	npm install
@@ -11,9 +11,6 @@ build:
 
 serve: build
 	npm run serve
-
-deploy:
-	npm run deploy
 
 doxygen:
 	rm -rf static/doxygen

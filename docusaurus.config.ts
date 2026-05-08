@@ -33,7 +33,6 @@ const config: Config = {
 
   organizationName: 'apaam',
   projectName: 'webpage',
-  deploymentBranch: 'gh-pages',
 
   onBrokenLinks: 'warn',
   markdown: {
