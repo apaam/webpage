@@ -53,4 +53,4 @@ Common **workflow tools** (visualization, meshes, etc.) used alongside Phynexis:
 | [ParaView](https://www.paraview.org) | VTK visualization | BSD |
 | [Blender](https://www.blender.org) | Offline rendering | GPL |
 
-Paper references and bibliographies are listed on the [APAAM lab site](https://apaam.github.io/mywebpage/), not in this download section.
+Paper references and bibliographies are listed on the [APAAM lab site](https://lzhshou.github.io/docs/publications/papers/), not in this download section.

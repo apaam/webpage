@@ -173,7 +173,7 @@ const config: Config = {
             {label: 'About', to: '/docs/about/'},
             {
               label: 'APAAM lab site',
-              href: 'https://apaam.github.io/mywebpage/',
+              href: 'https://lzhshou.github.io/docs/publications/papers/',
             },
           ],
         },

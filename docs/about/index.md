@@ -33,7 +33,7 @@ We welcome academic collaboration on topics related to granular mechanics, parti
 
 ### How to Cite
 
-Phynexis does not yet have a single dedicated reference paper. When you publish work that used Phynexis, cite the **peer-reviewed articles that describe the numerical methods you relied on** (for example CFD–DEM coupling, irregular particles, or contact models as appropriate). Bibliographies and paper lists are maintained only on the **[APAAM lab website](https://apaam.github.io/mywebpage/)** — they are not duplicated on this documentation site.
+Phynexis does not yet have a single dedicated reference paper. When you publish work that used Phynexis, cite the **peer-reviewed articles that describe the numerical methods you relied on** (for example CFD–DEM coupling, irregular particles, or contact models as appropriate). Bibliographies and paper lists are maintained only on the **[APAAM lab website](https://lzhshou.github.io/docs/publications/papers/)** — they are not duplicated on this documentation site.
 
 ### Third-Party Software
 
