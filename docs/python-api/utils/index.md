@@ -34,6 +34,8 @@ utils.info("hello")
 | [LevelSetField](level-set-function.md) | Level set field representation |
 | [STLModel / read / read_off / write_off](mesh/stl-model.md) | 3D triangle mesh and mesh I/O |
 | [SurfaceMesh](mesh/surface-mesh.md) | Surface mesh struct |
+| [TriangleMesh](mesh/triangle-mesh.md) | Triangle surface mesh with I/O and geometric ops |
+| [TetraMesh](mesh/tetra-mesh.md) | Tetrahedral volume mesh |
 | [DataIO](serde/data-io.md) | Tabular data I/O |
 | [SaveOptions / LoadOptions / FileFormat](serde/save-load-options.md) | File save/load options and format resolution |
 | [format_from_extension / format_from_path / join_path_file](serde/save-load-options.md) | File format and path utilities |
