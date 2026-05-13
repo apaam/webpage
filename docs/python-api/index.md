@@ -18,8 +18,8 @@ Phynexis exposes its C++ core through pybind11 bindings. The table below lists t
 | **netdem** | `phynexis.netdem` | `phynexis::netdem` | Discrete Element Method (DEM) |
 | **netfem** | `phynexis.netfem` | `phynexis::netfem` | Finite Element Method (FEM) |
 | **cfddem** | `phynexis.cfddem` | `phynexis::cfddem` | CFD-DEM coupling |
-| **ml** | `phynexis.ml` | `phynexis::ml` | Machine learning interfaces |
-| **peridigm** | `phynexis.peridigm` | `phynexis::peridigm` | Peridynamics |
+| **ml** | `phynexis.ml` | `phynexis::ml` | [Machine learning interfaces](ml/index.md) |
+| **peridigm** | `phynexis.peridigm` | `phynexis::peridigm` | [Peridynamics](peridigm/index.md) |
 | **workflow** | `phynexis.workflow` | `phynexis::workflow` | [Workflow automation](workflow/index.md) |
 
 ## Import Pattern
