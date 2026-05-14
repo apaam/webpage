@@ -127,6 +127,9 @@ All new code must compile without warnings under `-Wall -Wextra` and pass the ex
 
 ### Related documentation
 
+- [Fields module design](dev-design/fields.md) — data structures, schema expansion, SOA storage, and the manager/view architecture
+- [Utils module design](dev-design/utils.md) — type system, containers, serialization, geometry abstractions, and wrapper patterns
+- [Parsim module design](dev-design/parsim.md) — computational graph, phase-based operators, domain decomposition, and MPI parallelization
 - [Pybind11 binding conventions](dev-pybind-styles.md) — how to expose new types to Python
 - [Docker and HPC](docker-hpc.md) — containers and clusters
 - [Developer tools](computer-tips.md) — GitHub CLI, proxies, workstation setup

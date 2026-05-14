@@ -30,6 +30,9 @@ const sidebars: SidebarsConfig = {
       collapsed: true,
       items: [
         'manual/developer-manual',
+        'manual/dev-design/utils',
+        'manual/dev-design/fields',
+        'manual/dev-design/parsim',
         'manual/dev-pybind-styles',
         'manual/docker-hpc',
         'manual/computer-tips',
