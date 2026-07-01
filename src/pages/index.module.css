@@ -1,7 +1,7 @@
-/* Phynexis landing — light editorial layout, teal accent (aligned with site theme) */
+/* Phynexis landing — Nido-style light editorial layout, teal accent */
 
 :root {
-  --landing-bg: #f0f0f2;
+  --landing-bg: #ffffff;
   --landing-bg-alt: #f5f5f7;
   --landing-text: #1d1d1f;
   --landing-muted: #6e6e73;
@@ -9,7 +9,6 @@
   --landing-border: rgba(0, 0, 0, 0.06);
   --landing-accent: #0d7377;
   --landing-accent-hover: #108f94;
-  --landing-max: 1080px;
 }
 
 .main {
@@ -22,15 +21,12 @@
 }
 
 .container {
-  max-width: var(--landing-max);
-  margin: 0 auto;
-  padding: 0 1.5rem;
+  width: 100%;
+  padding: 0 var(--site-padding-x, 2rem);
 }
 
-@media (min-width: 768px) {
-  .container {
-    padding: 0 2rem;
-  }
+.hero .container {
+  padding: 0;
 }
 
 .srOnly {
@@ -49,15 +45,23 @@
 
 .hero {
   position: relative;
-  padding: 6.5rem 0 4.5rem;
+  padding: 4.5rem 2rem;
   text-align: center;
-  overflow: hidden;
+}
+
+.hero .container {
+  padding: 0;
 }
 
 .heroBg {
   position: absolute;
-  inset: 0;
+  top: 0;
+  left: 2rem;
+  right: 2rem;
+  bottom: 0;
   background: url('/img/hero-bg.png') center/cover no-repeat;
+  border-radius: 16px;
+  overflow: hidden;
   z-index: 0;
   pointer-events: none;
 }
@@ -125,8 +129,8 @@
   font-weight: 600;
   font-size: 0.9375rem;
   text-decoration: none;
-  background: #fff;
-  color: var(--landing-accent);
+  background: #1d1d1f;
+  color: #fff;
   border: none;
   transition:
     transform 0.18s ease,
@@ -135,8 +139,9 @@
 }
 
 .btnPrimary:hover {
-  color: var(--landing-accent-hover);
+  color: #fff;
   text-decoration: none;
+  background: #2d2d30;
   transform: translateY(-1px);
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.18);
 }
@@ -193,8 +198,8 @@
 
 .scope {
   padding: 3rem 0 3.25rem;
-  background: var(--landing-bg-alt);
-  border-bottom: 1px solid var(--landing-border);
+  background: var(--landing-bg);
+  position: relative;
 }
 
 .sectionTitle {
@@ -224,6 +229,7 @@
 .pillars {
   padding: 3.75rem 0 4rem;
   background: var(--landing-bg);
+  position: relative;
 }
 
 .sectionSubtitle {
@@ -255,8 +261,9 @@
   margin: 0;
   padding: 1.35rem 1.25rem;
   border: 1px solid var(--landing-border);
-  border-radius: 14px;
-  background: rgba(255, 255, 255, 0.35);
+  border-radius: 12px;
+  background: var(--landing-bg-alt);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
   transition:
     border-color 0.2s ease,
     box-shadow 0.2s ease,
@@ -265,8 +272,8 @@
 
 .pillarCard:hover {
   border-color: rgba(13, 115, 119, 0.28);
-  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.06);
-  transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.07);
+  transform: translateY(-3px);
 }
 
 .pillarTitle {
@@ -287,8 +294,8 @@
 
 .paths {
   padding: 3.75rem 0 4rem;
-  background: var(--landing-bg-alt);
-  border-top: 1px solid var(--landing-border);
+  background: var(--landing-bg);
+  position: relative;
 }
 
 .pathFeatured {
@@ -309,9 +316,10 @@
   align-items: flex-start;
   gap: 0.35rem;
   padding: 1.35rem 1.25rem;
-  border-radius: 14px;
+  border-radius: 12px;
   border: 1px solid var(--landing-border);
-  background: var(--landing-bg);
+  background: var(--landing-bg-alt);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
   text-decoration: none;
   color: inherit;
   transition:
@@ -323,8 +331,8 @@
 .pathTile:hover {
   text-decoration: none;
   border-color: rgba(13, 115, 119, 0.35);
-  box-shadow: 0 10px 32px rgba(0, 0, 0, 0.07);
-  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+  transform: translateY(-3px);
 }
 
 .pathIconWrap {
@@ -401,6 +409,21 @@
 .outro {
   padding: 3.25rem 0 4.5rem;
   background: var(--landing-bg);
+  position: relative;
+}
+
+/* Section divider borders — constrained to content width */
+.scope::before,
+.pillars::before,
+.paths::before,
+.outro::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 2rem;
+  right: 2rem;
+  border-top: 1px solid var(--landing-border);
+  pointer-events: none;
 }
 
 .outroCard {
@@ -409,8 +432,9 @@
   text-align: center;
   padding: 2rem 1.5rem;
   border: 1px solid var(--landing-border);
-  border-radius: 14px;
-  background: rgba(255, 255, 255, 0.25);
+  border-radius: 16px;
+  background: var(--landing-bg-alt);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
 }
 
 .outroTitle {
@@ -454,18 +478,13 @@
   --landing-accent-hover: #2db8bd;
 }
 
-[data-theme='dark'] .pillarCard {
-  background: rgba(255, 255, 255, 0.03);
+[data-theme='dark'] .btnPrimary:hover {
+  background: #3d3d40;
 }
 
-[data-theme='dark'] .pathTile {
-  background: var(--landing-bg);
-}
-
-[data-theme='dark'] .outroCard {
-  background: rgba(255, 255, 255, 0.03);
-}
-
-[data-theme='dark'] .btnPrimary {
-  color: var(--landing-accent);
+[data-theme='dark'] .scope::before,
+[data-theme='dark'] .pillars::before,
+[data-theme='dark'] .paths::before,
+[data-theme='dark'] .outro::before {
+  border-top-color: transparent;
 }

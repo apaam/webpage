@@ -48,7 +48,7 @@
   /* Component-specific - Unified background system */
   --ifm-navbar-background-color: rgba(255, 255, 255, 0.92);
   --ifm-sidebar-background-color: #f5f5f7;
-  --ifm-footer-background-color: #f0f0f2;
+  --ifm-footer-background-color: #ffffff;
 
   /* Card backgrounds */
   --ifm-card-background-color: #f5f5f7;
@@ -72,7 +72,7 @@
   /* Spacing */
   --ifm-leading-desktop: 1.8;
   --ifm-leading-mobile: 1.6;
-  --ifm-navbar-height: 70px;
+  --ifm-navbar-height: 56px;
   --ifm-navbar-padding-horizontal: 2rem;
   --ifm-navbar-shadow: none;
 }
@@ -92,7 +92,7 @@
   --ifm-color-primary-lightest: #4ef0f5;
 
   /* Background Colors - 3-layer hierarchy: page → card → hover */
-  --ifm-background-color: #0a0a0c;
+  --ifm-background-color: #0c0c0e;
   --ifm-background-surface-color: #161618;
   --ifm-background-secondary: #222224;
   --ifm-background-tertiary: #2e2e30;
@@ -120,9 +120,9 @@
   --docusaurus-highlighted-code-line-bg: rgba(20, 163, 168, 0.15);
 
   /* Component-specific - Unified background system */
-  --ifm-navbar-background-color: rgba(10, 10, 12, 0.92);
-  --ifm-sidebar-background-color: #0a0a0c;
-  --ifm-footer-background-color: #0e0e10;
+  --ifm-navbar-background-color: rgba(12, 12, 14, 0.92);
+  --ifm-sidebar-background-color: #0c0c0e;
+  --ifm-footer-background-color: #0c0c0e;
 
   /* Card backgrounds */
   --ifm-card-background-color: #161618;
@@ -240,16 +240,11 @@ body {
    Sidebar Styles - Match blog sidebar: transparent bg, no right border, inset
    ============================================================================ */
 
-/* Center the docs layout like blog (1140px container, narrower sidebar) */
-/* Use attribute selector because .docsWrapper is a hashed CSS Module class */
-[class*="docsWrapper"] {
-  max-width: 1260px;
-  margin: 0 auto;
-  width: 100%;
-}
+/* Center the docs layout — handled at the end of this file by the site max-width section.
+   This placeholder ensures the sidebar section is self-documenting. */
 
 :root {
-  --doc-sidebar-width: 300px;
+  --doc-sidebar-width: 260px;
 }
 
 .theme-doc-sidebar-container {
@@ -258,8 +253,8 @@ body {
 }
 
 .theme-doc-sidebar-menu {
-  padding: 1rem 0.5rem 1rem 1.5rem;
-  font-size: 0.9rem;
+  padding: 0.75rem 0.5rem 0.75rem 1rem;
+  font-size: 0.875rem;
 }
 
 /* Clean sidebar links - no background padding on hover */
@@ -267,8 +262,8 @@ body {
 .theme-doc-sidebar-item-link {
   border-radius: 0;
   margin: 0;
-  padding: 0.3rem 0.5rem;
-  font-size: 0.9rem;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.875rem;
   line-height: 1.5;
   color: var(--ifm-font-color-base) !important;
   transition: color 0.15s ease;
@@ -302,8 +297,8 @@ body {
 .menu__list-item-collapsible {
   border-radius: 0;
   font-weight: 500;
-  font-size: 0.9rem;
-  padding: 0.3rem 0.5rem;
+  font-size: 0.875rem;
+  padding: 0.25rem 0.5rem;
   color: var(--ifm-font-color-base) !important;
   transition: color 0.15s ease;
   background: transparent !important;
@@ -317,13 +312,13 @@ body {
 
 /* Nested menu items */
 .menu__list .menu__list {
-  padding-left: 0.75rem;
+  padding-left: 0.5rem;
   border-left: none;
   margin-left: 0.5rem;
 }
 
 .menu__list-item {
-  margin: 0.15rem 0;
+  margin: 0.12rem 0;
 }
 
 .menu__caret {
@@ -1017,6 +1012,68 @@ html {
   display: block;
   margin-left: auto;
   margin-right: auto;
+}
+
+
+
+/* ============================================================================
+   Site Max-Width (Nido-style)
+   Header/footer backgrounds, borders, and shadows span the full viewport.
+   Only the inner content is constrained to 1200px.
+   ============================================================================ */
+
+:root {
+  --site-container-width: 1200px;
+  --site-padding-x: 2rem;
+}
+
+@media screen and (max-width: 996px) {
+  :root {
+    --site-padding-x: 1rem;
+  }
+}
+
+/* Main content container — edge-to-edge, each page manages its own inner padding */
+.main-wrapper {
+  max-width: var(--site-container-width);
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* Navbar content container; navbar itself stays full-width for shadow/border */
+.navbar {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+@media screen and (max-width: 996px) {
+  .navbar {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+.navbar__inner {
+  box-sizing: border-box;
+  max-width: var(--site-container-width);
+  margin: 0 auto;
+  padding: 0 var(--site-padding-x);
+  width: 100%;
+}
+
+/* Footer: constrain the container-fluid (not plain .container, which is global) */
+.footer .container-fluid {
+  max-width: var(--site-container-width);
+  margin: 0 auto;
+  padding: 0 var(--site-padding-x);
+}
+
+/* Docs layout — full width, sidebar + article fill container */
+[class*="docsWrapper"] {
+  max-width: var(--site-container-width) !important;
+  margin: 0 auto !important;
+  width: 100% !important;
+  padding: 0 !important;
 }
 
 /* ============================================================================
