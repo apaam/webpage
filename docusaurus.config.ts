@@ -44,7 +44,15 @@ const config: Config = {
 
   i18n: {
     defaultLocale: 'en',
-    locales: ['en'],
+    locales: ['en', 'zh'],
+    localeConfigs: {
+      en: {
+        label: 'English',
+      },
+      zh: {
+        label: '中文',
+      },
+    },
   },
 
   presets: [
@@ -135,6 +143,10 @@ const config: Config = {
           to: '/docs/about/',
           label: 'About',
           position: 'left',
+        },
+        {
+          type: 'localeDropdown',
+          position: 'right',
         },
       ],
     },

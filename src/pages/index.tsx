@@ -3,6 +3,7 @@ import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import Layout from '@theme/Layout';
 import Link from '@docusaurus/Link';
+import Translate, {translate} from '@docusaurus/Translate';
 
 import styles from './index.module.css';
 
@@ -27,38 +28,46 @@ export default function Home(): ReactNode {
   const doxygenHref = useBaseUrl('/doxygen/html/');
 
   return (
-    <Layout title="Phynexis" description={siteConfig.tagline}>
+    <Layout
+      title={translate({id: 'homepage.hero.eyebrow', message: 'Phynexis'})}
+      description={translate({id: 'homepage.description', message: siteConfig.tagline})}>
       <main className={styles.main}>
         <header className={styles.hero}>
           <div className={styles.heroBg} aria-hidden />
           <div className={styles.container}>
             <div className={styles.heroInner}>
-              <p className={styles.heroEyebrow}>Phynexis</p>
+              <p className={styles.heroEyebrow}>
+                <Translate id="homepage.hero.eyebrow">Phynexis</Translate>
+              </p>
               <h1 className={styles.heroTitle}>
-                Particle simulation for granular media and fluid–solid systems
+                <Translate id="homepage.hero.title">
+                  Particle simulation for granular media and fluid–solid systems
+                </Translate>
               </h1>
               <p className={styles.heroLead}>
-                A unified engine for discrete elements, CFD–DEM coupling, and
-                solid mechanics—scaled from laptops to clusters, with a Python
-                surface for everyday workflows.
+                <Translate id="homepage.hero.lead">
+                  A unified engine for discrete elements, CFD–DEM coupling, and
+                  solid mechanics—scaled from laptops to clusters, with a Python
+                  surface for everyday workflows.
+                </Translate>
               </p>
               <div className={styles.heroActions}>
                 <Link className={styles.btnPrimary} to="/docs/manual/installation/">
-                  Install
+                  <Translate id="homepage.hero.install">Install</Translate>
                 </Link>
                 <Link className={styles.btnGhost} to="/docs/manual/">
-                  Manual
+                  <Translate id="homepage.hero.manual">Manual</Translate>
                 </Link>
               </div>
               <p className={styles.heroHint}>
                 <Link className={styles.heroHintLink} to="/docs/python-api/">
-                  Python API
+                  <Translate id="homepage.hero.pythonApi">Python API</Translate>
                 </Link>
                 <span className={styles.heroHintSep} aria-hidden>
                   ·
                 </span>
                 <Link className={styles.heroHintLink} to="/docs/about/">
-                  About
+                  <Translate id="homepage.hero.about">About</Translate>
                 </Link>
               </p>
             </div>
@@ -68,15 +77,19 @@ export default function Home(): ReactNode {
         <section className={styles.scope} aria-labelledby="scope-heading">
           <div className={styles.container}>
             <h2 id="scope-heading" className={styles.sectionTitle}>
-              What this site is for
+              <Translate id="homepage.scope.heading">What this site is for</Translate>
             </h2>
             <p className={styles.sectionLead}>
-              Guides, examples, and reference material for using Phynexis—especially
-              through its{' '}
-              <strong className={styles.scopeEm}>Python interface</strong>, which is
-              the main integration path we document here. The high-performance C++
-              core is distributed under research licensing; see{' '}
-              <Link to="/docs/about/">About</Link> for contact and acknowledgements.
+              <Translate
+                id="homepage.scope.text"
+                values={{
+                  pythonInterface: <strong className={styles.scopeEm}>Python interface</strong>,
+                  aboutLink: <Link to="/docs/about/"><Translate id="homepage.hero.about">About</Translate></Link>,
+                }}>
+                {
+                  'Guides, examples, and reference material for using Phynexis—especially through its {pythonInterface}, which is the main integration path we document here. The high-performance C++ core is distributed under research licensing; see {aboutLink} for contact and acknowledgements.'
+                }
+              </Translate>
             </p>
           </div>
         </section>
@@ -84,38 +97,56 @@ export default function Home(): ReactNode {
         <section className={styles.pillars} aria-labelledby="pillars-heading">
           <div className={styles.container}>
             <h2 id="pillars-heading" className={styles.sectionTitle}>
-              Capabilities
+              <Translate id="homepage.pillars.heading">Capabilities</Translate>
             </h2>
             <p className={styles.sectionSubtitle}>
-              DEM contacts, coupled flows, heterogeneous shapes, and parallel execution.
+              <Translate id="homepage.pillars.subtitle">
+                DEM contacts, coupled flows, heterogeneous shapes, and parallel execution.
+              </Translate>
             </p>
             <ul className={styles.pillarGrid}>
               <li className={styles.pillarCard}>
-                <h3 className={styles.pillarTitle}>Discrete elements</h3>
+                <h3 className={styles.pillarTitle}>
+                  <Translate id="homepage.pillars.card1.title">Discrete elements</Translate>
+                </h3>
                 <p className={styles.pillarBody}>
-                  Robust contact for spheres, meshes, level sets, and learned shape
-                  fields—with solvers suited to stiff and irregular assemblies.
+                  <Translate id="homepage.pillars.card1.desc">
+                    Robust contact for spheres, meshes, level sets, and learned shape
+                    fields—with solvers suited to stiff and irregular assemblies.
+                  </Translate>
                 </p>
               </li>
               <li className={styles.pillarCard}>
-                <h3 className={styles.pillarTitle}>Fluid–particle coupling</h3>
+                <h3 className={styles.pillarTitle}>
+                  <Translate id="homepage.pillars.card2.title">Fluid–particle coupling</Translate>
+                </h3>
                 <p className={styles.pillarBody}>
-                  Multiple CFD–DEM formulations for resolved and hybrid regimes, so you
-                  can move from dry granular packs to suspension-like flows.
+                  <Translate id="homepage.pillars.card2.desc">
+                    Multiple CFD–DEM formulations for resolved and hybrid regimes, so you
+                    can move from dry granular packs to suspension-like flows.
+                  </Translate>
                 </p>
               </li>
               <li className={styles.pillarCard}>
-                <h3 className={styles.pillarTitle}>Mechanics &amp; scale-out</h3>
+                <h3 className={styles.pillarTitle}>
+                  <Translate id="homepage.pillars.card3.title">Mechanics &amp; scale-out</Translate>
+                </h3>
                 <p className={styles.pillarBody}>
-                  Continuum and multiphysics hooks alongside hybrid OpenMP/MPI runs—one
-                  codebase from prototyping to batch jobs on HPC.
+                  <Translate id="homepage.pillars.card3.desc">
+                    Continuum and multiphysics hooks alongside hybrid OpenMP/MPI runs—one
+                    codebase from prototyping to batch jobs on HPC.
+                  </Translate>
                 </p>
               </li>
               <li className={styles.pillarCard}>
-                <h3 className={styles.pillarTitle}>ML where it helps</h3>
+                <h3 className={styles.pillarTitle}>
+                  <Translate id="homepage.pillars.card4.title">ML where it helps</Translate>
+                </h3>
                 <p className={styles.pillarBody}>
-                  Optional GPU-aware workflows (e.g. PyTorch) for surrogate contacts and
-                  geometric representations when classical models are too costly.
+                  <Translate id="homepage.pillars.card4.desc">
+                    Optional GPU-aware workflows (e.g. PyTorch) for surrogate contacts and
+                    geometric representations when classical models are too costly.
+                  </Translate>
                 </p>
               </li>
             </ul>
@@ -125,7 +156,7 @@ export default function Home(): ReactNode {
         <section className={styles.paths} aria-labelledby="paths-heading">
           <div className={styles.container}>
             <h2 id="paths-heading" className={styles.sectionTitle}>
-              Explore the docs
+              <Translate id="homepage.paths.heading">Explore the docs</Translate>
             </h2>
             <div className={styles.pathFeatured}>
               <Link to="/docs/manual/" className={styles.pathTile}>
@@ -137,8 +168,12 @@ export default function Home(): ReactNode {
                     <line x1="16" y1="17" x2="8" y2="17" />
                   </svg>
                 </span>
-                <span className={styles.pathLabel}>Manual</span>
-                <span className={styles.pathDesc}>Tutorials, theory notes, build tips</span>
+                <span className={styles.pathLabel}>
+                  <Translate id="homepage.paths.manual.label">Manual</Translate>
+                </span>
+                <span className={styles.pathDesc}>
+                  <Translate id="homepage.paths.manual.desc">Tutorials, theory notes, build tips</Translate>
+                </span>
               </Link>
               <Link to="/docs/python-api/" className={styles.pathTile}>
                 <span className={styles.pathIconWrap} aria-hidden>
@@ -147,8 +182,12 @@ export default function Home(): ReactNode {
                     <polyline points="8 6 2 12 8 18" />
                   </svg>
                 </span>
-                <span className={styles.pathLabel}>Python API</span>
-                <span className={styles.pathDesc}>Modules, classes, and signatures</span>
+                <span className={styles.pathLabel}>
+                  <Translate id="homepage.paths.pythonApi.label">Python API</Translate>
+                </span>
+                <span className={styles.pathDesc}>
+                  <Translate id="homepage.paths.pythonApi.desc">Modules, classes, and signatures</Translate>
+                </span>
               </Link>
               <Link to="/docs/download/" className={styles.pathTile}>
                 <span className={styles.pathIconWrap} aria-hidden>
@@ -158,25 +197,31 @@ export default function Home(): ReactNode {
                     <line x1="12" y1="15" x2="12" y2="3" />
                   </svg>
                 </span>
-                <span className={styles.pathLabel}>Download</span>
-                <span className={styles.pathDesc}>PDFs and packaged assets</span>
+                <span className={styles.pathLabel}>
+                  <Translate id="homepage.paths.download.label">Download</Translate>
+                </span>
+                <span className={styles.pathDesc}>
+                  <Translate id="homepage.paths.download.desc">PDFs and packaged assets</Translate>
+                </span>
               </Link>
             </div>
             <div className={styles.pathMore}>
               <Link to="/docs/examples/" className={styles.pathChip}>
-                Examples
+                <Translate id="homepage.paths.examples">Examples</Translate>
               </Link>
               <Link to="/docs/gallery/animations/" className={styles.pathChip}>
-                Gallery
+                <Translate id="homepage.paths.gallery">Gallery</Translate>
               </Link>
               <a
                 href={doxygenHref}
                 className={styles.pathChip}
                 target="_blank"
                 rel="noopener noreferrer">
-                <span>C++ reference</span>
+                <Translate id="homepage.paths.cppReference">C++ reference</Translate>
                 <ExternalIcon />
-                <span className={styles.srOnly}> (opens in new tab)</span>
+                <span className={styles.srOnly}>
+                  <Translate id="homepage.paths.opensInNewTab"> (opens in new tab)</Translate>
+                </span>
               </a>
             </div>
           </div>
@@ -186,11 +231,16 @@ export default function Home(): ReactNode {
           <div className={styles.container}>
             <div className={styles.outroCard}>
               <h2 id="outro-heading" className={styles.outroTitle}>
-                APAAM Lab
+                <Translate id="homepage.outro.title">APAAM Lab</Translate>
               </h2>
               <p className={styles.outroText}>
-                Collaboration, licensing, and acknowledgements:{' '}
-                <Link to="/docs/about/">About</Link>. Or reach us directly:
+                <Translate
+                  id="homepage.outro.text"
+                  values={{
+                    aboutLink: <Link to="/docs/about/"><Translate id="homepage.hero.about">About</Translate></Link>,
+                  }}>
+                  {'Collaboration, licensing, and acknowledgements: {aboutLink}. Or reach us directly:'}
+                </Translate>
               </p>
               <p className={styles.outroMail}>
                 <Link href="mailto:laizhengsh@mail.sysu.edu.cn">
