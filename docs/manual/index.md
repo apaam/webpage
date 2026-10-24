@@ -37,6 +37,7 @@ For anyone extending the C++ core or bindings: read **[Architecture & developmen
 | Page | What it covers |
 |------|----------------|
 | [Architecture & development](developer-manual.md) | Code layout, lifecycle, coding standards |
+| [Module graph](module-graph.md) | Pack boundaries and which library requires which |
 | [Pybind11 binding style](dev-pybind-styles.md) | Python binding conventions |
 | [Docker & HPC](docker-hpc.md) | Containers and clusters |
 | [Developer tools](computer-tips.md) | GitHub CLI, proxies, workstation setup |
