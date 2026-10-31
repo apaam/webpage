@@ -112,3 +112,16 @@ Use **kebab-case** for files and directories (e.g. `dem-basics.md`). Keep code i
 ### Notes
 
 - Use `https://` for external links in Markdown. Some Tencent Cloud video URLs default to `http://`; switch them to `https://` to avoid mixed-content blocking.
+
+---
+
+## 关于仓库命名
+
+本仓内容已面向 Phynexis（原 APAAM 项目），**计划改名为 `phynexis-webpage`，目前暂缓**。原因有二：
+
+1. **项目站地址绑定仓库名。** GitHub Pages 的项目站沿用仓库名作为路径，改名后 `https://apaam.github.io/webpage/` 会永久 404，GitHub 不会为项目站建立重定向。
+2. **发布通道尚未恢复。** apaam 组织已整体禁用 GitHub Actions（2026-08 迁往 Gitea 所致），本仓 Pages 的 `build_type` 为 `workflow`，自 2026-07-02 起未再部署。在通道恢复前改名，新站址只会挂上旧产物，样式与资源全部 404。
+
+待发布通道确定（为单仓重开 Actions，或改用 `gh-pages` 分支发布）后，再连同 `docusaurus.config.ts` 中的 `baseUrl`、`projectName`、`editUrl` 与外部引用一并改名。
+
+**状态：** 站点当前最新内容对应 2026-07-02 的那次部署，`main` 之后的提交尚未上线。
